@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <title>Okta SDK</title>
+    <id>Okta.Core.Client</id>
+    <version>0.1.0.2-beta</version>
+    <authors>Okta</authors>
+    <owners>Okta</owners>
+    <projectUrl>http://developer.okta.com/docs/getting_started/design_principles.html</projectUrl>
+    <iconUrl>https://example.otka.com/img/logos/groups/okta-large.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <summary>Official .NET SDK for Okta</summary>
+    <description>
+      This package allows you to build on Okta's identity platform using .NET
+
+      Supported Platforms:
+      * .NET Framework 4
+      * Windows 8
+      * Windows Phone 8.1
+      * Silverlight 5
+      * Portable Class Libraries
+    </description>
+    <releaseNotes>Beta release - Do not use in production environments. This library is subject to substantial change.</releaseNotes>
+    <copyright>© Okta 2014</copyright>
+    <tags>okta sdk api authentication identity management</tags>
+    <dependencies>
+      <group>
+        <dependency id="Microsoft.Net.Http" version="2.2.28" />
+        <dependency id="Newtonsoft.Json" version="6.0.5" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="\bin\Release\Okta.Core.dll" target="lib"/>
+  </files>
+</package>
