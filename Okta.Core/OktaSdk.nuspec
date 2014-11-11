@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <title>Okta SDK</title>
+    <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
     <version>0.1.0.2-beta</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
-    <projectUrl>http://developer.okta.com/docs/getting_started/design_principles.html</projectUrl>
+    <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
     <iconUrl>https://example.otka.com/img/logos/groups/okta-large.png</iconUrl>
+    <licenseUrl>https://github.com/okta/oktasdk-csharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official .NET SDK for Okta</summary>
     <description>
