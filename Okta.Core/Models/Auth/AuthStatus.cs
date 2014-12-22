@@ -11,7 +11,7 @@ namespace Okta.Core.Models
     public static class AuthStatus
     {
         public const string Success = "SUCCESS";
-        public const string MfaUnenrolled = "MFA_UNENROLLED";
+        public const string MfaEnroll = "MFA_ENROLL";
         public const string MfaEnrollActivate = "MFA_ENROLL_ACTIVATE";
         public const string MfaRequired = "MFA_REQUIRED";
         public const string MfaChallenge = "MFA_CHALLENGE";
