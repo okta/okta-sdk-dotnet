@@ -73,7 +73,17 @@ del /f /q %TEST_RESULTS_FILE%
 @if not %BUILD_MSTEST_STATUS%==0 goto error_build_mstest_failed
 
 @echo %TIME% - INFO: MSTest done
-@rem Build solution done
+
+
+@echo Starting the NuGet package build
+cd Okta.Core
+nuget pack OktaSdk.nuspec
+
+@rem Return to the directory of this bat file
+cd /d %~dp0
+
+@echo Completed the NuGet package build
+
 
 @rem Build done
 goto end
