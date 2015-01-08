@@ -35,11 +35,6 @@ namespace Okta.Core.Clients
             return base.Update(group);
         }
 
-        public Group Update(string groupId)
-        {
-            return base.Update(groupId);
-        }
-
         public void Remove(Group group)
         {
             base.Remove(group);
