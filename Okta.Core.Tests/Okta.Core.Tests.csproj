@@ -85,6 +85,7 @@
     <Compile Include="Serialization\AppSerializationTests.cs" />
     <Compile Include="Clients\SessionsClientTests.cs" />
     <Compile Include="Serialization\LoginCredentialSerializationTests.cs" />
+    <Compile Include="AuthClientTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Okta.Core\Okta.Core.csproj">
