@@ -40,8 +40,16 @@ namespace Okta.Core.Clients
 
         public AuthResponse Verify(string stateToken, Factor factor, MfaAnswer answer = null)
         {
-            var verifyLink = factor.Links["verify"].First();
+            var verifyLink = factor.Links["verify"].Href;
             return Execute(stateToken, verifyLink, answer);
+        }
+
+        public AuthResponse ActivateTotpFactor(string stateToken, AuthResponse authResponse, string passCode)
+        {
+            var apiObject = new ApiObject();
+            apiObject.SetProperty("passCode", passCode);
+            var nextLink = authResponse.Links["next"];
+            return Execute(stateToken, nextLink, apiObject);
         }
 
         public AuthResponse ValidateToken(string recoveryToken)
