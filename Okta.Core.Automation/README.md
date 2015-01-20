@@ -8,8 +8,7 @@ To install:
 Import-Module Okta.Core.Automation
 
 # Connect
-Connect-Okta -Token "your-token" -Subdomain "your-subdomain"
-Connect-Okta -Token "your-token" -FullDomain "uri"
+Connect-Okta -Token "your-token" -FullDomain "https://your-subdomain.okta.com"
 
 # Manage Users
 $user = Get-OktaUser administrator1@clouditude.net
@@ -34,6 +33,11 @@ Disable-OktaUser
 ```
 
 # Troubleshooting
+#####Exception of type 'Okta.Core.Automation' was thrown
+The module throws this exception if your request was unable to be completed. To determine the reason, use the PowerShell global variable `$error`. For example:
+* To see a human-readable version of the last error, use `$error[0].Exception.ErrorSummary`
+* To see the last error code, use `$error[0].Exception.ErrorCode`. This is useful when automatically handling different exceptions in a long script.
+
 #####This assembly is built by a runtime newer than the currently loaded runtime and cannot be loaded
 This module depends on .NET 4 which isn't enabled by default in most versions of Windows. To fix:
 
