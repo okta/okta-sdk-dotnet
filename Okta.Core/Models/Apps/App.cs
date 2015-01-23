@@ -289,7 +289,7 @@ namespace Okta.Core.Models
         /// Enabled app features
         /// </summary>
         [JsonProperty("features")]
-        public string Features { get; set; }
+        public string[] Features { get; set; }
 
         /// <summary>
         /// Authentication mode of app

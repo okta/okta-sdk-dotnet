@@ -13,7 +13,7 @@ namespace Okta.Core
     /// <summary>
     /// The custom serialier and deserializer for <see cref="ApiObject"/>s
     /// </summary>
-    class OktaJsonConverter : JsonConverter
+    public class OktaJsonConverter : JsonConverter
     {
         public override bool CanConvert(Type type)
         {
