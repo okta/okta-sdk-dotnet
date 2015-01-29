@@ -17,7 +17,6 @@ namespace Okta.Core.Clients
         public SessionsClient(string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.SessionsEndpoint) { }
 
         // TODO: Determine whether this is reasonable. If we don't provide a token attribute, then we don't get a token
-        // public Session Create(string login, string password) { return Create(login, password, null); }
         public Session Create(string login, string password, TokenAttribute? tokenAttribute = null)
         {
             // Create a temporary credentials object
@@ -58,5 +57,14 @@ namespace Okta.Core.Clients
 
         public void Close(Session session) { base.Remove(session); }
         public void Close(string id) { base.Remove(id); }
+
+        // Create a session url string with a cookieToken and final redirectUrl.
+        // Send the redirect a user to the resulting url to set a cookie.
+        public String CreateSessionUrlString(String cookieToken, Uri redirectUrl)
+        {
+            var sessionRedirectUrlFormat = "{0}login/sessionCookieRedirect?token={1}&redirectUrl={2}";
+            var encodedUrl = Uri.EscapeDataString(redirectUrl.ToString()).ToString();
+            return String.Format(sessionRedirectUrlFormat, this.BaseUri.ToString(), cookieToken, encodedUrl);
+        }
     }
 }

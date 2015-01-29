@@ -1,13 +1,14 @@
 <?xml version="1.0"?>
 <package>
   <metadata>
-    <title>Okta SDK</title>
+    <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.1.0.2-beta</version>
+    <version>0.1.1.0</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
-    <projectUrl>http://developer.okta.com/docs/getting_started/design_principles.html</projectUrl>
-    <iconUrl>https://example.otka.com/img/logos/groups/okta-large.png</iconUrl>
+    <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
+    <iconUrl>https://cdn.rawgit.com/okta/okta.github.io/master/assets/img/logo-large.png</iconUrl>
+    <licenseUrl>https://github.com/okta/oktasdk-csharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official .NET SDK for Okta</summary>
     <description>
@@ -20,7 +21,7 @@
       * Silverlight 5
       * Portable Class Libraries
     </description>
-    <releaseNotes>Beta release - Do not use in production environments. This library is subject to substantial change.</releaseNotes>
+    <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
     <copyright>© Okta 2014</copyright>
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
