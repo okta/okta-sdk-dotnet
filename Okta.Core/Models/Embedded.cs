@@ -54,12 +54,16 @@ namespace Okta.Core.Models
     {
         [JsonProperty("timeStep")]
         public int TimeStep { get; set; }
+
         [JsonProperty("sharedSecret")]
         public string SharedSecret { get; set; }
+
         [JsonProperty("keyLength")]
         public int KeyLength { get; set; }
+
         [JsonProperty("encoding")]
         public string Encoding { get; set; }
+
         // Note: This is a "Factor Links Object" [0] and not a "Links Object" [1] as used elsewhere.
         // Footnotes:
         //   0: http://developer.okta.com/docs/api/rest/authn.html#factor-links-object
@@ -67,6 +71,10 @@ namespace Okta.Core.Models
         [JsonProperty("_links")]
         public Dictionary<string, FactorLink> Links { get; set; }
     }
+
+    /// <summary>
+    /// A HAL link, with additional hints.
+    /// </summary>
     public class FactorLink : Link
     {
         [JsonProperty("hints")]
