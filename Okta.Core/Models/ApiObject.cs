@@ -80,6 +80,20 @@ namespace Okta.Core.Models
         }
 
         /// <summary>
+        /// Checks for the availability of an unmapped property.
+        /// </summary>
+        /// <param name="propertyName">Name of the property.</param>
+        public bool ContainsProperty(string propertyName)
+        {
+            if (UnmappedProperties.ContainsKey(propertyName))
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
         /// Converts an object to json.
         /// </summary>
         /// <returns>A JSON string.</returns>

@@ -59,7 +59,7 @@ namespace Okta.Core.Clients
         public void Close(string id) { base.Remove(id); }
 
         // Create a session url string with a cookieToken and final redirectUrl.
-        // Send the redirect a user to the resulting url to set a cookie.
+        // Send the user a redirect to the resulting url to set a cookie.
         public String CreateSessionUrlString(String cookieToken, Uri redirectUrl)
         {
             var sessionRedirectUrlFormat = "{0}login/sessionCookieRedirect?token={1}&redirectUrl={2}";

@@ -22,7 +22,7 @@ namespace Okta.Core.Models
         [JsonProperty("password")]
         public Password Password { get; set; }
 
-        [JsonProperty("recoveryQuestion")]
+        [JsonProperty("recovery_question")]
         public RecoveryQuestion RecoveryQuestion { get; set; }
 
         [JsonProperty("provider")]

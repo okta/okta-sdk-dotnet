@@ -26,11 +26,11 @@ namespace Okta.Core
                 exception.HttpStatusCode = httpResponseMessage.StatusCode;
                 if (exception.ErrorCode == OktaErrorCodes.TooManyRequestsException)
                 {
-                    throw (OktaRequestThrottlingException)exception;
+                    throw new OktaRequestThrottlingException(exception);
                 }
                 else if (exception.ErrorCode == OktaErrorCodes.AuthenticationException)
                 {
-                    throw (OktaAuthenticationException)exception;
+                    throw new OktaAuthenticationException(exception);
                 }
                 else
                 {

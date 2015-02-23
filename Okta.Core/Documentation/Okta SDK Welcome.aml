@@ -12,7 +12,7 @@
 
     <introduction>
       <para>The Okta SDK simplifies the process of managing your Okta org. We've built the models 
-      around our REST API so you don't have to. Checkout out our Quick Start to get started. Note: This offering is currently in beta and is not recommended for production use.</para>
+      around our REST API so you don't have to. Checkout out our Quick Start to get started. Note: This offering is currently in EA.</para>
     </introduction>
 
     <!-- <inThisSection>Optional description of content in this section</inThisSection> -->
