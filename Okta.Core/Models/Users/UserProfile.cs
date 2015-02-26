@@ -29,5 +29,8 @@ namespace Okta.Core.Models
 
         [JsonProperty("mobilePhone")]
         public string MobilePhone { get; set; }
+
+        [JsonProperty("secondEmail")]
+        public string SecondaryEmail { get; set; }
     }
 }
