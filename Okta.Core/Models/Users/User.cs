@@ -26,6 +26,7 @@ namespace Okta.Core.Models
         /// <param name="FirstName">User's first name</param>
         /// <param name="LastName">User's last name</param>
         /// <param name="MobilePhone">User's phone number</param>
+        /// <param name="SecondaryEmail">User's secondary email</param>
         public User(string Login, string Email, string FirstName, string LastName, string MobilePhone = null, string SecondaryEmail = null)
         {
             Profile = new UserProfile(){
