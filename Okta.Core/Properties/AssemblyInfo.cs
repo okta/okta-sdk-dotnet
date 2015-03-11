@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Okta")]
 [assembly: AssemblyProduct("Okta.Core")]
-[assembly: AssemblyCopyright("Copyright © Okta 2014")]
+[assembly: AssemblyCopyright("Copyright © Okta 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
@@ -26,4 +26,4 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.1.4")]
+[assembly: AssemblyVersion("0.1.5")]
