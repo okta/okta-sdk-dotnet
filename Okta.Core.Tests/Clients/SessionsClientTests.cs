@@ -26,5 +26,21 @@ namespace Okta.Core.Tests.Clients
             // Check the format
             Assert.AreEqual("http://validurl.com:9999/login/sessionCookieRedirect?token=FakeSessionToken&redirectUrl=https%3A%2F%2Fthis.is.fake%3A42%2Freally%3Freally%3Dtrue%26also%3Dvery%2Btrue", sessionUrlString);
         }
+
+        [TestMethod]
+        public void DeleteSessionToken()
+        {
+            OktaSettings oktaSettings = new OktaSettings();
+            oktaSettings.BaseUri = new Uri(Environment.GetEnvironmentVariable("OKTA_TEST_URL"));
+            oktaSettings.ApiToken = Environment.GetEnvironmentVariable("OKTA_TEST_KEY");
+
+            String username = Environment.GetEnvironmentVariable("OKTA_TEST_ADMIN_NAME");
+            String password = Environment.GetEnvironmentVariable("OKTA_TEST_ADMIN_PASSWORD");
+
+            SessionsClient sessionsClient = new SessionsClient(oktaSettings);
+
+            var session = sessionsClient.Create(username, password);
+            sessionsClient.Close(session.Id);
+        }
     }
 }
