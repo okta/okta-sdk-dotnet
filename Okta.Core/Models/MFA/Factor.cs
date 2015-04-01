@@ -119,15 +119,7 @@ namespace Okta.Core.Models
         [JsonProperty("_embedded")]
         public Embedded Embedded { get; set; }
 
-        // Important:
-        //
-        // While Factor Object [0] uses the "_links" key, it is a "Factor Links Object" [1] and not a "Links Object" [2] as used elsewhere.
-        //
-        // Footnotes:
-        //   0: http://developer.okta.com/docs/api/rest/authn.html#factor-object
-        //   1: http://developer.okta.com/docs/api/rest/authn.html#factor-links-object
-        //   2: http://developer.okta.com/docs/api/rest/authn.html#links-object
         [JsonProperty("_links")]
-        new public Dictionary<string, FactorLink> Links { get; set; }
+        new public Dictionary<string, Link> Links { get; set; }
     }
 }

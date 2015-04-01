@@ -49,7 +49,7 @@ namespace Okta.Core.Clients
         {
             var apiObject = new ApiObject();
             apiObject.SetProperty("passCode", passCode);
-            var nextLink = authResponse.Links["next"];
+            var nextLink = authResponse.Links["next"].First();
             return Execute(stateToken, nextLink, apiObject);
         }
 

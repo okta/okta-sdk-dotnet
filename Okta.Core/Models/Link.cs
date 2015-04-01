@@ -47,5 +47,8 @@ namespace Okta.Core.Models
         /// </value>
         [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("hints")]
+        public Dictionary<string, List<string>> Hints { get; set; }
     }
 }

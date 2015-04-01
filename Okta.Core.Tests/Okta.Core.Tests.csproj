@@ -84,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Serialization\AppSerializationTests.cs" />
     <Compile Include="Clients\SessionsClientTests.cs" />
+    <Compile Include="Serialization\AuthResponseSerializationTests.cs" />
     <Compile Include="Serialization\LoginCredentialSerializationTests.cs" />
   </ItemGroup>
   <ItemGroup>

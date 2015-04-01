@@ -36,8 +36,5 @@ namespace Okta.Core.Models
 
         [JsonProperty("_embedded")]
         public Embedded Embedded { get; set; }
-
-        [JsonProperty("_links")]
-        new public Dictionary<string, FactorLink> Links { get; set; }
     }
 }

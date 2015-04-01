@@ -50,7 +50,7 @@ namespace Okta.Core.Models
         public Activation Activation { get; set; }
     }
 
-    public class Activation : ApiObject
+    public class Activation : LinkedObject
     {
         [JsonProperty("timeStep")]
         public int TimeStep { get; set; }
@@ -63,21 +63,5 @@ namespace Okta.Core.Models
 
         [JsonProperty("encoding")]
         public string Encoding { get; set; }
-
-        // Note: This is a "Factor Links Object" [0] and not a "Links Object" [1] as used elsewhere.
-        // Footnotes:
-        //   0: http://developer.okta.com/docs/api/rest/authn.html#factor-links-object
-        //   1: http://developer.okta.com/docs/api/rest/authn.html#links-object
-        [JsonProperty("_links")]
-        public Dictionary<string, FactorLink> Links { get; set; }
-    }
-
-    /// <summary>
-    /// A HAL link, with additional hints.
-    /// </summary>
-    public class FactorLink : Link
-    {
-        [JsonProperty("hints")]
-        public Dictionary<string, List<string>> Hints { get; set; }
     }
 }
