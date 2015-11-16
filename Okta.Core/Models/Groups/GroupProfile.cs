@@ -4,13 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Okta.Core.Models
 {
     /// <summary>
     /// A profile that describes a <see cref="Group"/>
     /// </summary>
-    public class GroupProfile
+    public class GroupProfile : ApiObject
     {
         /// <summary>
         /// Name of the group

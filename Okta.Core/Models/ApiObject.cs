@@ -92,6 +92,15 @@ namespace Okta.Core.Models
 
             return false;
         }
+        
+        /// <summary>
+        /// Get a List of all the Unmapped property names
+        /// </summary>
+        /// <returns></returns>
+        public List<String> GetUnmappedPropertyNames()
+        {
+            return UnmappedProperties.Keys.ToList();
+        }
 
         /// <summary>
         /// Converts an object to json.

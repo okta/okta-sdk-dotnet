@@ -37,5 +37,11 @@ namespace Okta.Core.Models
         /// </summary>
         [JsonProperty("profile")]
         public GroupProfile Profile { get; set; }
+
+        /// <summary>
+        /// The Okta Group Type
+        /// </summary>
+        [JsonProperty("type")]
+        public string GroupType { get; set; }
     }
 }

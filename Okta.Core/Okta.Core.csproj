@@ -40,6 +40,7 @@
     <Compile Include="Clients\OrgFactorsClient.cs" />
     <Compile Include="Clients\GroupUsersClient.cs" />
     <Compile Include="Clients\UserFactorsClient.cs" />
+    <Compile Include="Clients\UserSchemasClient.cs" />
     <Compile Include="Exceptions\OktaAuthenticationException.cs" />
     <Compile Include="Exceptions\OktaErrorCodes.cs" />
     <Compile Include="IOktaHttpClient.cs" />
@@ -51,6 +52,10 @@
     <Compile Include="Models\Embedded.cs" />
     <Compile Include="Models\Mfa\FactorProviderType.cs" />
     <Compile Include="Models\Mfa\FactorTypes.cs" />
+    <Compile Include="Models\Schemas\Schema.cs" />
+    <Compile Include="Models\Schemas\SchemaProperty.cs" />
+    <Compile Include="Models\Schemas\SchemaPropertyPermission.cs" />
+    <Compile Include="Models\Schemas\SubSchema.cs" />
     <Compile Include="Models\Users\ActivationResponse.cs" />
     <Compile Include="Models\ApiObject.cs" />
     <Compile Include="Models\Apps\Accessibility.cs" />
