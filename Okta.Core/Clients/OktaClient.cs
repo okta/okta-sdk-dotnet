@@ -79,5 +79,10 @@ namespace Okta.Core.Clients
         {
             return new OrgFactorsClient(BaseClient);
         }
+
+        public UserSchemasClient GetUserTypesClient()
+        {
+            return new UserSchemasClient(BaseClient);
+        }
     }
 }

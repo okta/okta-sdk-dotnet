@@ -17,5 +17,6 @@ namespace Okta.Core.Models
         public const string LockedOut = "LOCKED_OUT";
         public const string Recovery = "RECOVERY";
         public const string Deprovisioned = "DEPROVISIONED";
+        public const string Suspended = "SUSPENDED";
     }
 }

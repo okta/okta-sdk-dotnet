@@ -31,6 +31,7 @@ namespace Okta.Core
         public const string FactorsEndpoint = "/factors";
         public const string AuthnEndpoint = "/authn";
         public const string OrgEndpoint = "/org";
+        public const string UserSchemasEndpoint = "/meta/schemas/user/default";
 
         // Sub endpoints
         public const string CatalogEndpoint = "/catalog";
