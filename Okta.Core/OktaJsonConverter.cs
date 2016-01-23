@@ -11,7 +11,7 @@ using Okta.Core.Models;
 namespace Okta.Core
 {
     /// <summary>
-    /// The custom serialier and deserializer for <see cref="ApiObject"/>s
+    /// The custom serializer and deserializer for <see cref="ApiObject"/>s
     /// </summary>
     public class OktaJsonConverter : JsonConverter
     {

@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Core.Automation", "Okta.Core.Automation\Okta.Core.Automation.csproj", "{41696AD2-3B6E-4FE4-AF00-F6E9B94906DE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Core", "Okta.Core\Okta.Core.csproj", "{D80CF449-9B1E-4EF3-9EB0-7114C5294E6F}"
@@ -8,9 +10,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4A1AC9D8-9D6D-4B78-A988-C5925320A03E}"
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
+		Okta.Core\nuget.exe = Okta.Core\nuget.exe
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Core.Tests", "Okta.Core.Tests\Okta.Core.Tests.csproj", "{91C78640-019D-4B00-8079-D95C03C114F4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{74DED4A6-C42A-4E1C-8BC5-41BEFD766983}"
+	ProjectSection(SolutionItems) = preProject
+		TestData\OktaSDKTests.ldf = TestData\OktaSDKTests.ldf
+		TestData\OktaSDKTests.mdf = TestData\OktaSDKTests.mdf
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,5 +42,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{74DED4A6-C42A-4E1C-8BC5-41BEFD766983} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 	EndGlobalSection
 EndGlobal

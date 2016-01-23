@@ -118,6 +118,7 @@
     <Compile Include="Filters.cs" />
     <Compile Include="FilterBuilder.cs" />
     <Compile Include="OktaJsonConverter.cs" />
+    <Compile Include="RegexUtils.cs" />
     <Compile Include="Utils.cs" />
   </ItemGroup>
   <ItemGroup>

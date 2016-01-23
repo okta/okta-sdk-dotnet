@@ -8,7 +8,7 @@ using Okta.Core.Models;
 
 namespace Okta.Core.Tests.Serialization
 {
-    [TestClass]
+    //[TestClass]
     public class AppSerializationTests
     {
         public const string AppSampleData = @"

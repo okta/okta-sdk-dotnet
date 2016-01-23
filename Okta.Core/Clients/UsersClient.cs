@@ -32,6 +32,26 @@ namespace Okta.Core.Clients
             return base.Get(userId);
         }
 
+        /// <summary>
+        /// Retrieves an Okta user given its Username property (which is unique)
+        /// </summary>
+        /// <param name="userName">Username/login property of the Okta user</param>
+        /// <returns></returns>
+        public User GetByUsername(string userName)
+        {
+            User user = null;
+            var filter = new FilterBuilder();
+            filter.Where("profile.login").EqualTo(userName);
+
+            var users = base.GetFilteredEnumerator(filter, pageSize: 1);
+            IEnumerator<User> usersEnum = users.GetEnumerator();
+            if (users != null && usersEnum.MoveNext())
+            {
+                user = usersEnum.Current;
+            }
+            return user;
+        }
+
         public User Update(User user)
         {
             return base.Update(user);

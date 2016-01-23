@@ -1,19 +1,27 @@
 @echo %TIME% - INFO: Preparation started
 @rem Checking environment started
 
+@set VSCOMNTOOLS=""
 @rem MS
-@if "%VS110COMNTOOLS%"=="" goto error_no_VS110COMNTOOLSDIR
 
-@if not exist "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat" goto error_no_VCVARSALLFILE
+@if NOT "%VS110COMNTOOLS%"=="" (set VSCOMNTOOLS="%VS110COMNTOOLS%")
+@if %VSCOMNTOOLS%=="" if NOT "%VS120COMNTOOLS%"=="" (set VSCOMNTOOLS="%VS120COMNTOOLS%")
+@if %VSCOMNTOOLS%=="" if NOT "%VS140COMNTOOLS%"=="" (set VSCOMNTOOLS="%VS140COMNTOOLS%")
 
-@if not exist "%VS110COMNTOOLS%..\IDE\MSTest.exe" goto error_no_MSTest
-@set MSTEST_PATH="%VS110COMNTOOLS%..\IDE\MSTest.exe"
+@if %VSCOMNTOOLS%=="" goto error_no_VSCOMNTOOLSDIR
+
+@if not exist "%VSCOMNTOOLS%..\..\VC\vcvarsall.bat" goto error_no_VCVARSALLFILE
+
+@if not exist "%VSCOMNTOOLS%..\IDE\MSTest.exe" goto error_no_MSTest
+@set MSTEST_PATH="%VSCOMNTOOLS%..\IDE\MSTest.exe"
 
 @for /F "tokens=1,2*" %%i in ('reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0 /v MSBuildToolsPath') DO (
 	@if "%%i"=="MSBuildToolsPath" (
 		@SET "NET40DIR=%%k"
 	)
 )
+
+
 
 @if not "%NET40DIR%"=="" goto check_msbuild_exists
 @rem Fall back if we can't get path to MSBuild from registry
@@ -41,7 +49,7 @@
 
 @rem Setting up started
 
-@call "%VS110COMNTOOLS%..\..\VC\vcvarsall.bat"
+@call "%VSCOMNTOOLS%..\..\VC\vcvarsall.bat"
 
 @rem Setting up done
 @echo %TIME% - INFO: Preparation done
@@ -68,7 +76,7 @@
 @if not exist %TEST_RESULTS_DIR% mkdir %TEST_RESULTS_DIR%
 @set TEST_RESULTS_FILE=%TEST_RESULTS_DIR%buildresults.trx
 del /f /q %TEST_RESULTS_FILE%
-@%MSTEST_PATH% %SOULUTION_FILE% /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\Okta.Core.Tests.dll" /resultsfile:%TEST_RESULTS_FILE%
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\Okta.Core.Tests.dll" /resultsfile:%TEST_RESULTS_FILE%
 @set BUILD_MSTEST_STATUS=%ERRORLEVEL%
 @if not %BUILD_MSTEST_STATUS%==0 goto error_build_mstest_failed
 
@@ -90,8 +98,8 @@ goto end
 
 @rem Error handling
 
-:error_no_VS110COMNTOOLSDIR
-@echo ERROR: Cannot determine the location of the VS Common Tools folder.
+:error_no_VSCOMNTOOLSDIR
+@echo ERROR: Cannot determine the location of the Visual Studio Common Tools folder. Make sure you are using Visual Studio 2012, 2013 or 2015
 @goto end_error
 
 :error_no_VCVARSALLFILE
