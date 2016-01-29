@@ -40,8 +40,8 @@ namespace Okta.Core.Clients
 
         public AuthResponse Verify(string stateToken, Factor factor, MfaAnswer answer = null)
         {
-            // This is "Href" and not "First()" because this is a "Factor Links Object"
-            var verifyLink = factor.Links["verify"].Href;
+            // This is "Href" and not "First()" because this is a "Factor Links Object" - remove this line?
+            var verifyLink = factor.Links["verify"].First().Href;
             return Execute(stateToken, verifyLink, answer);
         }
 

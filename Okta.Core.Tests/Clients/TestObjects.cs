@@ -12,7 +12,7 @@ namespace Okta.Core.Tests.Clients
         public string ApiKey { get; set; }
     }
 
-    class User
+    class TestUser
     {
         public int Id { get; set; }
         public string Login { get; set; }
@@ -21,6 +21,15 @@ namespace Okta.Core.Tests.Clients
         public string Email { get; set; }
         public string Password { get; set; }
         public bool Activate { get; set; }
+        public List<string> Factors { get; set; }
 
     } 
+
+    class TestGroup
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public List<string> Users { get; set; }
+    }
 }

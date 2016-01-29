@@ -96,6 +96,38 @@ namespace Okta.Core
                             v = linkDictionary;
                         }
 
+                        //2016-01-29, RL, bug fix to handle the Hints dictionary case
+                        //else if (typeof(Dictionary<string, List<string>>).IsAssignableFrom(p.PropertyType))
+                        //{
+                        //    var hintDictionary = new Dictionary<string, List<string>>();
+
+                        //    // Loop through each of the named hints
+                        //    foreach (JToken jt in value.Children())
+                        //    {
+                        //        // Get the first value of the named link
+                        //        var linkJTokenName = ((JProperty)jt).Name;
+                        //        var linkJTokenValue = ((JProperty)jt).Value;
+
+                        //        // Deserialize that value into something we can use
+                        //        List<string> hintList;
+                        //        if (linkJTokenValue.Type == JTokenType.Array)
+                        //        {
+                        //            hintList = Utils.Deserialize<List<string>>(linkJTokenValue.ToString());
+                        //        }
+                        //        else
+                        //        {
+                        //            var hintValue = Utils.Deserialize<string>(linkJTokenValue.ToString());
+                        //            hintList = new List<string> { hintValue };
+                        //        }
+
+                        //        // Add it to our dictionary
+                        //        hintDictionary.Add(linkJTokenName, hintList);
+
+                        //    }
+
+
+                        //    v = hintDictionary;
+                        //}
                         // Handle lists and objects
                         else if (value.Type == JTokenType.Array || value.Type == JTokenType.Object)
                         {

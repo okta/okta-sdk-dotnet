@@ -62,5 +62,39 @@ namespace Okta.Core.Clients
         {
             return Deactivate(Constants.MfaTypes.SMS);
         }
+
+        public Factor GetFactor(string strMfaType)
+        {
+            Factor factor = null;
+            PagedResults<Models.Factor> factors = this.GetList();
+
+            foreach (Models.Factor f in factors.Results)
+            {
+                if (f.Id == strMfaType)
+                {
+                    break;
+                }
+            }
+            return factor;
+        }
+
+        public bool IsFactorSetup(string factorId)
+        {
+            bool bNotSetup = false;
+            PagedResults<Models.Factor> factors = this.GetList();
+
+            foreach (Models.Factor f in factors.Results)
+            {
+                if (f.Id == factorId)
+                {
+                    if (f.Status == "NOT_SETUP")
+                    {
+                        bNotSetup = true;
+                    }
+                    break;
+                }
+            }
+            return !bNotSetup;
+        }
     }
 }

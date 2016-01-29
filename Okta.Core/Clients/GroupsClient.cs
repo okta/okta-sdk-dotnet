@@ -30,6 +30,17 @@ namespace Okta.Core.Clients
             return base.Get(groupId);
         }
 
+        public Group GetByName(string groupName)
+        {
+            Group g = null;
+            PagedResults<Group> groups = this.GetList(query: groupName);
+            if (groups.Results != null && groups.Results.Count > 0)
+            {
+                g = groups.Results[0];
+            }
+            return g;
+        }
+
         public Group Update(Group group)
         {
             return base.Update(group);

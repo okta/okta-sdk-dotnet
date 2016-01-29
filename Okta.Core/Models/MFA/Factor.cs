@@ -120,6 +120,6 @@ namespace Okta.Core.Models
         public Embedded Embedded { get; set; }
 
         [JsonProperty("_links")]
-        new public Dictionary<string, Link> Links { get; set; }
+        new public Dictionary<string, List<Link>> Links { get; set; }
     }
 }

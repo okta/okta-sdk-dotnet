@@ -15,5 +15,8 @@ namespace Okta.Core.Models
         public const string OtpToken = "token";
         public const string TotpToken = "token:software:totp";
         public const string HardwareToken = "token:hardware";
+        public const string Push = "push";
+        public const string Web = "web";
+
     }
 }

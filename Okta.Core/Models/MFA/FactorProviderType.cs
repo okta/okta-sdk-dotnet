@@ -11,8 +11,13 @@ namespace Okta.Core.Models
     public static class FactorProviderType
     {
         public const string Okta = "OKTA";
-        public const string Rsa = "SMS";
         public const string Symantec = "SYMANTEC";
         public const string Google = "GOOGLE";
+        public const string Duo = "DUO";
+        public const string RSA = "RSA";
+        public const string Yubico = "YUBICO";
+
     }
+
+
 }

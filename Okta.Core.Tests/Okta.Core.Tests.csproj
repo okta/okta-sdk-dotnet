@@ -84,7 +84,13 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Clients\Constants.cs" />
+    <Compile Include="Clients\GroupsClientTests.cs" />
+    <Compile Include="Clients\Helpers.cs" />
     <Compile Include="Clients\TestObjects.cs" />
+    <Compile Include="Clients\OrgFactorsClientTests.cs" />
+    <Compile Include="Clients\GroupsUsersClientTests.cs" />
+    <Compile Include="Clients\UserFactorsClientTests.cs" />
     <Compile Include="Clients\UsersClientTests.cs" />
     <Compile Include="FilterBuilderTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,6 +107,18 @@
   <ItemGroup>
     <None Include="app.config">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="FactorsActivationAll.orderedtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="FactorsDeactivateAll.orderedtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="GroupLifecycle.orderedtest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="UserFactors.orderedtest">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="UserLifecycle.orderedtest">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

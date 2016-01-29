@@ -23,14 +23,13 @@ namespace Okta.Core.Tests.Clients
         [TestInitialize()]
         public void InitializeTenant()
         {
-            oktaTenant = getTenantFromConfig();
+            oktaTenant = Helpers.GetTenantFromConfig();
             oktaClient = new OktaClient(oktaTenant.ApiKey, new Uri(oktaTenant.Url));
             strDateSuffix = DateTime.Now.ToString("yyyy.MM.dd.hh.mm.ss.ff");
         }
 
-
         //[TestMethod]
-        //[DataSource("OktaUsers")]
+        //[DataSource(Constants.TEST_USERS_TABLE)]
         //public void GetAllUsers()
         //{
         //    var usersClient = oktaClient.GetUsersClient();
@@ -42,10 +41,10 @@ namespace Okta.Core.Tests.Clients
         //}
 
         [TestMethod]
-        [DataSource("OktaUsers")]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void CreateUser()
         {
-            User dbUser = getUser(TestContext);
+            TestUser dbUser = Helpers.GetUser(TestContext);
             string strEx = string.Empty;
             Models.User oktaUser = CreateUser(dbUser, out strEx);
 
@@ -55,10 +54,10 @@ namespace Okta.Core.Tests.Clients
         }
 
         [TestMethod]
-        [DataSource("OktaUsers")]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void ActivateUser()
         {
-            User dbUser = getUser(TestContext);
+            TestUser dbUser = Helpers.GetUser(TestContext);
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
 
@@ -79,7 +78,6 @@ namespace Okta.Core.Tests.Clients
                     uriActivation = usersClient.Activate(existingUser, false);
                     updatedUser = usersClient.Get(existingUser.Id);
                 }
-
             }
             catch (OktaException e)
             {
@@ -92,15 +90,13 @@ namespace Okta.Core.Tests.Clients
                 Assert.IsTrue(updatedUser.Status == Models.UserStatus.Provisioned, "Okta User {0} status is {1}", dbUser.Login, existingUser.Status);
                 //Assert.IsNotNull(uriActivation, "Activation Url for Okta User {0} is not present", dbUser.Login);
             }
-
         }
 
-
         [TestMethod]
-        [DataSource("OktaUsers")]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void SetPassword()
         {
-            User dbUser = getUser(TestContext);
+            TestUser dbUser = Helpers.GetUser(TestContext);
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
 
@@ -128,7 +124,6 @@ namespace Okta.Core.Tests.Clients
                     //}
                     //});
                 }
-
             }
             catch (OktaException e)
             {
@@ -143,10 +138,10 @@ namespace Okta.Core.Tests.Clients
         }
 
         [TestMethod]
-        [DataSource("OktaUsers")]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void AuthenticateUser()
         {
-            User dbUser = getUser(TestContext);
+            TestUser dbUser = Helpers.GetUser(TestContext);
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
 
@@ -184,13 +179,11 @@ namespace Okta.Core.Tests.Clients
             //}
         }
 
-
-
         [TestMethod]
-        [DataSource("OktaUsers")]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void RenameUser()
         {
-            User dbUser = getUser(TestContext);
+            TestUser dbUser = Helpers.GetUser(TestContext);
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
             Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
             string strEx = string.Empty;
@@ -214,9 +207,6 @@ namespace Okta.Core.Tests.Clients
                     Assert.IsNotNull(existingUser, "Okta User {0} could not be retrieved: {1}", dbUser.Login, strEx);
                     Assert.IsTrue(existingUser.Profile.Login == strNewUserLogin, "Okta User Login could not be renamed from {0} to {1}", dbUser.Login, strNewUserLogin);
                 }
-
-                //oktaUser = usersClient.Add(user, false);
-
             }
             catch (OktaException e)
             {
@@ -232,7 +222,7 @@ namespace Okta.Core.Tests.Clients
             return user;
         }
 
-        private Models.User CreateUser(User dbUser, out string strEx)
+        private Models.User CreateUser(TestUser dbUser, out string strEx)
         {
             Models.User oktaUser = null;
             strEx = string.Empty;
@@ -282,36 +272,5 @@ namespace Okta.Core.Tests.Clients
         //    return tenant;
         //}
 
-        private Tenant getTenantFromConfig()
-        {
-            Tenant tenant = new Tenant
-            {
-                Url = ConfigurationManager.AppSettings["TenantUrl"],
-                ApiKey = ConfigurationManager.AppSettings["ApiKey"]
-
-            };
-
-            return tenant;
-        }
-
-        private User getUser(TestContext context)
-        {
-            User user = new User
-            {
-                Id = Convert.ToInt32(context.DataRow["Id"]),
-                Login = Convert.ToString(context.DataRow["Login"]),
-                FirstName = Convert.ToString(context.DataRow["FirstName"]),
-                LastName = Convert.ToString(context.DataRow["LastName"]),
-                Email = Convert.ToString(context.DataRow["Email"]),
-                Password = Convert.ToString(context.DataRow["Password"]),
-            };
-
-            //if Activate is not checked, the column value will be null, not false
-            if(context.DataRow["Activate"] != System.DBNull.Value)
-            {
-                user.Activate = Convert.ToBoolean(context.DataRow["Activate"]);
-            }
-            return user;
-        }
     }
 }

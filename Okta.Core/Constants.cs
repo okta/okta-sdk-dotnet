@@ -47,9 +47,11 @@ namespace Okta.Core
             public const string SecurityQuestion = "okta_question";
             public const string SMS = "okta_sms";
             public const string OktaVerify = "okta_otp";
+            public const string OktaVerifyPush = "okta_push";
             public const string GoogleAuth = "google_otp";
             public const string SymantecVIP = "symantec_vip";
             public const string RSA = "rsa_token";
+            public const string Duo = "duo";
         }
 
         // Lifecycle aliases
