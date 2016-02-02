@@ -40,6 +40,17 @@ namespace Okta.Core.Clients
             return Enroll(question);
         }
 
+        public Factor Activate(Factor factor, string passCode)
+        {
+            //string body = "{ passCode: " + passCode +"}";
+            string body = string.Format("{{ \"passCode\": \"{0}\" }}", passCode);
+            var response = PerformLifecycle(factor, "activate", body );
+            return Utils.Deserialize<Factor>(response);
+
+            //return base.PerformLifecycle()
+        }
+
+
         public void Reset(Factor factor)
         {
             base.Remove(factor);
