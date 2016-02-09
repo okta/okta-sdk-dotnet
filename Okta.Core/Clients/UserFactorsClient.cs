@@ -67,9 +67,23 @@ namespace Okta.Core.Clients
             return Utils.Deserialize<ChallengeResponse>(response);
         }
 
+        /// <summary>
+        /// Completes an MFA Security Question challenge
+        /// </summary>
+        /// <param name="factor">the Factor security question object used to validate the answer</param>
+        /// <param name="mfaAnswer">an object of type MfaAnswer used to validate the answer</param>
+        /// <returns></returns>
         public ChallengeResponse CompleteChallenge(Factor factor, MfaAnswer mfaAnswer)
         {
             var response = BaseClient.Post(GetResourceUri(factor).ToString() + Constants.VerifyEndpoint, mfaAnswer.ToJson());
+            return Utils.Deserialize<ChallengeResponse>(response);
+        }
+
+        public ChallengeResponse PollTransaction(string strPollUrl)
+        {
+            //replace double forward slashes which would otherwise create an invalid request - API BUG?
+            strPollUrl = strPollUrl.Replace("//verify", "/verify");
+            var response = BaseClient.Get(strPollUrl);
             return Utils.Deserialize<ChallengeResponse>(response);
         }
     }
