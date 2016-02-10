@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Okta.Core
 {
-    class Constants
+    internal class Constants
     {
         // TODO: Convert these to static readonly if this class is going to be public - http://stackoverflow.com/a/756010/1978203
 

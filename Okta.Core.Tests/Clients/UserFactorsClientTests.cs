@@ -44,7 +44,7 @@ namespace Okta.Core.Tests.Clients
                 try
                 {
                     var usersClient = oktaClient.GetUsersClient();
-                    existingUser = usersClient.GetByUsername(strUserLogin);
+                    existingUser = usersClient.Get(strUserLogin);
 
                     Assert.IsNotNull(existingUser, "Okta user {0} does not exist", dbUser.Login);
 
