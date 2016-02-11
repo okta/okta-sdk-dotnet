@@ -7,7 +7,7 @@
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
-    <iconUrl>https://github.com/okta/okta.github.io/blob/master/assets/img/logo.png</iconUrl>
+    <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
     <licenseUrl>https://github.com/okta/oktasdk-csharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official .NET SDK for Okta</summary>
