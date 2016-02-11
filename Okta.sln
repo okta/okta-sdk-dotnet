@@ -19,6 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{74
 	ProjectSection(SolutionItems) = preProject
 		TestData\OktaSDKTests.ldf = TestData\OktaSDKTests.ldf
 		TestData\OktaSDKTests.mdf = TestData\OktaSDKTests.mdf
+		TestData\OktaSDKTests.sdf = TestData\OktaSDKTests.sdf
 	EndProjectSection
 EndProject
 Global

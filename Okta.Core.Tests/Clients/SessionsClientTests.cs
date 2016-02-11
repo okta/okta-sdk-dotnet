@@ -4,7 +4,7 @@ using Okta.Core.Clients;
 
 namespace Okta.Core.Tests.Clients
 {
-    //[TestClass]
+    [TestClass]
     public class SessionsClientTests
     {
         [TestMethod]

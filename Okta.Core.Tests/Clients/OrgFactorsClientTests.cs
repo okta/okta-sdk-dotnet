@@ -153,6 +153,26 @@ namespace Okta.Core.Tests.Clients
             }
         }
 
+       [TestMethod]
+        public void ActivateYubikey()
+        {
+            if (IsFactorSetup(Constants.MfaTypes.Yubikey))
+            {
+                Models.Factor factor = orgFactorsClient.Activate(Constants.MfaTypes.Yubikey);
+                Assert.IsTrue(factor.FactorType == Models.FactorType.HardwareToken && factor.Provider == Models.FactorProviderType.Yubico && factor.Status == "ACTIVE", string.Format(FACTOR_ERROR_STRING, factor.FactorType, factor.Provider, factor.Status));
+            }
+        }
+
+        [TestMethod]
+        public void DeactivateYubikey()
+        {
+            if (IsFactorSetup(Constants.MfaTypes.Yubikey))
+            {
+                Models.Factor factor = orgFactorsClient.Deactivate(Constants.MfaTypes.Yubikey);
+                Assert.IsTrue(factor.FactorType == Models.FactorType.HardwareToken && factor.Provider == Models.FactorProviderType.Yubico && factor.Status == "INACTIVE", string.Format(FACTOR_ERROR_STRING, factor.FactorType, factor.Provider, factor.Status));
+            }
+        }
+
 
         private bool IsFactorSetup(string factorId)
         {

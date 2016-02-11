@@ -38,7 +38,7 @@ namespace Okta.Core.Tests.Clients
                 user.Activate = Convert.ToBoolean(context.DataRow["Activate"]);
             }
 
-            if (context.DataRow["Factors"] != null && !string.IsNullOrEmpty((string)context.DataRow["Factors"]))
+            if (context.DataRow["Factors"] != null && !(context.DataRow["Factors"] is System.DBNull) && !string.IsNullOrEmpty((string)context.DataRow["Factors"]))
             {
                 string strFactors = (string)context.DataRow["Factors"];
                 List<string> lstFactors = strFactors.Split(',').ToList<string>();
@@ -57,7 +57,7 @@ namespace Okta.Core.Tests.Clients
                 Description = Convert.ToString(context.DataRow["Description"]),
             };
 
-            if (context.DataRow["Users"] != null && !string.IsNullOrEmpty((string)context.DataRow["Users"]))
+            if (context.DataRow["Users"] != null && !(context.DataRow["Users"] is System.DBNull) && !string.IsNullOrEmpty((string)context.DataRow["Users"]))
             {
                 string strUsers = (string)context.DataRow["Users"];
                 group.Users = strUsers.Split(',').ToList<string>();

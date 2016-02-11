@@ -3,11 +3,11 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.1.5.0</version>
+    <version>0.2.0.0</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/okta/okta.github.io/master/assets/img/logo-large.png</iconUrl>
+    <iconUrl>https://github.com/okta/okta.github.io/blob/master/assets/img/logo.png</iconUrl>
     <licenseUrl>https://github.com/okta/oktasdk-csharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official .NET SDK for Okta</summary>
@@ -15,14 +15,14 @@
       This package allows you to build on Okta's identity platform using .NET
 
       Supported Platforms:
-      * .NET Framework 4
-      * Windows 8
+      * .NET Framework 4, 4.5, 4.5.6
+      * Windows 8, 8.1, 10
       * Windows Phone 8.1
       * Silverlight 5
       * Portable Class Libraries
     </description>
     <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
-    <copyright>© Okta 2015</copyright>
+    <copyright>© Okta 2016</copyright>
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
       <group>

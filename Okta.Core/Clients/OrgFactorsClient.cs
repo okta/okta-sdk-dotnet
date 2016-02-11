@@ -63,6 +63,20 @@ namespace Okta.Core.Clients
             return Deactivate(Constants.MfaTypes.SMS);
         }
 
+        /// <summary>
+        /// Activates the Yubikey factor - will throws a "Yubikey seed file is not uploaded yet." error if a Yubikey seed file has not been uploaded yet
+        /// </summary>
+        /// <returns></returns>
+        public Factor ActivateYubikey()
+        {
+            return Activate(Constants.MfaTypes.Yubikey);
+        }
+
+        public Factor DeactivateYubikey()
+        {
+            return Deactivate(Constants.MfaTypes.Yubikey);
+        }
+
         public Factor GetFactor(string strMfaType)
         {
             Factor factor = null;

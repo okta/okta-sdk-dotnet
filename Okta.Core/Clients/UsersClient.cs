@@ -28,10 +28,11 @@ namespace Okta.Core.Clients
         }
 
         /// <summary>
-        /// Retrieves a user name by either its "login" property or it unique "id" property
+        /// Retrieves a user name by either its "login" property or its unique "id" property
         /// </summary>
         /// <param name="userId">the id or login property of the Okta user</param>
-        /// <returns>An Okta User object</returns>
+        /// <returns>An Okta User object if it exists</returns>
+        /// <exception cref="OktaException">Returns an E0000007 exception if the user is not found</exception>
         /// <example>userClient.Get("user@domain.local") or userClient.Get("00u5t0pkimhkCPyGo0h7")</example>
         public User Get(string userId)
         {
@@ -39,24 +40,25 @@ namespace Okta.Core.Clients
         }
 
         ///// <summary>
-        ///// Retrieves an Okta user given its Username property (which is unique)
+        ///// Retrieves an Okta user given its Username property (which is unique) by using a filter=profile.login eq '[username]' filter
         ///// </summary>
         ///// <param name="userName">Username/login property of the Okta user</param>
-        ///// <returns></returns>
-        //public User GetByUsername(string userName)
-        //{
-        //    User user = null;
-        //    var filter = new FilterBuilder();
-        //    filter.Where("profile.login").EqualTo(userName);
+        ///// <returns>An Okta User object if it exists or a null object if it doesn't exist</returns>
+        /// <example>userClient.GetByUsername("user@domain.local") or userClient.GetByUsername("user")</example>
+        public User GetByUsername(string userName)
+        {
+            User user = null;
+            var filter = new FilterBuilder();
+            filter.Where("profile.login").EqualTo(userName);
 
-        //    var users = base.GetFilteredEnumerator(filter, pageSize: 1);
-        //    IEnumerator<User> usersEnum = users.GetEnumerator();
-        //    if (users != null && usersEnum.MoveNext())
-        //    {
-        //        user = usersEnum.Current;
-        //    }
-        //    return user;
-        //}
+            var users = base.GetFilteredEnumerator(filter, pageSize: 1);
+            IEnumerator<User> usersEnum = users.GetEnumerator();
+            if (users != null && usersEnum.MoveNext())
+            {
+                user = usersEnum.Current;
+            }
+            return user;
+        }
 
         public User Update(User user)
         {

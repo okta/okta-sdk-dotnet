@@ -4,7 +4,7 @@ using Okta.Core;
 
 namespace Okta.Core.Tests
 {
-    //[TestClass]
+    [TestClass]
     public class FilterBuilderTest
     {
         [TestMethod]

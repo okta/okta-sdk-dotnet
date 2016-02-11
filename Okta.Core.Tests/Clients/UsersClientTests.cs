@@ -70,7 +70,7 @@ namespace Okta.Core.Tests.Clients
             try
             {
                 var usersClient = oktaClient.GetUsersClient();
-                existingUser = usersClient.Get(strUserLogin);
+                existingUser = usersClient.GetByUsername(strUserLogin);
 
                 if (existingUser != null && existingUser.Status == Models.UserStatus.Staged)
                 {
@@ -195,7 +195,7 @@ namespace Okta.Core.Tests.Clients
             {
                 var usersClient = oktaClient.GetUsersClient();
 
-                existingUser = usersClient.Get(strUserLogin);
+                existingUser = usersClient.GetByUsername(strUserLogin);
 
                 if (existingUser != null)
                 {
@@ -237,7 +237,7 @@ namespace Okta.Core.Tests.Clients
 
                 Models.User user = new Models.User(strUserLogin, dbUser.Email, dbUser.FirstName, dbUser.LastName);
 
-                Models.User existingUser = usersClient.Get(strUserLogin);
+                Models.User existingUser = usersClient.GetByUsername(strUserLogin);
 
                 //in case our user already exists, we create a new user with a "more unique" username
                 if (existingUser != null)

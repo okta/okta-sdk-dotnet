@@ -76,7 +76,13 @@
 @if not exist %TEST_RESULTS_DIR% mkdir %TEST_RESULTS_DIR%
 @set TEST_RESULTS_FILE=%TEST_RESULTS_DIR%buildresults.trx
 del /f /q %TEST_RESULTS_FILE%
-@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\Okta.Core.Tests.dll" /resultsfile:%TEST_RESULTS_FILE%
+del /f /q %TEST_RESULTS_DIR%GroupLifecyle_buildresults.trx
+del /f /q %TEST_RESULTS_DIR%FactorsLifecyle_buildresults.trx
+del /f /q %TEST_RESULTS_DIR%UserLifecyle_buildresults.trx
+rem @"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\Okta.Core.Tests.dll" /resultsfile:%TEST_RESULTS_FILE%
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\grouplifecycle.orderedtest" /resultsfile:%TEST_RESULTS_DIR%GroupLifecyle_buildresults.trx
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\factorslifecycle.orderedtest" /resultsfile:%TEST_RESULTS_DIR%FactorsLifecyle_buildresults.trx
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\userlifecycle.orderedtest" /resultsfile:%TEST_RESULTS_DIR%UserLifecyle_buildresults.trx
 @set BUILD_MSTEST_STATUS=%ERRORLEVEL%
 @if not %BUILD_MSTEST_STATUS%==0 goto error_build_mstest_failed
 
