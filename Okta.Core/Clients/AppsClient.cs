@@ -1,13 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using Okta.Core.Models;
+
     /// <summary>
     /// A client to manage <see cref="App"/>s
     /// </summary>
@@ -17,57 +11,57 @@ namespace Okta.Core.Clients
         public AppsClient(OktaSettings oktaSettings) : base(oktaSettings, Constants.EndpointV1 + Constants.AppsEndpoint) { }
         public AppsClient(string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.AppsEndpoint) { }
 
-        public App Add(App app)
+        public virtual App Add(App app)
         {
             return base.Add(app);
         }
 
-        public AppUser Add(App app, User user)
+        public virtual AppUser Add(App app, User user)
         {
             return GetAppUsersClient(app).Add(user);
         }
 
-        public AppGroup Add(App app, Group group)
+        public virtual AppGroup Add(App app, Group group)
         {
             return GetAppGroupsClient(app).Add(group);
         }
 
-        public App Update(App app)
+        public virtual App Update(App app)
         {
             return base.Update(app);
         }
 
-        public void Remove(App app)
+        public virtual void Remove(App app)
         {
             base.Remove(app);
         }
             
-        public void Remove(App app, User user)
+        public virtual void Remove(App app, User user)
         {
             GetAppUsersClient(app).Remove(user);
         }
 
-        public void Remove(App app, Group group)
+        public virtual void Remove(App app, Group group)
         {
             GetAppGroupsClient(app).Remove(group);
         }
 
-        public void Activate(App app)
+        public virtual void Activate(App app)
         {
             PerformLifecycle(app, Constants.LifecycleActivate);
         }
 
-        public void Deactivate(App app)
+        public virtual void Deactivate(App app)
         {
             PerformLifecycle(app, Constants.LifecycleDeactivate);
         }
 
-        public AppUsersClient GetAppUsersClient(App app)
+        public virtual AppUsersClient GetAppUsersClient(App app)
         {
             return new AppUsersClient(app, BaseClient);
         }
 
-        public AppGroupsClient GetAppGroupsClient(App app)
+        public virtual AppGroupsClient GetAppGroupsClient(App app)
         {
             return new AppGroupsClient(app, BaseClient);
         }

@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// A request whose goal is to obtain a session token.
     /// </summary>

@@ -1,14 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-using System.Net.Http;
-using Okta.Core.Models;
-using Okta.Core;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using System;
+    using System.Collections;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Text;
+
+    using Okta.Core.Models;
+
     /// <summary>
     /// The base for clients with mostly CRUD operations
     /// </summary>
@@ -61,27 +61,24 @@ namespace Okta.Core.Clients
             {
                 // Build a uri for this resource
                 StringBuilder uri = new StringBuilder();
-                uri.Append(oktaObject.SelfUri.ToString());
+                uri.Append(oktaObject.SelfUri);
                 uri.Append(string.Join("/", extraResources));
                 return new Uri(uri.ToString());
             }
 
             // Then try to build it
-            else if (oktaObject.Id != null)
+            if (oktaObject.Id != null)
             {
-                return GetResourceUri(oktaObject.Id, extraResources);
+                return this.GetResourceUri(oktaObject.Id, extraResources);
             }
 
             // Otherwise, we're trying to get something that doesn't exist
-            else
-            {
-                throw new OktaException("An object must have an href or an id");
-            }
+            throw new OktaException("An object must have an href or an id");
         }
 
         protected Uri GetResourceUri(string id, params string[] extraResources)
         {
-            if (String.IsNullOrEmpty(id))
+            if (string.IsNullOrEmpty(id))
             {
                 throw new ArgumentNullException("id");
             }
@@ -96,13 +93,13 @@ namespace Okta.Core.Clients
 
         protected virtual T Get(string id, Dictionary<string, object> urlParams = null)
         {
-            var result = BaseClient.Get(GetResourceUri(id).ToString() + Utils.BuildUrlParams(urlParams));
+            var result = BaseClient.Get(this.GetResourceUri(id) + Utils.BuildUrlParams(urlParams));
             return Utils.Deserialize<T>(result);
         }
 
         protected virtual T Get(T oktaObject, Dictionary<string, object> urlParams = null)
         {
-            var result = BaseClient.Get(GetResourceUri(oktaObject).ToString() + Utils.BuildUrlParams(urlParams));
+            var result = BaseClient.Get(this.GetResourceUri(oktaObject) + Utils.BuildUrlParams(urlParams));
             return Utils.Deserialize<T>(result);
         }
 
@@ -120,24 +117,24 @@ namespace Okta.Core.Clients
 
         protected virtual T Update(string id, string content = null, Dictionary<string, object> urlParams = null)
         {
-            var result = BaseClient.Put(GetResourceUri(id).ToString() + Utils.BuildUrlParams(urlParams), content);
+            var result = BaseClient.Put(this.GetResourceUri(id) + Utils.BuildUrlParams(urlParams), content);
             return Utils.Deserialize<T>(result);
         }
 
         protected virtual T Update(T oktaObject, Dictionary<string, object> urlParams = null)
         {
-            var result = BaseClient.Put(GetResourceUri(oktaObject).ToString() + Utils.BuildUrlParams(urlParams), oktaObject.ToJson());
+            var result = BaseClient.Put(this.GetResourceUri(oktaObject) + Utils.BuildUrlParams(urlParams), oktaObject.ToJson());
             return Utils.Deserialize<T>(result);
         }
 
         protected virtual void Remove(string id, Dictionary<string, object> urlParams = null)
         {
-            BaseClient.Delete(GetResourceUri(id).ToString() + Utils.BuildUrlParams(urlParams));
+            BaseClient.Delete(this.GetResourceUri(id) + Utils.BuildUrlParams(urlParams));
         }
 
         protected virtual void Remove(T oktaObject, Dictionary<string, object> urlParams = null)
         {
-            BaseClient.Delete(GetResourceUri(oktaObject).ToString() + Utils.BuildUrlParams(urlParams));
+            BaseClient.Delete(this.GetResourceUri(oktaObject) + Utils.BuildUrlParams(urlParams));
         }
 
         /// <summary>
@@ -154,19 +151,19 @@ namespace Okta.Core.Clients
         public virtual PagedResults<T> GetList(
             Uri nextPage = null, 
             int pageSize = Constants.DefaultPageSize, 
-            FilterBuilder filter = null,
-            string query = null,
-            string after = null,
+            FilterBuilder filter = null, 
+            string query = null, 
+            string after = null, 
             DateTime? startDate = null)
         {
             // Ensure we have a non-empty query
-            if (query == "")
+            if (query == string.Empty)
             {
                 query = null;
             }
 
             // Ensure we have a non-empty filter
-            if (filter != null && filter.ToString() == "")
+            if (filter != null && filter.ToString() == string.Empty)
             {
                 filter = null;
             }
@@ -188,7 +185,7 @@ namespace Okta.Core.Clients
                 // Add the filter if it exists
                 if (filter != null)
                 {
-                    path.Append("&filter=" + filter.ToString());
+                    path.Append("&filter=" + filter);
                 }
 
                 // Add a query if it exists
@@ -213,7 +210,7 @@ namespace Okta.Core.Clients
             }
 
             OktaExceptionResolver.ParseHttpResponse(result);
-            var list = Utils.Deserialize<IList<T>>(result) as IList<T>;
+            var list = Utils.Deserialize<IList<T>>(result);
             if (list == null)
             {
                 throw new OktaException("Unable to convert the response from " + resourcePath + " to an enumerable");
@@ -253,6 +250,7 @@ namespace Okta.Core.Clients
                     }
                 }
             }
+
             return results;
         }
 
@@ -266,17 +264,17 @@ namespace Okta.Core.Clients
         /// <param name="startDate">A start date parameter supported by a few clients.</param>
         /// <returns>An enumerator</returns>
         public virtual EnumerableResults<T> GetFilteredEnumerator(
-            FilterBuilder filter = null,
-            int pageSize = Constants.DefaultPageSize,
-            string query = null,
-            string after = null,
+            FilterBuilder filter = null, 
+            int pageSize = Constants.DefaultPageSize, 
+            string query = null, 
+            string after = null, 
             DateTime? startDate = null)
         {
             var nestedList = GetList(pageSize: pageSize, filter: filter, query: query, after: after, startDate: startDate);
             return new EnumerableResults<T>(this, nestedList);
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             return this.GetFilteredEnumerator().GetEnumerator();
         }
@@ -292,7 +290,7 @@ namespace Okta.Core.Clients
             string body = null, 
             Dictionary<string, object> urlParams = null)
         {
-            string urlParameters = "";
+            string urlParameters = string.Empty;
             if (urlParams != null)
             {
                 urlParameters = Utils.BuildUrlParams(urlParams);
@@ -315,12 +313,12 @@ namespace Okta.Core.Clients
         }
 
         protected virtual HttpResponseMessage PerformLifecycle(
-            string id,
-            string lifecycle,
-            string body = null,
+            string id, 
+            string lifecycle, 
+            string body = null, 
             Dictionary<string, object> urlParams = null)
         {
-            string urlParameters = "";
+            string urlParameters = string.Empty;
             if (urlParams != null)
             {
                 urlParameters = Utils.BuildUrlParams(urlParams);

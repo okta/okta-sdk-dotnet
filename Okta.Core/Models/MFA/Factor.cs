@@ -1,12 +1,10 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace Okta.Core.Models
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An MFA factor
     /// </summary>
@@ -25,16 +23,14 @@ namespace Okta.Core.Models
         /// <returns>A question <see cref="Factor"/></returns>
         public static Factor BuildQuestion(string questionType, string answer)
         {
-            var profile = new FactorProfile()
-            {
-                QuestionType = questionType,
+            var profile = new FactorProfile {
+                QuestionType = questionType, 
                 Answer = answer
             };
 
-            return new Factor()
-            {
-                FactorType = Okta.Core.Models.FactorType.Question,
-                Provider = FactorProviderType.Okta,
+            return new Factor {
+                FactorType = Models.FactorType.Question, 
+                Provider = FactorProviderType.Okta, 
                 Profile = profile
             };
         }
@@ -47,17 +43,15 @@ namespace Okta.Core.Models
         /// <returns>An SMS <see cref="Factor"/></returns>
         public static Factor BuildSms(string phoneNumber, bool forceUpdate = false)
         {
-            var profile = new FactorProfile()
-            {
+            var profile = new FactorProfile {
                 PhoneNumber = phoneNumber
             };
 
             profile.SetProperty("updatePhone", forceUpdate);
 
-            return new Factor()
-            {
-                FactorType = Okta.Core.Models.FactorType.Sms,
-                Provider = FactorProviderType.Okta,
+            return new Factor {
+                FactorType = Models.FactorType.Sms, 
+                Provider = FactorProviderType.Okta, 
                 Profile = profile
             };
         }

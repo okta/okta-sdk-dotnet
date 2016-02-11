@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Newtonsoft.Json.Utilities;
-using System.Reflection;
-using Okta.Core.Models;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Reflection;
+
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+
+    using Okta.Core.Models;
+
     /// <summary>
     /// The custom serializer and deserializer for <see cref="ApiObject"/>s
     /// </summary>
@@ -33,7 +33,7 @@ namespace Okta.Core
                 JObject jsonObject = JObject.Load(reader);
 
                 // Find the properties that can't be deserialized by starting with all possible properties
-                var unDeserializable = jsonObject.Properties().ToDictionary(x => (x as JProperty).Name.ToString(), y => y);
+                var unDeserializable = jsonObject.Properties().ToDictionary(x => x.Name.ToString(), y => y);
 
                 // Start building our own object
                 var newObject = Activator.CreateInstance(objectType);
@@ -42,11 +42,11 @@ namespace Okta.Core
                 foreach (PropertyInfo p in objectType.GetProperties())
                 {
                     // If member is serializable
-                    var jsonAttribute = System.Attribute.GetCustomAttribute(p, typeof(JsonPropertyAttribute));
+                    var jsonAttribute = Attribute.GetCustomAttribute(p, typeof(JsonPropertyAttribute));
                     if (jsonAttribute != null)
                     {
                         // Get the mapped attribute name for a field or property
-                        var attributeName = (jsonAttribute as JsonPropertyAttribute).PropertyName.ToString();
+                        var attributeName = (jsonAttribute as JsonPropertyAttribute).PropertyName;
 
                         // Get the value from our jsonObject
                         JProperty prop = jsonObject.Properties().FirstOrDefault(x => x.Name == attributeName);
@@ -54,6 +54,7 @@ namespace Okta.Core
                         {
                             continue;
                         }
+
                         JToken value = prop.Value;
 
                         // Convert the value to it's relevant type
@@ -93,6 +94,7 @@ namespace Okta.Core
                                 linkDictionary.Add(linkJTokenName, linkList);
 
                             }
+
                             v = linkDictionary;
                         }
 
@@ -142,10 +144,8 @@ namespace Okta.Core
                                 unDeserializable.Remove(attributeName);
                                 continue;
                             }
-                            else
-                            {
-                                v = Convert.ChangeType(value, p.PropertyType, null);
-                            }
+
+                            v = Convert.ChangeType(value, p.PropertyType, null);
                         }
 
                         // Set the property on the object we're building
@@ -162,7 +162,7 @@ namespace Okta.Core
             }
 
             // If we're deserializing an array
-            else if (reader.TokenType == JsonToken.StartArray)
+            if (reader.TokenType == JsonToken.StartArray)
             {
                 JToken jsonToken = JArray.ReadFrom(reader);
                 List<JToken> jsonTokens = jsonToken.ToList();
@@ -213,20 +213,20 @@ namespace Okta.Core
 
             // Start building our own token
             var builtToken = new JObject();
-            var objectType = value.GetType();;
+            var objectType = value.GetType();
 
             foreach (PropertyInfo member in objectType.GetProperties())
             {
                 // If member is serializable
-                var jsonAttribute = System.Attribute.GetCustomAttribute(member, typeof(JsonPropertyAttribute));
+                var jsonAttribute = Attribute.GetCustomAttribute(member, typeof(JsonPropertyAttribute));
                 if (jsonAttribute != null)
                 {
                     // Get the mapped attribute name for a field or property
-                    var attributeName = (jsonAttribute as JsonPropertyAttribute).PropertyName.ToString();
+                    var attributeName = (jsonAttribute as JsonPropertyAttribute).PropertyName;
 
                     // Add the member to our object
                     JToken resultToken = JToken.Parse("null");
-                    var p = (PropertyInfo)member;
+                    var p = member;
                     var v = p.GetValue(value, null);
 
                     if (v == null)
@@ -258,7 +258,6 @@ namespace Okta.Core
                     {
                         continue;
                     }
-
                     else
                     {
                         resultToken = JToken.FromObject(v);
@@ -284,10 +283,8 @@ namespace Okta.Core
             {
                 return builtToken;
             }
-            else
-            {
-                return null;
-            }
+
+            return null;
         }
     }
 }

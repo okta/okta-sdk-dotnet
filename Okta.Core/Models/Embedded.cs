@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
+    using System.Collections.Generic;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Read only objects that are related to another <see cref="ApiObject"/>.
     /// </summary>

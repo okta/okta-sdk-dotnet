@@ -58,6 +58,7 @@
     <Compile Include="Models\Mfa\FactorProviderType.cs" />
     <Compile Include="Models\Mfa\FactorTypes.cs" />
     <Compile Include="Models\Schemas\Schema.cs" />
+    <Compile Include="Models\Schemas\SchemaItems.cs" />
     <Compile Include="Models\Schemas\SchemaProperty.cs" />
     <Compile Include="Models\Schemas\SchemaPropertyPermission.cs" />
     <Compile Include="Models\Schemas\SubSchema.cs" />

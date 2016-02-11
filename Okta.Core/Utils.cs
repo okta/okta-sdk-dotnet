@@ -1,15 +1,15 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using Newtonsoft.Json.Linq;
-using System.Net.Http;
-using System.Text.RegularExpressions;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Reflection;
+    using System.Text.RegularExpressions;
+    using System.Threading;
+
+    using Newtonsoft.Json;
+
     internal class Utils
     {
         public static Tuple<string, Uri> ParseLinkHeader(string header)
@@ -85,7 +85,7 @@ namespace Okta.Core
         {
             try
             {
-                return JsonConvert.DeserializeObject(value.ToString(), type, oktaJsonConverter);
+                return JsonConvert.DeserializeObject(value, type, oktaJsonConverter);
             }
             catch (Exception e)
             {
@@ -125,14 +125,15 @@ namespace Okta.Core
         {
             if (urlParams == null || urlParams.Count < 1)
             {
-                return "";
+                return string.Empty;
             }
 
             var paramList = new List<string>();
             foreach (var kvp in urlParams)
             {
-                paramList.Add(kvp.Key + "=" + kvp.Value.ToString());
+                paramList.Add(kvp.Key + "=" + kvp.Value);
             }
+
             return "?" + string.Join("&", paramList);
         }
 
@@ -150,17 +151,7 @@ namespace Okta.Core
 
         public static string GetAssemblyVersion()
         {
-            var regex = new Regex(@"Version=[\d\.]*");
-            var fullAssemblyName = typeof(Utils).Assembly.FullName;
-            var match = regex.Match(fullAssemblyName);
-            if (match.Success)
-            {
-                return match.Value.Split('=')[1];
-            }
-            else
-            {
-                return String.Empty;
-            }
+            return new AssemblyName(typeof(Utils).Assembly.FullName).Version.ToString();
         }
     }
 }

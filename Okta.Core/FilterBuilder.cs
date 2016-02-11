@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Text;
+
     /// <summary>
     /// Builds a filter that follows Okta's expression language.
     /// </summary>
@@ -46,7 +43,7 @@ namespace Okta.Core
 
         public FilterBuilder Where(FilterBuilder filter)
         {
-            stringBuilder.Append("(" + filter.ToString() + ")");
+            stringBuilder.Append("(" + filter + ")");
             return this;
         }
 
@@ -96,7 +93,7 @@ namespace Okta.Core
             return EqualTo().Value(value);
         }
 
-        public FilterBuilder EqualTo(Boolean value)
+        public FilterBuilder EqualTo(bool value)
         {
             return EqualTo().Value(value);
         }

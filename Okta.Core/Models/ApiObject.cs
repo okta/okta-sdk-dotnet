@@ -1,12 +1,12 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Newtonsoft.Json.Linq;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
+
     /// <summary>
     /// The foundation of all the Okta models.
     /// </summary>
@@ -14,7 +14,7 @@ namespace Okta.Core.Models
     /// This enables serialization and deserialization.
     /// </remarks>
     [JsonObject(MemberSerialization.OptIn)]
-    public partial class ApiObject
+    public class ApiObject
     {
         /// <summary>
         /// Gets or sets the changed properties.
@@ -56,10 +56,8 @@ namespace Okta.Core.Models
             {
                 return property.Value.ToString();
             }
-            else
-            {
-                throw new OktaException("Property not available: " + propertyName);
-            }
+
+            throw new OktaException("Property not available: " + propertyName);
         }
 
         /// <summary>
@@ -93,11 +91,12 @@ namespace Okta.Core.Models
             return false;
         }
         
+
         /// <summary>
         /// Get a List of all the Unmapped property names
         /// </summary>
         /// <returns></returns>
-        public List<String> GetUnmappedPropertyNames()
+        public List<string> GetUnmappedPropertyNames()
         {
             return UnmappedProperties.Keys.ToList();
         }

@@ -1,11 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
+    using System;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An Okta user.
     /// </summary>
@@ -29,12 +27,12 @@ namespace Okta.Core.Models
         /// <param name="SecondaryEmail">User's secondary email</param>
         public User(string Login, string Email, string FirstName, string LastName, string MobilePhone = null, string SecondaryEmail = null)
         {
-            Profile = new UserProfile(){
-                Login = Login,
-                Email = Email,
-                FirstName = FirstName,
-                LastName = LastName,
-                MobilePhone = MobilePhone,
+            Profile = new UserProfile {
+                Login = Login, 
+                Email = Email, 
+                FirstName = FirstName, 
+                LastName = LastName, 
+                MobilePhone = MobilePhone, 
                 SecondaryEmail = SecondaryEmail
             };
         }

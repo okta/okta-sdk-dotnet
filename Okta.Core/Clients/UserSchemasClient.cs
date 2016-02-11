@@ -1,11 +1,7 @@
-﻿using Okta.Core.Models.Schemas;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using Okta.Core.Models.Schemas;
+
     /// <summary>
     /// A client to read the schemas of your Okta <see cref="User"/>
     /// </summary>
@@ -23,7 +19,7 @@ namespace Okta.Core.Clients
             base(apiToken, subdomain, Constants.EndpointV1 + Constants.UserSchemasEndpoint) 
         { }
 
-        public Schema Get()
+        public virtual Schema Get()
         {
             var result = BaseClient.Get(resourcePath);
             return Utils.Deserialize<Schema>(result);

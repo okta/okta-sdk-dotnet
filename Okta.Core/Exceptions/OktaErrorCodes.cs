@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
     /// <summary>
     /// A list of possible Okta error codes

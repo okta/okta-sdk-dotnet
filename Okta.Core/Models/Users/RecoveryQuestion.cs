@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace Okta.Core.Models
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// A question and answer that allow a user to make changes to their account.
     /// </summary>

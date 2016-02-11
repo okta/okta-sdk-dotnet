@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Text;
-using Newtonsoft.Json;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Net.Http;
+
     /// <summary>
     /// Parse an http response into an <see cref="OktaException"/>
     /// </summary>
@@ -28,14 +23,13 @@ namespace Okta.Core
                 {
                     throw new OktaRequestThrottlingException(exception);
                 }
-                else if (exception.ErrorCode == OktaErrorCodes.AuthenticationException)
+
+                if (exception.ErrorCode == OktaErrorCodes.AuthenticationException)
                 {
                     throw new OktaAuthenticationException(exception);
                 }
-                else
-                {
-                    throw exception;
-                }
+
+                throw exception;
             }
         }
     }

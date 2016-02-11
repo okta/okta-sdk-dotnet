@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace Okta.Core.Models
 {
+    using System;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An org's third party integration with Okta
     /// </summary>
@@ -30,9 +27,9 @@ namespace Okta.Core.Models
         /// <returns></returns>
         public static App BuildBookmark(string url, string label = null, bool? requestIntegration = null)
         {
-            var app = new App() {
-                Name = "bookmark",
-                Label = label,
+            var app = new App {
+                Name = "bookmark", 
+                Label = label, 
                 SignOnMode = "BOOKMARK"
             };
 
@@ -55,16 +52,14 @@ namespace Okta.Core.Models
         /// <returns></returns>
         public static App BuildBasicAuth(string url, string authUrl, string label = null)
         {
-            var app = new App()
-            {
-                Name = "template_basic_auth",
-                Label = label,
+            var app = new App {
+                Name = "template_basic_auth", 
+                Label = label, 
                 SignOnMode = "BASIC_AUTH"
             };
 
-            app.Settings.App = new AppSettings()
-            {
-                Url = url,
+            app.Settings.App = new AppSettings {
+                Url = url, 
                 AuthURL = authUrl
             };
 
@@ -83,27 +78,25 @@ namespace Okta.Core.Models
         /// <param name="extraFieldValue">The extra field value.</param>
         /// <returns></returns>
         public static App BuildSwaPlugin(
-            string url,
-            string usernameField,
-            string passwordField,
-            string buttonField,
-            string label = null,
-            string extraFieldSelector = null,
+            string url, 
+            string usernameField, 
+            string passwordField, 
+            string buttonField, 
+            string label = null, 
+            string extraFieldSelector = null, 
             string extraFieldValue = null)
         {
-            var app = new App()
-            {
-                Name = "template_swa",
-                Label = label,
+            var app = new App {
+                Name = "template_swa", 
+                Label = label, 
                 SignOnMode = "BROWSER_PLUGIN"
             };
 
-            app.Settings.App = new AppSettings()
-            {
-                UsernameField = usernameField,
-                PasswordField = passwordField,
-                ButtonField = buttonField,
-                ExtraFieldSelector = extraFieldSelector,
+            app.Settings.App = new AppSettings {
+                UsernameField = usernameField, 
+                PasswordField = passwordField, 
+                ButtonField = buttonField, 
+                ExtraFieldSelector = extraFieldSelector, 
                 ExtraFieldValue = extraFieldValue
             };
 
@@ -125,33 +118,31 @@ namespace Okta.Core.Models
         /// <param name="optionalField3Value">The optional field3 value.</param>
         /// <returns></returns>
         public static App BuildSwaNoPlugin(
-            string url,
-            string usernameField,
-            string passwordField,
-            string label = null,
-            string optionalField1 = null,
-            string optionalField1Value = null,
-            string optionalField2 = null,
-            string optionalField2Value = null,
-            string optionalField3 = null,
+            string url, 
+            string usernameField, 
+            string passwordField, 
+            string label = null, 
+            string optionalField1 = null, 
+            string optionalField1Value = null, 
+            string optionalField2 = null, 
+            string optionalField2Value = null, 
+            string optionalField3 = null, 
             string optionalField3Value = null)
         {
-            var app = new App()
-            {
-                Name = "template_sps",
-                Label = label,
+            var app = new App {
+                Name = "template_sps", 
+                Label = label, 
                 SignOnMode = "SECURE_PASSWORD_STORE"
             };
 
-            app.Settings.App = new AppSettings()
-            {
-                UsernameField = usernameField,
-                PasswordField = passwordField,
-                OptionalField1 = optionalField1,
-                OptionalField1Value = optionalField1Value,
-                OptionalField2 = optionalField2,
-                OptionalField2Value = optionalField2Value,
-                OptionalField3 = optionalField3,
+            app.Settings.App = new AppSettings {
+                UsernameField = usernameField, 
+                PasswordField = passwordField, 
+                OptionalField1 = optionalField1, 
+                OptionalField1Value = optionalField1Value, 
+                OptionalField2 = optionalField2, 
+                OptionalField2Value = optionalField2Value, 
+                OptionalField3 = optionalField3, 
                 OptionalField3Value = optionalField3Value
             };
 

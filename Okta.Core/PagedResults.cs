@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Okta.Core.Models;
+
     /// <summary>
     /// A single page of <see cref="Okta.Core.Models.OktaObject"/>s
     /// </summary>
@@ -25,6 +25,7 @@ namespace Okta.Core
                 Read = true;
                 return _results;
             }
+
             private set
             {
                 _results = value;

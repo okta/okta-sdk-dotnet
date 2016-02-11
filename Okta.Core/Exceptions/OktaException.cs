@@ -1,12 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Net;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An Okta-specific exception
     /// </summary>
@@ -14,7 +12,8 @@ namespace Okta.Core
     public class OktaException : Exception
     {
         [JsonConstructor]
-        public OktaException() : base() { }
+        public OktaException()
+        { }
         public OktaException(string message) : base(message) { }
         public OktaException(string message, Exception exception) : base(message, exception) { }
         public OktaException(OktaException oktaException) {
