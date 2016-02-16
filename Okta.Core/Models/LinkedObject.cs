@@ -1,11 +1,11 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An entity that has HAL links
     /// </summary>
@@ -23,7 +23,7 @@ namespace Okta.Core.Models
         /// <value>
         /// The self URI.
         /// </value>
-        public Uri SelfUri { get { return Links.ContainsKey("self") ? ((List<Link>)Links["self"]).First().Href : null; } }
+        public Uri SelfUri { get { return Links.ContainsKey("self") ? this.Links["self"].First().Href : null; } }
 
         /// <summary>
         /// Gets or sets the HAL links of an object.

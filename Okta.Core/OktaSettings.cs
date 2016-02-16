@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net.Http;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Net.Http;
+
     /// <summary>
     /// Custom settings for creating an Okta client
     /// </summary>
@@ -53,9 +50,9 @@ namespace Okta.Core
         {
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (!string.IsNullOrEmpty(value))
                 {
-                    BaseUri = new Uri(String.Format(Constants.BaseUriFormat, value));
+                    BaseUri = new Uri(string.Format(Constants.BaseUriFormat, value));
                 }
             }
         }
@@ -80,12 +77,34 @@ namespace Okta.Core
             {
                 if (value > Constants.MaxPageSize)
                 {
-                    throw new OktaException("The SDK doesn't allow page sizes greater than " + Constants.MaxPageSize.ToString());
+                    throw new OktaException("The SDK doesn't allow page sizes greater than " + Constants.MaxPageSize);
                 }
-                else
-                {
-                    _pageSize = value;
-                }
+
+                this._pageSize = value;
+            }
+        }
+
+        private string _userAgent = Constants.UserAgent;
+
+
+        /// <summary>
+        /// Gets or sets the user agent.
+        /// </summary>
+        /// <value>
+        /// The user agent.
+        /// </value>
+        public string UserAgent
+        {
+            get
+            {
+                return this._userAgent;
+            }
+
+            set
+            {
+                this._userAgent = string.IsNullOrWhiteSpace(value) 
+                    ? Constants.UserAgent 
+                    : string.Format("{0} ({1})", value, Constants.UserAgent);
             }
         }
     }

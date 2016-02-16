@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
     /// <summary>
     /// All supported MFA factors

@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace Okta.Core.Models
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// Where an <see cref="App"/> is visible
     /// </summary>

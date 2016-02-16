@@ -1,13 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using Okta.Core.Models;
+
     /// <summary>
     /// A client to manage <see cref="AppLink"/>s for a <see cref="User"/>
     /// </summary>

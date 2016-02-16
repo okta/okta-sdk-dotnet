@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Models.Schemas
+﻿namespace Okta.Core.Models.Schemas
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// The Schema is defined using JSON Schema Draft 4.
     /// </summary>
@@ -15,31 +14,36 @@ namespace Okta.Core.Models.Schemas
         /// JSON Schema version identifier
         /// </summary>
         [JsonProperty("$schema")]
-        public String JsonSchemaVersion { get; private set; }
+        public string JsonSchemaVersion { get; private set; }
+
         /// <summary>
         /// The name
         /// </summary>
         [JsonProperty("name")]
-        public String Name { get; private set; }
+        public string Name { get; private set; }
+
         /// <summary>
         /// The title
         /// </summary>
         [JsonProperty("title")]
-        public String Title { get; private set; }
+        public string Title { get; private set; }
+
         /// <summary>
         /// Timestamp when schema was last updated
         /// </summary>
         [JsonProperty("lastUpdated")]
-        public String LastUpdated { get; private set; }
+        public string LastUpdated { get; private set; }
+
         /// <summary>
         /// Timestamp when schema was created
         /// </summary>
         [JsonProperty("created")]
-        public String Created { get; private set; }
+        public string Created { get; private set; }
+
         /// <summary>
         /// The Sub Schemas
         /// </summary>
         [JsonProperty("definitions")]
-        public Dictionary<String, SubSchema> SubSchemas { get; private set; }
+        public Dictionary<string, SubSchema> SubSchemas { get; private set; }
     }
 }

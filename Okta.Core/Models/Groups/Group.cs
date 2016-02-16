@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace Okta.Core.Models
 {
+    using Newtonsoft.Json;
+
     /// <summary>
     /// A group of users
     /// </summary>
@@ -19,9 +14,8 @@ namespace Okta.Core.Models
 
         public Group(string name, string description)
         {
-            Profile = new GroupProfile()
-            {
-                Name = name,
+            Profile = new GroupProfile {
+                Name = name, 
                 Description = description
             };
         }

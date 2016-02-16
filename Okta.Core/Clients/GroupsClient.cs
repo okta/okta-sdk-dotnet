@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using Okta.Core.Models;
+
     /// <summary>
     /// A client to manage <see cref="Group"/>s
     /// </summary>
@@ -15,22 +11,22 @@ namespace Okta.Core.Clients
         public GroupsClient(OktaSettings oktaSettings) : base(oktaSettings, Constants.EndpointV1 + Constants.GroupsEndpoint) { }
         public GroupsClient(string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.GroupsEndpoint) { }
 
-        public Group Add(Group group)
+        public virtual Group Add(Group group)
         {
             return base.Add(group);
         }
 
-        public Group Get(Group group)
+        public virtual Group Get(Group group)
         {
             return base.Get(group);
         }
 
-        public Group Get(string groupId)
+        public virtual Group Get(string groupId)
         {
             return base.Get(groupId);
         }
 
-        public Group GetByName(string groupName)
+        public virtual Group GetByName(string groupName)
         {
             Group g = null;
             PagedResults<Group> groups = this.GetList(query: groupName);
@@ -41,22 +37,22 @@ namespace Okta.Core.Clients
             return g;
         }
 
-        public Group Update(Group group)
+        public virtual Group Update(Group group)
         {
             return base.Update(group);
         }
 
-        public void Remove(Group group)
+        public virtual void Remove(Group group)
         {
             base.Remove(group);
         }
 
-        public void Remove(string groupId)
+        public virtual void Remove(string groupId)
         {
             base.Remove(groupId);
         }
 
-        public GroupUsersClient GetGroupUsersClient(Group group)
+        public virtual GroupUsersClient GetGroupUsersClient(Group group)
         {
             return new GroupUsersClient(group, BaseClient);
         }

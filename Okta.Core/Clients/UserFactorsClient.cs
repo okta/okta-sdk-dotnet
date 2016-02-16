@@ -1,13 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using System.Collections.Generic;
+
+    using Okta.Core.Models;
+
     /// <summary>
     /// A client to manage <see cref="Factor"/>s for a <see cref="User"/>
     /// </summary>
@@ -17,30 +13,30 @@ namespace Okta.Core.Clients
         public UserFactorsClient(User user, OktaSettings oktaSettings) : base(oktaSettings, Constants.EndpointV1 + Constants.UsersEndpoint + "/" + user.Id + Constants.FactorsEndpoint) { }
         public UserFactorsClient(User user, string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.UsersEndpoint + "/" + user.Id + Constants.FactorsEndpoint) { }
 
-        public List<Factor> GetFactorCatalog()
+        public virtual List<Factor> GetFactorCatalog()
         {
             var response = BaseClient.Get(resourcePath + Constants.CatalogEndpoint);
             return Utils.Deserialize<List<Factor>>(response);
         }
 
-        public List<Question> GetQuestions()
+        public virtual List<Question> GetQuestions()
         {
             var response = BaseClient.Get(resourcePath + Constants.QuestionsEndpoint);
             return Utils.Deserialize<List<Question>>(response);
         }
 
-        public Factor Enroll(Factor factor)
+        public virtual Factor Enroll(Factor factor)
         {
             return base.Add(factor);
         }
 
-        public Factor EnrollQuestion(string questionType, string answer)
+        public virtual Factor EnrollQuestion(string questionType, string answer)
         {
             var question = Factor.BuildQuestion(questionType, answer);
             return Enroll(question);
         }
 
-        public Factor Activate(Factor factor, string passCode)
+        public virtual Factor Activate(Factor factor, string passCode)
         {
             //string body = "{ passCode: " + passCode +"}";
             string body = string.Format("{{ \"passCode\": \"{0}\" }}", passCode);
@@ -49,21 +45,19 @@ namespace Okta.Core.Clients
 
             //return base.PerformLifecycle()
         }
-
-
-        public void Reset(Factor factor)
+        public virtual void Reset(Factor factor)
         {
             base.Remove(factor);
         }
 
-        public void Reset(string factorId)
+        public virtual void Reset(string factorId)
         {
             base.Remove(factorId);
         }
 
-        public ChallengeResponse BeginChallenge(Factor factor)
+        public virtual ChallengeResponse BeginChallenge(Factor factor)
         {
-            var response = BaseClient.Post(GetResourceUri(factor).ToString() + Constants.VerifyEndpoint);
+            var response = BaseClient.Post(this.GetResourceUri(factor) + Constants.VerifyEndpoint);
             return Utils.Deserialize<ChallengeResponse>(response);
         }
 
@@ -73,13 +67,13 @@ namespace Okta.Core.Clients
         /// <param name="factor">the Factor security question object used to validate the answer</param>
         /// <param name="mfaAnswer">an object of type MfaAnswer used to validate the answer</param>
         /// <returns></returns>
-        public ChallengeResponse CompleteChallenge(Factor factor, MfaAnswer mfaAnswer)
+        public virtual ChallengeResponse CompleteChallenge(Factor factor, MfaAnswer mfaAnswer)
         {
-            var response = BaseClient.Post(GetResourceUri(factor).ToString() + Constants.VerifyEndpoint, mfaAnswer.ToJson());
+            var response = BaseClient.Post(this.GetResourceUri(factor) + Constants.VerifyEndpoint, mfaAnswer.ToJson());
             return Utils.Deserialize<ChallengeResponse>(response);
         }
 
-        public ChallengeResponse PollTransaction(string strPollUrl)
+        public virtual ChallengeResponse PollTransaction(string strPollUrl)
         {
             //replace double forward slashes which would otherwise create an invalid request - API BUG?
             strPollUrl = strPollUrl.Replace("//verify", "/verify");

@@ -1,11 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Models
+﻿namespace Okta.Core.Models
 {
+    using System;
+    using System.Collections.Generic;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// An entity that has an id and generally has CRUD operations available.
     /// </summary>
@@ -39,14 +38,14 @@ namespace Okta.Core.Models
         {
             if (isCreate)
             {
-                if (!String.IsNullOrEmpty(this.Id))
+                if (!string.IsNullOrEmpty(this.Id))
                 {
                     throw new OktaException("Id should be null for create.");
                 }
             }
             else
             {
-                if (String.IsNullOrEmpty(this.Id))
+                if (string.IsNullOrEmpty(this.Id))
                 {
                     throw new OktaException("Id should not be null.");
                 }
