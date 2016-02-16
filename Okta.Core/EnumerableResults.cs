@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Okta.Core.Models;
-using Okta.Core.Clients;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System.Collections;
+    using System.Collections.Generic;
+
+    using Okta.Core.Clients;
+    using Okta.Core.Models;
+
     /// <summary>
     /// An enumerable list of <see cref="Okta.Core.Models.OktaObject"/>s
     /// </summary>
@@ -44,7 +43,7 @@ namespace Okta.Core
             return ResultsEnumerator();
         }
 
-        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+        IEnumerator IEnumerable.GetEnumerator()
         {
             // Lets call the generic version here
             return this.GetEnumerator();

@@ -1,9 +1,9 @@
-﻿using System;
-using System.Net.Http;
-using System.Threading.Tasks;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Net.Http;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// An abstract Okta http client
     /// </summary>
@@ -11,9 +11,9 @@ namespace Okta.Core
     {
         public enum HttpRequestType
         {
-            GET,
-            PUT,
-            POST,
+            GET, 
+            PUT, 
+            POST, 
             DELETE
         }
 
@@ -36,13 +36,14 @@ namespace Okta.Core
 
         public HttpResponseMessage Get(Uri uri)
         {
-            return Execute(HttpRequestType.GET, uri: uri);
+            return Execute(HttpRequestType.GET, uri);
         }
 
         public Task<HttpResponseMessage> GetAsync(Uri uri)
         {
-            return ExecuteAsync(HttpRequestType.GET, uri: uri);
+            return ExecuteAsync(HttpRequestType.GET, uri);
         }
+
         #endregion
 
         #region POST methods
@@ -58,13 +59,14 @@ namespace Okta.Core
 
         public HttpResponseMessage Post(Uri uri, string content)
         {
-            return Execute(HttpRequestType.POST, uri: uri, content: content);
+            return Execute(HttpRequestType.POST, uri, content: content);
         }
 
         public Task<HttpResponseMessage> PostAsync(Uri uri, string content)
         {
-            return ExecuteAsync(HttpRequestType.POST, uri: uri, content: content);
+            return ExecuteAsync(HttpRequestType.POST, uri, content: content);
         }
+
         #endregion
 
         #region PUT methods
@@ -80,13 +82,14 @@ namespace Okta.Core
 
         public HttpResponseMessage Put(Uri uri, string content = null)
         {
-            return Execute(HttpRequestType.PUT, uri: uri, content: content);
+            return Execute(HttpRequestType.PUT, uri, content: content);
         }
 
         public Task<HttpResponseMessage> PutAsync(Uri uri, string content = null)
         {
-            return ExecuteAsync(HttpRequestType.PUT, uri: uri, content: content);
+            return ExecuteAsync(HttpRequestType.PUT, uri, content: content);
         }
+
         #endregion
 
         #region DELETE methods
@@ -102,13 +105,14 @@ namespace Okta.Core
 
         public HttpResponseMessage Delete(Uri uri)
         {
-            return Execute(HttpRequestType.DELETE, uri: uri);
+            return Execute(HttpRequestType.DELETE, uri);
         }
 
         public Task<HttpResponseMessage> DeleteAsync(Uri uri)
         {
-            return ExecuteAsync(HttpRequestType.DELETE, uri: uri);
+            return ExecuteAsync(HttpRequestType.DELETE, uri);
         }
+
         #endregion
     }
 }

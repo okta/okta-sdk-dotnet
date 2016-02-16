@@ -1,13 +1,10 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using System;
+    using System.Linq;
+
+    using Okta.Core.Models;
+
     /// <summary>
     /// A client to manage the authentication flow.
     /// </summary>
@@ -19,11 +16,11 @@ namespace Okta.Core.Clients
 
         protected string resourcePath { get; set; }
 
-        public AuthResponse Authenticate(string username, string password, string relayState = null)
+        public virtual AuthResponse Authenticate(string username, string password, string relayState = null)
         {
-            var authRequest = new AuthRequest() {
-                Username = username,
-                Password = password,
+            var authRequest = new AuthRequest {
+                Username = username, 
+                Password = password, 
                 RelayState = relayState
             };
 
@@ -31,21 +28,21 @@ namespace Okta.Core.Clients
             return Utils.Deserialize<AuthResponse>(response);
         }
 
-        public AuthResponse Enroll(string stateToken, Factor factor)
+        public virtual AuthResponse Enroll(string stateToken, Factor factor)
         {
             factor.SetProperty("stateToken", stateToken);
             var response = BaseClient.Post(resourcePath + Constants.FactorsEndpoint, factor.ToJson());
             return Utils.Deserialize<AuthResponse>(response);
         }
 
-        public AuthResponse Verify(string stateToken, Factor factor, MfaAnswer answer = null)
+        public virtual AuthResponse Verify(string stateToken, Factor factor, MfaAnswer answer = null)
         {
             // This is "Href" and not "First()" because this is a "Factor Links Object" - remove this line?
             var verifyLink = factor.Links["verify"].First().Href;
             return Execute(stateToken, verifyLink, answer);
         }
 
-        public AuthResponse ActivateTotpFactor(string stateToken, AuthResponse authResponse, string passCode)
+        public virtual AuthResponse ActivateTotpFactor(string stateToken, AuthResponse authResponse, string passCode)
         {
             var apiObject = new ApiObject();
             apiObject.SetProperty("passCode", passCode);
@@ -53,7 +50,7 @@ namespace Okta.Core.Clients
             return Execute(stateToken, nextLink, apiObject);
         }
 
-        public AuthResponse ValidateToken(string recoveryToken)
+        public virtual AuthResponse ValidateToken(string recoveryToken)
         {
             var apiObject = new ApiObject();
             apiObject.SetProperty("recoveryToken", recoveryToken);
@@ -61,7 +58,7 @@ namespace Okta.Core.Clients
             return Utils.Deserialize<AuthResponse>(response);
         }
 
-        public AuthResponse GetStatus(string stateToken)
+        public virtual AuthResponse GetStatus(string stateToken)
         {
             var apiObject = new ApiObject();
             apiObject.SetProperty("stateToken", stateToken);
@@ -69,12 +66,12 @@ namespace Okta.Core.Clients
             return Utils.Deserialize<AuthResponse>(response);
         }
 
-        public AuthResponse Execute(string stateToken, Link link, ApiObject apiObject = null)
+        public virtual AuthResponse Execute(string stateToken, Link link, ApiObject apiObject = null)
         {
             return Execute(stateToken, link.Href, apiObject);
         }
 
-        public AuthResponse Execute(string stateToken, Uri uri, ApiObject apiObject = null)
+        public virtual AuthResponse Execute(string stateToken, Uri uri, ApiObject apiObject = null)
         {
             // Create a new apiObject if it's null, because we need to add a stateToken
             apiObject = apiObject ?? new ApiObject();

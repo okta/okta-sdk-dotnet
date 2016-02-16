@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using System;
+
     /// <summary>
     /// An http client that handles authentication with Okta
     /// </summary>
@@ -23,6 +20,7 @@ namespace Okta.Core.Clients
             get { return this.BaseClient.ApiToken; }
             set { this.BaseClient.ApiToken = value; }
         }
+
         /// <summary>
         /// Gets the base URI.
         /// </summary>
@@ -55,9 +53,8 @@ namespace Okta.Core.Clients
         /// <param name="baseUri">The base URI.</param>
         public AuthenticatedClient(string apiToken, Uri baseUri)
         {
-            var oktaSettings = new OktaSettings()
-            {
-                ApiToken = apiToken,
+            var oktaSettings = new OktaSettings {
+                ApiToken = apiToken, 
                 BaseUri = baseUri
             };
 

@@ -1,13 +1,7 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using Okta.Core.Models;
-
-namespace Okta.Core.Clients
+﻿namespace Okta.Core.Clients
 {
+    using Okta.Core.Models;
+
     /// <summary>
     /// A client to manage <see cref="Factor"/>s for an org
     /// </summary>
@@ -18,47 +12,46 @@ namespace Okta.Core.Clients
         public OrgFactorsClient(string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.OrgEndpoint + Constants.FactorsEndpoint) { }
 
         // TODO: Maybe try a TryActivate/TryDeactivate
-
-        public Factor Activate(string id)
+        public virtual Factor Activate(string id)
         {
             var response = PerformLifecycle(id, "activate");
             return Utils.Deserialize<Factor>(response);
         }
 
-        public Factor Activate(Factor factor)
+        public virtual Factor Activate(Factor factor)
         {
             var response = PerformLifecycle(factor, "activate");
             return Utils.Deserialize<Factor>(response);
         }
 
-        public Factor Deactivate(string id)
+        public virtual Factor Deactivate(string id)
         {
             var response = PerformLifecycle(id, "deactivate");
             return Utils.Deserialize<Factor>(response);
         }
 
-        public Factor Deactivate(Factor factor)
+        public virtual Factor Deactivate(Factor factor)
         {
             var response = PerformLifecycle(factor, "deactivate");
             return Utils.Deserialize<Factor>(response);
         }
 
-        public Factor ActivateQuestion()
+        public virtual Factor ActivateQuestion()
         {
             return Activate(Constants.MfaTypes.SecurityQuestion);
         }
 
-        public Factor DeactivateQuestion()
+        public virtual Factor DeactivateQuestion()
         {
             return Deactivate(Constants.MfaTypes.SecurityQuestion);
         }
 
-        public Factor ActivateSms()
+        public virtual Factor ActivateSms()
         {
             return Activate(Constants.MfaTypes.SMS);
         }
 
-        public Factor DeactivateSms()
+        public virtual Factor DeactivateSms()
         {
             return Deactivate(Constants.MfaTypes.SMS);
         }
@@ -67,17 +60,17 @@ namespace Okta.Core.Clients
         /// Activates the Yubikey factor - will throws a "Yubikey seed file is not uploaded yet." error if a Yubikey seed file has not been uploaded yet
         /// </summary>
         /// <returns></returns>
-        public Factor ActivateYubikey()
+        public virtual Factor ActivateYubikey()
         {
             return Activate(Constants.MfaTypes.Yubikey);
         }
 
-        public Factor DeactivateYubikey()
+        public virtual Factor DeactivateYubikey()
         {
             return Deactivate(Constants.MfaTypes.Yubikey);
         }
 
-        public Factor GetFactor(string strMfaType)
+        public virtual Factor GetFactor(string strMfaType)
         {
             Factor factor = null;
             PagedResults<Models.Factor> factors = this.GetList();
@@ -92,7 +85,7 @@ namespace Okta.Core.Clients
             return factor;
         }
 
-        public bool IsFactorSetup(string factorId)
+        public virtual bool IsFactorSetup(string factorId)
         {
             bool bNotSetup = false;
             PagedResults<Models.Factor> factors = this.GetList();

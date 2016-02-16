@@ -1,22 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Threading;
-using Okta.Core;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net.Http;
+    using System.Text;
+    using System.Threading.Tasks;
+
     /// <summary>
     /// The primary http client wrapper. Handles rate limiting.
     /// </summary>
     public class OktaHttpClient : IOktaHttpClient
     {
-        private HttpClient httpClient = new HttpClient()
-        {
+        private HttpClient httpClient = new HttpClient {
             Timeout = Constants.DefaultTimeout
         };
 
@@ -33,6 +29,7 @@ namespace Okta.Core
             {
                 return apiToken;
             }
+
             set
             {
                 apiToken = value;
@@ -67,14 +64,16 @@ namespace Okta.Core
             this.ApiToken = oktaSettings.ApiToken;
 
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
-            httpClient.DefaultRequestHeaders.Add("User-agent", Constants.UserAgent);
+            httpClient.DefaultRequestHeaders.Add("User-Agent", oktaSettings.UserAgent);
         }
 
         public override HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0)
         {
             try
             {
-                var response = ExecuteAsync(requestType, uri, relativeUri, content, waitMillis).Result;
+                var task = ExecuteAsync(requestType, uri, relativeUri, content, waitMillis);
+                task.Wait();
+                var response = task.Result;
 
                 // Handle any errors
                 try
@@ -93,58 +92,50 @@ namespace Okta.Core
                         {
                             // Use exponential backoff
                             int millis = (int)Math.Pow(2, retryCount) * 1000;
-                            return Execute(requestType, uri, relativeUri, content, millis, retryCount: retryCount++);
+                            return Execute(requestType, uri, relativeUri, content, millis, retryCount++);
                         }
-                        else
+
+                        // Determine the number of milliseconds to wait using the header
+                        IEnumerable<string> resetValues;
+                        if (!response.Headers.TryGetValues("X-Rate-Limit-Reset", out resetValues))
                         {
-                            // Determine the number of milliseconds to wait using the header
-                            IEnumerable<string> resetValues;
-                            if (!response.Headers.TryGetValues("X-Rate-Limit-Reset", out resetValues))
-                            {
-                                // TODO: Log that we were unable to get the reset pageSize
-                                throw e;
-                            }
-                            else
-                            {
-                                // Parse the string header to an int
-                                var waitUntilString = resetValues.FirstOrDefault();
-                                int waitUntilUnixTime;
-                                if (!int.TryParse(waitUntilString, out waitUntilUnixTime))
-                                {
-                                    // TODO: Log that we were unable to convert the header
-                                    throw e;
-                                }
-                                else
-                                {
-                                    // See how long until we hit that time
-                                    var unixTime = (Int64)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds;
-                                    var millisToWait = unixTime - ((Int64)waitUntilUnixTime * 1000);
-
-                                    if (millisToWait > Int32.MaxValue)
-                                    {
-                                        // TODO: Log that we miscalculated the wait time
-                                        throw e;
-                                    }
-
-                                    // Then attempt to send the request again
-                                    return Execute(requestType, uri, relativeUri, content, (int)millisToWait, retryCount: 1);
-                                }
-                            }
+                            // TODO: Log that we were unable to get the reset pageSize
+                            throw;
                         }
+
+                        // Parse the string header to an int
+                        var waitUntilString = resetValues.FirstOrDefault();
+                        int waitUntilUnixTime;
+                        if (!int.TryParse(waitUntilString, out waitUntilUnixTime))
+                        {
+                            // TODO: Log that we were unable to convert the header
+                            throw;
+                        }
+
+                        // See how long until we hit that time
+                        var unixTime = (Int64)DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1)).TotalMilliseconds;
+                        var millisToWait = unixTime - ((Int64)waitUntilUnixTime * 1000);
+
+                        if (millisToWait > int.MaxValue)
+                        {
+                            // TODO: Log that we miscalculated the wait time
+                            throw;
+                        }
+
+                        // Then attempt to send the request again
+                        return this.Execute(requestType, uri, relativeUri, content, (int)millisToWait, 1);
                     }
-                    else
-                    {
-                        // TODO: Log that there are too many requests queued
-                        throw e;
-                    }
+
+                    // TODO: Log that there are too many requests queued
+                    throw;
                 }
 
                 // If there were no errors, just return
                 return response;
             }
-            catch (OktaException e)
+            catch (OktaException)
             {
-                throw e;
+                throw;
             }
             catch (Exception e)
             {
@@ -155,13 +146,14 @@ namespace Okta.Core
         public override Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0)
         {
             // Ensure we have exactly one useable Uri
-            if (String.IsNullOrEmpty(relativeUri) && uri == null)
+            if (string.IsNullOrEmpty(relativeUri) && uri == null)
             {
                 throw new OktaException("Cannot execute an Http request without a Uri");
             }
-            else if (!String.IsNullOrEmpty(relativeUri) && uri != null)
+
+            if (!string.IsNullOrEmpty(relativeUri) && uri != null)
             {
-                throw new OktaException("Http request is ambiguous: cannot determine whether to execute " + uri.ToString() + " or " + relativeUri);
+                throw new OktaException("Http request is ambiguous: cannot determine whether to execute " + uri + " or " + relativeUri);
             }
 
             try
@@ -172,65 +164,35 @@ namespace Okta.Core
                 // Handle GETs
                 if (requestType == HttpRequestType.GET)
                 {
-                    if (uri != null)
-                    {
-                        return httpClient.GetAsync(uri);
-                    }
-                    else
-                    {
-                        return httpClient.GetAsync(relativeUri);
-                    }
+                    return uri != null ? this.httpClient.GetAsync(uri) : this.httpClient.GetAsync(relativeUri);
                 }
 
                 // Handle POSTs
-                else if (requestType == HttpRequestType.POST)
+                if (requestType == HttpRequestType.POST)
                 {
-                    content = content ?? "";
-                    if (uri != null)
-                    {
-                        return httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json"));
-                    }
-                    else
-                    {
-                        return httpClient.PostAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
-                    }
+                    content = content ?? string.Empty;
+                    return uri != null ? this.httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")) 
+                        : this.httpClient.PostAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
                 }
 
                 // Handle PUTs
-                else if (requestType == HttpRequestType.PUT)
+                if (requestType == HttpRequestType.PUT)
                 {
-                    content = content ?? "";
-                    if (uri != null)
-                    {
-                        return httpClient.PutAsync(uri, new StringContent(content, Encoding.UTF8, "application/json"));
-                    }
-                    else
-                    {
-                        return httpClient.PutAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
-                    }
+                    content = content ?? string.Empty;
+                    return uri != null ? this.httpClient.PutAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")) : this.httpClient.PutAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
                 }
 
                 // Handle DELETEs
-                else if (requestType == HttpRequestType.DELETE)
+                if (requestType == HttpRequestType.DELETE)
                 {
-                    if (uri != null)
-                    {
-                        return httpClient.DeleteAsync(uri);
-                    }
-                    else
-                    {
-                        return httpClient.DeleteAsync(relativeUri);
-                    }
+                    return uri != null ? this.httpClient.DeleteAsync(uri) : this.httpClient.DeleteAsync(relativeUri);
                 }
 
-                else
-                {
-                    throw new OktaException("The " + requestType.ToString() + " http verb is not yet supported");
-                }
+                throw new OktaException("The " + requestType + " http verb is not yet supported");
             }
-            catch (OktaException e)
+            catch (OktaException)
             {
-                throw e;
+                throw;
             }
             catch (Exception e)
             {

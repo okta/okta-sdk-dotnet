@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-
-namespace Okta.Core
+﻿namespace Okta.Core
 {
     /// <summary>
     /// Aliases for properties on each <see cref="Okta.Core.Models.OktaObject"/> type that supports filtering

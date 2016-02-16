@@ -1,12 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 namespace Okta.Core.Models
 {
+    using System;
+
+    using Newtonsoft.Json;
+
     /// <summary>
     /// A group defined for an <see cref="App"/>
     /// </summary>
