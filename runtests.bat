@@ -54,33 +54,23 @@
 @rem Setting up done
 @echo %TIME% - INFO: Preparation done
 
-@rem Build started
+@echo %TIME% - INFO: MSTest started...
+@set TEST_RESULTS_DIR=TestResults\
+@if not exist %TEST_RESULTS_DIR% mkdir %TEST_RESULTS_DIR%
+@set TEST_RESULTS_FILE=%TEST_RESULTS_DIR%buildresults.trx
+del /f /q %TEST_RESULTS_FILE%
+del /f /q %TEST_RESULTS_DIR%GroupLifecyle_buildresults.trx
+del /f /q %TEST_RESULTS_DIR%FactorsLifecyle_buildresults.trx
+del /f /q %TEST_RESULTS_DIR%UserLifecyle_buildresults.trx
+rem @"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\Okta.Core.Tests.dll" /resultsfile:%TEST_RESULTS_FILE%
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\grouplifecycle.orderedtest" /resultsfile:%TEST_RESULTS_DIR%GroupLifecyle_buildresults.trx
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\factorslifecycle.orderedtest" /resultsfile:%TEST_RESULTS_DIR%FactorsLifecyle_buildresults.trx
+@"%MSTEST_PATH%" /nologo /testcontainer:"Okta.Core.Tests\bin\%SOLUTION_CONF%\userlifecycle.orderedtest" /resultsfile:%TEST_RESULTS_DIR%UserLifecyle_buildresults.trx
+@set BUILD_MSTEST_STATUS=%ERRORLEVEL%
+@if not %BUILD_MSTEST_STATUS%==0 goto error_build_mstest_failed
 
-@rem Build solution started
-@echo %TIME% - INFO: MSBuild started...
+@echo %TIME% - INFO: MSTest done
 
-@set PLATFORM="Any Cpu"
-@echo %TIME% - INFO: Building %SOLUTION_CONF% %PLATFORM%
-@%MSBUILD_PATH% %SOLUTION_FILE% %MSBUILD_OPTIONS% /t:Clean /p:Configuration=%SOLUTION_CONF%;Platform=%PLATFORM%
-
-@%MSBUILD_PATH% %SOLUTION_FILE% %MSBUILD_OPTIONS% %BUILD_CONSTANT% /t:Build /p:Configuration=%SOLUTION_CONF%;Platform=%PLATFORM%
-@set BUILD_MSBUILD_STATUS=%ERRORLEVEL%
-@if not %BUILD_MSBUILD_STATUS%==0 goto error_build_msbuild_failed
-
-@echo %TIME% - INFO: MSBuild done
-@rem Build solution done
-
-@echo Starting the NuGet package build
-cd Okta.Core
-nuget pack OktaSdk.nuspec
-
-@rem Return to the directory of this bat file
-cd /d %~dp0
-
-@echo Completed the NuGet package build
-
-
-@rem Build done
 goto end
 
 @rem Error handling

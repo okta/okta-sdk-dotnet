@@ -11,6 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		build.bat = build.bat
 		Okta.Core\nuget.exe = Okta.Core\nuget.exe
+		runtests.bat = runtests.bat
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Core.Tests", "Okta.Core.Tests\Okta.Core.Tests.csproj", "{91C78640-019D-4B00-8079-D95C03C114F4}"
