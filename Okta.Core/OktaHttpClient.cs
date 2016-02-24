@@ -67,11 +67,11 @@
             httpClient.DefaultRequestHeaders.Add("User-Agent", oktaSettings.UserAgent);
         }
 
-        public override HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0)
+        public override HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true)
         {
             try
             {
-                var task = ExecuteAsync(requestType, uri, relativeUri, content, waitMillis);
+                var task = ExecuteAsync(requestType, uri, relativeUri, content, waitMillis, bAddAuthorizationHeader);
                 task.Wait();
                 var response = task.Result;
 
@@ -143,7 +143,7 @@
             }
         }
 
-        public override Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0)
+        public override Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true)
         {
             // Ensure we have exactly one useable Uri
             if (string.IsNullOrEmpty(relativeUri) && uri == null)
@@ -171,6 +171,10 @@
                 if (requestType == HttpRequestType.POST)
                 {
                     content = content ?? string.Empty;
+                    if (!bAddAuthorizationHeader)
+                    {
+                        httpClient.DefaultRequestHeaders.Remove("Authorization");
+                    }
                     return uri != null ? this.httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")) 
                         : this.httpClient.PostAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
                 }

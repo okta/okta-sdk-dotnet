@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Okta.Core.Clients;
 using System.Configuration;
+using System.Collections.Generic;
 
 namespace Okta.Core.Tests.Clients
 {
@@ -206,6 +207,40 @@ namespace Okta.Core.Tests.Clients
                     existingUser = usersClient.Update(existingUser);
                     Assert.IsNotNull(existingUser, "Okta User {0} could not be retrieved: {1}", dbUser.Login, strEx);
                     Assert.IsTrue(existingUser.Profile.Login == strNewUserLogin, "Okta User Login could not be renamed from {0} to {1}", dbUser.Login, strNewUserLogin);
+                }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+
+        }
+
+        [TestMethod]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
+        public void GetCustomProperties()
+        {
+            TestUser dbUser = Helpers.GetUser(TestContext);
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
+            string strEx = string.Empty;
+            Models.User existingUser = null;
+            string strUserLogin = dbUser.Login;
+            string strNewUserLogin = string.Empty;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                existingUser = usersClient.GetByUsername(strUserLogin);
+
+                if (existingUser != null)
+                {
+                    List<string> unmappedProperties = existingUser.Profile.GetUnmappedPropertyNames();
+                    foreach(string unmappedProperty in unmappedProperties)
+                    {
+                        string strPropertyValue = existingUser.Profile.GetProperty(unmappedProperty);
+                    }
                 }
             }
             catch (OktaException e)

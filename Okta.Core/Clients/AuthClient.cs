@@ -24,14 +24,14 @@
                 RelayState = relayState
             };
 
-            var response = BaseClient.Post(resourcePath, authRequest.ToJson());
+            var response = BaseClient.Post(resourcePath, authRequest.ToJson(), false);
             return Utils.Deserialize<AuthResponse>(response);
         }
 
         public virtual AuthResponse Enroll(string stateToken, Factor factor)
         {
             factor.SetProperty("stateToken", stateToken);
-            var response = BaseClient.Post(resourcePath + Constants.FactorsEndpoint, factor.ToJson());
+            var response = BaseClient.Post(resourcePath + Constants.FactorsEndpoint, factor.ToJson(), false);
             return Utils.Deserialize<AuthResponse>(response);
         }
 

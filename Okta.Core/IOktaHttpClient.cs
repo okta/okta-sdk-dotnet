@@ -20,8 +20,8 @@
         public virtual string ApiToken { get; set; }
         public virtual Uri BaseUri { get; set; }
 
-        public abstract HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0);
-        public abstract Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0);
+        public abstract HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true);
+        public abstract Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true);
 
         #region GET methods
         public HttpResponseMessage Get(string relativeUri)
@@ -47,9 +47,9 @@
         #endregion
 
         #region POST methods
-        public HttpResponseMessage Post(string relativeUri, string content = null)
+        public HttpResponseMessage Post(string relativeUri, string content = null, bool bAddAuthorizationHeader = true)
         {
-            return Execute(HttpRequestType.POST, relativeUri: relativeUri, content: content);
+            return Execute(HttpRequestType.POST, relativeUri: relativeUri, content: content, bAddAuthorizationHeader: bAddAuthorizationHeader);
         }
 
         public Task<HttpResponseMessage> PostAsync(string relativeUri, string content = null)

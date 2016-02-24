@@ -94,6 +94,7 @@
     <Compile Include="Clients\TestObjects.cs" />
     <Compile Include="Clients\OrgFactorsClientTests.cs" />
     <Compile Include="Clients\GroupsUsersClientTests.cs" />
+    <Compile Include="Clients\AuthClientTests.cs" />
     <Compile Include="Clients\UserFactorsClientTests.cs" />
     <Compile Include="Clients\UsersClientTests.cs" />
     <Compile Include="FilterBuilderTest.cs" />
