@@ -29,12 +29,23 @@
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiClient{T}"/> class.
+        /// Initializes a new instance of the <see cref="ApiClient{T}"/> class. To be used ONLY when pointing to a *.okta.com tenant.
         /// </summary>
         /// <param name="apiToken">The API token.</param>
         /// <param name="subdomain">The production subdomain.</param>
         /// <param name="resourcePath">The resource path relative to the <see cref="AuthenticatedClient.BaseUri"/></param>
         public ApiClient(string apiToken, string subdomain, string resourcePath) : base(apiToken, subdomain)
+        {
+            this.resourcePath = resourcePath;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiClient{T}"/> class. To be used when pointing to a non-okta.com tenant. 
+        /// </summary>
+        /// <param name="apiToken">The API token.</param>
+        /// <param name="uri">The Uri of the Okta (okta.com, oktapreview.com, okta-emea.com) subdomain.</param>
+        /// <param name="resourcePath">The resource path relative to the <see cref="AuthenticatedClient.BaseUri"/></param>
+        public ApiClient(string apiToken, Uri uri, string resourcePath) : base(apiToken, uri)
         {
             this.resourcePath = resourcePath;
         }

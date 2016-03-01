@@ -13,6 +13,7 @@
         public UsersClient(IOktaHttpClient clientWrapper) : base(clientWrapper, Constants.EndpointV1 + Constants.UsersEndpoint) { }
         public UsersClient(OktaSettings oktaSettings) : base(oktaSettings, Constants.EndpointV1 + Constants.UsersEndpoint) { }
         public UsersClient(string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.UsersEndpoint) { }
+        public UsersClient(string apiToken, Uri baseUri) : base(apiToken, baseUri, Constants.EndpointV1 + Constants.UsersEndpoint) { }
 
         public virtual User Add(User user, bool activate = true)
         {
