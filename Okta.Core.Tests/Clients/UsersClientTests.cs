@@ -50,8 +50,8 @@ namespace Okta.Core.Tests.Clients
             Models.User oktaUser = CreateUser(dbUser, out strEx);
 
             Assert.IsNotNull(oktaUser, "Okta User {0} could not be created: {1}", dbUser.Login, strEx);
-            
-            Assert.IsTrue(oktaUser.Status == (dbUser.Activate ? Models.UserStatus.Provisioned : Models.UserStatus.Staged) , "Okta User {0} status is {1}", dbUser.Login, oktaUser.Status);
+
+            Assert.IsTrue(oktaUser.Status == (dbUser.Activate ? Models.UserStatus.Provisioned : Models.UserStatus.Staged), "Okta User {0} status is {1}", dbUser.Login, oktaUser.Status);
         }
 
         [TestMethod]
@@ -237,11 +237,74 @@ namespace Okta.Core.Tests.Clients
                 if (existingUser != null)
                 {
                     List<string> unmappedProperties = existingUser.Profile.GetUnmappedPropertyNames();
-                    foreach(string unmappedProperty in unmappedProperties)
+                    foreach (string unmappedProperty in unmappedProperties)
                     {
                         string strPropertyValue = existingUser.Profile.GetProperty(unmappedProperty);
                     }
                 }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+
+        }
+
+        [TestMethod]
+        [DataSource(TestConstants.ATTRIBUTES_DATASOURCE_NAME)]
+        public void SetCustomAttributes()
+        {
+            TestCustomAttribute dbCustomAttr = Helpers.GetCustomAttribute(TestContext);
+
+            string strEx = string.Empty;
+            Models.User existingUser = null;
+            string strUserLogin = dbCustomAttr.Login;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                existingUser = usersClient.GetByUsername(strUserLogin);
+
+                if (existingUser != null)
+                {
+                    List<string> unmappedProperties = existingUser.Profile.GetUnmappedPropertyNames();
+                    foreach (string unmappedProperty in unmappedProperties)
+                    {
+                        string strPropertyValue = existingUser.Profile.GetProperty(unmappedProperty);
+                    }
+                }
+
+                object oValue = string.Empty;
+
+                if (dbCustomAttr.MultiValued) //we assume it's an array of strings
+                {
+                    if (existingUser.Profile.ContainsProperty(dbCustomAttr.Name))
+                    {
+                        string[] arAttrVal = OktaJsonConverter.GetStringArray(existingUser.Profile.GetProperty(dbCustomAttr.Name));
+                        List<string> lstVal = new List<string>(arAttrVal);
+                        string[] arValues = dbCustomAttr.Value.Split(',');
+                        List<string> lstNewVal = new List<string>(arValues);
+                        lstVal.AddRange(lstNewVal);
+                        oValue = lstVal.ToArray();
+                    }
+                    else
+                    {
+                        oValue = string.Format("[{0}]", dbCustomAttr.Value);
+                    }
+                }
+                else
+                {
+                    oValue = dbCustomAttr.Value;
+                }
+                string s = existingUser.Profile.GetProperty(dbCustomAttr.Name);
+
+                existingUser.Profile.SetProperty(dbCustomAttr.Name, oValue);
+
+                usersClient.Update(existingUser);
+                //}
+
+
             }
             catch (OktaException e)
             {

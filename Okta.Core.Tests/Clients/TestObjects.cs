@@ -32,4 +32,12 @@ namespace Okta.Core.Tests.Clients
         public string Description { get; set; }
         public List<string> Users { get; set; }
     }
+
+    class TestCustomAttribute
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+        public string Login { get; set; }
+        public bool MultiValued { get; set; }
+    }
 }

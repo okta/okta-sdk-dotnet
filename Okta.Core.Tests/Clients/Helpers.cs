@@ -66,5 +66,24 @@ namespace Okta.Core.Tests.Clients
 
             return group;
         }
+
+        internal static TestCustomAttribute GetCustomAttribute(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext context)
+        {
+            TestCustomAttribute attr = new TestCustomAttribute
+            {
+                Login = Convert.ToString(context.DataRow["Login"]),
+                Name = Convert.ToString(context.DataRow["AttributeName"]),
+                Value = Convert.ToString(context.DataRow["AttributeValue"]),
+                
+            };
+
+            if (context.DataRow["MultiValued"] != System.DBNull.Value)
+            {
+                attr.MultiValued = Convert.ToBoolean(context.DataRow["MultiValued"]);
+            }
+
+            return attr;
+        }
+
     }
 }

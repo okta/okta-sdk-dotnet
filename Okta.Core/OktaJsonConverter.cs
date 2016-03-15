@@ -286,5 +286,11 @@
 
             return null;
         }
+
+        public static string[] GetStringArray(string jsonData)
+        {
+            return JsonConvert.DeserializeObject<string[]>(jsonData);
+        }
+
     }
 }
