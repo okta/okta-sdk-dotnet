@@ -254,4 +254,10 @@
             return Where(filter);
         }
     }
+
+    public enum SearchType
+    {
+        Filter = 0,
+        ElasticSearch = 1
+    }
 }

@@ -313,6 +313,52 @@ namespace Okta.Core.Tests.Clients
 
         }
 
+        [TestMethod]
+        public void GetActiveUsersWithFilter()
+        {
+            PagedResults<Models.User> results = GetActiveUsers(SearchType.Filter, "status", "ACTIVE");
+            Assert.IsNotNull(results, "There are no active users in this organization (filter search)");
+            Assert.IsNotNull(results.Results, "There are no active users in this organization (filter search)");
+            Assert.IsTrue(results.Results.Count > 0, "The search returned no result");
+        }
+
+        [TestMethod]
+        public void GetActiveUsersWithSearch()
+        {
+            PagedResults<Models.User> results = GetActiveUsers(SearchType.ElasticSearch, "status", "ACTIVE");
+            Assert.IsNotNull(results, "There are no active users in this organization (advanced search)");
+            Assert.IsNotNull(results.Results, "There are no active users in this organization (filter search)");
+            Assert.IsTrue(results.Results.Count > 0, "The search returned no result");
+        }
+
+        [TestMethod]
+        public void GetUsersWhoLikeChocolate()
+        {
+            PagedResults<Models.User> results = GetActiveUsers(SearchType.ElasticSearch, "profile.favoriteIceCreamFlavor", "chocolate");
+            Assert.IsNotNull(results, "There are no active users in this organization (advanced search)");
+            Assert.IsNotNull(results.Results, "There are no active users in this organization (filter search)");
+            Assert.IsTrue(results.Results.Count > 0, "The search returned no result");
+        }
+
+        private PagedResults<Models.User> GetActiveUsers(SearchType type, string strAttribute, string strEqualToValue)
+        {
+            string strEx = string.Empty;
+            PagedResults<Models.User> results = null;
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+                FilterBuilder filter = new FilterBuilder();
+                filter.Where(strAttribute);
+                filter.EqualTo(strEqualToValue);
+                results = usersClient.GetList(filter: filter, searchType: type);
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+            return results;
+        }
+
         private Models.User GetUser(string strUserId)
         {
             Models.User user = null;

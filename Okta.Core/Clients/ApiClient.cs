@@ -55,7 +55,7 @@
         /// </summary>
         /// <param name="oktaSettings">The Okta settings to configure the <see cref="AuthenticatedClient.BaseClient"/></param>
         /// <param name="resourcePath">The resource path relative to the <see cref="AuthenticatedClient.BaseUri"/></param>
-        public ApiClient(OktaSettings oktaSettings, string resourcePath) : base(oktaSettings) 
+        public ApiClient(OktaSettings oktaSettings, string resourcePath) : base(oktaSettings)
         {
             this.resourcePath = resourcePath;
         }
@@ -160,11 +160,12 @@
         /// <returns>A single page list</returns>
         /// <exception cref="OktaException">Unable to convert the response from  + resourcePath +  to an enumerable</exception>
         public virtual PagedResults<T> GetList(
-            Uri nextPage = null, 
-            int pageSize = Constants.DefaultPageSize, 
-            FilterBuilder filter = null, 
-            string query = null, 
-            string after = null, 
+            Uri nextPage = null,
+            int pageSize = Constants.DefaultPageSize,
+            FilterBuilder filter = null,
+            SearchType searchType = SearchType.Filter,
+            string query = null,
+            string after = null,
             DateTime? startDate = null)
         {
             // Ensure we have a non-empty query
@@ -196,7 +197,10 @@
                 // Add the filter if it exists
                 if (filter != null)
                 {
-                    path.Append("&filter=" + filter);
+                    if (searchType == SearchType.Filter)
+                        path.Append("&filter=" + filter);
+                    else
+                        path.Append("&search=" + filter);
                 }
 
                 // Add a query if it exists
@@ -233,7 +237,7 @@
             IEnumerable<string> linkHeaders;
             if (result.Headers.TryGetValues("Link", out linkHeaders))
             {
-                foreach(var header in linkHeaders)
+                foreach (var header in linkHeaders)
                 {
                     // Split the header on semicolons
                     var split = header.Split(';');
@@ -275,13 +279,14 @@
         /// <param name="startDate">A start date parameter supported by a few clients.</param>
         /// <returns>An enumerator</returns>
         public virtual EnumerableResults<T> GetFilteredEnumerator(
-            FilterBuilder filter = null, 
-            int pageSize = Constants.DefaultPageSize, 
-            string query = null, 
-            string after = null, 
+            FilterBuilder filter = null,
+            SearchType searchType = SearchType.Filter,
+            int pageSize = Constants.DefaultPageSize,
+            string query = null,
+            string after = null,
             DateTime? startDate = null)
         {
-            var nestedList = GetList(pageSize: pageSize, filter: filter, query: query, after: after, startDate: startDate);
+            var nestedList = GetList(pageSize: pageSize, filter: filter, searchType: searchType, query: query, after: after, startDate: startDate);
             return new EnumerableResults<T>(this, nestedList);
         }
 
@@ -296,9 +301,9 @@
         }
 
         protected virtual HttpResponseMessage PerformLifecycle(
-            T oktaObject, 
-            string lifecycle, 
-            string body = null, 
+            T oktaObject,
+            string lifecycle,
+            string body = null,
             Dictionary<string, object> urlParams = null)
         {
             string urlParameters = string.Empty;
@@ -324,9 +329,9 @@
         }
 
         protected virtual HttpResponseMessage PerformLifecycle(
-            string id, 
-            string lifecycle, 
-            string body = null, 
+            string id,
+            string lifecycle,
+            string body = null,
             Dictionary<string, object> urlParams = null)
         {
             string urlParameters = string.Empty;
