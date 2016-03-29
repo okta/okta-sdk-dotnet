@@ -16,12 +16,26 @@
 
         protected string resourcePath { get; set; }
 
-        public virtual AuthResponse Authenticate(string username, string password, string relayState = null)
+        /// <summary>
+        /// Authenticates an Okta user
+        /// </summary>
+        /// <param name="username">User's username/login</param>
+        /// <param name="password">User's password</param>
+        /// <param name="relayState">opaque value for the transaction and processed as untrusted data which is just echoed in a response. It is the client’s responsibility to escape/encode this value before displaying in a UI such as a HTML document </param>
+        /// <param name="bWarnPasswordExpired">Optional parameter indicating whether the PASSWORD_WARN status should be returned if available. Defaults to false</param>
+        /// <param name="bMultiOptionalFactorEnroll">Optional parameter indicating whether the user should be prompted to add an additional second factor if available </param>
+        /// <returns></returns>
+        public virtual AuthResponse Authenticate(string username, string password, string relayState = null, bool bWarnPasswordExpired = false, bool bMultiOptionalFactorEnroll = false)
         {
             var authRequest = new AuthRequest {
                 Username = username, 
                 Password = password, 
-                RelayState = relayState
+                RelayState = relayState,
+                Options =
+                {
+                    WarnBeforePasswordExpiration = bWarnPasswordExpired,
+                    MultiOptionalFactorEnroll = bMultiOptionalFactorEnroll
+                }
             };
 
             var response = BaseClient.Post(resourcePath, authRequest.ToJson(), false);
@@ -48,6 +62,27 @@
             apiObject.SetProperty("passCode", passCode);
             var nextLink = authResponse.Links["next"].First();
             return Execute(stateToken, nextLink, apiObject);
+        }
+
+        public virtual AuthResponse ChangePassword(string stateToken, string oldPassword, string newPassword)
+        {
+            AuthNewPassword anp = new AuthNewPassword
+            {
+                OldPassword = oldPassword,
+                NewPassword = newPassword,
+                StateToken = stateToken
+            };
+            var response = BaseClient.Post(resourcePath + Constants.LifecycleMap[Constants.LifecycleChangePassword], anp.ToJson(), false);
+            return Utils.Deserialize<AuthResponse>(response);
+        }
+
+
+        public virtual AuthResponse Skip(string stateToken)
+        {
+            var apiObject = new ApiObject();
+            apiObject.SetProperty("stateToken", stateToken);
+            var response = BaseClient.Post(resourcePath + Constants.SkipEndpoint, apiObject.ToJson());
+            return Utils.Deserialize<AuthResponse>(response);
         }
 
         public virtual AuthResponse ValidateToken(string recoveryToken)

@@ -26,6 +26,15 @@
         public Uri SelfUri { get { return Links.ContainsKey("self") ? this.Links["self"].First().Href : null; } }
 
         /// <summary>
+        /// Gets the refresh URI.
+        /// </summary>
+        /// <value>
+        /// The Refresh URI.
+        /// </value>
+        public Uri RefreshUri { get { return Links.ContainsKey("refresh") ? this.Links["refresh"].First().Href : null; } }
+
+
+        /// <summary>
         /// Gets or sets the HAL links of an object.
         /// </summary>
         /// <value>

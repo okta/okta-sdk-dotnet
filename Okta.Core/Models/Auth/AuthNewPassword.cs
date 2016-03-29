@@ -12,5 +12,9 @@
 
         [JsonProperty("newPassword")]
         public string NewPassword { get; set; }
+
+        [JsonProperty("stateToken")]
+        public string StateToken { get; set; }
+
     }
 }

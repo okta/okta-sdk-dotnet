@@ -18,7 +18,9 @@
     <UpdateAssemblyVersion>False</UpdateAssemblyVersion>
     <UpdateAssemblyFileVersion>True</UpdateAssemblyFileVersion>
     <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
-    <AssemblyFileVersionSettings>None.None.None.DateStamp</AssemblyFileVersionSettings>
+    <AssemblyFileVersionSettings>None.None.DateStamp.TimeStamp</AssemblyFileVersionSettings>
+    <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
+    <AssemblyVersion>0.2.3.16083</AssemblyVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +51,7 @@
     <Compile Include="Exceptions\OktaAuthenticationException.cs" />
     <Compile Include="Exceptions\OktaErrorCodes.cs" />
     <Compile Include="IOktaHttpClient.cs" />
+    <Compile Include="Models\Auth\AuthOptions.cs" />
     <Compile Include="Models\Auth\AuthRequest.cs" />
     <Compile Include="Models\Auth\AuthContext.cs" />
     <Compile Include="Models\Auth\AuthResponse.cs" />

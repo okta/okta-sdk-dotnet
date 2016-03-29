@@ -39,6 +39,7 @@ namespace Okta.Core
         public const string VerifyEndpoint = "/verify";
         public const string AppLinksEndpoint = "/appLinks";
         public const string RecoveryEndpoint = "/recovery";
+        public const string SkipEndpoint = "/skip";
         public const string TokenEndpoint = "/token";
   
         // Mfa types

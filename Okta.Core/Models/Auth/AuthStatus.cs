@@ -8,6 +8,10 @@
     /// </remarks>
     public static class AuthStatus
     {
+
+        /// <summary>The user’s password was successfully validated but is about to expire. Only returned if WarnBeforePasswordExpiration is set to true when calling AuthClient.Authenticate()</summary>
+        public const string PasswordWarn = "PASSWORD_WARN";
+
         // (Sorted according to the "Authentication Status" table in the URL above.)
         /// <summary>The user’s password was successfully validated but is expired.</summary>
         public const string PasswordExpired = "PASSWORD_EXPIRED";

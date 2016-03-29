@@ -23,7 +23,7 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.2.3.0")]
-[assembly: AssemblyFileVersion("0.2.3.16083")]
+[assembly: AssemblyVersion("0.2.5.0")]
+[assembly: AssemblyFileVersion("0.2.16089.1843")]
 
 [assembly: InternalsVisibleTo("Okta.Core.Tests")]

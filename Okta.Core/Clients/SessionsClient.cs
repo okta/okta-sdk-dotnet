@@ -50,8 +50,14 @@
             return Get(id);
         }
 
-        public virtual Session Extend(Session session) { return Update(session); }
-        public virtual Session Extend(string id) { return Update(id); }
+        public virtual Session Extend(Session session) {
+            var result = BaseClient.Post(this.GetRefreshUri(session), null);
+            return Utils.Deserialize<Session>(result);
+        }
+        public virtual Session Extend(string id) {
+            var session = Get(id); //this intermediary call is required because sessions now have internal and public ids
+            return Extend(session);
+        }
 
         public virtual void Close(Session session) { this.Remove(session); }
         public virtual void Close(string id) { this.Remove(id); }
@@ -63,6 +69,25 @@
             var sessionRedirectUrlFormat = "{0}login/sessionCookieRedirect?token={1}&redirectUrl={2}";
             var encodedUrl = Uri.EscapeDataString(redirectUrl.ToString());
             return string.Format(sessionRedirectUrlFormat, this.BaseUri, cookieToken, encodedUrl);
+        }
+
+        public virtual Session CreateSession(string sessionToken)
+        {
+
+            var apiObject = new ApiObject();
+            apiObject.SetProperty("sessionToken", sessionToken);
+            var urlParameters = string.Empty;
+            var urlParams = new Dictionary<string, object> {
+                    {"additionalFields", "cookieToken"}
+                };
+            urlParameters = Utils.BuildUrlParams(urlParams);
+
+            HttpResponseMessage results;
+            // Call the api
+            results = BaseClient.Post(resourcePath + urlParameters, apiObject.ToJson());
+            return Utils.Deserialize<Session>(results);
+
+
         }
     }
 }

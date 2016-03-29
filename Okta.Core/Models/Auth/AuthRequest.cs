@@ -10,6 +10,7 @@
         public AuthRequest()
         {
             Context = new AuthContext();
+            Options = new AuthOptions();
         }
 
         [JsonProperty("username")]
@@ -23,5 +24,9 @@
 
         [JsonProperty("context")]
         public AuthContext Context { get; set; }
+
+        [JsonProperty("options")]
+        public AuthOptions Options { get; set; }
+
     }
 }

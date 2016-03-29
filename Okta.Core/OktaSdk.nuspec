@@ -3,7 +3,7 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.2.3.0</version>
+    <version>0.2.5.0</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
@@ -20,6 +20,16 @@
       * Windows Phone 8.1
       * Silverlight 5
       * Portable Class Libraries
+
+      Update Log
+      ----------
+      - v0.2.5.0: 
+          Added support for Password Expiration Warning and Multi Optional MFA Enroll
+          Added ChangePassword and Skip methods in AuthClient (Password Warn flow)
+          Enhanced Session object (added previously unexposed properties, such as ExpiresAt)
+          Added GetRefreshUri method on ApiClient
+          Fixed Extend endpoint for Session objects (SessionsClient)
+      - v0.2.4.0: Added Advanced Search support
     </description>
     <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
     <copyright>© Okta 2016</copyright>

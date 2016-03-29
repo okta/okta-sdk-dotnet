@@ -59,6 +59,47 @@
         {
             this.resourcePath = resourcePath;
         }
+        protected Uri GetRefreshUri(T oktaObject, params string[] extraResources)
+        {
+            if (oktaObject == null)
+            {
+                throw new ArgumentNullException("oktaObject");
+            }
+
+            // Start by trying to get the refresh uri of the object
+            if (oktaObject.RefreshUri != null)
+            {
+                // Build a uri for this resource
+                StringBuilder uri = new StringBuilder();
+                uri.Append(oktaObject.RefreshUri);
+                uri.Append(string.Join("/", extraResources));
+                return new Uri(uri.ToString());
+            }
+
+            // Or try to build it
+            if (oktaObject.Id != null)
+            {
+                return this.GetResourceUri(oktaObject.Id, extraResources);
+            }
+
+            // Otherwise, we're trying to get something that doesn't exist
+            throw new OktaException("An object must have an href or an id");
+        }
+
+        protected Uri GetRefreshUri(string id, params string[] extraResources)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                throw new ArgumentNullException("id");
+            }
+
+            StringBuilder uri = new StringBuilder();
+            uri.Append(BaseClient.BaseUri.ToString().TrimEnd('/'));
+            uri.Append(resourcePath);
+            uri.Append("/" + id);
+            uri.Append(string.Join("/", extraResources));
+            return new Uri(uri.ToString());
+        }
 
         protected Uri GetResourceUri(T oktaObject, params string[] extraResources)
         {
@@ -67,7 +108,6 @@
                 throw new ArgumentNullException("oktaObject");
             }
 
-            // Start by trying to get the href of the object
             if (oktaObject.SelfUri != null)
             {
                 // Build a uri for this resource
