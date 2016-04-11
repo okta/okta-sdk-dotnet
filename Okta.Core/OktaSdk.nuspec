@@ -3,7 +3,7 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.2.5.0</version>
+    <version>0.2.6.0</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
@@ -23,12 +23,15 @@
 
       Update Log
       ----------
-      - v0.2.5.0: 
-          Added support for Password Expiration Warning and Multi Optional MFA Enroll
-          Added ChangePassword and Skip methods in AuthClient (Password Warn flow)
-          Enhanced Session object (added previously unexposed properties, such as ExpiresAt)
-          Added GetRefreshUri method on ApiClient
-          Fixed Extend endpoint for Session objects (SessionsClient)
+      - v0.2.6.0:
+      Added support for the automation of the creation of WS-Fed application (+AppsClient test class)
+      Added ability to retrieve a user factor based on its id
+      - v0.2.5.0:
+      Added support for Password Expiration Warning and Multi Optional MFA Enroll
+      Added ChangePassword and Skip methods in AuthClient (Password Warn flow)
+      Enhanced Session object (added previously unexposed properties, such as ExpiresAt)
+      Added GetRefreshUri method on ApiClient
+      Fixed Extend endpoint for Session objects (SessionsClient)
       - v0.2.4.0: Added Advanced Search support
     </description>
     <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>

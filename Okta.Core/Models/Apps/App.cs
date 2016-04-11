@@ -97,7 +97,8 @@ namespace Okta.Core.Models
                 PasswordField = passwordField, 
                 ButtonField = buttonField, 
                 ExtraFieldSelector = extraFieldSelector, 
-                ExtraFieldValue = extraFieldValue
+                ExtraFieldValue = extraFieldValue,
+                Url = url
             };
 
             return app;
@@ -136,6 +137,7 @@ namespace Okta.Core.Models
             };
 
             app.Settings.App = new AppSettings {
+                Url = url,
                 UsernameField = usernameField, 
                 PasswordField = passwordField, 
                 OptionalField1 = optionalField1, 
@@ -197,14 +199,14 @@ namespace Okta.Core.Models
             return app;
         }*/
 
-        /*// Build WS-Fed
+         // Build WS-Fed
         public static App BuildWSFed(
             string label = null,
             string audienceRestriction = "urn:example:app",
             string groupName = null,
             string groupValueFormat = "windowsDomainQualifiedName",
             string realm = "urn:example:app",
-            string wReplyURL = "https://example.com/",
+            string wReplyURL = "https://example.com/replyto",
             string attributeStatements = null,
             string nameIDFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
             string authnContextClassRef = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
@@ -238,7 +240,7 @@ namespace Okta.Core.Models
 
             return app;
         }
-        */
+        
 
         /// <summary>
         /// Unique key for app definition

@@ -19,6 +19,13 @@
             return Utils.Deserialize<List<Factor>>(response);
         }
 
+        public virtual Factor GetFactor(string factorId)
+        {
+            var response = BaseClient.Get(resourcePath + "/" + factorId);
+            return Utils.Deserialize<Factor>(response);
+
+        }
+
         public virtual List<Question> GetQuestions()
         {
             var response = BaseClient.Get(resourcePath + Constants.QuestionsEndpoint);
