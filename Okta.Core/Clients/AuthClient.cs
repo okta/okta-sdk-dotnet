@@ -4,7 +4,7 @@
     using System.Linq;
 
     using Okta.Core.Models;
-
+    using System.Collections.Generic;
     /// <summary>
     /// A client to manage the authentication flow.
     /// </summary>
@@ -64,6 +64,25 @@
             return Execute(stateToken, nextLink, apiObject);
         }
 
+        public virtual AuthResponse VerifyTotpFactor(string factorId, AuthResponse authResponse, string passCode)
+        {
+            
+            var apiObject = new ApiObject();
+            apiObject.SetProperty("stateToken", authResponse.StateToken);
+            apiObject.SetProperty("passCode", passCode);
+            var response = BaseClient.Post(resourcePath + Constants.FactorsEndpoint + "/" + factorId + Constants.VerifyEndpoint, apiObject.ToJson(), true);
+            return Utils.Deserialize<AuthResponse>(response);
+        }
+
+        public virtual AuthResponse VerifyPullFactor(string factorId, AuthResponse authResponse)
+        {
+            var apiObject = new ApiObject();
+            apiObject.SetProperty("stateToken", authResponse.StateToken);
+            var response = BaseClient.Post(resourcePath + Constants.FactorsEndpoint + "/" + factorId + Constants.VerifyEndpoint, apiObject.ToJson(), true);
+            return Utils.Deserialize<AuthResponse>(response);
+        }
+
+
         public virtual AuthResponse ChangePassword(string stateToken, string oldPassword, string newPassword)
         {
             AuthNewPassword anp = new AuthNewPassword
@@ -106,12 +125,23 @@
             return Execute(stateToken, link.Href, apiObject);
         }
 
+        public virtual AuthResponse Execute(string stateToken, string relativeUri, ApiObject apiObject = null)
+        {
+            // Create a new apiObject if it's null, because we need to add a stateToken
+            apiObject = apiObject ?? new ApiObject();
+            if (!apiObject.ContainsProperty("stateToken"))
+                apiObject.SetProperty("stateToken", stateToken);
+            var response = BaseClient.Post(relativeUri, apiObject.ToJson(), true);
+            return Utils.Deserialize<AuthResponse>(response);
+        }
+
         public virtual AuthResponse Execute(string stateToken, Uri uri, ApiObject apiObject = null)
         {
             // Create a new apiObject if it's null, because we need to add a stateToken
             apiObject = apiObject ?? new ApiObject();
-            apiObject.SetProperty("stateToken", stateToken);
-            var response = BaseClient.Post(uri, apiObject.ToJson());
+            if(!apiObject.ContainsProperty("stateToken"))
+                apiObject.SetProperty("stateToken", stateToken);
+            var response = BaseClient.Post( uri, apiObject.ToJson());
             return Utils.Deserialize<AuthResponse>(response);
         }
     }

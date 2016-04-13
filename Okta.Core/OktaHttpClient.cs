@@ -145,7 +145,7 @@
 
         public override Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true)
         {
-            // Ensure we have exactly one useable Uri
+            // Ensure we have exactly one usable Uri
             if (string.IsNullOrEmpty(relativeUri) && uri == null)
             {
                 throw new OktaException("Cannot execute an Http request without a Uri");
