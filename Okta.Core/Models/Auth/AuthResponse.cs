@@ -29,6 +29,9 @@
         [JsonProperty("status")]
         public string Status { get; set; }
 
+        [JsonProperty("factorResult")]
+        public string FactorResult { get; set; }
+
         [JsonProperty("relayState")]
         public string RelayState { get; set; }
 

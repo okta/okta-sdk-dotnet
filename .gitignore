@@ -186,3 +186,8 @@ UpgradeLog*.htm
 
 # Microsoft Fakes
 FakesAssemblies/
+/Okta.Core/Documentation
+/Okta.Core.Tests/Okta.Core.Tests_Signed.csproj
+/Okta.Core/public.snk
+/OktaSDK_Signed.sln
+/Okta.Core.Tests/public.snk
