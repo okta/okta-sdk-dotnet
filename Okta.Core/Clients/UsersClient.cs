@@ -147,6 +147,16 @@
             PerformLifecycle(id, Constants.LifecycleDeactivate);
         }
 
+        public virtual void Suspend(string id)
+        {
+            PerformLifecycle(id, Constants.LifecycleSuspend);
+        }
+
+        public virtual void Unsuspend(string id)
+        {
+            PerformLifecycle(id, Constants.LifecycleUnsuspend);
+        }
+
         public virtual void Unlock(User user)
         {
             PerformLifecycle(user, Constants.LifecycleUnlock);

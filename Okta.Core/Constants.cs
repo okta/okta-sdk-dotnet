@@ -63,6 +63,8 @@ namespace Okta.Core
         public const string LifecycleExpirePassword = "expirePassword";
         public const string LifecycleResetFactors = "resetFactors";
         public const string LifecycleUnlock = "unlock";
+        public const string LifecycleSuspend = "suspend";
+        public const string LifecycleUnsuspend = "unsuspend";
         public const string LifecycleForgotPassword = "forgotPassword";
         public const string LifecycleChangePassword = "changePassword";
         public const string LifecycleChangeRecoveryQuestion = "changeRecoveryQuestion";
@@ -75,6 +77,8 @@ namespace Okta.Core
         public const string LifecycleExpirePasswordEndpoint = LifecycleEndpoint + "/expire_password";
         public const string LifecycleResetFactorsEndpoint = LifecycleEndpoint + "/reset_factors";
         public const string LifecycleUnlockEndpoint = LifecycleEndpoint + "/unlock";
+        public const string LifecycleSuspendEndpoint = LifecycleEndpoint + "/suspend";
+        public const string LifecycleUnsuspendEndpoint = LifecycleEndpoint + "/unsuspend";
 
         public const string CredentialsEndpoint = "/credentials";
         public const string CredentialsForgotPasswordEndpoint = CredentialsEndpoint + "/forgot_password";
@@ -89,6 +93,8 @@ namespace Okta.Core
             {LifecycleExpirePassword, LifecycleExpirePasswordEndpoint},
             {LifecycleResetFactors, LifecycleResetFactorsEndpoint},
             {LifecycleUnlock, LifecycleUnlockEndpoint},
+            {LifecycleSuspend, LifecycleSuspendEndpoint},
+             {LifecycleUnsuspend, LifecycleUnsuspendEndpoint},
             {LifecycleForgotPassword, CredentialsForgotPasswordEndpoint},
             {LifecycleChangePassword, CredentialsChangePasswordEndpoint},
             {LifecycleChangeRecoveryQuestion, CredentialsChangeRecoveryQuestionEndpoint},

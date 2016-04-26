@@ -218,6 +218,74 @@ namespace Okta.Core.Tests.Clients
 
         [TestMethod]
         [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
+        public void SuspendUser()
+        {
+            TestUser dbUser = Helpers.GetUser(TestContext);
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
+            string strEx = string.Empty;
+            Models.User existingUser = null;
+            string strUserLogin = dbUser.Login;
+            string strNewUserLogin = string.Empty;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                existingUser = usersClient.GetByUsername(strUserLogin);
+
+                if (existingUser != null && existingUser.Status == "ACTIVE")
+                {
+                    usersClient.Suspend(existingUser.Id);
+
+                    //refreshes the user in order to get its status
+                    existingUser = usersClient.GetByUsername(strUserLogin);
+                    Assert.IsTrue(existingUser.Status == "SUSPENDED", string.Format("The status of your user is " + existingUser.Status));
+                }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+
+        }
+
+        [TestMethod]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
+        public void UnsuspendUser()
+        {
+            TestUser dbUser = Helpers.GetUser(TestContext);
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
+            string strEx = string.Empty;
+            Models.User existingUser = null;
+            string strUserLogin = dbUser.Login;
+            string strNewUserLogin = string.Empty;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                existingUser = usersClient.GetByUsername(strUserLogin);
+
+                if (existingUser != null && existingUser.Status == "SUSPENDED")
+                {
+                    usersClient.Unsuspend(existingUser.Id);
+
+                    //refreshes the user in order to get its status
+                    existingUser = usersClient.GetByUsername(strUserLogin);
+                    Assert.IsTrue(existingUser.Status == "ACTIVE", string.Format("The status of your user is " + existingUser.Status));
+                }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+
+        }
+
+        [TestMethod]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void GetCustomProperties()
         {
             TestUser dbUser = Helpers.GetUser(TestContext);
