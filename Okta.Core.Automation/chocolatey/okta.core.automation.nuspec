@@ -7,14 +7,14 @@
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/okta/okta.github.io/master/assets/img/logo-large.png</iconUrl>
+    <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official PowerShell Module for Okta</summary>
     <description>
       This package allows you to build on Okta's identity platform using PowerShell.
     </description>
     <releaseNotes>Beta release - Do not use in production environments. This library is subject to substantial change.</releaseNotes>
-    <copyright>© Okta 2015</copyright>
+    <copyright>© Okta 2016</copyright>
     <tags>okta sdk api authentication identity management powershell module</tags>
     <dependencies>
       <group>
@@ -27,6 +27,6 @@
     <file src="Okta.Core.Automation.psd1" target="."/>
     <file src="ChocolateyInstall.ps1" target="."/>
     <file src="ChocolateyUninstall.ps1" target="."/>
-    <file src="..\bin\Release\Okta.Core.Automation.dll" target="bin"/>
+    <file src="..\bin\Okta.Core.Automation.dll" target="bin"/>
   </files>
 </package>

@@ -23,6 +23,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestData", "TestData", "{74
 		TestData\OktaSDKTests.sdf = TestData\OktaSDKTests.sdf
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerShell", "PowerShell", "{9DF17123-B2CA-46B3-AA61-2C13E12B06E2}"
+	ProjectSection(SolutionItems) = preProject
+		Okta.Core.Automation\chocolatey\ChocolateyInstall.ps1 = Okta.Core.Automation\chocolatey\ChocolateyInstall.ps1
+		Okta.Core.Automation\chocolatey\ChocolateyUninstall.ps1 = Okta.Core.Automation\chocolatey\ChocolateyUninstall.ps1
+		Okta.Core.Automation\chocolatey\nuget.config = Okta.Core.Automation\chocolatey\nuget.config
+		Okta.Core.Automation\chocolatey\okta.core.automation.nuspec = Okta.Core.Automation\chocolatey\okta.core.automation.nuspec
+		Okta.Core.Automation\chocolatey\Okta.Core.Automation.psd1 = Okta.Core.Automation\chocolatey\Okta.Core.Automation.psd1
+		Okta.Core.Automation\chocolatey\README.md = Okta.Core.Automation\chocolatey\README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,5 +57,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{74DED4A6-C42A-4E1C-8BC5-41BEFD766983} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
+		{9DF17123-B2CA-46B3-AA61-2C13E12B06E2} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 	EndGlobalSection
 EndGlobal
