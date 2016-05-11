@@ -427,11 +427,32 @@ namespace Okta.Core.Tests.Clients
             return results;
         }
 
-        private Models.User GetUser(string strUserId)
+        //private Models.User GetUser(string strUserId)
+        //{
+        //    Models.User user = null;
+        //    var usersClient = oktaClient.GetUsersClient();
+        //    return user;
+        //}
+
+        [TestMethod]
+        public void GetUserByUsername()
         {
-            Models.User user = null;
-            var usersClient = oktaClient.GetUsersClient();
-            return user;
+            string strUserLogin = "brandon2@company.com";
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                Models.User existingUser = usersClient.GetByUsername(strUserLogin);
+
+                Assert.IsFalse(existingUser == null, "The user {0} doesn't exist", strUserLogin);
+            }
+            catch (OktaException e)
+            {
+                string strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.InnerException.InnerException.Message);
+                Console.WriteLine(strEx);
+            }
+
         }
 
         private Models.User CreateUser(TestUser dbUser, out string strEx)
