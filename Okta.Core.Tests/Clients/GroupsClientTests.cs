@@ -59,14 +59,14 @@ namespace Okta.Core.Tests.Clients
             string strGroupName = string.Empty;
 
             Group group = groupsClient.GetByName(dbGroup.Name);
-            if(group != null)
+            if (group != null)
             {
                 strGroupName = group.Profile.Name;
             }
 
             Assert.IsTrue(group != null, "Could not find group {0}", dbGroup.Name);
 
-Assert.IsTrue(strGroupName.ToLower() == dbGroup.Name.ToLower(), "The name of the found group is {0} while you were searching for {1}", strGroupName, dbGroup.Name);
+            Assert.IsTrue(strGroupName.ToLower() == dbGroup.Name.ToLower(), "The name of the found group is {0} while you were searching for {1}", strGroupName, dbGroup.Name);
 
         }
 
@@ -76,8 +76,8 @@ Assert.IsTrue(strGroupName.ToLower() == dbGroup.Name.ToLower(), "The name of the
         {
             TestGroup dbGroup = Helpers.GetGroup(TestContext);
             string strEx = string.Empty;
-            
-            Models.Group oktaGroup = CreateGroup(dbGroup, out strEx);
+
+            Models.Group oktaGroup = Helpers.CreateGroup(oktaClient, dbGroup, out strEx);
 
             Assert.IsNotNull(oktaGroup, "Okta Group {0} could not be created: {1}", dbGroup.Name, strEx);
 
@@ -108,43 +108,12 @@ Assert.IsTrue(strGroupName.ToLower() == dbGroup.Name.ToLower(), "The name of the
             }
             catch (Exception ex)
             {
-                strEx = string.Format("Genereic Error: {0} ",  ex.Message);
+                strEx = string.Format("Generic Error: {0} ", ex.Message);
             }
 
             Assert.IsTrue(string.IsNullOrEmpty(strEx), "Exception occurred while deleting group {0}: {1}", dbGroup.Name, strEx);
         }
 
-        private Models.Group CreateGroup(TestGroup dbGroup, out string strEx)
-        {
-            Models.Group oktaGroup = null;
-            strEx = string.Empty;
-
-            string strGroupName = dbGroup.Name;
-
-            try
-            {
-                var groupsClient = oktaClient.GetGroupsClient();
-
-                Models.Group group = new Models.Group(strGroupName, dbGroup.Description);
-
-                Models.Group existingGroup = groupsClient.GetByName(strGroupName);
-
-                if (existingGroup == null)
-                {
-                    oktaGroup = groupsClient.Add(group);
-                }
-                else
-                {
-                    strEx = string.Format("Group {0} already exists", existingGroup.Profile.Name);
-                }
-            }
-            catch (OktaException e)
-            {
-                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
-            }
-
-            return oktaGroup;
-        }
 
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Okta.Core.Clients;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
@@ -83,6 +85,75 @@ namespace Okta.Core.Tests.Clients
             }
 
             return attr;
+        }
+
+        internal static Models.User CreateUser(OktaClient oktaClient, TestUser dbUser, string strDateSuffix, out string strEx)
+        {
+            Models.User oktaUser = null;
+            strEx = string.Empty;
+
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
+            string strUserLogin = dbUser.Login;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                Models.User user = new Models.User(strUserLogin, dbUser.Email, dbUser.FirstName, dbUser.LastName);
+
+                Models.User existingUser = usersClient.GetByUsername(strUserLogin);
+
+                //in case our user already exists, we create a new user with a "more unique" username
+                if (existingUser != null)
+                {
+                    string[] arUserLogin = strUserLogin.Split('@');
+                    //changing the username to make it unique (since it's not yet possible to delete Okta users)
+                    strUserLogin = string.Format("{0}_{1}@{2}", arUserLogin[0], strDateSuffix, arUserLogin[1]);
+                    user = new Models.User(strUserLogin, dbUser.Email, dbUser.FirstName, dbUser.LastName);
+                }
+
+                oktaUser = usersClient.Add(user, dbUser.Activate);
+
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+
+            return oktaUser;
+        }
+
+        internal static Models.Group CreateGroup(OktaClient oktaClient, TestGroup dbGroup, out string strEx)
+        {
+            Models.Group oktaGroup = null;
+            strEx = string.Empty;
+
+            string strGroupName = dbGroup.Name;
+
+            try
+            {
+                var groupsClient = oktaClient.GetGroupsClient();
+
+                Models.Group group = new Models.Group(strGroupName, dbGroup.Description);
+
+                Models.Group existingGroup = groupsClient.GetByName(strGroupName);
+
+                if (existingGroup == null)
+                {
+                    oktaGroup = groupsClient.Add(group);
+                }
+                else
+                {
+                    strEx = string.Format("Group {0} already exists", existingGroup.Profile.Name);
+                }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+
+            return oktaGroup;
         }
 
     }

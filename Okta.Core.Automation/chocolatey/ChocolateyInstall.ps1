@@ -1,4 +1,4 @@
-# choco install Okta.Core.Automation -source '%cd%'
+# install Okta.Core.Automation -source '%cd%'
 
 $packageName = 'Okta.Core.Automation'
 $folder = "$($Home)\Documents\WindowsPowerShell\Modules\$($packageName)"

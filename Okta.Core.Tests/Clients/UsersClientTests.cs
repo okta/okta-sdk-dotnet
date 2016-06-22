@@ -47,7 +47,7 @@ namespace Okta.Core.Tests.Clients
         {
             TestUser dbUser = Helpers.GetUser(TestContext);
             string strEx = string.Empty;
-            Models.User oktaUser = CreateUser(dbUser, out strEx);
+            Models.User oktaUser = Helpers.CreateUser(oktaClient, dbUser, strDateSuffix, out strEx);
 
             Assert.IsNotNull(oktaUser, "Okta User {0} could not be created: {1}", dbUser.Login, strEx);
 
@@ -437,7 +437,7 @@ namespace Okta.Core.Tests.Clients
         [TestMethod]
         public void GetUserByUsername()
         {
-            string strUserLogin = "brandon2@company.com";
+            string strUserLogin = "isaac@company.com";
 
             try
             {
@@ -450,48 +450,12 @@ namespace Okta.Core.Tests.Clients
             catch (OktaException e)
             {
                 string strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.InnerException.InnerException.Message);
-                Console.WriteLine(strEx);
+                //Console.WriteLine(strEx);
             }
 
         }
 
-        private Models.User CreateUser(TestUser dbUser, out string strEx)
-        {
-            Models.User oktaUser = null;
-            strEx = string.Empty;
-
-            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
-            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
-            string strUserLogin = dbUser.Login;
-
-            try
-            {
-                var usersClient = oktaClient.GetUsersClient();
-
-                Models.User user = new Models.User(strUserLogin, dbUser.Email, dbUser.FirstName, dbUser.LastName);
-
-                Models.User existingUser = usersClient.GetByUsername(strUserLogin);
-
-                //in case our user already exists, we create a new user with a "more unique" username
-                if (existingUser != null)
-                {
-                    string[] arUserLogin = strUserLogin.Split('@');
-                    //changing the username to make it unique (since it's not yet possible to delete Okta users)
-                    strUserLogin = string.Format("{0}_{1}@{2}", arUserLogin[0], strDateSuffix, arUserLogin[1]);
-                    user = new Models.User(strUserLogin, dbUser.Email, dbUser.FirstName, dbUser.LastName);
-                }
-
-                oktaUser = usersClient.Add(user, dbUser.Activate);
-
-            }
-            catch (OktaException e)
-            {
-                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
-            }
-
-            return oktaUser;
-        }
-
+ 
         //private Tenant getTenant(TestContext context)
         //{
         //    Tenant tenant = new Tenant
