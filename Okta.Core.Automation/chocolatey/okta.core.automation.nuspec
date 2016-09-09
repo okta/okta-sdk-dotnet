@@ -1,24 +1,31 @@
 <?xml version="1.0"?>
-<package>
+<package xmlns="http://schemas.microsoft.com/packaging/2015/06/nuspec.xsd">
   <metadata>
     <title>Okta PowerShell Module</title>
-    <id>Okta.Core.Automation</id>
-    <version>0.1.5.2</version>
-    <authors>Okta</authors>
-    <owners>Okta</owners>
+    <id>okta.core.automation</id>
+    <version>0.1.5.4</version>
+    <authors>okta</authors>
+    <owners>okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
     <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectSourceUrl>https://github.com/okta/oktasdk-csharp</projectSourceUrl>
+    <packageSourceUrl>https://github.com/okta/oktasdk-csharp/tree/master/Okta.Core.Automation</packageSourceUrl>
+    <docsUrl>https://github.com/okta/oktasdk-csharp/blob/master/Okta.Core.Automation/README.md</docsUrl>
+    <!--<mailingListUrl>developers@okta.com</mailingListUrl>-->
+    <bugTrackerUrl>https://github.com/okta/oktasdk-csharp/issues</bugTrackerUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official PowerShell Module for Okta</summary>
     <description>
       This package allows you to build on Okta's identity platform using PowerShell.
     </description>
-    <releaseNotes>Beta release - Do not use in production environments. This library is subject to substantial change.</releaseNotes>
-    <copyright>© Okta 2016</copyright>
-    <tags>okta sdk api authentication identity management powershell module</tags>
+    <releaseNotes>Beta release - Use in production environments is possible, though not recommended. This library is subject to substantial change and is currently compatible with Okta.Core.Client v0.2.9 or later</releaseNotes>
+    <copyright>©2016 Okta, Inc</copyright>
+    <tags>okta sdk api authentication identity management PowerShell module</tags>
     <dependencies>
       <group>
-        <dependency id="NuGet.CommandLine" />
+        <dependency id="NuGet.CommandLine" version="3.4.3" />
+        <!--<dependency id="Okta.Core.Client" version="0.2.9" />-->
       </group>
     </dependencies>
   </metadata>

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Core.Automation", "Okta.Core.Automation\Okta.Core.Automation.csproj", "{41696AD2-3B6E-4FE4-AF00-F6E9B94906DE}"
 EndProject
@@ -34,6 +34,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerShell", "PowerShell", 
 		Okta.Core.Automation\chocolatey\README.md = Okta.Core.Automation\chocolatey\README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{3E52BD98-94FC-4574-B0E1-4E5B027AC5A3}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,5 +64,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{74DED4A6-C42A-4E1C-8BC5-41BEFD766983} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 		{9DF17123-B2CA-46B3-AA61-2C13E12B06E2} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
+		{3E52BD98-94FC-4574-B0E1-4E5B027AC5A3} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 	EndGlobalSection
 EndGlobal

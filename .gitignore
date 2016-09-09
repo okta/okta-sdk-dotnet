@@ -193,3 +193,4 @@ FakesAssemblies/
 /Okta.Core.Tests/public.snk
 /Okta.Core.Automation/chocolatey/Okta.Core.Automation.0.1.5.0.nupkg.old
 /Okta.OpenIdConnect.TokenValidation
+/Okta.Core.Automation/chocolatey/testpkg
