@@ -115,5 +115,14 @@ namespace Okta.Core.Models
 
         [JsonProperty("_links")]
         new public Dictionary<string, List<Link>> Links { get; set; }
+
+        [JsonProperty("passCode")]
+        public string PassCode { get; set; }
+
+        [JsonProperty("vendorName")]
+        public string VendorName { get; set; }
+
+        [JsonProperty("enrollment")]
+        public string Enrollment { get; set; }
     }
 }

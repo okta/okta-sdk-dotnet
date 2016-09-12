@@ -37,7 +37,7 @@
             };
         }
 
-        /// <summary>
+       /// <summary>
         /// Current status of user
         /// </summary>
         [JsonProperty("status")]
@@ -90,5 +90,12 @@
 
         [JsonProperty("credentials")]
         public LoginCredentials Credentials { get; set; }
+
+        /// <summary>
+        /// Current recovery question of user
+        /// </summary>
+        [JsonProperty("recovery_question")]
+        public RecoveryQuestion recoveryQuestion { get; set; }
+
     }
 }
