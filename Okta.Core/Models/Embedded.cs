@@ -46,7 +46,17 @@
 
         [JsonProperty("activation")]
         public Activation Activation { get; set; }
+
+        [JsonProperty("policy")]
+        public Policy policy { get; set; }
+
+        [JsonProperty("phones")]
+        public List<Phones> phones { get; set; }
+
+
     }
+
+
 
     public class Activation : LinkedObject
     {
@@ -61,5 +71,38 @@
 
         [JsonProperty("encoding")]
         public string Encoding { get; set; }
+    }
+
+
+    public class Phones
+    {
+        [JsonProperty("profile")]
+        public PhoneProfile profile { get; set; }
+
+        [JsonProperty("id")]
+        public string id { get; set; }
+
+        [JsonProperty("status")]
+        public string status { get; set; }
+    }
+
+    public class PhoneProfile
+    {
+        [JsonProperty("phoneNumber")]
+        public string phoneNumber { get; set; }
+    }
+
+    public class Policy
+    {
+        public Complexity complexity { get; set; }
+    }
+
+    public class Complexity
+    {
+        public int minLength { get; set; }
+        public int minLowerCase { get; set; }
+        public int minUpperCase { get; set; }
+        public int minNumber { get; set; }
+        public int minSymbol { get; set; }
     }
 }
