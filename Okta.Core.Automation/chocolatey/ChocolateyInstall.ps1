@@ -46,7 +46,7 @@ function Unblock-File {
 }
 
 try {
-	nuget install Okta.Core.Client -pre
+	nuget install Okta.Core.Client -Version 0.2.9
 
 	if(Test-Path -Path .\packages) {
 		# Copy the Okta.Core.Client
