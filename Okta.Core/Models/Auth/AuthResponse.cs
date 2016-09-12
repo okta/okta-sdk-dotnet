@@ -26,6 +26,9 @@
         [JsonProperty("expiresAt")]
         public DateTime ExpiresAt { get; set; }
 
+        [JsonProperty("recoveryType")]
+        public string RecoveryType { get; set; }
+
         [JsonProperty("status")]
         public string Status { get; set; }
 
