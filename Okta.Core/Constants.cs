@@ -41,7 +41,13 @@ namespace Okta.Core
         public const string RecoveryEndpoint = "/recovery";
         public const string SkipEndpoint = "/skip";
         public const string TokenEndpoint = "/token";
-  
+        public const string UnlockEndpoint = "/unlock";
+        public const string SmsEndpoint = "/sms";
+        public const string AnswerEndpoint = "/answer";
+        public const string PasswordEndpoint = "/password";
+        public const string PreviousEndpoint = "/previous";
+        public const string CancelEndpoint = "/cancel";
+
         // Mfa types
         public static class MfaTypes
         {
@@ -84,6 +90,7 @@ namespace Okta.Core
         public const string CredentialsForgotPasswordEndpoint = CredentialsEndpoint + "/forgot_password";
         public const string CredentialsChangePasswordEndpoint = CredentialsEndpoint + "/change_password";
         public const string CredentialsChangeRecoveryQuestionEndpoint = CredentialsEndpoint + "/change_recovery_question";
+        public const string CredentialsResetPasswordEndpoint = CredentialsEndpoint + "/reset_password";
 
         // Lifecycle aliases mapped to endpoints
         public static Dictionary<string, string> LifecycleMap = new Dictionary<string, string>{
