@@ -57,7 +57,7 @@
         }
 
         /// <summary>
-        /// Activates the Yubikey factor - will throws a "Yubikey seed file is not uploaded yet." error if a Yubikey seed file has not been uploaded yet
+        /// Activates the Yubikey factor - will throw a "Yubikey seed file is not uploaded yet." error if a Yubikey seed file has not been uploaded yet
         /// </summary>
         /// <returns></returns>
         public virtual Factor ActivateYubikey()
@@ -68,6 +68,20 @@
         public virtual Factor DeactivateYubikey()
         {
             return Deactivate(Constants.MfaTypes.Yubikey);
+        }
+
+        /// <summary>
+        /// Activates the Voice Call 2FA factor
+        /// </summary>
+        /// <returns></returns>
+        public virtual Factor ActivateVoiceCall()
+        {
+            return Activate(Constants.MfaTypes.VoiceCall);
+        }
+
+        public virtual Factor DeactivateVoiceCall()
+        {
+            return Deactivate(Constants.MfaTypes.VoiceCall);
         }
 
         public virtual Factor GetFactor(string strMfaType)

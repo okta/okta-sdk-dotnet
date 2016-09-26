@@ -133,9 +133,9 @@
                 // If there were no errors, just return
                 return response;
             }
-            catch (OktaException)
+            catch (OktaException oe)
             {
-                throw;
+                throw oe;
             }
             catch (Exception e)
             {

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
-using System.Text;
 
 namespace Okta.Core.Tests.Clients
 {
@@ -104,7 +103,7 @@ namespace Okta.Core.Tests.Clients
 
                 Models.User existingUser = usersClient.GetByUsername(strUserLogin);
 
-                //in case our user already exists, we create a new user with a "more unique" username
+                //in case our user already exists, we create a new user with a "more unique" username attribute
                 if (existingUser != null)
                 {
                     string[] arUserLogin = strUserLogin.Split('@');

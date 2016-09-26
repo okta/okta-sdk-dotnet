@@ -42,8 +42,5 @@
         [JsonProperty("_embedded")]
         public Embedded Embedded { get; set; }
 
-        [JsonProperty("_links")]
-        public Dictionary<string, List<Link>> Links { get; set; }
-
     }
 }

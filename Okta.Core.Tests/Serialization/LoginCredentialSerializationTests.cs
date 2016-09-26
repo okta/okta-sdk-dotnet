@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Okta.Core.Models;
 
 namespace Okta.Core.Tests.Serialization
@@ -26,7 +21,7 @@ namespace Okta.Core.Tests.Serialization
         [TestMethod]
         public void LoginCredentialShouldDeserialize()
         {
-            var result = JsonConvert.DeserializeObject<LoginCredentials>(LoginCredentialSampleData, new OktaJsonConverter());
+            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<LoginCredentials>(LoginCredentialSampleData, new OktaJsonConverter());
             Assert.IsNotNull(result.RecoveryQuestion.Question);
             Assert.IsNotNull(result.Provider.Type);
             Assert.IsNotNull(result.Provider.Name);

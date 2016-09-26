@@ -24,6 +24,6 @@ using System.Runtime.CompilerServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.3.0.0")]
-[assembly: AssemblyFileVersion("0.2.16256.2337")]
+[assembly: AssemblyFileVersion("0.2.16270.2320")]
 
 [assembly: InternalsVisibleTo("Okta.Core.Tests")]
