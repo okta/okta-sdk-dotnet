@@ -3,7 +3,7 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.3.0.0</version>
+    <version>0.3.0.1</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
@@ -23,7 +23,8 @@
 
       Update Log
       ----------
-      - v0.3.0.0: Enriched object model based on existing and new JSON values (AuthResponse, Embedded, MFA Factor)
+      - v0.3.0.1:Bug fix to enforce proper dependency versions for Newtonsoft.Json and Microsoft.Net.Http
+      - v0.3.0.0: Enriched object model based on existing and new JSON values (AuthResponse, Embedded, MFA Factor) + upgraded to Newtonsoft.Json v9.0.1 (in NuGet)
       - v0.2.9.0: Added support for suspend and unsuspend endpoints
       - v0.2.8.0: Bug fix (AuthResponse.FactorResult)
       - v0.2.7.0:
@@ -44,7 +45,7 @@
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
       <group>
-        <dependency id="Microsoft.Net.Http" version="2.2.28" />
+        <dependency id="Microsoft.Net.Http" version="2.2.29" />
         <dependency id="Newtonsoft.Json" version="9.0.0.0" />
       </group>
     </dependencies>
