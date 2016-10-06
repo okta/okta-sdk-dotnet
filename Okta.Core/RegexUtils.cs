@@ -16,6 +16,12 @@ namespace Okta.Core
 
         private const string EMAIL_REGEX = @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z";
 
+
+        /// <summary>
+        /// Validates that an email is valid according to a generally accepted regular expression
+        /// </summary>
+        /// <param name="strIn">the email to be validated</param>
+        /// <returns>A boolean indicating whether strIn is a valid email.</returns>
         public static bool IsValidEmail(string strIn)
         {
             //var emailRegex = new Regex(EMAIL_REGEX.Replace(Environment.NewLine, ""));

@@ -24,6 +24,13 @@ namespace Okta.Core.Tests.Clients
 
 
         [TestMethod]
+        public void GetSmsFactor()
+        {
+            Models.Factor factor = orgFactorsClient.GetFactor("okta_sms");
+            Assert.IsTrue(factor.FactorType == Models.FactorType.Sms && factor.Provider == Models.FactorProviderType.Okta , "The SMS factor does not exist");
+        }
+
+        [TestMethod]
         public void ActivateSms()
         {
             Models.Factor factor = orgFactorsClient.ActivateSms();

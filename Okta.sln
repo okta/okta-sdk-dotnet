@@ -39,6 +39,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{3E
 		LICENSE.md = LICENSE.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{CE1C6478-DC7D-4D30-A71E-5E0B55ECE683}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{5F47BA11-B801-4B8A-A98F-00DF605C6E44}"
+	ProjectSection(SolutionItems) = preProject
+		build.bat = build.bat
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -65,5 +75,7 @@ Global
 		{74DED4A6-C42A-4E1C-8BC5-41BEFD766983} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 		{9DF17123-B2CA-46B3-AA61-2C13E12B06E2} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 		{3E52BD98-94FC-4574-B0E1-4E5B027AC5A3} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
+		{CE1C6478-DC7D-4D30-A71E-5E0B55ECE683} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
+		{5F47BA11-B801-4B8A-A98F-00DF605C6E44} = {4A1AC9D8-9D6D-4B78-A988-C5925320A03E}
 	EndGlobalSection
 EndGlobal

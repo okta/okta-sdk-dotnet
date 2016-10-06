@@ -1,6 +1,7 @@
 ﻿namespace Okta.Core.Clients
 {
     using Okta.Core.Models;
+    using System.Linq;
 
     /// <summary>
     /// A client to manage <see cref="Factor"/>s for an org
@@ -86,16 +87,7 @@
 
         public virtual Factor GetFactor(string strMfaType)
         {
-            Factor factor = null;
-            PagedResults<Models.Factor> factors = this.GetList();
-
-            foreach (Models.Factor f in factors.Results)
-            {
-                if (f.Id == strMfaType)
-                {
-                    break;
-                }
-            }
+            Factor factor = this.GetList().Results.Single(f => f.Id ==strMfaType);
             return factor;
         }
 
