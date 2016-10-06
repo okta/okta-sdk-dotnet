@@ -3,7 +3,7 @@
   <metadata>
     <title>Okta PowerShell Module</title>
     <id>okta.core.automation</id>
-    <version>0.1.5.4</version>
+    <version>0.1.5.5</version>
     <authors>okta</authors>
     <owners>okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
@@ -12,7 +12,7 @@
     <projectSourceUrl>https://github.com/okta/oktasdk-csharp</projectSourceUrl>
     <packageSourceUrl>https://github.com/okta/oktasdk-csharp/tree/master/Okta.Core.Automation</packageSourceUrl>
     <docsUrl>https://github.com/okta/oktasdk-csharp/blob/master/Okta.Core.Automation/README.md</docsUrl>
-    <!--<mailingListUrl>developers@okta.com</mailingListUrl>-->
+    <mailingListUrl>mailto:developers@okta.com</mailingListUrl>
     <bugTrackerUrl>https://github.com/okta/oktasdk-csharp/issues</bugTrackerUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official PowerShell Module for Okta</summary>
@@ -21,19 +21,28 @@
     </description>
     <releaseNotes>Beta release - Use in production environments is possible, though not recommended. This library is subject to substantial change and is currently compatible with Okta.Core.Client v0.2.9 or later</releaseNotes>
     <copyright>©2016 Okta, Inc</copyright>
-    <tags>okta sdk api authentication identity management PowerShell module</tags>
+    <tags>okta sdk api authentication identity management powershell module</tags>
     <dependencies>
       <group>
-        <dependency id="NuGet.CommandLine" version="3.4.3" />
+        <!--<dependency id="NuGet.CommandLine" version="3.4.3" />-->
         <!--<dependency id="Okta.Core.Client" version="0.2.9" />-->
       </group>
     </dependencies>
   </metadata>
   <files>
-    <file src="nuget.config" target="."/>
+    <!--<file src="nuget.config" target="."/>-->
     <file src="Okta.Core.Automation.psd1" target="."/>
     <file src="ChocolateyInstall.ps1" target="."/>
     <file src="ChocolateyUninstall.ps1" target="."/>
     <file src="..\bin\Okta.Core.Automation.dll" target="bin"/>
+    <file src="..\bin\Okta.Core.dll" target="bin"/>
+    <file src="..\bin\Newtonsoft.Json.dll" target="bin"/>
+    <file src="..\bin\System.IO.dll" target="bin"/>
+    <file src="..\bin\System.Net.Http.dll" target="bin"/>
+    <file src="..\bin\System.Net.Http.Extensions.dll" target="bin"/>
+    <file src="..\bin\System.Net.Http.Primitives.dll" target="bin"/>
+    <file src="..\bin\System.Net.Http.WebRequest.dll" target="bin"/>
+    <file src="..\bin\System.Runtime.dll" target="bin"/>
+    <file src="..\bin\System.Threading.Tasks.dll" target="bin"/>
   </files>
 </package>
