@@ -45,26 +45,7 @@ function Unblock-File {
     }
 }
 
-try {
-	#nuget install Okta.Core.Client -Version 0.2.9
 
-	#if(Test-Path -Path .\packages) {
-	#	# Copy the Okta.Core.Client
-	#	Copy-Item .\packages\Okta.Core.Client*\lib\* .\bin\
-
-	#	# Copy all the files from the net40 folders to bin
-	#	Copy-Item .\packages\*\*\net40\* .\bin\
-
-	#	# Remove packages
-	#	Remove-Item .\packages -recurse -force
-	#}
-	#else {
-	#	# Copy the Okta.Core.Client
-	#	Copy-Item .\Okta.Core.Client*\lib\* .\bin\
-
-	#	# Copy all the files from the net40 folders to bin
-	#	Copy-Item .\*\*\net40\* .\bin\
-	#}
 
 	# Copy all the files to the Modules location
 	if(!(Test-Path -Path "$($folder)")) {
@@ -81,10 +62,5 @@ try {
 	Copy-Item .\bin\* "$($folder)\bin"
 
 	# Unblock all the dlls
-	Get-ChildItem "$($folder)\bin" | Unblock-File
+	#Get-ChildItem "$($folder)\bin" | Unblock-File
 
-	
-} catch {
-	
-	throw
-}

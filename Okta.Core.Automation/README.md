@@ -1,7 +1,17 @@
-To install:
+##Installation
+
+To install the Okta PowerShell SDK:
 
 1.   Install [Chocolatey](https://github.com/chocolatey/chocolatey/wiki/Installation)
-2.   In a PowerShell prompt, run "choco install okta.core.automation"
+2.   In a PowerShell prompt, run `choco install okta.core.automation`
+
+##Uninstallation
+
+To uninstall the Okta PowerShell SDK:
+
+1.   In a PowerShell prompt, run `choco uninstall okta.core.automation`
+
+##Usage
 
 ```powershell
 # Import the module
