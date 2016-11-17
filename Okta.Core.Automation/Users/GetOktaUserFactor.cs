@@ -15,7 +15,7 @@ namespace Okta.Core.Automation
         public string IdOrLogin { get; set; }
 
         [Parameter(
-            Mandatory = true,
+            Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
             HelpMessage = "Id of the user's factor to retrieve"
@@ -32,14 +32,23 @@ namespace Okta.Core.Automation
             if (user != null)
             {
                 var userFactorsClient = usersClient.GetUserFactorsClient(user);
-                Factor userFactor = userFactorsClient.GetFactor(FactorId);
-                if (userFactor != null)
+
+                if (!string.IsNullOrEmpty(FactorId))
                 {
-                    WriteObject(userFactor);
+                    Factor userFactor = userFactorsClient.GetFactor(FactorId);
+                    if (userFactor != null)
+                    {
+                        WriteObject(userFactor);
+                    }
+                    else
+                    {
+                        WriteWarning("The provided factor id seems to be invalid, please try again.");
+                    }
                 }
                 else
                 {
-                    WriteWarning("The provided factor id seems to be invalid, please try again.");
+                    var userFactors = userFactorsClient.GetFilteredEnumerator();
+                    WriteObject(userFactors);
                 }
             }
             else

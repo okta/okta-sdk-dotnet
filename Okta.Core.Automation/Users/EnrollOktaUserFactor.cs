@@ -34,23 +34,31 @@ namespace Okta.Core.Automation
                 var userFactorsClient = usersClient.GetUserFactorsClient(user);
                 var orgFactorsClient = Client.GetOrgFactorsClient();
                 Factor orgFactor = orgFactorsClient.GetFactor(FactorType);
-                
-                
+
+
                 if (orgFactor != null)
                 {
-                    Factor userFactor = null;
-                    try
+                    if (orgFactor.Status == "ACTIVE")
                     {
-                        userFactor = userFactorsClient.Enroll(orgFactor);
+                        Factor userFactor = null;
+                        try
+                        {
+                            userFactor = userFactorsClient.Enroll(orgFactor);
+                            WriteObject(userFactor);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            //WriteError(new ErrorRecord(ex))
+                            throw ex;
+                        }
+
                         WriteObject(userFactor);
                     }
-                    catch (System.Exception ex)
+                    else
                     {
-                        //WriteError(new ErrorRecord(ex))
-                        throw ex;
+                        WriteWarning(string.Format("The chosen factor ({0}) is inactive in this organization. Please choose an active factor.", FactorType));
                     }
-                    
-                    WriteObject(userFactor);
+
                 }
                 else
                 {

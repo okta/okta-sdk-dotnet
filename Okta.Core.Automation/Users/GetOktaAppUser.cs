@@ -10,13 +10,6 @@ namespace Okta.Core.Automation
     [Cmdlet(VerbsCommon.Get, "OktaAppUser")]
     public class GetOktaAppUser : OktaCmdlet
     {
-        [Parameter(
-            Mandatory = true,
-            ValueFromPipelineByPropertyName = true,
-            Position = 1,
-            HelpMessage = "Id of the app user assigned to the Okta application"
-        )]
-        public string UserId { get; set; }
 
         [Parameter(
             Mandatory = true,
@@ -25,6 +18,23 @@ namespace Okta.Core.Automation
             HelpMessage = "Id of the Okta application the user is assigned to"
         )]
         public string AppId { get; set; }
+
+        [Parameter(
+    Mandatory = false,
+    ValueFromPipelineByPropertyName = true,
+    Position = 1,
+    HelpMessage = "Maximum number of app users to retrieve"
+)]
+        public int Limit { get; set; }
+
+        [Parameter(
+            Mandatory = false,
+            ValueFromPipelineByPropertyName = true,
+            Position = 2,
+            HelpMessage = "Id of the app user assigned to the Okta application"
+        )]
+        public string UserId { get; set; }
+
 
 
         protected override void ProcessRecord()
@@ -39,18 +49,27 @@ namespace Okta.Core.Automation
             else
             {
                 var appUsersClient = appsClient.GetAppUsersClient(app);
-                var appUser = appUsersClient.Get(new Models.AppUser
-                {
-                    ExternalId = UserId
-                });
 
-                if (appUser != null)
+                if (!string.IsNullOrEmpty(UserId))
                 {
-                    WriteObject(appUser);
+                    var appUser = appUsersClient.Get(new Models.AppUser
+                    {
+                        Id = UserId
+                    });
+
+                    if (appUser != null)
+                    {
+                        WriteObject(appUser);
+                    }
+                    else
+                    {
+                        WriteWarning(string.Format("The provided UserId parameter ({0}) seems to be invalid, please try with a different AppId value.", UserId));
+                    }
                 }
                 else
                 {
-                    WriteWarning(string.Format("The provided UserId parameter ({0}) seems to be invalid, please try with a different AppId value.", UserId));
+                    var appUsers = appUsersClient.GetFilteredEnumerator(pageSize: (Limit > 0) ? Limit : 200);
+                    WriteObject(appUsers);
                 }
             }
         }
