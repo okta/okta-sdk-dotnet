@@ -23,8 +23,20 @@ namespace Okta.Core.Automation
             var appsClient = Client.GetAppsClient();
             if (!string.IsNullOrEmpty(Id))
             {
-                var app = appsClient.Get(Id);
-                WriteObject(app);
+                try
+                {
+                    var app = appsClient.Get(Id);
+                    WriteObject(app);
+
+                }
+                catch (OktaException oex)
+                {
+                    ErrorRecord er = new ErrorRecord(oex, oex.ErrorId, ErrorCategory.InvalidData, appsClient);
+                    ErrorDetails errorDetails = new ErrorDetails("You likely did not enter a valid Okta application id. Please verify that you have a valid Okta application id (such as 0oa86pahb099w70q00h6) and enter it again.");
+                    errorDetails.RecommendedAction = "Please verify that you have a valid Okta application id available.";
+                    er.ErrorDetails = errorDetails;
+                    WriteError(er);
+                }
             }
             else
             {

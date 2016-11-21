@@ -10,6 +10,12 @@ namespace Okta.Core.Automation
     [Cmdlet(VerbsCommon.New, "OktaUser")]
     public class NewOktaUser : OktaCmdlet
     {
+
+        public NewOktaUser()
+        {
+            Activate = true;
+        }
+
         [Parameter(
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
@@ -51,12 +57,31 @@ namespace Okta.Core.Automation
         )]
         public string MobilePhone { get; set; }
 
+        [Parameter(
+            Mandatory = false,
+            ValueFromPipelineByPropertyName = true,
+            Position = 5,
+            HelpMessage = "Activates the user by sending an activation email"
+        )]
+        public bool Activate { get; set; }
+
         protected override void ProcessRecord()
         {
             var usersClient = Client.GetUsersClient();
-            var user = new User(Login, Email, FirstName, LastName, MobilePhone);
-            user = usersClient.Add(user);
-            WriteObject(user);
-        }
+            try
+            {
+                var user = new User(Login, Email, FirstName, LastName, MobilePhone);
+                user = usersClient.Add(user, Activate);
+                WriteObject(user);
+            }
+            catch (OktaException oex)
+            {
+                ErrorRecord er = new ErrorRecord(oex, oex.ErrorId, ErrorCategory.InvalidData, usersClient);
+                ErrorDetails errorDetails = new ErrorDetails(string.Format("An error occurred while creating the user: {0}", oex.ErrorCauses[0].ErrorSummary));
+                er.ErrorDetails = errorDetails;
+                WriteError(er);
+            }
+
+            }
     }
 }

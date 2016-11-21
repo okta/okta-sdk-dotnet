@@ -13,7 +13,12 @@
 
         public virtual AppUser Add(User user)
         {
-            return base.Update(user.Id, Constants.EmptyObject);
+            return Add(user.Id, Constants.EmptyObject);
+        }
+
+        public virtual AppUser Add(string userId)
+        {
+            return base.Update(userId, Constants.EmptyObject);
         }
 
         public virtual AppUser Get(AppUser appUser)
