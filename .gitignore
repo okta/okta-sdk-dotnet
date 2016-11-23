@@ -194,3 +194,4 @@ FakesAssemblies/
 /Okta.Core.Automation/chocolatey/Okta.Core.Automation.0.1.5.0.nupkg.old
 /Okta.OpenIdConnect.TokenValidation
 /Okta.Core.Automation/chocolatey/testpkg
+/Okta.Core.Automation/TestOktaPowerShellSDK.ps1

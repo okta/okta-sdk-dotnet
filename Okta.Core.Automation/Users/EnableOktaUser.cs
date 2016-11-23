@@ -36,7 +36,6 @@ namespace Okta.Core.Automation
             System.Uri activationUri = null;
             try
             {
-
                 if (!string.IsNullOrEmpty(Id))
                 {
                     activationUri = usersClient.Activate(Id, SendEmail);
@@ -50,7 +49,6 @@ namespace Okta.Core.Automation
                 {
                     WriteObject(activationUri);
                 }
-
             }
             catch (OktaException oex)
             {
@@ -59,7 +57,6 @@ namespace Okta.Core.Automation
                 er.ErrorDetails = errorDetails;
                 WriteError(er);
             }
-
         }
     }
 }

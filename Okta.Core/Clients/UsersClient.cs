@@ -223,6 +223,19 @@
             return forgotPasswordResult.ResetPasswordUrl;
         }
 
+        public virtual Uri ForgotPassword(string id, bool sendEmail = true)
+        {
+            var response = PerformLifecycle(id, Constants.LifecycleForgotPassword, urlParams: new Dictionary<string, object> { { "sendEmail", sendEmail } });
+            if (sendEmail)
+            {
+                return null;
+            }
+
+            var forgotPasswordResult = Utils.Deserialize<ForgotPasswordResponse>(response);
+            return forgotPasswordResult.ResetPasswordUrl;
+        }
+
+        //TODO: Remove this method?
         public virtual void ForgotPassword(string id)
         {
             PerformLifecycle(id, Constants.LifecycleForgotPassword);
