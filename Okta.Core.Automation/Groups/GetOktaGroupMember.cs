@@ -10,7 +10,7 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 0,
-            HelpMessage = "Id or Name of the group to retrieve"
+            HelpMessage = "ID or Name of the group to retrieve"
         )]
         public string IdOrName { get; set; }
 
@@ -34,7 +34,7 @@ namespace Okta.Core.Automation
             }
             else
             {
-                WriteWarning(string.Format("The group with id or name {0} seems to be invalid, please try with a different value", IdOrName));
+                WriteWarning(string.Format("The group with ID or name {0} is invalid. Please try again", IdOrName));
             }
         }
     }

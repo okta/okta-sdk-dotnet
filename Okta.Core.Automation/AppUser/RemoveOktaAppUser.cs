@@ -62,16 +62,18 @@ namespace Okta.Core.Automation
                 }
                 else
                 {
-                    errorDetails = new ErrorDetails(string.Format("An error occurred while removing the user '{0}' from the '{1}' app: {2}", UserId, app.Label, oex.ErrorSummary));
                     if (appUser == null)
                     {
                         errorDetails = new ErrorDetails(string.Format("The user '{0} is not assigned to this app. Error message: {1}", UserId, oex.ErrorSummary));
+                    }
+                    else
+                    {
+                        errorDetails = new ErrorDetails(string.Format("An error occurred while removing the user '{0}' from the '{1}' app: {2}", UserId, app.Label, oex.ErrorSummary));
                     }
                 }
                 er.ErrorDetails = errorDetails;
                 WriteError(er);
             }
-
         }
     }
 }

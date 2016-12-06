@@ -46,10 +46,12 @@ namespace Okta.Core.Automation
                             userFactor = userFactorsClient.Enroll(orgFactor);
                             WriteObject(userFactor);
                         }
-                        catch (System.Exception ex)
+                        catch (OktaException oex)
                         {
-                            //WriteError(new ErrorRecord(ex))
-                            throw ex;
+                            ErrorRecord er = new ErrorRecord(oex, oex.ErrorId, ErrorCategory.NotSpecified, userFactorsClient);
+                            ErrorDetails errorDetails = new ErrorDetails(string.Format("Could not enroll factor '{1}' for user {2}", FactorType, IdOrLogin, oex.ErrorSummary));
+                            er.ErrorDetails = errorDetails;
+                            WriteError(er);
                         }
 
                         WriteObject(userFactor);

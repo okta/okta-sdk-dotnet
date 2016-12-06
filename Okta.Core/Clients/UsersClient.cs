@@ -235,12 +235,6 @@
             return forgotPasswordResult.ResetPasswordUrl;
         }
 
-        //TODO: Remove this method?
-        public virtual void ForgotPassword(string id)
-        {
-            PerformLifecycle(id, Constants.LifecycleForgotPassword);
-        }
-
         public virtual LoginCredentials ForgotPassword(User user, LoginCredentials creds)
         {
             var response = PerformLifecycle(user, Constants.LifecycleForgotPassword, creds.ToJson());

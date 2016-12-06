@@ -10,7 +10,7 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 0,
-            HelpMessage = "Id or username of the Okta user"
+            HelpMessage = "ID or username of the Okta user"
         )]
         public string IdOrLogin { get; set; }
 
@@ -30,7 +30,7 @@ namespace Okta.Core.Automation
             }
             else
             {
-                WriteWarning("The provided user id or username seems to be invalid, please try again.");
+                WriteWarning("The provided user ID or username is invalid. Please try again.");
             }
         }
     }

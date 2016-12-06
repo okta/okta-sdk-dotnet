@@ -45,7 +45,6 @@ namespace Okta.Core.Automation
                 er.ErrorDetails = errorDetails;
                 WriteError(er);
             }
-
         }
     }
 }

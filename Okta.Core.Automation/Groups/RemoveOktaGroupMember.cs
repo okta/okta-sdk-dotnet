@@ -44,12 +44,12 @@ namespace Okta.Core.Automation
                 {
                     user = usersClient.Get(UserIdOrLogin);
                 }
-                catch (OktaException oex)
+                catch (OktaException)
                 {
-                    WriteWarning(string.Format("The user with id or name {0} seems to be invalid, please try with a different value", UserIdOrLogin));
+                    WriteWarning(string.Format("The user with ID or name {0} is invalid. Please try again.", UserIdOrLogin));
                 }
 
-                if (user!=null)
+                if (user != null)
                 {
                     groupUsersClient.Remove(user);
                     WriteObject(string.Format("User {0} was successfully removed from group {1}", user.Profile.Login, group.Profile.Name));

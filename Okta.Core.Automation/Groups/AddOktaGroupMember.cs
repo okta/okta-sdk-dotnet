@@ -25,8 +25,8 @@ namespace Okta.Core.Automation
         protected override void ProcessRecord()
         {
             var groupsClient = Client.GetGroupsClient();
-            Models.Group group = null;
-            Models.User user = null;
+            Group group = null;
+            User user = null;
             try
             {
                 group = groupsClient.Get(IdOrName);

@@ -22,7 +22,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
-            HelpMessage = "Search query string (cf. http://developer.okta.com/docs/api/resources/groups.html#search-groups)"
+            HelpMessage = "Search query string (see http://developer.okta.com/docs/api/resources/groups.html#search-groups)"
         )]
         public string Query { get; set; }
 
@@ -30,7 +30,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 2,
-            HelpMessage = "Group filter (cf. http://developer.okta.com/docs/api/resources/groups.html#filters)"
+            HelpMessage = "Group filter (see http://developer.okta.com/docs/api/resources/groups.html#filters)"
         )]
         public string Filter { get; set; }
 
@@ -56,13 +56,13 @@ namespace Okta.Core.Automation
                 {
                         group = groupsClient.GetByName(IdOrName);
                 }
-                if(group!=null)
+                if(group != null)
                 {
                     WriteObject(group);
                 }
                 else
                 {
-                    WriteWarning(string.Format("The group with id or name {0} seems to be invalid, please try with a different value", IdOrName));
+                    WriteWarning(string.Format("The group with ID or name {0} is invalid. Please try again.", IdOrName));
                 }
             }
             else

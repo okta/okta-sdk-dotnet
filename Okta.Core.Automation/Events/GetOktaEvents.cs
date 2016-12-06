@@ -23,7 +23,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
-            HelpMessage = "Events filter (cf. http://developer.okta.com/docs/api/resources/events.html#filters)"
+            HelpMessage = "Events filter (see http://developer.okta.com/docs/api/resources/events.html#filters for syntax details)"
         )]
         public string Filter { get; set; }
 
@@ -41,7 +41,6 @@ namespace Okta.Core.Automation
                 if (Limit <= 0) Limit = 200;
                 var events = eventsClient.GetFilteredEnumerator(startDate:StartDate, filter: new FilterBuilder(Filter), pageSize: Limit);
                 WriteObject(events, false);
-            
         }
     }
 }
