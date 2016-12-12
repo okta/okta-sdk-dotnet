@@ -384,15 +384,11 @@ namespace Okta.Core.Tests.Clients
                 existingUser.Profile.SetProperty(dbCustomAttr.Name, oValue);
 
                 usersClient.Update(existingUser);
-                //}
-
-
             }
             catch (OktaException e)
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
         }
 
         [TestMethod]
@@ -441,13 +437,6 @@ namespace Okta.Core.Tests.Clients
             return results;
         }
 
-        //private Models.User GetUser(string strUserId)
-        //{
-        //    Models.User user = null;
-        //    var usersClient = oktaClient.GetUsersClient();
-        //    return user;
-        //}
-
         [TestMethod]
         public void GetUserByUsername()
         {
@@ -464,24 +453,40 @@ namespace Okta.Core.Tests.Clients
             catch (OktaException e)
             {
                 string strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.InnerException.InnerException.Message);
-                //Console.WriteLine(strEx);
+                Console.WriteLine(strEx);
+            }
+        }
+
+        [TestMethod]		
+         public void SetCredentials()
+        {
+            string strUserID = oktaTenant.TestUserId;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                if (!string.IsNullOrWhiteSpace(strUserID))
+                {
+                    Models.User existingUser = usersClient.Get(oktaTenant.TestUserId);
+
+                    Assert.IsFalse(existingUser == null, "The user with id {0} doesn't exist", strUserID);
+
+                    Models.LoginCredentials loginCreds = new Models.LoginCredentials();
+                    loginCreds.Password.Value = Helpers.GetRandomString();
+
+                    Models.User updatedUser = usersClient.SetCredentials(strUserID, loginCreds);
+
+                    Assert.IsNotNull(updatedUser, "The updated user is null so there likely was an error while updating his password.");
+
+                }
+            }
+            catch (OktaException e)
+            {
+                string strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.InnerException.InnerException.Message);
+                //Console.WriteLine(strEx);		
             }
 
         }
-
- 
-        //private Tenant getTenant(TestContext context)
-        //{
-        //    Tenant tenant = new Tenant
-        //    {
-        //        Id = Convert.ToInt32(context.DataRow["Id"]),
-        //        Url = Convert.ToString(context.DataRow["Url"]),
-        //        ApiKey = Convert.ToString(context.DataRow["ApiKey"])
-
-        //    };
-
-        //    return tenant;
-        //}
-
     }
 }

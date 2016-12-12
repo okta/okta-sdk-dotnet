@@ -14,8 +14,9 @@ namespace Okta.Core.Tests.Clients
             Tenant tenant = new Tenant
             {
                 Url = ConfigurationManager.AppSettings["TenantUrl"],
-                ApiKey = ConfigurationManager.AppSettings["ApiKey"]
-
+                ApiKey = ConfigurationManager.AppSettings["ApiKey"],
+                TestUserLogin = ConfigurationManager.AppSettings["TestUserLogin"],
+                TestUserId = ConfigurationManager.AppSettings["TestUserId"]
             };
 
             return tenant;
@@ -75,7 +76,7 @@ namespace Okta.Core.Tests.Clients
                 Login = Convert.ToString(context.DataRow["Login"]),
                 Name = Convert.ToString(context.DataRow["AttributeName"]),
                 Value = Convert.ToString(context.DataRow["AttributeValue"]),
-                
+
             };
 
             if (context.DataRow["MultiValued"] != System.DBNull.Value)
@@ -155,5 +156,36 @@ namespace Okta.Core.Tests.Clients
             return oktaGroup;
         }
 
+        internal static string GetRandomString()
+        {
+            const string AllowedChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@$^*()";
+            Random rng = new Random();
+
+            var randomStrings = RandomStrings(AllowedChars, 8, 16, 1, rng);
+
+            return randomStrings.ElementAt<string>(0);
+        }
+        private static IEnumerable<string> RandomStrings(
+            string allowedChars,
+            int minLength,
+          int maxLength,
+            int count,
+            Random rng)
+        {
+            char[] chars = new char[maxLength];
+            int setLength = allowedChars.Length;
+
+            while (count-- > 0)
+            {
+                int length = rng.Next(minLength, maxLength + 1);
+
+                for (int i = 0; i < length; ++i)
+                {
+                    chars[i] = allowedChars[rng.Next(setLength)];
+                }
+
+                yield return new string(chars, 0, length);
+            }
+        }
     }
 }

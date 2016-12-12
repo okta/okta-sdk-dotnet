@@ -73,7 +73,7 @@ namespace Okta.Core.Models
         /// <summary>
         /// Id of user in target app (must be imported or provisioned)
         /// </summary>
-        //[JsonProperty("externalId")]
-        //public string ExternalId { get; set; }
+        [JsonProperty("externalId")]
+        public string ExternalId { get; set; }
     }
 }
