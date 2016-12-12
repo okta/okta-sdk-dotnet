@@ -56,6 +56,7 @@
             {
                 user = usersEnum.Current;
             }
+            
             return user;
         }
 
@@ -119,6 +120,7 @@
             if (sendEmail)
             {
                 return null;
+
             }
 
             var activationResult = Utils.Deserialize<ActivationResponse>(response);
