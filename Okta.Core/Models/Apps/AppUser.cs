@@ -9,11 +9,12 @@ namespace Okta.Core.Models
     /// </summary>
     public class AppUser : OktaObject
     {
+
         /// <summary>
-        /// Id of user in target app (must be imported or provisioned)
+        /// App-specific profile for the user
         /// </summary>
-        [JsonProperty("externalId")]
-        public string ExternalId { get; set; }
+        [JsonProperty("profile")]
+        public UserProfile Profile { get; set; }
 
         /// <summary>
         /// Timestamp when user was created
@@ -70,9 +71,9 @@ namespace Okta.Core.Models
         public AppUserCredentials Credentials { get; set; }
 
         /// <summary>
-        /// App-specific profile for the user
+        /// Id of user in target app (must be imported or provisioned)
         /// </summary>
-        [JsonProperty("profile")]
-        public UserProfile Profile { get; set; }
+        //[JsonProperty("externalId")]
+        //public string ExternalId { get; set; }
     }
 }

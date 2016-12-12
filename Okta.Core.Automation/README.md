@@ -1,17 +1,17 @@
-##Installation
+## Installation
 
 To install the Okta PowerShell SDK:
 
-1.   Install [Chocolatey](https://github.com/chocolatey/chocolatey/wiki/Installation)
+1.   Install [Chocolatey](https://chocolatey.org/install)
 2.   In a PowerShell prompt, run `choco install okta.core.automation`
 
-##Uninstallation
+## Uninstallation
 
 To uninstall the Okta PowerShell SDK:
 
 1.   In a PowerShell prompt, run `choco uninstall okta.core.automation`
 
-##Usage
+## Usage
 
 ```powershell
 # Import the module
@@ -31,7 +31,7 @@ $newUser.Profile.FirstName = "Old"
 Set-OktaUser $newUser
 ```
 
-# Available Command List
+### Available Command List
 ```powershell
 Connect-Okta
 Get-OktaUser
@@ -42,13 +42,13 @@ Enable-OktaUser
 Disable-OktaUser
 ```
 
-# Troubleshooting
-#####Exception of type 'Okta.Core.Automation' was thrown
+### Troubleshooting
+##### Exception of type 'Okta.Core.Automation' was thrown
 The module throws this exception if your request was unable to be completed. To determine the reason, use the PowerShell global variable `$error`. For example:
 * To see a human-readable version of the last error, use `$error[0].Exception.ErrorSummary`
 * To see the last error code, use `$error[0].Exception.ErrorCode`. This is useful when automatically handling different exceptions in a long script.
 
-#####This assembly is built by a runtime newer than the currently loaded runtime and cannot be loaded
+##### This assembly is built by a runtime newer than the currently loaded runtime and cannot be loaded
 This module depends on .NET 4 which isn't enabled by default in most versions of Windows. To fix:
 
 1.   Navigate to your PowerShell directory. It should be C:\Windows\System32\WindowsPowerShell\v1.0, but if it's not, it can be found by typing $PSHome in a PowerShell terminal.

@@ -11,6 +11,11 @@
         public AppsClient(OktaSettings oktaSettings) : base(oktaSettings, Constants.EndpointV1 + Constants.AppsEndpoint) { }
         public AppsClient(string apiToken, string subdomain) : base(apiToken, subdomain, Constants.EndpointV1 + Constants.AppsEndpoint) { }
 
+        public virtual App Get(string appId)
+        {
+            return base.Get(appId);
+        }
+
         public virtual App Add(App app)
         {
             return base.Add(app);
