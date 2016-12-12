@@ -60,7 +60,7 @@ namespace Okta.Core
             public const string RSA = "rsa_token";
             public const string Duo = "duo";
             public const string Yubikey = "yubikey_token";
-            public const string VoiceCall = "voicecall";
+            public const string VoiceCall = "okta_call";
         }
 
         // Lifecycle aliases

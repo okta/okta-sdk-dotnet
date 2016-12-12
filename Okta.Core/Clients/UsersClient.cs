@@ -56,6 +56,7 @@
             {
                 user = usersEnum.Current;
             }
+            
             return user;
         }
 
@@ -78,7 +79,7 @@
             var userWithCredentials = new User {
                 Credentials = credentials
             };
-            var results = BaseClient.Put(GetResourceUri(id), userWithCredentials.ToJson());
+            var results = BaseClient.Put(id, userWithCredentials.ToJson());
             return Utils.Deserialize<User>(results);
         }
 
@@ -119,6 +120,7 @@
             if (sendEmail)
             {
                 return null;
+
             }
 
             var activationResult = Utils.Deserialize<ActivationResponse>(response);
@@ -223,9 +225,16 @@
             return forgotPasswordResult.ResetPasswordUrl;
         }
 
-        public virtual void ForgotPassword(string id)
+        public virtual Uri ForgotPassword(string id, bool sendEmail = true)
         {
-            PerformLifecycle(id, Constants.LifecycleForgotPassword);
+            var response = PerformLifecycle(id, Constants.LifecycleForgotPassword, urlParams: new Dictionary<string, object> { { "sendEmail", sendEmail } });
+            if (sendEmail)
+            {
+                return null;
+            }
+
+            var forgotPasswordResult = Utils.Deserialize<ForgotPasswordResponse>(response);
+            return forgotPasswordResult.ResetPasswordUrl;
         }
 
         public virtual LoginCredentials ForgotPassword(User user, LoginCredentials creds)

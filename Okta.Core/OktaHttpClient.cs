@@ -82,7 +82,7 @@
                 }
 
                 // If it's a rate-limiting error
-                catch (OktaRequestThrottlingException e)
+                catch (OktaRequestThrottlingException)
                 {
                     // If we haven't met the retry threshold
                     if (waitMillis < Constants.MaxThrottlingRetryMillis * 1000)
