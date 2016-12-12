@@ -469,40 +469,7 @@ namespace Okta.Core.Tests.Clients
 
         }
 
-        [TestMethod]
-        public void SetCredentials()
-        {
-            string strUserID = oktaTenant.TestUserId;
-
-            try
-            {
-                var usersClient = oktaClient.GetUsersClient();
-
-                if (!string.IsNullOrWhiteSpace(strUserID))
-                {
-                    Models.User existingUser = usersClient.Get(oktaTenant.TestUserId);
-
-                    Assert.IsFalse(existingUser == null, "The user with id {0} doesn't exist", strUserID);
-
-                    Models.LoginCredentials loginCreds = new Models.LoginCredentials();
-                    loginCreds.Password.Value = Helpers.GetRandomString();
-
-                    Models.User updatedUser = usersClient.SetCredentials(strUserID, loginCreds);
-
-                    Assert.IsNotNull(updatedUser, "The updated user is null so there likely was an error while updating his password.");
-
-                }
-            }
-            catch (OktaException e)
-            {
-                string strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.InnerException.InnerException.Message);
-                //Console.WriteLine(strEx);
-            }
-
-        }
-
-
-
+ 
         //private Tenant getTenant(TestContext context)
         //{
         //    Tenant tenant = new Tenant

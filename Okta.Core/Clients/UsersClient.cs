@@ -78,7 +78,7 @@
             var userWithCredentials = new User {
                 Credentials = credentials
             };
-            var results = BaseClient.Put(GetResourceUri(id), userWithCredentials.ToJson());
+            var results = BaseClient.Put(id, userWithCredentials.ToJson());
             return Utils.Deserialize<User>(results);
         }
 
