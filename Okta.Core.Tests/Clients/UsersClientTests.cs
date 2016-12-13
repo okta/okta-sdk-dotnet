@@ -196,6 +196,37 @@ namespace Okta.Core.Tests.Clients
 
         [TestMethod]
         [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
+        public void DeleteUser()
+        {
+            TestUser dbUser = Helpers.GetUser(TestContext);
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
+            string strEx = string.Empty;
+            Models.User existingUser = null;
+            string strUserLogin = dbUser.Login;
+            string strNewUserLogin = string.Empty;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                existingUser = usersClient.GetByUsername(strUserLogin);
+
+                if (existingUser != null)
+                {
+                    usersClient.Delete(existingUser);
+                    existingUser = usersClient.GetByUsername(strUserLogin);
+                    Assert.IsNull(existingUser, "Okta User {0} could be retrieved but should have been deleted: {1}", dbUser.Login, strEx);
+                }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+            }
+        }
+
+        [TestMethod]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void RenameUser()
         {
             TestUser dbUser = Helpers.GetUser(TestContext);
@@ -227,7 +258,6 @@ namespace Okta.Core.Tests.Clients
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
         }
 
         [TestMethod]

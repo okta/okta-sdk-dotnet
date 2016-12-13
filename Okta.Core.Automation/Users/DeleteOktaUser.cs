@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Management.Automation;
 using Okta.Core;
+using Okta.Core.Models;
 
 namespace Okta.Core.Automation
 {
-    [Cmdlet(VerbsCommon.Get, "OktaUser")]
-    public class GetOktaUser : OktaCmdlet
+    [Cmdlet("Delete", "OktaUser")]
+    public class DeleteOktaUser : OktaCmdlet
     {
         [Parameter(
             Mandatory = false,
@@ -47,21 +48,46 @@ namespace Okta.Core.Automation
             var usersClient = Client.GetUsersClient();
             try
             {
-
+                List<User> users = new List<User>();
                 if (!string.IsNullOrEmpty(Id))
                 {
                     var user = usersClient.Get(Id);
-                    WriteObject(user);
+                    if (user != null)
+                        users.Add(user);
                 }
                 else
                 {
                     SearchType searchType = SearchType.Filter;
-                    if(Search)
+                    if (Search)
                     {
                         searchType = SearchType.ElasticSearch;
                     }
-                    var users = usersClient.GetFilteredEnumerator(query: Query, searchType:searchType, filter: new FilterBuilder(Filter));
-                    WriteObject(users);
+                    var usersEnum = usersClient.GetFilteredEnumerator(query: Query, searchType: searchType, filter: new FilterBuilder(Filter));
+                    users = usersEnum.ToList<User>();
+                }
+
+                foreach (User user in users)
+                {
+                    string strUserLogin = user.Profile.Login;
+                    bool bContinue = false;
+                    try
+                    {
+                        usersClient.Deactivate(user);
+                        bContinue = true;
+                    }
+                    catch (OktaException oex2)
+                    {
+                        if (oex2.ErrorCode == OktaErrorCodes.ResourceNotFoundException)
+                        {
+                            bContinue = true;
+                        }
+                    }
+
+                    if (bContinue)
+                    {
+                        usersClient.Delete(user);
+                        WriteObject(string.Format("Successfully deleted user: {0}", strUserLogin));
+                    }
                 }
             }
             catch (OktaException oex)
