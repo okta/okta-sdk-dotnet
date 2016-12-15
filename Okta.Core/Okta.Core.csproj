@@ -21,7 +21,7 @@
     <AssemblyFileVersionSettings>
     </AssemblyFileVersionSettings>
     <PrimaryVersionType>AssemblyVersionAttribute</PrimaryVersionType>
-    <AssemblyVersion>0.3.1.0</AssemblyVersion>
+    <AssemblyVersion>0.3.2.0</AssemblyVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
     <AssemblyInfoVersionSettings>
@@ -53,7 +53,7 @@
     <UpdateAssemblyInfoVersion>False</UpdateAssemblyInfoVersion>
     <AssemblyFileVersionSettings>None.None.IncrementOnDemand.None</AssemblyFileVersionSettings>
     <AssemblyInfoVersionSettings>None.None.None.None</AssemblyInfoVersionSettings>
-    <AssemblyVersionSettings>YearStamp.MonthStamp.DayStamp.TimeStamp</AssemblyVersionSettings>
+    <AssemblyVersionSettings>None.YearStamp.MonthStamp.DayStamp</AssemblyVersionSettings>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Clients\AuthClient.cs" />

@@ -222,6 +222,7 @@ namespace Okta.Core.Tests.Clients
             catch (OktaException e)
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+                Assert.Fail(strEx);
             }
         }
 

@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Okta, Inc")]
 [assembly: AssemblyProduct("Okta PowerShell commandlets")]
-[assembly: AssemblyCopyright("Copyright © Okta 2016")]
+[assembly: AssemblyCopyright("Copyright © Okta, Inc 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,6 +32,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2016.12.12.2312")]
+[assembly: AssemblyVersion("0.2016.12.15")]
 [assembly: AssemblyFileVersion("0.2.0.0")] //"File version" attribute of the Properties -> Details tab
 //[assembly: AssemblyInformationalVersion("0.2.0.0")] //"Product version" attribute of the Properties -> Details tab - UNUSED

@@ -15,7 +15,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 0,
-            HelpMessage = "Id to retrieve"
+            HelpMessage = "ID or username of the user to delete"
         )]
         public string Id { get; set; }
 
@@ -31,7 +31,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 2,
-            HelpMessage = "Filter (see http://developer.okta.com/docs/api/resources/users.html#list-users-with-a-filter)"
+            HelpMessage = "Use a filter (see http://developer.okta.com/docs/api/resources/users.html#list-users-with-a-filter)"
         )]
         public string Filter { get; set; }
 

@@ -44,7 +44,7 @@
       - v0.2.4.0: Added Advanced Search support
     </description>
     <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
-    <copyright>© Okta 2016</copyright>
+    <copyright>© Okta, Inc 2016</copyright>
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
       <group>
