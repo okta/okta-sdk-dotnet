@@ -50,6 +50,7 @@ namespace Okta.Core.Automation
                         {
                             userFactor = userFactorsClient.Activate(userFactor, PassCode);
                             WriteObject($"The factor was successfully activated for user {IdOrLogin} with status {userFactor.Status}.");
+                            WriteObject(userFactor);
                         }
                         catch (OktaException oex)
                         {
@@ -58,8 +59,6 @@ namespace Okta.Core.Automation
                             er.ErrorDetails = errorDetails;
                             WriteError(er);
                         }
-
-                        WriteObject(userFactor);
                     }
                     else
                     {
