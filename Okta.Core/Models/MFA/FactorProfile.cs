@@ -26,10 +26,16 @@ namespace Okta.Core.Models
         public string Answer { get; set; }
 
         /// <summary>
-        /// Phone number of mobile device
+        /// Phone number of mobile device (for SMS factor) or phone device (for voice call factor)
         /// </summary>
         [JsonProperty("phoneNumber")]
         public string PhoneNumber { get; set; }
+
+        /// <summary>
+        /// Phone number of voice call factor device
+        /// </summary>
+        [JsonProperty("phoneExtension")]
+        public string PhoneExtension { get; set; }
 
         /// <summary>
         /// Unique id for instance
