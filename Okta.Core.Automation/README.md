@@ -1,15 +1,24 @@
+## System Requirements
+
+In order to install the official Okta PowerShell module, you must either:
+
+i. Run Windows 10
+ii. Install the [Windows Management Framework 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) [for Windows 7 Service Pack 1, Windows 8.1, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2]
+
 ## Installation
 
-To install the Okta PowerShell SDK:
+To install the Okta PowerShell Module, open a PowerShell prompt as an administrator and run the following 
 
-1.   Install [Chocolatey](https://chocolatey.org/install)
-2.   In a PowerShell prompt, run `choco install okta.core.automation`
+`Install-Module -Name Okta.Core.Automation`
+
 
 ## Uninstallation
 
-To uninstall the Okta PowerShell SDK:
+To uninstall the Okta PowerShell Module:
 
-1.   In a PowerShell prompt, run `choco uninstall okta.core.automation`
+In a PowerShell prompt, run 
+
+`Get-InstalledModule -Name Okta.Core.Automation | Uninstall-Module`
 
 ## Usage
 
@@ -17,15 +26,64 @@ To uninstall the Okta PowerShell SDK:
 # Import the module
 Import-Module Okta.Core.Automation
 
-# Connect
+# Connect to Okta
 Connect-Okta -Token "your-token" -FullDomain "https://your-subdomain.okta.com"
 
-# Manage Users
-$user = Get-OktaUser administrator1@clouditude.net
-$newUser = New-OktaUser -Login newguy@asdf.com -Email newguy@asdf.com -FirstName New -LastName Guy
+# Get All Users
+Get-OktaUser
+
+# Get Paginated Users (2 at a time)
+$totalUsers = 0
+    $params = @{limit = 2}
+    do {
+        $page = Get-OktaUser @params
+        $users = $page.Results
+        foreach ($user in $users) {
+            Write-Host $user.profile.login $user.credentials.provider.type
+        }
+        $totalUsers += $users.count
+        $params = @{Url = $page.NextPage}
+    } while ($page.NextPage)
+    "$totalUsers users found."
+
+# Get a user by Id
+Get-OktaUser 00u5xcvjyg5RPSTDo0h7
+
+# Get a user by username
+Get-OktaUser brandon@company.com
+
+# Get a user by username (simplified when there is only one brandon@... user)
+Get-OktaUser brandon
+
+# Get user(s) by filter (cf. https://developer.okta.com/docs/api/resources/users.html#list-users-with-a-filter)
+get-oktauser -filter 'profile.firstName eq "Brandon"'
+
+Note: profile property names and values are case-sensitive
+
+# Get user(s) by query (on first name, last name or email cf. https://developer.okta.com/docs/api/resources/users.html#find-users)
+$users = get-oktauser -query b
+foreach ($user in $users) {
+    Write-Host $user.profile.firstName $user.profile.lastName $user.profile.email 
+}
+
+# Create User with login, first name, last name, email address and mobile phone (without sending an activation email). 
+Note: The MobilePhone parameter is optional
+$newUser = New-OktaUser -Login brandon@company.com -Email brandon.walsh@company.com -FirstName Brandon -LastName Walsh -MobilePhone "+1 855 123 4567"
+
+# Create User and sends an activation email
+$newUser = New-OktaUser -Login brandon@company.com -Email brandon.walsh@company.com -FirstName Brandon -LastName Walsh -Activate $true
+
+#Enable Okta user (without sending an activation email)
+$ al = Enable-OktaUser $newUser
+$al.AbsoluteUri //link to the activation url to be sent to the user to activate his/her account
+
+#Enable Okta user (by sending an activation email)
+Enable-OktaUser $newUser -SendEmail $true
+
+
+# Unlock User
 Unlock-OktaUser $newUser
-Enable-OktaUser $newUser
-Disable-OktaUser $newUser
+
 
 $newUser.Profile.FirstName = "Old"
 Set-OktaUser $newUser
