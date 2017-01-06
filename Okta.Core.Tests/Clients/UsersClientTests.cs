@@ -509,13 +509,12 @@ namespace Okta.Core.Tests.Clients
                     Models.User updatedUser = usersClient.SetCredentials(strUserID, loginCreds);
 
                     Assert.IsNotNull(updatedUser, "The updated user is null so there likely was an error while updating his password.");
-
                 }
             }
             catch (OktaException e)
             {
                 string strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.InnerException.InnerException.Message);
-                //Console.WriteLine(strEx);		
+                Console.WriteLine(strEx);		
             }
 
         }

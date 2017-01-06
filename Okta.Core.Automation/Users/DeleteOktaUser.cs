@@ -69,21 +69,21 @@ namespace Okta.Core.Automation
                 foreach (User user in users)
                 {
                     string strUserLogin = user.Profile.Login;
-                    bool bContinue = false;
+                    bool bDeactivated = false;
                     try
                     {
                         usersClient.Deactivate(user);
-                        bContinue = true;
+                        bDeactivated = true;
                     }
                     catch (OktaException oex2)
                     {
                         if (oex2.ErrorCode == OktaErrorCodes.ResourceNotFoundException)
                         {
-                            bContinue = true;
+                            bDeactivated = true;
                         }
                     }
 
-                    if (bContinue)
+                    if (bDeactivated)
                     {
                         usersClient.Delete(user);
                         WriteObject(string.Format("Successfully deleted user: {0}", strUserLogin));

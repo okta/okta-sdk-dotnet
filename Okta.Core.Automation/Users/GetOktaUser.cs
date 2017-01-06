@@ -56,11 +56,11 @@ namespace Okta.Core.Automation
                 else
                 {
                     SearchType searchType = SearchType.Filter;
-                    if(Search)
+                    if (Search)
                     {
                         searchType = SearchType.ElasticSearch;
                     }
-                    var users = usersClient.GetFilteredEnumerator(query: Query, searchType:searchType, filter: new FilterBuilder(Filter));
+                    var users = usersClient.GetFilteredEnumerator(query: Query, searchType: searchType, filter: new FilterBuilder(Filter));
                     WriteObject(users);
                 }
             }

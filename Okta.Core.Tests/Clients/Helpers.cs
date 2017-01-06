@@ -158,16 +158,16 @@ namespace Okta.Core.Tests.Clients
 
         internal static string GetRandomString()
         {
-            const string AllowedChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@$^*()";
+            const string allowedChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@$^*()";
             Random rng = new Random();
 
-            return RandomString(AllowedChars, 8, 16, rng);
+            return RandomString(allowedChars, 8, 16, rng);
         }
 
         private static string RandomString(
             string allowedChars,
             int minLength,
-          int maxLength,
+            int maxLength,
             Random rng)
         {
             char[] chars = new char[maxLength];
