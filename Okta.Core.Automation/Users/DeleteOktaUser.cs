@@ -53,7 +53,9 @@ namespace Okta.Core.Automation
                 {
                     var user = usersClient.Get(Id);
                     if (user != null)
+                    {
                         users.Add(user);
+                    }
                 }
                 else
                 {
