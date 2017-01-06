@@ -70,7 +70,7 @@ foreach ($user in $users) {
 Note: The MobilePhone parameter is optional
 $newUser = New-OktaUser -Login brandon@company.com -Email brandon.walsh@company.com -FirstName Brandon -LastName Walsh -MobilePhone "+1 855 123 4567"
 
-# Create User and sends an activation email
+# Create User and send an activation email
 $newUser = New-OktaUser -Login brandon@company.com -Email brandon.walsh@company.com -FirstName Brandon -LastName Walsh -Activate $true
 
 #Enable Okta user (without sending an activation email)

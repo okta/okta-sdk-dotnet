@@ -18,7 +18,7 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
-            HelpMessage = "Name of the factor to enroll the user with. Use one of the following string: okta_question, okta_sms, okta_otp (Okta Verify), okta_push (Okta Verify Push), google_otp (Google Authenticator), symantec_vip, rsa_token, duo, yubikey_token, okta_call (voice call)"
+            HelpMessage = "Name of the factor to enroll the user with. Use one of the following values: okta_question, okta_sms, okta_otp (Okta Verify), okta_push (Okta Verify Push), google_otp (Google Authenticator), symantec_vip, rsa_token, duo, yubikey_token, okta_call (voice call)"
         )]
         public string FactorType { get; set; }
 
@@ -26,7 +26,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 2,
-            HelpMessage = "Phone number to register (including country code) for SMS factor"
+            HelpMessage = "Phone number to register (including country code) for SMS and voice call factors"
         )]
         public string PhoneNumber { get; set; }
 
