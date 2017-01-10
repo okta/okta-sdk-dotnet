@@ -109,7 +109,7 @@
     <Compile Include="Groups\NewOktaGroup.cs" />
     <Compile Include="Users\NewOktaUser.cs" />
     <Compile Include="AppUser\RemoveOktaAppUser.cs" />
-    <Compile Include="Users\SetOktaAppUser.cs" />
+    <Compile Include="AppUser\SetOktaAppUser.cs" />
     <Compile Include="Users\SetOktaUser.cs" />
     <Compile Include="Users\DisableOktaUser.cs" />
     <Compile Include="Users\EnableOktaUser.cs" />

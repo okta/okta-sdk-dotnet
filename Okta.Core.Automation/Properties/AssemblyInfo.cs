@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Okta.Core.Automation")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Okta")]
+[assembly: AssemblyCompany("Okta, Inc")]
 [assembly: AssemblyProduct("Okta PowerShell commandlets")]
-[assembly: AssemblyCopyright("Copyright © Okta 2016")]
+[assembly: AssemblyCopyright("Copyright © Okta, Inc 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

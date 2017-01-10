@@ -10,7 +10,7 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Okta, Inc")]
 [assembly: AssemblyProduct("Okta.Core.Client")]
-[assembly: AssemblyCopyright("Copyright © Okta 2016")]
+[assembly: AssemblyCopyright("Copyright © Okta, Inc 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: NeutralResourcesLanguage("en")]
@@ -23,7 +23,7 @@ using System.Runtime.CompilerServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.0.2")]
+[assembly: AssemblyVersion("0.3.2.0")]
 [assembly: AssemblyFileVersion("0.3.17004.1837")]
 
 [assembly: InternalsVisibleTo("Okta.Core.Tests")]
