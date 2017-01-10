@@ -34,7 +34,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 3,
-            HelpMessage = "Phone extension to register (including country code) for voice call factor"
+            HelpMessage = "Phone extension (optional for voice call factor only)"
 )]
         public string PhoneExtension { get; set; }
 
