@@ -70,20 +70,54 @@ foreach ($user in $users) {
 Note: The MobilePhone parameter is optional
 $newUser = New-OktaUser -Login brandon@company.com -Email brandon.walsh@company.com -FirstName Brandon -LastName Walsh -MobilePhone "+1 855 123 4567"
 
-# Create User and send an activation email
+# Create user and send an activation email
 $newUser = New-OktaUser -Login brandon@company.com -Email brandon.walsh@company.com -FirstName Brandon -LastName Walsh -Activate $true
 
-#Enable Okta user (without sending an activation email)
+#Enable user (without sending an activation email)
 $ al = Enable-OktaUser $newUser
-$al.AbsoluteUri //link to the activation url to be sent to the user to activate his/her account
+$al.AbsoluteUri #link to the activation url to be sent to the user to activate user account
 
-#Enable Okta user (by sending an activation email)
+#Enable user (by sending an activation email)
 Enable-OktaUser $newUser -SendEmail $true
 
+#Disable user
+Disable-OktaUser
 
-# Unlock User
-Unlock-OktaUser $newUser
+#Update Okta User
+$user = Get-OktaUser brandon
+$user.Profile.MobilePhone = "123-456-7890"
+Set-OktaUser $user
 
+#Get password reset link
+Set-OktaUserResetPassword $user.id
+
+#Send password reset email
+Set-OktaUserResetPassword $user.id $true
+
+#Unlock User
+Syntax:
+Unlock-OktaUser $user.id
+Unlock-OktaUser -User $u
+
+#Get group
+Syntax: Get-OktaGroup GroupID|GroupName
+Examples:
+Get-OktaGroup "Finance Controllers"
+Get-OktaGroup 00g5xcup98euejh1b0h7
+
+#Create new group
+Syntax: 
+New-OktaGroup -Name <GroupName> -Description <GroupDescription>
+Example: 
+New-OktaGroup "Finance Controllers" "The list of finance controller users"
+
+#Get Events
+Syntax:
+Get-OktaEvents -StartDate yyyy-MM-ddTHH:mm:ss -Filter <filter>
+Note: StartDate and Filter cannot be used together. If Filter is necessary , we recommend using a 'published gt' filter (cf. https://developer.okta.com/docs/api/resources/events.html#filters)
+Examples:
+get-oktaevents -filter 'published gt "2017-01-10T10:23:59.000Z"'
+get-oktaevents -filter 'published gt "2017-01-10T10:23:59.000Z" and action.objectType eq "core.user_auth.login_failed"'
 
 $newUser.Profile.FirstName = "Old"
 Set-OktaUser $newUser
