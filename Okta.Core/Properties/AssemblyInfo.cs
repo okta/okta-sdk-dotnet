@@ -1,15 +1,15 @@
-﻿using System.Reflection;
+using System.Reflection;
 using System.Resources;
 using System.Runtime.CompilerServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Okta.Core.Client")]
+[assembly: AssemblyTitle("Okta.Core.Client")] //"File description" attribute of the Properties -> Details tab
 [assembly: AssemblyDescription("Okta .NET SDK")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Okta, Inc")]
-[assembly: AssemblyProduct("Okta.Core.Client")]
+[assembly: AssemblyProduct("Okta C# SDK")]
 [assembly: AssemblyCopyright("Copyright © Okta, Inc 2017")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

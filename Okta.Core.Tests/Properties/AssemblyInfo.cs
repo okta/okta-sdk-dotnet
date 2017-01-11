@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Okta.Core.Tests")]
 [assembly: AssemblyDescription("Okta .NET SDK Unit Tests")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Okta")]
-[assembly: AssemblyProduct("Okta.Core.Tests")]
-[assembly: AssemblyCopyright("Copyright © Okta 2016")]
+[assembly: AssemblyCompany("Okta, Inc")]
+[assembly: AssemblyProduct("Unit tests for Okta C# SDK")]
+[assembly: AssemblyCopyright("Copyright © Okta, Inc 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("en")]
 
@@ -32,5 +32,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.3.0.2")]
-[assembly: AssemblyFileVersion("0.3.16273.2319")]
+[assembly: AssemblyVersion("0.2016.12.15")]
+[assembly: AssemblyFileVersion("0.3.2.0")] //"File version" attribute of the Properties -> Details tab
+//[assembly: AssemblyInformationalVersion("0.3.2.0")] //"Product version" attribute of the Properties -> Details tab - UNUSED
+
