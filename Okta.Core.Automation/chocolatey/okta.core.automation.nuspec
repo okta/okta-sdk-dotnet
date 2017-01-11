@@ -20,7 +20,7 @@
       This package allows you to build on Okta's identity platform using PowerShell.
     </description>
     <releaseNotes>Beta release - Use in production environments is possible, though not recommended. This library is subject to substantial change and is currently compatible with Okta.Core.Client v0.2.9 or later</releaseNotes>
-    <copyright>©2016 Okta, Inc</copyright>
+    <copyright>© Okta, Inc 2016</copyright>
     <tags>okta sdk api authentication identity management powershell module</tags>
     <dependencies>
       <group>

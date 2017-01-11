@@ -3,7 +3,7 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.3.1.0</version>
+    <version>0.3.2.0</version>
     <authors>Okta</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
@@ -23,6 +23,7 @@
 
       Update Log
       ----------
+      - v0.3.2.0: Added Delete User method (see http://developer.okta.com/docs/api/resources/users.html#delete-user)
       - v0.3.1.0: Fixed SetCredentials method in UsersClient and added test method in UsersClientTests
       - v0.3.0.2: Fixed GetFactor method in OrgFactorsClient (was always returning null before)
       - v0.3.0.1: Bug fix to enforce proper dependency versions for Newtonsoft.Json and Microsoft.Net.Http
@@ -43,7 +44,7 @@
       - v0.2.4.0: Added Advanced Search support
     </description>
     <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
-    <copyright>© Okta 2016</copyright>
+    <copyright>© Okta, Inc 2016</copyright>
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
       <group>

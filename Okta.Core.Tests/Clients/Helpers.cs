@@ -147,31 +147,32 @@ namespace Okta.Core.Tests.Clients
 
         internal static string GetRandomString()
         {
-            const string AllowedChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@$^*()";
+
+            const string allowedChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@$^*()";
             Random rng = new Random();
-            var randomStrings = RandomStrings(AllowedChars, 8, 16, 1, rng);
-            return randomStrings.ElementAt<string>(0);
+
+            return RandomString(allowedChars, 8, 16, rng);
         }
 
-        private static IEnumerable<string> RandomStrings(
+        private static string RandomString(
             string allowedChars,
             int minLength,
-          int maxLength,
-            int count,
+            int maxLength,
+
             Random rng)
         {
             char[] chars = new char[maxLength];
             int setLength = allowedChars.Length;
 
-            while (count-- > 0)
+            int length = rng.Next(minLength, maxLength + 1);
+
+            for (int i = 0; i < length; ++i)
             {
-                int length = rng.Next(minLength, maxLength + 1);
-                for (int i = 0; i < length; ++i)
-                {
-                    chars[i] = allowedChars[rng.Next(setLength)];
-                }
-                yield return new string(chars, 0, length);
+                chars[i] = allowedChars[rng.Next(setLength)];
             }
+
+            return new string(chars, 0, length);
+
         }
     }
 }
