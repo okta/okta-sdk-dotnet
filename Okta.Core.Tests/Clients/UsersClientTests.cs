@@ -155,30 +155,18 @@ namespace Okta.Core.Tests.Clients
 
             if (dbUser.Activate)
             {
-
                 Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
                 Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
 
                 string strEx = string.Empty;
-                //Models.User existingUser = null;
                 string strUserLogin = dbUser.Login;
                 string strNewUserLogin = string.Empty;
                 Models.AuthResponse authResponse = null;
 
                 try
                 {
-                    //var usersClient = oktaClient.GetUsersClient();
-
                     var authClient = oktaClient.GetAuthClient();
-
                     authResponse = authClient.Authenticate(dbUser.Login, dbUser.Password);
-                    //existingUser = usersClient.GetByUsername(strUserLogin);
-
-                    //if (existingUser != null)
-                    //{
-                    //    existingUser = usersClient.SetPassword(existingUser, dbUser.Password);
-                    //}
-
                 }
                 catch (OktaException e)
                 {
@@ -187,10 +175,6 @@ namespace Okta.Core.Tests.Clients
 
                 Assert.IsNotNull(authResponse, "Authentication for Okta User {0} failed: {1}", dbUser.Login, strEx);
                 Assert.IsTrue(authResponse.Status == "SUCCESS", "Authentication for Okta User {0} failed. Auth Status is {1}", dbUser.Login, authResponse.Status);
-                //if (existingUser.Status != Models.UserStatus.Staged)
-                //{
-                //    Assert.IsTrue(existingUser.Status == Models.UserStatus.Active, "Okta User {0} status is {1}", dbUser.Login, existingUser.Status);
-                //}
             }
         }
 
@@ -292,7 +276,6 @@ namespace Okta.Core.Tests.Clients
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
         }
 
         [TestMethod]
@@ -326,7 +309,6 @@ namespace Okta.Core.Tests.Clients
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
         }
 
         [TestMethod]
@@ -360,7 +342,6 @@ namespace Okta.Core.Tests.Clients
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
         }
 
         [TestMethod]
@@ -493,6 +474,7 @@ namespace Okta.Core.Tests.Clients
         {
             string strUserID = oktaTenant.TestUserId;
 
+
             try
             {
                 var usersClient = oktaClient.GetUsersClient();
@@ -501,10 +483,12 @@ namespace Okta.Core.Tests.Clients
                 {
                     Models.User existingUser = usersClient.Get(oktaTenant.TestUserId);
 
+
                     Assert.IsFalse(existingUser == null, "The user with id {0} doesn't exist", strUserID);
 
                     Models.LoginCredentials loginCreds = new Models.LoginCredentials();
                     loginCreds.Password.Value = Helpers.GetRandomString();
+
 
                     Models.User updatedUser = usersClient.SetCredentials(strUserID, loginCreds);
 

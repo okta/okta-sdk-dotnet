@@ -27,4 +27,5 @@ using System.Runtime.CompilerServices;
 [assembly: AssemblyFileVersion("0.3.2.0")] //"File version" attribute of the Properties -> Details tab
 //[assembly: AssemblyInformationalVersion("0.3.2.0")] //"Product version" attribute of the Properties -> Details tab - UNUSED
 
+
 [assembly: InternalsVisibleTo("Okta.Core.Tests")]

@@ -35,3 +35,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.2016.12.15")]
 [assembly: AssemblyFileVersion("0.3.2.0")] //"File version" attribute of the Properties -> Details tab
 //[assembly: AssemblyInformationalVersion("0.3.2.0")] //"Product version" attribute of the Properties -> Details tab - UNUSED
+

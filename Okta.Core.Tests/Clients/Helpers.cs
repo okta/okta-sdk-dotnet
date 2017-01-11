@@ -64,8 +64,6 @@ namespace Okta.Core.Tests.Clients
                 string strUsers = (string)context.DataRow["Users"];
                 group.Users = strUsers.Split(',').ToList<string>();
             }
-
-
             return group;
         }
 
@@ -76,14 +74,12 @@ namespace Okta.Core.Tests.Clients
                 Login = Convert.ToString(context.DataRow["Login"]),
                 Name = Convert.ToString(context.DataRow["AttributeName"]),
                 Value = Convert.ToString(context.DataRow["AttributeValue"]),
-
             };
 
             if (context.DataRow["MultiValued"] != System.DBNull.Value)
             {
                 attr.MultiValued = Convert.ToBoolean(context.DataRow["MultiValued"]);
             }
-
             return attr;
         }
 
@@ -112,15 +108,12 @@ namespace Okta.Core.Tests.Clients
                     strUserLogin = string.Format("{0}_{1}@{2}", arUserLogin[0], strDateSuffix, arUserLogin[1]);
                     user = new Models.User(strUserLogin, dbUser.Email, dbUser.FirstName, dbUser.LastName);
                 }
-
                 oktaUser = usersClient.Add(user, dbUser.Activate);
-
             }
             catch (OktaException e)
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
             return oktaUser;
         }
 
@@ -130,13 +123,10 @@ namespace Okta.Core.Tests.Clients
             strEx = string.Empty;
 
             string strGroupName = dbGroup.Name;
-
             try
             {
                 var groupsClient = oktaClient.GetGroupsClient();
-
                 Models.Group group = new Models.Group(strGroupName, dbGroup.Description);
-
                 Models.Group existingGroup = groupsClient.GetByName(strGroupName);
 
                 if (existingGroup == null)
@@ -152,12 +142,12 @@ namespace Okta.Core.Tests.Clients
             {
                 strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
             }
-
             return oktaGroup;
         }
 
         internal static string GetRandomString()
         {
+
             const string allowedChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz#@$^*()";
             Random rng = new Random();
 
@@ -168,6 +158,7 @@ namespace Okta.Core.Tests.Clients
             string allowedChars,
             int minLength,
             int maxLength,
+
             Random rng)
         {
             char[] chars = new char[maxLength];
@@ -181,6 +172,7 @@ namespace Okta.Core.Tests.Clients
             }
 
             return new string(chars, 0, length);
+
         }
     }
 }
