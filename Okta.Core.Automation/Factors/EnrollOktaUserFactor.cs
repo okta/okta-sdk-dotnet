@@ -18,7 +18,7 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
-            HelpMessage = "Name of the factor to enroll the user with. Use one of the following values: okta_question, okta_sms, okta_otp (Okta Verify), okta_push (Okta Verify Push), google_otp (Google Authenticator), symantec_vip, rsa_token, duo, yubikey_token, okta_call (voice call)"
+            HelpMessage = "Name of the factor to enroll the user with. Use one of the following values:  okta_sms (SMS) or okta_call (voice call)"
         )]
         public string FactorType { get; set; }
 
@@ -34,7 +34,7 @@ namespace Okta.Core.Automation
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,
             Position = 3,
-            HelpMessage = "Phone extension to register (including country code) for voice call factor"
+            HelpMessage = "Phone extension (optional for voice call factor only)"
 )]
         public string PhoneExtension { get; set; }
 
@@ -81,7 +81,7 @@ namespace Okta.Core.Automation
                             catch (OktaException oex)
                             {
                                 ErrorRecord er = new ErrorRecord(oex, oex.ErrorId, ErrorCategory.NotSpecified, userFactorsClient);
-                                ErrorDetails errorDetails = new ErrorDetails(string.Format("Could not enroll factor '{1}' for user {2}", FactorType, IdOrLogin, oex.ErrorSummary));
+                                ErrorDetails errorDetails = new ErrorDetails(string.Format("Could not enroll factor '{0}' for user {1}: {2}", FactorType, IdOrLogin, oex.ErrorCauses[0].ErrorSummary));
                                 er.ErrorDetails = errorDetails;
                                 WriteError(er);
                             }

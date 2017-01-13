@@ -79,7 +79,7 @@
             var userWithCredentials = new User {
                 Credentials = credentials
             };
-            var results = BaseClient.Put(id, userWithCredentials.ToJson());
+            var results = BaseClient.Put(GetResourceUri(id), userWithCredentials.ToJson());
             return Utils.Deserialize<User>(results);
         }
 
@@ -280,6 +280,27 @@
         public virtual UserGroupsClient GetUserGroupsClient(User user)
         {
             return new UserGroupsClient(user, BaseClient);
+        }
+
+        /// <summary>
+        /// Deletes a user using the Delete User API method
+        /// </summary>
+        /// <see cref="http://developer.okta.com/docs/api/resources/users.html#delete-user"/>
+        /// <param name="userId">Id of the user to delete</param>
+        public virtual void Delete(string userId)
+        {
+            BaseClient.Delete(resourcePath + "/" + userId);
+        }
+
+
+        /// <summary>
+        /// Deletes a user using the Delete User API method
+        /// </summary>
+        /// <see cref="http://developer.okta.com/docs/api/resources/users.html#delete-user"/>
+        /// <param name="user">The user to delete</param>
+        public virtual void Delete(User user)
+        {
+            Delete(user.Id);
         }
     }
 }

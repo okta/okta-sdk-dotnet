@@ -10,7 +10,7 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 0,
-            HelpMessage = "Id or Name of the group to retrieve"
+            HelpMessage = "Id or name of the group to retrieve"
         )]
         public string IdOrName { get; set; }
 
@@ -18,7 +18,7 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
-            HelpMessage = "Id or user name (login) of the user to add to the group"
+            HelpMessage = "Id or user name (login) of the user to remove from the group"
         )]
         public string UserIdOrLogin { get; set; }
 
