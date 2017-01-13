@@ -2,21 +2,19 @@
 
 In order to install the official Okta PowerShell module, you must either:
 
-i. Run Windows 10
-ii. Install the [Windows Management Framework 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) [for Windows 7 Service Pack 1, Windows 8.1, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2]
+i. Run Windows 10    
+ii. Install the [Windows Management Framework 5.0](https://www.microsoft.com/en-us/download/details.aspx?id=50395) [for Windows 7 Service Pack 1, Windows 8.1, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2]. __Important note__: it might be necessary to install .NET Framework 4.5 beforehand.
 
 ## Installation
 
-To install the Okta PowerShell Module, open a PowerShell prompt as an administrator and run the following 
+To install the Okta PowerShell Module, open a PowerShell prompt as an administrator and run the following: 
 
 `Install-Module -Name Okta.Core.Automation`
 
 
 ## Uninstallation
 
-To uninstall the Okta PowerShell Module:
-
-In a PowerShell prompt, run 
+To uninstall the Okta PowerShell Module open a PowerShell prompt as an administrator and run the following: 
 
 `Get-InstalledModule -Name Okta.Core.Automation | Uninstall-Module`
 
@@ -137,14 +135,14 @@ Disable-OktaUser
 ### Troubleshooting
 ##### Exception of type 'Okta.Core.Automation' was thrown
 The module throws this exception if your request was unable to be completed. To determine the reason, use the PowerShell global variable `$error`. For example:
-* To see a human-readable version of the last error, use `$error[0].Exception.ErrorSummary`
+* To see a human-readable version of the last error, use `$error[0].Exception.ErrorSummary`.
 * To see the last error code, use `$error[0].Exception.ErrorCode`. This is useful when automatically handling different exceptions in a long script.
 
 ##### This assembly is built by a runtime newer than the currently loaded runtime and cannot be loaded
-This module depends on .NET 4 which isn't enabled by default in most versions of Windows. To fix:
+This module depends on .NET 4 which isn't enabled by default in most versions of Windows. To fix this issue:
 
-1.   Navigate to your PowerShell directory. It should be C:\Windows\System32\WindowsPowerShell\v1.0, but if it's not, it can be found by typing $PSHome in a PowerShell terminal.
-2.   Create a PowerShell.Exe.config (powershell_ise.exe.config if using the ISE) file with the following contents:
+1.   Navigate to your PowerShell directory. It should be _C:\Windows\System32\WindowsPowerShell\v1.0_, but if it's not, it can be found by typing `$PSHome` in a PowerShell terminal.
+2.   Create a PowerShell.Exe.config (powershell_ise.exe.config if using the PowerShell Integrated Scripting Environment) file with the following contents:
 
     ```xml
     <?xml version="1.0"?> 
