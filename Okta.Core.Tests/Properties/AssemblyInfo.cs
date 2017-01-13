@@ -33,5 +33,5 @@ using System.Runtime.InteropServices;
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.3.2.0")]
-[assembly: AssemblyFileVersion("0.3.2.1852")] //"File version" attribute of the Properties -> Details tab
+[assembly: AssemblyFileVersion("0.3.2.2220")] //"File version" attribute of the Properties -> Details tab
 

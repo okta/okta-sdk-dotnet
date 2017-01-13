@@ -15,7 +15,7 @@
 @if not exist "%VSCOMNTOOLS%..\IDE\MSTest.exe" goto error_no_MSTest
 @set MSTEST_PATH="%VSCOMNTOOLS%..\IDE\MSTest.exe"
 
-@for /F "tokens=1,2*" %%i in ('reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\4.0 /v MSBuildToolsPath') DO (
+@for /F "tokens=1,2*" %%i in ('reg query HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\MSBuild\ToolsVersions\14.0 /v MSBuildToolsPath') DO (
 	@if "%%i"=="MSBuildToolsPath" (
 		@SET "NET40DIR=%%k"
 	)
@@ -31,7 +31,7 @@
 :check_msbuild_exists
 @if not exist %NET40DIR%\MSBuild.exe goto error_no_MSBUILDFILE
 @rem MSBUILD_OPTIONS=/clp::PerformanceSummary;Summary;Verbosity=normal
-@set MSBUILD_PATH=%NET40DIR%\MSBuild.exe
+@set MSBUILD_PATH="%NET40DIR%\MSBuild.exe"
 @echo INFO: MSBUILD_OPTIONS=%MSBUILD_OPTIONS%
 @echo INFO: MSBUILD_PATH=%MSBUILD_PATH%
 
