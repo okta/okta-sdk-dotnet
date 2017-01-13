@@ -28,30 +28,16 @@ Import-Module Okta.Core.Automation
 Syntax:
 Connect-Okta -Token "your-token" -FullDomain "https://your-subdomain.okta.com"
 
-# Get All Users
+# Get all users
 Get-OktaUser
 
-# Get Paginated Users (2 at a time)
-$totalUsers = 0
-    $params = @{limit = 2}
-    do {
-        $page = Get-OktaUser @params
-        $users = $page.Results
-        foreach ($user in $users) {
-            Write-Host $user.profile.login $user.credentials.provider.type
-        }
-        $totalUsers += $users.count
-        $params = @{Url = $page.NextPage}
-    } while ($page.NextPage)
-    "$totalUsers users found."
-
-# Get a user by Id
+# Get user by id
 Get-OktaUser 00u5xcvjyg5RPSTDo0h7
 
-# Get a user by username
+# Get user by username
 Get-OktaUser brandon@company.com
 
-# Get a user by username (simplified when there is only one brandon@... user)
+# Get user by username (simplified when there is only one brandon@... user)
 Get-OktaUser brandon
 
 # Get user(s) by filter (cf. https://developer.okta.com/docs/api/resources/users.html#list-users-with-a-filter)
@@ -65,7 +51,7 @@ foreach ($user in $users) {
     Write-Host $user.profile.firstName $user.profile.lastName $user.profile.email 
 }
 
-# Create User with login, first name, last name, email address and mobile phone (without sending an activation email). 
+# Create user
 Syntax:
 New-OktaUser -Login <userLogin@domain.com> -Email <userEmail> -FirstName <firstName> -LastName <lastName> -MobilePhone[optional] <phoneNumber> -Activate <$true|$false>
 Examples:
@@ -82,7 +68,7 @@ $newUser = New-OktaUser brandon@company.com -Email brandon.walsh@company.com -Fi
 $al = Enable-OktaUser $newUser
 Note: $al.AbsoluteUri is the link to the activation url to be sent to the user to activate user account
 
-# Enable user (by sending an activation email)
+# Enable user (and sends an activation email)
 Enable-OktaUser $newUser -SendEmail $true
 
 # Deactivate user
@@ -93,7 +79,7 @@ Disable-OktaUser brandon
 $u = Get-OktaUser brandon
 Disable-OktaUser -User $u
 
-# Update Okta User
+# Update user
 Syntax:
 Set-OktaUser <user>
 Example:
@@ -109,7 +95,7 @@ Set-OktaUserResetPassword $user.id
 Syntax:
 Set-OktaUserResetPassword $user.id $true
 
-# Unlock User
+# Unlock user
 Syntax:
 Unlock-OktaUser $user.id
 Unlock-OktaUser -User $u
@@ -121,7 +107,7 @@ Examples:
 Get-OktaGroup "Finance Controllers"
 Get-OktaGroup 00g5xcup98euejh1b0h7
 
-# Create new group
+# Create group
 Syntax: 
 New-OktaGroup -Name <GroupName> -Description <GroupDescription>[optional]
 Examples: 
@@ -213,7 +199,7 @@ Example:
 $factor = Enroll-OktaUserFactor brandon okta_sms "415 583 3872"
 Activate-OktaUserFactor brandon $factor.Id <passcode>
 
-# Get Events
+# Get system events
 Syntax:
 Get-OktaEvents -StartDate yyyy-MM-ddTHH:mm:ss -Filter <filter>
 Note: StartDate and Filter cannot be used together. If Filter is necessary , we recommend using a 'published gt' filter (cf. https://developer.okta.com/docs/api/resources/events.html#filters)
