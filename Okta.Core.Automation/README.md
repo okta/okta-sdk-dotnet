@@ -11,6 +11,12 @@ To install the Okta PowerShell Module, open a PowerShell prompt as an administra
 
 `Install-Module -Name Okta.Core.Automation`
 
+## Update
+
+To update an older version to the most recent version of the Okta PowerShell Module, open a PowerShell prompt as an administrator and run the following: 
+
+`Update-Module -Name Okta.Core.Automation`
+
 
 ## Uninstallation
 
