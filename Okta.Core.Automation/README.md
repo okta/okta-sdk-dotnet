@@ -98,7 +98,7 @@ Set-OktaUserResetPassword $user.id $true
 # Unlock user
 Syntax:
 Unlock-OktaUser $user.id
-Unlock-OktaUser -User $u
+Unlock-OktaUser -User $user
 
 # Get group
 Syntax:
@@ -192,7 +192,7 @@ Enroll-OktaUserFactor -IdOrLogin <userId> -FactorType <okta_sms|okta_call> -Phon
 Example:
 $factor = Enroll-OktaUserFactor brandon okta_sms "415 583 3872"
 
-# Activate an SMS or voice call factor
+# Activate SMS or voice call factor
 Syntax:
 Activate-OktaUserFactor -IdOrLogin <userId> -FactorId <factorId> -PassCode <code received by SMS or voice call>
 Example:
