@@ -3,8 +3,8 @@ using Okta.Core.Models;
 
 namespace Okta.Core.Automation
 {
-    [Cmdlet("Enroll", "OktaUserFactor")]
-    public class EnrollOktaUserFactor : OktaCmdlet
+    [Cmdlet("Activate", "OktaUserFactor")]
+    public class ActivateOktaUserFactor : OktaCmdlet
     {
         [Parameter(
             Mandatory = true,
@@ -18,9 +18,17 @@ namespace Okta.Core.Automation
             Mandatory = true,
             ValueFromPipelineByPropertyName = true,
             Position = 1,
-            HelpMessage = "Name of the factor to enroll the user with. Use one of the following string: okta_question, okta_sms, okta_otp (Okta Verify), okta_push (Okta Verify Push), google_otp (Google Authenticator), symantec_vip, rsa_token, duo, yubikey_token, okta_call (voice call)"
+            HelpMessage = "Id of the user factor to remove. If empty, removes all user factors"
         )]
-        public string FactorType { get; set; }
+        public string FactorId { get; set; }
+
+        [Parameter(
+            Mandatory = true,
+            ValueFromPipelineByPropertyName = true,
+            Position = 2,
+            HelpMessage = "Passcode for SMS or voice call"
+        )]
+        public string PassCode { get; set; }
 
         protected override void ProcessRecord()
         {
@@ -32,39 +40,39 @@ namespace Okta.Core.Automation
             if (user != null)
             {
                 var userFactorsClient = usersClient.GetUserFactorsClient(user);
-                var orgFactorsClient = Client.GetOrgFactorsClient();
-                Factor orgFactor = orgFactorsClient.GetFactor(FactorType);
-
-
-                if (orgFactor != null)
+                Factor userFactor = null;
+                if (!string.IsNullOrEmpty(FactorId))
                 {
-                    if (orgFactor.Status == "ACTIVE")
+                    userFactor = userFactorsClient.GetFactor(FactorId);
+                    if (userFactor != null)
                     {
-                        Factor userFactor = null;
                         try
                         {
-                            userFactor = userFactorsClient.Enroll(orgFactor);
+                            userFactor = userFactorsClient.Activate(userFactor, PassCode);
+                            WriteObject($"The factor was successfully activated for user {IdOrLogin} with status {userFactor.Status}.");
                             WriteObject(userFactor);
                         }
                         catch (OktaException oex)
                         {
                             ErrorRecord er = new ErrorRecord(oex, oex.ErrorId, ErrorCategory.NotSpecified, userFactorsClient);
-                            ErrorDetails errorDetails = new ErrorDetails(string.Format("Could not enroll factor '{1}' for user {2}", FactorType, IdOrLogin, oex.ErrorSummary));
+                            ErrorDetails errorDetails = new ErrorDetails($"Could not remove factor {FactorId} for user {IdOrLogin}: {oex.ErrorSummary}.");
                             er.ErrorDetails = errorDetails;
                             WriteError(er);
                         }
-
-                        WriteObject(userFactor);
                     }
                     else
                     {
-                        WriteWarning(string.Format("The chosen factor ({0}) is inactive in this organization. Please choose an active factor.", FactorType));
+                        WriteWarning("The provided factor type seems to be invalid, please try again.");
                     }
-
                 }
                 else
                 {
-                    WriteWarning("The provided factor type seems to be invalid, please try again.");
+                    WriteInformation("About to delete all user factors...", null);
+                    var factors = userFactorsClient.GetList();
+                    foreach(Factor factor in factors.Results)
+                    {
+                        userFactorsClient.Reset(factor);
+                    }
                 }
             }
             else
@@ -74,3 +82,5 @@ namespace Okta.Core.Automation
         }
     }
 }
+
+

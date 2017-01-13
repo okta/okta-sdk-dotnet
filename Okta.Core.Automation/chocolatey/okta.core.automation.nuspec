@@ -3,13 +3,13 @@
   <metadata>
     <title>Okta PowerShell Module</title>
     <id>okta.core.automation</id>
-    <version>0.2.0.0</version>
-    <authors>okta</authors>
-    <owners>okta</owners>
+    <version>0.3.0.0</version>
+    <authors>Okta, Inc</authors>
+    <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
     <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectSourceUrl>https://github.com/okta/oktasdk-csharp</projectSourceUrl>
+    <projectSourceUrl>https://github.com/okta/oktasdk-csharp/tree/master/Okta.Core.Automation</projectSourceUrl>
     <packageSourceUrl>https://github.com/okta/oktasdk-csharp/tree/master/Okta.Core.Automation</packageSourceUrl>
     <docsUrl>https://github.com/okta/oktasdk-csharp/blob/master/Okta.Core.Automation/README.md</docsUrl>
     <mailingListUrl>mailto:developers@okta.com</mailingListUrl>
@@ -19,18 +19,11 @@
     <description>
       This package allows you to build on Okta's identity platform using PowerShell.
     </description>
-    <releaseNotes>Beta release - Use in production environments is possible, though not recommended. This library is subject to substantial change and is currently compatible with Okta.Core.Client v0.2.9 or later</releaseNotes>
-    <copyright>© Okta, Inc 2016</copyright>
+    <releaseNotes>Beta release - Use in production environments is possible, though not recommended. This library is subject to substantial change and is currently compatible with Okta.Core.Client v0.3.2 or later</releaseNotes>
+    <copyright>Okta, Inc. All rights reserved</copyright>
     <tags>okta sdk api authentication identity management powershell module</tags>
-    <dependencies>
-      <group>
-        <!--<dependency id="NuGet.CommandLine" version="3.4.3" />-->
-        <!--<dependency id="Okta.Core.Client" version="0.2.9" />-->
-      </group>
-    </dependencies>
   </metadata>
   <files>
-    <!--<file src="nuget.config" target="."/>-->
     <file src="Okta.Core.Automation.psd1" target="."/>
     <file src="ChocolateyInstall.ps1" target="."/>
     <file src="ChocolateyUninstall.ps1" target="."/>

@@ -38,9 +38,17 @@ namespace Okta.Core.Automation
         protected override void ProcessRecord()
         {
             var eventsClient = Client.GetEventsClient();
-                if (Limit <= 0) Limit = 200;
-                var events = eventsClient.GetFilteredEnumerator(startDate:StartDate, filter: new FilterBuilder(Filter), pageSize: Limit);
-                WriteObject(events, false);
+            if (Limit <= 0) Limit = 200;
+            EnumerableResults<Models.Event> events = null;
+            if (!string.IsNullOrEmpty(Filter))
+            {
+                events = eventsClient.GetFilteredEnumerator(filter: new FilterBuilder(Filter), pageSize: Limit);
+            }
+            else
+            {
+                events = eventsClient.GetFilteredEnumerator(startDate: StartDate, pageSize: Limit);
+            }
+            WriteObject(events, false);
         }
     }
 }

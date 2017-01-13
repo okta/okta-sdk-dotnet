@@ -6,6 +6,11 @@ namespace Okta.Core.Automation
     [Cmdlet(VerbsLifecycle.Enable, "OktaUser")]
     public class EnableOktaUser : OktaCmdlet
     {
+        public EnableOktaUser()
+        {
+            SendEmail = false;
+        }
+
         [Parameter(
             Mandatory = false,
             ValueFromPipelineByPropertyName = true,

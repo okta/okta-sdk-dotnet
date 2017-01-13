@@ -13,7 +13,7 @@ namespace Okta.Core.Automation
 
         public NewOktaUser()
         {
-            Activate = true;
+            Activate = false;
         }
 
         [Parameter(

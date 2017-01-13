@@ -4,7 +4,7 @@
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
     <version>0.3.2.0</version>
-    <authors>Okta</authors>
+    <authors>Okta, Inc</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
     <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
@@ -44,7 +44,7 @@
       - v0.2.4.0: Added Advanced Search support
     </description>
     <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
-    <copyright>© Okta, Inc 2016</copyright>
+    <copyright>Okta, Inc. All rights reserved.</copyright>
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
       <group>

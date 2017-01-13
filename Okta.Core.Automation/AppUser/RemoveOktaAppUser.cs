@@ -49,7 +49,7 @@ namespace Okta.Core.Automation
                     {
                         appUsersClient.Remove(new User { Id = UserId });
                     }
-                    WriteObject(string.Format("Successfully removed user {0} from app {1}", appUser.Profile.Email, app.Label));
+                    WriteObject(string.Format("Successfully removed user {0} from app {1}", appUser.Credentials.UserName, app.Label));
                 }
             }
             catch (OktaException oex)
