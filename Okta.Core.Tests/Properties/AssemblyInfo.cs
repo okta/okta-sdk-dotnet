@@ -35,3 +35,4 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.3.2.0")]
 [assembly: AssemblyFileVersion("0.3.2.2220")] //"File version" attribute of the Properties -> Details tab
 
+
