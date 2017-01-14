@@ -30,7 +30,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PowerShell", "PowerShell", 
 		Okta.Core.Automation\chocolatey\ChocolateyUninstall_New.ps1 = Okta.Core.Automation\chocolatey\ChocolateyUninstall_New.ps1
 		Okta.Core.Automation\chocolatey\nuget.config = Okta.Core.Automation\chocolatey\nuget.config
 		Okta.Core.Automation\chocolatey\okta.core.automation.nuspec = Okta.Core.Automation\chocolatey\okta.core.automation.nuspec
-		Okta.Core.Automation\chocolatey\Okta.Core.Automation.psd1 = Okta.Core.Automation\chocolatey\Okta.Core.Automation.psd1
+		Okta.Core.Automation\Okta.Core.Automation.psd1 = Okta.Core.Automation\Okta.Core.Automation.psd1
 		Okta.Core.Automation\chocolatey\README.md = Okta.Core.Automation\chocolatey\README.md
 	EndProjectSection
 EndProject
