@@ -8,8 +8,6 @@ namespace Okta.Core
 {
     public class Constants
     {
-        // TODO: Convert these to static readonly if this class is going to be public - http://stackoverflow.com/a/756010/1978203
-
         public const string BaseUriFormat = "https://{0}.okta.com";
         public const int DefaultPageSize = 200;
         public const int MaxPageSize = 1000;
