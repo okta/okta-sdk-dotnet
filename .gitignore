@@ -195,3 +195,7 @@ FakesAssemblies/
 /Okta.OpenIdConnect.TokenValidation
 /Okta.Core.Automation/chocolatey/testpkg
 /Okta.Core.Automation/TestOktaPowerShellSDK.ps1
+
+# IntelliJ
+*.iml
+.idea
