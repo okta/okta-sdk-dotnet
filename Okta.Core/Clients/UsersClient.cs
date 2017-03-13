@@ -35,6 +35,11 @@
         /// <example>userClient.Get("user@domain.local") or userClient.Get("00u5t0pkimhkCPyGo0h7")</example>
         public virtual User Get(string userId)
         {
+            if (userId.StartsWith("?"))
+            {
+                return GetByUsername(userId);
+            }
+
             return base.Get(userId);
         }
 
