@@ -121,7 +121,7 @@ foreach (User user in usersClient.GetFilteredEnumerator(filter))
 
 To query for users who match a certain query, use the `query` argument:
 ```csharp
-// Return all users who's firstName, lastName, or email contains "test"
+// Return all users whose firstName, lastName, or email contains "test"
 Uri nextPage = null;
 PagedResults<User> users;
 
