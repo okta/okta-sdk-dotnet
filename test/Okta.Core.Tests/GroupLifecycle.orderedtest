@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<OrderedTest name="grouplifecycle" storage="c:\projects\oktasdk-csharp\okta.core.tests\grouplifecycle.orderedtest" id="d03ebc58-ef70-47bb-a327-ebcf457f55d4" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestLinks>
+    <TestLink id="5a6d7761-0505-5a8b-477d-527d855bc0af" name="CreateGroup" storage="bin\debug\okta.core.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <TestLink id="a7f9d134-139d-0ce3-de32-11a1bc5c4595" name="DeleteGroup" storage="bin\debug\okta.core.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestLinks>
+</OrderedTest>
