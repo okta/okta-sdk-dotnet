@@ -17,6 +17,6 @@ namespace Okta.Core.Models
         /// Password for app
         /// </summary>
         [JsonProperty("password")]
-        public string Password { get; set; }
+        public Password Password { get; set; }
     }
 }
