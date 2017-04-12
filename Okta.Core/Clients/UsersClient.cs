@@ -51,18 +51,30 @@
         /// <example>userClient.GetByUsername("user@domain.local") or userClient.GetByUsername("user")</example>
         public virtual User GetByUsername(string userName)
         {
-            User user = null;
+            if (!userName.StartsWith("?"))
+            {
+                return base.Get(userName);
+            }
+
             var filter = new FilterBuilder();
             filter.Where("profile.login").EqualTo(userName);
 
             var users = base.GetFilteredEnumerator(filter, pageSize: 1);
-            IEnumerator<User> usersEnum = users.GetEnumerator();
-            if (users != null && usersEnum.MoveNext())
+
+            if (!users.Any())
             {
-                user = usersEnum.Current;
+                // Simulate user not found HTTP exception for consistency
+                throw new OktaException()
+                {
+                    ErrorCode = "E0000007";
+                    ErrorSummary = String.Format("Not found: Resource not found: {0}(User)", userName);
+                    ErrorLink = "E0000007";
+                    HttpStatusCode = System.Net.HttpStatusCode.NotFound;
+                };
             }
-            
-            return user;
+
+            var user = users.Single();
+            return base.Get(user.Id);
         }
 
         public virtual User Update(User user)
