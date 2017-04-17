@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-
+    using System.Linq;
     using Okta.Core.Models;
 
     /// <summary>
@@ -66,10 +66,10 @@
                 // Simulate user not found HTTP exception for consistency
                 throw new OktaException()
                 {
-                    ErrorCode = "E0000007";
-                    ErrorSummary = String.Format("Not found: Resource not found: {0}(User)", userName);
-                    ErrorLink = "E0000007";
-                    HttpStatusCode = System.Net.HttpStatusCode.NotFound;
+                    ErrorCode = "E0000007",
+                    ErrorSummary = String.Format("Not found: Resource not found: {0}(User)", userName),
+                    ErrorLink = "E0000007",
+                    HttpStatusCode = System.Net.HttpStatusCode.NotFound
                 };
             }
 
