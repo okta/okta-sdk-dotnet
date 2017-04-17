@@ -30,7 +30,7 @@ Copyright = 'Okta, Inc. All rights reserved'
 Description = 'Manage Okta with PowerShell'
 
 # Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = ''
+PowerShellVersion = '3.0'
 
 # Name of the Windows PowerShell host required by this module
 PowerShellHostName = ''
@@ -83,7 +83,36 @@ ModuleList = @()
 # List of all files packaged with this module
 FileList = @(".\bin\Okta.Core.Automation.dll")
 
-# Private data to pass to the module specified in ModuleToProcess
-PrivateData = ''
+# Private data to pass to the module specified in RootModule
+PrivateData = @{
+    # PSData is module packaging and gallery metadata embedded in PrivateData
+    # It's for rebuilding PowerShellGet (and PoshCode) NuGet-style packages
+    # We had to do this because it's the only place we're allowed to extend the manifest
+    # https://connect.microsoft.com/PowerShell/feedback/details/421837
+    PSData = @{
+        # The primary categorization of this module (from the TechNet Gallery tech tree).
+        Category = "Identity"
 
+        # Keyword tags to help users find this module via navigations and search.
+        Tags = @('okta', 'sdk', 'api', 'authentication' , 'identity', 'management')
+
+        # The web address of an icon which can be used in galleries to represent this module
+        IconUri = "https://www.okta.com/sites/all/themes/Okta/images/logo.png"
+
+        # The web address of this module's project or support homepage.
+        ProjectUri = "https://github.com/okta/oktasdk-csharp/blob/master/Okta.Core.Automation/README.md"
+
+        # The web address of this module's license. Points to a page that's embeddable and linkable.
+        LicenseUri = "https://github.com/okta/oktasdk-csharp/blob/master/LICENSE.md"
+
+        # Release notes for this particular version of the module
+        # ReleaseNotes = False
+
+        # If true, the LicenseUrl points to an end-user license (not just a source license) which requires the user agreement before use.
+        # RequireLicenseAcceptance = ""
+
+        # Indicates this is a pre-release/testing version of the module.
+        IsPrerelease = 'True'
+		}
+	}
 }

@@ -28,18 +28,6 @@ namespace Okta.Core.Tests.Clients
             strDateSuffix = DateTime.Now.ToString("yyyy.MM.dd.hh.mm.ss.ff");
         }
 
-        //[TestMethod]
-        //[DataSource(Constants.TEST_USERS_TABLE)]
-        //public void GetAllUsers()
-        //{
-        //    var usersClient = oktaClient.GetUsersClient();
-
-        //    foreach (var user in usersClient)
-        //    {
-        //        string userLogin = user.Profile.Login;
-        //    }
-        //}
-
         [TestMethod]
         [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
         public void CreateUser()
@@ -175,6 +163,38 @@ namespace Okta.Core.Tests.Clients
 
                 Assert.IsNotNull(authResponse, "Authentication for Okta User {0} failed: {1}", dbUser.Login, strEx);
                 Assert.IsTrue(authResponse.Status == "SUCCESS", "Authentication for Okta User {0} failed. Auth Status is {1}", dbUser.Login, authResponse.Status);
+            }
+        }
+
+        [TestMethod]
+        [DataSource(TestConstants.USERS_DATASOURCE_NAME)]
+        public void DeactivateUser()
+        {
+            TestUser dbUser = Helpers.GetUser(TestContext);
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Login), string.Format("Okta user login {0} is not valid", dbUser.Login));
+            Assert.IsTrue(RegexUtilities.IsValidEmail(dbUser.Email), string.Format("Okta user email {0} is not valid", dbUser.Email));
+            string strEx = string.Empty;
+            Models.User existingUser = null;
+            string strUserLogin = dbUser.Login;
+            string strNewUserLogin = string.Empty;
+
+            try
+            {
+                var usersClient = oktaClient.GetUsersClient();
+
+                existingUser = usersClient.GetByUsername(strUserLogin);
+
+                if (existingUser != null && existingUser.Status != "DEPROVISIONED")
+                {
+                    usersClient.Deactivate(existingUser);
+                    existingUser = usersClient.GetByUsername(strUserLogin);
+                    Assert.IsTrue(existingUser.Status == "DEPROVISIONED", $"Okta User {0} status is: {existingUser.Status}", dbUser.Login, strEx);
+                }
+            }
+            catch (OktaException e)
+            {
+                strEx = string.Format("Error Code: {0} - Summary: {1} - Message: {2}", e.ErrorCode, e.ErrorSummary, e.Message);
+                Assert.Fail(strEx);
             }
         }
 
