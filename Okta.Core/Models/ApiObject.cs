@@ -78,6 +78,19 @@
         }
 
         /// <summary>
+        /// Tries to get a property.
+        /// </summary>
+        /// <param name="propertyName">Name of the property</param>
+        /// <param name="value">The returned value.</param>
+        /// <returns><c>true</c> if <c>propertyName</c> exists.</returns>
+        public bool TryGetProperty(string propertyName, out string value)
+        {
+            bool found = UnmappedProperties.TryGetValue(propertyName, out var property);
+            value = property?.Value?.ToString();
+            return found;
+        }
+
+        /// <summary>
         /// Checks for the availability of an unmapped property.
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
