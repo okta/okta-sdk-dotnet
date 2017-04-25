@@ -60,50 +60,6 @@
             return Utils.Deserialize<AuthResponse>(response);
         }
 
-
-        /// <summary>
-        /// Authenticates an Okta user with Context Object
-        /// </summary>
-        /// <param name="username">User's username/login</param>
-        /// <param name="password">User's password</param>
-        /// <param name="deviceToken">User's device token</param>
-        /// <param name="ipAddress">User's IP address</param>
-        /// <param name="userAgent">User's userAgent</param>
-        /// <param name="relayState">opaque value for the transaction and processed as untrusted data which is just echoed in a response. It is the client’s responsibility to escape/encode this value before displaying in a UI such as a HTML document </param>
-        /// <param name="bWarnPasswordExpired">Optional parameter indicating whether the PASSWORD_WARN status should be returned if available. Defaults to false</param>
-        /// <param name="bMultiOptionalFactorEnroll">Optional parameter indicating whether the user should be prompted to add an additional second factor if available </param>
-        /// <returns></returns>
-        public virtual AuthResponse AuthenticateWithContext(string username, string password, string deviceToken, string ipAddress = null, string userAgent = null, string relayState = null, bool bWarnPasswordExpired = false, bool bMultiOptionalFactorEnroll = false)
-        {
-            bool bAddXForwardedHeader = false;
-
-            var authRequest = new AuthRequest
-            {
-                Username = username,
-                Password = password,
-                RelayState = relayState,
-                Options =
-                {
-                    WarnBeforePasswordExpiration = bWarnPasswordExpired,
-                    MultiOptionalFactorEnroll = bMultiOptionalFactorEnroll
-                }
-            };
-
-            if (!string.IsNullOrEmpty(ipAddress.Trim()))
-            {
-                authRequest.Context = new AuthContext { IpAddress = ipAddress.Trim() };
-                bAddXForwardedHeader = true;
-            }
-            if (!string.IsNullOrEmpty(deviceToken.Trim()))
-                authRequest.Context.DeviceToken = deviceToken;
-
-            if (!string.IsNullOrEmpty(userAgent.Trim()))
-                authRequest.Context.UserAgent = userAgent;
-
-            var response = BaseClient.Post(resourcePath, authRequest.ToJson(), true, bAddXForwardedHeader);
-            return Utils.Deserialize<AuthResponse>(response);
-        }
-
         public virtual AuthResponse Enroll(string stateToken, Factor factor)
         {
             factor.SetProperty("stateToken", stateToken);
