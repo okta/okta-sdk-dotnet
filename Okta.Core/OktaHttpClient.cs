@@ -182,10 +182,15 @@
                         if (!string.IsNullOrEmpty(content))
                         {
                             content = content.Trim();
-                            if (content.StartsWith("{") && content.EndsWith("}"))
+                            try
                             {
-                                var obj = JObject.Parse(content);
-                                ipAddress = (string)obj["context"]["ipAddress"];
+                                var parsedContent = JObject.Parse(content);
+                                ipAddress = (string)parsedContent["context"]["ipAddress"];
+                            }
+                            catch (Exception e)
+                            {
+                                /* no ipAddress given */
+                                throw new OktaException("The AuthnRequest object is malformed." + e.Message);
                             }
                         }
 

@@ -5,6 +5,7 @@
 
     using Okta.Core.Models;
     using System.Collections.Generic;
+    using System.Net.Http;
     /// <summary>
     /// A client to manage the authentication flow.
     /// </summary>
@@ -21,15 +22,19 @@
         /// </summary>
         /// <param name="username">User's username/login</param>
         /// <param name="password">User's password</param>
+        /// <param name="authContext">Object that alows trusted web applications to pass additional context for authentication</param>
         /// <param name="relayState">opaque value for the transaction and processed as untrusted data which is just echoed in a response. It is the client’s responsibility to escape/encode this value before displaying in a UI such as a HTML document </param>
         /// <param name="bWarnPasswordExpired">Optional parameter indicating whether the PASSWORD_WARN status should be returned if available. Defaults to false</param>
         /// <param name="bMultiOptionalFactorEnroll">Optional parameter indicating whether the user should be prompted to add an additional second factor if available </param>
         /// <returns></returns>
-        public virtual AuthResponse Authenticate(string username, string password, string relayState = null, bool bWarnPasswordExpired = false, bool bMultiOptionalFactorEnroll = false)
+        public virtual AuthResponse Authenticate(string username, string password, AuthContext authContext = null, string relayState = null, bool bWarnPasswordExpired = false, bool bMultiOptionalFactorEnroll = false)
         {
-            var authRequest = new AuthRequest {
-                Username = username, 
-                Password = password, 
+            HttpResponseMessage response = null;
+
+            var authRequest = new AuthRequest
+            {
+                Username = username,
+                Password = password,
                 RelayState = relayState,
                 Options =
                 {
@@ -38,9 +43,23 @@
                 }
             };
 
-            var response = BaseClient.Post(resourcePath, authRequest.ToJson(), false);
+            if (authContext != null)
+            {
+                authRequest.Context = authContext;
+
+                if (!string.IsNullOrEmpty(authContext.IpAddress))
+                    response = BaseClient.Post(resourcePath, authRequest.ToJson(), true, true);
+                else
+                    response = BaseClient.Post(resourcePath, authRequest.ToJson(), true, false);
+            }
+            else
+            {
+                response = BaseClient.Post(resourcePath, authRequest.ToJson(), false);
+            }
+
             return Utils.Deserialize<AuthResponse>(response);
         }
+
 
         /// <summary>
         /// Authenticates an Okta user with Context Object
