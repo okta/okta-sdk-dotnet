@@ -27,7 +27,7 @@
         /// <param name="bWarnPasswordExpired">Optional parameter indicating whether the PASSWORD_WARN status should be returned if available. Defaults to false</param>
         /// <param name="bMultiOptionalFactorEnroll">Optional parameter indicating whether the user should be prompted to add an additional second factor if available </param>
         /// <returns></returns>
-        public virtual AuthResponse Authenticate(string username, string password, AuthContext authContext = null, string relayState = null, bool bWarnPasswordExpired = false, bool bMultiOptionalFactorEnroll = false)
+        public virtual AuthResponse Authenticate(string username, string password, string relayState = null, bool bWarnPasswordExpired = false, bool bMultiOptionalFactorEnroll = false, AuthContext authContext = null)
         {
             HttpResponseMessage response = null;
 
