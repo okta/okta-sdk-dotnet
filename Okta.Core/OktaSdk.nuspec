@@ -55,6 +55,6 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="\bin\Release\Okta.Core.dll" target="lib"/>
+    <file src="bin\Release\Okta.Core.dll" target="lib"/>
   </files>
 </package>
