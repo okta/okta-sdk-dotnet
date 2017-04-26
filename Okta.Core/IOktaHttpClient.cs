@@ -20,8 +20,8 @@
         public virtual string ApiToken { get; set; }
         public virtual Uri BaseUri { get; set; }
 
-        public abstract HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true);
-        public abstract Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true);
+        public abstract HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true, bool bAddXForwardedHeader = false);
+        public abstract Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true, bool bAddXForwardedHeader = false);
 
         #region GET methods
         public HttpResponseMessage Get(string relativeUri)
@@ -47,9 +47,9 @@
         #endregion
 
         #region POST methods
-        public HttpResponseMessage Post(string relativeUri, string content = null, bool bAddAuthorizationHeader = true)
+        public HttpResponseMessage Post(string relativeUri, string content = null, bool bAddAuthorizationHeader = true, bool bAddXForwardedHeader = false)
         {
-            return Execute(HttpRequestType.POST, relativeUri: relativeUri, content: content, bAddAuthorizationHeader: bAddAuthorizationHeader);
+            return Execute(HttpRequestType.POST, relativeUri: relativeUri, content: content, bAddAuthorizationHeader: bAddAuthorizationHeader, bAddXForwardedHeader: bAddXForwardedHeader);
         }
 
         public Task<HttpResponseMessage> PostAsync(string relativeUri, string content = null)

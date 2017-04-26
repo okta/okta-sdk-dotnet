@@ -1,5 +1,6 @@
 ﻿namespace Okta.Core
 {
+    using Newtonsoft.Json.Linq;
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -67,11 +68,11 @@
             httpClient.DefaultRequestHeaders.Add("User-Agent", oktaSettings.UserAgent);
         }
 
-        public override HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true)
+        public override HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true, bool bAddXForwardedHeader = false)
         {
             try
             {
-                var task = ExecuteAsync(requestType, uri, relativeUri, content, waitMillis, bAddAuthorizationHeader);
+                var task = ExecuteAsync(requestType, uri, relativeUri, content, waitMillis, bAddAuthorizationHeader, bAddXForwardedHeader);
                 task.Wait();
                 var response = task.Result;
 
@@ -143,7 +144,7 @@
             }
         }
 
-        public override Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true)
+        public override Task<HttpResponseMessage> ExecuteAsync(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, bool bAddAuthorizationHeader = true, bool bAddXForwardedHeader = false)
         {
             // Ensure we have exactly one usable Uri
             if (string.IsNullOrEmpty(relativeUri) && uri == null)
@@ -174,6 +175,29 @@
                     if (!bAddAuthorizationHeader)
                     {
                         httpClient.DefaultRequestHeaders.Remove("Authorization");
+                    }
+                    if (bAddXForwardedHeader)
+                    {
+                        string ipAddress = null;
+                        if (!string.IsNullOrEmpty(content))
+                        {
+                            content = content.Trim();
+                            try
+                            {
+                                var parsedContent = JObject.Parse(content);
+                                ipAddress = (string)parsedContent["context"]["ipAddress"];
+                            }
+                            catch (Exception e)
+                            {
+                                /* no ipAddress given */
+                                throw new OktaException("The AuthnRequest object is malformed." + e.Message);
+                            }
+                        }
+
+                        if (ipAddress != null)
+                        {
+                            httpClient.DefaultRequestHeaders.Add("X-Forwarded-For", ipAddress);
+                        }
                     }
                     return uri != null ? this.httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")) 
                         : this.httpClient.PostAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
