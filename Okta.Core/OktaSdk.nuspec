@@ -3,7 +3,7 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.3.2.0</version>
+    <version>0.3.3.0</version>
     <authors>Okta, Inc</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
@@ -23,6 +23,7 @@
 
       Update Log
       ----------
+      - We've moved this changelog to Github: https://github.com/okta/oktasdk-csharp/releases
       - v0.3.2.0: Added Delete User method (see http://developer.okta.com/docs/api/resources/users.html#delete-user)
       - v0.3.1.0: Fixed SetCredentials method in UsersClient and added test method in UsersClientTests
       - v0.3.0.2: Fixed GetFactor method in OrgFactorsClient (was always returning null before)
