@@ -67,18 +67,77 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public void IgnoreBadValues()
+        public void IgnoreEmptyArgs()
+        {
+            var links = LinkHeaderParser.Parse();
+
+            links.Count().Should().Be(0);
+        }
+
+        [Fact]
+        public void IgnoreNullAndEmptyArgs()
+        {
+            var links = LinkHeaderParser.Parse(string.Empty, null);
+
+            links.Count().Should().Be(0);
+        }
+
+        [Fact]
+        public void IgnoreEmptyValues()
         {
             var headerValues = new List<string>()
             {
-                "barbaz",
-                "nope!",
-                "<https://foo.bar>"
+                "",
+                string.Empty,
+                null,
+                "<https://foo.bar>; rel=\"self\""
             };
             var links = LinkHeaderParser.Parse(headerValues);
 
             links.Count().Should().Be(1);
             links.Single().Target.Should().Be("https://foo.bar");
+            links.Single().Relation.Should().Be("self");
+        }
+
+        [Fact]
+        public void IgnoreBadLinks()
+        {
+            var headerValues = new List<string>()
+            {
+                "barbaz",
+                "nope!",
+                "   ",
+                "<https://foo.bar>; rel=\"prev\""
+            };
+            var links = LinkHeaderParser.Parse(headerValues);
+
+            links.Count().Should().Be(1);
+            links.Single().Target.Should().Be("https://foo.bar");
+            links.Single().Relation.Should().Be("prev");
+        }
+
+        [Fact]
+        public void IgnoreBadInlineLinks()
+        {
+            var headerValue = @"
+<https://my-server.dev/api/v1/users?after=abc123>; rel=""next"",,
+  definitelyinvalid!";
+            var links = LinkHeaderParser.Parse(headerValue);
+
+            links.Count().Should().Be(1);
+            links.Single().Target.Should().Be("https://my-server.dev/api/v1/users?after=abc123");
+        }
+
+        [Fact]
+        public void IgnoreBadInlineLinkValues()
+        {
+            var headerValue = @"<https://my-server.dev/api/v1/users?after=abc123>;
+; foo=""bar""; rel=""next""";
+            var links = LinkHeaderParser.Parse(headerValue);
+
+            links.Count().Should().Be(1);
+            links.Single().Target.Should().Be("https://my-server.dev/api/v1/users?after=abc123");
+            links.Single().Relation.Should().Be("next");
         }
     }
 }

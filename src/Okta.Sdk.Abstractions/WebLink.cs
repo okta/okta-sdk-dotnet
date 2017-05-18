@@ -4,10 +4,16 @@
     /// Represents an RFC 5988 web link.
     /// </summary>
     /// <see>https://tools.ietf.org/html/rfc5988</see>
-    public sealed class WebLink
+    public struct WebLink
     {
-        public string Target { get; set; }
+        public WebLink(string target, string relation)
+        {
+            Target = target;
+            Relation = relation;
+        }
 
-        public string Relation { get; set; }
+        public string Target { get; }
+
+        public string Relation { get; }
     }
 }
