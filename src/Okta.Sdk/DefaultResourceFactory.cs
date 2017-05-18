@@ -15,6 +15,6 @@ namespace Okta.Sdk
         }
 
         public TInterface CreateConcrete<TInterface>(Type concreteType, IReadOnlyDictionary<string, object> data)
-            => (TInterface)Activator.CreateInstance(concreteType, data);
+            => (TInterface)Activator.CreateInstance(concreteType, data, this);
     }
 }

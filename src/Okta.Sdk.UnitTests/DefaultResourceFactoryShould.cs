@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Okta.Sdk.Abstractions;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -37,24 +38,24 @@ namespace Okta.Sdk.UnitTests
             result.Should().NotBeNull();
             result.Should().BeOfType<TestConcrete>();
         }
-    }
 
-    public class WithoutMatchingCtor
-    {
-        // This type does not have a constructor that accepts IReadOnlyDictionary<string, object>
+        public class WithoutMatchingCtor
+        {
+            // This type does not have a constructor that accepts IReadOnlyDictionary<string, object>, IResourceFactory
 
-        public string Foo { get; set; }
-    }
+            public string Foo { get; set; }
+        }
 
-    public class TestConcrete : ITestInterface
-    {
-        public TestConcrete(IReadOnlyDictionary<string, object> data) { }
+        public class TestConcrete : ITestInterface
+        {
+            public TestConcrete(IReadOnlyDictionary<string, object> data, IResourceFactory resourceFactory) { }
 
-        public string Foo { get; set; }
-    }
+            public string Foo { get; set; }
+        }
 
-    public interface ITestInterface
-    {
-        string Foo { get; set; }
+        public interface ITestInterface
+        {
+            string Foo { get; set; }
+        }
     }
 }

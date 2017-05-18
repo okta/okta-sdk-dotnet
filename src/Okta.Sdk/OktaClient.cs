@@ -7,17 +7,17 @@ namespace Okta.Sdk
 {
     public sealed class OktaClient
     {
-        private readonly ISerializer _serializer;
         private readonly IRequestExecutor _requestExecutor;
+        private readonly ISerializer _serializer;
         private readonly IResourceFactory _resourceFactory;
 
         public OktaClient(
-            ISerializer serializer,
             IRequestExecutor requestExecutor,
+            ISerializer serializer,
             IResourceFactory resourceFactory)
         {
-            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
             _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
+            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
             _resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
         }
 
