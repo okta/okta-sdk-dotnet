@@ -1,5 +1,4 @@
-﻿using Okta.Sdk.Abstractions;
-using System;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 
@@ -12,17 +11,13 @@ namespace Okta.Sdk
             var interfaceInfo = typeof(TInterface).GetTypeInfo();
             if (!interfaceInfo.IsInterface) return typeof(TInterface);
 
-            var foundMap = interfaceInfo
+            var found = interfaceInfo
                 .Assembly
                 .DefinedTypes
-                .Select(ti => new
-                {
-                    Concrete = ti.AsType(),
-                    Interface = ti.GetCustomAttribute<ConcreteForAttribute>()?.Interface
-                })
-                .SingleOrDefault(x => x.Interface == typeof(TInterface));
+                .SingleOrDefault(ti => ti.ImplementedInterfaces.Any(i => i == typeof(TInterface)))
+                ?.AsType();
 
-            return foundMap.Concrete;
+            return found;
         }
     }
 }
