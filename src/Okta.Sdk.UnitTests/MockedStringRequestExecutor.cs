@@ -14,7 +14,12 @@ namespace Okta.Sdk.UnitTests
             _returnThis = returnThis ?? throw new ArgumentNullException(nameof(returnThis));
         }
 
-        public Task<string> GetAsync(string href, CancellationToken ct)
+        public Task<HttpResponseWrapper> GetAsync(string href, CancellationToken ct)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<string> GetBodyAsync(string href, CancellationToken ct)
             => Task.FromResult(_returnThis);
     }
 }

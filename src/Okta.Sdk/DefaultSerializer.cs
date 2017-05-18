@@ -16,11 +16,17 @@ namespace Okta.Sdk
         }
 
         public IReadOnlyDictionary<string, object> Deserialize(string json)
+            => Deserialize<IReadOnlyDictionary<string, object>>(json);
+
+        public IEnumerable<IReadOnlyDictionary<string, object>> DeserializeArray(string json)
+            => Deserialize<IReadOnlyDictionary<string, object>[]>(json);
+
+        private T Deserialize<T>(string json)
         {
             using (var reader = new StringReader(json))
             using (var jsonReader = new JsonTextReader(reader))
             {
-                return _serializer.Deserialize<IReadOnlyDictionary<string, object>>(jsonReader);
+                return _serializer.Deserialize<T>(jsonReader);
             }
         }
     }

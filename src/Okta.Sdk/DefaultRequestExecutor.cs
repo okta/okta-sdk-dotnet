@@ -9,7 +9,12 @@ namespace Okta.Sdk
 {
     public sealed class DefaultRequestExecutor : IRequestExecutor
     {
-        Task<string> IRequestExecutor.GetAsync(string href, CancellationToken ct)
+        public Task<HttpResponseWrapper> GetAsync(string href, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<string> IRequestExecutor.GetBodyAsync(string href, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

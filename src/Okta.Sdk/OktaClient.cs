@@ -23,7 +23,7 @@ namespace Okta.Sdk
 
         public async Task<T> GetAsync<T>(string href, CancellationToken ct = default(CancellationToken))
         {
-            var json = await _requestExecutor.GetAsync(href, ct);
+            var json = await _requestExecutor.GetBodyAsync(href, ct);
             var map = _serializer.Deserialize(json);
             return _resourceFactory.Create<T>(map);
         }
