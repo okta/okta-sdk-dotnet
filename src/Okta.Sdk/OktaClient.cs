@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    public sealed class OktaClient
+    public sealed partial class OktaClient
     {
         private readonly IDataStore _dataStore;
 
