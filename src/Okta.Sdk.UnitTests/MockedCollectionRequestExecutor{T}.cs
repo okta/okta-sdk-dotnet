@@ -9,7 +9,7 @@ namespace Okta.Sdk.UnitTests
 {
     public class MockedCollectionRequestExecutor<T> : IRequestExecutor
     {
-        private const string BaseUrl = "foo://mockCollection";
+        private const string BaseUrl = "http://mock-collection.dev";
         private readonly int _pageSize;
         private readonly T[] _items;
 
@@ -26,8 +26,12 @@ namespace Okta.Sdk.UnitTests
             var headers = new List<KeyValuePair<string, string>>
             {
                 new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage}>; rel=\"self\""),
-                new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage+1}>; rel=\"next\""),
             };
+
+            if ((_currentPage + 1) * _pageSize < _items.Length)
+            {
+                headers.Add(new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage + 1}>; rel=\"next\""));
+            }
 
             return new HttpResponseWrapper
             {
@@ -41,6 +45,7 @@ namespace Okta.Sdk.UnitTests
         {
             var items = _items
                 .Skip(_currentPage * _pageSize)
+                .Take(_pageSize)
                 .ToArray();
 
             // Increment page

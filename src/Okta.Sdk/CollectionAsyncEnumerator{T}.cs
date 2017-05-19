@@ -29,14 +29,19 @@ namespace Okta.Sdk
             string uri,
             IEnumerable<KeyValuePair<string, object>> queryParameters)
         {
-            _nextUri = uri;
+            _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
+            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
+            _resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
+            _nextUri = uri ?? throw new ArgumentNullException(nameof(uri));
+            _initialQueryParameters = queryParameters?.ToArray() ?? new KeyValuePair<string, object>[0];
         }
 
         public T Current => _currentPage[_currentPageIndex++];
 
         public async Task<bool> MoveNext(CancellationToken cancellationToken)
         {
-            if (_initialized && _currentPageIndex <= _currentPage.Length) return true;
+            var hasMoreLocalItems = _initialized && _currentPage.Length != 0 && _currentPageIndex < _currentPage.Length;
+            if (hasMoreLocalItems) return true;
 
             if (string.IsNullOrEmpty(_nextUri)) return false;
 
@@ -46,7 +51,7 @@ namespace Okta.Sdk
             SetCurrentItems(nextPageResponse);
             SetNextUri(nextPageResponse);
 
-            return true;
+            return _currentPage.Any();
         }
 
         private void SetCurrentItems(HttpResponseWrapper response)
@@ -67,7 +72,7 @@ namespace Okta.Sdk
                 .Parse(linkHeaders)
                 .Where(x => x.Relation == "next")
                 .SingleOrDefault()
-                ?.Target;
+                .Target;
         }
 
         void Dispose(bool disposing)
