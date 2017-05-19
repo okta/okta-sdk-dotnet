@@ -21,26 +21,6 @@ namespace Okta.Sdk.UnitTests
             _items = items.ToArray();
         }
 
-        public async Task<HttpResponseWrapper> GetAsync(string href, CancellationToken ct)
-        {
-            var headers = new List<KeyValuePair<string, string>>
-            {
-                new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage}>; rel=\"self\""),
-            };
-
-            if ((_currentPage + 1) * _pageSize < _items.Length)
-            {
-                headers.Add(new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage + 1}>; rel=\"next\""));
-            }
-
-            return new HttpResponseWrapper
-            {
-                StatusCode = 200,
-                Headers = headers,
-                Body = await GetBodyAsync(href, ct)
-            };
-        }
-
         public Task<string> GetBodyAsync(string href, CancellationToken ct)
         {
             var items = _items
@@ -52,6 +32,26 @@ namespace Okta.Sdk.UnitTests
             _currentPage++;
 
             return Task.FromResult(JsonConvert.SerializeObject(items));
+        }
+
+        public async Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
+        {
+            var headers = new List<KeyValuePair<string, string>>
+            {
+                new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage}>; rel=\"self\""),
+            };
+
+            if ((_currentPage + 1) * _pageSize < _items.Length)
+            {
+                headers.Add(new KeyValuePair<string, string>("Link", $"<{BaseUrl}?page={_currentPage + 1}>; rel=\"next\""));
+            }
+
+            return new HttpResponse<string>
+            {
+                StatusCode = 200,
+                Headers = headers,
+                Payload = await GetBodyAsync(href, cancellationToken)
+            };
         }
     }
 }

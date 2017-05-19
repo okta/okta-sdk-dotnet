@@ -20,12 +20,6 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public void ThrowForNullResourceFactory()
-        {
-            Assert.Throws<ArgumentNullException>(() => new DummyResource(null, null));
-        }
-
-        [Fact]
         public void NotThrowForNullData()
         {
             var resource = new DummyResource(null, Substitute.For<IResourceFactory>());

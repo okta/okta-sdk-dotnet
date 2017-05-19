@@ -26,10 +26,11 @@ namespace Okta.Sdk.UnitTests
   ""foo"": ""bar""
 }
 ");
-            var client = new OktaClient(
-                mockRequestExecutor,
+            var dataStore = new DefaultDataStore(mockRequestExecutor,
                 new DefaultSerializer(),
                 new DefaultResourceFactory());
+
+            var client = new OktaClient(dataStore);
 
             var resource = await client.GetAsync<Test>("http://foobar");
             resource.Foo.Should().Be("bar");

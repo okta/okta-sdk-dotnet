@@ -21,13 +21,13 @@ namespace Okta.Sdk.UnitTests
         public async Task CountCollectionAsynchronously()
         {
             var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
-
-            var collection = new CollectionClient<User>(
+            var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
-                new DefaultResourceFactory(),
-                "http://mock-collection.dev",
-                null);
+                new DefaultResourceFactory());
+
+            var collection = new CollectionClient<User>(
+                dataStore, "http://mock-collection.dev", null);
 
             var count = await collection.Count();
         }
@@ -36,13 +36,13 @@ namespace Okta.Sdk.UnitTests
         public async Task FilterCollectionAsynchronously()
         {
             var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
-
-            var collection = new CollectionClient<User>(
+            var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
-                new DefaultResourceFactory(),
-                "http://mock-collection.dev",
-                null);
+                new DefaultResourceFactory());
+
+            var collection = new CollectionClient<User>(
+                dataStore, "http://mock-collection.dev", null);
 
             var activeUsers = await collection.Where(x => x.Status == "ACTIVE").ToList();
             activeUsers.Count.Should().Be(2);

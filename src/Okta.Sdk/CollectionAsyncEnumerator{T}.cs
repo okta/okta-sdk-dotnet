@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,9 +9,7 @@ namespace Okta.Sdk
 {
     public sealed class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
     {
-        private readonly IRequestExecutor _requestExecutor;
-        private readonly ISerializer _serializer;
-        private readonly IResourceFactory _resourceFactory;
+        private readonly IDataStore _dataStore;
         private readonly KeyValuePair<string, object>[] _initialQueryParameters;
 
         private bool _initialized = false;
@@ -23,16 +20,13 @@ namespace Okta.Sdk
         private bool _disposedValue = false; // To detect redundant calls
 
         public CollectionAsyncEnumerator(
-            IRequestExecutor requestExecutor,
-            ISerializer serializer,
-            IResourceFactory resourceFactory,
+            IDataStore dataStore,
             string uri,
             IEnumerable<KeyValuePair<string, object>> queryParameters)
         {
-            _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
-            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
-            _resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
+            _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
             _nextUri = uri ?? throw new ArgumentNullException(nameof(uri));
+            // TODO - currently this enumerator won't pass query string values to the nextUri automatically
             _initialQueryParameters = queryParameters?.ToArray() ?? new KeyValuePair<string, object>[0];
         }
 
@@ -45,23 +39,19 @@ namespace Okta.Sdk
 
             if (string.IsNullOrEmpty(_nextUri)) return false;
 
-            var nextPageResponse = await _requestExecutor.GetAsync(_nextUri, cancellationToken);
+            var nextPage = await _dataStore.GetArrayAsync<T>(_nextUri, cancellationToken);
+
             _initialized = true;
 
-            SetCurrentItems(nextPageResponse);
-            SetNextUri(nextPageResponse);
+            _currentPage = nextPage.Payload.ToArray();
+            _currentPageIndex = 0;
+
+            SetNextUri(nextPage);
 
             return _currentPage.Any();
         }
 
-        private void SetCurrentItems(HttpResponseWrapper response)
-        {
-            var items = _serializer.DeserializeArray(response.Body);
-            _currentPage = items.Select(x => _resourceFactory.Create<T>(x)).ToArray();
-            _currentPageIndex = 0;
-        }
-
-        private void SetNextUri(HttpResponseWrapper response)
+        private void SetNextUri(HttpResponse response)
         {
             var linkHeaders = response
                 .Headers

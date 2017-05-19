@@ -7,25 +7,17 @@ namespace Okta.Sdk
 {
     public sealed class OktaClient
     {
-        private readonly IRequestExecutor _requestExecutor;
-        private readonly ISerializer _serializer;
-        private readonly IResourceFactory _resourceFactory;
+        private readonly IDataStore _dataStore;
 
-        public OktaClient(
-            IRequestExecutor requestExecutor,
-            ISerializer serializer,
-            IResourceFactory resourceFactory)
+        public OktaClient(IDataStore dataStore)
         {
-            _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
-            _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
-            _resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
+            _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
         }
 
-        public async Task<T> GetAsync<T>(string href, CancellationToken ct = default(CancellationToken))
+        public async Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
         {
-            var json = await _requestExecutor.GetBodyAsync(href, ct);
-            var map = _serializer.Deserialize(json);
-            return _resourceFactory.Create<T>(map);
+            var response = await _dataStore.GetAsync<T>(href, cancellationToken);
+            return response.Payload;
         }
     }
 }

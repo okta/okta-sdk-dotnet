@@ -2,12 +2,15 @@
 
 namespace Okta.Sdk.Abstractions
 {
-    public class HttpResponseWrapper
+    public class HttpResponse
     {
         public int StatusCode { get; set; }
 
         public IEnumerable<KeyValuePair<string, string>> Headers { get; set; }
+    }
 
-        public string Body { get; set; }
+    public class HttpResponse<T> : HttpResponse
+    {
+        public T Payload { get; set; }
     }
 }

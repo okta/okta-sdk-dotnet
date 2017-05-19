@@ -32,7 +32,8 @@ namespace Okta.Sdk
                 return updatedValue;
             }
 
-            _originalData.TryGetValue(key, out var value);
+            object value = null;
+            _originalData?.TryGetValue(key, out value);
             return value;
         }
 
