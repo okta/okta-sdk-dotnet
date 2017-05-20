@@ -16,7 +16,7 @@ namespace Okta.Sdk.UnitTests
             { }
 
             public DummyResource Nested 
-                => GetResource<DummyResource>("foobar");
+                => GetProperty<DummyResource>("foobar");
         }
 
         [Fact]

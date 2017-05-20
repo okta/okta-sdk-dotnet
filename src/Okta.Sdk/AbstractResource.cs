@@ -1,31 +1,30 @@
-﻿using Okta.Sdk.Abstractions;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
     public abstract class AbstractResource
     {
-        private readonly IResourceFactory _resourceFactory;
+        private IReadOnlyDictionary<string, object> _originalData;
+        private Dictionary<string, object> _updatedData;
 
-        private readonly IReadOnlyDictionary<string, object> _originalData;
-        private readonly Dictionary<string, object> _updatedData;
-
-        public AbstractResource(
-            IReadOnlyDictionary<string, object> data,
-            IResourceFactory resourceFactory)
+        public AbstractResource()
         {
-            if (resourceFactory == null)
-            {
-                // TODO - new only mode
-            }
-
-            _resourceFactory = resourceFactory;
-            _originalData = data;
-            _updatedData = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+            _originalData = DictionaryFactory.NewCaseInsensitiveDictionary();
+            ResetModifications();
         }
 
-        private object GetData(string key)
+        private void ResetModifications()
+        {
+            _updatedData = DictionaryFactory.NewCaseInsensitiveDictionary();
+        }
+
+        public void ResetWithData(IReadOnlyDictionary<string, object> data)
+        {
+            _originalData = DictionaryFactory.NewCaseInsensitiveDictionary();
+            ResetModifications();
+        }
+
+        public object GetProperty(string key)
         {
             if (_updatedData.TryGetValue(key, out var updatedValue))
             {
@@ -37,20 +36,26 @@ namespace Okta.Sdk
             return value;
         }
 
-        public void SetValue(string key, object value)
+        public void SetProperty(string key, object value)
             => _updatedData[key] = value;
 
-        public string GetString(string key)
-            => GetData(key)?.ToString();
+        public string GetStringProperty(string key)
+            => GetProperty(key)?.ToString();
 
-        public bool? GetBoolean(string key)
+        public bool? GetBooleanProperty(string key)
         {
-            var raw = GetString(key);
+            var raw = GetStringProperty(key);
             if (raw == null) return null;
             return bool.Parse(raw);
         }
 
-        public T GetResource<T>(string key)
-            => _resourceFactory.Create<T>(GetData(key) as IReadOnlyDictionary<string, object>);
+        public T GetProperty<T>(string key)
+            where T : AbstractResource, new()
+        {
+            var nestedData = GetProperty(key) as IReadOnlyDictionary<string, object>;
+            var model = new T();
+            model.ResetWithData(nestedData);
+            return model;
+        }
     }
 }

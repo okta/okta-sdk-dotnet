@@ -15,7 +15,7 @@ namespace Okta.Sdk.UnitTests
             {
             }
 
-            public string Foo => GetString("foo");
+            public string Foo => GetStringProperty("foo");
         }
 
         [Fact]
