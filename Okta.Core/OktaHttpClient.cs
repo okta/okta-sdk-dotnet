@@ -12,7 +12,8 @@
     /// </summary>
     public class OktaHttpClient : IOktaHttpClient
     {
-        private HttpClient httpClient = new HttpClient {
+        private HttpClient httpClient = new HttpClient
+        {
             Timeout = Constants.DefaultTimeout
         };
 
@@ -20,23 +21,6 @@
         {
             get { return httpClient.BaseAddress; }
             set { httpClient.BaseAddress = value; }
-        }
-
-        private string apiToken;
-        public override string ApiToken
-        {
-            get
-            {
-                return apiToken;
-            }
-
-            set
-            {
-                apiToken = value;
-
-                // Will overwrite any existing Authorization header
-                httpClient.DefaultRequestHeaders.Add("Authorization", "SSWS " + apiToken);
-            }
         }
 
         public OktaHttpClient(OktaSettings oktaSettings)
@@ -161,38 +145,39 @@
                 // Wait
                 Utils.Sleep(waitMillis);
 
-                // Handle GETs
-                if (requestType == HttpRequestType.GET)
+                // Create base request
+                var request = new HttpRequestMessage();
+                request.RequestUri = (uri != null) ? uri : new Uri(relativeUri, UriKind.RelativeOrAbsolute);
+
+                // Add Authorization header if needed
+                if (bAddAuthorizationHeader)
                 {
-                    return uri != null ? this.httpClient.GetAsync(uri) : this.httpClient.GetAsync(relativeUri);
+                    request.Headers.Add("Authorization", "SSWS " + ApiToken);
                 }
 
-                // Handle POSTs
-                if (requestType == HttpRequestType.POST)
+                // Handle HTTP method differences
+                switch (requestType)
                 {
-                    content = content ?? string.Empty;
-                    if (!bAddAuthorizationHeader)
-                    {
-                        httpClient.DefaultRequestHeaders.Remove("Authorization");
-                    }
-                    return uri != null ? this.httpClient.PostAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")) 
-                        : this.httpClient.PostAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
+                    case HttpRequestType.GET:
+                        request.Method = HttpMethod.Get;
+                        break;
+                    case HttpRequestType.POST:
+                        request.Method = HttpMethod.Post;
+                        request.Content = new StringContent(content ?? string.Empty, Encoding.UTF8, "application/json");
+                        break;
+                    case HttpRequestType.PUT:
+                        request.Method = HttpMethod.Put;
+                        request.Content = new StringContent(content ?? string.Empty, Encoding.UTF8, "application/json");
+                        break;
+                    case HttpRequestType.DELETE:
+                        request.Method = HttpMethod.Delete;
+                        break;
+                    default:
+                        throw new OktaException("The " + requestType + " http verb is not yet supported");
                 }
 
-                // Handle PUTs
-                if (requestType == HttpRequestType.PUT)
-                {
-                    content = content ?? string.Empty;
-                    return uri != null ? this.httpClient.PutAsync(uri, new StringContent(content, Encoding.UTF8, "application/json")) : this.httpClient.PutAsync(relativeUri, new StringContent(content, Encoding.UTF8, "application/json"));
-                }
-
-                // Handle DELETEs
-                if (requestType == HttpRequestType.DELETE)
-                {
-                    return uri != null ? this.httpClient.DeleteAsync(uri) : this.httpClient.DeleteAsync(relativeUri);
-                }
-
-                throw new OktaException("The " + requestType + " http verb is not yet supported");
+                // Send the request
+                return this.httpClient.SendAsync(request);
             }
             catch (OktaException)
             {
