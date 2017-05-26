@@ -23,8 +23,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
-                new DefaultSerializer(),
-                new DefaultResourceFactory());
+                new DefaultSerializer());
 
             var collection = new CollectionClient<User>(
                 dataStore, "http://mock-collection.dev", null);
@@ -38,8 +37,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
-                new DefaultSerializer(),
-                new DefaultResourceFactory());
+                new DefaultSerializer());
 
             var collection = new CollectionClient<User>(
                 dataStore, "http://mock-collection.dev", null);

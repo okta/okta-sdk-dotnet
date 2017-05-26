@@ -1,20 +1,13 @@
-﻿using System.Collections.Generic;
+﻿using FluentAssertions;
 using System.Threading.Tasks;
-using Okta.Sdk.Abstractions;
 using Xunit;
-using FluentAssertions;
 
 namespace Okta.Sdk.UnitTests
 {
     public class DefaultClientShould
     {
-        public class Test : AbstractResource
+        public class Test : Resource
         {
-            public Test(IReadOnlyDictionary<string, object> data, IResourceFactory resourceFactory)
-                : base(data, resourceFactory)
-            {
-            }
-
             public string Foo => GetStringProperty("foo");
         }
 
@@ -26,9 +19,9 @@ namespace Okta.Sdk.UnitTests
   ""foo"": ""bar""
 }
 ");
-            var dataStore = new DefaultDataStore(mockRequestExecutor,
-                new DefaultSerializer(),
-                new DefaultResourceFactory());
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer());
 
             var client = new OktaClient(dataStore);
 

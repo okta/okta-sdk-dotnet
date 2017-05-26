@@ -6,6 +6,7 @@ using System.Linq;
 namespace Okta.Sdk
 {
     public sealed class CollectionClient<T> : IAsyncEnumerable<T>
+        where T : Resource, new()
     {
         private readonly IDataStore _dataStore;
         private readonly string _uri;

@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Okta.Sdk
 {
-    public abstract class AbstractResource
+    public class Resource
     {
         private IReadOnlyDictionary<string, object> _originalData;
         private Dictionary<string, object> _updatedData;
 
-        public AbstractResource()
+        public Resource()
         {
             _originalData = DictionaryFactory.NewCaseInsensitiveDictionary();
             ResetModifications();
@@ -20,7 +22,9 @@ namespace Okta.Sdk
 
         public void ResetWithData(IReadOnlyDictionary<string, object> data)
         {
-            _originalData = DictionaryFactory.NewCaseInsensitiveDictionary();
+            _originalData = data?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value, StringComparer.OrdinalIgnoreCase)
+                ?? DictionaryFactory.NewCaseInsensitiveDictionary();
+
             ResetModifications();
         }
 
@@ -50,12 +54,10 @@ namespace Okta.Sdk
         }
 
         public T GetProperty<T>(string key)
-            where T : AbstractResource, new()
+            where T : Resource, new()
         {
             var nestedData = GetProperty(key) as IReadOnlyDictionary<string, object>;
-            var model = new T();
-            model.ResetWithData(nestedData);
-            return model;
+            return ResourceFactory.Create<T>(nestedData);
         }
     }
 }

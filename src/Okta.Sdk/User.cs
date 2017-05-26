@@ -1,6 +1,6 @@
 ﻿namespace Okta.Sdk
 {
-    public sealed class User : AbstractResource
+    public sealed class User : Resource
     {
         public string Id
         {
