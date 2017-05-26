@@ -63,12 +63,23 @@ namespace Okta.Sdk
             };
         }
 
-        public Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
+        public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
-            // todo optional query string parameters
+            var body = _serializer.Serialize(postData);
+            // TODO apply query string parameters
 
-            throw new NotImplementedException();
+            var response = await _requestExecutor.PostAsync(href, body, cancellationToken);
+
+            var returnedData = _serializer.Deserialize(response.Payload);
+            var returnedResource = ResourceFactory.Create<TResponse>(returnedData);
+
+            return new HttpResponse<TResponse>
+            {
+                StatusCode = response.StatusCode,
+                Headers = response.Headers,
+                Payload = returnedResource
+            };
         }
     }
 }
