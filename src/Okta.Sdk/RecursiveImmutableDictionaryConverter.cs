@@ -12,7 +12,7 @@ namespace Okta.Sdk
     public sealed class RecursiveImmutableDictionaryConverter : CustomCreationConverter<IReadOnlyDictionary<string, object>>
     {
         public override IReadOnlyDictionary<string, object> Create(Type objectType)
-            => new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+            => DictionaryFactory.NewCaseInsensitiveDictionary();
 
         public override bool CanConvert(Type objectType)
             // We want to handle explicit IReadOnlyDictionaries and

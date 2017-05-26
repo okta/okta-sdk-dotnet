@@ -27,10 +27,13 @@ namespace Okta.Sdk
         public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(string href, CancellationToken cancellationToken)
             where T : Resource, new()
         {
+            // todo optional query string parameters
+
             var response = await _requestExecutor.GetAsync(href, cancellationToken);
+            if (response == null) throw new InvalidOperationException("The response from the RequestExecutor was null.");
 
             var resources = _serializer
-                .DeserializeArray(response.Payload)
+                .DeserializeArray(response.Payload ?? string.Empty)
                 .Select(x => ResourceFactory.Create<T>(x));
 
             return new HttpResponse<IEnumerable<T>>
@@ -44,8 +47,12 @@ namespace Okta.Sdk
         public async Task<HttpResponse<T>> GetAsync<T>(string href, CancellationToken cancellationToken)
             where T : Resource, new()
         {
+            // todo optional query string parameters
+
             var response = await _requestExecutor.GetAsync(href, cancellationToken);
-            var data = _serializer.Deserialize(response.Payload);
+            if (response == null) throw new InvalidOperationException("The response from the RequestExecutor was null.");
+
+            var data = _serializer.Deserialize(response.Payload ?? string.Empty);
             var resource = ResourceFactory.Create<T>(data);
 
             return new HttpResponse<T>
@@ -59,6 +66,8 @@ namespace Okta.Sdk
         public Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
+            // todo optional query string parameters
+
             throw new NotImplementedException();
         }
     }

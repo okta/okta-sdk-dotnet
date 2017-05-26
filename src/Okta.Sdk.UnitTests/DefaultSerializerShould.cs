@@ -57,5 +57,25 @@ namespace Okta.Sdk.UnitTests
             dict["FOO"].Should().Be("bar");
             dict["BaZ"].Should().Be(123L);
         }
+
+        [Fact]
+        public void DeserializeNullInput()
+        {
+            var serializer = new DefaultSerializer();
+
+            var dict = serializer.Deserialize(null);
+
+            dict.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public void DeserializeEmptyInput()
+        {
+            var serializer = new DefaultSerializer();
+
+            var dict = serializer.Deserialize(string.Empty);
+
+            dict.Count.Should().Be(0);
+        }
     }
 }

@@ -7,6 +7,7 @@ namespace Okta.Sdk
 {
     public sealed class DefaultSerializer : ISerializer
     {
+        private const string EmptyObject = "{ }";
         private readonly JsonSerializer _serializer;
 
         public DefaultSerializer()
@@ -21,8 +22,12 @@ namespace Okta.Sdk
         public IEnumerable<IReadOnlyDictionary<string, object>> DeserializeArray(string json)
             => Deserialize<IReadOnlyDictionary<string, object>[]>(json);
 
-        private T Deserialize<T>(string json)
+        private T Deserialize<T>(string input)
         {
+            var json = string.IsNullOrEmpty(input)
+                ? EmptyObject
+                : input;
+
             using (var reader = new StringReader(json))
             using (var jsonReader = new JsonTextReader(reader))
             {
