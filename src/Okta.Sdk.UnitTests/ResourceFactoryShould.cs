@@ -9,9 +9,10 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void InstantiateEmptyResource()
         {
-            var resource = ResourceFactory.Create<Test>();
+            var resource = ResourceFactory.Create<TestResource>(null);
             resource.Should().NotBeNull();
             resource.Foo.Should().BeNullOrEmpty();
+            resource.Bar.Should().BeNullOrEmpty();
         }
 
         [Fact]
@@ -19,17 +20,14 @@ namespace Okta.Sdk.UnitTests
         {
             var data = new Dictionary<string, object>()
             {
-                ["Foo"] = "bar!"
+                ["Foo"] = "bar!",
+                ["bar"] = "BAZ"
             };
 
-            var resource = ResourceFactory.Create<Test>(data);
+            var resource = ResourceFactory.Create<TestResource>(data);
             resource.Should().NotBeNull();
             resource.Foo.Should().Be("bar!");
-        }
-
-        public class Test : Resource
-        {
-            public string Foo => GetStringProperty("foo");
+            resource.Bar.Should().Be("BAZ");
         }
     }
 }
