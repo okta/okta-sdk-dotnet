@@ -9,10 +9,17 @@ namespace Okta.Sdk
     /// A JsonConverter for JSON.NET that will deserialize objects into immutable, key-case-insensitive dictionaries.
     /// Nested objects are recursively deserialized as nested dictionaries.
     /// </summary>
-    public sealed class RecursiveImmutableDictionaryConverter : CustomCreationConverter<IReadOnlyDictionary<string, object>>
+    public sealed class RecursiveDictionaryConverter : CustomCreationConverter<IDictionary<string, object>>
     {
-        public override IReadOnlyDictionary<string, object> Create(Type objectType)
-            => DictionaryFactory.NewCaseInsensitiveDictionary();
+        private readonly Func<IDictionary<string, object>> _dictionaryFactory;
+
+        public RecursiveDictionaryConverter(Func<IDictionary<string, object>> dictionaryFactory)
+        {
+            _dictionaryFactory = dictionaryFactory;
+        }
+
+        public override IDictionary<string, object> Create(Type objectType)
+            => _dictionaryFactory();
 
         public override bool CanConvert(Type objectType)
             // We want to handle explicit IReadOnlyDictionaries and

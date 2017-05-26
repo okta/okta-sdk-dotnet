@@ -6,8 +6,8 @@ namespace Okta.Sdk.Abstractions
     {
         string Serialize(object model);
 
-        IReadOnlyDictionary<string, object> Deserialize(string json);
+        IDictionary<string, object> Deserialize(string json);
 
-        IEnumerable<IReadOnlyDictionary<string, object>> DeserializeArray(string json);
+        IEnumerable<IDictionary<string, object>> DeserializeArray(string json);
     }
 }

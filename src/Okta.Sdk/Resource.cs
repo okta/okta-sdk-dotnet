@@ -1,47 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
     public class Resource
     {
-        private IReadOnlyDictionary<string, object> _originalData;
-        private Dictionary<string, object> _updatedData;
+        private IDictionary<string, object> _data;
 
         public Resource()
         {
-            _originalData = DictionaryFactory.NewCaseInsensitiveDictionary();
-            ResetModifications();
+            _data = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary);
         }
 
-        private void ResetModifications()
+        public void ResetWithData(IDictionary<string, object> data)
         {
-            _updatedData = DictionaryFactory.NewCaseInsensitiveDictionary();
-        }
-
-        public void ResetWithData(IReadOnlyDictionary<string, object> data)
-        {
-            _originalData = data?.ToDictionary(kvp => kvp.Key, kvp => kvp.Value, StringComparer.OrdinalIgnoreCase)
-                ?? DictionaryFactory.NewCaseInsensitiveDictionary();
-
-            ResetModifications();
+            _data = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary, data);
         }
 
         public object GetProperty(string key)
         {
-            if (_updatedData.TryGetValue(key, out var updatedValue))
-            {
-                return updatedValue;
-            }
-
-            object value = null;
-            _originalData?.TryGetValue(key, out value);
+            _data.TryGetValue(key, out var value);
             return value;
         }
 
         public void SetProperty(string key, object value)
-            => _updatedData[key] = value;
+            => _data[key] = value;
 
         public string GetStringProperty(string key)
             => GetProperty(key)?.ToString();
@@ -56,7 +38,7 @@ namespace Okta.Sdk
         public T GetProperty<T>(string key)
             where T : Resource, new()
         {
-            var nestedData = GetProperty(key) as IReadOnlyDictionary<string, object>;
+            var nestedData = GetProperty(key) as IDictionary<string, object>;
             return ResourceFactory.Create<T>(nestedData);
         }
     }

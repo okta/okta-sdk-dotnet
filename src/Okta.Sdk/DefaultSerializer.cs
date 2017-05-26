@@ -2,6 +2,7 @@
 using Okta.Sdk.Abstractions;
 using System.Collections.Generic;
 using System.IO;
+using System;
 
 namespace Okta.Sdk
 {
@@ -13,14 +14,19 @@ namespace Okta.Sdk
         public DefaultSerializer()
         {
             _serializer = new JsonSerializer();
-            _serializer.Converters.Add(new RecursiveImmutableDictionaryConverter());
+            _serializer.Converters.Add(new RecursiveDictionaryConverter(DictionaryFactory.NewDictionary));
         }
 
-        public IReadOnlyDictionary<string, object> Deserialize(string json)
-            => Deserialize<IReadOnlyDictionary<string, object>>(json);
+        public IDictionary<string, object> Deserialize(string json)
+            => Deserialize<IDictionary<string, object>>(json);
 
-        public IEnumerable<IReadOnlyDictionary<string, object>> DeserializeArray(string json)
-            => Deserialize<IReadOnlyDictionary<string, object>[]>(json);
+        public IEnumerable<IDictionary<string, object>> DeserializeArray(string json)
+            => Deserialize<IDictionary<string, object>[]>(json);
+
+        public string Serialize(object model)
+        {
+            throw new NotImplementedException();
+        }
 
         private T Deserialize<T>(string input)
         {

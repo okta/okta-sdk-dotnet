@@ -16,5 +16,10 @@ namespace Okta.Sdk
         {
             throw new NotImplementedException();
         }
+
+        public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

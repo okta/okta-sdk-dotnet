@@ -23,5 +23,10 @@ namespace Okta.Sdk.UnitTests
                 StatusCode = 200,
                 Payload = await GetBodyAsync(href, cancellationToken)
             };
+
+        public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

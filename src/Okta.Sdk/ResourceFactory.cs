@@ -4,7 +4,7 @@ namespace Okta.Sdk
 {
     public static class ResourceFactory
     {
-        public static T Create<T>(IReadOnlyDictionary<string, object> data)
+        public static T Create<T>(IDictionary<string, object> data)
             where T : Resource, new()
         {
             var model = new T();

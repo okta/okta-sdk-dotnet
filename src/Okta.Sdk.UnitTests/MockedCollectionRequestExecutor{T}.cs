@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using System;
 
 namespace Okta.Sdk.UnitTests
 {
@@ -52,6 +53,11 @@ namespace Okta.Sdk.UnitTests
                 Headers = headers,
                 Payload = await GetBodyAsync(href, cancellationToken)
             };
+        }
+
+        public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
         }
     }
 }

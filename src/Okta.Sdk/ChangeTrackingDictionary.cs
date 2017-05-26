@@ -1,91 +1,132 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Okta.Sdk
 {
-    public sealed class ChangeTrackingDictionary : IDictionary<string, object>
+    public class ChangeTrackingDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
-        private readonly IDictionary<string, object> _dictionary;
-        private readonly ChangeTrackingDictionary _parent;
-        private readonly string _parentKey;
+        private readonly Func<IDictionary<TKey, TValue>, IDictionary<TKey, TValue>> _dictionaryFactory;
+        private readonly IDictionary<TKey, TValue> _initialData;
+        private IDictionary<TKey, TValue> _modifiedData;
 
         public ChangeTrackingDictionary(
-            IDictionary<string, object> dictionary,
-            ChangeTrackingDictionary parent,
-            string parentKey)
+            Func<IDictionary<TKey, TValue>, IDictionary<TKey, TValue>> dictionaryFactory,
+            IDictionary<TKey, TValue> initialData = null)
         {
-            _dictionary = dictionary;
-            _parent = parent;
-            _parentKey = parentKey;
+            _dictionaryFactory = dictionaryFactory;
+
+            // Use the factory to create either a new blank dictionary, or a dictionary using the given initial data
+            _initialData = initialData == null
+                ? _dictionaryFactory(null)
+                : _dictionaryFactory(initialData.ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+
+            ResetChanges();
         }
 
-        private void MarkDirty(string key)
+        private IDictionary<TKey, TValue> CombinedData
+            => _dictionaryFactory(_modifiedData
+                .Concat(_initialData.Where(kvp => !_modifiedData.ContainsKey(kvp.Key)))
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+
+        public IDictionary<TKey, TValue> ModifiedData
+            => _dictionaryFactory(_modifiedData);
+
+        public IDictionary<TKey, TValue> OriginalData
+            => _dictionaryFactory(_initialData);
+
+        public void ResetChanges()
         {
-            throw new KeyNotFoundException();
+            _modifiedData = _dictionaryFactory(null);
         }
 
-        public object this[string key]
+        public virtual void MarkDirty(TKey key)
         {
-            get => _dictionary[key];
+            // Noop
+        }
+
+        public TValue this[TKey key]
+        {
+            get
+            {
+                if (_modifiedData.TryGetValue(key, out TValue value))
+                {
+                    return value;
+                }
+
+                _initialData.TryGetValue(key, out value);
+                return value;
+            }
 
             set
             {
-                _parent?.MarkDirty(_parentKey);
-                _dictionary[key] = value;
+                MarkDirty(key);
+                _modifiedData[key] = value;
             }
         }
 
-        public void Add(string key, object value)
+        public void Add(TKey key, TValue value)
         {
-            _parent?.MarkDirty(_parentKey);
-            _dictionary.Add(key, value);
+            MarkDirty(key);
+            _modifiedData.Add(key, value);
         }
 
-        public void Add(KeyValuePair<string, object> item)
+        public void Add(KeyValuePair<TKey, TValue> item)
         {
-            _parent?.MarkDirty(_parentKey);
-            _dictionary.Add(item);
+            MarkDirty(item.Key);
+            _modifiedData.Add(item);
         }
 
         public void Clear()
         {
-            _parent?.MarkDirty(_parentKey);
-            _dictionary.Clear();
+            ResetChanges();
+
+            foreach (var key in _initialData.Keys)
+            {
+                MarkDirty(key);
+                _modifiedData[key] = default(TValue);
+            }
         }
 
-        public bool Remove(string key)
+        public bool Remove(TKey key)
         {
-            _parent?.MarkDirty(_parentKey);
-            return _dictionary.Remove(key);
+            MarkDirty(key);
+            return _modifiedData.Remove(key);
         }
 
-        public bool Remove(KeyValuePair<string, object> item)
+        public bool Remove(KeyValuePair<TKey, TValue> item)
         {
-            _parent?.MarkDirty(_parentKey);
-            return _dictionary.Remove(item);
+            MarkDirty(item.Key);
+            return _modifiedData.Remove(item);
         }
 
-        public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
+        public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
-            _dictionary.CopyTo(array, arrayIndex);
+            CombinedData.CopyTo(array, arrayIndex);
         }
 
-        public ICollection<string> Keys => _dictionary.Keys;
+        public ICollection<TKey> Keys => CombinedData.Keys;
 
-        public ICollection<object> Values => _dictionary.Values;
+        public ICollection<TValue> Values => CombinedData.Values;
 
-        public int Count => _dictionary.Count;
+        public int Count => CombinedData.Count;
 
-        public bool IsReadOnly => _dictionary.IsReadOnly;
+        public bool IsReadOnly => _modifiedData.IsReadOnly;
 
-        public bool Contains(KeyValuePair<string, object> item) => _dictionary.Contains(item);
+        public bool Contains(KeyValuePair<TKey, TValue> item) => CombinedData.Contains(item);
 
-        public bool ContainsKey(string key) => _dictionary.ContainsKey(key);
+        public bool ContainsKey(TKey key) => CombinedData.ContainsKey(key);
 
-        public bool TryGetValue(string key, out object value) => _dictionary.TryGetValue(key, out value);
+        public bool TryGetValue(TKey key, out TValue value)
+        {
+            if (_modifiedData.TryGetValue(key, out value)) return true;
 
-        public IEnumerator<KeyValuePair<string, object>> GetEnumerator() => _dictionary.GetEnumerator();
+            return _initialData.TryGetValue(key, out value);
+        }
 
-        IEnumerator IEnumerable.GetEnumerator() => _dictionary.GetEnumerator();
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => CombinedData.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => CombinedData.GetEnumerator();
     }
 }
