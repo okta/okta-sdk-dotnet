@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
@@ -8,12 +9,12 @@ namespace Okta.Sdk
 
         public Resource()
         {
-            _data = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary);
+            _data = new ChangeTrackingDictionary<string, object>(keyComparer: StringComparer.OrdinalIgnoreCase);
         }
 
         public void ResetWithData(IDictionary<string, object> data)
         {
-            _data = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary, data);
+            _data = new ChangeTrackingDictionary<string, object>(data, StringComparer.OrdinalIgnoreCase);
         }
 
         public object GetProperty(string key)

@@ -7,75 +7,83 @@ namespace Okta.Sdk
 {
     public class ChangeTrackingDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
-        private readonly Func<IDictionary<TKey, TValue>, IDictionary<TKey, TValue>> _dictionaryFactory;
-        private readonly IDictionary<TKey, TValue> _initialData;
-        private IDictionary<TKey, TValue> _modifiedData;
+        private readonly IReadOnlyDictionary<TKey, TValue> _initialData;
+        private readonly IEqualityComparer<TKey> _keyComparer;
+
+        private IDictionary<TKey, TValue> _data;
+        private IList<TKey> _dirtyKeys;
 
         public ChangeTrackingDictionary(
-            Func<IDictionary<TKey, TValue>, IDictionary<TKey, TValue>> dictionaryFactory,
-            IDictionary<TKey, TValue> initialData = null)
+            IDictionary<TKey, TValue> initialData = null,
+            IEqualityComparer<TKey> keyComparer = null)
         {
-            _dictionaryFactory = dictionaryFactory;
+            _keyComparer = keyComparer ?? EqualityComparer<TKey>.Default;
 
-            // Use the factory to create either a new blank dictionary, or a dictionary using the given initial data
             _initialData = initialData == null
-                ? _dictionaryFactory(null)
-                : _dictionaryFactory(initialData.ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+                ? new Dictionary<TKey, TValue>(_keyComparer)
+                : CopyDictionary(initialData);
 
             ResetChanges();
         }
 
-        private IDictionary<TKey, TValue> CombinedData
-            => _dictionaryFactory(_modifiedData
-                .Concat(_initialData.Where(kvp => !_modifiedData.ContainsKey(kvp.Key)))
-                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+        private Dictionary<TKey, TValue> CopyDictionary(IDictionary<TKey, TValue> original)
+        {
+            if (original == null) return new Dictionary<TKey, TValue>(_keyComparer);
+            return new Dictionary<TKey, TValue>(original, _keyComparer);
+        }
 
-        public IDictionary<TKey, TValue> ModifiedData
-            => _dictionaryFactory(_modifiedData);
-
-        public IDictionary<TKey, TValue> OriginalData
-            => _dictionaryFactory(_initialData);
+        private Dictionary<TKey, TValue> CopyDictionary(IReadOnlyDictionary<TKey, TValue> original)
+        {
+            if (original == null) return new Dictionary<TKey, TValue>(_keyComparer);
+            return original.ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
+        }
 
         public void ResetChanges()
         {
-            _modifiedData = _dictionaryFactory(null);
+            _data = CopyDictionary(_initialData);
+            _dirtyKeys = new List<TKey>(_data.Count);
+
         }
+
+        //private IDictionary<TKey, TValue> CombinedData
+        //    => _dictionaryFactory(_data
+        //        .Concat(_initialData.Where(kvp => !_data.ContainsKey(kvp.Key)))
+        //        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
+
+        public IDictionary<TKey, TValue> ModifiedData
+            => _data
+                .Where(kvp => _dirtyKeys.Contains(kvp.Key))
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
+
+        //public IDictionary<TKey, TValue> OriginalData
+        //    => _dictionaryFactory(_initialData);
 
         public virtual void MarkDirty(TKey key)
         {
-            // Noop
+            _dirtyKeys.Add(key);
         }
 
         public TValue this[TKey key]
         {
-            get
-            {
-                if (_modifiedData.TryGetValue(key, out TValue value))
-                {
-                    return value;
-                }
-
-                _initialData.TryGetValue(key, out value);
-                return value;
-            }
+            get => _data[key];
 
             set
             {
                 MarkDirty(key);
-                _modifiedData[key] = value;
+                _data[key] = value;
             }
         }
 
         public void Add(TKey key, TValue value)
         {
             MarkDirty(key);
-            _modifiedData.Add(key, value);
+            _data.Add(key, value);
         }
 
         public void Add(KeyValuePair<TKey, TValue> item)
         {
             MarkDirty(item.Key);
-            _modifiedData.Add(item);
+            _data.Add(item);
         }
 
         public void Clear()
@@ -85,48 +93,43 @@ namespace Okta.Sdk
             foreach (var key in _initialData.Keys)
             {
                 MarkDirty(key);
-                _modifiedData[key] = default(TValue);
+                _data[key] = default(TValue);
             }
         }
 
         public bool Remove(TKey key)
         {
             MarkDirty(key);
-            return _modifiedData.Remove(key);
+            return _data.Remove(key);
         }
 
         public bool Remove(KeyValuePair<TKey, TValue> item)
         {
             MarkDirty(item.Key);
-            return _modifiedData.Remove(item);
+            return _data.Remove(item);
         }
 
         public void CopyTo(KeyValuePair<TKey, TValue>[] array, int arrayIndex)
         {
-            CombinedData.CopyTo(array, arrayIndex);
+            _data.CopyTo(array, arrayIndex);
         }
 
-        public ICollection<TKey> Keys => CombinedData.Keys;
+        public ICollection<TKey> Keys => _data.Keys;
 
-        public ICollection<TValue> Values => CombinedData.Values;
+        public ICollection<TValue> Values => _data.Values;
 
-        public int Count => CombinedData.Count;
+        public int Count => _data.Count;
 
-        public bool IsReadOnly => _modifiedData.IsReadOnly;
+        public bool IsReadOnly => _data.IsReadOnly;
 
-        public bool Contains(KeyValuePair<TKey, TValue> item) => CombinedData.Contains(item);
+        public bool Contains(KeyValuePair<TKey, TValue> item) => _data.Contains(item);
 
-        public bool ContainsKey(TKey key) => CombinedData.ContainsKey(key);
+        public bool ContainsKey(TKey key) => _data.ContainsKey(key);
 
-        public bool TryGetValue(TKey key, out TValue value)
-        {
-            if (_modifiedData.TryGetValue(key, out value)) return true;
+        public bool TryGetValue(TKey key, out TValue value) => _data.TryGetValue(key, out value);
 
-            return _initialData.TryGetValue(key, out value);
-        }
+        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => _data.GetEnumerator();
 
-        public IEnumerator<KeyValuePair<TKey, TValue>> GetEnumerator() => CombinedData.GetEnumerator();
-
-        IEnumerator IEnumerable.GetEnumerator() => CombinedData.GetEnumerator();
+        IEnumerator IEnumerable.GetEnumerator() => _data.GetEnumerator();
     }
 }

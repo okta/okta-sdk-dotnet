@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -7,13 +8,57 @@ namespace Okta.Sdk.UnitTests
     public class ChangeTrackingDictionaryShould
     {
         [Fact]
+        public void CreateEmptyDictionary()
+        {
+            var dictionary = new ChangeTrackingDictionary<string, int>();
+
+            dictionary.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public void UseSpecifiedKeyComparer()
+        {
+            var caseSensitiveDictionary = new ChangeTrackingDictionary<string, int>(keyComparer: StringComparer.Ordinal)
+            {
+                ["foo"] = 123
+            };
+
+            caseSensitiveDictionary.ContainsKey("foo").Should().BeTrue();
+            caseSensitiveDictionary.ContainsKey("Foo").Should().BeFalse();
+
+            var caseInsensitiveDictionary = new ChangeTrackingDictionary<string, int>(keyComparer: StringComparer.OrdinalIgnoreCase)
+            {
+                ["foo"] = 123
+            };
+
+            caseInsensitiveDictionary.ContainsKey("foo").Should().BeTrue();
+            caseInsensitiveDictionary.ContainsKey("Foo").Should().BeTrue();
+        }
+
+        [Fact]
+        public void ApplyKeyComparerToExistingData()
+        {
+            var initialData = new Dictionary<string, int>(StringComparer.Ordinal)
+            {
+                ["foo"] = 123
+            };
+            initialData.ContainsKey("Foo").Should().BeFalse();
+
+            var caseInsensitiveDictionary = new ChangeTrackingDictionary<string, int>(
+                initialData, StringComparer.OrdinalIgnoreCase);
+
+            caseInsensitiveDictionary.ContainsKey("foo").Should().BeTrue();
+            caseInsensitiveDictionary.ContainsKey("Foo").Should().BeTrue();
+        }
+
+        [Fact]
         public void SetInitialState()
         {
             var initialData = new Dictionary<string, object>()
             {
                 ["foo"] = "bar"
             };
-            var dictionary = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary, initialData);
+            var dictionary = new ChangeTrackingDictionary<string, object>(initialData, StringComparer.OrdinalIgnoreCase);
 
             dictionary.ContainsKey("foo").Should().Be(true);
             dictionary["foo"].Should().Be("bar");
@@ -24,7 +69,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void AllowChanges()
         {
-            var dictionary = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary);
+            var dictionary = new ChangeTrackingDictionary<string, object>(keyComparer: StringComparer.OrdinalIgnoreCase);
 
             dictionary.ContainsKey("foo").Should().Be(false);
 
@@ -43,7 +88,7 @@ namespace Okta.Sdk.UnitTests
                 ["foo"] = "a",
                 ["bar"] = "b"
             };
-            var dictionary = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary, initialData)
+            var dictionary = new ChangeTrackingDictionary<string, object>(initialData, StringComparer.OrdinalIgnoreCase)
             {
                 ["foo"] = "c",
                 ["baz"] = "d"
@@ -68,7 +113,7 @@ namespace Okta.Sdk.UnitTests
                 ["foo"] = "a",
                 ["bar"] = "b"
             };
-            var dictionary = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary, initialData)
+            var dictionary = new ChangeTrackingDictionary<string, object>(initialData, StringComparer.OrdinalIgnoreCase)
             {
                 ["foo"] = "c",
                 ["baz"] = "d"
@@ -93,7 +138,7 @@ namespace Okta.Sdk.UnitTests
                 ["foo"] = "a",
                 ["bar"] = "b"
             };
-            var dictionary = new ChangeTrackingDictionary<string, object>(DictionaryFactory.NewDictionary, initialData)
+            var dictionary = new ChangeTrackingDictionary<string, object>(initialData, StringComparer.OrdinalIgnoreCase)
             {
                 ["foo"] = "c",
                 ["baz"] = "d"
