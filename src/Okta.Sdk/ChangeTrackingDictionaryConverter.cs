@@ -6,20 +6,13 @@ using System.Collections.Generic;
 namespace Okta.Sdk
 {
     /// <summary>
-    /// A JsonConverter for JSON.NET that will deserialize objects into immutable, key-case-insensitive dictionaries.
+    /// A JsonConverter for JSON.NET that will deserialize objects into <see cref="ChangeTrackingDictionary"/>.
     /// Nested objects are recursively deserialized as nested dictionaries.
     /// </summary>
-    public sealed class RecursiveDictionaryConverter : CustomCreationConverter<IDictionary<string, object>>
+    public sealed class ChangeTrackingDictionaryConverter : CustomCreationConverter<ChangeTrackingDictionary>
     {
-        private readonly Func<IDictionary<string, object>> _dictionaryFactory;
-
-        public RecursiveDictionaryConverter(Func<IDictionary<string, object>> dictionaryFactory)
-        {
-            _dictionaryFactory = dictionaryFactory;
-        }
-
-        public override IDictionary<string, object> Create(Type objectType)
-            => _dictionaryFactory();
+        public override ChangeTrackingDictionary Create(Type objectType)
+            => new ChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase);
 
         public override bool CanConvert(Type objectType)
             // We want to handle explicit objects (dictionaries) and
