@@ -52,37 +52,15 @@ namespace Okta.Sdk
 
             return original.Select(kvp =>
             {
-                bool isNested = kvp.Value.GetType() == typeof(ChangeTrackingDictionary);
+                if (kvp.Value is ChangeTrackingDictionary nested)
+                {
+                    var nestedCopy = new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer);
+                    return new KeyValuePair<string, object>(kvp.Key, nestedCopy);
+                }
 
-                var value = isNested
-                    ? new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer)
-                    : kvp.Value;
-
-                return new KeyValuePair<string, object>(kvp.Key, value);
+                return kvp;
             }).ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
         }
-
-        public void ResetChanges()
-        {
-            _data = DeepCopy(_initialData);
-            _dirtyKeys = new List<string>(_data.Count);
-            _parent?.MarkClean(_parentKey);
-        }
-
-        public IDictionary<string, object> ModifiedData
-            => _data
-                .Where(kvp => _dirtyKeys.Contains(kvp.Key))
-                .Select(kvp =>
-                {
-                    bool isNested = kvp.Value.GetType() == typeof(ChangeTrackingDictionary);
-
-                    var value = isNested
-                        ? (kvp.Value as ChangeTrackingDictionary).ModifiedData
-                        : kvp.Value;
-
-                    return new KeyValuePair<string, object>(kvp.Key, value);
-                })
-                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
 
         private void MarkDirty(string key)
         {
@@ -94,6 +72,20 @@ namespace Okta.Sdk
         {
             _dirtyKeys?.Remove(key);
         }
+
+        public void ResetChanges()
+        {
+            _data = DeepCopy(_initialData);
+            _dirtyKeys = new List<string>(_data.Count);
+            _parent?.MarkClean(_parentKey);
+        }
+
+        public IDictionary<string, object> ModifiedData
+            => _data.Where(kvp => _dirtyKeys.Contains(kvp.Key))
+                .Select(kvp => (kvp.Value is ChangeTrackingDictionary nested) 
+                    ? new KeyValuePair<string, object>(kvp.Key, nested.ModifiedData)
+                    : kvp)
+                .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
 
         public object this[string key]
         {
@@ -117,17 +109,6 @@ namespace Okta.Sdk
             MarkDirty(item.Key);
             _data.Add(item);
         }
-
-        //public void Clear()
-        //{
-        //    ResetChanges();
-
-        //    foreach (var key in _initialData.Keys)
-        //    {
-        //        MarkDirty(key);
-        //        _data[key] = default(TValue);
-        //    }
-        //}
 
         public bool Remove(string key)
         {
