@@ -6,16 +6,16 @@ using System.Collections.Generic;
 namespace Okta.Sdk
 {
     /// <summary>
-    /// A JsonConverter for JSON.NET that will deserialize objects into <see cref="ChangeTrackingDictionary"/>.
+    /// A JSON.NET converter that will deserialize objects into dictionaries.
     /// Nested objects are recursively deserialized as nested dictionaries.
     /// </summary>
-    public sealed class ChangeTrackingDictionaryConverter : CustomCreationConverter<ChangeTrackingDictionary>
+    public sealed class RecursiveDictionaryConverter : CustomCreationConverter<IDictionary<string, object>>
     {
-        public override ChangeTrackingDictionary Create(Type objectType)
-            => new ChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase);
+        public override IDictionary<string, object> Create(Type objectType)
+            => new Dictionary<string, object>();
 
         public override bool CanConvert(Type objectType)
-            // We want to handle explicit objects (dictionaries) and
+            // We want to handle explicit objects and
             // also nested objects (which might be dictionaries)
             => objectType == typeof(object) || base.CanConvert(objectType);
 
@@ -29,4 +29,5 @@ namespace Okta.Sdk
             return serializer.Deserialize(reader);
         }
     }
+
 }

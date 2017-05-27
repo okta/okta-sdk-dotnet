@@ -58,6 +58,12 @@ namespace Okta.Sdk
                     return new KeyValuePair<string, object>(kvp.Key, nestedCopy);
                 }
 
+                if (kvp.Value is IDictionary<string, object> || kvp.Value is IReadOnlyDictionary<string, object>)
+                {
+                    var nestedCopy = new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer);
+                    return new KeyValuePair<string, object>(kvp.Key, nestedCopy);
+                }
+
                 return kvp;
             }).ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
         }

@@ -136,10 +136,10 @@ namespace Okta.Sdk.UnitTests
             var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
             {
                 ["foo"] = 123,
-                ["bar"] = new ChangeTrackingDictionary(new Dictionary<string, object>()
+                ["bar"] = new Dictionary<string, object>()
                 {
                     ["nested"] = "works"
-                }, StringComparer.OrdinalIgnoreCase)
+                }
             }, StringComparer.OrdinalIgnoreCase);
 
             dictionary.ModifiedData.Count.Should().Be(0);
@@ -161,10 +161,10 @@ namespace Okta.Sdk.UnitTests
             var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
             {
                 ["foo"] = 123,
-                ["bar"] = new ChangeTrackingDictionary(new Dictionary<string, object>()
+                ["bar"] = new Dictionary<string, object>()
                 {
                     ["nested"] = "works"
-                }, StringComparer.OrdinalIgnoreCase)
+                }
             }, StringComparer.OrdinalIgnoreCase);
 
             dictionary.ModifiedData.Count.Should().Be(0);
@@ -181,10 +181,10 @@ namespace Okta.Sdk.UnitTests
             var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
             {
                 ["foo"] = 123,
-                ["bar"] = new ChangeTrackingDictionary(new Dictionary<string, object>()
+                ["bar"] = new Dictionary<string, object>()
                 {
                     ["nested"] = "works"
-                }, StringComparer.OrdinalIgnoreCase)
+                }
             }, StringComparer.OrdinalIgnoreCase);
 
             ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";
@@ -200,10 +200,10 @@ namespace Okta.Sdk.UnitTests
             var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
             {
                 ["foo"] = 123,
-                ["bar"] = new ChangeTrackingDictionary(new Dictionary<string, object>()
+                ["bar"] = new Dictionary<string, object>()
                 {
                     ["nested"] = "works"
-                }, StringComparer.OrdinalIgnoreCase)
+                }
             }, StringComparer.OrdinalIgnoreCase);
 
             ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";

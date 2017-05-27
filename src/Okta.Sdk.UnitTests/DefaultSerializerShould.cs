@@ -41,22 +41,22 @@ namespace Okta.Sdk.UnitTests
             (dict["baz"] as IReadOnlyDictionary<string, object>)["qux"].Should().Be(123L);
         }
 
-        [Fact]
-        public void DeserializeWithCaseInsensitiveKeys()
-        {
-            var json = @"
-{
-  ""foo"": ""bar"",
-  ""baz"": 123
-}";
+//        [Fact]
+//        public void DeserializeWithCaseInsensitiveKeys()
+//        {
+//            var json = @"
+//{
+//  ""foo"": ""bar"",
+//  ""baz"": 123
+//}";
 
-            var serializer = new DefaultSerializer();
-            var dict = serializer.Deserialize(json);
+//            var serializer = new DefaultSerializer();
+//            var dict = serializer.Deserialize(json);
 
-            dict["foo"].Should().Be("bar");
-            dict["FOO"].Should().Be("bar");
-            dict["BaZ"].Should().Be(123L);
-        }
+//            dict["foo"].Should().Be("bar");
+//            dict["FOO"].Should().Be("bar");
+//            dict["BaZ"].Should().Be(123L);
+//        }
 
         [Fact]
         public void DeserializeNullInput()

@@ -34,7 +34,7 @@ namespace Okta.Sdk
 
             var resources = _serializer
                 .DeserializeArray(response.Payload ?? string.Empty)
-                .Select(x => ResourceFactory.Create<T>(x));
+                .Select(x => ResourceFactory.Create<T>(new ChangeTrackingDictionary(x, StringComparer.OrdinalIgnoreCase)));
 
             return new HttpResponse<IEnumerable<T>>
             {
@@ -52,8 +52,9 @@ namespace Okta.Sdk
             var response = await _requestExecutor.GetAsync(href, cancellationToken);
             if (response == null) throw new InvalidOperationException("The response from the RequestExecutor was null.");
 
-            var data = _serializer.Deserialize(response.Payload ?? string.Empty);
-            var resource = ResourceFactory.Create<T>(data);
+            var dictionary = _serializer.Deserialize(response.Payload ?? string.Empty);
+            var changeTrackingDictionary = new ChangeTrackingDictionary(dictionary, StringComparer.OrdinalIgnoreCase);
+            var resource = ResourceFactory.Create<T>(changeTrackingDictionary);
 
             return new HttpResponse<T>
             {
@@ -71,8 +72,9 @@ namespace Okta.Sdk
 
             var response = await _requestExecutor.PostAsync(href, body, cancellationToken);
 
-            var returnedData = _serializer.Deserialize(response.Payload);
-            var returnedResource = ResourceFactory.Create<TResponse>(returnedData);
+            var returnedDictionary = _serializer.Deserialize(response.Payload);
+            var changeTrackingDictionary = new ChangeTrackingDictionary(returnedDictionary, StringComparer.OrdinalIgnoreCase);
+            var returnedResource = ResourceFactory.Create<TResponse>(changeTrackingDictionary);
 
             return new HttpResponse<TResponse>
             {

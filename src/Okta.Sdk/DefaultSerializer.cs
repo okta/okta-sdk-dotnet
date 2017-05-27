@@ -14,7 +14,7 @@ namespace Okta.Sdk
         public DefaultSerializer()
         {
             _serializer = new JsonSerializer();
-            _serializer.Converters.Add(new ChangeTrackingDictionaryConverter());
+            _serializer.Converters.Add(new RecursiveDictionaryConverter());
         }
 
         public IDictionary<string, object> Deserialize(string json)
