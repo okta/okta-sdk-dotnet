@@ -130,28 +130,6 @@ namespace Okta.Sdk.UnitTests
             dictionary.ContainsKey("baz").Should().Be(false);
         }
 
-        [Fact(Skip = "Remove")]
-        public void TrackWhenCleared()
-        {
-            //var initialData = new Dictionary<string, object>()
-            //{
-            //    ["foo"] = "a",
-            //    ["bar"] = "b"
-            //};
-            //var dictionary = new ChangeTrackingDictionary(initialData, StringComparer.OrdinalIgnoreCase)
-            //{
-            //    ["foo"] = "c",
-            //    ["baz"] = "d"
-            //};
-
-            //dictionary.Clear();
-
-            //dictionary.Count.Should().Be(2);
-            //dictionary.ModifiedData.Count.Should().Be(2);
-
-            //dictionary["foo"].Should().BeNull();
-        }
-
         [Fact]
         public void ResetNestedDictionariesToInitialState()
         {
@@ -194,8 +172,45 @@ namespace Okta.Sdk.UnitTests
             ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";
 
             dictionary.ModifiedData.Keys.Should().BeEquivalentTo("bar");
-            ((IDictionary<string, object>)dictionary.ModifiedData["nested"]).Keys.Should().BeEquivalentTo("nested");
+            ((IDictionary<string, object>)dictionary.ModifiedData["bar"]).Keys.Should().BeEquivalentTo("nested");
+        }
 
+        [Fact]
+        public void ResetChangesToGraph()
+        {
+            var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
+            {
+                ["foo"] = 123,
+                ["bar"] = new ChangeTrackingDictionary(new Dictionary<string, object>()
+                {
+                    ["nested"] = "works"
+                }, StringComparer.OrdinalIgnoreCase)
+            }, StringComparer.OrdinalIgnoreCase);
+
+            ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";
+            dictionary.ModifiedData.Count.Should().Be(1);
+
+            dictionary.ResetChanges();
+            dictionary.ModifiedData.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public void MarkParentCleanWhenResettingNested()
+        {
+            var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
+            {
+                ["foo"] = 123,
+                ["bar"] = new ChangeTrackingDictionary(new Dictionary<string, object>()
+                {
+                    ["nested"] = "works"
+                }, StringComparer.OrdinalIgnoreCase)
+            }, StringComparer.OrdinalIgnoreCase);
+
+            ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";
+            dictionary.ModifiedData.Count.Should().Be(1);
+
+            ((ChangeTrackingDictionary)dictionary["bar"]).ResetChanges();
+            dictionary.ModifiedData.Count.Should().Be(0);
         }
     }
 }

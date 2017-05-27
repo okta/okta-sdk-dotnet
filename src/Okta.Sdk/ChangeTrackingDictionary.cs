@@ -1,11 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Okta.Sdk
 {
-    public class ChangeTrackingDictionary : IEnumerable<KeyValuePair<string, object>>
+    public sealed class ChangeTrackingDictionary : IEnumerable<KeyValuePair<string, object>>
     {
+        private readonly ChangeTrackingDictionary _parent;
+        private readonly string _parentKey;
+
         private readonly IReadOnlyDictionary<string, object> _initialData;
         private readonly IEqualityComparer<string> _keyComparer;
 
@@ -15,7 +19,24 @@ namespace Okta.Sdk
         public ChangeTrackingDictionary(
             IDictionary<string, object> initialData = null,
             IEqualityComparer<string> keyComparer = null)
+            : this(null, null, initialData, keyComparer)
         {
+        }
+
+        public ChangeTrackingDictionary(
+            ChangeTrackingDictionary parent,
+            string parentKey,
+            IDictionary<string, object> initialData = null,
+            IEqualityComparer<string> keyComparer = null)
+        {
+            if (parent != null)
+            {
+                if (string.IsNullOrEmpty(parentKey)) throw new ArgumentNullException(nameof(parent), $"Both {nameof(parent)} and {nameof(parentKey)} must be specified.");
+
+                _parent = parent;
+                _parentKey = parentKey;
+            }
+
             _keyComparer = keyComparer ?? EqualityComparer<string>.Default;
 
             _initialData = initialData == null
@@ -34,7 +55,7 @@ namespace Okta.Sdk
                 bool isNested = kvp.Value.GetType() == typeof(ChangeTrackingDictionary);
 
                 var value = isNested
-                    ? new ChangeTrackingDictionary(DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer)
+                    ? new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer)
                     : kvp.Value;
 
                 return new KeyValuePair<string, object>(kvp.Key, value);
@@ -45,25 +66,33 @@ namespace Okta.Sdk
         {
             _data = DeepCopy(_initialData);
             _dirtyKeys = new List<string>(_data.Count);
-
+            _parent?.MarkClean(_parentKey);
         }
-
-        //private IDictionary<TKey, TValue> CombinedData
-        //    => _dictionaryFactory(_data
-        //        .Concat(_initialData.Where(kvp => !_data.ContainsKey(kvp.Key)))
-        //        .ToDictionary(kvp => kvp.Key, kvp => kvp.Value));
 
         public IDictionary<string, object> ModifiedData
             => _data
                 .Where(kvp => _dirtyKeys.Contains(kvp.Key))
+                .Select(kvp =>
+                {
+                    bool isNested = kvp.Value.GetType() == typeof(ChangeTrackingDictionary);
+
+                    var value = isNested
+                        ? (kvp.Value as ChangeTrackingDictionary).ModifiedData
+                        : kvp.Value;
+
+                    return new KeyValuePair<string, object>(kvp.Key, value);
+                })
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
 
-        //public IDictionary<TKey, TValue> OriginalData
-        //    => _dictionaryFactory(_initialData);
-
-        public virtual void MarkDirty(string key)
+        private void MarkDirty(string key)
         {
-            _dirtyKeys.Add(key);
+            if (!_dirtyKeys.Contains(key)) _dirtyKeys.Add(key);
+            _parent?.MarkDirty(_parentKey);
+        }
+
+        private void MarkClean(string key)
+        {
+            _dirtyKeys?.Remove(key);
         }
 
         public object this[string key]
