@@ -22,7 +22,7 @@ namespace Okta.Sdk
             => _dictionaryFactory();
 
         public override bool CanConvert(Type objectType)
-            // We want to handle explicit IReadOnlyDictionaries and
+            // We want to handle explicit objects (dictionaries) and
             // also nested objects (which might be dictionaries)
             => objectType == typeof(object) || base.CanConvert(objectType);
 
