@@ -17,6 +17,8 @@ namespace Okta.Sdk.UnitTests
 
             dictionary.ContainsKey("foo").Should().Be(true);
             dictionary["foo"].Should().Be("bar");
+
+            dictionary.ModifiedData.Count.Should().Be(0);
         }
 
         [Fact]
@@ -29,6 +31,8 @@ namespace Okta.Sdk.UnitTests
             dictionary["foo"] = "bar";
 
             dictionary["foo"].Should().Be("bar");
+
+            dictionary.ModifiedData.Keys.Should().BeEquivalentTo("foo");
         }
 
         [Fact]
