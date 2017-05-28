@@ -82,7 +82,8 @@ namespace Okta.Sdk
         }
 
         public IDictionary<string, object> ModifiedData
-            => _data.Where(kvp => _dirtyKeys.Contains(kvp.Key))
+            => _data
+                .Where(kvp => _dirtyKeys.Contains(kvp.Key, _keyComparer))
                 .Select(kvp => (kvp.Value is IDeltaDictionary<string, object> nested) 
                     ? new KeyValuePair<string, object>(kvp.Key, nested.ModifiedData)
                     : kvp)
