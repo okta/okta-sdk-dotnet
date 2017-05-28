@@ -17,14 +17,18 @@ namespace Okta.Sdk
         public IDictionary<string, object> GetModifiedData()
             => _data.ModifiedData;
 
+        public void SetProperty(string key, object value)
+            => _data[key] = value;
+
+        public void SetResourceProperty<T>(string key, T value)
+            where T : Resource
+            => SetProperty(key, value?._data);
+
         public object GetProperty(string key)
         {
             _data.TryGetValue(key, out var value);
             return value;
         }
-
-        public void SetProperty(string key, object value)
-            => _data[key] = value;
 
         public string GetStringProperty(string key)
             => GetProperty(key)?.ToString();
