@@ -56,11 +56,11 @@ namespace Okta.Sdk.UnitTests
             };
             var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new TestNestedResource(changeTrackingDictionary);
-            resource.ModifiedData.Count.Should().Be(0);
+            resource.GetModifiedData().Count.Should().Be(0);
 
             resource.Nested.Bar = true;
-            resource.ModifiedData.Keys.Should().BeEquivalentTo("nested");
-            resource.Nested.ModifiedData.Should().Contain(new KeyValuePair<string, object>("bar", true));
+            resource.GetModifiedData().Keys.Should().BeEquivalentTo("nested");
+            resource.Nested.GetModifiedData().Should().Contain(new KeyValuePair<string, object>("bar", true));
         }
 
         [Fact]
@@ -74,8 +74,8 @@ namespace Okta.Sdk.UnitTests
                 }
             };
 
-            resource.ModifiedData.Keys.Should().BeEquivalentTo("nested");
-            resource.Nested.ModifiedData.Keys.Should().BeEquivalentTo("foo");
+            resource.GetModifiedData().Keys.Should().BeEquivalentTo("nested");
+            resource.Nested.GetModifiedData().Keys.Should().BeEquivalentTo("foo");
         }
     }
 }

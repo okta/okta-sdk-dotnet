@@ -78,13 +78,13 @@ namespace Okta.Sdk.UnitTests
                 Foo = "xyz"
             };
 
-            resource.ModifiedData.Keys.Should().BeEquivalentTo("foo");
+            resource.GetModifiedData().Keys.Should().BeEquivalentTo("foo");
 
             resource.Bar = true;
 
-            resource.ModifiedData.Count.Should().Be(2);
-            resource.ModifiedData.Should().Contain(new KeyValuePair<string, object>("foo", "xyz"));
-            resource.ModifiedData.Should().Contain(new KeyValuePair<string, object>("bar", true));
+            resource.GetModifiedData().Count.Should().Be(2);
+            resource.GetModifiedData().Should().Contain(new KeyValuePair<string, object>("foo", "xyz"));
+            resource.GetModifiedData().Should().Contain(new KeyValuePair<string, object>("bar", true));
         }
     }
 }

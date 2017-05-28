@@ -14,7 +14,7 @@ namespace Okta.Sdk
             _data = data ?? _resourceFactory.NewDictionary();
         }
 
-        public IDictionary<string, object> ModifiedData
+        public IDictionary<string, object> GetModifiedData()
             => _data.ModifiedData;
 
         public object GetProperty(string key)
