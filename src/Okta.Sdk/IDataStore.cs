@@ -12,12 +12,12 @@ namespace Okta.Sdk
         ISerializer Serializer { get; }
 
         Task<HttpResponse<T>> GetAsync<T>(string href, CancellationToken cancellationToken)
-            where T : Resource, new();
+            where T : Resource;
 
         Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(string href, CancellationToken cancellationToken)
-            where T : Resource, new();
+            where T : Resource;
 
         Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
-            where TResponse : Resource, new();
+            where TResponse : Resource;
     }
 }

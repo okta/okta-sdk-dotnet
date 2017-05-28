@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using System;
 using System.Collections.Generic;
 using Xunit;
 
@@ -14,7 +15,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void NotThrowForNullData()
         {
-            var resource = new TestierResource();
+            var resource = new Resource();
             resource.Should().NotBeNull();
         }
 
@@ -26,28 +27,77 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void GetStringProperty()
+        {
+            var data = new Dictionary<string, object>()
+            {
+                ["foo"] = "abc",
+                ["bar"] = true
+            };
+            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+
+            var resource = ResourceFactory.Create<Resource>(changeTrackingDictionary);
+
+            resource.GetStringProperty("foo").Should().Be("abc");
+        }
+
+        [Fact]
+        public void GetBooleanProperty()
+        {
+            var data = new Dictionary<string, object>()
+            {
+                ["foo"] = "abc",
+                ["bar"] = true
+            };
+            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+
+            var resource = ResourceFactory.Create<Resource>(changeTrackingDictionary);
+
+            resource.GetBooleanProperty("bar").Should().Be(true);
+        }
+
+        [Fact]
         public void GetInheritedAndNestedProperties()
         {
             var data = new Dictionary<string, object>()
             {
                 ["foo"] = "abc",
-                ["bar"] = "xyz",
+                ["bar"] = true,
                 ["nested"] = new Dictionary<string, object>()
                 {
-                    ["foo"] = "123",
-                    ["Bar"] = "nested is neet!"
+                    ["foo"] = "nested is neet!",
+                    ["Bar"] = false
                 }
             };
+            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
 
-            var resource = ResourceFactory.Create<TestierResource>(data);
+            var resource = ResourceFactory.Create<TestierResource>(changeTrackingDictionary);
 
             resource.Should().NotBeNull();
             resource.Foo.Should().Be("abc");
-            resource.Bar.Should().Be("xyz");
+            resource.Bar.Should().Be(true);
 
             resource.Nested.Should().NotBeNull();
-            resource.Nested.Foo.Should().Be("123");
-            resource.Nested.Bar.Should().Be("nested is neet!");
+            resource.Nested.Foo.Should().Be("nested is neet!");
+            resource.Nested.Bar.Should().Be(false);
+        }
+
+        [Fact]
+        public void GetModifiedData()
+        {
+            var data = new Dictionary<string, object>()
+            {
+                ["foo"] = "abc",
+                ["bar"] = true
+            };
+            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+
+            var resource = ResourceFactory.Create<TestResource>(changeTrackingDictionary);
+
+            resource.Foo = "xyz";
+
+            resource.ModifiedData.Count.Should().Be(1);
+            resource.ModifiedData.Should().Contain(new KeyValuePair<string, object>("foo", "xyz"));
         }
     }
 }

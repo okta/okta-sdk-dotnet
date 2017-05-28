@@ -25,7 +25,7 @@ namespace Okta.Sdk
         public ISerializer Serializer => _serializer;
 
         public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(string href, CancellationToken cancellationToken)
-            where T : Resource, new()
+            where T : Resource
         {
             // todo optional query string parameters
 
@@ -45,7 +45,7 @@ namespace Okta.Sdk
         }
 
         public async Task<HttpResponse<T>> GetAsync<T>(string href, CancellationToken cancellationToken)
-            where T : Resource, new()
+            where T : Resource
         {
             // todo optional query string parameters
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     public sealed class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
-        where T : Resource, new()
+        where T : Resource
     {
         private readonly IDataStore _dataStore;
         private readonly KeyValuePair<string, object>[] _initialQueryParameters;

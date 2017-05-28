@@ -5,17 +5,17 @@ namespace Okta.Sdk
 {
     public class Resource
     {
-        private ChangeTrackingDictionary _data;
+        private readonly ChangeTrackingDictionary _data;
+        private readonly IResourceFactory _resourceFactory;
 
-        public Resource()
+        public Resource(ChangeTrackingDictionary data, IResourceFactory resourceFactory)
         {
-            _data = new ChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase);
+            _data = data;
+            _resourceFactory = resourceFactory;
         }
 
-        public void ResetWithData(IDictionary<string, object> data)
-        {
-            _data = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
-        }
+        public IDictionary<string, object> ModifiedData
+            => _data.ModifiedData;
 
         public object GetProperty(string key)
         {
@@ -39,8 +39,8 @@ namespace Okta.Sdk
         public T GetProperty<T>(string key)
             where T : Resource, new()
         {
-            var nestedData = GetProperty(key) as IDictionary<string, object>;
-            return ResourceFactory.Create<T>(nestedData);
+            var nestedData = GetProperty(key) as ChangeTrackingDictionary;
+            return _resourceFactory.Create<T>(nestedData);
         }
     }
 }
