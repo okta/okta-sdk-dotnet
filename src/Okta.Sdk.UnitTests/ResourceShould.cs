@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using Okta.Sdk.Abstractions;
 using System;
 using System.Collections.Generic;
 using Xunit;
@@ -9,13 +10,16 @@ namespace Okta.Sdk.UnitTests
     {
         public class TestierResource : TestResource
         {
+            public TestierResource() : base(null) { }
+            public TestierResource(IDeltaDictionary<string, object> data) : base(data) { }
+
             public TestierResource Nested => GetProperty<TestierResource>("nested");
         }
 
         [Fact]
         public void NotThrowForNullData()
         {
-            var resource = new Resource();
+            var resource = new Resource(null);
             resource.Should().NotBeNull();
         }
 
@@ -36,7 +40,7 @@ namespace Okta.Sdk.UnitTests
             };
             var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
 
-            var resource = ResourceFactory.Create<Resource>(changeTrackingDictionary);
+            var resource = new Resource(changeTrackingDictionary);
 
             resource.GetStringProperty("foo").Should().Be("abc");
         }
@@ -51,7 +55,7 @@ namespace Okta.Sdk.UnitTests
             };
             var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
 
-            var resource = ResourceFactory.Create<Resource>(changeTrackingDictionary);
+            var resource = new Resource(changeTrackingDictionary);
 
             resource.GetBooleanProperty("bar").Should().Be(true);
         }
@@ -71,7 +75,7 @@ namespace Okta.Sdk.UnitTests
             };
             var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
 
-            var resource = ResourceFactory.Create<TestierResource>(changeTrackingDictionary);
+            var resource = new TestierResource(changeTrackingDictionary);
 
             resource.Should().NotBeNull();
             resource.Foo.Should().Be("abc");
@@ -92,9 +96,10 @@ namespace Okta.Sdk.UnitTests
             };
             var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
 
-            var resource = ResourceFactory.Create<TestResource>(changeTrackingDictionary);
-
-            resource.Foo = "xyz";
+            var resource = new TestResource(changeTrackingDictionary)
+            {
+                Foo = "xyz"
+            };
 
             resource.ModifiedData.Count.Should().Be(1);
             resource.ModifiedData.Should().Contain(new KeyValuePair<string, object>("foo", "xyz"));

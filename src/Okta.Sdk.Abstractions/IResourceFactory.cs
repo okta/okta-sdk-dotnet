@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Okta.Sdk.Abstractions
+﻿namespace Okta.Sdk.Abstractions
 {
     public interface IResourceFactory
     {
-        T Create<T>(IDictionary<string, object> data);
+        T Create<T>(IDeltaDictionary<string, object> data);
     }
 }

@@ -11,6 +11,7 @@ namespace Okta.Sdk
     {
         private readonly IRequestExecutor _requestExecutor;
         private readonly ISerializer _serializer;
+        private readonly IResourceFactory _resourceFactory;
 
         public DefaultDataStore(
             IRequestExecutor requestExecutor,
@@ -18,6 +19,8 @@ namespace Okta.Sdk
         {
             _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
+            //_resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
+            _resourceFactory = new DefaultResourceFactory();
         }
 
         public IRequestExecutor RequestExecutor => _requestExecutor;
@@ -34,7 +37,7 @@ namespace Okta.Sdk
 
             var resources = _serializer
                 .DeserializeArray(response.Payload ?? string.Empty)
-                .Select(x => ResourceFactory.Create<T>(new ChangeTrackingDictionary(x, StringComparer.OrdinalIgnoreCase)));
+                .Select(x => _resourceFactory.Create<T>(new ChangeTrackingDictionary(x, StringComparer.OrdinalIgnoreCase)));
 
             return new HttpResponse<IEnumerable<T>>
             {
@@ -54,7 +57,7 @@ namespace Okta.Sdk
 
             var dictionary = _serializer.Deserialize(response.Payload ?? string.Empty);
             var changeTrackingDictionary = new ChangeTrackingDictionary(dictionary, StringComparer.OrdinalIgnoreCase);
-            var resource = ResourceFactory.Create<T>(changeTrackingDictionary);
+            var resource = _resourceFactory.Create<T>(changeTrackingDictionary);
 
             return new HttpResponse<T>
             {
@@ -65,7 +68,7 @@ namespace Okta.Sdk
         }
 
         public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
-            where TResponse : Resource, new()
+            where TResponse : Resource
         {
             var body = _serializer.Serialize(postData);
             // TODO apply query string parameters
@@ -74,7 +77,7 @@ namespace Okta.Sdk
 
             var returnedDictionary = _serializer.Deserialize(response.Payload);
             var changeTrackingDictionary = new ChangeTrackingDictionary(returnedDictionary, StringComparer.OrdinalIgnoreCase);
-            var returnedResource = ResourceFactory.Create<TResponse>(changeTrackingDictionary);
+            var returnedResource = _resourceFactory.Create<TResponse>(changeTrackingDictionary);
 
             return new HttpResponse<TResponse>
             {

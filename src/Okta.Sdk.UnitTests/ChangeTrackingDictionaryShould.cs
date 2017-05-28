@@ -106,7 +106,7 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public void ResetChanges()
+        public void Reset()
         {
             var initialData = new Dictionary<string, object>()
             {
@@ -121,7 +121,7 @@ namespace Okta.Sdk.UnitTests
 
             dictionary.ModifiedData.Count.Should().Be(2);
 
-            dictionary.ResetChanges();
+            dictionary.Reset();
 
             dictionary.ModifiedData.Count.Should().Be(0);
 
@@ -147,7 +147,7 @@ namespace Okta.Sdk.UnitTests
             dictionary["foo"] = 456;
             ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = 789;
 
-            dictionary.ResetChanges();
+            dictionary.Reset();
 
             dictionary.ModifiedData.Count.Should().Be(0);
 
@@ -176,7 +176,7 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public void ResetChangesToGraph()
+        public void ResetToGraph()
         {
             var dictionary = new ChangeTrackingDictionary(new Dictionary<string, object>()
             {
@@ -190,7 +190,7 @@ namespace Okta.Sdk.UnitTests
             ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";
             dictionary.ModifiedData.Count.Should().Be(1);
 
-            dictionary.ResetChanges();
+            dictionary.Reset();
             dictionary.ModifiedData.Count.Should().Be(0);
         }
 
@@ -209,7 +209,7 @@ namespace Okta.Sdk.UnitTests
             ((ChangeTrackingDictionary)dictionary["bar"])["nested"] = "is magic!";
             dictionary.ModifiedData.Count.Should().Be(1);
 
-            ((ChangeTrackingDictionary)dictionary["bar"]).ResetChanges();
+            ((ChangeTrackingDictionary)dictionary["bar"]).Reset();
             dictionary.ModifiedData.Count.Should().Be(0);
         }
     }

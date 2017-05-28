@@ -1,17 +1,17 @@
-﻿using System;
+﻿using Okta.Sdk.Abstractions;
 using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
     public class Resource
     {
-        private readonly ChangeTrackingDictionary _data;
-        private readonly IResourceFactory _resourceFactory;
+        private readonly IDeltaDictionary<string, object> _data;
+        private readonly DefaultResourceFactory _resourceFactory;
 
-        public Resource(ChangeTrackingDictionary data, IResourceFactory resourceFactory)
+        public Resource(IDeltaDictionary<string, object> data)
         {
-            _data = data;
-            _resourceFactory = resourceFactory;
+            _resourceFactory = new DefaultResourceFactory();
+            _data = data ?? _resourceFactory.NewDictionary();
         }
 
         public IDictionary<string, object> ModifiedData
@@ -37,9 +37,9 @@ namespace Okta.Sdk
         }
 
         public T GetProperty<T>(string key)
-            where T : Resource, new()
+            where T : Resource
         {
-            var nestedData = GetProperty(key) as ChangeTrackingDictionary;
+            var nestedData = GetProperty(key) as IDeltaDictionary<string, object>;
             return _resourceFactory.Create<T>(nestedData);
         }
     }

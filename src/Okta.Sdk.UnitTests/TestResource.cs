@@ -1,7 +1,13 @@
-﻿namespace Okta.Sdk.UnitTests
+﻿using Okta.Sdk.Abstractions;
+
+namespace Okta.Sdk.UnitTests
 {
     public class TestResource : Resource
     {
+        public TestResource() : base(null) { }
+
+        public TestResource(IDeltaDictionary<string, object> data) : base(data) { }
+
         public string Foo
         {
             get => GetStringProperty("foo");

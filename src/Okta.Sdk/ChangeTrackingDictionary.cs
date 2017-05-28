@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Okta.Sdk.Abstractions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Okta.Sdk
 {
-    public sealed class ChangeTrackingDictionary : IEnumerable<KeyValuePair<string, object>>
+    public sealed class ChangeTrackingDictionary : IDeltaDictionary<string, object>
     {
         private readonly ChangeTrackingDictionary _parent;
         private readonly string _parentKey;
@@ -43,7 +44,7 @@ namespace Okta.Sdk
                 ? new Dictionary<string, object>(_keyComparer)
                 : DeepCopy(initialData);
 
-            ResetChanges();
+            Reset();
         }
 
         private Dictionary<string, object> DeepCopy(IEnumerable<KeyValuePair<string, object>> original)
@@ -52,12 +53,6 @@ namespace Okta.Sdk
 
             return original.Select(kvp =>
             {
-                if (kvp.Value is ChangeTrackingDictionary nested)
-                {
-                    var nestedCopy = new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer);
-                    return new KeyValuePair<string, object>(kvp.Key, nestedCopy);
-                }
-
                 if (kvp.Value is IDictionary<string, object> || kvp.Value is IReadOnlyDictionary<string, object>)
                 {
                     var nestedCopy = new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer);
@@ -79,7 +74,7 @@ namespace Okta.Sdk
             _dirtyKeys?.Remove(key);
         }
 
-        public void ResetChanges()
+        public void Reset()
         {
             _data = DeepCopy(_initialData);
             _dirtyKeys = new List<string>(_data.Count);
@@ -88,7 +83,7 @@ namespace Okta.Sdk
 
         public IDictionary<string, object> ModifiedData
             => _data.Where(kvp => _dirtyKeys.Contains(kvp.Key))
-                .Select(kvp => (kvp.Value is ChangeTrackingDictionary nested) 
+                .Select(kvp => (kvp.Value is IDeltaDictionary<string, object> nested) 
                     ? new KeyValuePair<string, object>(kvp.Key, nested.ModifiedData)
                     : kvp)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
@@ -122,11 +117,31 @@ namespace Okta.Sdk
             return _data.Remove(key);
         }
 
+        public bool Remove(KeyValuePair<string, object> item)
+        {
+            MarkDirty(item.Key);
+            return _data.Remove(item);
+        }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<string> Keys => _data.Keys;
 
         public ICollection<object> Values => _data.Values;
 
         public int Count => _data.Count;
+
+        public bool IsReadOnly => _data.IsReadOnly;
+
+        public void CopyTo(KeyValuePair<string, object>[] array, int arrayIndex)
+        {
+            _data.CopyTo(array, arrayIndex);
+        }
+
+        public bool Contains(KeyValuePair<string, object> item) => _data.Contains(item);
 
         public bool ContainsKey(string key) => _data.ContainsKey(key);
 
