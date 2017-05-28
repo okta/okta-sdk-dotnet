@@ -5,12 +5,13 @@ using System.Reflection;
 
 namespace Okta.Sdk
 {
-    public sealed class DefaultResourceFactory : IResourceFactory
+    public sealed class ResourceFactory
     {
         public ChangeTrackingDictionary NewDictionary()
             => new ChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase);
 
         public T Create<T>(IDeltaDictionary<string, object> data)
+            where T : Resource
         {
             var ctor = GetConstructor<T>();
             var model = ctor.Invoke(new object[] { data });

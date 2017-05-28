@@ -11,7 +11,7 @@ namespace Okta.Sdk
     {
         private readonly IRequestExecutor _requestExecutor;
         private readonly ISerializer _serializer;
-        private readonly IResourceFactory _resourceFactory;
+        private readonly ResourceFactory _resourceFactory;
 
         public DefaultDataStore(
             IRequestExecutor requestExecutor,
@@ -19,8 +19,7 @@ namespace Okta.Sdk
         {
             _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
-            //_resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
-            _resourceFactory = new DefaultResourceFactory();
+            _resourceFactory = new ResourceFactory();
         }
 
         public IRequestExecutor RequestExecutor => _requestExecutor;

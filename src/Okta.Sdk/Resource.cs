@@ -6,11 +6,11 @@ namespace Okta.Sdk
     public class Resource
     {
         private readonly IDeltaDictionary<string, object> _data;
-        private readonly DefaultResourceFactory _resourceFactory;
+        private readonly ResourceFactory _resourceFactory;
 
         public Resource(IDeltaDictionary<string, object> data)
         {
-            _resourceFactory = new DefaultResourceFactory();
+            _resourceFactory = new ResourceFactory();
             _data = data ?? _resourceFactory.NewDictionary();
         }
 
