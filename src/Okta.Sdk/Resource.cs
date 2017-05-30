@@ -16,7 +16,7 @@ namespace Okta.Sdk
         }
 
         public IDictionary<string, object> GetModifiedData()
-            => (IDictionary<string, object>)_data.ModifiedData;
+            => (IDictionary<string, object>)_data.Difference;
 
         public void SetProperty(string key, object value)
             => _data[key] = value;

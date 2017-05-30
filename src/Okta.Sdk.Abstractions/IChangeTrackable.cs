@@ -8,6 +8,6 @@
 
         void MarkClean(string key);
 
-        object ModifiedData { get; }
+        object Difference { get; }
     }
 }

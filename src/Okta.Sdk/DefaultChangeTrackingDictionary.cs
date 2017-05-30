@@ -81,11 +81,11 @@ namespace Okta.Sdk
             _parent?.MarkClean(_parentKey);
         }
 
-        public object ModifiedData
+        public object Difference
             => _data
                 .Where(kvp => _dirtyKeys.Contains(kvp.Key, _keyComparer))
                 .Select(kvp => (kvp.Value is IChangeTrackingDictionary<string, object> nested) 
-                    ? new KeyValuePair<string, object>(kvp.Key, nested.ModifiedData)
+                    ? new KeyValuePair<string, object>(kvp.Key, nested.Difference)
                     : kvp)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
 
