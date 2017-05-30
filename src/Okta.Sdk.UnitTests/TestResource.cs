@@ -6,7 +6,7 @@ namespace Okta.Sdk.UnitTests
     {
         public TestResource() : base(null) { }
 
-        public TestResource(IDeltaDictionary<string, object> data) : base(data) { }
+        public TestResource(IChangeTrackingDictionary<string, object> data) : base(data) { }
 
         public string Foo
         {

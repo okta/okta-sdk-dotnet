@@ -7,10 +7,10 @@ namespace Okta.Sdk
 {
     public sealed class ResourceFactory
     {
-        public ChangeTrackingDictionary NewDictionary()
-            => new ChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase);
+        public DefaultChangeTrackingDictionary NewDictionary()
+            => new DefaultChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase);
 
-        public T Create<T>(IDeltaDictionary<string, object> data)
+        public T Create<T>(IChangeTrackingDictionary<string, object> data)
             where T : Resource
         {
             var ctor = GetConstructor<T>();
@@ -23,7 +23,7 @@ namespace Okta.Sdk
             var compatibleCtor = typeof(T).GetTypeInfo()
                 .DeclaredConstructors
                 .Where(c => c.GetParameters().Length == 1
-                         && c.GetParameters()[0].ParameterType == typeof(IDeltaDictionary<string, object>))
+                         && c.GetParameters()[0].ParameterType == typeof(IChangeTrackingDictionary<string, object>))
                 .SingleOrDefault();
 
             if (compatibleCtor == null) throw new MissingMethodException(

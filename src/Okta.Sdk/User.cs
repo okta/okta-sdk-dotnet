@@ -6,7 +6,7 @@ namespace Okta.Sdk
     {
         public User() : base(null) { }
 
-        public User(IDeltaDictionary<string, object> data) : base(data) { }
+        public User(IChangeTrackingDictionary<string, object> data) : base(data) { }
 
         public string Id
         {

@@ -5,7 +5,7 @@ namespace Okta.Sdk.UnitTests
     public class TestNestedResource : TestResource
     {
         public TestNestedResource() : base(null) { }
-        public TestNestedResource(IDeltaDictionary<string, object> data) : base(data) { }
+        public TestNestedResource(IChangeTrackingDictionary<string, object> data) : base(data) { }
 
         public TestNestedResource Nested
         {

@@ -28,7 +28,7 @@ namespace Okta.Sdk.UnitTests
                     ["Bar"] = false
                 }
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
 
             var resource = new TestNestedResource(changeTrackingDictionary);
 
@@ -54,7 +54,7 @@ namespace Okta.Sdk.UnitTests
                     ["Bar"] = false
                 }
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new TestNestedResource(changeTrackingDictionary);
             resource.GetModifiedData().Count.Should().Be(0);
 
@@ -77,5 +77,7 @@ namespace Okta.Sdk.UnitTests
             resource.GetModifiedData().Keys.Should().BeEquivalentTo("nested");
             resource.Nested.GetModifiedData().Keys.Should().BeEquivalentTo("foo");
         }
+
+        // TODO what about taking some nested resource and copying or assigning it to another parent?
     }
 }

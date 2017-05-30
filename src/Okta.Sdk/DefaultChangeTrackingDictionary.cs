@@ -6,9 +6,9 @@ using System.Linq;
 
 namespace Okta.Sdk
 {
-    public sealed class ChangeTrackingDictionary : IDeltaDictionary<string, object>
+    public sealed class DefaultChangeTrackingDictionary : IChangeTrackingDictionary<string, object>
     {
-        private readonly ChangeTrackingDictionary _parent;
+        private readonly IChangeTrackable _parent;
         private readonly string _parentKey;
 
         private readonly IReadOnlyDictionary<string, object> _initialData;
@@ -17,15 +17,15 @@ namespace Okta.Sdk
         private IDictionary<string, object> _data;
         private IList<string> _dirtyKeys;
 
-        public ChangeTrackingDictionary(
+        public DefaultChangeTrackingDictionary(
             IDictionary<string, object> initialData = null,
             IEqualityComparer<string> keyComparer = null)
             : this(null, null, initialData, keyComparer)
         {
         }
 
-        public ChangeTrackingDictionary(
-            ChangeTrackingDictionary parent,
+        public DefaultChangeTrackingDictionary(
+            IChangeTrackable parent,
             string parentKey,
             IDictionary<string, object> initialData = null,
             IEqualityComparer<string> keyComparer = null)
@@ -55,7 +55,7 @@ namespace Okta.Sdk
             {
                 if (kvp.Value is IDictionary<string, object> || kvp.Value is IReadOnlyDictionary<string, object>)
                 {
-                    var nestedCopy = new ChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer);
+                    var nestedCopy = new DefaultChangeTrackingDictionary(this, kvp.Key, DeepCopy(kvp.Value as IEnumerable<KeyValuePair<string, object>>), _keyComparer);
                     return new KeyValuePair<string, object>(kvp.Key, nestedCopy);
                 }
 
@@ -63,13 +63,13 @@ namespace Okta.Sdk
             }).ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);
         }
 
-        private void MarkDirty(string key)
+        public void MarkDirty(string key)
         {
             if (!_dirtyKeys.Contains(key)) _dirtyKeys.Add(key);
             _parent?.MarkDirty(_parentKey);
         }
 
-        private void MarkClean(string key)
+        public void MarkClean(string key)
         {
             _dirtyKeys?.Remove(key);
         }
@@ -81,10 +81,10 @@ namespace Okta.Sdk
             _parent?.MarkClean(_parentKey);
         }
 
-        public IDictionary<string, object> ModifiedData
+        public object ModifiedData
             => _data
                 .Where(kvp => _dirtyKeys.Contains(kvp.Key, _keyComparer))
-                .Select(kvp => (kvp.Value is IDeltaDictionary<string, object> nested) 
+                .Select(kvp => (kvp.Value is IChangeTrackingDictionary<string, object> nested) 
                     ? new KeyValuePair<string, object>(kvp.Key, nested.ModifiedData)
                     : kvp)
                 .ToDictionary(kvp => kvp.Key, kvp => kvp.Value, _keyComparer);

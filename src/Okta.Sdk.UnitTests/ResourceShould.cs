@@ -28,7 +28,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void InstantiateDerivedResourceWithData()
         {
-            var data = new ChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase)
+            var data = new DefaultChangeTrackingDictionary(keyComparer: StringComparer.OrdinalIgnoreCase)
             {
                 ["Foo"] = "bar!",
                 ["bar"] = true
@@ -49,7 +49,7 @@ namespace Okta.Sdk.UnitTests
                 ["empty"] = string.Empty,
                 ["nothing"] = null
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new Resource(changeTrackingDictionary);
 
             resource.GetStringProperty("foo").Should().Be("abc");
@@ -67,7 +67,7 @@ namespace Okta.Sdk.UnitTests
                 ["no"] = false,
                 ["nothing"] = null
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new Resource(changeTrackingDictionary);
 
             resource.GetBooleanProperty("yes").Should().BeTrue();
@@ -85,7 +85,7 @@ namespace Okta.Sdk.UnitTests
                 ["max"] = int.MaxValue,
                 ["nothing"] = null
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new Resource(changeTrackingDictionary);
 
             resource.GetIntProperty("min").Should().Be(int.MinValue);
@@ -103,7 +103,7 @@ namespace Okta.Sdk.UnitTests
                 ["max"] = long.MaxValue,
                 ["nothing"] = null
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new Resource(changeTrackingDictionary);
 
             resource.GetLongProperty("min").Should().Be(long.MinValue);
@@ -121,7 +121,7 @@ namespace Okta.Sdk.UnitTests
                 ["iso"] = "2016-11-06T17:05:30.400-08:00",
                 ["nothing"] = null
             };
-            var changeTrackingDictionary = new ChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
+            var changeTrackingDictionary = new DefaultChangeTrackingDictionary(data, StringComparer.OrdinalIgnoreCase);
             var resource = new Resource(changeTrackingDictionary);
 
             resource.GetDateTimeProperty("dto").Should().Be(new DateTimeOffset(2015, 12, 27, 20, 15, 00, TimeSpan.FromHours(-6)));

@@ -6,17 +6,17 @@ namespace Okta.Sdk
 {
     public class Resource
     {
-        private readonly IDeltaDictionary<string, object> _data;
+        private readonly IChangeTrackingDictionary<string, object> _data;
         private readonly ResourceFactory _resourceFactory;
 
-        public Resource(IDeltaDictionary<string, object> data)
+        public Resource(IChangeTrackingDictionary<string, object> data)
         {
             _resourceFactory = new ResourceFactory();
             _data = data ?? _resourceFactory.NewDictionary();
         }
 
         public IDictionary<string, object> GetModifiedData()
-            => _data.ModifiedData;
+            => (IDictionary<string, object>)_data.ModifiedData;
 
         public void SetProperty(string key, object value)
             => _data[key] = value;
@@ -62,10 +62,15 @@ namespace Okta.Sdk
             return DateTimeOffset.Parse(raw);
         }
 
+        public IList<T> GetListProperty<T>(string key)
+        {
+            throw new NotImplementedException();
+        }
+
         public T GetProperty<T>(string key)
             where T : Resource
         {
-            var nestedData = GetProperty(key) as IDeltaDictionary<string, object>;
+            var nestedData = GetProperty(key) as IChangeTrackingDictionary<string, object>;
             return _resourceFactory.Create<T>(nestedData);
         }
     }
