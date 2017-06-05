@@ -65,6 +65,12 @@
 
             httpClient.DefaultRequestHeaders.Add("Accept", "application/json");
             httpClient.DefaultRequestHeaders.Add("User-Agent", oktaSettings.UserAgent);
+
+            //Preventing DNS caching - Standard .NET Framework client will still need to set
+            //ServicePointManager.DnsRefreshTimeout = 0 before initializing an Okta .NET client
+            //(no current solution for portable .NET clients)
+            httpClient.DefaultRequestHeaders.ConnectionClose = true;
+
         }
 
         public override HttpResponseMessage Execute(HttpRequestType requestType, Uri uri = null, string relativeUri = null, string content = null, int waitMillis = 0, int retryCount = 0, bool bAddAuthorizationHeader = true)
