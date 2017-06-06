@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 using Okta.Sdk.Abstractions;
 
 namespace Okta.Sdk
@@ -16,20 +17,52 @@ namespace Okta.Sdk
     {
         private readonly IRequestExecutor _requestExecutor;
         private readonly ISerializer _serializer;
+        private readonly ILogger _logger;
         private readonly ResourceFactory _resourceFactory;
 
         public DefaultDataStore(
             IRequestExecutor requestExecutor,
-            ISerializer serializer)
+            ISerializer serializer,
+            ILogger logger)
         {
             _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
-            _resourceFactory = new ResourceFactory();
+            _resourceFactory = new ResourceFactory(this, logger);
+            _logger = logger;
         }
 
         public IRequestExecutor RequestExecutor => _requestExecutor;
 
         public ISerializer Serializer => _serializer;
+
+        private static HttpResponse<T> CreateResourceResponse<T>(HttpResponse<string> response, T resource)
+            => new HttpResponse<T>
+            {
+                StatusCode = response.StatusCode,
+                Headers = response.Headers,
+                Payload = resource,
+            };
+
+        private static string PayloadOrEmpty(HttpResponse<string> response)
+            => response?.Payload ?? string.Empty;
+
+        private static void EnsureValidRequest(HttpRequest request)
+        {
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            if (request.PathParams == null)
+            {
+                request.PathParams = Enumerable.Empty<KeyValuePair<string, object>>();
+            }
+
+            if (request.QueryParams == null)
+            {
+                request.QueryParams = Enumerable.Empty<KeyValuePair<string, object>>();
+            }
+        }
 
         private void EnsureResponseSuccess(HttpResponse<string> response)
         {
@@ -59,23 +92,13 @@ namespace Okta.Sdk
             }
         }
 
-        private static HttpResponse<T> CreateResourceResponse<T>(HttpResponse<string> response, T resource)
-            => new HttpResponse<T>
-            {
-                StatusCode = response.StatusCode,
-                Headers = response.Headers,
-                Payload = resource,
-            };
-
-        private static string PayloadOrEmpty(HttpResponse<string> response)
-            => response?.Payload ?? string.Empty;
-
-        public async Task<HttpResponse<T>> GetAsync<T>(string href, CancellationToken cancellationToken)
+        public async Task<HttpResponse<T>> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken)
             where T : Resource, new()
         {
-            // todo optional query string parameters
+            EnsureValidRequest(request);
+            var path = UrlFormatter.ApplyParametersToPath(request);
 
-            var response = await _requestExecutor.GetAsync(href, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.GetAsync(path, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
@@ -84,12 +107,13 @@ namespace Okta.Sdk
             return CreateResourceResponse(response, resource);
         }
 
-        public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(string href, CancellationToken cancellationToken)
+        public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, CancellationToken cancellationToken)
             where T : Resource, new()
         {
-            // TODO apply query string parameters
+            EnsureValidRequest(request);
+            var path = UrlFormatter.ApplyParametersToPath(request);
 
-            var response = await _requestExecutor.GetAsync(href, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.GetAsync(path, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var resources = _serializer
@@ -99,13 +123,15 @@ namespace Okta.Sdk
             return CreateResourceResponse(response, resources);
         }
 
-        public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
+        public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
-            var body = _serializer.Serialize(postData);
-            // TODO apply query string parameters
+            EnsureValidRequest(request);
+            var path = UrlFormatter.ApplyParametersToPath(request);
 
-            var response = await _requestExecutor.PostAsync(href, body, cancellationToken).ConfigureAwait(false);
+            var body = _serializer.Serialize(request.Payload);
+
+            var response = await _requestExecutor.PostAsync(path, body, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
@@ -114,12 +140,15 @@ namespace Okta.Sdk
             return CreateResourceResponse(response, resource);
         }
 
-        public async Task<HttpResponse<TResponse>> PutAsync<TResponse>(string href, object postData, CancellationToken cancellationToken) where TResponse : Resource, new()
+        public async Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
+            where TResponse : Resource, new()
         {
-            var body = _serializer.Serialize(postData);
-            // TODO apply query string parameters
+            EnsureValidRequest(request);
+            var path = UrlFormatter.ApplyParametersToPath(request);
 
-            var response = await _requestExecutor.PutAsync(href, body, cancellationToken).ConfigureAwait(false);
+            var body = _serializer.Serialize(request.Payload);
+
+            var response = await _requestExecutor.PutAsync(path, body, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
@@ -128,9 +157,12 @@ namespace Okta.Sdk
             return CreateResourceResponse(response, resource);
         }
 
-        public async Task<HttpResponse> DeleteAsync(string href, CancellationToken cancellationToken)
+        public async Task<HttpResponse> DeleteAsync(HttpRequest request, CancellationToken cancellationToken)
         {
-            var response = await _requestExecutor.DeleteAsync(href, cancellationToken).ConfigureAwait(false);
+            EnsureValidRequest(request);
+            var path = UrlFormatter.ApplyParametersToPath(request);
+
+            var response = await _requestExecutor.DeleteAsync(path, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             return response;

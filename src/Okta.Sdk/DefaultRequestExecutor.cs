@@ -81,16 +81,25 @@ namespace Okta.Sdk
             return client;
         }
 
-        private void EnsureRequestUrlMatchesOrg(string url)
+        private string EnsureRelativeUrl(string uri)
         {
-            if (string.IsNullOrEmpty(url) || !url.StartsWith(_orgUrl, StringComparison.OrdinalIgnoreCase))
+            if (string.IsNullOrEmpty(uri))
             {
-                throw new InvalidOperationException("Resource URL must begin with Organization URL.");
+                throw new ArgumentException("The request URI was empty.");
             }
-        }
 
-        private string MakeUrlRelative(string url)
-            => url.Replace(_orgUrl, string.Empty);
+            if (uri.StartsWith(_orgUrl))
+            {
+                return uri.Replace(_orgUrl, string.Empty);
+            }
+
+            if (uri.Contains("://"))
+            {
+                throw new InvalidOperationException($"The client is configured to connect to {_orgUrl}, but this request URI does not match: ${uri}");
+            }
+
+            return uri.TrimStart('/');
+        }
 
         private async Task<HttpResponse<string>> SendAsync(
             HttpRequestMessage request,
@@ -122,8 +131,7 @@ namespace Okta.Sdk
 
         public Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
         {
-            EnsureRequestUrlMatchesOrg(href);
-            var path = MakeUrlRelative(href);
+            var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Get, new Uri(path, UriKind.Relative));
             return SendAsync(request, cancellationToken);
@@ -137,8 +145,7 @@ namespace Okta.Sdk
 
         public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
         {
-            EnsureRequestUrlMatchesOrg(href);
-            var path = MakeUrlRelative(href);
+            var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
             request.Content = new StringContent(body, System.Text.Encoding.UTF8);
@@ -147,8 +154,7 @@ namespace Okta.Sdk
 
         public Task<HttpResponse<string>> PutAsync(string href, string body, CancellationToken cancellationToken)
         {
-            EnsureRequestUrlMatchesOrg(href);
-            var path = MakeUrlRelative(href);
+            var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
             request.Content = new StringContent(body, System.Text.Encoding.UTF8);
@@ -157,8 +163,7 @@ namespace Okta.Sdk
 
         public Task<HttpResponse<string>> DeleteAsync(string href, CancellationToken cancellationToken)
         {
-            EnsureRequestUrlMatchesOrg(href);
-            var path = MakeUrlRelative(href);
+            var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Delete, new Uri(path, UriKind.Relative));
             return SendAsync(request, cancellationToken);

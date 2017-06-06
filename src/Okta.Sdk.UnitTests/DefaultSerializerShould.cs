@@ -4,6 +4,7 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Xunit;
 
@@ -64,6 +65,25 @@ namespace Okta.Sdk.UnitTests
             var dict = serializer.Deserialize(string.Empty);
 
             dict.Count.Should().Be(0);
+        }
+
+        [Fact]
+        public void DeserializeArraysAsLists()
+        {
+            var json = @"
+{
+  ""things"": [
+    ""foo"", ""bar"", ""baz""
+  ]
+}";
+
+            var serializer = new DefaultSerializer();
+            var dict = serializer.Deserialize(json);
+
+            dict["things"].Should().NotBeNull();
+
+            var things = dict["things"] as IList<object>;
+            things.OfType<string>().Should().BeEquivalentTo("foo", "bar", "baz");
         }
 
         [Fact]

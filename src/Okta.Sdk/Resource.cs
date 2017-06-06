@@ -5,13 +5,20 @@
 
 using System;
 using System.Collections.Generic;
+using System.Reflection;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Okta.Sdk
 {
     public class Resource
     {
-        private readonly ResourceFactory _resourceFactory;
+        private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
+
         private readonly ResourceDictionaryType _dictionaryType;
+        private IDataStore _dataStore;
+        private ResourceFactory _resourceFactory;
+        private ILogger _logger;
         private IDictionary<string, object> _data;
 
         public Resource()
@@ -21,16 +28,27 @@ namespace Okta.Sdk
 
         public Resource(ResourceDictionaryType dictionaryType)
         {
-            _resourceFactory = new ResourceFactory();
             _dictionaryType = dictionaryType;
-            Initialize(null);
+            Initialize(null, null, null, null);
         }
 
         internal ResourceDictionaryType DictionaryType => _dictionaryType;
 
-        internal void Initialize(IDictionary<string, object> data)
+        internal void Initialize(
+            IDataStore dataStore,
+            ResourceFactory resourceFactory,
+            IDictionary<string, object> data,
+            ILogger logger)
         {
+            _dataStore = dataStore;
+            _resourceFactory = resourceFactory ?? new ResourceFactory(dataStore, logger);
             _data = data ?? _resourceFactory.NewDictionary(_dictionaryType, null);
+            _logger = logger ?? NullLogger.Instance;
+        }
+
+        protected IDataStore GetDataStore()
+        {
+            return _dataStore ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object can call server-side methods.");
         }
 
         public IDictionary<string, object> GetModifiedData()
@@ -46,7 +64,7 @@ namespace Okta.Sdk
 
         public object this[string key]
         {
-            get => GetPropertyOrNull(key);
+            get => GetProperty<object>(key);
             set => SetProperty(key, value);
         }
 
@@ -58,7 +76,6 @@ namespace Okta.Sdk
         /// <param name="key">The property name.</param>
         /// <returns>The strongly-typed property value, or <c>null</c>.</returns>
         public T GetProperty<T>(string key)
-            where T : class, new() // forces value types to be Nullable<T>
         {
             if (typeof(T) == typeof(object))
             {
@@ -67,27 +84,27 @@ namespace Okta.Sdk
 
             if (typeof(T) == typeof(string))
             {
-                return GetStringProperty(key) as T;
+                return (T)(object)GetStringProperty(key);
             }
 
             if (typeof(T) == typeof(bool?))
             {
-                return GetBooleanProperty(key) as T;
+                return (T)(object)GetBooleanProperty(key);
             }
 
             if (typeof(T) == typeof(int?))
             {
-                return GetIntProperty(key) as T;
+                return (T)(object)GetIntegerProperty(key);
             }
 
             if (typeof(T) == typeof(long?))
             {
-                return GetLongProperty(key) as T;
+                return (T)(object)GetLongProperty(key);
             }
 
             if (typeof(T) == typeof(DateTimeOffset?))
             {
-                return GetDateTimeProperty(key) as T;
+                return (T)(object)GetDateTimeProperty(key);
             }
 
             if (typeof(T) == typeof(DateTime?))
@@ -95,16 +112,18 @@ namespace Okta.Sdk
                 throw new InvalidOperationException("Use DateTimeOffset instead.");
             }
 
+            if (ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
+            {
+                return (T)(object)GetResourcePropertyInternal<T>(key);
+            }
+
             var propertyData = GetPropertyOrNull(key);
             if (propertyData == null)
             {
-                return null;
+                return default(T);
             }
 
-            if (propertyData is IDictionary<string, object> nestedResourceData)
-            {
-                return _resourceFactory.CreateFromExistingData<T>(nestedResourceData);
-            }
+            throw new NotImplementedException(); // todo
         }
 
         private object GetPropertyOrNull(string key)
@@ -113,7 +132,7 @@ namespace Okta.Sdk
             return value;
         }
 
-        private void SetProperty(string key, object value)
+        public void SetProperty(string key, object value)
         {
             switch (value)
             {
@@ -141,7 +160,7 @@ namespace Okta.Sdk
             return bool.Parse(raw);
         }
 
-        protected int? GetIntProperty(string key)
+        protected int? GetIntegerProperty(string key)
         {
             var raw = GetStringProperty(key);
             if (raw == null)
@@ -174,8 +193,22 @@ namespace Okta.Sdk
             return DateTimeOffset.Parse(raw);
         }
 
+        public IList<T> GetArrayProperty<T>(string key)
+        {
+            var genericList = GetPropertyOrNull(key) as IList<object>;
+            if (genericList == null)
+            {
+                return null;
+            }
+
+            return new CastingListAdapter<T>(genericList, _logger);
+        }
+
         protected T GetResourceProperty<T>(string key)
             where T : Resource, new()
+            => GetResourcePropertyInternal<T>(key);
+
+        private T GetResourcePropertyInternal<T>(string key)
         {
             var nestedData = GetPropertyOrNull(key) as IDictionary<string, object>;
             return _resourceFactory.CreateFromExistingData<T>(nestedData);

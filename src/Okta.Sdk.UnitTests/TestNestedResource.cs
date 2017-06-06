@@ -10,7 +10,7 @@ namespace Okta.Sdk.UnitTests
         public TestNestedResource Nested
         {
             get => GetProperty<TestNestedResource>("nested");
-            set => SetResourceProperty("nested", value);
+            set => SetProperty("nested", value);
         }
     }
 }

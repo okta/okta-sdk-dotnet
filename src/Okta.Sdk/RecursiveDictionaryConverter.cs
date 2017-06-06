@@ -22,7 +22,7 @@ namespace Okta.Sdk
         public override bool CanConvert(Type objectType)
             // We want to handle explicit objects and
             // also nested objects (which might be dictionaries)
-            => objectType == typeof(object) || base.CanConvert(objectType);
+            => objectType == typeof(object); // || base.CanConvert(objectType);
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
@@ -31,6 +31,20 @@ namespace Okta.Sdk
             if (isObject)
             {
                 return base.ReadJson(reader, objectType, existingValue, serializer);
+            }
+
+            // Deserialize arrays as List<object>
+            var isArray = reader.TokenType == JsonToken.StartArray;
+            if (isArray)
+            {
+                var list = new List<object>();
+
+                while (reader.Read() && reader.TokenType != JsonToken.EndArray)
+                {
+                    list.Add(serializer.Deserialize(reader));
+                }
+
+                return list;
             }
 
             // If not, fall back to standard deserialization (for numbers, etc)

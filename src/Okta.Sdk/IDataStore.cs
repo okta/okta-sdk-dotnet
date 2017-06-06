@@ -16,18 +16,18 @@ namespace Okta.Sdk
 
         ISerializer Serializer { get; }
 
-        Task<HttpResponse<T>> GetAsync<T>(string href, CancellationToken cancellationToken)
+        Task<HttpResponse<T>> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken)
             where T : Resource, new();
 
-        Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(string href, CancellationToken cancellationToken)
+        Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, CancellationToken cancellationToken)
             where T : Resource, new();
 
-        Task<HttpResponse<TResponse>> PostAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
+        Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
             where TResponse : Resource, new();
 
-        Task<HttpResponse<TResponse>> PutAsync<TResponse>(string href, object postData, CancellationToken cancellationToken)
+        Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
             where TResponse : Resource, new();
 
-        Task<HttpResponse> DeleteAsync(string href, CancellationToken cancellationToken);
+        Task<HttpResponse> DeleteAsync(HttpRequest request, CancellationToken cancellationToken);
     }
 }

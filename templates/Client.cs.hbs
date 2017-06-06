@@ -1,0 +1,112 @@
+// <copyright file="Client.Generated.cs" company="Okta, Inc">
+// Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+// Do not modify this file directly. This file was automatically generated with:
+// spec.json - {{spec.info.version}}
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Abstractions;
+
+namespace Okta.Sdk
+{
+    public sealed partial class {{tag}}Client : OktaClient, I{{tag}}Client
+    {
+        public {{tag}}Client(IDataStore dataStore)
+            : base(dataStore)
+        {
+        }
+        {{nbsp 0}}
+        {{~#each operations as |operation|}}
+        {{~#unless hidden}}
+        {{~nbsp 0}}
+        /// <inheritdoc />
+        {{nbsp 0}}
+
+            {{~nbsp 0}}public{{nbsp}}
+
+            {{~#if isArray}}IAsyncEnumerable<{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~/if}}{{nbsp}}
+
+            {{~pascalCase operationId}}
+
+            {{~#unless isArray}}Async{{/unless}}
+            
+            {{~nbsp 0}}(
+                {{~#if bodyModel}}
+                    {{~bodyModel}} {{camelCase bodyModel}},{{nbsp}}
+                {{~/if}}
+
+                {{~#each allParams}}
+                    {{~paramToCLRType this}}{{nbsp}}
+                    {{~name}}
+                    {{~#unless required}} =
+                        {{~#if (exists this "default")}} {{default}}
+                        {{~else}} null
+                        {{~/if}}
+                    {{~/unless}}
+                    {{~#unless @last}},{{nbsp}}{{/unless}}
+                {{~/each}}
+                {{~#unless isArray}}
+                    {{~#if allParams.length}},{{nbsp}}{{/if}}
+                    {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
+                {{~/unless}}
+                {{~nbsp 0}})
+    {{nbsp 0}}
+            {{~#if isArray}}
+        => new CollectionClient<{{operation.responseModel}}>(DataStore, new HttpRequest
+        {
+            Uri = "{{path}}",
+            {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}
+            {{#if pathParams}}
+            PathParams = new Dictionary<string, object>()
+            {
+                {{#each pathParams}}
+                ["{{name}}"] = {{name}},
+                {{/each}}
+            },
+            {{/if}}
+            {{#if queryParams}}
+            QueryParams = new Dictionary<string, object>()
+            {
+                {{#each queryParams}}
+                ["{{name}}"] = {{name}},
+                {{/each}}
+            },
+            {{/if}}
+        });
+            {{~else}}
+        => {{pascalCase method}}Async{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}(new HttpRequest
+        {
+            Uri = "{{path}}",
+            {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}
+            {{#if pathParams}}
+            PathParams = new Dictionary<string, object>()
+            {
+                {{#each pathParams}}
+                ["{{name}}"] = {{name}},
+                {{/each}}
+            },
+            {{/if}}
+            {{#if queryParams}}
+            QueryParams = new Dictionary<string, object>()
+            {
+                {{#each queryParams}}
+                ["{{name}}"] = {{name}},
+                {{/each}}
+            },
+            {{/if}}
+        }, cancellationToken);
+            {{~/if}}
+        {{~nbsp 0}}
+{{nbsp 0}}
+        {{~/unless}}
+        {{~/each}}
+    }
+}

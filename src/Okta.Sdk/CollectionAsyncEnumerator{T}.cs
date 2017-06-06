@@ -16,7 +16,6 @@ namespace Okta.Sdk
         where T : Resource, new()
     {
         private readonly IDataStore _dataStore;
-        private readonly KeyValuePair<string, object>[] _initialQueryParameters;
 
         private bool _initialized = false;
         private T[] _currentPage;
@@ -27,14 +26,10 @@ namespace Okta.Sdk
 
         public CollectionAsyncEnumerator(
             IDataStore dataStore,
-            string uri,
-            IEnumerable<KeyValuePair<string, object>> queryParameters)
+            HttpRequest initialRequest)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
-            _nextUri = uri ?? throw new ArgumentNullException(nameof(uri));
-
-            // TODO - currently this enumerator won't pass query string values to the nextUri automatically
-            _initialQueryParameters = queryParameters?.ToArray() ?? new KeyValuePair<string, object>[0];
+            _nextUri = UrlFormatter.ApplyParametersToPath(initialRequest ?? throw new ArgumentNullException(nameof(initialRequest)));
         }
 
         public T Current => _currentPage[_currentPageIndex++];
@@ -54,7 +49,11 @@ namespace Okta.Sdk
                 return false;
             }
 
-            var nextPage = await _dataStore.GetArrayAsync<T>(_nextUri, cancellationToken).ConfigureAwait(false);
+            var request = new HttpRequest { Uri = _nextUri }; // TODO handle query
+
+            var nextPage = await _dataStore.GetArrayAsync<T>(
+                request,
+                cancellationToken).ConfigureAwait(false);
 
             _initialized = true;
 

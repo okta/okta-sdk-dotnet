@@ -5,7 +5,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using Okta.Sdk.Abstractions;
 
 namespace Okta.Sdk
 {
@@ -13,20 +13,17 @@ namespace Okta.Sdk
         where T : Resource, new()
     {
         private readonly IDataStore _dataStore;
-        private readonly string _uri;
-        private readonly KeyValuePair<string, object>[] _initialQueryParameters;
+        private readonly HttpRequest _initialRequest;
 
         public CollectionClient(
             IDataStore dataStore,
-            string uri,
-            IEnumerable<KeyValuePair<string, object>> queryParameters)
+            HttpRequest initialRequest)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
-            _uri = uri ?? throw new ArgumentNullException(nameof(uri));
-            _initialQueryParameters = queryParameters?.ToArray() ?? new KeyValuePair<string, object>[0];
+            _initialRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
         }
 
         public IAsyncEnumerator<T> GetEnumerator()
-            => new CollectionAsyncEnumerator<T>(_dataStore, _uri, _initialQueryParameters);
+            => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest);
     }
 }

@@ -288,3 +288,7 @@ __pycache__/
 *.xsd.cs
 
 .npmrc
+
+
+# todo remove!
+Generated/

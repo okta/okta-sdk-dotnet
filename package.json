@@ -1,11 +1,11 @@
 {
   "name": "okta-sdk-dotnet",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "This branch contains **work-in-progress** for version 1.0 of the Okta .NET SDK. This version is a major breaking change from all previous versions.",
   "main": "index.js",
   "private": true,
   "scripts": {
-    "build": "okta-sdk-generator -o sample -t templates"
+    "build": "okta-sdk-generator -o src/Okta.Sdk/ -t templates"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/okta/oktasdk-csharp#readme",
   "devDependencies": {
-    "@okta/openapi": "0.1.0-beta.3",
-    "lodash": "4.17.4"
+    "@okta/openapi": "0.1.0-beta.3"
   }
 }

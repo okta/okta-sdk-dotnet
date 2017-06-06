@@ -14,7 +14,14 @@ namespace Okta.Sdk
 {
     public partial class OktaClient : IOktaClient
     {
-        private readonly ILogger _logger;
+        // todo remove
+        //private readonly ApiClientConfiguration _configuration;
+        //private readonly ILogger _logger;
+
+        protected OktaClient(IDataStore dataStore)
+        {
+            DataStore = dataStore;
+        }
 
         public OktaClient(ApiClientConfiguration apiClientConfiguration = null, ILogger logger = null)
         {
@@ -40,40 +47,87 @@ namespace Okta.Sdk
 
             //var config = configBuilder.Build();
 
-            // TODO: for now, just doing dumb configuration
+            // TODO: validate configuration
 
-            _logger = logger ?? NullLogger.Instance;
+            //_configuration = apiClientConfiguration;
+
+            //_logger = logger ?? NullLogger.Instance;
 
             // TODO pass proxy, connectionTimeout, etc
-            DataStore = new DefaultDataStore(
-                new DefaultRequestExecutor(apiClientConfiguration.OrgUrl, apiClientConfiguration.Token, _logger),
-                new DefaultSerializer());
-        }
+            var requestExecutor = new DefaultRequestExecutor(apiClientConfiguration.OrgUrl, apiClientConfiguration.Token, logger);
 
-        public OktaClient(IDataStore dataStore)
-        {
-            DataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
+            DataStore = new DefaultDataStore(requestExecutor, new DefaultSerializer(), logger);
         }
 
         public IDataStore DataStore { get; }
 
-        public UsersClient GetUsersClient => new UsersClient(this);
+        /// <inheritdoc/>
+        public UserClient Users => new UserClient(DataStore);
 
-        public async Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
+        /// <inheritdoc/>
+        public GroupClient Groups => new GroupClient(DataStore);
+
+        /// <inheritdoc/>
+        public Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
+            where T : Resource, new()
+            => GetAsync<T>(new HttpRequest { Uri = href }, cancellationToken);
+
+        /// <inheritdoc/>
+        public async Task<T> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where T : Resource, new()
         {
-            var response = await DataStore.GetAsync<T>(href, cancellationToken).ConfigureAwait(false);
-            return response.Payload;
+            var response = await DataStore.GetAsync<T>(request, cancellationToken).ConfigureAwait(false);
+            return response?.Payload;
         }
 
-        public async Task<TResponse> PostAsync<TResponse>(
-            string href,
-            object model,
-            CancellationToken cancellationToken = default(CancellationToken))
+        /// <inheritdoc/>
+        public Task PostAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+            => PostAsync(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task<TResponse> PostAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+            where TResponse : Resource, new()
+            => PostAsync<TResponse>(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task PostAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+            => PostAsync<Resource>(request, cancellationToken);
+
+        /// <inheritdoc/>
+        public async Task<TResponse> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
         {
-            var response = await DataStore.PostAsync<TResponse>(href, model, cancellationToken).ConfigureAwait(false);
-            return response.Payload;
+            var response = await DataStore.PostAsync<TResponse>(request, cancellationToken).ConfigureAwait(false);
+            return response?.Payload;
         }
+
+        /// <inheritdoc/>
+        public Task PutAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+            => PutAsync(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task<TResponse> PutAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+            where TResponse : Resource, new()
+            => PutAsync<TResponse>(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task PutAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+            => PutAsync<Resource>(request, cancellationToken);
+
+        /// <inheritdoc/>
+        public async Task<TResponse> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+            where TResponse : Resource, new()
+        {
+            var response = await DataStore.PostAsync<TResponse>(request, cancellationToken).ConfigureAwait(false);
+            return response?.Payload;
+        }
+
+        /// <inheritdoc/>
+        public Task DeleteAsync(string href, CancellationToken cancellationToken = default(CancellationToken))
+            => DeleteAsync(new HttpRequest { Uri = href }, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task DeleteAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+            => DataStore.DeleteAsync(request, cancellationToken);
     }
 }

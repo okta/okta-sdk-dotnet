@@ -1,159 +1,210 @@
-const _ = require('lodash');
-const js = module.exports;
-const generatorLangVersion = "0.0.1";
+const csharp = module.exports;
 
-js.process = (spec, handlebars) => {
+/**
+ * This file is used by the @okta/openapi generator.  It defines language-specific
+ * post-processing of the JSON spec, as well as handebars helpers.  This file is meant
+ * to give you control over the data that handlebars uses when processing your templates
+ */
 
-  // Helper functions
-  let toValidName = (original) => toPascalCase(replaceIllegalChars(original));
+const partialUpdateList = new Set([
+  'User',
+  'UserProfile'
+]);
 
-  function toPascalCase(original) {
-      if (!original) return original;
-      return original[0].toUpperCase() + original.slice(1);
+const propertySkipList = [
+  { path: 'FactorDevice.links', reason: 'Not currently supported' },
+  { path: 'Link.hints', reason: 'Not currently supported' },
+  { path: 'User._links', reason: 'Not currently supported' },
+  { path: 'UserGroup._embedded', reason: 'Not currently supported' },
+  { path: 'UserGroup._links', reason: 'Not currently supported' },
+  { path: 'UserGroupStats._links', reason: 'Not currently supported' },
+];
+
+const propertyRenameList = [
+  { path: 'ActivationToken.activationToken', new: 'token', reason: '.NET type name and member name cannot be identical' }
+];
+
+const operationSkipList = [];
+
+const modelMethodSkipList = [
+  { path: 'User.changePassword', reason: 'Implemented as a custom method' },
+  { path: 'User.changeRecoveryQuestion', reason: 'Implemented as a custom method'},
+  { path: 'User.forgotPasswordWithRecoveryAnswer', reason: 'Implemented as a custom method'},
+  { path: 'User.assignRoleToUser', reason: 'Implemented as a custom method'},
+];
+
+const getType = (specType) => {
+  switch(specType) {
+    case 'boolean': return 'bool?';
+    case 'integer': return 'int?';
+    case 'dateTime': return 'DateTimeOffset?';
+    default: return specType;
+  }
+};
+
+function paramToCLRType(param) {
+  return getType(param.type);
+}
+
+function propToCLRType(prop) {
+  switch (prop.commonType) {
+    case 'array': return `IList<${getType(prop.model)}>`;
+    case 'object': return prop.model;
+    case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
+    default: return getType(prop.commonType);
+  }
+}
+
+function getterName(prop) {
+  if (prop.commonType === 'array') {
+    return `GetArrayProperty<${getType(prop.model)}>`;
   }
 
-  function replaceIllegalChars(original) {
-      if (!original) return original;
-      
-      return original
-        .replace('$', '')
-        .replace('#', '');
+  const clrType = propToCLRType(prop);
+
+  switch (clrType) {
+    case 'bool?': return 'GetBooleanProperty';
+    case 'int?': return 'GetIntegerProperty';
+    case 'DateTimeOffset?': return 'GetDateTimeProperty';
+    case 'string': return 'GetStringProperty';
+    default: return `GetResourceProperty<${clrType}>`;
   }
+}
 
-  function toClrFriendlyTypeName(prop) {
-    const mapping = {
-      "boolean": "bool",
-      "integer": "int",
+function getMappedArgName(method, argName) {
+  let mapping = method.arguments.find(x => x.dest === argName);
+  if (!mapping) return null;
+  return mapping.src;
+}
 
-      // todo object? (FactoryAuthenticationContext)
-    }
+csharp.process = ({spec, operations, models, handlebars}) => {
 
-    let mapName = (original) => {
-      let rewritten = mapping[original];
-      return rewritten ? rewritten : original;
-    }
-
-    let mapped = mapName(prop.type);
-
-    if (prop.type === 'array') {
-      mapped = mapName(prop.items.type) + '[]';
-    }
-
-    return mapped;
-  }
-
-  // A map of operation Id's do their definition, so that
-  // we can reference them when building out methods for x-okta-links
-  const operationIdMap = {};
-
-  // Collect all the operations
-  spec.easyOperations = [];
-  for (let pathName in spec.paths) {
-    const path = spec.paths[pathName];
-    for (let methodName in path) {
-      const method = path[methodName];
-
-      // List of query params definitions for this method
-      const easyQueryParams = method.parameters.filter(param => param.in === 'query');
-
-      // List of positional path arguments for this method
-      const arguments = method.parameters.filter(param => param.in === 'path');
-
-      // Determine the return type
-      const easySuccessSchema = _.get(method, 'responses["200"].schema');
-      if (easySuccessSchema) {
-        if (easySuccessSchema.items && easySuccessSchema.items['$ref']) {
-          easySuccessSchema.items.type = _.last(easySuccessSchema.items['$ref'].split('/'));
-        } else if (easySuccessSchema['$ref']) {
-          easySuccessSchema.type = _.last(easySuccessSchema['$ref'].split('/'));
-        }
-      }
-
-      const operation = Object.assign({
-        easyQueryParams,
-        arguments,
-        easySuccessSchema,
-        path: pathName,
-        method: methodName
-      }, method);
-      operationIdMap[method.operationId] = operation;
-      spec.easyOperations.push(operation);
-    }
-  }
-
-  // make models easier to loop through
-  spec.easyModels = Object.entries(spec.definitions)
-    .map(([modelName, model]) => {
-      model.className = toValidName(modelName);
-
-      model.easyLinks = model['x-okta-links'];
-      if (model.easyLinks) {
-        model.easyLinks.forEach(link => {
-          link.operation = operationIdMap[link.operationId];
-          link.operationName = toValidName(link.operationId);
-
-          if (link.operation.easySuccessSchema.type) {
-            link.returnType = toClrFriendlyTypeName(link.operation.easySuccessSchema);
-          }
-        });
-      }
-
-      if (model.properties) {
-          model.easyProperties = Object.entries(model.properties)
-            .map(([propName, prop]) => {
-              if (propName[0] === '_') {
-                prop.internal = true;
-              }
-
-              // Make sure properties are PascalCase
-              prop.propName = toValidName(propName);
-              
-              // Handle reference types
-              let ref = prop['$ref']
-              if (ref) {
-                let refModelName = _.last(ref.split('/'));
-                refModelName = toValidName(refModelName);
-                prop.type = refModelName;
-              }
-
-              prop.type = toClrFriendlyTypeName(prop);
-
-              return prop;
-            });
-      }
-
-      model.specVersion = spec.info.version;
-      model.generatorLangVersion = generatorLangVersion;
-
-      return model;
-    });
+  handlebars.registerHelper({
+    paramToCLRType,
+    propToCLRType,
+    getterName,
+    getMappedArgName
+  });
 
   const templates = [];
 
   // add all the models
-  for (let model of spec.easyModels) {
+  for (let model of models) {
+    model.specVersion = spec.info.version;
+
+    if (partialUpdateList.has(model.modelName)) {
+      model.supportsPartialUpdates = true;
+    }
+
+    for (let property of model.properties) {
+      let fullPath = `${model.modelName}.${property.propertyName}`;
+
+      if (property.model && property.model === 'object') {
+        console.log('Skipping object property', fullPath);
+        property.hidden = true;
+        continue;
+      }
+
+      if (typeof property.commonType === 'undefined') {
+        console.log('Skipping property without commonType', fullPath);
+        property.hidden = true;
+        continue;
+      }
+
+      let skipRule = propertySkipList.find(x => x.path === fullPath);
+      if (skipRule) {
+        console.log('Skipping property', fullPath, `(Reason: ${skipRule.reason})`);
+        property.hidden = true;
+        continue;
+      }
+
+      let renameRule = propertyRenameList.find(x => x.path === fullPath);
+      if (renameRule) {
+        console.log(`Renaming property ${fullPath} to ${renameRule.new}`, `(Reason: ${renameRule.reason})`);
+        property.displayName = renameRule.new;
+      }
+    }
+
+    for (let method of model.methods) {
+      let fullPath = `${model.modelName}.${method.alias}`;
+
+      let skipRule = modelMethodSkipList.find(x => x.path === fullPath);
+      if (skipRule) {
+        console.log('Skipping model method', fullPath, `(Reason: ${skipRule.reason})`);
+        method.hidden = true;
+        continue;
+      }
+
+      method.operation.allParams = (method.operation.pathParams || []).concat(method.operation.queryParams || []);
+    }
+
     templates.push({
-      src: 'ModelInterface.cs.hbs',
-      dest: `src/models/I${model.className}.cs`,
+      src: 'IModel.cs.hbs',
+      dest: `Generated/I${model.modelName}.Generated.cs`,
       context: model
     });
 
-    // TODO also return all of the concrete implementations
+    templates.push({
+      src: 'Model.cs.hbs',
+      dest: `Generated/${model.modelName}.Generated.cs`,
+      context: model
+    });
   }
 
-  // Handlebars helpers
+  const taggedOperations = {};
 
-  handlebars.registerHelper('getOperationArgs', (linkDefinition, operation) => {
-    // TODO! This needs to return a list of arguments like:
-    // string foo, int bar...
-    return {};
-  });
+  // pre-process the operations and split into tags
+  for (let operation of operations) {
+      let skipRule = operationSkipList.find(x => x.id === operation.operationId);
+      if (skipRule) {
+        console.log('Skipping operation', operation.operationId, `(Reason: ${skipRule.reason})`);
+        operation.hidden = true;
+        continue;
+      }
 
-  handlebars.registerHelper('getOperationArgsCount', (linkDefinition, operation) => {
-    // TODO! This needs to return a list of arguments like:
-    // string foo, int bar...
-    return 0;
-  });
+      operation.allParams = (operation.pathParams || []).concat(operation.queryParams || []);
+
+      if (!operation.tags) {
+        operation.tags = [];
+      }
+
+      if (operation.tags.length === 0) {
+        operation.tags.push('Okta');
+        console.log(`Adding default tag to ${operation.operationId}`);
+      }
+
+      if (operation.tags.length > 1) {
+        console.log(`Warning: more than one tag on ${operation.operationId}`);
+      }
+
+      if (!taggedOperations[operation.tags[0]]) {
+        taggedOperations[operation.tags[0]] = []; 
+      }
+
+      taggedOperations[operation.tags[0]].push(operation);
+  }
+
+  for (let tag of Object.keys(taggedOperations)) {
+    templates.push({
+      src: 'IClient.cs.hbs',
+      dest: `Generated/I${tag}Client.Generated.cs`,
+      context: {
+        tag,
+        spec,
+        operations: taggedOperations[tag]
+      }
+    });
+
+    templates.push({
+      src: 'Client.cs.hbs',
+      dest: `Generated/${tag}Client.Generated.cs`,
+      context: {
+        tag,
+        spec,
+        operations: taggedOperations[tag]
+      }
+    });
+  }
 
   return templates;
-};
+}

@@ -4,36 +4,31 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    public sealed class User : Resource
+    public sealed partial class User
     {
-        public User()
-            : base(ResourceDictionaryType.ChangeTracking)
-        {
-        }
+        // TODO add these custom methods
 
-        public string Id => GetStringProperty(nameof(Id));
+        ///// <inheritdoc />
+        //public Task<UserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        //    => new UserClient(GetDataStore()).ChangePasswordAsync(this, Id, cancellationToken);
 
-        public string Status => GetStringProperty(nameof(Status));
+        ///// <inheritdoc />
+        //public Task<UserCredentials> ChangeRecoveryQuestionAsync(CancellationToken cancellationToken = default(CancellationToken))
+        //    => new UserClient(GetDataStore()).ChangeRecoveryQuestionAsync(this, Id, cancellationToken);
 
-        public DateTimeOffset? Created => GetDateTimeProperty(nameof(Created));
+        ///// <inheritdoc />
+        //public Task<BaseCredentialsObject> ForgotPasswordWithRecoveryAnswerAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
+        //    => new UserClient(GetDataStore()).ForgotPasswordWithRecoveryAnswerAsync(this, Id, sendEmail, cancellationToken);
 
-        public DateTimeOffset? Activated => GetDateTimeProperty(nameof(Activated));
-
-        public DateTimeOffset? StatusChanged => GetDateTimeProperty(nameof(StatusChanged));
-
-        public DateTimeOffset? LastLogin => GetDateTimeProperty(nameof(LastLogin));
-
-        public DateTimeOffset? LastUpdated => GetDateTimeProperty(nameof(LastUpdated));
-
-        public DateTimeOffset? PasswordChanged => GetDateTimeProperty(nameof(PasswordChanged));
-
-        public UserProfile Profile
-        {
-            get => GetProperty<UserProfile>(nameof(Profile));
-            set => SetResourceProperty(nameof(Profile), value);
-        }
+        ///// <inheritdoc />
+        //public Task<MediationRoleAssignment> AssignRoleToUserAsync(CancellationToken cancellationToken = default(CancellationToken))
+        //    => new UserClient(GetDataStore()).AssignRoleToUserAsync(this, Id, cancellationToken);
     }
 }
