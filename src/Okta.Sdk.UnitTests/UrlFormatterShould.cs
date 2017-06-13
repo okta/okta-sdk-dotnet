@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 using FluentAssertions;
-using Okta.Sdk.Abstractions;
+using Okta.Sdk.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests

@@ -5,7 +5,7 @@
 
 using System;
 
-namespace Okta.Sdk.Abstractions
+namespace Okta.Sdk
 {
     /// <summary>
     /// Represents an enumeration where the members are strings.

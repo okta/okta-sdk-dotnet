@@ -8,9 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Okta.Sdk.Abstractions;
 
-namespace Okta.Sdk
+namespace Okta.Sdk.Internal
 {
     public sealed class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
         where T : Resource, new()

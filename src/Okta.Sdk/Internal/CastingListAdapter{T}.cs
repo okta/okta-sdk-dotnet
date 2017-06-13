@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.Extensions.Logging;
 
-namespace Okta.Sdk
+namespace Okta.Sdk.Internal
 {
     public sealed class CastingListAdapter<T> : IList<T>
     {

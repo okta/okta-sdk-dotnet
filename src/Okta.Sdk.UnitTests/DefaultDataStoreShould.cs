@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using NSubstitute;
-using Okta.Sdk.Abstractions;
+using Okta.Sdk.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests

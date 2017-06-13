@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using Okta.Sdk.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests

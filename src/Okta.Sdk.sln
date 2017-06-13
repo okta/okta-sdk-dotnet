@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.6
+VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk", "Okta.Sdk\Okta.Sdk.csproj", "{1D2F3372-9E31-4F64-BBA1-EA085510512A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.Abstractions", "Okta.Sdk.Abstractions\Okta.Sdk.Abstractions.csproj", "{AB69A4CE-51AD-449D-816E-FAEADF5FD527}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.UnitTests", "Okta.Sdk.UnitTests\Okta.Sdk.UnitTests.csproj", "{1A2B4479-780D-493B-ADA0-CA73664B1A42}"
 EndProject
@@ -28,10 +26,6 @@ Global
 		{1D2F3372-9E31-4F64-BBA1-EA085510512A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D2F3372-9E31-4F64-BBA1-EA085510512A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D2F3372-9E31-4F64-BBA1-EA085510512A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AB69A4CE-51AD-449D-816E-FAEADF5FD527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB69A4CE-51AD-449D-816E-FAEADF5FD527}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB69A4CE-51AD-449D-816E-FAEADF5FD527}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB69A4CE-51AD-449D-816E-FAEADF5FD527}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1A2B4479-780D-493B-ADA0-CA73664B1A42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1A2B4479-780D-493B-ADA0-CA73664B1A42}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1A2B4479-780D-493B-ADA0-CA73664B1A42}.Release|Any CPU.ActiveCfg = Release|Any CPU

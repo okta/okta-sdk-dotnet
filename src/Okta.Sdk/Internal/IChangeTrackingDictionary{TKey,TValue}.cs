@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 
-namespace Okta.Sdk.Abstractions
+namespace Okta.Sdk.Internal
 {
     public interface IChangeTrackingDictionary<TKey, TValue> : IDictionary<TKey, TValue>, IChangeTrackable
     {

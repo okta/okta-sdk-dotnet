@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Okta.Sdk.Abstractions
+namespace Okta.Sdk.Internal
 {
     public class HttpRequest
     {

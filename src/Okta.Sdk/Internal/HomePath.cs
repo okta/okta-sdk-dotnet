@@ -8,7 +8,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 
-namespace Okta.Sdk
+namespace Okta.Sdk.Internal
 {
     /// <summary>
     /// Contains methods for resolving the home directory path.

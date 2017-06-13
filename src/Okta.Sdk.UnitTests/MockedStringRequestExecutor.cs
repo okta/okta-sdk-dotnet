@@ -6,7 +6,7 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using Okta.Sdk.Abstractions;
+using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.UnitTests
 {

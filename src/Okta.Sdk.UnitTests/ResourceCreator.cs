@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Reflection;
+using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.UnitTests
 {

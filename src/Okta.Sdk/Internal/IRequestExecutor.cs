@@ -6,7 +6,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Okta.Sdk.Abstractions
+namespace Okta.Sdk.Internal
 {
     public interface IRequestExecutor
     {

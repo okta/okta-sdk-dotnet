@@ -5,7 +5,7 @@
 
 using System.Collections.Generic;
 
-namespace Okta.Sdk.Abstractions
+namespace Okta.Sdk.Internal
 {
 #pragma warning disable SA1402 // File may only contain a single type
 #pragma warning disable SA1649 // File name must match first type name

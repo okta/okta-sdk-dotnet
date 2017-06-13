@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace Okta.Sdk
+namespace Okta.Sdk.Internal
 {
     /// <summary>
     /// A JSON.NET converter that will deserialize objects into dictionaries.

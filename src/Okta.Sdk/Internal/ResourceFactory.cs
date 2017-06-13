@@ -9,7 +9,7 @@ using System.Reflection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace Okta.Sdk
+namespace Okta.Sdk.Internal
 {
     public sealed class ResourceFactory
     {
