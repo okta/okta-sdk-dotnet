@@ -1,0 +1,105 @@
+// <copyright file="{{modelName}}.Generated.cs" company="Okta, Inc">
+// Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+// Do not modify this file directly. This file was automatically generated with:
+// spec.json - {{specVersion}}
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Okta.Sdk.Internal;
+
+namespace Okta.Sdk
+{
+    public sealed partial class {{modelName}} : Resource, I{{modelName}}
+    {
+        {{#if supportsPartialUpdates}}
+        public {{modelName}}()
+            : base(ResourceDictionaryType.ChangeTracking)
+        {
+        }
+        {{/if}}
+
+        {{~#each properties}}
+        {{~#unless hidden}}
+        public {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
+        {{~#if readOnly}} => {{{getterName this}}}("{{propertyName}}");
+        {{~else}}
+{{nbsp 0}}
+        {
+            get => {{{getterName this}}}("{{propertyName}}");
+            set => this["{{propertyName}}"] = value;
+        }
+        {{~/if}}
+{{nbsp 0}}
+{{nbsp 0}}
+        {{~/unless}}
+
+        {{/each}}
+
+        {{~#each methods as |method|}}
+        {{~#unless hidden}}
+        {{~nbsp 0}}
+        /// <inheritdoc />
+        {{nbsp 0}}
+
+            {{~nbsp 0}}public
+
+            {{~nbsp}}
+            {{~#if operation.isArray}}IAsyncEnumerable<{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~/if}}
+
+            {{~nbsp}}{{~pascalCase alias}}
+
+            {{~#unless operation.isArray}}Async{{/unless}}
+            
+            {{~nbsp 0}}(
+            {{~#each operation.pathParams}}
+                {{~#unless (getMappedArgName method name)}}
+                {{~paramToCLRType this}}{{nbsp}}
+                {{~name}}
+                {{~#unless required}} =
+                    {{~#if (exists this "default")}} {{default}}
+                    {{~else}} null
+                    {{~/if}}
+                {{~/unless}}
+                {{~nbsp 0}},{{nbsp}}
+                {{~/unless}}
+            {{~/each}}
+            
+            {{~#each operation.queryParams}}
+                {{~#unless (getMappedArgName method name)}}
+                {{~paramToCLRType this}}{{nbsp}}
+                {{~name}}
+                {{~#unless required}} =
+                    {{~#if (exists this "default")}} {{default}}
+                    {{~else}} null
+                    {{~/if}}
+                {{~/unless}}
+                {{~nbsp 0}},{{nbsp}}
+                {{~/unless}}
+            {{~/each}}
+            {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken))
+            {{nbsp 0}}
+            {{~nbsp 0}}=> new {{pascalCase operation.tags.[0]}}Client(GetDataStore()).{{pascalCase operation.operationId}}
+            {{~#unless operation.isArray}}Async{{/unless}}
+            {{~nbsp 0}}(
+                {{~#if operation.bodyModel}}this, {{/if}}
+                {{~#each operation.allParams}}
+                    {{~#if (getMappedArgName method name)}}{{pascalCase (getMappedArgName method name)}}
+                    {{~else}}{{name}}
+                    {{~/if}}
+                    {{~#unless @last}},{{nbsp}}{{/unless}}
+                {{~/each}}
+                {{~#unless operation.isArray}}, cancellationToken{{/unless}}
+                {{~nbsp 0}});
+        {{~nbsp 0}}
+{{nbsp 0}}
+        {{~/unless}}
+        {{~/each}}
+    }
+}

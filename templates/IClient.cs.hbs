@@ -1,0 +1,70 @@
+// <copyright file="IClient.Generated.cs" company="Okta, Inc">
+// Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+// Do not modify this file directly. This file was automatically generated with:
+// spec.json - {{spec.info.version}}
+
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Okta.Sdk
+{
+    public partial interface I{{tag}}Client : IOktaClient
+    {
+        {{~#each operations as |operation|}}
+        {{~#unless hidden}}
+        {{~nbsp 0}}
+        /// <summary>
+        /// {{description}}
+        /// </summary>
+        {{#if bodyModel}}
+        /// <param name="{{camelCase bodyModel}}">The {{bodyModel}} resource.</param>
+        {{/if}}
+        {{#each pathParams}}
+        /// <param name="{{name}}">{{description}}</param>
+        {{/each}}
+        {{#each queryParams}}
+        /// <param name="{{name}}">{{description}}</param>
+        {{/each}}
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns></returns>
+        {{nbsp 0}}
+
+            {{~#if isArray}}IAsyncEnumerable<{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~/if}}{{nbsp}}
+
+            {{~pascalCase operationId}}
+
+            {{~#unless isArray}}Async{{/unless}}
+            
+            {{~nbsp 0}}(
+                {{~#if bodyModel}}
+                    {{~bodyModel}} {{camelCase bodyModel}},{{nbsp}}
+                {{~/if}}
+
+                {{~#each allParams}}
+                    {{~paramToCLRType this}}{{nbsp}}
+                    {{~name}}
+                    {{~#unless required}} =
+                        {{~#if (exists this "default")}} {{default}}
+                        {{~else}} null
+                        {{~/if}}
+                    {{~/unless}}
+                    {{~#unless @last}},{{nbsp}}{{/unless}}
+                {{~/each}}
+                {{~#unless isArray}}
+                    {{~#if allParams.length}},{{nbsp}}{{/if}}
+                    {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
+                {{~/unless}}
+            {{~nbsp 0}});
+        
+        {{~nbsp 0}}
+{{nbsp 0}}
+        {{~/unless}}
+        {{~/each}}
+    }
+}

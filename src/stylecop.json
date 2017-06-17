@@ -1,0 +1,22 @@
+{
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "maintainabilityRules": {
+      "topLevelTypes": [ "class", "interface", "struct", "enum" ]
+    },
+    "orderingRules": {
+      "usingDirectivesPlacement": "outsideNamespace"
+    },
+    "layoutRules": {
+      "newlineAtEndOfFile": "require"
+    },
+    "documentationRules": {
+      "companyName": "Okta, Inc",
+      "copyrightText": "Copyright (c) 2014-2017 {companyName}. All rights reserved.\nLicensed under the {licenseName} license. See the {licenseFile} file in the project root for full license information.",
+      "variables": {
+        "licenseName": "Apache 2.0",
+        "licenseFile": "LICENSE"
+      }
+    }
+  }
+}
