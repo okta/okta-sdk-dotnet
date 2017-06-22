@@ -13,14 +13,10 @@ namespace Okta.Sdk.IntegrationTests
 {
     public class OktaClientShould
     {
-        private static IOktaClient CreateClient(string token = null)
+        private static IOktaClient CreateClient()
         {
-            // TODO get these values from configuration
-            return new OktaClient(new ApiClientConfiguration
-            {
-                OrgUrl = "https://dev-341607.oktapreview.com",
-                Token = token ?? "00w6Z6oZSqdPX243H5XUPj0svMGbJonU20-Rjnatqe",
-            });
+            // Client settings are expected to be in environment variables on the test machine.
+            return new OktaClient();
         }
 
         [Fact]
@@ -30,9 +26,9 @@ namespace Okta.Sdk.IntegrationTests
 
             Assert.Throws<ArgumentNullException>(() =>
             {
-                client = new OktaClient(new ApiClientConfiguration
+                client = new OktaClient(new OktaClientConfiguration
                 {
-                    OrgUrl = null,
+                    OrgUrl = string.Empty,
                     Token = "foobar",
                 });
             });
@@ -45,7 +41,7 @@ namespace Okta.Sdk.IntegrationTests
 
             Assert.Throws<ArgumentException>(() =>
             {
-                client = new OktaClient(new ApiClientConfiguration
+                client = new OktaClient(new OktaClientConfiguration
                 {
                     // Must start with https://
                     OrgUrl = "http://insecure.dev",
@@ -61,10 +57,10 @@ namespace Okta.Sdk.IntegrationTests
 
             Assert.Throws<ArgumentNullException>(() =>
             {
-                client = new OktaClient(new ApiClientConfiguration
+                client = new OktaClient(new OktaClientConfiguration
                 {
                     OrgUrl = "https://dev-12345.oktapreview.com",
-                    Token = null,
+                    Token = string.Empty,
                 });
             });
         }
@@ -77,14 +73,17 @@ namespace Okta.Sdk.IntegrationTests
             await Assert.ThrowsAsync<InvalidOperationException>(() =>
             {
                 // Request URI must start with Org URI
-                return client.GetAsync<User>("https://dev-999.oktapreview.com/api/v1/users/foobar");
+                return client.GetAsync<User>("https://evil.com/api/v1/users/foobar");
             });
         }
 
         [Fact]
         public async Task ThrowApiExceptionForInvalidToken()
         {
-            var client = CreateClient(token: "foobar123");
+            var client = new OktaClient(new OktaClientConfiguration
+            {
+                Token = "abcd1234",
+            });
 
             try
             {
@@ -99,18 +98,6 @@ namespace Okta.Sdk.IntegrationTests
                 apiException.ErrorId.Should().NotBeNullOrEmpty();
                 // TODO errorCauses
             }
-        }
-
-        [Fact]
-        public async Task GetUserByHref()
-        {
-            var client = CreateClient();
-            var user = await client.GetAsync<User>("https://dev-341607.oktapreview.com/api/v1/users/00u9o1nikjvOBg5Zo0h7");
-
-            user.Id.Should().Be("00u9o1nikjvOBg5Zo0h7");
-            user.Created.Value.Year.Should().Be(2017);
-            user.Profile.LastName.Should().Be("Barbettini");
-            user.Profile.FirstName.Should().Be("Nathanael");
         }
     }
 }
