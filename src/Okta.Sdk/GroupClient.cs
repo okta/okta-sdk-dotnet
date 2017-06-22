@@ -7,9 +7,9 @@ using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
-    public sealed partial class GroupClient : OktaClient, IGroupClient, IAsyncEnumerable<UserGroup>
+    public sealed partial class GroupClient : OktaClient, IGroupClient, IAsyncEnumerable<Group>
     {
         /// <inheritdoc/>
-        public IAsyncEnumerator<UserGroup> GetEnumerator() => ListGroups().GetEnumerator();
+        public IAsyncEnumerator<Group> GetEnumerator() => ListGroups().GetEnumerator();
     }
 }

@@ -23,7 +23,7 @@ namespace Okta.Sdk
         /// Initializes a new instance of the <see cref="StringEnum"/> class given a string.
         /// </summary>
         /// <param name="value">The enumeration value.</param>
-        protected StringEnum(string value)
+        public StringEnum(string value)
         {
             _value = value;
         }
@@ -42,7 +42,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="enum">The enumeration member.</param>
         /// <returns>The string value.</returns>
-        public static implicit operator string(StringEnum @enum) => @enum.Value;
+        public static implicit operator string(StringEnum @enum) => @enum?.Value;
 
         /// <summary>
         /// Compares two <see cref="StringEnum"/> instances for value equality, ignoring case.

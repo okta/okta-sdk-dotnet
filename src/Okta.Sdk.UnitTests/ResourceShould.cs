@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Okta.Sdk.Internal;
 using Xunit;
@@ -67,6 +68,18 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void RoundtripStringProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetProperty<string>("foo").Should().BeNull();
+
+            resource.SetProperty("foo", "bar");
+            resource.GetProperty<string>("foo").Should().Be("bar");
+        }
+
+        [Fact]
         public void AccessBooleanProperty()
         {
             var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
@@ -83,6 +96,18 @@ namespace Okta.Sdk.UnitTests
             resource.GetProperty<bool?>("no").Should().BeFalse();
             resource.GetProperty<bool?>("nothing").Should().BeNull();
             resource.GetProperty<bool?>("reallyNothing").Should().BeNull();
+        }
+
+        [Fact]
+        public void RoundtripBooleanProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetProperty<bool?>("foo").Should().BeNull();
+
+            resource.SetProperty("foo", true);
+            resource.GetProperty<bool?>("foo").Should().BeTrue();
         }
 
         [Fact]
@@ -105,6 +130,18 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void RoundtripIntProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetProperty<int?>("foo").Should().BeNull();
+
+            resource.SetProperty("foo", 12345);
+            resource.GetProperty<int?>("foo").Should().Be(12345);
+        }
+
+        [Fact]
         public void AccessLongProperty()
         {
             var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
@@ -121,6 +158,18 @@ namespace Okta.Sdk.UnitTests
             resource.GetProperty<long?>("max").Should().Be(long.MaxValue);
             resource.GetProperty<long?>("nothing").Should().BeNull();
             resource.GetProperty<long?>("reallyNothing").Should().BeNull();
+        }
+
+        [Fact]
+        public void RoundtripLongProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetProperty<long?>("foo").Should().BeNull();
+
+            resource.SetProperty("foo", 123456789000);
+            resource.GetProperty<long?>("foo").Should().Be(123456789000);
         }
 
         [Fact]
@@ -143,6 +192,18 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void RoundtripDateTimeProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetProperty<DateTimeOffset?>("foo").Should().BeNull();
+
+            resource.SetProperty("foo", new DateTimeOffset(2015, 12, 27, 20, 15, 00, TimeSpan.FromHours(-6)));
+            resource.GetProperty<DateTimeOffset?>("foo").Should().Be(new DateTimeOffset(2015, 12, 27, 20, 15, 00, TimeSpan.FromHours(-6)));
+        }
+
+        [Fact]
         public void AccessListProperty()
         {
             var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
@@ -155,6 +216,52 @@ namespace Okta.Sdk.UnitTests
 
             var things = resource.GetArrayProperty<string>("things");
             things.Should().BeEquivalentTo("foo", "bar", "baz");
+        }
+
+        [Fact]
+        public void RoundtripListProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetArrayProperty<string>("foo").Should().BeNull();
+
+            var things = new[] { "favorite", "strings" }.AsEnumerable();
+
+            resource.SetProperty("foo", things);
+            resource.GetArrayProperty<string>("foo").Should().BeEquivalentTo("favorite", "strings");
+        }
+
+        [Fact]
+        public void AccessEnumProperty()
+        {
+            var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["status1"] = "active",
+                ["status2"] = "RECOVERY",
+                ["status3"] = "PassWord_Expired",
+                ["status4"] = "something",
+            };
+
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(data);
+
+            resource.GetProperty<UserStatus>("status1").Should().Be(UserStatus.Active);
+            resource.GetProperty<UserStatus>("status2").Should().Be(UserStatus.Recovery);
+            resource.GetProperty<UserStatus>("status3").Should().Be(UserStatus.PasswordExpired);
+            resource.GetProperty<UserStatus>("status4").Should().Be(new UserStatus("SOMETHING"));
+        }
+
+        [Fact]
+        public void RoundtripEnumProperty()
+        {
+            var factory = new ResourceFactory();
+            var resource = factory.CreateNew<Resource>(null);
+
+            resource.GetProperty<UserStatus>("foo").Should().BeNull();
+
+            resource.SetProperty("foo", UserStatus.PasswordExpired);
+            resource.GetProperty<UserStatus>("foo").Should().Be(UserStatus.PasswordExpired);
         }
 
         [Fact]

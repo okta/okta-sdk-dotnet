@@ -15,7 +15,7 @@ namespace Okta.Sdk
 {
     public partial interface I{{modelName}}
     {
-        {{~#each properties}}
+        {{#each properties}}
         {{~#unless hidden}}
         {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} { get; }

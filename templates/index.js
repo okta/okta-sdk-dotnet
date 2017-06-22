@@ -21,7 +21,8 @@ const propertySkipList = [
 ];
 
 const propertyRenameList = [
-  { path: 'ActivationToken.activationToken', new: 'token', reason: '.NET type name and member name cannot be identical' }
+  { path: 'ActivationToken.activationToken', new: 'token', reason: '.NET type name and member name cannot be identical' },
+  { path: 'TempPassword.tempPassword', new: 'password', reason: '.NET type name and member name cannot be identical' }
 ];
 
 const operationSkipList = [];
@@ -29,8 +30,8 @@ const operationSkipList = [];
 const modelMethodSkipList = [
   { path: 'User.changePassword', reason: 'Implemented as a custom method' },
   { path: 'User.changeRecoveryQuestion', reason: 'Implemented as a custom method'},
-  { path: 'User.forgotPasswordWithRecoveryAnswer', reason: 'Implemented as a custom method'},
-  { path: 'User.assignRoleToUser', reason: 'Implemented as a custom method'},
+  { path: 'User.forgotPassword', reason: 'Implemented as a custom method'},
+  { path: 'User.addRole', reason: 'Implemented as a custom method'},
 ];
 
 const getType = (specType) => {
@@ -50,6 +51,7 @@ function propToCLRType(prop) {
   switch (prop.commonType) {
     case 'array': return `IList<${getType(prop.model)}>`;
     case 'object': return prop.model;
+    case 'enum': return prop.model;
     case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
     default: return getType(prop.commonType);
   }
@@ -60,7 +62,11 @@ function getterName(prop) {
     return `GetArrayProperty<${getType(prop.model)}>`;
   }
 
-  const clrType = propToCLRType(prop);
+  if (prop.commonType === 'enum') {
+    return `GetEnumProperty<${prop.model}>`;
+  }
+
+  let clrType = propToCLRType(prop);
 
   switch (clrType) {
     case 'bool?': return 'GetBooleanProperty';
@@ -92,9 +98,22 @@ csharp.process = ({spec, operations, models, handlebars}) => {
   for (let model of models) {
     model.specVersion = spec.info.version;
 
+    if (model.enum) {
+      templates.push({
+        src: 'Enum.cs.hbs',
+        dest: `Generated/${model.modelName}.Generated.cs`,
+        context: model
+      });
+
+      // Don't do anything else for enums
+      continue;
+    }
+
     if (partialUpdateList.has(model.modelName)) {
       model.supportsPartialUpdates = true;
     }
+
+    model.properties = model.properties || [];
 
     for (let property of model.properties) {
       let fullPath = `${model.modelName}.${property.propertyName}`;
@@ -124,6 +143,8 @@ csharp.process = ({spec, operations, models, handlebars}) => {
         property.displayName = renameRule.new;
       }
     }
+
+    model.methods = model.methods || [];
 
     for (let method of model.methods) {
       let fullPath = `${model.modelName}.${method.alias}`;
