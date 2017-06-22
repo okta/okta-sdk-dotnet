@@ -24,6 +24,8 @@ namespace Okta.Sdk.Internal
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
 
+        public string OrgUrl => _orgUrl;
+
         public DefaultRequestExecutor(OktaClientConfiguration configuration, ILogger logger)
         {
             if (configuration == null)
