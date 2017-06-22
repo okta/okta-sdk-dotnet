@@ -7,9 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
@@ -22,17 +24,29 @@ namespace Okta.Sdk.Internal
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
 
-        public DefaultRequestExecutor(string orgUrl, string token, ILogger logger)
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, ILogger logger)
         {
-            if (string.IsNullOrEmpty(token))
+            if (configuration == null)
             {
-                throw new ArgumentNullException(nameof(token));
+                throw new ArgumentNullException(nameof(configuration));
             }
 
-            _orgUrl = EnsureCorrectOrgUrl(orgUrl);
+            if (string.IsNullOrEmpty(configuration.Token))
+            {
+                throw new ArgumentNullException(nameof(configuration.Token));
+            }
+
+            _orgUrl = EnsureCorrectOrgUrl(configuration.OrgUrl);
             _defaultUserAgent = CreateUserAgent();
-            _httpClient = CreateClient(_orgUrl, token, _defaultUserAgent);
             _logger = logger;
+
+            _httpClient = CreateClient(
+                _orgUrl,
+                _defaultUserAgent,
+                configuration.Token,
+                configuration.ConnectionTimeout,
+                configuration.Proxy,
+                logger);
         }
 
         private static string EnsureCorrectOrgUrl(string orgUrl)
@@ -59,16 +73,29 @@ namespace Okta.Sdk.Internal
         private static string CreateUserAgent()
             => $"{OktaClientUserAgentName}/0.0.1"; // todo assembly version
 
-        private static HttpClient CreateClient(string orgBaseUrl, string token, string userAgent)
+        private static HttpClient CreateClient(
+            string orgBaseUrl,
+            string userAgent,
+            string token,
+            int? connectionTimeout,
+            ProxyConfiguration proxyConfiguration,
+            ILogger logger)
         {
             var handler = new HttpClientHandler
             {
                 AllowAutoRedirect = false,
+                SslProtocols = SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12,
             };
+
+            if (proxyConfiguration != null)
+            {
+                handler.Proxy = new CustomProxy(proxyConfiguration, logger);
+            }
 
             var client = new HttpClient(handler, true)
             {
                 BaseAddress = new Uri(orgBaseUrl, UriKind.Absolute),
+                Timeout = TimeSpan.FromSeconds(connectionTimeout ?? OktaClientConfiguration.DefaultConnectionTimeout),
             };
 
             client.DefaultRequestHeaders.Add("User-Agent", userAgent);

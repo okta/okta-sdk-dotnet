@@ -5,11 +5,11 @@
 
 namespace Okta.Sdk.Configuration
 {
-    public sealed class ApiClientConfiguration
+    public sealed class OktaClientConfiguration
     {
-        public CacheManagerConfiguration CacheManager { get; set; }
+        public const int DefaultConnectionTimeout = 30; // Seconds
 
-        public int? ConnectionTimeout { get; set; } = 30; // Seconds
+        public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
 
         public string OrgUrl { get; set; }
 
