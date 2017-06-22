@@ -29,15 +29,19 @@ namespace Okta.Sdk.UnitTests
 
         public Task<string> GetBodyAsync(string href, CancellationToken ct)
         {
-            var items = _items
+            var resources = _items
                 .Skip(_currentPage * _pageSize)
                 .Take(_pageSize)
+                .Cast<Resource>();
+
+            var itemData = resources
+                .Select(x => x.GetData())
                 .ToArray();
 
             // Increment page
             _currentPage++;
 
-            return Task.FromResult(JsonConvert.SerializeObject(items));
+            return Task.FromResult(JsonConvert.SerializeObject(itemData));
         }
 
         public async Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)

@@ -18,8 +18,8 @@ namespace Okta.Sdk.UnitTests
         private static readonly List<User> TestUsers = new List<User>()
         {
             new ResourceCreator<User>().With((u => u.Id, "123"), (u => u.Status, "ACTIVE")),
-            new ResourceCreator<User>().With((u => u.Id, "456"), (u => u.Status, "DISABLED")),
-            new ResourceCreator<User>().With((u => u.Id, "abc"), (u => u.Status, "ACTIVE")),
+            new ResourceCreator<User>().With((u => u.Id, "456"), (u => u.Status, UserStatus.Deprovisioned.ToString())),
+            new ResourceCreator<User>().With((u => u.Id, "abc"), (u => u.Status, UserStatus.Active.ToString())),
             new ResourceCreator<User>().With((u => u.Id, "xyz"), (u => u.Status, "UNKNOWN")),
             new ResourceCreator<User>().With((u => u.Id, "999"), (u => u.Status, "UNKNOWN")),
         };

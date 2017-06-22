@@ -15,6 +15,7 @@ namespace Okta.Sdk
     public class Resource
     {
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
+        private static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
 
         private readonly ResourceDictionaryType _dictionaryType;
         private IDataStore _dataStore;
@@ -52,15 +53,17 @@ namespace Okta.Sdk
             return _dataStore ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object can call server-side methods.");
         }
 
+        public IDictionary<string, object> GetData()
+            => _resourceFactory.NewDictionary(_dictionaryType, _data);
+
         public IDictionary<string, object> GetModifiedData()
         {
-            switch (_data)
+            if (_data is DefaultChangeTrackingDictionary changeTrackingDictionary)
             {
-                case DefaultChangeTrackingDictionary changeTrackingDictionary:
-                    return (IDictionary<string, object>)changeTrackingDictionary.Difference;
-                default:
-                    return _data;
+                return (IDictionary<string, object>)changeTrackingDictionary.Difference;
             }
+
+            return GetData();
         }
 
         public object this[string key]
@@ -78,6 +81,18 @@ namespace Okta.Sdk
         /// <returns>The strongly-typed property value, or <c>null</c>.</returns>
         public T GetProperty<T>(string key)
         {
+            var typeInfo = typeof(T).GetTypeInfo();
+
+            if (ResourceTypeInfo.IsAssignableFrom(typeInfo))
+            {
+                return GetResourcePropertyInternal<T>(key);
+            }
+
+            if (StringEnumTypeInfo.IsAssignableFrom(typeInfo))
+            {
+                return GetEnumPropertyInternal<T>(key);
+            }
+
             if (typeof(T) == typeof(object))
             {
                 return (T)GetPropertyOrNull(key);
@@ -113,11 +128,6 @@ namespace Okta.Sdk
                 throw new InvalidOperationException("Use DateTimeOffset instead.");
             }
 
-            if (ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
-            {
-                return (T)(object)GetResourcePropertyInternal<T>(key);
-            }
-
             var propertyData = GetPropertyOrNull(key);
             if (propertyData == null)
             {
@@ -139,6 +149,10 @@ namespace Okta.Sdk
             {
                 case Resource resource:
                     SetProperty(key, resource?._data);
+                    break;
+
+                case StringEnum @enum:
+                    SetProperty(key, @enum?.Value);
                     break;
 
                 default:
@@ -203,6 +217,21 @@ namespace Okta.Sdk
             }
 
             return new CastingListAdapter<T>(genericList, _logger);
+        }
+
+        protected TEnum GetEnumProperty<TEnum>(string key)
+            where TEnum : StringEnum
+            => GetEnumPropertyInternal<TEnum>(key);
+
+        private TEnum GetEnumPropertyInternal<TEnum>(string key)
+        {
+            var raw = GetStringProperty(key);
+            if (raw == null)
+            {
+                return default(TEnum); // null
+            }
+
+            return (TEnum)Activator.CreateInstance(typeof(TEnum), raw);
         }
 
         protected T GetResourceProperty<T>(string key)

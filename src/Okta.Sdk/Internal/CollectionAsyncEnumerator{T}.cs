@@ -17,9 +17,9 @@ namespace Okta.Sdk.Internal
         private readonly IDataStore _dataStore;
 
         private bool _initialized = false;
-        private T[] _currentPage;
-        private int _currentPageIndex;
-        private string _nextUri;
+        private T[] _localPage;
+        private int _localPageIndex;
+        private HttpRequest _nextRequest;
 
         private bool _disposedValue = false; // To detect redundant calls
 
@@ -28,54 +28,51 @@ namespace Okta.Sdk.Internal
             HttpRequest initialRequest)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
-            _nextUri = UrlFormatter.ApplyParametersToPath(initialRequest ?? throw new ArgumentNullException(nameof(initialRequest)));
+            _nextRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
         }
 
-        public T Current => _currentPage[_currentPageIndex++];
+        /// <inheritdoc/>
+        public T Current => _localPage[_localPageIndex++];
 
 #pragma warning disable UseAsyncSuffix // Must match interface
+        /// <inheritdoc/>
         public async Task<bool> MoveNext(CancellationToken cancellationToken)
 #pragma warning restore UseAsyncSuffix // Must match interface
         {
-            var hasMoreLocalItems = _initialized && _currentPage.Length != 0 && _currentPageIndex < _currentPage.Length;
+            var hasMoreLocalItems = _initialized && _localPage.Length != 0 && _localPageIndex < _localPage.Length;
             if (hasMoreLocalItems)
             {
                 return true;
             }
 
-            if (string.IsNullOrEmpty(_nextUri))
-            {
-                return false;
-            }
-
-            var request = new HttpRequest { Uri = _nextUri }; // TODO handle query
-
             var nextPage = await _dataStore.GetArrayAsync<T>(
-                request,
+                _nextRequest,
                 cancellationToken).ConfigureAwait(false);
 
             _initialized = true;
 
-            _currentPage = nextPage.Payload.ToArray();
-            _currentPageIndex = 0;
+            _localPage = nextPage.Payload.ToArray();
+            _localPageIndex = 0;
 
-            SetNextUri(nextPage);
+            _nextRequest = GetNextLink(nextPage);
 
-            return _currentPage.Any();
+            return _localPage.Any();
         }
 
-        private void SetNextUri(HttpResponse response)
+        private static HttpRequest GetNextLink(HttpResponse response)
         {
             var linkHeaders = response
                 .Headers
                 .Where(kvp => kvp.Key.Equals("Link", StringComparison.OrdinalIgnoreCase))
                 .Select(kvp => kvp.Value);
 
-            _nextUri = LinkHeaderParser
+            var nextUri = LinkHeaderParser
                 .Parse(linkHeaders.SelectMany(x => x))
                 .Where(x => x.Relation == "next")
                 .SingleOrDefault()
                 .Target;
+
+            return new HttpRequest { Uri = nextUri };
         }
 
         private void Dispose(bool disposing)
