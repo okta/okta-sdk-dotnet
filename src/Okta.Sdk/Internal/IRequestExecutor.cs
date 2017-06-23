@@ -10,6 +10,8 @@ namespace Okta.Sdk.Internal
 {
     public interface IRequestExecutor
     {
+        string OrgUrl { get; }
+
         Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken);
 
         Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken);

@@ -21,6 +21,8 @@ namespace Okta.Sdk.UnitTests
 
         private int _currentPage = 0;
 
+        public string OrgUrl => BaseUrl;
+
         public MockedCollectionRequestExecutor(int pageSize, IEnumerable<T> items)
         {
             _pageSize = pageSize;
