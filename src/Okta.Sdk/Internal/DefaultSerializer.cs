@@ -6,6 +6,8 @@
 using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
 
 namespace Okta.Sdk.Internal
 {
@@ -16,8 +18,15 @@ namespace Okta.Sdk.Internal
 
         public DefaultSerializer()
         {
-            _serializer = new JsonSerializer();
+            _serializer = new JsonSerializer
+            {
+                NullValueHandling = NullValueHandling.Ignore,
+                DefaultValueHandling = DefaultValueHandling.Ignore,
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+            };
+
             _serializer.Converters.Add(new RecursiveDictionaryConverter());
+            _serializer.Converters.Add(new ResourceSerializingConverter());
         }
 
         public IDictionary<string, object> Deserialize(string json)
