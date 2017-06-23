@@ -51,6 +51,11 @@ namespace Okta.Sdk.Internal
 
             foreach (var queryParam in request.QueryParams)
             {
+                if (queryParam.Value == null)
+                {
+                    continue;
+                }
+
                 var shouldAddAmpersand = !addedQuestionMark;
                 addedQuestionMark = false;
 
