@@ -3,36 +3,34 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.IntegrationTests
 {
     public abstract class RecordedScenario
     {
-        private readonly string _scenarioName;
-        private readonly bool _useLocalServer;
+        private readonly Lazy<IOktaClient> _client;
 
         public RecordedScenario(string scenarioName)
         {
-            _scenarioName = scenarioName;
-
-            _useLocalServer = TestConfiguration.UseLocalServer;
-        }
-
-        protected IOktaClient GetClient()
-        {
-            if (!_useLocalServer)
+            _client = new Lazy<IOktaClient>(() =>
             {
-                return new OktaClient();
-            }
+                if (!TestConfiguration.UseLocalServer)
+                {
+                    return new OktaClient();
+                }
 
-            var defaultClient = new OktaClient();
-            var orgUrlWithScenarioName = $"{defaultClient.DataStore.RequestExecutor.OrgUrl}/{_scenarioName}";
+                var defaultClient = new OktaClient();
+                var orgUrlWithScenarioName = $"{defaultClient.DataStore.RequestExecutor.OrgUrl}/{scenarioName}";
 
-            return new OktaClient(new OktaClientConfiguration
-            {
-                OrgUrl = orgUrlWithScenarioName,
+                return new OktaClient(new OktaClientConfiguration
+                {
+                    OrgUrl = orgUrlWithScenarioName,
+                });
             });
         }
+
+        protected IOktaClient GetClient() => _client.Value;
     }
 }

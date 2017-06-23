@@ -45,6 +45,11 @@ namespace Okta.Sdk.Internal
                 return true;
             }
 
+            if (_nextRequest == null)
+            {
+                return false;
+            }
+
             var nextPage = await _dataStore.GetArrayAsync<T>(
                 _nextRequest,
                 cancellationToken).ConfigureAwait(false);
@@ -72,7 +77,9 @@ namespace Okta.Sdk.Internal
                 .SingleOrDefault()
                 .Target;
 
-            return new HttpRequest { Uri = nextUri };
+            return string.IsNullOrEmpty(nextUri)
+                ? null
+                : new HttpRequest { Uri = nextUri };
         }
 
         private void Dispose(bool disposing)

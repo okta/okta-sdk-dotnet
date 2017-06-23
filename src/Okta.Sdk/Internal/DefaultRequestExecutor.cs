@@ -154,7 +154,7 @@ namespace Okta.Sdk.Internal
             }
         }
 
-        private IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
+        private static IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
             => response.Headers.Concat(response.Content.Headers);
 
         public Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
@@ -176,7 +176,7 @@ namespace Okta.Sdk.Internal
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
-            request.Content = new StringContent(body, System.Text.Encoding.UTF8);
+            request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
             return SendAsync(request, cancellationToken);
         }
 
@@ -185,7 +185,7 @@ namespace Okta.Sdk.Internal
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
-            request.Content = new StringContent(body, System.Text.Encoding.UTF8);
+            request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
             return SendAsync(request, cancellationToken);
         }
 
