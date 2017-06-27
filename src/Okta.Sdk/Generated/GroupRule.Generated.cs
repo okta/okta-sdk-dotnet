@@ -30,11 +30,7 @@ namespace Okta.Sdk
 
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
-        public string Id
-        {
-            get => GetStringProperty("id");
-            set => this["id"] = value;
-        }
+        public string Id => GetStringProperty("id");
 
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
 

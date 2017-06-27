@@ -15,7 +15,7 @@ namespace Okta.Sdk
 {
     public partial interface ITempPassword
     {
-        string Password { get; set; }
+        string Password { get; }
 
     }
 }

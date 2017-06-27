@@ -15,25 +15,25 @@ namespace Okta.Sdk
 {
     public partial interface IAppLink
     {
-        string AppAssignmentId { get; set; }
+        string AppAssignmentId { get; }
 
-        string AppInstanceId { get; set; }
+        string AppInstanceId { get; }
 
-        string AppName { get; set; }
+        string AppName { get; }
 
-        bool? CredentialsSetup { get; set; }
+        bool? CredentialsSetup { get; }
 
-        bool? Hidden { get; set; }
+        bool? Hidden { get; }
 
-        string Id { get; set; }
+        string Id { get; }
 
-        string Label { get; set; }
+        string Label { get; }
 
-        string LinkUrl { get; set; }
+        string LinkUrl { get; }
 
-        string LogoUrl { get; set; }
+        string LogoUrl { get; }
 
-        int? SortOrder { get; set; }
+        int? SortOrder { get; }
 
     }
 }

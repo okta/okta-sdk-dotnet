@@ -16,11 +16,7 @@ namespace Okta.Sdk
 {
     public sealed partial class TempPassword : Resource, ITempPassword
     {
-        public string Password
-        {
-            get => GetStringProperty("tempPassword");
-            set => this["tempPassword"] = value;
-        }
+        public string Password => GetStringProperty("tempPassword");
 
     }
 }

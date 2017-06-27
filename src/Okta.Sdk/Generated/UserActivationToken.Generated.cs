@@ -16,17 +16,9 @@ namespace Okta.Sdk
 {
     public sealed partial class UserActivationToken : Resource, IUserActivationToken
     {
-        public string ActivationToken
-        {
-            get => GetStringProperty("activationToken");
-            set => this["activationToken"] = value;
-        }
+        public string ActivationToken => GetStringProperty("activationToken");
 
-        public string ActivationUrl
-        {
-            get => GetStringProperty("activationUrl");
-            set => this["activationUrl"] = value;
-        }
+        public string ActivationUrl => GetStringProperty("activationUrl");
 
     }
 }

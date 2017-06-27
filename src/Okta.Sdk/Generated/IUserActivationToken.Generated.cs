@@ -15,9 +15,9 @@ namespace Okta.Sdk
 {
     public partial interface IUserActivationToken
     {
-        string ActivationToken { get; set; }
+        string ActivationToken { get; }
 
-        string ActivationUrl { get; set; }
+        string ActivationUrl { get; }
 
     }
 }

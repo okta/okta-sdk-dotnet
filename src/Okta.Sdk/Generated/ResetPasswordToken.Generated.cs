@@ -16,11 +16,7 @@ namespace Okta.Sdk
 {
     public sealed partial class ResetPasswordToken : Resource, IResetPasswordToken
     {
-        public string ResetPasswordUrl
-        {
-            get => GetStringProperty("resetPasswordUrl");
-            set => this["resetPasswordUrl"] = value;
-        }
+        public string ResetPasswordUrl => GetStringProperty("resetPasswordUrl");
 
     }
 }

@@ -15,7 +15,7 @@ namespace Okta.Sdk
 {
     public partial interface IResetPasswordToken
     {
-        string ResetPasswordUrl { get; set; }
+        string ResetPasswordUrl { get; }
 
     }
 }
