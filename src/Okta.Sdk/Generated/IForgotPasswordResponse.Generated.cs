@@ -15,7 +15,7 @@ namespace Okta.Sdk
 {
     public partial interface IForgotPasswordResponse
     {
-        string ResetPasswordUrl { get; set; }
+        string ResetPasswordUrl { get; }
 
     }
 }

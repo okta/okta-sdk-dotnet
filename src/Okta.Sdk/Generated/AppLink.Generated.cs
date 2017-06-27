@@ -16,65 +16,25 @@ namespace Okta.Sdk
 {
     public sealed partial class AppLink : Resource, IAppLink
     {
-        public string AppAssignmentId
-        {
-            get => GetStringProperty("appAssignmentId");
-            set => this["appAssignmentId"] = value;
-        }
+        public string AppAssignmentId => GetStringProperty("appAssignmentId");
 
-        public string AppInstanceId
-        {
-            get => GetStringProperty("appInstanceId");
-            set => this["appInstanceId"] = value;
-        }
+        public string AppInstanceId => GetStringProperty("appInstanceId");
 
-        public string AppName
-        {
-            get => GetStringProperty("appName");
-            set => this["appName"] = value;
-        }
+        public string AppName => GetStringProperty("appName");
 
-        public bool? CredentialsSetup
-        {
-            get => GetBooleanProperty("credentialsSetup");
-            set => this["credentialsSetup"] = value;
-        }
+        public bool? CredentialsSetup => GetBooleanProperty("credentialsSetup");
 
-        public bool? Hidden
-        {
-            get => GetBooleanProperty("hidden");
-            set => this["hidden"] = value;
-        }
+        public bool? Hidden => GetBooleanProperty("hidden");
 
-        public string Id
-        {
-            get => GetStringProperty("id");
-            set => this["id"] = value;
-        }
+        public string Id => GetStringProperty("id");
 
-        public string Label
-        {
-            get => GetStringProperty("label");
-            set => this["label"] = value;
-        }
+        public string Label => GetStringProperty("label");
 
-        public string LinkUrl
-        {
-            get => GetStringProperty("linkUrl");
-            set => this["linkUrl"] = value;
-        }
+        public string LinkUrl => GetStringProperty("linkUrl");
 
-        public string LogoUrl
-        {
-            get => GetStringProperty("logoUrl");
-            set => this["logoUrl"] = value;
-        }
+        public string LogoUrl => GetStringProperty("logoUrl");
 
-        public int? SortOrder
-        {
-            get => GetIntegerProperty("sortOrder");
-            set => this["sortOrder"] = value;
-        }
+        public int? SortOrder => GetIntegerProperty("sortOrder");
 
     }
 }
