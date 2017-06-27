@@ -6,19 +6,35 @@
 namespace Okta.Sdk.Internal
 {
     /// <summary>
-    /// Represents an RFC 5988 web link.
+    /// Represents an <a href="https://tools.ietf.org/html/rfc5988">RFC 5988</a> Web Link.
     /// </summary>
-    /// <see>https://tools.ietf.org/html/rfc5988</see>
     public struct WebLink
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="WebLink"/> struct.
+        /// </summary>
+        /// <param name="target">The link target.</param>
+        /// <param name="relation">The link relation.</param>
         public WebLink(string target, string relation)
         {
             Target = target;
             Relation = relation;
         }
 
+        /// <summary>
+        /// Gets the link target.
+        /// </summary>
+        /// <value>
+        /// The link target.
+        /// </value>
         public string Target { get; }
 
+        /// <summary>
+        /// Gets the link relation.
+        /// </summary>
+        /// <value>
+        /// The link relation.
+        /// </value>
         public string Relation { get; }
     }
 }

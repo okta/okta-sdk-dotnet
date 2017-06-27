@@ -11,6 +11,11 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Enumerates an Okta API collection using the defined paging contract.
+    /// </summary>
+    /// <remarks>See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.</remarks>
+    /// <typeparam name="T">The type of items in the collection.</typeparam>
     public sealed class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
         where T : Resource, new()
     {
@@ -23,6 +28,11 @@ namespace Okta.Sdk.Internal
 
         private bool _disposedValue = false; // To detect redundant calls
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CollectionAsyncEnumerator{T}"/> class.
+        /// </summary>
+        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
+        /// <param name="initialRequest">The initial HTTP request options.</param>
         public CollectionAsyncEnumerator(
             IDataStore dataStore,
             HttpRequest initialRequest)
@@ -88,6 +98,7 @@ namespace Okta.Sdk.Internal
             }
         }
 
+        /// <inheritdoc/>
         public void Dispose()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.

@@ -11,6 +11,9 @@ using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Constructs <see cref="Resource"/>s based on deserialized dictionaries.
+    /// </summary>
     public sealed class ResourceFactory
     {
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
@@ -18,12 +21,23 @@ namespace Okta.Sdk.Internal
         private readonly IDataStore _dataStore;
         private readonly ILogger _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceFactory"/> class.
+        /// </summary>
+        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
+        /// <param name="logger">The logging interface.</param>
         public ResourceFactory(IDataStore dataStore = null, ILogger logger = null)
         {
             _dataStore = dataStore;
             _logger = logger ?? NullLogger.Instance;
         }
 
+        /// <summary>
+        /// Creates a new dictionary with the specified behavior.
+        /// </summary>
+        /// <param name="type">The resource behavior type.</param>
+        /// <param name="existingData">The initial dictionary data.</param>
+        /// <returns>A new dictionary with the specified behavior.</returns>
         public IDictionary<string, object> NewDictionary(ResourceDictionaryType type, IDictionary<string, object> existingData)
         {
             var initialData = existingData ?? new Dictionary<string, object>();
@@ -37,7 +51,13 @@ namespace Okta.Sdk.Internal
             throw new ArgumentException($"Unknown resource dictionary type {type}");
         }
 
-        public T CreateFromExistingData<T>(IDictionary<string, object> data)
+        /// <summary>
+        /// Creates a new <see cref="Resource"/> from an existing dictionary.
+        /// </summary>
+        /// <typeparam name="T">The <see cref="Resource"/> type.</typeparam>
+        /// <param name="existingDictionary">The existing dictionary.</param>
+        /// <returns>The created <see cref="Resource"/>.</returns>
+        public T CreateFromExistingData<T>(IDictionary<string, object> existingDictionary)
         {
             if (!ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
             {
@@ -45,10 +65,16 @@ namespace Okta.Sdk.Internal
             }
 
             var resource = Activator.CreateInstance<T>() as Resource;
-            resource.Initialize(_dataStore, this, data, _logger);
+            resource.Initialize(_dataStore, this, existingDictionary, _logger);
             return (T)(object)resource;
         }
 
+        /// <summary>
+        /// Creates a new <see cref="Resource"/> with the specified data.
+        /// </summary>
+        /// <typeparam name="T">The <see cref="Resource"/> type.</typeparam>
+        /// <param name="data">The initial data.</param>
+        /// <returns>The created <see cref="Resource"/>.</returns>
         public T CreateNew<T>(IDictionary<string, object> data)
         {
             if (!ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))

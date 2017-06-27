@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for TempPassword resources.</summary>
     public partial interface ITempPassword
     {
         string Password { get; }

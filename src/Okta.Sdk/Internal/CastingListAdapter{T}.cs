@@ -11,11 +11,20 @@ using Microsoft.Extensions.Logging;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Wraps a generic <c>List&lt;object&gt;</c> and casts the items to the destination type.
+    /// </summary>
+    /// <typeparam name="T">The destination type.</typeparam>
     public sealed class CastingListAdapter<T> : IList<T>
     {
         private readonly IList<object> _genericList;
         private readonly ILogger _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CastingListAdapter{T}"/> class.
+        /// </summary>
+        /// <param name="genericList">The generic list to wrap.</param>
+        /// <param name="logger">The logging interface.</param>
         public CastingListAdapter(IList<object> genericList, ILogger logger)
         {
             _genericList = genericList;

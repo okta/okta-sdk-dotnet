@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for AuthenticationProvider resources.</summary>
     public partial interface IAuthenticationProvider
     {
         string Name { get; set; }

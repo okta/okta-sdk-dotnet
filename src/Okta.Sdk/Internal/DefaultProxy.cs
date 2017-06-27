@@ -1,4 +1,4 @@
-﻿// <copyright file="CustomProxy.cs" company="Okta, Inc">
+﻿// <copyright file="DefaultProxy.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -10,12 +10,20 @@ using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
-    public sealed class CustomProxy : IWebProxy
+    /// <summary>
+    /// A simple implementation of <see cref="IWebProxy"/>.
+    /// </summary>
+    public sealed class DefaultProxy : IWebProxy
     {
         private readonly ICredentials _credentials;
         private readonly Uri _proxyUri;
 
-        public CustomProxy(ProxyConfiguration proxyConfiguration, ILogger logger)
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultProxy"/> class.
+        /// </summary>
+        /// <param name="proxyConfiguration">The proxy configuration to use.</param>
+        /// <param name="logger">The logging interface.</param>
+        public DefaultProxy(ProxyConfiguration proxyConfiguration, ILogger logger)
         {
             if (proxyConfiguration == null)
             {

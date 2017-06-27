@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for {{tag}} clients.</summary>
     public partial interface I{{tag}}Client : IOktaClient
     {
         {{~#each operations as |operation|}}
@@ -29,8 +30,18 @@ namespace Okta.Sdk
         {{#each queryParams}}
         /// <param name="{{name}}">{{description}}</param>
         {{/each}}
+{{nbsp 0}}
+        {{~#unless isArray}}
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns></returns>
+{{nbsp 0}}
+        {{~/unless}}
+        {{#if isArray}}/// <returns>A collection that can be enumerated asynchronously.</returns>
+        {{~else}}
+            {{~#if bodyModel}}/// <returns>The <see cref="{{operation.responseModel}}"/> response.</returns>
+            {{~else}}/// <returns>A Task that represents the asynchronous operation.</returns>
+            {{~/if}}
+        {{~/if}}
+        
         {{nbsp 0}}
 
             {{~#if isArray}}IAsyncEnumerable<{{operation.responseModel}}>

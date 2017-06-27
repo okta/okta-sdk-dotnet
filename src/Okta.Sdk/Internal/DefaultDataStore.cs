@@ -12,6 +12,9 @@ using Microsoft.Extensions.Logging;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// The default implementation of <see cref="IDataStore"/>.
+    /// </summary>
     public sealed class DefaultDataStore : IDataStore
     {
         private readonly IRequestExecutor _requestExecutor;
@@ -19,6 +22,12 @@ namespace Okta.Sdk.Internal
         private readonly ILogger _logger;
         private readonly ResourceFactory _resourceFactory;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultDataStore"/> class.
+        /// </summary>
+        /// <param name="requestExecutor">The <see cref="IRequestExecutor">RequestExecutor</see> to use.</param>
+        /// <param name="serializer">The <see cref="ISerializer">Serializer</see> to use.</param>
+        /// <param name="logger">The logging interface.</param>
         public DefaultDataStore(
             IRequestExecutor requestExecutor,
             ISerializer serializer,
@@ -30,8 +39,10 @@ namespace Okta.Sdk.Internal
             _logger = logger;
         }
 
+        /// <inheritdoc/>
         public IRequestExecutor RequestExecutor => _requestExecutor;
 
+        /// <inheritdoc/>
         public ISerializer Serializer => _serializer;
 
         private static HttpResponse<T> CreateResourceResponse<T>(HttpResponse<string> response, T resource)
@@ -91,6 +102,7 @@ namespace Okta.Sdk.Internal
             }
         }
 
+        /// <inheritdoc/>
         public async Task<HttpResponse<T>> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken)
             where T : Resource, new()
         {
@@ -106,6 +118,7 @@ namespace Okta.Sdk.Internal
             return CreateResourceResponse(response, resource);
         }
 
+        /// <inheritdoc/>
         public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, CancellationToken cancellationToken)
             where T : Resource, new()
         {
@@ -122,6 +135,7 @@ namespace Okta.Sdk.Internal
             return CreateResourceResponse(response, resources);
         }
 
+        /// <inheritdoc/>
         public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
@@ -139,6 +153,7 @@ namespace Okta.Sdk.Internal
             return CreateResourceResponse(response, resource);
         }
 
+        /// <inheritdoc/>
         public async Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
@@ -156,6 +171,7 @@ namespace Okta.Sdk.Internal
             return CreateResourceResponse(response, resource);
         }
 
+        /// <inheritdoc/>
         public async Task<HttpResponse> DeleteAsync(HttpRequest request, CancellationToken cancellationToken)
         {
             EnsureValidRequest(request);

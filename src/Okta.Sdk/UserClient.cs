@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Provides methods that manipulate <see cref="User"/> resources, by communicating with the Okta Users API.
+    /// </summary>
     public sealed partial class UserClient : OktaClient, IUserClient, IAsyncEnumerable<User>
     {
         /// <inheritdoc/>

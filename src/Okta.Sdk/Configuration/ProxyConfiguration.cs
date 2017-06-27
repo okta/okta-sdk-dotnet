@@ -5,14 +5,41 @@
 
 namespace Okta.Sdk.Configuration
 {
+    /// <summary>
+    /// HTTP proxy configuration for an <see cref="IOktaClient">OktaClient</see>.
+    /// </summary>
     public sealed class ProxyConfiguration
     {
+        /// <summary>
+        /// Gets or sets the proxy port.
+        /// </summary>
+        /// <value>
+        /// The proxy port.
+        /// </value>
         public int? Port { get; set; }
 
+        /// <summary>
+        /// Gets or sets the proxy hostname.
+        /// </summary>
+        /// <value>
+        /// The proxy hostname.
+        /// </value>
         public string Host { get; set; }
 
+        /// <summary>
+        /// Gets or sets the proxy username.
+        /// </summary>
+        /// <value>
+        /// The proxy username.
+        /// </value>
         public string Username { get; set; }
 
+        /// <summary>
+        /// Gets or sets the proxy password.
+        /// </summary>
+        /// <value>
+        /// The proxy password.
+        /// </value>
         public string Password { get; set; }
     }
 }

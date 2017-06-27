@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for AppLink resources.</summary>
     public partial interface IAppLink
     {
         string AppAssignmentId { get; }

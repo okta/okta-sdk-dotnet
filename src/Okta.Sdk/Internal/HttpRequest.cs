@@ -8,15 +8,42 @@ using System.Linq;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Represents an HTTP request with a URI and optional payload and parameters.
+    /// </summary>
     public class HttpRequest
     {
+        /// <summary>
+        /// Gets or sets the request URI.
+        /// </summary>
+        /// <value>
+        /// The request URI.
+        /// </value>
         public string Uri { get; set; }
 
+        /// <summary>
+        /// Gets or sets the request payload.
+        /// </summary>
+        /// <value>
+        /// The request payload.
+        /// </value>
         public object Payload { get; set; }
 
+        /// <summary>
+        /// Gets or sets the set of query parameters to send with the request.
+        /// </summary>
+        /// <value>
+        /// The set of query parameters to send with the request.
+        /// </value>
         public IEnumerable<KeyValuePair<string, object>> QueryParams { get; set; }
             = Enumerable.Empty<KeyValuePair<string, object>>();
 
+        /// <summary>
+        /// Gets or sets the set of path parameters to apply to the request URI.
+        /// </summary>
+        /// <value>
+        /// The set of path parameters to apply to the request URI.
+        /// </value>
         public IEnumerable<KeyValuePair<string, object>> PathParams { get; set; }
             = Enumerable.Empty<KeyValuePair<string, object>>();
     }

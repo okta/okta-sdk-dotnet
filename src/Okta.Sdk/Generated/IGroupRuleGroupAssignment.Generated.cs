@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for GroupRuleGroupAssignment resources.</summary>
     public partial interface IGroupRuleGroupAssignment
     {
         IList<string> GroupIds { get; set; }

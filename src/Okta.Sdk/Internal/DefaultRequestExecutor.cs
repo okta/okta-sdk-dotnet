@@ -15,6 +15,9 @@ using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// The default implementation of <see cref="IRequestExecutor"/> that uses <c>System.Net.Http</c>.
+    /// </summary>
     public sealed class DefaultRequestExecutor : IRequestExecutor
     {
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
@@ -24,6 +27,11 @@ namespace Okta.Sdk.Internal
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
+        /// </summary>
+        /// <param name="configuration">The client configuration.</param>
+        /// <param name="logger">The logging interface.</param>
         public DefaultRequestExecutor(OktaClientConfiguration configuration, ILogger logger)
         {
             if (configuration == null)
@@ -89,7 +97,7 @@ namespace Okta.Sdk.Internal
 
             if (proxyConfiguration != null)
             {
-                handler.Proxy = new CustomProxy(proxyConfiguration, logger);
+                handler.Proxy = new DefaultProxy(proxyConfiguration, logger);
             }
 
             var client = new HttpClient(handler, true)
@@ -155,6 +163,7 @@ namespace Okta.Sdk.Internal
         private IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
             => response.Headers.Concat(response.Content.Headers);
 
+        /// <inheritdoc/>
         public Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
@@ -169,6 +178,7 @@ namespace Okta.Sdk.Internal
             return response.Payload;
         }
 
+        /// <inheritdoc/>
         public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
@@ -178,6 +188,7 @@ namespace Okta.Sdk.Internal
             return SendAsync(request, cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<HttpResponse<string>> PutAsync(string href, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
@@ -187,6 +198,7 @@ namespace Okta.Sdk.Internal
             return SendAsync(request, cancellationToken);
         }
 
+        /// <inheritdoc/>
         public Task<HttpResponse<string>> DeleteAsync(string href, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);

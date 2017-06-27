@@ -12,6 +12,9 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Represents a resource in the Okta API.
+    /// </summary>
     public class Resource
     {
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
@@ -23,11 +26,19 @@ namespace Okta.Sdk
         private ILogger _logger;
         private IDictionary<string, object> _data;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Resource"/> class.
+        /// </summary>
+        /// <remarks>Uses the default dictionary type (non-change tracking).</remarks>
         public Resource()
             : this(ResourceDictionaryType.Default)
         {
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Resource"/> class.
+        /// </summary>
+        /// <param name="dictionaryType">The dictionary type to use.</param>
         public Resource(ResourceDictionaryType dictionaryType)
         {
             _dictionaryType = dictionaryType;
@@ -48,14 +59,30 @@ namespace Okta.Sdk
             _logger = logger ?? NullLogger.Instance;
         }
 
+        /// <summary>
+        /// Gets the <see cref="IDataStore">DataStore</see> used by this resource.
+        /// </summary>
+        /// <returns>The <see cref="IDataStore">DataStore</see> used by this resource.</returns>
         protected IDataStore GetDataStore()
         {
             return _dataStore ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object can call server-side methods.");
         }
 
+        /// <summary>
+        /// Gets the underlying data backing this resource.
+        /// </summary>
+        /// <returns>The data backing this resource.</returns>
+        /// <remarks>
+        /// If the resource is initialized with dictionary type <see cref="ResourceDictionaryType.ChangeTracking"/>, this returns any updates merged with the original data.
+        /// </remarks>
         public IDictionary<string, object> GetData()
             => _resourceFactory.NewDictionary(_dictionaryType, _data);
 
+        /// <summary>
+        /// Gets any data that has been modified since the resource was retrieved.
+        /// </summary>
+        /// <remarks>This has no effect (behaves the same as <see cref="GetData"/>) unless the resource was initialized with dictionary type <see cref="ResourceDictionaryType.ChangeTracking"/>.</remarks>
+        /// <returns></returns>
         public IDictionary<string, object> GetModifiedData()
         {
             if (_data is DefaultChangeTrackingDictionary changeTrackingDictionary)
@@ -66,61 +93,66 @@ namespace Okta.Sdk
             return GetData();
         }
 
-        public object this[string key]
+        /// <summary>
+        /// Gets or sets a resource proprety by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value, or<c>null</c>.</returns>
+        public object this[string name]
         {
-            get => GetProperty<object>(key);
-            set => SetProperty(key, value);
+            get => GetProperty<object>(name);
+            set => SetProperty(name, value);
         }
 
         /// <summary>
-        /// Gets a property from the API resource.
+        /// Gets a resource property by name.
         /// </summary>
-        /// <remarks>In derived classes, use the more specific methods such as <see cref="GetStringProperty(string)"/> and <see cref="GetIntProperty(string)"/> instead.</remarks>
+        /// <remarks>In derived classes, use the more specific methods such as <see cref="GetStringProperty(string)"/> and <see cref="GetIntegerProperty(string)"/> instead.</remarks>
         /// <typeparam name="T">The property type.</typeparam>
-        /// <param name="key">The property name.</param>
+        /// <param name="name">The property name.</param>
         /// <returns>The strongly-typed property value, or <c>null</c>.</returns>
-        public T GetProperty<T>(string key)
+        public T GetProperty<T>(string name)
         {
             var typeInfo = typeof(T).GetTypeInfo();
 
             if (ResourceTypeInfo.IsAssignableFrom(typeInfo))
             {
-                return GetResourcePropertyInternal<T>(key);
+                return GetResourcePropertyInternal<T>(name);
             }
 
             if (StringEnumTypeInfo.IsAssignableFrom(typeInfo))
             {
-                return GetEnumPropertyInternal<T>(key);
+                return GetEnumPropertyInternal<T>(name);
             }
 
             if (typeof(T) == typeof(object))
             {
-                return (T)GetPropertyOrNull(key);
+                return (T)GetPropertyOrNull(name);
             }
 
             if (typeof(T) == typeof(string))
             {
-                return (T)(object)GetStringProperty(key);
+                return (T)(object)GetStringProperty(name);
             }
 
             if (typeof(T) == typeof(bool?))
             {
-                return (T)(object)GetBooleanProperty(key);
+                return (T)(object)GetBooleanProperty(name);
             }
 
             if (typeof(T) == typeof(int?))
             {
-                return (T)(object)GetIntegerProperty(key);
+                return (T)(object)GetIntegerProperty(name);
             }
 
             if (typeof(T) == typeof(long?))
             {
-                return (T)(object)GetLongProperty(key);
+                return (T)(object)GetLongProperty(name);
             }
 
             if (typeof(T) == typeof(DateTimeOffset?))
             {
-                return (T)(object)GetDateTimeProperty(key);
+                return (T)(object)GetDateTimeProperty(name);
             }
 
             if (typeof(T) == typeof(DateTime?))
@@ -128,7 +160,7 @@ namespace Okta.Sdk
                 throw new InvalidOperationException("Use DateTimeOffset instead.");
             }
 
-            var propertyData = GetPropertyOrNull(key);
+            var propertyData = GetPropertyOrNull(name);
             if (propertyData == null)
             {
                 return default(T);
@@ -143,30 +175,41 @@ namespace Okta.Sdk
             return value;
         }
 
-        public void SetProperty(string key, object value)
+        internal void SetProperty(string name, object value)
         {
             switch (value)
             {
                 case Resource resource:
-                    SetProperty(key, resource?._data);
+                    SetProperty(name, resource?._data);
                     break;
 
                 case StringEnum @enum:
-                    SetProperty(key, @enum?.Value);
+                    SetProperty(name, @enum?.Value);
                     break;
 
                 default:
-                    _data[key] = value;
+                    _data[name] = value;
                     break;
             }
         }
 
-        protected string GetStringProperty(string key)
-            => GetPropertyOrNull(key)?.ToString();
+        /// <summary>
+        /// Gets a <see cref="string"/> property from the resource by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value as a <see cref="string"/>, or <c>null</c>.</returns>
+        protected string GetStringProperty(string name)
+            => GetPropertyOrNull(name)?.ToString();
 
-        protected bool? GetBooleanProperty(string key)
+        /// <summary>
+        /// Gets a <see cref="bool"/> property from the resource by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value as a <see cref="bool"/>, or <c>null</c>.</returns>
+        /// <exception cref="FormatException">The value is not equal to the value of the <see cref="bool.TrueString"/> or <see cref="bool.FalseString"/> field.</exception>
+        protected bool? GetBooleanProperty(string name)
         {
-            var raw = GetStringProperty(key);
+            var raw = GetStringProperty(name);
             if (raw == null)
             {
                 return null;
@@ -175,9 +218,16 @@ namespace Okta.Sdk
             return bool.Parse(raw);
         }
 
-        protected int? GetIntegerProperty(string key)
+        /// <summary>
+        /// Gets an <see cref="int"/> property from the resource by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value as an <see cref="int"/>, or <c>null</c>.</returns>
+        /// <exception cref="FormatException">The value is not in the correct format.</exception>
+        /// <exception cref="OverflowException">The value represents a number less than <see cref="int.MinValue"/> or greater than <see cref="int.MaxValue"/>.</exception>
+        protected int? GetIntegerProperty(string name)
         {
-            var raw = GetStringProperty(key);
+            var raw = GetStringProperty(name);
             if (raw == null)
             {
                 return null;
@@ -186,9 +236,16 @@ namespace Okta.Sdk
             return int.Parse(raw);
         }
 
-        protected long? GetLongProperty(string key)
+        /// <summary>
+        /// Gets a <see cref="long"/> property from the resource by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value as a <see cref="long"/>, or <c>null</c>.</returns>
+        /// <exception cref="FormatException">The value is not in the correct format.</exception>
+        /// <exception cref="OverflowException">The value represents a number less than <see cref="long.MinValue"/> or greater than <see cref="long.MaxValue"/>.</exception>
+        protected long? GetLongProperty(string name)
         {
-            var raw = GetStringProperty(key);
+            var raw = GetStringProperty(name);
             if (raw == null)
             {
                 return null;
@@ -197,9 +254,19 @@ namespace Okta.Sdk
             return long.Parse(raw);
         }
 
-        protected DateTimeOffset? GetDateTimeProperty(string key)
+        /// <summary>
+        /// Gets a datetime property from the resource by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value as a <see cref="DateTimeOffset"/>, or <c>null</c>.</returns>
+        /// <exception cref="ArgumentException">The offset is greater than 14 hours or less than -14 hours.</exception>
+        /// <exception cref="FormatException">
+        /// The value does not contain a valid string representation of a date and time, or the value
+        /// contains the string representation of an offset value without a date or time.
+        /// </exception>
+        protected DateTimeOffset? GetDateTimeProperty(string name)
         {
-            var raw = GetStringProperty(key);
+            var raw = GetStringProperty(name);
             if (raw == null)
             {
                 return null;
@@ -208,9 +275,15 @@ namespace Okta.Sdk
             return DateTimeOffset.Parse(raw);
         }
 
-        public IList<T> GetArrayProperty<T>(string key)
+        /// <summary>
+        /// Gets a list or array property from the resource by name.
+        /// </summary>
+        /// <typeparam name="T">The type of items contained in the list or array.</typeparam>
+        /// <param name="name">The property name.</param>
+        /// <returns>A <see cref="IList{T}">list</see> that can be enumerated to obtain the property items.</returns>
+        public IList<T> GetArrayProperty<T>(string name)
         {
-            var genericList = GetPropertyOrNull(key) as IList<object>;
+            var genericList = GetPropertyOrNull(name) as IList<object>;
             if (genericList == null)
             {
                 return null;
@@ -219,24 +292,44 @@ namespace Okta.Sdk
             return new CastingListAdapter<T>(genericList, _logger);
         }
 
-        protected TEnum GetEnumProperty<TEnum>(string key)
+        /// <summary>
+        /// Gets a string enum property from the resource by name.
+        /// </summary>
+        /// <typeparam name="TEnum">The enum type.</typeparam>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value wrapped in the specified enum type, or <c>null</c>.</returns>
+        /// <exception cref="OktaException">The enum type could not be created.</exception>
+        protected TEnum GetEnumProperty<TEnum>(string name)
             where TEnum : StringEnum
-            => GetEnumPropertyInternal<TEnum>(key);
+            => GetEnumPropertyInternal<TEnum>(name);
 
-        private TEnum GetEnumPropertyInternal<TEnum>(string key)
+        private TEnum GetEnumPropertyInternal<TEnum>(string name)
         {
-            var raw = GetStringProperty(key);
+            var raw = GetStringProperty(name);
             if (raw == null)
             {
                 return default(TEnum); // null
             }
 
-            return (TEnum)Activator.CreateInstance(typeof(TEnum), raw);
+            try
+            {
+                return (TEnum)Activator.CreateInstance(typeof(TEnum), raw);
+            }
+            catch (Exception ex)
+            {
+                throw new OktaException($"Could not create an enum of type {typeof(TEnum).Name}. See the inner exception for details.", ex);
+            }
         }
 
-        protected T GetResourceProperty<T>(string key)
+        /// <summary>
+        /// Gets an embedded resource property by name.
+        /// </summary>
+        /// <typeparam name="T">The type of the embedded resource.</typeparam>
+        /// <param name="name">The property name.</param>
+        /// <returns>The embedded resource, or <c>null</c>.</returns>
+        protected T GetResourceProperty<T>(string name)
             where T : Resource, new()
-            => GetResourcePropertyInternal<T>(key);
+            => GetResourcePropertyInternal<T>(name);
 
         private T GetResourcePropertyInternal<T>(string key)
         {

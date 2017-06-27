@@ -5,6 +5,9 @@
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Represents a User resource in the Okta API.
+    /// </summary>
     public sealed partial class User
     {
         // TODO add custom methods here.

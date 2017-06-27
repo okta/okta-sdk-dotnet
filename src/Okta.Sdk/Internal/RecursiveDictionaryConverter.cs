@@ -16,14 +16,17 @@ namespace Okta.Sdk.Internal
     /// </summary>
     public sealed class RecursiveDictionaryConverter : CustomCreationConverter<IDictionary<string, object>>
     {
+        /// <inheritdoc/>
         public override IDictionary<string, object> Create(Type objectType)
             => new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
 
+        /// <inheritdoc/>
         public override bool CanConvert(Type objectType)
             // We want to handle explicit objects and
             // also nested objects (which might be dictionaries)
             => objectType == typeof(object); // || base.CanConvert(objectType);
 
+        /// <inheritdoc/>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {
             // Deserialize nested objects as dictionaries

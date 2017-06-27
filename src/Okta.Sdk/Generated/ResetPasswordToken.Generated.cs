@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a ResetPasswordToken resource in the Okta API.</summary>
     public sealed partial class ResetPasswordToken : Resource, IResetPasswordToken
     {
         public string ResetPasswordUrl => GetStringProperty("resetPasswordUrl");

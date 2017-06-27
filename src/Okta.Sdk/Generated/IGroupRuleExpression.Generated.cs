@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for GroupRuleExpression resources.</summary>
     public partial interface IGroupRuleExpression
     {
         string Type { get; set; }
