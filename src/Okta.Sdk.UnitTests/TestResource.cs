@@ -10,7 +10,7 @@ namespace Okta.Sdk.UnitTests
     public class TestResource : Resource
     {
         public TestResource()
-            : base(ResourceDictionaryType.ChangeTracking)
+            : base(ResourceBehavior.ChangeTracking)
         {
         }
 

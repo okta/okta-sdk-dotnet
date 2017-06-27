@@ -35,7 +35,7 @@ namespace Okta.Sdk.Internal
         /// <value>
         /// The set of query parameters to send with the request.
         /// </value>
-        public IEnumerable<KeyValuePair<string, object>> QueryParams { get; set; }
+        public IEnumerable<KeyValuePair<string, object>> QueryParameters { get; set; }
             = Enumerable.Empty<KeyValuePair<string, object>>();
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Okta.Sdk.Internal
         /// <value>
         /// The set of path parameters to apply to the request URI.
         /// </value>
-        public IEnumerable<KeyValuePair<string, object>> PathParams { get; set; }
+        public IEnumerable<KeyValuePair<string, object>> PathParameters { get; set; }
             = Enumerable.Empty<KeyValuePair<string, object>>();
     }
 }

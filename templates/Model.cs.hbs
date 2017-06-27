@@ -19,7 +19,7 @@ namespace Okta.Sdk
     {
         {{#if supportsPartialUpdates}}
         public {{modelName}}()
-            : base(ResourceDictionaryType.ChangeTracking)
+            : base(ResourceBehavior.ChangeTracking)
         {
         }
         {{/if}}

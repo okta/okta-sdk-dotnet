@@ -28,7 +28,7 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar/{id}/test",
-                PathParams = new Dictionary<string, object>()
+                PathParameters = new Dictionary<string, object>()
                 {
                     ["id"] = "abc123",
                 },
@@ -45,7 +45,7 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar/{one}",
-                PathParams = new Dictionary<string, object>()
+                PathParameters = new Dictionary<string, object>()
                 {
                     ["one"] = 1,
                     ["two"] = 2,
@@ -63,7 +63,7 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar",
-                QueryParams = new Dictionary<string, object>()
+                QueryParameters = new Dictionary<string, object>()
                 {
                     ["create"] = true,
                     ["id"] = 1234,
@@ -81,7 +81,7 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar?existing=stuff",
-                QueryParams = new Dictionary<string, object>()
+                QueryParameters = new Dictionary<string, object>()
                 {
                     ["strings"] = "things",
                 },
@@ -98,7 +98,7 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar",
-                QueryParams = new Dictionary<string, object>()
+                QueryParameters = new Dictionary<string, object>()
                 {
                     ["q"] = "Encoding works?",
                 },
@@ -115,11 +115,11 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar/{id}?limit=1",
-                PathParams = new Dictionary<string, object>()
+                PathParameters = new Dictionary<string, object>()
                 {
                     ["id"] = "xyz789",
                 },
-                QueryParams = new Dictionary<string, object>()
+                QueryParameters = new Dictionary<string, object>()
                 {
                     ["create"] = true,
                 },

@@ -28,7 +28,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users",
             
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["q"] = q,
                 ["after"] = after,
@@ -46,7 +46,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users",
             Payload = user,
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["activate"] = activate,
                 ["provider"] = provider,
@@ -59,7 +59,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -71,7 +71,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -83,7 +83,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}",
             Payload = user,
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -95,11 +95,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/appLinks",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["showAll"] = showAll,
             },
@@ -111,7 +111,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/credentials/change_password",
             Payload = changePasswordRequest,
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -123,7 +123,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/credentials/change_recovery_question",
             Payload = userCredentials,
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -135,11 +135,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/credentials/forgot_password",
             Payload = userCredentials,
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["sendEmail"] = sendEmail,
             },
@@ -151,11 +151,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/groups",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["after"] = after,
                 ["limit"] = limit,
@@ -168,11 +168,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/activate",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["sendEmail"] = sendEmail,
             },
@@ -184,7 +184,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/deactivate",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -196,11 +196,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/expire_password",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["tempPassword"] = tempPassword,
             },
@@ -212,7 +212,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/reset_factors",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -224,11 +224,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/reset_password",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["provider"] = provider,
                 ["sendEmail"] = sendEmail,
@@ -241,7 +241,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/suspend",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -253,7 +253,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/unlock",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -265,7 +265,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/lifecycle/unsuspend",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -277,11 +277,11 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/roles",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["expand"] = expand,
             },
@@ -293,7 +293,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/roles",
             Payload = role,
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
             },
@@ -305,7 +305,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
                 ["roleId"] = roleId,
@@ -318,12 +318,12 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
                 ["roleId"] = roleId,
             },
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 ["after"] = after,
                 ["limit"] = limit,
@@ -336,7 +336,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId}",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
                 ["roleId"] = roleId,
@@ -350,7 +350,7 @@ namespace Okta.Sdk
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId}",
             
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 ["userId"] = userId,
                 ["roleId"] = roleId,

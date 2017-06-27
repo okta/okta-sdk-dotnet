@@ -65,7 +65,7 @@ namespace Okta.Sdk
             Uri = "{{path}}",
             {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}
             {{#if pathParams}}
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 {{#each pathParams}}
                 ["{{name}}"] = {{name}},
@@ -73,7 +73,7 @@ namespace Okta.Sdk
             },
             {{/if}}
             {{#if queryParams}}
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 {{#each queryParams}}
                 ["{{name}}"] = {{name}},
@@ -87,7 +87,7 @@ namespace Okta.Sdk
             Uri = "{{path}}",
             {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}
             {{#if pathParams}}
-            PathParams = new Dictionary<string, object>()
+            PathParameters = new Dictionary<string, object>()
             {
                 {{#each pathParams}}
                 ["{{name}}"] = {{name}},
@@ -95,7 +95,7 @@ namespace Okta.Sdk
             },
             {{/if}}
             {{#if queryParams}}
-            QueryParams = new Dictionary<string, object>()
+            QueryParameters = new Dictionary<string, object>()
             {
                 {{#each queryParams}}
                 ["{{name}}"] = {{name}},
