@@ -75,7 +75,7 @@ namespace Okta.Sdk.UnitTests
 
             resource.GetProperty<string>("foo").Should().BeNull();
 
-            resource.SetProperty("foo", "bar");
+            resource["foo"] = "bar";
             resource.GetProperty<string>("foo").Should().Be("bar");
         }
 
@@ -106,7 +106,7 @@ namespace Okta.Sdk.UnitTests
 
             resource.GetProperty<bool?>("foo").Should().BeNull();
 
-            resource.SetProperty("foo", true);
+            resource["foo"] = true;
             resource.GetProperty<bool?>("foo").Should().BeTrue();
         }
 
@@ -137,7 +137,7 @@ namespace Okta.Sdk.UnitTests
 
             resource.GetProperty<int?>("foo").Should().BeNull();
 
-            resource.SetProperty("foo", 12345);
+            resource["foo"] = 12345;
             resource.GetProperty<int?>("foo").Should().Be(12345);
         }
 
@@ -168,7 +168,7 @@ namespace Okta.Sdk.UnitTests
 
             resource.GetProperty<long?>("foo").Should().BeNull();
 
-            resource.SetProperty("foo", 123456789000);
+            resource["foo"] = 123456789000;
             resource.GetProperty<long?>("foo").Should().Be(123456789000);
         }
 
@@ -199,7 +199,7 @@ namespace Okta.Sdk.UnitTests
 
             resource.GetProperty<DateTimeOffset?>("foo").Should().BeNull();
 
-            resource.SetProperty("foo", new DateTimeOffset(2015, 12, 27, 20, 15, 00, TimeSpan.FromHours(-6)));
+            resource["foo"] = new DateTimeOffset(2015, 12, 27, 20, 15, 00, TimeSpan.FromHours(-6));
             resource.GetProperty<DateTimeOffset?>("foo").Should().Be(new DateTimeOffset(2015, 12, 27, 20, 15, 00, TimeSpan.FromHours(-6)));
         }
 
@@ -228,7 +228,7 @@ namespace Okta.Sdk.UnitTests
 
             var things = new[] { "favorite", "strings" }.AsEnumerable();
 
-            resource.SetProperty("foo", things);
+            resource["foo"] = things;
             resource.GetArrayProperty<string>("foo").Should().BeEquivalentTo("favorite", "strings");
         }
 
@@ -260,7 +260,7 @@ namespace Okta.Sdk.UnitTests
 
             resource.GetProperty<UserStatus>("foo").Should().BeNull();
 
-            resource.SetProperty("foo", UserStatus.PasswordExpired);
+            resource["foo"] = UserStatus.PasswordExpired;
             resource.GetProperty<UserStatus>("foo").Should().Be(UserStatus.PasswordExpired);
         }
 

@@ -16,7 +16,8 @@
       "variables": {
         "licenseName": "Apache 2.0",
         "licenseFile": "LICENSE"
-      }
+      },
+      "documentInternalElements": false
     }
   }
 }

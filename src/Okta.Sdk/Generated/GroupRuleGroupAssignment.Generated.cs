@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a GroupRuleGroupAssignment resource in the Okta API.</summary>
     public sealed partial class GroupRuleGroupAssignment : Resource, IGroupRuleGroupAssignment
     {
         public IList<string> GroupIds

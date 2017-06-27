@@ -8,8 +8,16 @@ using System.Linq;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Parses Web Links according to <a href="https://tools.ietf.org/html/rfc5988">RFC 5988</a>.
+    /// </summary>
     public static class LinkHeaderParser
     {
+        /// <summary>
+        /// Parses a set of header values to <see cref="WebLink"/>s.
+        /// </summary>
+        /// <param name="headerValues">The HTTP header values to parse.</param>
+        /// <returns>Any Web Links found in the headers.</returns>
         public static IEnumerable<WebLink> Parse(params string[] headerValues)
         {
             if (headerValues == null || headerValues.Length == 0)
@@ -66,6 +74,11 @@ namespace Okta.Sdk.Internal
             }
         }
 
+        /// <summary>
+        /// Parses a set of header values to <see cref="WebLink"/>s.
+        /// </summary>
+        /// <param name="headerValues">The HTTP header values to parse.</param>
+        /// <returns>Any Web Links found in the headers.</returns>
         public static IEnumerable<WebLink> Parse(IEnumerable<string> headerValues)
             => Parse(headerValues.ToArray());
     }

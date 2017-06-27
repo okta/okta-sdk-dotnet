@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for ChangePasswordRequest resources.</summary>
     public partial interface IChangePasswordRequest
     {
         PasswordCredential NewPassword { get; set; }

@@ -26,6 +26,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard1.4\Okta.Sdk.xml</DocumentationFile>
   </PropertyGroup>
 </Project>

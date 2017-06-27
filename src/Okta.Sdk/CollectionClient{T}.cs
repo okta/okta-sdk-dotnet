@@ -9,12 +9,21 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// A remote collection of <see cref="Resource">Resources</see> that can be enumerated asynchronously.
+    /// </summary>
+    /// <typeparam name="T">The <see cref="Resource"/> type in the collection.</typeparam>
     public sealed class CollectionClient<T> : IAsyncEnumerable<T>
         where T : Resource, new()
     {
         private readonly IDataStore _dataStore;
         private readonly HttpRequest _initialRequest;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CollectionClient{T}"/> class.
+        /// </summary>
+        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see>.</param>
+        /// <param name="initialRequest">The initial HTTP request options.</param>
         public CollectionClient(
             IDataStore dataStore,
             HttpRequest initialRequest)
@@ -23,6 +32,7 @@ namespace Okta.Sdk
             _initialRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
         }
 
+        /// <inheritdoc/>
         public IAsyncEnumerator<T> GetEnumerator()
             => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest);
     }

@@ -17,13 +17,13 @@ namespace Okta.Sdk.UnitTests
         public string Foo
         {
             get => GetStringProperty("foo");
-            set => SetProperty("foo", value);
+            set => this["foo"] = value;
         }
 
         public bool? Bar
         {
             get => GetBooleanProperty("bar");
-            set => SetProperty("bar", value);
+            set => this["bar"] = value;
         }
     }
 }

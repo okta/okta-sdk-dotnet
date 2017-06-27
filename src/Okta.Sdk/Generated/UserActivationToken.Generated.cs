@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a UserActivationToken resource in the Okta API.</summary>
     public sealed partial class UserActivationToken : Resource, IUserActivationToken
     {
         public string ActivationToken => GetStringProperty("activationToken");

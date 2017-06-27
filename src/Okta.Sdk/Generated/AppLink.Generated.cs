@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a AppLink resource in the Okta API.</summary>
     public sealed partial class AppLink : Resource, IAppLink
     {
         public string AppAssignmentId => GetStringProperty("appAssignmentId");

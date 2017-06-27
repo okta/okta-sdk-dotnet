@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a GroupProfile resource in the Okta API.</summary>
     public sealed partial class GroupProfile : Resource, IGroupProfile
     {
         public string Description

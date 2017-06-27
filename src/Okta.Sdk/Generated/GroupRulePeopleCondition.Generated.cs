@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a GroupRulePeopleCondition resource in the Okta API.</summary>
     public sealed partial class GroupRulePeopleCondition : Resource, IGroupRulePeopleCondition
     {
         public GroupRuleGroupCondition Groups

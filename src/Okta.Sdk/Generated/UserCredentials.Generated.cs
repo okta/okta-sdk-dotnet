@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a UserCredentials resource in the Okta API.</summary>
     public sealed partial class UserCredentials : Resource, IUserCredentials
     {
         public PasswordCredential Password

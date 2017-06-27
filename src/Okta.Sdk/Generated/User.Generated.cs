@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a User resource in the Okta API.</summary>
     public sealed partial class User : Resource, IUser
     {
         public User()

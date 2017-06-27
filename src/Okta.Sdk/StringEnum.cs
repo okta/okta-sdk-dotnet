@@ -66,7 +66,7 @@ namespace Okta.Sdk
         }
 
         /// <summary>
-        /// Compares two <see cref="StringEnumeration"/> instances for value inequality, ignoring case.
+        /// Compares two <see cref="StringEnum"/> instances for value inequality, ignoring case.
         /// </summary>
         /// <param name="x">The left operand.</param>
         /// <param name="y">The right operand.</param>

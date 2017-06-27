@@ -9,23 +9,32 @@ using Newtonsoft.Json;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// The default implementation of <see cref="ISerializer"/> that uses JSON.NET.
+    /// </summary>
     public sealed class DefaultSerializer : ISerializer
     {
         private const string EmptyObject = "{ }";
         private readonly JsonSerializer _serializer;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultSerializer"/> class.
+        /// </summary>
         public DefaultSerializer()
         {
             _serializer = new JsonSerializer();
             _serializer.Converters.Add(new RecursiveDictionaryConverter());
         }
 
+        /// <inheritdoc/>
         public IDictionary<string, object> Deserialize(string json)
             => Deserialize<IDictionary<string, object>>(json);
 
+        /// <inheritdoc/>
         public IEnumerable<IDictionary<string, object>> DeserializeArray(string json)
             => Deserialize<IDictionary<string, object>[]>(json);
 
+        /// <inheritdoc/>
         public string Serialize(object model)
         {
             using (var writer = new StringWriter())

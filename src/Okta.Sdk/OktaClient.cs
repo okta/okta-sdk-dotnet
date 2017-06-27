@@ -15,13 +15,28 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// A client that communicates with the Okta management API.
+    /// </summary>
     public partial class OktaClient : IOktaClient
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// </summary>
+        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
         protected OktaClient(IDataStore dataStore)
         {
             DataStore = dataStore;
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// </summary>
+        /// <param name="apiClientConfiguration">The client configuration.</param>
+        /// <param name="logger">The logging interface.</param>
+        /// <remarks>
+        /// Configuration can also be specified with a YAML file, or by environment variables.
+        /// </remarks>
         public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null)
         {
             var compiled = CompileFromConfigurationSources(apiClientConfiguration);
@@ -68,6 +83,12 @@ namespace Okta.Sdk
             }
         }
 
+        /// <summary>
+        /// Gets the <see cref="IDataStore">DataStore</see> used by this client.
+        /// </summary>
+        /// <value>
+        /// The <see cref="IDataStore">DataStore</see> used by this client.
+        /// </value>
         public IDataStore DataStore { get; }
 
         /// <inheritdoc/>

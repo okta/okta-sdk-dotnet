@@ -9,8 +9,17 @@ using System.Text;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Contains helper methods for URL formatting.
+    /// </summary>
     public static class UrlFormatter
     {
+        /// <summary>
+        /// Encodes values using URL encoding rules.
+        /// </summary>
+        /// <param name="value">The value to encode.</param>
+        /// <returns>A URL encoded string.</returns>
+        /// <remarks>Wraps built-in URL encoding functionality with existing logic.</remarks>
         public static string Encode(object value)
         {
             if (value == null)
@@ -28,6 +37,11 @@ namespace Okta.Sdk.Internal
             return WebUtility.UrlEncode(value.ToString());
         }
 
+        /// <summary>
+        /// Applies path parameters to a URL template.
+        /// </summary>
+        /// <param name="request">The HTTP request options.</param>
+        /// <returns>A URL with template variables replaced with matching path parameters.</returns>
         public static string ApplyParametersToPath(HttpRequest request)
         {
             var updatedPath = new StringBuilder(request.Uri);

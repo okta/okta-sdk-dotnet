@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for PasswordCredential resources.</summary>
     public partial interface IPasswordCredential
     {
         string Value { get; set; }

@@ -13,6 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Contains the method contract for GroupRuleUserCondition resources.</summary>
     public partial interface IGroupRuleUserCondition
     {
         IList<string> Exclude { get; set; }

@@ -5,9 +5,19 @@
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// The types of dictionary behaviors supported by <see cref="Resource"/>s.
+    /// </summary>
     public enum ResourceDictionaryType
     {
+        /// <summary>
+        /// Default behavior (no change tracking).
+        /// </summary>
         Default = 0,
+
+        /// <summary>
+        /// The resource should track internal changes.
+        /// </summary>
         ChangeTracking = 1
     }
 }

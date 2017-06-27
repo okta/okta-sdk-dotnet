@@ -7,6 +7,9 @@ using System.Collections.Generic;
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Provides methods that manipulate Group resources, by communicating with the Okta Groups API.
+    /// </summary>
     public sealed partial class GroupClient : OktaClient, IGroupClient, IAsyncEnumerable<Group>
     {
         /// <inheritdoc/>

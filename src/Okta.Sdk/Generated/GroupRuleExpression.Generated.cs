@@ -14,6 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a GroupRuleExpression resource in the Okta API.</summary>
     public sealed partial class GroupRuleExpression : Resource, IGroupRuleExpression
     {
         public string Type
