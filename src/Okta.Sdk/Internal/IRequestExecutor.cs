@@ -13,6 +13,8 @@ namespace Okta.Sdk.Internal
     /// </summary>
     public interface IRequestExecutor
     {
+        string OrgUrl { get; }
+        
         /// <summary>
         /// Sends a GET request to the specified <paramref name="href"/>.
         /// </summary>

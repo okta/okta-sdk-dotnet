@@ -129,5 +129,23 @@ namespace Okta.Sdk.UnitTests
 
             updatedPath.Should().Be("/foobar/xyz789?limit=1&create=true");
         }
+
+        [Fact]
+        public void IgnoreNullQueryParameters()
+        {
+            var request = new HttpRequest
+            {
+                Uri = "/foobar",
+                QueryParams = new Dictionary<string, object>()
+                {
+                    ["strings"] = "things",
+                    ["other"] = null,
+                },
+            };
+
+            var updatedPath = UrlFormatter.ApplyParametersToPath(request);
+
+            updatedPath.Should().Be("/foobar?strings=things");
+        }
     }
 }

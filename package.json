@@ -4,7 +4,8 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "generate": "okta-sdk-generator -o src/Okta.Sdk/ -t templates"
+    "generate": "okta-sdk-generator -o src/Okta.Sdk/ -t templates",
+    "test-server": "node test-server.js"
   },
   "repository": {
     "type": "git",

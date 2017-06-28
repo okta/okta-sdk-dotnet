@@ -27,6 +27,8 @@ namespace Okta.Sdk.Internal
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
 
+        public string OrgUrl => _orgUrl;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
         /// </summary>
@@ -160,7 +162,7 @@ namespace Okta.Sdk.Internal
             }
         }
 
-        private IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
+        private static IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
             => response.Headers.Concat(response.Content.Headers);
 
         /// <inheritdoc/>
@@ -184,7 +186,7 @@ namespace Okta.Sdk.Internal
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
-            request.Content = new StringContent(body, System.Text.Encoding.UTF8);
+            request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
             return SendAsync(request, cancellationToken);
         }
 
@@ -194,7 +196,7 @@ namespace Okta.Sdk.Internal
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
-            request.Content = new StringContent(body, System.Text.Encoding.UTF8);
+            request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
             return SendAsync(request, cancellationToken);
         }
 
