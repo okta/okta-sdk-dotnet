@@ -14,6 +14,8 @@ namespace Okta.Sdk.UnitTests
     {
         private readonly string _returnThis;
 
+        public string OrgUrl => throw new NotImplementedException();
+
         public MockedStringRequestExecutor(string returnThis)
         {
             _returnThis = returnThis ?? throw new ArgumentNullException(nameof(returnThis));

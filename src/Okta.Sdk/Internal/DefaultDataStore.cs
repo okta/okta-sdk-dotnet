@@ -81,25 +81,27 @@ namespace Okta.Sdk.Internal
                 throw new InvalidOperationException("The response from the RequestExecutor was null.");
             }
 
-            if (response.StatusCode != 200)
+            if (response.StatusCode >= 200 && response.StatusCode < 300)
             {
-                IDictionary<string, object> errorData = null;
-
-                try
-                {
-                    errorData = _serializer.Deserialize(PayloadOrEmpty(response));
-                    if (errorData == null)
-                    {
-                        throw new Exception("The error data was null.");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    throw new InvalidOperationException($"An error occurred deserializing the error body for response code {response.StatusCode}. See the inner exception for details.", ex);
-                }
-
-                throw new OktaApiException(response.StatusCode, _resourceFactory.CreateNew<Resource>(errorData));
+                return;
             }
+
+            IDictionary<string, object> errorData = null;
+
+            try
+            {
+                errorData = _serializer.Deserialize(PayloadOrEmpty(response));
+                if (errorData == null)
+                {
+                    throw new Exception("The error data was null.");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new InvalidOperationException($"An error occurred deserializing the error body for response code {response.StatusCode}. See the inner exception for details.", ex);
+            }
+
+            throw new OktaApiException(response.StatusCode, _resourceFactory.CreateNew<Resource>(errorData));
         }
 
         /// <inheritdoc/>
