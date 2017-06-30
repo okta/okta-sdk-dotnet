@@ -76,19 +76,24 @@ namespace Okta.Sdk.IntegrationTests
                 Activate = false,
             });
 
-            // Retrieve by ID
-            var retrievedById = await client.Users.GetUserAsync(createdUser.Id); // todo: Get(string)?
-            retrievedById.Profile.FirstName.Should().Be("John");
-            retrievedById.Profile.LastName.Should().Be("Get-User");
+            try
+            {
+                // Retrieve by ID
+                var retrievedById = await client.Users.GetUserAsync(createdUser.Id); // todo: Get(string)?
+                retrievedById.Profile.FirstName.Should().Be("John");
+                retrievedById.Profile.LastName.Should().Be("Get-User");
 
-            // Retrieve by login
-            var retrievedByLogin = await client.Users.GetUserAsync(createdUser.Profile.Login);
-            retrievedByLogin.Profile.FirstName.Should().Be("John");
-            retrievedByLogin.Profile.LastName.Should().Be("Get-User");
-
-            // Remove the user
-            await createdUser.DeactivateAsync();
-            await createdUser.DeactivateOrDeleteAsync();
+                // Retrieve by login
+                var retrievedByLogin = await client.Users.GetUserAsync(createdUser.Profile.Login);
+                retrievedByLogin.Profile.FirstName.Should().Be("John");
+                retrievedByLogin.Profile.LastName.Should().Be("Get-User");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
 
             // Getting by ID should result in 404 error
             await Assert.ThrowsAsync<OktaApiException>(
