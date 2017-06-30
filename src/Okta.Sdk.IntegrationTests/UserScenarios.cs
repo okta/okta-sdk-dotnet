@@ -38,6 +38,9 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
+                // this delay is to handle:
+                // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
+                // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
                 await Task.Delay(1000);
                 var foundUsers = await client
                     .Users
