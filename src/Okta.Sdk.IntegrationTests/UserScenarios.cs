@@ -205,5 +205,75 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeactivateOrDeleteAsync();
             }
         }
+
+        [Fact(Skip = "TODO")]
+        public async Task SuspendUser()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task ChangeUserPassword()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task GetResetPasswordUrl()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact]
+        public async Task ExpireUserPassword()
+        {
+            var client = GetClient("expire-password");
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Expire-Password",
+                    Email = "john-expire-password@example.com",
+                    Login = "john-expire-password@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                // Expire the user password
+                var tempPassword = await createdUser.ExpirePasswordAsync(tempPassword: true);
+
+                tempPassword.Password.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task ChangeUserRecoveryQuestion()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task AssignUserRole()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task UserGroupTargetRole()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
