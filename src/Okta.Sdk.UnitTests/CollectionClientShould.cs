@@ -35,7 +35,9 @@ namespace Okta.Sdk.UnitTests
                 NullLogger.Instance);
 
             var collection = new CollectionClient<User>(
-                dataStore, new HttpRequest { Uri = "http://mock-collection.dev" }, null);
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
 
             var count = await collection.Count();
         }
@@ -51,7 +53,9 @@ namespace Okta.Sdk.UnitTests
                 NullLogger.Instance);
 
             var collection = new CollectionClient<User>(
-                dataStore, new HttpRequest { Uri = "http://mock-collection.dev" }, null);
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
 
             var activeUsers = await collection.Where(x => x.Status == "ACTIVE").ToList();
             activeUsers.Count.Should().Be(2);
