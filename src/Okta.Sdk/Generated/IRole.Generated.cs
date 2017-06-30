@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Contains the method contract for Role resources.</summary>
+    /// <summary>Interface for <see cref="Role"/> resources.</summary>
     public partial interface IRole
     {
 

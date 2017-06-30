@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Contains the method contract for User clients.</summary>
+    /// <summary>Interface for clients that work with <see cref="User"/> resources.</summary>
     public partial interface IUserClient : IOktaClient
     {
         /// <summary>
