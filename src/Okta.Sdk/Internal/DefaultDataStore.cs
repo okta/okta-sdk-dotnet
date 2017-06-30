@@ -63,14 +63,14 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException(nameof(request));
             }
 
-            if (request.PathParams == null)
+            if (request.PathParameters == null)
             {
-                request.PathParams = Enumerable.Empty<KeyValuePair<string, object>>();
+                request.PathParameters = Enumerable.Empty<KeyValuePair<string, object>>();
             }
 
-            if (request.QueryParams == null)
+            if (request.QueryParameters == null)
             {
-                request.QueryParams = Enumerable.Empty<KeyValuePair<string, object>>();
+                request.QueryParameters = Enumerable.Empty<KeyValuePair<string, object>>();
             }
         }
 

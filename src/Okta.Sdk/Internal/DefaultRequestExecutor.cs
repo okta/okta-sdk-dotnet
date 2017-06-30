@@ -174,12 +174,6 @@ namespace Okta.Sdk.Internal
             return SendAsync(request, cancellationToken);
         }
 
-        public async Task<string> GetBodyAsync(string href, CancellationToken cancellationToken)
-        {
-            var response = await GetAsync(href, cancellationToken).ConfigureAwait(false);
-            return response.Payload;
-        }
-
         /// <inheritdoc/>
         public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
         {

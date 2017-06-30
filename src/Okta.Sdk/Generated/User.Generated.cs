@@ -18,7 +18,7 @@ namespace Okta.Sdk
     public sealed partial class User : Resource, IUser
     {
         public User()
-            : base(ResourceDictionaryType.ChangeTracking)
+            : base(ResourceBehavior.ChangeTracking)
         {
         }
 

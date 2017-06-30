@@ -46,12 +46,12 @@ namespace Okta.Sdk.Internal
         {
             var updatedPath = new StringBuilder(request.Uri);
 
-            foreach (var pathParam in request.PathParams)
+            foreach (var pathParam in request.PathParameters)
             {
                 updatedPath.Replace("{" + pathParam.Key + "}", pathParam.Value?.ToString());
             }
 
-            if (!request.QueryParams.Any())
+            if (!request.QueryParameters.Any())
             {
                 return updatedPath.ToString();
             }
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Internal
                 addedQuestionMark = true;
             }
 
-            foreach (var queryParam in request.QueryParams)
+            foreach (var queryParam in request.QueryParameters)
             {
                 if (queryParam.Value == null)
                 {

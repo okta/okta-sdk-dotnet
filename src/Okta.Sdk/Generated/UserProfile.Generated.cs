@@ -18,7 +18,7 @@ namespace Okta.Sdk
     public sealed partial class UserProfile : Resource, IUserProfile
     {
         public UserProfile()
-            : base(ResourceDictionaryType.ChangeTracking)
+            : base(ResourceBehavior.ChangeTracking)
         {
         }
         public string Email

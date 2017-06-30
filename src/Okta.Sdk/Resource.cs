@@ -20,7 +20,7 @@ namespace Okta.Sdk
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
         private static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
 
-        private readonly ResourceDictionaryType _dictionaryType;
+        private readonly ResourceBehavior _dictionaryType;
         private IDataStore _dataStore;
         private ResourceFactory _resourceFactory;
         private ILogger _logger;
@@ -31,7 +31,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <remarks>Uses the default dictionary type (non-change tracking).</remarks>
         public Resource()
-            : this(ResourceDictionaryType.Default)
+            : this(ResourceBehavior.Default)
         {
         }
 
@@ -39,13 +39,13 @@ namespace Okta.Sdk
         /// Initializes a new instance of the <see cref="Resource"/> class.
         /// </summary>
         /// <param name="dictionaryType">The dictionary type to use.</param>
-        public Resource(ResourceDictionaryType dictionaryType)
+        public Resource(ResourceBehavior dictionaryType)
         {
             _dictionaryType = dictionaryType;
             Initialize(null, null, null, null);
         }
 
-        internal ResourceDictionaryType DictionaryType => _dictionaryType;
+        internal ResourceBehavior DictionaryType => _dictionaryType;
 
         internal void Initialize(
             IDataStore dataStore,
@@ -73,7 +73,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <returns>The data backing this resource.</returns>
         /// <remarks>
-        /// If the resource is initialized with dictionary type <see cref="ResourceDictionaryType.ChangeTracking"/>, this returns any updates merged with the original data.
+        /// If the resource is initialized with dictionary type <see cref="ResourceBehavior.ChangeTracking"/>, this returns any updates merged with the original data.
         /// </remarks>
         public IDictionary<string, object> GetData()
             => _resourceFactory.NewDictionary(_dictionaryType, _data);
@@ -81,7 +81,7 @@ namespace Okta.Sdk
         /// <summary>
         /// Gets any data that has been modified since the resource was retrieved.
         /// </summary>
-        /// <remarks>This has no effect (behaves the same as <see cref="GetData"/>) unless the resource was initialized with dictionary type <see cref="ResourceDictionaryType.ChangeTracking"/>.</remarks>
+        /// <remarks>This has no effect (behaves the same as <see cref="GetData"/>) unless the resource was initialized with dictionary type <see cref="ResourceBehavior.ChangeTracking"/>.</remarks>
         /// <returns></returns>
         public IDictionary<string, object> GetModifiedData()
         {
