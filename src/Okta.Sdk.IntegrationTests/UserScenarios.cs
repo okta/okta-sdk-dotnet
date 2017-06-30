@@ -30,22 +30,31 @@ namespace Okta.Sdk.IntegrationTests
             };
             profile["nickName"] = "johny-list-users";
 
-            var user = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
                 Profile = profile,
                 Password = "Abcd1234",
             });
 
-            var foundUsers = await client
-                .Users
-                .ListUsers(search: $"profile.nickName eq \"{user.Profile.GetProperty<string>("nickName")}\"")
-                .ToArray();
+            try
+            {
+                // this delay is to handle:
+                // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
+                // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
+                await Task.Delay(1000);
+                var foundUsers = await client
+                    .Users
+                    .ListUsers(search: $"profile.nickName eq \"{createdUser.Profile.GetProperty<string>("nickName")}\"")
+                    .ToArray();
 
-            foundUsers.Length.Should().Be(1);
-            foundUsers.Single().Id.Should().Be(user.Id);
-
-            await user.DeactivateAsync();
-            await user.DeactivateOrDeleteAsync();
+                foundUsers.Length.Should().Be(1);
+                foundUsers.Single().Id.Should().Be(createdUser.Id);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
 
         [Fact]
@@ -105,16 +114,21 @@ namespace Okta.Sdk.IntegrationTests
                 Activate = false,
             });
 
-            // Activate the user
-            await createdUser.ActivateAsync(sendEmail: false);
+            try
+            {
+                // Activate the user
+                await createdUser.ActivateAsync(sendEmail: false);
 
-            // Verify user exists in list of active users
-            var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArray();
-            activeUsers.Should().Contain(u => u.Id == createdUser.Id);
-
-            // Remove the user
-            await createdUser.DeactivateAsync();
-            await createdUser.DeactivateOrDeleteAsync();
+                // Verify user exists in list of active users
+                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArray();
+                activeUsers.Should().Contain(u => u.Id == createdUser.Id);
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
 
         [Fact]
@@ -136,19 +150,24 @@ namespace Okta.Sdk.IntegrationTests
                 Activate = false,
             });
 
-            // Update profile
-            createdUser.Profile["nickName"] = "Batman";
+            try
+            {
+                // Update profile
+                createdUser.Profile["nickName"] = "Batman";
 
-            var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
-            // TODO: make this better
-            var retrievedUpdatedUser = await client.Users.GetUserAsync(createdUser.Id);
+                var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
+                // TODO: make this better
+                var retrievedUpdatedUser = await client.Users.GetUserAsync(createdUser.Id);
 
-            updatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
-            retrievedUpdatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
-
-            // Deactivate + delete
-            await createdUser.DeactivateAsync();
-            await createdUser.DeactivateOrDeleteAsync();
+                updatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
+                retrievedUpdatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
+            }
+            finally
+            {
+                // Deactivate + delete
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
     }
 }
