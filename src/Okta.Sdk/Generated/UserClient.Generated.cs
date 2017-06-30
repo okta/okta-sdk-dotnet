@@ -11,20 +11,26 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
     public sealed partial class UserClient : OktaClient, IUserClient
     {
-        public UserClient(IDataStore dataStore)
-            : base(dataStore)
+        // Remove parameterless constructor
+        private UserClient()
+        {
+        }
+
+        internal UserClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+            : base(dataStore, configuration, requestContext)
         {
         }
         
         /// <inheritdoc />
         public IAsyncEnumerable<User> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
-            => new CollectionClient<User>(DataStore, new HttpRequest
+            => GetCollectionClient<User>(new HttpRequest
         {
             Uri = "/api/v1/users",
             
@@ -91,7 +97,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<AppLink> ListAppLinks(string userId, bool? showAll = false)
-            => new CollectionClient<AppLink>(DataStore, new HttpRequest
+            => GetCollectionClient<AppLink>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/appLinks",
             
@@ -147,7 +153,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<Group> ListUserGroups(string userId, string after = null, int? limit = -1)
-            => new CollectionClient<Group>(DataStore, new HttpRequest
+            => GetCollectionClient<Group>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/groups",
             
@@ -273,7 +279,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<Role> ListAssignedRoles(string userId, string expand = null)
-            => new CollectionClient<Role>(DataStore, new HttpRequest
+            => GetCollectionClient<Role>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles",
             
@@ -314,7 +320,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<Group> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
-            => new CollectionClient<Group>(DataStore, new HttpRequest
+            => GetCollectionClient<Group>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups",
             

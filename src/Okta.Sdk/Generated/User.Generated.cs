@@ -56,66 +56,66 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<AppLink> ListAppLinks(bool? showAll = false, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ListAppLinks(Id, showAll);
+            => GetClient().Users.ListAppLinks(Id, showAll);
 
         /// <inheritdoc />
         public IAsyncEnumerable<Role> ListRoles(string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ListAssignedRoles(Id, expand);
+            => GetClient().Users.ListAssignedRoles(Id, expand);
 
         /// <inheritdoc />
         public Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
+            => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
 
         /// <inheritdoc />
         public IAsyncEnumerable<Group> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ListGroupTargetsForRole(Id, roleId, after, limit);
+            => GetClient().Users.ListGroupTargetsForRole(Id, roleId, after, limit);
 
         /// <inheritdoc />
         public Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).RemoveGroupTargetFromRoleAsync(Id, roleId, groupId, cancellationToken);
+            => GetClient().Users.RemoveGroupTargetFromRoleAsync(Id, roleId, groupId, cancellationToken);
 
         /// <inheritdoc />
         public Task AddGroupTargetToRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
+            => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
 
         /// <inheritdoc />
         public IAsyncEnumerable<Group> ListGroups(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ListUserGroups(Id, after, limit);
+            => GetClient().Users.ListUserGroups(Id, after, limit);
 
         /// <inheritdoc />
         public Task<UserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ActivateUserAsync(Id, sendEmail, cancellationToken);
+            => GetClient().Users.ActivateUserAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc />
         public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).DeactivateUserAsync(Id, cancellationToken);
+            => GetClient().Users.DeactivateUserAsync(Id, cancellationToken);
 
         /// <inheritdoc />
         public Task SuspendAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).SuspendUserAsync(Id, cancellationToken);
+            => GetClient().Users.SuspendUserAsync(Id, cancellationToken);
 
         /// <inheritdoc />
         public Task UnsuspendAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).UnsuspendUserAsync(Id, cancellationToken);
+            => GetClient().Users.UnsuspendUserAsync(Id, cancellationToken);
 
         /// <inheritdoc />
         public Task<ResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ResetPasswordAsync(Id, provider, sendEmail, cancellationToken);
+            => GetClient().Users.ResetPasswordAsync(Id, provider, sendEmail, cancellationToken);
 
         /// <inheritdoc />
         public Task<TempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ExpirePasswordAsync(Id, tempPassword, cancellationToken);
+            => GetClient().Users.ExpirePasswordAsync(Id, tempPassword, cancellationToken);
 
         /// <inheritdoc />
         public Task UnlockAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).UnlockUserAsync(Id, cancellationToken);
+            => GetClient().Users.UnlockUserAsync(Id, cancellationToken);
 
         /// <inheritdoc />
         public Task ResetFactorsAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ResetAllFactorsAsync(Id, cancellationToken);
+            => GetClient().Users.ResetAllFactorsAsync(Id, cancellationToken);
 
         /// <inheritdoc />
         public Task AddToGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => new GroupClient(GetDataStore()).AddUserToGroupAsync(groupId, Id, cancellationToken);
+            => GetClient().Groups.AddUserToGroupAsync(groupId, Id, cancellationToken);
     }
 }

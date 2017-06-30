@@ -28,7 +28,7 @@ namespace Okta.Sdk.IntegrationTests
                 return _defaultClient.Value;
             }
 
-            var configuredOrgUrl = _defaultClient.Value.DataStore.RequestExecutor.OrgUrl;
+            var configuredOrgUrl = _defaultClient.Value.Configuration.OrgUrl;
             var orgUrlWithScenarioName = $"{configuredOrgUrl}/{scenarioName}";
 
             return new OktaClient(new OktaClientConfiguration

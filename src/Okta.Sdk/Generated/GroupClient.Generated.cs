@@ -11,20 +11,26 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
     public sealed partial class GroupClient : OktaClient, IGroupClient
     {
-        public GroupClient(IDataStore dataStore)
-            : base(dataStore)
+        // Remove parameterless constructor
+        private GroupClient()
+        {
+        }
+
+        internal GroupClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+            : base(dataStore, configuration, requestContext)
         {
         }
         
         /// <inheritdoc />
         public IAsyncEnumerable<Group> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null)
-            => new CollectionClient<Group>(DataStore, new HttpRequest
+            => GetCollectionClient<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups",
             
@@ -48,7 +54,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<GroupRule> ListRules(int? limit = -1, string after = null)
-            => new CollectionClient<GroupRule>(DataStore, new HttpRequest
+            => GetCollectionClient<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules",
             
@@ -173,7 +179,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public IAsyncEnumerable<User> ListGroupUsers(string groupId, string after = null, int? limit = -1)
-            => new CollectionClient<User>(DataStore, new HttpRequest
+            => GetCollectionClient<User>(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}/users",
             

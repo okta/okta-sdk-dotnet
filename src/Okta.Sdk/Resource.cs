@@ -21,7 +21,7 @@ namespace Okta.Sdk
         private static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
 
         private readonly ResourceBehavior _dictionaryType;
-        private IDataStore _dataStore;
+        private IOktaClient _client;
         private ResourceFactory _resourceFactory;
         private ILogger _logger;
         private IDictionary<string, object> _data;
@@ -48,24 +48,20 @@ namespace Okta.Sdk
         internal ResourceBehavior DictionaryType => _dictionaryType;
 
         internal void Initialize(
-            IDataStore dataStore,
+            IOktaClient client,
             ResourceFactory resourceFactory,
             IDictionary<string, object> data,
             ILogger logger)
         {
-            _dataStore = dataStore;
-            _resourceFactory = resourceFactory ?? new ResourceFactory(dataStore, logger);
+            _client = client;
+            _resourceFactory = resourceFactory ?? new ResourceFactory(client, logger);
             _data = data ?? _resourceFactory.NewDictionary(_dictionaryType, null);
             _logger = logger ?? NullLogger.Instance;
         }
 
-        /// <summary>
-        /// Gets the <see cref="IDataStore">DataStore</see> used by this resource.
-        /// </summary>
-        /// <returns>The <see cref="IDataStore">DataStore</see> used by this resource.</returns>
-        protected IDataStore GetDataStore()
+        protected IOktaClient GetClient()
         {
-            return _dataStore ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object can call server-side methods.");
+            return _client ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object cna call server-side methods.");
         }
 
         /// <summary>

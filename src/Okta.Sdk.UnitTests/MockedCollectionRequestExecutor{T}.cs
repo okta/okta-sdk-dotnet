@@ -46,37 +46,37 @@ namespace Okta.Sdk.UnitTests
             return Task.FromResult(JsonConvert.SerializeObject(itemData));
         }
 
-        public async Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
+        public async Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-            var headers = new List<KeyValuePair<string, IEnumerable<string>>>
+            var responseHeaders = new List<KeyValuePair<string, IEnumerable<string>>>
             {
                 new KeyValuePair<string, IEnumerable<string>>("Link", new[] { $"<{BaseUrl}?page={_currentPage}>; rel=\"self\"" }),
             };
 
             if ((_currentPage + 1) * _pageSize < _items.Length)
             {
-                headers.Add(new KeyValuePair<string, IEnumerable<string>>("Link", new[] { $"<{BaseUrl}?page={_currentPage + 1}>; rel=\"next\"" }));
+                responseHeaders.Add(new KeyValuePair<string, IEnumerable<string>>("Link", new[] { $"<{BaseUrl}?page={_currentPage + 1}>; rel=\"next\"" }));
             }
 
             return new HttpResponse<string>
             {
                 StatusCode = 200,
-                Headers = headers,
+                Headers = responseHeaders,
                 Payload = await GetBodyAsync(href, cancellationToken),
             };
         }
 
-        public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<HttpResponse<string>> PutAsync(string href, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<HttpResponse<string>> DeleteAsync(string href, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

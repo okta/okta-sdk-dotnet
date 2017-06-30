@@ -34,7 +34,7 @@ namespace Okta.Sdk.UnitTests
                 },
             };
 
-            var factory = new ResourceFactory();
+            var factory = new ResourceFactory(null, null);
             var resource = factory.CreateNew<TestNestedResource>(data);
 
             resource.Should().NotBeNull();
@@ -60,7 +60,7 @@ namespace Okta.Sdk.UnitTests
                 },
             };
 
-            var factory = new ResourceFactory();
+            var factory = new ResourceFactory(null, null);
             var resource = factory.CreateNew<TestNestedResource>(data);
 
             resource.GetModifiedData().Count.Should().Be(0);

@@ -11,14 +11,20 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
     public sealed partial class {{tag}}Client : OktaClient, I{{tag}}Client
     {
-        public {{tag}}Client(IDataStore dataStore)
-            : base(dataStore)
+        // Remove parameterless constructor
+        private {{tag}}Client()
+        {
+        }
+
+        internal {{tag}}Client(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+            : base(dataStore, configuration, requestContext)
         {
         }
         {{nbsp 0}}
@@ -60,7 +66,7 @@ namespace Okta.Sdk
                 {{~nbsp 0}})
     {{nbsp 0}}
             {{~#if isArray}}
-        => new CollectionClient<{{operation.responseModel}}>(DataStore, new HttpRequest
+        => GetCollectionClient<{{operation.responseModel}}>(new HttpRequest
         {
             Uri = "{{path}}",
             {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}

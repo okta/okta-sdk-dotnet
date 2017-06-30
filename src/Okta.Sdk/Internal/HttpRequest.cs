@@ -46,5 +46,14 @@ namespace Okta.Sdk.Internal
         /// </value>
         public IEnumerable<KeyValuePair<string, object>> PathParameters { get; set; }
             = Enumerable.Empty<KeyValuePair<string, object>>();
+
+        /// <summary>
+        /// Gets or sets the headers to send with the request.
+        /// </summary>
+        /// <value>
+        /// The headers to send with the request.
+        /// </value>
+        public IDictionary<string, string> Headers { get; set; }
+            = new Dictionary<string, string>();
     }
 }

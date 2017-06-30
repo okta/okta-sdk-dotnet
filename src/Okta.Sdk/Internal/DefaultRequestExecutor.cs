@@ -23,11 +23,8 @@ namespace Okta.Sdk.Internal
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
 
         private readonly string _orgUrl;
-        private readonly string _defaultUserAgent;
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
-
-        public string OrgUrl => _orgUrl;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -47,12 +44,10 @@ namespace Okta.Sdk.Internal
             }
 
             _orgUrl = EnsureCorrectOrgUrl(configuration.OrgUrl);
-            _defaultUserAgent = CreateUserAgent();
             _logger = logger;
 
             _httpClient = CreateClient(
                 _orgUrl,
-                _defaultUserAgent,
                 configuration.Token,
                 configuration.ConnectionTimeout,
                 configuration.Proxy,
@@ -79,13 +74,8 @@ namespace Okta.Sdk.Internal
             return orgUrl;
         }
 
-        // TODO IFrameworkUserAgentBuilder
-        private static string CreateUserAgent()
-            => $"{OktaClientUserAgentName}/0.0.1"; // todo assembly version
-
         private static HttpClient CreateClient(
             string orgBaseUrl,
-            string userAgent,
             string token,
             int? connectionTimeout,
             ProxyConfiguration proxyConfiguration,
@@ -108,7 +98,6 @@ namespace Okta.Sdk.Internal
                 Timeout = TimeSpan.FromSeconds(connectionTimeout ?? OktaClientConfiguration.DefaultConnectionTimeout),
             };
 
-            client.DefaultRequestHeaders.Add("User-Agent", userAgent);
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", token);
 
             // Workaround for https://github.com/dotnet/corefx/issues/11224
@@ -162,44 +151,65 @@ namespace Okta.Sdk.Internal
             }
         }
 
+        private static void ApplyHeadersToRequest(HttpRequestMessage request, IEnumerable<KeyValuePair<string, string>> headers)
+        {
+            if (headers == null || !headers.Any())
+            {
+                return;
+            }
+
+            foreach (var header in headers)
+            {
+                request.Headers.Add(header.Key, header.Value);
+            }
+        }
+
         private static IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
             => response.Headers.Concat(response.Content.Headers);
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Get, new Uri(path, UriKind.Relative));
+            ApplyHeadersToRequest(request, headers);
+
             return SendAsync(request, cancellationToken);
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
+            ApplyHeadersToRequest(request, headers);
             request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
+
             return SendAsync(request, cancellationToken);
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PutAsync(string href, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
+            ApplyHeadersToRequest(request, headers);
             request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
+
             return SendAsync(request, cancellationToken);
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> DeleteAsync(string href, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
             var request = new HttpRequestMessage(HttpMethod.Delete, new Uri(path, UriKind.Relative));
+            ApplyHeadersToRequest(request, headers);
+
             return SendAsync(request, cancellationToken);
         }
     }

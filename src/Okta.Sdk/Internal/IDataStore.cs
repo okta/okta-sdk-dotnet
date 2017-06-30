@@ -35,10 +35,11 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <typeparam name="T">The <see cref="Resource"/> type to deserialize the returned data to.</typeparam>
         /// <param name="request">The HTTP request options.</param>
+        /// <param name="requestContext">Information about the upstream request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The deserialized resource and <see cref="HttpResponse"/> data.</returns>
         /// <exception cref="OktaApiException">An API error occurred.</exception>
-        Task<HttpResponse<T>> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken)
+        Task<HttpResponse<T>> GetAsync<T>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where T : Resource, new();
 
         /// <summary>
@@ -46,10 +47,11 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <typeparam name="T">The <see cref="Resource"/> type to deserialize the returned data to.</typeparam>
         /// <param name="request">The HTTP request options.</param>
+        /// <param name="requestContext">Information about the upstream request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>An array of deserialized resources and <see cref="HttpResponse"/> data.</returns>
         /// <exception cref="OktaApiException">An API error occurred.</exception>
-        Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, CancellationToken cancellationToken)
+        Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where T : Resource, new();
 
         /// <summary>
@@ -57,10 +59,11 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <typeparam name="TResponse">The <see cref="Resource"/> type to deserialize the returned data to.</typeparam>
         /// <param name="request">The HTTP request options.</param>
+        /// <param name="requestContext">Information about the upstream request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The deserialized response resource and <see cref="HttpResponse"/> data.</returns>
         /// <exception cref="OktaApiException">An API error occurred.</exception>
-        Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
+        Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where TResponse : Resource, new();
 
         /// <summary>
@@ -68,18 +71,20 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <typeparam name="TResponse">The <see cref="Resource"/> type to deserialize the returned data to.</typeparam>
         /// <param name="request">The HTTP request options.</param>
+        /// <param name="requestContext">Information about the upstream request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The deserialized response resource and <see cref="HttpResponse"/> data.</returns>
         /// <exception cref="OktaApiException">An API error occurred.</exception>
-        Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
+        Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where TResponse : Resource, new();
 
         /// <summary>
         /// Deletes a resource.
         /// </summary>
         /// <param name="request">The HTTP request options.</param>
+        /// <param name="requestContext">Information about the upstream request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="HttpResponse"/> data.</returns>
-        Task<HttpResponse> DeleteAsync(HttpRequest request, CancellationToken cancellationToken);
+        Task<HttpResponse> DeleteAsync(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken);
     }
 }

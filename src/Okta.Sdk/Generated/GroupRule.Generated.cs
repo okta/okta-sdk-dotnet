@@ -52,10 +52,10 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new GroupClient(GetDataStore()).ActivateRuleAsync(Id, cancellationToken);
+            => GetClient().Groups.ActivateRuleAsync(Id, cancellationToken);
 
         /// <inheritdoc />
         public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new GroupClient(GetDataStore()).DeactivateRuleAsync(Id, cancellationToken);
+            => GetClient().Groups.DeactivateRuleAsync(Id, cancellationToken);
     }
 }

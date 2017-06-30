@@ -18,22 +18,26 @@ namespace Okta.Sdk
     {
         private readonly IDataStore _dataStore;
         private readonly HttpRequest _initialRequest;
+        private readonly RequestContext _requestContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CollectionClient{T}"/> class.
         /// </summary>
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see>.</param>
         /// <param name="initialRequest">The initial HTTP request options.</param>
+        /// <param name="requestContext">The request context.</param>
         public CollectionClient(
             IDataStore dataStore,
-            HttpRequest initialRequest)
+            HttpRequest initialRequest,
+            RequestContext requestContext)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
             _initialRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
+            _requestContext = requestContext;
         }
 
         /// <inheritdoc/>
         public IAsyncEnumerator<T> GetEnumerator()
-            => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest);
+            => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
     }
 }

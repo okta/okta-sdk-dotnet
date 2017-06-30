@@ -20,6 +20,7 @@ namespace Okta.Sdk.Internal
         where T : Resource, new()
     {
         private readonly IDataStore _dataStore;
+        private readonly RequestContext _requestContext;
 
         private bool _initialized = false;
         private T[] _localPage;
@@ -33,12 +34,15 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
         /// <param name="initialRequest">The initial HTTP request options.</param>
+        /// <param name="requestContext">The request context.</param>
         public CollectionAsyncEnumerator(
             IDataStore dataStore,
-            HttpRequest initialRequest)
+            HttpRequest initialRequest,
+            RequestContext requestContext)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
             _nextRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
+            _requestContext = requestContext;
         }
 
         /// <inheritdoc/>
@@ -62,6 +66,7 @@ namespace Okta.Sdk.Internal
 
             var nextPage = await _dataStore.GetArrayAsync<T>(
                 _nextRequest,
+                _requestContext,
                 cancellationToken).ConfigureAwait(false);
 
             _initialized = true;

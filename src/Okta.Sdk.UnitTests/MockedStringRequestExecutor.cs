@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Internal;
@@ -21,27 +22,24 @@ namespace Okta.Sdk.UnitTests
             _returnThis = returnThis ?? throw new ArgumentNullException(nameof(returnThis));
         }
 
-        public Task<string> GetBodyAsync(string href, CancellationToken cancellationToken)
-            => Task.FromResult(_returnThis);
-
-        public async Task<HttpResponse<string>> GetAsync(string href, CancellationToken cancellationToken)
-            => new HttpResponse<string>
+        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+            => Task.FromResult(new HttpResponse<string>
             {
                 StatusCode = 200,
-                Payload = await GetBodyAsync(href, cancellationToken),
-            };
+                Payload = _returnThis,
+            });
 
-        public Task<HttpResponse<string>> PostAsync(string href, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<HttpResponse<string>> PutAsync(string href, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<HttpResponse<string>> DeleteAsync(string href, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
