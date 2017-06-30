@@ -185,7 +185,10 @@ namespace Okta.Sdk.Internal
 
             var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
             ApplyHeadersToRequest(request, headers);
-            request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
+
+            request.Content = string.IsNullOrEmpty(body)
+                ? null
+                : new StringContent(body, System.Text.Encoding.UTF8, "application/json");
 
             return SendAsync(request, cancellationToken);
         }
@@ -197,7 +200,10 @@ namespace Okta.Sdk.Internal
 
             var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
             ApplyHeadersToRequest(request, headers);
-            request.Content = new StringContent(body, System.Text.Encoding.UTF8, "application/json");
+            
+            request.Content = string.IsNullOrEmpty(body)
+                ? null
+                : new StringContent(body, System.Text.Encoding.UTF8, "application/json");
 
             return SendAsync(request, cancellationToken);
         }

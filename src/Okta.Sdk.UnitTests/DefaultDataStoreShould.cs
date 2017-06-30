@@ -220,5 +220,20 @@ namespace Okta.Sdk.UnitTests
                     headers.Any(kvp => kvp.Key == "X-Forwarded-Proto" && kvp.Value == "https")),
                 CancellationToken.None);
         }
+
+        [Fact]
+        public async Task PostWithNullBody()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .PostAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+
+            var request = new HttpRequest { Uri = "https://foo.dev" }; // Payload = null
+            await dataStore.PostAsync<TestResource>(request, CancellationToken.None);
+
+            await mockRequestExecutor.Received().PostAsync("https://foo.dev", null, CancellationToken.None);
+        }
     }
 }
