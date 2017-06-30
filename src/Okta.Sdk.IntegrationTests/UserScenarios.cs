@@ -36,16 +36,22 @@ namespace Okta.Sdk.IntegrationTests
                 Password = "Abcd1234",
             });
 
-            var foundUsers = await client
-                .Users
-                .ListUsers(search: $"profile.nickName eq \"{user.Profile.GetProperty<string>("nickName")}\"")
-                .ToArray();
+            try
+            {
+                await Task.Delay(1000);
+                var foundUsers = await client
+                    .Users
+                    .ListUsers(search: $"profile.nickName eq \"{user.Profile.GetProperty<string>("nickName")}\"")
+                    .ToArray();
 
-            foundUsers.Length.Should().Be(1);
-            foundUsers.Single().Id.Should().Be(user.Id);
-
-            await user.DeactivateAsync();
-            await user.DeactivateOrDeleteAsync();
+                foundUsers.Length.Should().Be(1);
+                foundUsers.Single().Id.Should().Be(user.Id);
+            }
+            finally
+            {
+                await user.DeactivateAsync();
+                await user.DeactivateOrDeleteAsync();
+            }
         }
 
         [Fact]

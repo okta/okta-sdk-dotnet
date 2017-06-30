@@ -87,7 +87,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                await client.GetAsync<User>("https://dev-341607.oktapreview.com/api/v1/users/00u9o1nikjvOBg5Zo0h7");
+                await client.Users.GetUserAsync("12345");
             }
             catch (OktaApiException apiException)
             {
