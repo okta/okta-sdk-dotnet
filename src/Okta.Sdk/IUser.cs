@@ -11,5 +11,7 @@ namespace Okta.Sdk
     public partial interface IUser
     {
         Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+        Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

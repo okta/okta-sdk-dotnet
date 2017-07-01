@@ -36,6 +36,27 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
+        public Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            var newCredentials = new UserCredentials
+            {
+                Password = new PasswordCredential { Value = options.CurrentPassword },
+                RecoveryQuestion = new RecoveryQuestionCredential
+                {
+                    Question = options.RecoveryQuestion,
+                    Answer = options.RecoveryAnswer,
+                },
+            };
+
+            return ChangeRecoveryQuestionAsync(newCredentials, userId, cancellationToken);
+        }
+
+        /// <inheritdoc/>
         public IAsyncEnumerator<User> GetEnumerator() => ListUsers().GetEnumerator();
     }
 }

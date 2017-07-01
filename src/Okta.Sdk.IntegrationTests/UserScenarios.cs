@@ -258,10 +258,41 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task ChangeUserRecoveryQuestion()
         {
-            throw new NotImplementedException();
+            var client = GetClient("change-recover-question");
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Change-Recovery-Question",
+                    Email = "john-change-recover-question@example.com",
+                    Login = "john-change-recover-question@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                // Update the user's recovery question
+                await createdUser.ChangeRecoveryQuestionAsync(new ChangeRecoveryQuestionOptions
+                {
+                    CurrentPassword = "Abcd1234",
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                });
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
 
         [Fact(Skip = "TODO")]
