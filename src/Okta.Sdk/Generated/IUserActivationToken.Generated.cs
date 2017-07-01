@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Contains the method contract for UserActivationToken resources.</summary>
+    /// <summary>Interface for <see cref="UserActivationToken"/> resources.</summary>
     public partial interface IUserActivationToken
     {
         string ActivationToken { get; }

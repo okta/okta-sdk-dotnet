@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Contains the method contract for Group clients.</summary>
+    /// <summary>Interface for clients that work with <see cref="Group"/> resources.</summary>
     public partial interface IGroupClient : IOktaClient
     {
         /// <summary>

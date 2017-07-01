@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Contains the method contract for ForgotPasswordResponse resources.</summary>
+    /// <summary>Interface for <see cref="ForgotPasswordResponse"/> resources.</summary>
     public partial interface IForgotPasswordResponse
     {
         string ResetPasswordUrl { get; }
