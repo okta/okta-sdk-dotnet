@@ -4,6 +4,8 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
@@ -12,6 +14,21 @@ namespace Okta.Sdk
     /// </summary>
     public sealed partial class GroupClient : OktaClient, IGroupClient, IAsyncEnumerable<Group>
     {
+        /// <inheritdoc/>
+        public Task<Group> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var newGroup = new Group
+            {
+                Profile = new GroupProfile
+                {
+                    Name = options.Name,
+                    Description = options.Description,
+                },
+            };
+
+            return CreateGroupAsync(newGroup, cancellationToken);
+        }
+
         /// <inheritdoc/>
         public IAsyncEnumerator<Group> GetEnumerator() => ListGroups().GetEnumerator();
     }
