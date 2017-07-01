@@ -206,10 +206,42 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task SuspendUser()
         {
-            throw new NotImplementedException();
+            var client = GetClient("suspend");
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Suspend",
+                    Email = "john-suspend@example.com",
+                    Login = "john-suspend@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                await createdUser.SuspendAsync();
+
+                var suspendedUsers = await client.Users.ListUsers(filter: "status eq \"SUSPENDED\"").ToArray();
+                suspendedUsers.Should().Contain(u => u.Id == createdUser.Id);
+
+                await createdUser.UnsuspendAsync();
+
+                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArray();
+                activeUsers.Should().Contain(u => u.Id == createdUser.Id);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
 
         [Fact(Skip = "TODO")]
