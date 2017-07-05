@@ -205,5 +205,138 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeactivateOrDeleteAsync();
             }
         }
+
+        [Fact]
+        public async Task SuspendUser()
+        {
+            var client = GetClient("suspend");
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Suspend",
+                    Email = "john-suspend@example.com",
+                    Login = "john-suspend@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                await createdUser.SuspendAsync();
+
+                var suspendedUsers = await client.Users.ListUsers(filter: "status eq \"SUSPENDED\"").ToArray();
+                suspendedUsers.Should().Contain(u => u.Id == createdUser.Id);
+
+                await createdUser.UnsuspendAsync();
+
+                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArray();
+                activeUsers.Should().Contain(u => u.Id == createdUser.Id);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task ChangeUserPassword()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task GetResetPasswordUrl()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact]
+        public async Task ExpireUserPassword()
+        {
+            var client = GetClient("expire-password");
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Expire-Password",
+                    Email = "john-expire-password@example.com",
+                    Login = "john-expire-password@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                // Expire the user password
+                var tempPassword = await createdUser.ExpirePasswordAsync(tempPassword: true);
+
+                tempPassword.Password.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ChangeUserRecoveryQuestion()
+        {
+            var client = GetClient("change-recover-question");
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Change-Recovery-Question",
+                    Email = "john-change-recover-question@example.com",
+                    Login = "john-change-recover-question@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                // Update the user's recovery question
+                await createdUser.ChangeRecoveryQuestionAsync(new ChangeRecoveryQuestionOptions
+                {
+                    CurrentPassword = "Abcd1234",
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                });
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task AssignUserRole()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task UserGroupTargetRole()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

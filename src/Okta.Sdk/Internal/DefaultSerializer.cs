@@ -46,6 +46,11 @@ namespace Okta.Sdk.Internal
         /// <inheritdoc/>
         public string Serialize(object model)
         {
+            if (model == null)
+            {
+                return null;
+            }
+
             using (var writer = new StringWriter())
             {
                 _serializer.Serialize(writer, model);
