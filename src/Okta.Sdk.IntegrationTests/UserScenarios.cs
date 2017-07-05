@@ -169,5 +169,36 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeactivateOrDeleteAsync();
             }
         }
+
+        [Fact]
+        public async Task GetResetPasswordUrl()
+        {
+            var client = GetClient("get-reset-password-url");
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Get-Reset-Password-URL",
+                    Email = "john-get-reset-password-url@example.com",
+                    Login = "john-get-reset-password-url@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                var resetPasswordToken = await client.Users.ResetPasswordAsync(createdUser.Id, null, false);
+                resetPasswordToken.ResetPasswordUrl.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                // Deactivate + delete
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
     }
 }
