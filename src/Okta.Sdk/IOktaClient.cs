@@ -5,6 +5,7 @@
 
 using System.Threading;
 using System.Threading.Tasks;
+using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
@@ -14,6 +15,15 @@ namespace Okta.Sdk
     /// </summary>
     public interface IOktaClient
     {
+        /// <summary>
+        /// Gets the configuration passed to this <see cref="IOktaClient">OktaClient</see>.
+        /// </summary>
+        /// <value>
+        /// The client configuration.
+        /// </value>
+        /// <remarks>The configuration is immutable after the client is initialized. This property references a copy of the configuration.</remarks>
+        OktaClientConfiguration Configuration { get; }
+
         /// <summary>
         /// Gets a <see cref="UserClient"/> that interacts with the Okta Users API.
         /// </summary>
@@ -29,6 +39,14 @@ namespace Okta.Sdk
         /// A <see cref="GroupClient"/> that interacts with the Okta Groups API.
         /// </value>
         GroupClient Groups { get; }
+
+        /// <summary>
+        /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
+        /// </summary>
+        /// <param name="requestContext">The request context</param>
+        /// <remarks>This method is used to temporarily create a copy of the client in order to pass information about the current request to the Okta API.</remarks>
+        /// <returns>The new client.</returns>
+        IOktaClient CreatedScoped(RequestContext requestContext);
 
         /// <summary>
         /// Gets a resource by URL and deserializes it to a <see cref="Resource"/> type.

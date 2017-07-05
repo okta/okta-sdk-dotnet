@@ -18,18 +18,18 @@ namespace Okta.Sdk.Internal
     {
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
 
-        private readonly IDataStore _dataStore;
+        private readonly IOktaClient _client;
         private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ResourceFactory"/> class.
         /// </summary>
-        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
+        /// <param name="client">The client.</param>
         /// <param name="logger">The logging interface.</param>
-        public ResourceFactory(IDataStore dataStore = null, ILogger logger = null)
+        public ResourceFactory(IOktaClient client, ILogger logger)
         {
-            _dataStore = dataStore;
-            _logger = logger ?? NullLogger.Instance;
+            _client = client;
+            _logger = logger;
         }
 
         /// <summary>
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Internal
             }
 
             var resource = Activator.CreateInstance<T>() as Resource;
-            resource.Initialize(_dataStore, this, existingDictionary, _logger);
+            resource.Initialize(_client, this, existingDictionary, _logger);
             return (T)(object)resource;
         }
 
@@ -84,7 +84,7 @@ namespace Okta.Sdk.Internal
 
             var resource = Activator.CreateInstance<T>() as Resource;
             var dictionary = NewDictionary(resource.DictionaryType, data);
-            resource.Initialize(_dataStore, this, dictionary, _logger);
+            resource.Initialize(_client, this, dictionary, _logger);
             return (T)(object)resource;
         }
     }

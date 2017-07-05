@@ -15,7 +15,7 @@ namespace Okta.Sdk
     {
         /// <inheritdoc/>
         public Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).DeactivateOrDeleteUserAsync(Id, cancellationToken);
+            => GetClient().Users.DeactivateOrDeleteUserAsync(Id, cancellationToken);
 
         // TODO add custom methods here.
     }

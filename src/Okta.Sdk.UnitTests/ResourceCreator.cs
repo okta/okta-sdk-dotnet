@@ -37,7 +37,7 @@ namespace Okta.Sdk.UnitTests
 
         public static implicit operator T(ResourceCreator<T> creator)
         {
-            var factory = new ResourceFactory();
+            var factory = new ResourceFactory(null, null);
             return factory.CreateNew<T>(creator._data);
         }
 

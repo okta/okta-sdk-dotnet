@@ -40,10 +40,10 @@ namespace Okta.Sdk
 
         /// <inheritdoc />
         public Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => new GroupClient(GetDataStore()).RemoveGroupUserAsync(Id, userId, cancellationToken);
+            => GetClient().Groups.RemoveGroupUserAsync(Id, userId, cancellationToken);
 
         /// <inheritdoc />
         public IAsyncEnumerable<User> ListUsers(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
-            => new GroupClient(GetDataStore()).ListGroupUsers(Id, after, limit);
+            => GetClient().Groups.ListGroupUsers(Id, after, limit);
     }
 }

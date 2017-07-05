@@ -4,6 +4,8 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -16,17 +18,46 @@ namespace Okta.Sdk.UnitTests
 {
     public class DefaultDataStoreShould
     {
+        private static (IRequestExecutor MockRequestExecutor, IDataStore DataStore) SetUpMocks()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            mockRequestExecutor
+                .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            mockRequestExecutor
+                .PutAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            mockRequestExecutor
+                .DeleteAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, null),
+                NullLogger.Instance);
+
+            return (mockRequestExecutor, dataStore);
+        }
+
         [Fact]
         public async Task HandleNullExecutorResponseDuringGet()
         {
             // If the RequestExecutor returns a null HttpResponse, throw an informative exception.
 
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev" };
             await Assert.ThrowsAsync<InvalidOperationException>(
-                () => dataStore.GetAsync<TestResource>(request, CancellationToken.None));
+                () => dataStore.GetAsync<TestResource>(request, null, CancellationToken.None));
         }
 
         [Fact]
@@ -36,12 +67,12 @@ namespace Okta.Sdk.UnitTests
 
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .GetAsync("https://foo.dev", CancellationToken.None)
+                .GetAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), CancellationToken.None)
                 .Returns(new HttpResponse<string>() { StatusCode = 200, Payload = null });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev" };
-            var response = await dataStore.GetAsync<TestResource>(request, CancellationToken.None);
+            var response = await dataStore.GetAsync<TestResource>(request, null, CancellationToken.None);
             response.StatusCode.Should().Be(200);
 
             response.Payload.Should().NotBeNull();
@@ -55,12 +86,12 @@ namespace Okta.Sdk.UnitTests
 
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .GetAsync("https://foo.dev", CancellationToken.None)
+                .GetAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), CancellationToken.None)
                 .Returns(new HttpResponse<string>() { StatusCode = 200, Payload = string.Empty });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev" };
-            var response = await dataStore.GetAsync<TestResource>(request, CancellationToken.None);
+            var response = await dataStore.GetAsync<TestResource>(request, null, CancellationToken.None);
             response.StatusCode.Should().Be(200);
 
             response.Payload.Should().NotBeNull();
@@ -73,11 +104,11 @@ namespace Okta.Sdk.UnitTests
             // If the RequestExecutor returns a null HttpResponse, throw an informative exception.
 
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev" };
             await Assert.ThrowsAsync<InvalidOperationException>(
-                () => dataStore.GetArrayAsync<TestResource>(request, CancellationToken.None));
+                () => dataStore.GetArrayAsync<TestResource>(request, null, CancellationToken.None));
         }
 
         [Fact]
@@ -85,14 +116,14 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .GetAsync("https://foo.dev", CancellationToken.None)
+                .GetAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), CancellationToken.None)
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev" };
-            await dataStore.GetAsync<TestResource>(request, CancellationToken.None);
+            await dataStore.GetAsync<TestResource>(request, null, CancellationToken.None);
 
-            await mockRequestExecutor.Received().GetAsync("https://foo.dev", CancellationToken.None);
+            await mockRequestExecutor.Received().GetAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), CancellationToken.None);
         }
 
         [Fact]
@@ -100,14 +131,14 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PostAsync("https://foo.dev", "{}", CancellationToken.None)
+                .PostAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), "{}", CancellationToken.None)
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev", Payload = new { } };
-            await dataStore.PostAsync<TestResource>(request, CancellationToken.None);
+            await dataStore.PostAsync<TestResource>(request, null, CancellationToken.None);
 
-            await mockRequestExecutor.Received().PostAsync("https://foo.dev", "{}", CancellationToken.None);
+            await mockRequestExecutor.Received().PostAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), "{}", CancellationToken.None);
         }
 
         [Fact]
@@ -115,14 +146,14 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PutAsync("https://foo.dev", "{}", CancellationToken.None)
+                .PutAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), "{}", CancellationToken.None)
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev", Payload = new { } };
-            await dataStore.PutAsync<TestResource>(request, CancellationToken.None);
+            await dataStore.PutAsync<TestResource>(request, null, CancellationToken.None);
 
-            await mockRequestExecutor.Received().PutAsync("https://foo.dev", "{}", CancellationToken.None);
+            await mockRequestExecutor.Received().PutAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), "{}", CancellationToken.None);
         }
 
         [Fact]
@@ -130,14 +161,71 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .DeleteAsync("https://foo.dev", CancellationToken.None)
+                .DeleteAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), CancellationToken.None)
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
             var request = new HttpRequest { Uri = "https://foo.dev" };
-            await dataStore.DeleteAsync(request, CancellationToken.None);
+            await dataStore.DeleteAsync(request, null, CancellationToken.None);
 
-            await mockRequestExecutor.Received().DeleteAsync("https://foo.dev", CancellationToken.None);
+            await mockRequestExecutor.Received().DeleteAsync("https://foo.dev", Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task AddUserAgentToRequests()
+        {
+            var (mockRequestExecutor, dataStore) = SetUpMocks();
+
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            await dataStore.GetAsync<TestResource>(request, null, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "User-Agent" && kvp.Value.StartsWith("okta-sdk-dotnet/"))),
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task AddContextUserAgentToRequests()
+        {
+            var (mockRequestExecutor, dataStore) = SetUpMocks();
+
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext { UserAgent = "sdk-vanillajs/1.1" };
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "User-Agent" && kvp.Value.StartsWith("sdk-vanillajs/1.1 okta-sdk-dotnet/"))),
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task AddContextXForwardedToRequests()
+        {
+            var (mockRequestExecutor, dataStore) = SetUpMocks();
+
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext
+            {
+                XForwardedFor = "myapp.com",
+                XForwardedPort = "1234",
+                XForwardedProto = "https",
+            };
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(headers =>
+                    headers.Any(kvp => kvp.Key == "X-Forwarded-For" && kvp.Value == "myapp.com") &&
+                    headers.Any(kvp => kvp.Key == "X-Forwarded-Port" && kvp.Value == "1234") &&
+                    headers.Any(kvp => kvp.Key == "X-Forwarded-Proto" && kvp.Value == "https")),
+                CancellationToken.None);
         }
     }
 }

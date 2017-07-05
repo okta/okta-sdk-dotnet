@@ -20,14 +20,8 @@ namespace Okta.Sdk
     /// </summary>
     public partial class OktaClient : IOktaClient
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="OktaClient"/> class.
-        /// </summary>
-        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
-        protected OktaClient(IDataStore dataStore)
-        {
-            DataStore = dataStore;
-        }
+        private readonly IDataStore _dataStore;
+        private readonly RequestContext _requestContext;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OktaClient"/> class.
@@ -44,12 +38,33 @@ namespace Okta.Sdk
             compiled.GetSection("okta").GetSection("client").Bind(config);
 
             ThrowIfInvalidConfiguration(config);
+            Configuration = config; // TODO config.DeepClone()
 
-            var realLogger = logger ?? NullLogger.Instance;
+            logger = logger ?? NullLogger.Instance;
 
-            var requestExecutor = new DefaultRequestExecutor(config, realLogger);
-            DataStore = new DefaultDataStore(requestExecutor, new DefaultSerializer(), realLogger);
+            var requestExecutor = new DefaultRequestExecutor(config, logger);
+            var resourceFactory = new ResourceFactory(this, logger);
+            _dataStore = new DefaultDataStore(requestExecutor, new DefaultSerializer(), resourceFactory, logger);
         }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// </summary>
+        /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
+        /// <param name="requestContext">The request context, if any.</param>
+        protected OktaClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+        {
+            _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
+            Configuration = configuration;
+            _requestContext = requestContext;
+        }
+
+        /// <inheritdoc/>
+        public OktaClientConfiguration Configuration { get; }
+
+        /// <inheritdoc/>
+        public IOktaClient CreatedScoped(RequestContext requestContext)
+            => new OktaClient(_dataStore, Configuration, requestContext);
 
         private static FlexibleConfiguration.Abstractions.IConfigurationRoot CompileFromConfigurationSources(OktaClientConfiguration apiClientConfiguration = null)
         {
@@ -83,19 +98,21 @@ namespace Okta.Sdk
             }
         }
 
+        /// <inheritdoc/>
+        public UserClient Users => new UserClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public GroupClient Groups => new GroupClient(_dataStore, Configuration, _requestContext);
+
         /// <summary>
-        /// Gets the <see cref="IDataStore">DataStore</see> used by this client.
+        /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
         /// </summary>
-        /// <value>
-        /// The <see cref="IDataStore">DataStore</see> used by this client.
-        /// </value>
-        public IDataStore DataStore { get; }
-
-        /// <inheritdoc/>
-        public UserClient Users => new UserClient(DataStore);
-
-        /// <inheritdoc/>
-        public GroupClient Groups => new GroupClient(DataStore);
+        /// <typeparam name="T">The collection client item type.</typeparam>
+        /// <param name="initialRequest">The initial HTTP request.</param>
+        /// <returns>The collection client.</returns>
+        protected CollectionClient<T> GetCollectionClient<T>(HttpRequest initialRequest)
+            where T : Resource, new()
+            => new CollectionClient<T>(_dataStore, initialRequest, _requestContext);
 
         /// <inheritdoc/>
         public Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
@@ -106,7 +123,7 @@ namespace Okta.Sdk
         public async Task<T> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where T : Resource, new()
         {
-            var response = await DataStore.GetAsync<T>(request, cancellationToken).ConfigureAwait(false);
+            var response = await _dataStore.GetAsync<T>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
 
@@ -127,7 +144,7 @@ namespace Okta.Sdk
         public async Task<TResponse> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
         {
-            var response = await DataStore.PostAsync<TResponse>(request, cancellationToken).ConfigureAwait(false);
+            var response = await _dataStore.PostAsync<TResponse>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
 
@@ -148,7 +165,7 @@ namespace Okta.Sdk
         public async Task<TResponse> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
         {
-            var response = await DataStore.PostAsync<TResponse>(request, cancellationToken).ConfigureAwait(false);
+            var response = await _dataStore.PostAsync<TResponse>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
 
@@ -158,6 +175,6 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public Task DeleteAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
-            => DataStore.DeleteAsync(request, cancellationToken);
+            => _dataStore.DeleteAsync(request, _requestContext, cancellationToken);
     }
 }

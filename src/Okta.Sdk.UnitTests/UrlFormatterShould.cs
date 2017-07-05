@@ -136,7 +136,7 @@ namespace Okta.Sdk.UnitTests
             var request = new HttpRequest
             {
                 Uri = "/foobar",
-                QueryParams = new Dictionary<string, object>()
+                QueryParameters = new Dictionary<string, object>()
                 {
                     ["strings"] = "things",
                     ["other"] = null,

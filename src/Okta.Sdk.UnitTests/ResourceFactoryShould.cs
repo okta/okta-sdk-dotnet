@@ -20,7 +20,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void ThrowIfCreateNewTDoesNotDeriveFromResource()
         {
-            var factory = new ResourceFactory();
+            var factory = new ResourceFactory(null, null);
             var fakeData = new Dictionary<string, object>();
 
             Assert.Throws<InvalidOperationException>(() => factory.CreateNew<string>(fakeData));
@@ -30,7 +30,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void ThrowIfCreateFromExistingDataTDoesNotDeriveFromResource()
         {
-            var factory = new ResourceFactory();
+            var factory = new ResourceFactory(null, null);
             var fakeData = new Dictionary<string, object>();
 
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<string>(fakeData));

@@ -20,6 +20,7 @@ namespace Okta.Sdk.Internal
         private readonly IRequestExecutor _requestExecutor;
         private readonly ISerializer _serializer;
         private readonly ILogger _logger;
+        private readonly UserAgentBuilder _userAgentBuilder;
         private readonly ResourceFactory _resourceFactory;
 
         /// <summary>
@@ -27,16 +28,19 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="requestExecutor">The <see cref="IRequestExecutor">RequestExecutor</see> to use.</param>
         /// <param name="serializer">The <see cref="ISerializer">Serializer</see> to use.</param>
+        /// <param name="resourceFactory">The <see cref="ResourceFactory"/>.</param>
         /// <param name="logger">The logging interface.</param>
         public DefaultDataStore(
             IRequestExecutor requestExecutor,
             ISerializer serializer,
+            ResourceFactory resourceFactory,
             ILogger logger)
         {
             _requestExecutor = requestExecutor ?? throw new ArgumentNullException(nameof(requestExecutor));
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
-            _resourceFactory = new ResourceFactory(this, logger);
+            _resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
             _logger = logger;
+            _userAgentBuilder = new UserAgentBuilder();
         }
 
         /// <inheritdoc/>
@@ -74,6 +78,55 @@ namespace Okta.Sdk.Internal
             }
         }
 
+        private void AddUserAgent(HttpRequest request)
+        {
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            if (request.Headers == null)
+            {
+                request.Headers = new Dictionary<string, string>();
+            }
+
+            request.Headers["User-Agent"] = _userAgentBuilder.GetUserAgent();
+        }
+
+        private static void ApplyContextToRequest(HttpRequest request, RequestContext context)
+        {
+            if (request == null)
+            {
+                throw new ArgumentNullException(nameof(request));
+            }
+
+            if (context == null)
+            {
+                return;
+            }
+
+            if (!string.IsNullOrEmpty(context.UserAgent))
+            {
+                request.Headers.TryGetValue("User-Agent", out string existingUserAgent);
+                request.Headers["User-Agent"] = $"{context.UserAgent} {existingUserAgent}".Trim();
+            }
+
+            if (!string.IsNullOrEmpty(context.XForwardedFor))
+            {
+                request.Headers["X-Forwarded-For"] = context.XForwardedFor;
+            }
+
+            if (!string.IsNullOrEmpty(context.XForwardedPort))
+            {
+                request.Headers["X-Forwarded-Port"] = context.XForwardedPort;
+            }
+
+            if (!string.IsNullOrEmpty(context.XForwardedProto))
+            {
+                request.Headers["X-Forwarded-Proto"] = context.XForwardedProto;
+            }
+        }
+
         private void EnsureResponseSuccess(HttpResponse<string> response)
         {
             if (response == null)
@@ -104,14 +157,24 @@ namespace Okta.Sdk.Internal
             throw new OktaApiException(response.StatusCode, _resourceFactory.CreateNew<Resource>(errorData));
         }
 
-        /// <inheritdoc/>
-        public async Task<HttpResponse<T>> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken)
-            where T : Resource, new()
+        private void PrepareRequest(HttpRequest request, RequestContext context)
         {
             EnsureValidRequest(request);
-            var path = UrlFormatter.ApplyParametersToPath(request);
+            AddUserAgent(request);
+            ApplyContextToRequest(request, context);
+            request.Uri = UrlFormatter.ApplyParametersToPath(request);
+        }
 
-            var response = await _requestExecutor.GetAsync(path, cancellationToken).ConfigureAwait(false);
+        /// <inheritdoc/>
+        public async Task<HttpResponse<T>> GetAsync<T>(
+            HttpRequest request,
+            RequestContext requestContext,
+            CancellationToken cancellationToken)
+            where T : Resource, new()
+        {
+            PrepareRequest(request, requestContext);
+
+            var response = await _requestExecutor.GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
@@ -121,13 +184,12 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, CancellationToken cancellationToken)
+        public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where T : Resource, new()
         {
-            EnsureValidRequest(request);
-            var path = UrlFormatter.ApplyParametersToPath(request);
+            PrepareRequest(request, requestContext);
 
-            var response = await _requestExecutor.GetAsync(path, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var resources = _serializer
@@ -138,15 +200,14 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
+        public async Task<HttpResponse<TResponse>> PostAsync<TResponse>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
-            EnsureValidRequest(request);
-            var path = UrlFormatter.ApplyParametersToPath(request);
+            PrepareRequest(request, requestContext);
 
             var body = _serializer.Serialize(request.Payload);
 
-            var response = await _requestExecutor.PostAsync(path, body, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.PostAsync(request.Uri, request.Headers, body, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
@@ -156,15 +217,14 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public async Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken)
+        public async Task<HttpResponse<TResponse>> PutAsync<TResponse>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
             where TResponse : Resource, new()
         {
-            EnsureValidRequest(request);
-            var path = UrlFormatter.ApplyParametersToPath(request);
+            PrepareRequest(request, requestContext);
 
             var body = _serializer.Serialize(request.Payload);
 
-            var response = await _requestExecutor.PutAsync(path, body, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.PutAsync(request.Uri, request.Headers, body, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
@@ -174,12 +234,11 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public async Task<HttpResponse> DeleteAsync(HttpRequest request, CancellationToken cancellationToken)
+        public async Task<HttpResponse> DeleteAsync(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
         {
-            EnsureValidRequest(request);
-            var path = UrlFormatter.ApplyParametersToPath(request);
+            PrepareRequest(request, requestContext);
 
-            var response = await _requestExecutor.DeleteAsync(path, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.DeleteAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             return response;
