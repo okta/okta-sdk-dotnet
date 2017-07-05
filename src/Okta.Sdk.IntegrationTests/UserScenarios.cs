@@ -244,16 +244,47 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task ChangeUserPassword()
         {
-            throw new NotImplementedException();
-        }
+            var client = GetClient("change-user-password");
 
-        [Fact(Skip = "TODO")]
-        public async Task GetResetPasswordUrl()
-        {
-            throw new NotImplementedException();
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Change-User-Password",
+                    Email = "john-change-user-password@example.com",
+                    Login = "john-change-user-password@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                // TODO: Make this easier? (maybe ChangePasswordAsync(userId, oldPassword, newPassword)?
+                var updatedUserCredentials = await client.Users.ChangePasswordAsync(
+                    new ChangePasswordRequest
+                    {
+                        OldPassword = new PasswordCredential { Value = "Abcd1234" },
+                        NewPassword = new PasswordCredential { Value = "1234Abcd" },
+                    },
+                    createdUser.Id);
+
+                var updatedUser = await client.Users.GetUserAsync(createdUser.Id);
+
+                updatedUser.PasswordChanged.Value.Should().BeAfter(createdUser.PasswordChanged.Value);
+
+                // TODO: Add Check that you can now authn with the new password (Not in the SDK yet)
+            }
+            finally
+            {
+                // Deactivate + delete
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
 
         [Fact]
