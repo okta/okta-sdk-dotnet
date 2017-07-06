@@ -58,10 +58,10 @@ function paramToCLRType(param) {
   return getType(param.type);
 }
 
-function propToCLRType(prop) {
+function propToCLRType(prop, isInterface) {
   switch (prop.commonType) {
     case 'array': return `IList<${getType(prop.model)}>`;
-    case 'object': return prop.model;
+    case 'object': return isInterface ? `I${prop.model}` : prop.model;
     case 'enum': return prop.model;
     case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
     default: return getType(prop.commonType);

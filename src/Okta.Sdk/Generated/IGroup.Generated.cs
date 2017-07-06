@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a Group resource in the Okta API.</summary>
-    public partial interface IGroup
+    public partial interface IGroup : IResource
     {
 
 
@@ -28,7 +28,7 @@ namespace Okta.Sdk
 
         IList<string> ObjectClass { get; }
 
-        GroupProfile Profile { get; set; }
+        IGroupProfile Profile { get; set; }
 
         string Type { get; }
 

@@ -35,7 +35,7 @@ namespace Okta.Sdk
         public IList<string> ObjectClass => GetArrayProperty<string>("objectClass");
 
         /// <inheritdoc/>
-        public GroupProfile Profile
+        public IGroupProfile Profile
         {
             get => GetResourceProperty<GroupProfile>("profile");
             set => this["profile"] = value;

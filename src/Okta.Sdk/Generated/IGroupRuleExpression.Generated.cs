@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a GroupRuleExpression resource in the Okta API.</summary>
-    public partial interface IGroupRuleExpression
+    public partial interface IGroupRuleExpression : IResource
     {
         string Type { get; set; }
 

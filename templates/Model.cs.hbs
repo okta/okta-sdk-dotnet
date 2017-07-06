@@ -27,7 +27,7 @@ namespace Okta.Sdk
         {{~#each properties}}
         {{~#unless hidden}}
         /// <inheritdoc/>
-        public {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
+        public {{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} => {{{getterName this}}}("{{propertyName}}");
         {{~else}}
 {{nbsp 0}}

@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a ForgotPasswordResponse resource in the Okta API.</summary>
-    public partial interface IForgotPasswordResponse
+    public partial interface IForgotPasswordResponse : IResource
     {
         string ResetPasswordUrl { get; }
 

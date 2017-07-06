@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a User resource in the Okta API.</summary>
-    public partial interface IUser
+    public partial interface IUser : IResource
     {
 
 
@@ -22,7 +22,7 @@ namespace Okta.Sdk
 
         DateTimeOffset? Created { get; }
 
-        UserCredentials Credentials { get; set; }
+        IUserCredentials Credentials { get; set; }
 
         string Id { get; }
 
@@ -32,7 +32,7 @@ namespace Okta.Sdk
 
         DateTimeOffset? PasswordChanged { get; }
 
-        UserProfile Profile { get; set; }
+        IUserProfile Profile { get; set; }
 
         UserStatus Status { get; }
 

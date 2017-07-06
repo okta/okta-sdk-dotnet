@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a {{modelName}} resource in the Okta API.</summary>
-    public partial interface I{{modelName}}
+    public partial interface I{{modelName}} : IResource
     {
         {{#each properties}}
         {{~#unless hidden}}
-        {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
+        {{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} { get; }
         {{~else}} { get; set; }
         {{~/if}}

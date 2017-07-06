@@ -14,11 +14,11 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a GroupRuleConditions resource in the Okta API.</summary>
-    public partial interface IGroupRuleConditions
+    public partial interface IGroupRuleConditions : IResource
     {
-        GroupRuleExpression Expression { get; set; }
+        IGroupRuleExpression Expression { get; set; }
 
-        GroupRulePeopleCondition People { get; set; }
+        IGroupRulePeopleCondition People { get; set; }
 
     }
 }

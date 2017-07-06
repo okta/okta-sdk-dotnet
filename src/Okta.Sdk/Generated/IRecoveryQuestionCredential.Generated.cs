@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a RecoveryQuestionCredential resource in the Okta API.</summary>
-    public partial interface IRecoveryQuestionCredential
+    public partial interface IRecoveryQuestionCredential : IResource
     {
         string Answer { get; set; }
 

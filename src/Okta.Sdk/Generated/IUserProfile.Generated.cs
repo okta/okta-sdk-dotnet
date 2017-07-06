@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a UserProfile resource in the Okta API.</summary>
-    public partial interface IUserProfile
+    public partial interface IUserProfile : IResource
     {
         string Email { get; set; }
 

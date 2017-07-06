@@ -30,7 +30,7 @@ namespace Okta.Sdk
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
         /// <inheritdoc/>
-        public UserCredentials Credentials
+        public IUserCredentials Credentials
         {
             get => GetResourceProperty<UserCredentials>("credentials");
             set => this["credentials"] = value;
@@ -49,7 +49,7 @@ namespace Okta.Sdk
         public DateTimeOffset? PasswordChanged => GetDateTimeProperty("passwordChanged");
 
         /// <inheritdoc/>
-        public UserProfile Profile
+        public IUserProfile Profile
         {
             get => GetResourceProperty<UserProfile>("profile");
             set => this["profile"] = value;

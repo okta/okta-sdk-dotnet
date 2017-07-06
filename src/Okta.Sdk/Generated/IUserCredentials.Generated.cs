@@ -14,13 +14,13 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a UserCredentials resource in the Okta API.</summary>
-    public partial interface IUserCredentials
+    public partial interface IUserCredentials : IResource
     {
-        PasswordCredential Password { get; set; }
+        IPasswordCredential Password { get; set; }
 
-        AuthenticationProvider Provider { get; set; }
+        IAuthenticationProvider Provider { get; set; }
 
-        RecoveryQuestionCredential RecoveryQuestion { get; set; }
+        IRecoveryQuestionCredential RecoveryQuestion { get; set; }
 
     }
 }

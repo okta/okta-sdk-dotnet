@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a AppLink resource in the Okta API.</summary>
-    public partial interface IAppLink
+    public partial interface IAppLink : IResource
     {
         string AppAssignmentId { get; }
 

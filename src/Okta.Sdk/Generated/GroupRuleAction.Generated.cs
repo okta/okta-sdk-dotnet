@@ -18,7 +18,7 @@ namespace Okta.Sdk
     public sealed partial class GroupRuleAction : Resource, IGroupRuleAction
     {
         /// <inheritdoc/>
-        public GroupRuleGroupAssignment AssignUserToGroups
+        public IGroupRuleGroupAssignment AssignUserToGroups
         {
             get => GetResourceProperty<GroupRuleGroupAssignment>("assignUserToGroups");
             set => this["assignUserToGroups"] = value;

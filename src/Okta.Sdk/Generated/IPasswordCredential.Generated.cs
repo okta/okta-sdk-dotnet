@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a PasswordCredential resource in the Okta API.</summary>
-    public partial interface IPasswordCredential
+    public partial interface IPasswordCredential : IResource
     {
         string Value { get; set; }
 
