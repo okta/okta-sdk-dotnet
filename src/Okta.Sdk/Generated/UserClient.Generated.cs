@@ -137,22 +137,6 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IForgotPasswordResponse> ForgotPasswordAsync(IUserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ForgotPasswordResponse>(new HttpRequest
-        {
-            Uri = "/api/v1/users/{userId}/credentials/forgot_password",
-            Payload = userCredentials,
-            PathParameters = new Dictionary<string, object>()
-            {
-                ["userId"] = userId,
-            },
-            QueryParameters = new Dictionary<string, object>()
-            {
-                ["sendEmail"] = sendEmail,
-            },
-        }, cancellationToken).ConfigureAwait(false);
-
-        /// <inheritdoc />
         public IAsyncEnumerable<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1)
             => GetCollectionClient<Group>(new HttpRequest
         {

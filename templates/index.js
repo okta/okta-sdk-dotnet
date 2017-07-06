@@ -25,12 +25,14 @@ const propertyRenameList = [
   { path: 'TempPassword.tempPassword', new: 'password', reason: '.NET type name and member name cannot be identical' }
 ];
 
-const operationSkipList = [];
+const operationSkipList = [
+  { id: 'forgotPassword', reason: 'Revisit in alpha2'},
+];
 
 const modelMethodSkipList = [
   { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
   { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
-  { path: 'User.forgotPassword', reason: 'Implemented as a custom method'},
+  { path: 'User.forgotPassword', reason: 'Revisit in alpha2'},
   { path: 'User.addRole', reason: 'Implemented as a custom method'},
   { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
   { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },

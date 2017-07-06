@@ -92,16 +92,6 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userCredentials">The UserCredentials resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="sendEmail"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ForgotPasswordResponse"/> response.</returns>        
-        Task<IForgotPasswordResponse> ForgotPasswordAsync(IUserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="userId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
