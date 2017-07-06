@@ -24,5 +24,7 @@ namespace Okta.Sdk
         Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken));
 
         Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

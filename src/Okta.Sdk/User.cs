@@ -41,5 +41,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ChangeRecoveryQuestionAsync(Id, options, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.RemoveGroupUserAsync(groupId, Id, cancellationToken);
     }
 }
