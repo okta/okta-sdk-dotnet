@@ -130,13 +130,13 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       let fullPath = `${model.modelName}.${property.propertyName}`;
 
       if (property.model && property.model === 'object') {
-        console.log('Skipping object property', fullPath);
+        console.log('Skipping property', fullPath, '(Reason: object properties are not supported)');
         property.hidden = true;
         continue;
       }
 
       if (typeof property.commonType === 'undefined') {
-        console.log('Skipping property without commonType', fullPath);
+        console.log('Skipping property', fullPath, '(Reason: properties without commonType are not supported)');
         property.hidden = true;
         continue;
       }
