@@ -42,15 +42,13 @@ namespace Okta.Sdk
 
         Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<Group> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
+        IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
 
         Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task AddGroupTargetToRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<Group> ListGroups(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task<UserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
 
@@ -58,9 +56,9 @@ namespace Okta.Sdk
 
         Task UnsuspendAsync(CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<TempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ITempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         Task UnlockAsync(CancellationToken cancellationToken = default(CancellationToken));
 

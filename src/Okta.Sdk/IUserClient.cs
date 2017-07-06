@@ -16,7 +16,7 @@ namespace Okta.Sdk
         /// <param name="createUserOptions">The options for this Create User request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created user.</returns>
-        Task<User> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
     }

@@ -36,8 +36,8 @@ namespace Okta.Sdk
 
             {{~nbsp 0}}public{{nbsp}}
 
-            {{~#if isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}async Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}{{nbsp}}
 
             {{~pascalCase operationId}}
@@ -88,7 +88,7 @@ namespace Okta.Sdk
             {{/if}}
         });
             {{~else}}
-        => {{pascalCase method}}Async{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}(new HttpRequest
+        => await {{pascalCase method}}Async{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}(new HttpRequest
         {
             Uri = "{{path}}",
             {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}
@@ -108,7 +108,7 @@ namespace Okta.Sdk
                 {{/each}}
             },
             {{/if}}
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
             {{~/if}}
         {{~nbsp 0}}
 {{nbsp 0}}

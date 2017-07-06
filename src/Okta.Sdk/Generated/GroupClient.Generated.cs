@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<Group> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null)
+        public IAsyncEnumerable<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null)
             => GetCollectionClient<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups",
@@ -45,15 +45,15 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task<Group> CreateGroupAsync(Group group, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<Group>(new HttpRequest
+        public async Task<IGroup> CreateGroupAsync(Group group, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups",
             Payload = group,
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<GroupRule> ListRules(int? limit = -1, string after = null)
+        public IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null)
             => GetCollectionClient<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules",
@@ -66,16 +66,16 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task<GroupRule> CreateRuleAsync(GroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<GroupRule>(new HttpRequest
+        public async Task<IGroupRule> CreateRuleAsync(GroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules",
             Payload = groupRule,
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task DeleteRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken))
-            => DeleteAsync(new HttpRequest
+        public async Task DeleteRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
         {
             Uri = "/api/v1/groups/rules/{ruleId}",
             
@@ -87,11 +87,11 @@ namespace Okta.Sdk
             {
                 ["removeUsers"] = removeUsers,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<GroupRule> GetRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetAsync<GroupRule>(new HttpRequest
+        public async Task<IGroupRule> GetRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules/{ruleId}",
             
@@ -99,11 +99,11 @@ namespace Okta.Sdk
             {
                 ["ruleId"] = ruleId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<GroupRule> UpdateRuleAsync(GroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => PutAsync<GroupRule>(new HttpRequest
+        public async Task<IGroupRule> UpdateRuleAsync(GroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules/{ruleId}",
             Payload = groupRule,
@@ -111,11 +111,11 @@ namespace Okta.Sdk
             {
                 ["ruleId"] = ruleId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task ActivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task ActivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/groups/rules/{ruleId}/lifecycle/activate",
             
@@ -123,11 +123,11 @@ namespace Okta.Sdk
             {
                 ["ruleId"] = ruleId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task DeactivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task DeactivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/groups/rules/{ruleId}/lifecycle/deactivate",
             
@@ -135,11 +135,11 @@ namespace Okta.Sdk
             {
                 ["ruleId"] = ruleId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => DeleteAsync(new HttpRequest
+        public async Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}",
             
@@ -147,11 +147,11 @@ namespace Okta.Sdk
             {
                 ["groupId"] = groupId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<Group> GetGroupAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetAsync<Group>(new HttpRequest
+        public async Task<IGroup> GetGroupAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}",
             
@@ -163,11 +163,11 @@ namespace Okta.Sdk
             {
                 ["expand"] = expand,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<Group> UpdateGroupAsync(Group group, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => PutAsync<Group>(new HttpRequest
+        public async Task<IGroup> UpdateGroupAsync(Group group, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}",
             Payload = group,
@@ -175,10 +175,10 @@ namespace Okta.Sdk
             {
                 ["groupId"] = groupId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<User> ListGroupUsers(string groupId, string after = null, int? limit = -1)
+        public IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1)
             => GetCollectionClient<User>(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}/users",
@@ -195,8 +195,8 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task RemoveGroupUserAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => DeleteAsync(new HttpRequest
+        public async Task RemoveGroupUserAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}/users/{userId}",
             
@@ -205,11 +205,11 @@ namespace Okta.Sdk
                 ["groupId"] = groupId,
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task AddUserToGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PutAsync(new HttpRequest
+        public async Task AddUserToGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}/users/{userId}",
             
@@ -218,6 +218,6 @@ namespace Okta.Sdk
                 ["groupId"] = groupId,
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
     }
 }

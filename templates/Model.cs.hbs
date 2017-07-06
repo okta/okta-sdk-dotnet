@@ -50,8 +50,8 @@ namespace Okta.Sdk
             {{~nbsp 0}}public
 
             {{~nbsp}}
-            {{~#if operation.isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if operation.isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}
 
             {{~nbsp}}{{~pascalCase alias}}

@@ -13,10 +13,10 @@ namespace Okta.Sdk
     /// <summary>
     /// Provides methods that manipulate <see cref="User"/> resources, by communicating with the Okta Users API.
     /// </summary>
-    public sealed partial class UserClient : OktaClient, IUserClient, IAsyncEnumerable<User>
+    public sealed partial class UserClient : OktaClient, IUserClient, IAsyncEnumerable<IUser>
     {
         /// <inheritdoc/>
-        public Task<User> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (createUserOptions == null)
             {
@@ -57,6 +57,6 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public IAsyncEnumerator<User> GetEnumerator() => ListUsers().GetEnumerator();
+        public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();
     }
 }

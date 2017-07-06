@@ -59,7 +59,7 @@ namespace Okta.Sdk
             => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<Group> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
+        public IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ListGroupTargetsForRole(Id, roleId, after, limit);
 
         /// <inheritdoc />
@@ -71,11 +71,7 @@ namespace Okta.Sdk
             => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<Group> ListGroups(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ListUserGroups(Id, after, limit);
-
-        /// <inheritdoc />
-        public Task<UserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ActivateUserAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc />
@@ -91,11 +87,11 @@ namespace Okta.Sdk
             => GetClient().Users.UnsuspendUserAsync(Id, cancellationToken);
 
         /// <inheritdoc />
-        public Task<ResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ResetPasswordAsync(Id, provider, sendEmail, cancellationToken);
 
         /// <inheritdoc />
-        public Task<TempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ITempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ExpirePasswordAsync(Id, tempPassword, cancellationToken);
 
         /// <inheritdoc />

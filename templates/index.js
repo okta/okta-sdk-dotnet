@@ -32,6 +32,9 @@ const modelMethodSkipList = [
   { path: 'User.changeRecoveryQuestion', reason: 'Implemented as a custom method'},
   { path: 'User.forgotPassword', reason: 'Implemented as a custom method'},
   { path: 'User.addRole', reason: 'Implemented as a custom method'},
+  { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
+  { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
+  { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' }
 ];
 
 const getType = (specType) => {

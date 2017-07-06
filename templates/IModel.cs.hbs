@@ -31,8 +31,8 @@ namespace Okta.Sdk
         {{~#each methods as |method|}}
             {{~#unless hidden}}
         {{nbsp 0}}
-            {{~#if operation.isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if operation.isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}
 
             {{~nbsp}}{{~pascalCase alias}}
