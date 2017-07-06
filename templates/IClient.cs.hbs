@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>A client that works with <see cref="{{tag}}"/> resources.</summary>
-    public partial interface I{{tag}}Client : IOktaClient
+    public partial interface I{{tag}}Client
     {
         {{~#each operations as |operation|}}
         {{~#unless hidden}}

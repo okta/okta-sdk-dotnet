@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>A client that works with <see cref="Group"/> resources.</summary>
-    public partial interface IGroupClient : IOktaClient
+    public partial interface IGroupClient
     {
         /// <summary>
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.

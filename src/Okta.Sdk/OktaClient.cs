@@ -99,10 +99,10 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public UserClient Users => new UserClient(_dataStore, Configuration, _requestContext);
+        public IUserClient Users => new UserClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
-        public GroupClient Groups => new GroupClient(_dataStore, Configuration, _requestContext);
+        public IGroupClient Groups => new GroupClient(_dataStore, Configuration, _requestContext);
 
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>A client that works with <see cref="User"/> resources.</summary>
-    public partial interface IUserClient : IOktaClient
+    public partial interface IUserClient
     {
         /// <summary>
         /// Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.

@@ -30,7 +30,7 @@ namespace Okta.Sdk
         /// <value>
         /// A <see cref="UserClient"/> that interacts with the Okta Users API.
         /// </value>
-        UserClient Users { get; }
+        IUserClient Users { get; }
 
         /// <summary>
         /// Gets a <see cref="GroupClient"/> that interacts with the Okta Groups API.
@@ -38,7 +38,7 @@ namespace Okta.Sdk
         /// <value>
         /// A <see cref="GroupClient"/> that interacts with the Okta Groups API.
         /// </value>
-        GroupClient Groups { get; }
+        IGroupClient Groups { get; }
 
         /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
