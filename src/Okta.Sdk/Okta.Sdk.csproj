@@ -1,15 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.4</TargetFramework>
+    <TargetFramework>netstandard1.3</TargetFramework>
     <Version>1.0.0-alpha1</Version>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FlexibleConfiguration" Version="1.2.1" />
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="1.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Interactive.Async" Version="3.1.1" />
@@ -18,14 +15,21 @@
 
   <ItemGroup>
     <PackageReference Include="AsyncUsageAnalyzers" Version="1.0.0-alpha003" PrivateAssets="All" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta001" PrivateAssets="All" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta004" PrivateAssets="All" />
   </ItemGroup>
 
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\OktaSdk.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard1.4\Okta.Sdk.xml</DocumentationFile>
+  <PropertyGroup>
+    <Description>Official .NET SDK for the Okta API.</Description>
+    <DocumentationFile>bin\Debug\netstandard1.3\Okta.Sdk.xml</DocumentationFile>
+    <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/okta/okta-sdk-dotnet</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/okta/okta-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
+    <Authors>Okta, Inc.</Authors>
+    <Owners>nbarbettini, leebrandt</Owners>
+    <PackageTags>okta api authentication identity management</PackageTags>
   </PropertyGroup>
 </Project>
