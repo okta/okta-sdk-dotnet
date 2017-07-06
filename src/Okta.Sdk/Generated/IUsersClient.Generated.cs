@@ -31,11 +31,11 @@ namespace Okta.Sdk
         /// <summary>
         /// Creates a new user in your Okta organization with or without credentials.
         /// </summary>
-        /// <param name="user">The User resource.</param>
+        /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="activate">Executes activation lifecycle operation when creating the user</param>
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="User"/> response.</returns>        
+        /// <returns>The <see cref="IUser"/> response.</returns>        
         Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -57,10 +57,10 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="user">The User resource.</param>
+        /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="User"/> response.</returns>        
+        /// <returns>The <see cref="IUser"/> response.</returns>        
         Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -74,19 +74,19 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="changePasswordRequest">The ChangePasswordRequest resource.</param>
+        /// <param name="changePasswordRequest">The <see cref="IChangePasswordRequest"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="UserCredentials"/> response.</returns>        
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>        
         Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userCredentials">The UserCredentials resource.</param>
+        /// <param name="userCredentials">The <see cref="IUserCredentials"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="UserCredentials"/> response.</returns>        
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>        
         Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>

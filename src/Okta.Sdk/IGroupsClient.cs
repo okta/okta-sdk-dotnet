@@ -15,7 +15,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="options">The options for this Create Group request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="Group"/> response.</returns>
+        /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

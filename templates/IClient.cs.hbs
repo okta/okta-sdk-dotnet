@@ -22,7 +22,7 @@ namespace Okta.Sdk
         /// {{description}}
         /// </summary>
         {{#if bodyModel}}
-        /// <param name="{{camelCase bodyModel}}">The {{bodyModel}} resource.</param>
+        /// <param name="{{camelCase bodyModel}}">The <see cref="I{{bodyModel}}"/> resource.</param>
         {{/if}}
         {{#each pathParams}}
         /// <param name="{{name}}">{{description}}</param>
@@ -37,7 +37,7 @@ namespace Okta.Sdk
         {{~/unless}}
         {{#if isArray}}/// <returns>A collection that can be enumerated asynchronously.</returns>
         {{~else}}
-            {{~#if bodyModel}}/// <returns>The <see cref="{{operation.responseModel}}"/> response.</returns>
+            {{~#if bodyModel}}/// <returns>The <see cref="I{{operation.responseModel}}"/> response.</returns>
             {{~else}}/// <returns>A Task that represents the asynchronous operation.</returns>
             {{~/if}}
         {{~/if}}

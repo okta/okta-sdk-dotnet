@@ -29,9 +29,9 @@ namespace Okta.Sdk
         /// <summary>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
         /// </summary>
-        /// <param name="group">The Group resource.</param>
+        /// <param name="group">The <see cref="IGroup"/> resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="Group"/> response.</returns>        
+        /// <returns>The <see cref="IGroup"/> response.</returns>        
         Task<IGroup> CreateGroupAsync(IGroup group, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -45,9 +45,9 @@ namespace Okta.Sdk
         /// <summary>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
         /// </summary>
-        /// <param name="groupRule">The GroupRule resource.</param>
+        /// <param name="groupRule">The <see cref="IGroupRule"/> resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="GroupRule"/> response.</returns>        
+        /// <returns>The <see cref="IGroupRule"/> response.</returns>        
         Task<IGroupRule> CreateRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -70,10 +70,10 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="groupRule">The GroupRule resource.</param>
+        /// <param name="groupRule">The <see cref="IGroupRule"/> resource.</param>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="GroupRule"/> response.</returns>        
+        /// <returns>The <see cref="IGroupRule"/> response.</returns>        
         Task<IGroupRule> UpdateRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -112,10 +112,10 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="group">The Group resource.</param>
+        /// <param name="group">The <see cref="IGroup"/> resource.</param>
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="Group"/> response.</returns>        
+        /// <returns>The <see cref="IGroup"/> response.</returns>        
         Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
