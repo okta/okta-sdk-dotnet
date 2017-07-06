@@ -36,6 +36,26 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
+        public Task<IUserCredentials> ChangePasswordAsync(
+            ChangePasswordOptions options,
+            string userId,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            var changePasswordRequest = new ChangePasswordRequest
+            {
+                OldPassword = new PasswordCredential { Value = options.CurrentPassword },
+                NewPassword = new PasswordCredential { Value = options.NewPassword },
+            };
+
+            return ChangePasswordAsync(changePasswordRequest, userId, cancellationToken);
+        }
+
+        /// <inheritdoc/>
         public Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (options == null)
