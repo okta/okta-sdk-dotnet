@@ -42,13 +42,11 @@ namespace Okta.Sdk
 
         Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
-
         Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task AddGroupTargetToRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IUserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
 

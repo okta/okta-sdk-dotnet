@@ -59,31 +59,19 @@ namespace Okta.Sdk
             {{~#unless operation.isArray}}Async{{/unless}}
             
             {{~nbsp 0}}(
-            {{~#each operation.pathParams}}
+
+            {{~#each operation.allParams}}
                 {{~#unless (getMappedArgName method name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
-                {{~#unless required}} =
-                    {{~#if (exists this "default")}} {{default}}
-                    {{~else}} null
-                    {{~/if}}
-                {{~/unless}}
+                {{~#if (exists this "default")}} = {{default}}
+                {{~else}}
+                    {{~#unless required}} = null{{/unless}}
+                {{~/if}}
                 {{~nbsp 0}},{{nbsp}}
                 {{~/unless}}
             {{~/each}}
-            
-            {{~#each operation.queryParams}}
-                {{~#unless (getMappedArgName method name)}}
-                {{~paramToCLRType this}}{{nbsp}}
-                {{~name}}
-                {{~#unless required}} =
-                    {{~#if (exists this "default")}} {{default}}
-                    {{~else}} null
-                    {{~/if}}
-                {{~/unless}}
-                {{~nbsp 0}},{{nbsp}}
-                {{~/unless}}
-            {{~/each}}
+
             {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken))
             {{nbsp 0}}
             {{~nbsp 0}}=> GetClient().{{pascalCase operation.tags.[0]}}s.{{pascalCase operation.operationId}}

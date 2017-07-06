@@ -34,7 +34,8 @@ const modelMethodSkipList = [
   { path: 'User.addRole', reason: 'Implemented as a custom method'},
   { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
   { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
-  { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' }
+  { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
+  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser' },
 ];
 
 const getType = (specType) => {

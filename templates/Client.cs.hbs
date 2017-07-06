@@ -52,11 +52,10 @@ namespace Okta.Sdk
                 {{~#each allParams}}
                     {{~paramToCLRType this}}{{nbsp}}
                     {{~name}}
-                    {{~#unless required}} =
-                        {{~#if (exists this "default")}} {{default}}
-                        {{~else}} null
-                        {{~/if}}
-                    {{~/unless}}
+                    {{~#if (exists this "default")}} = {{default}}
+                    {{~else}}
+                        {{~#unless required}} = null{{/unless}}
+                    {{~/if}}
                     {{~#unless @last}},{{nbsp}}{{/unless}}
                 {{~/each}}
                 {{~#unless isArray}}

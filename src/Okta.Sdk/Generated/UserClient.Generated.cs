@@ -136,7 +136,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<ForgotPasswordResponse>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/credentials/forgot_password",
@@ -169,7 +169,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserActivationToken>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/activate",

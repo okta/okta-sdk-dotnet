@@ -97,7 +97,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ForgotPasswordResponse"/> response.</returns>        
-        Task<IForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -115,7 +115,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>        
-        Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 

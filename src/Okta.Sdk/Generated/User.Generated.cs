@@ -59,10 +59,6 @@ namespace Okta.Sdk
             => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ListGroupTargetsForRole(Id, roleId, after, limit);
-
-        /// <inheritdoc />
         public Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.RemoveGroupTargetFromRoleAsync(Id, roleId, groupId, cancellationToken);
 
@@ -71,7 +67,7 @@ namespace Okta.Sdk
             => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IUserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ActivateUserAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc />
