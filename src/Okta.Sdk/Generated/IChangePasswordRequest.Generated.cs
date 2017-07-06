@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="ChangePasswordRequest"/> resources.</summary>
-    public partial interface IChangePasswordRequest
+    /// <summary>Represents a ChangePasswordRequest resource in the Okta API.</summary>
+    public partial interface IChangePasswordRequest : IResource
     {
-        PasswordCredential NewPassword { get; set; }
+        IPasswordCredential NewPassword { get; set; }
 
-        PasswordCredential OldPassword { get; set; }
+        IPasswordCredential OldPassword { get; set; }
 
     }
 }

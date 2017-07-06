@@ -6,19 +6,20 @@
 // Do not modify this file directly. This file was automatically generated with:
 // spec.json - 0.3.0
 
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// An enumeration of GroupRuleStatus values in the Okta API.
+    /// </summary>
     public sealed class GroupRuleStatus : StringEnum
     {
+        /// <summary>The ACTIVE GroupRuleStatus.</summary>
         public static GroupRuleStatus Active = new GroupRuleStatus("ACTIVE");
 
+        /// <summary>The INACTIVE GroupRuleStatus.</summary>
         public static GroupRuleStatus Inactive = new GroupRuleStatus("INACTIVE");
 
+        /// <summary>The INVALID GroupRuleStatus.</summary>
         public static GroupRuleStatus Invalid = new GroupRuleStatus("INVALID");
 
         /// <summary>

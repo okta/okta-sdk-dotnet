@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="Role"/> resources.</summary>
-    public partial interface IRole
+    /// <summary>Represents a Role resource in the Okta API.</summary>
+    public partial interface IRole : IResource
     {
 
         DateTimeOffset? Created { get; }

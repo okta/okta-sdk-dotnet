@@ -14,43 +14,49 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a UserProfile resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class UserProfile : Resource, IUserProfile
     {
         public UserProfile()
             : base(ResourceBehavior.ChangeTracking)
         {
         }
+        /// <inheritdoc/>
         public string Email
         {
             get => GetStringProperty("email");
             set => this["email"] = value;
         }
 
+        /// <inheritdoc/>
         public string FirstName
         {
             get => GetStringProperty("firstName");
             set => this["firstName"] = value;
         }
 
+        /// <inheritdoc/>
         public string LastName
         {
             get => GetStringProperty("lastName");
             set => this["lastName"] = value;
         }
 
+        /// <inheritdoc/>
         public string Login
         {
             get => GetStringProperty("login");
             set => this["login"] = value;
         }
 
+        /// <inheritdoc/>
         public string MobilePhone
         {
             get => GetStringProperty("mobilePhone");
             set => this["mobilePhone"] = value;
         }
 
+        /// <inheritdoc/>
         public string SecondEmail
         {
             get => GetStringProperty("secondEmail");

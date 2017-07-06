@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a {{modelName}} resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class {{modelName}} : Resource, I{{modelName}}
     {
         {{#if supportsPartialUpdates}}
@@ -26,7 +26,8 @@ namespace Okta.Sdk
 
         {{~#each properties}}
         {{~#unless hidden}}
-        public {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
+        /// <inheritdoc/>
+        public {{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} => {{{getterName this}}}("{{propertyName}}");
         {{~else}}
 {{nbsp 0}}
@@ -50,8 +51,8 @@ namespace Okta.Sdk
             {{~nbsp 0}}public
 
             {{~nbsp}}
-            {{~#if operation.isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if operation.isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}
 
             {{~nbsp}}{{~pascalCase alias}}
@@ -59,31 +60,19 @@ namespace Okta.Sdk
             {{~#unless operation.isArray}}Async{{/unless}}
             
             {{~nbsp 0}}(
-            {{~#each operation.pathParams}}
+
+            {{~#each operation.allParams}}
                 {{~#unless (getMappedArgName method name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
-                {{~#unless required}} =
-                    {{~#if (exists this "default")}} {{default}}
-                    {{~else}} null
-                    {{~/if}}
-                {{~/unless}}
+                {{~#if (exists this "default")}} = {{default}}
+                {{~else}}
+                    {{~#unless required}} = null{{/unless}}
+                {{~/if}}
                 {{~nbsp 0}},{{nbsp}}
                 {{~/unless}}
             {{~/each}}
-            
-            {{~#each operation.queryParams}}
-                {{~#unless (getMappedArgName method name)}}
-                {{~paramToCLRType this}}{{nbsp}}
-                {{~name}}
-                {{~#unless required}} =
-                    {{~#if (exists this "default")}} {{default}}
-                    {{~else}} null
-                    {{~/if}}
-                {{~/unless}}
-                {{~nbsp 0}},{{nbsp}}
-                {{~/unless}}
-            {{~/each}}
+
             {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken))
             {{nbsp 0}}
             {{~nbsp 0}}=> GetClient().{{pascalCase operation.tags.[0]}}s.{{pascalCase operation.operationId}}

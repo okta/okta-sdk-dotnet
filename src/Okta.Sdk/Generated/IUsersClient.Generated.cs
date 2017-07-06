@@ -1,4 +1,4 @@
-// <copyright file="IClient.Generated.cs" company="Okta, Inc">
+// <copyright file="IUsersClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for clients that work with <see cref="User"/> resources.</summary>
-    public partial interface IUserClient : IOktaClient
+    /// <summary>A client that works with <see cref="IUser"/> resources.</summary>
+    public partial interface IUsersClient
     {
         /// <summary>
         /// Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.
@@ -26,17 +26,17 @@ namespace Okta.Sdk
         /// <param name="search">Searches for users with a supported filtering  expression for most properties</param>
         /// <param name="expand"></param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>        
-        IAsyncEnumerable<User> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null);
+        IAsyncEnumerable<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null);
 
         /// <summary>
         /// Creates a new user in your Okta organization with or without credentials.
         /// </summary>
-        /// <param name="user">The User resource.</param>
+        /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="activate">Executes activation lifecycle operation when creating the user</param>
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="User"/> response.</returns>        
-        Task<User> CreateUserAsync(User user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUser"/> response.</returns>        
+        Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -52,16 +52,16 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>        
-        Task<User> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="user">The User resource.</param>
+        /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="User"/> response.</returns>        
-        Task<User> UpdateUserAsync(User user, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUser"/> response.</returns>        
+        Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -69,35 +69,25 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="showAll"></param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>        
-        IAsyncEnumerable<AppLink> ListAppLinks(string userId, bool? showAll = false);
+        IAsyncEnumerable<IAppLink> ListAppLinks(string userId, bool? showAll = false);
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="changePasswordRequest">The ChangePasswordRequest resource.</param>
+        /// <param name="changePasswordRequest">The <see cref="IChangePasswordRequest"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="UserCredentials"/> response.</returns>        
-        Task<UserCredentials> ChangePasswordAsync(ChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>        
+        Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="userCredentials">The UserCredentials resource.</param>
+        /// <param name="userCredentials">The <see cref="IUserCredentials"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="UserCredentials"/> response.</returns>        
-        Task<UserCredentials> ChangeRecoveryQuestionAsync(UserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="userCredentials">The UserCredentials resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="sendEmail"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ForgotPasswordResponse"/> response.</returns>        
-        Task<ForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>        
+        Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -106,7 +96,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>        
-        IAsyncEnumerable<Group> ListUserGroups(string userId, string after = null, int? limit = -1);
+        IAsyncEnumerable<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1);
 
         /// <summary>
         /// 
@@ -115,7 +105,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>        
-        Task<UserActivationToken> ActivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -132,7 +122,7 @@ namespace Okta.Sdk
         /// <param name="tempPassword"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>        
-        Task<TempPassword> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ITempPassword> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -150,7 +140,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>        
-        Task<ResetPasswordToken> ResetPasswordAsync(string userId, string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IResetPasswordToken> ResetPasswordAsync(string userId, AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -182,16 +172,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="expand"></param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>        
-        IAsyncEnumerable<Role> ListAssignedRoles(string userId, string expand = null);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="role">The Role resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="Role"/> response.</returns>        
-        Task<Role> AddRoleToUserAsync(Role role, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        IAsyncEnumerable<IRole> ListAssignedRoles(string userId, string expand = null);
 
         /// <summary>
         /// 
@@ -210,7 +191,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>        
-        IAsyncEnumerable<Group> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
+        IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
 
         /// <summary>
         /// 

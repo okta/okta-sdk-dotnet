@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="GroupRulePeopleCondition"/> resources.</summary>
-    public partial interface IGroupRulePeopleCondition
+    /// <summary>Represents a GroupRulePeopleCondition resource in the Okta API.</summary>
+    public partial interface IGroupRulePeopleCondition : IResource
     {
-        GroupRuleGroupCondition Groups { get; set; }
+        IGroupRuleGroupCondition Groups { get; set; }
 
-        GroupRuleUserCondition Users { get; set; }
+        IGroupRuleUserCondition Users { get; set; }
 
     }
 }

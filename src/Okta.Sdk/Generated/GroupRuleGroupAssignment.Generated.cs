@@ -14,9 +14,10 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a GroupRuleGroupAssignment resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class GroupRuleGroupAssignment : Resource, IGroupRuleGroupAssignment
     {
+        /// <inheritdoc/>
         public IList<string> GroupIds
         {
             get => GetArrayProperty<string>("groupIds");

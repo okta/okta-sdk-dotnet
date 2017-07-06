@@ -6,29 +6,35 @@
 // Do not modify this file directly. This file was automatically generated with:
 // spec.json - 0.3.0
 
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// An enumeration of UserStatus values in the Okta API.
+    /// </summary>
     public sealed class UserStatus : StringEnum
     {
+        /// <summary>The STAGED UserStatus.</summary>
         public static UserStatus Staged = new UserStatus("STAGED");
 
+        /// <summary>The PROVISIONED UserStatus.</summary>
         public static UserStatus Provisioned = new UserStatus("PROVISIONED");
 
+        /// <summary>The ACTIVE UserStatus.</summary>
         public static UserStatus Active = new UserStatus("ACTIVE");
 
+        /// <summary>The RECOVERY UserStatus.</summary>
         public static UserStatus Recovery = new UserStatus("RECOVERY");
 
+        /// <summary>The PASSWORD_EXPIRED UserStatus.</summary>
         public static UserStatus PasswordExpired = new UserStatus("PASSWORD_EXPIRED");
 
+        /// <summary>The LOCKED_OUT UserStatus.</summary>
         public static UserStatus LockedOut = new UserStatus("LOCKED_OUT");
 
+        /// <summary>The DEPROVISIONED UserStatus.</summary>
         public static UserStatus Deprovisioned = new UserStatus("DEPROVISIONED");
 
+        /// <summary>The SUSPENDED UserStatus.</summary>
         public static UserStatus Suspended = new UserStatus("SUSPENDED");
 
         /// <summary>

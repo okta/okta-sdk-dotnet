@@ -12,10 +12,8 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>
-    /// Represents a resource in the Okta API.
-    /// </summary>
-    public class Resource
+    /// <inheritdoc/>
+    public class Resource : IResource
     {
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
         private static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
@@ -59,26 +57,20 @@ namespace Okta.Sdk
             _logger = logger ?? NullLogger.Instance;
         }
 
+        /// <summary>
+        /// Gets the <see cref="IOktaClient">OktaClient</see> that created this resource.
+        /// </summary>
+        /// <returns>The <see cref="IOktaClient">OktaClient</see> that created this resource.</returns>
         protected IOktaClient GetClient()
         {
             return _client ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object cna call server-side methods.");
         }
 
-        /// <summary>
-        /// Gets the underlying data backing this resource.
-        /// </summary>
-        /// <returns>The data backing this resource.</returns>
-        /// <remarks>
-        /// If the resource is initialized with dictionary type <see cref="ResourceBehavior.ChangeTracking"/>, this returns any updates merged with the original data.
-        /// </remarks>
+        /// <inheritdoc/>
         public IDictionary<string, object> GetData()
             => _resourceFactory.NewDictionary(_dictionaryType, _data);
 
-        /// <summary>
-        /// Gets any data that has been modified since the resource was retrieved.
-        /// </summary>
-        /// <remarks>This has no effect (behaves the same as <see cref="GetData"/>) unless the resource was initialized with dictionary type <see cref="ResourceBehavior.ChangeTracking"/>.</remarks>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public IDictionary<string, object> GetModifiedData()
         {
             if (_data is DefaultChangeTrackingDictionary changeTrackingDictionary)
@@ -89,24 +81,14 @@ namespace Okta.Sdk
             return GetData();
         }
 
-        /// <summary>
-        /// Gets or sets a resource proprety by name.
-        /// </summary>
-        /// <param name="name">The property name.</param>
-        /// <returns>The property value, or<c>null</c>.</returns>
+        /// <inheritdoc/>
         public object this[string name]
         {
             get => GetProperty<object>(name);
             set => SetProperty(name, value);
         }
 
-        /// <summary>
-        /// Gets a resource property by name.
-        /// </summary>
-        /// <remarks>In derived classes, use the more specific methods such as <see cref="GetStringProperty(string)"/> and <see cref="GetIntegerProperty(string)"/> instead.</remarks>
-        /// <typeparam name="T">The property type.</typeparam>
-        /// <param name="name">The property name.</param>
-        /// <returns>The strongly-typed property value, or <c>null</c>.</returns>
+        /// <inheritdoc/>
         public T GetProperty<T>(string name)
         {
             var typeInfo = typeof(T).GetTypeInfo();
@@ -271,12 +253,7 @@ namespace Okta.Sdk
             return DateTimeOffset.Parse(raw);
         }
 
-        /// <summary>
-        /// Gets a list or array property from the resource by name.
-        /// </summary>
-        /// <typeparam name="T">The type of items contained in the list or array.</typeparam>
-        /// <param name="name">The property name.</param>
-        /// <returns>A <see cref="IList{T}">list</see> that can be enumerated to obtain the property items.</returns>
+        /// <inheritdoc/>
         public IList<T> GetArrayProperty<T>(string name)
         {
             var genericList = GetPropertyOrNull(name) as IList<object>;

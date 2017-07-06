@@ -88,7 +88,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 // Retrieve by ID
-                var retrievedById = await client.Users.GetUserAsync(createdUser.Id); // todo: Get(string)?
+                var retrievedById = await client.Users.GetUserAsync(createdUser.Id);
                 retrievedById.Profile.FirstName.Should().Be("John");
                 retrievedById.Profile.LastName.Should().Be("Get-User");
 
@@ -169,8 +169,7 @@ namespace Okta.Sdk.IntegrationTests
                 // Update profile
                 createdUser.Profile["nickName"] = "Batman";
 
-                var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
-                // TODO: make this better
+                var updatedUser = await createdUser.UpdateAsync();
                 var retrievedUpdatedUser = await client.Users.GetUserAsync(createdUser.Id);
 
                 updatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
@@ -204,7 +203,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var resetPasswordToken = await client.Users.ResetPasswordAsync(createdUser.Id, null, false);
+                var resetPasswordToken = await createdUser.ResetPasswordAsync(sendEmail: false);
                 resetPasswordToken.ResetPasswordUrl.Should().NotBeNullOrEmpty();
             }
             finally
@@ -273,14 +272,11 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                // TODO: Make this easier? (maybe ChangePasswordAsync(userId, oldPassword, newPassword)?
-                var updatedUserCredentials = await client.Users.ChangePasswordAsync(
-                    new ChangePasswordRequest
-                    {
-                        OldPassword = new PasswordCredential { Value = "Abcd1234" },
-                        NewPassword = new PasswordCredential { Value = "1234Abcd" },
-                    },
-                    createdUser.Id);
+                await createdUser.ChangePasswordAsync(new ChangePasswordOptions
+                {
+                    CurrentPassword = "Abcd1234",
+                    NewPassword = "1234Abcd",
+                });
 
                 var updatedUser = await client.Users.GetUserAsync(createdUser.Id);
 

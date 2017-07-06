@@ -14,16 +14,18 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a GroupRulePeopleCondition resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class GroupRulePeopleCondition : Resource, IGroupRulePeopleCondition
     {
-        public GroupRuleGroupCondition Groups
+        /// <inheritdoc/>
+        public IGroupRuleGroupCondition Groups
         {
             get => GetResourceProperty<GroupRuleGroupCondition>("groups");
             set => this["groups"] = value;
         }
 
-        public GroupRuleUserCondition Users
+        /// <inheritdoc/>
+        public IGroupRuleUserCondition Users
         {
             get => GetResourceProperty<GroupRuleUserCondition>("users");
             set => this["users"] = value;

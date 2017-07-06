@@ -14,11 +14,13 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a UserActivationToken resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class UserActivationToken : Resource, IUserActivationToken
     {
+        /// <inheritdoc/>
         public string ActivationToken => GetStringProperty("activationToken");
 
+        /// <inheritdoc/>
         public string ActivationUrl => GetStringProperty("activationUrl");
 
     }

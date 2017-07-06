@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="TempPassword"/> resources.</summary>
-    public partial interface ITempPassword
+    /// <summary>Represents a TempPassword resource in the Okta API.</summary>
+    public partial interface ITempPassword : IResource
     {
         string Password { get; }
 

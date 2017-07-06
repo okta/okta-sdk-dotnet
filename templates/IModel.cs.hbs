@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="{{modelName}}"/> resources.</summary>
-    public partial interface I{{modelName}}
+    /// <summary>Represents a {{modelName}} resource in the Okta API.</summary>
+    public partial interface I{{modelName}} : IResource
     {
         {{#each properties}}
         {{~#unless hidden}}
-        {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
+        {{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} { get; }
         {{~else}} { get; set; }
         {{~/if}}
@@ -31,8 +31,8 @@ namespace Okta.Sdk
         {{~#each methods as |method|}}
             {{~#unless hidden}}
         {{nbsp 0}}
-            {{~#if operation.isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if operation.isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}
 
             {{~nbsp}}{{~pascalCase alias}}
@@ -40,31 +40,19 @@ namespace Okta.Sdk
             {{~#unless operation.isArray}}Async{{/unless}}
             
             {{~nbsp 0}}(
-            {{~#each operation.pathParams}}
-                {{~#unless (getMappedArgName method name)}}
-                {{~paramToCLRType this}}{{nbsp}}
-                {{~name}}
-                {{~#unless required}} =
-                    {{~#if (exists this "default")}} {{default}}
-                    {{~else}} null
-                    {{~/if}}
-                {{~/unless}}
-                {{~nbsp 0}},{{nbsp}}
-                {{~/unless}}
-            {{~/each}}
             
-            {{~#each operation.queryParams}}
+            {{~#each operation.allParams}}
                 {{~#unless (getMappedArgName method name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
-                {{~#unless required}} =
-                    {{~#if (exists this "default")}} {{default}}
-                    {{~else}} null
-                    {{~/if}}
-                {{~/unless}}
+                {{~#if (exists this "default")}} = {{default}}
+                {{~else}}
+                    {{~#unless required}} = null{{/unless}}
+                {{~/if}}
                 {{~nbsp 0}},{{nbsp}}
                 {{~/unless}}
             {{~/each}}
+
             {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken));
 {{nbsp 0}}
 {{nbsp 0}}

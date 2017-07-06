@@ -25,13 +25,25 @@ const propertyRenameList = [
   { path: 'TempPassword.tempPassword', new: 'password', reason: '.NET type name and member name cannot be identical' }
 ];
 
-const operationSkipList = [];
+const operationSkipList = [
+  { id: 'forgotPassword', reason: 'Revisit in alpha2 (#62)'},
+  { id: 'addRoleToUser', reason: 'Revisit in alpha2 (#102)'},
+];
 
 const modelMethodSkipList = [
-  { path: 'User.changePassword', reason: 'Implemented as a custom method' },
-  { path: 'User.changeRecoveryQuestion', reason: 'Implemented as a custom method'},
-  { path: 'User.forgotPassword', reason: 'Implemented as a custom method'},
+  { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
+  { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
+  { path: 'User.forgotPassword', reason: 'Revisit in alpha2 (#64)'},
   { path: 'User.addRole', reason: 'Implemented as a custom method'},
+  { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
+  { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
+  { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
+  { path: 'User.removeRole', reason: 'Add back in alpha2 (#64)' },
+  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser, leave on IUserClient' },
+  { path: 'User.addGroupTargetToRole', reason: 'Too complex for IUser, leave on IUserClient' },
+  { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
+  { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
+  { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
 ];
 
 const getType = (specType) => {
@@ -44,13 +56,17 @@ const getType = (specType) => {
 };
 
 function paramToCLRType(param) {
+  if (param.model) {
+    return param.model;
+  }
+  
   return getType(param.type);
 }
 
-function propToCLRType(prop) {
+function propToCLRType(prop, isInterface) {
   switch (prop.commonType) {
     case 'array': return `IList<${getType(prop.model)}>`;
-    case 'object': return prop.model;
+    case 'object': return isInterface ? `I${prop.model}` : prop.model;
     case 'enum': return prop.model;
     case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
     default: return getType(prop.commonType);
@@ -119,13 +135,13 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       let fullPath = `${model.modelName}.${property.propertyName}`;
 
       if (property.model && property.model === 'object') {
-        console.log('Skipping object property', fullPath);
+        console.log('Skipping property', fullPath, '(Reason: object properties are not supported)');
         property.hidden = true;
         continue;
       }
 
       if (typeof property.commonType === 'undefined') {
-        console.log('Skipping property without commonType', fullPath);
+        console.log('Skipping property', fullPath, '(Reason: properties without commonType are not supported)');
         property.hidden = true;
         continue;
       }
@@ -208,7 +224,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
   for (let tag of Object.keys(taggedOperations)) {
     templates.push({
       src: 'IClient.cs.hbs',
-      dest: `Generated/I${tag}Client.Generated.cs`,
+      dest: `Generated/I${tag}sClient.Generated.cs`,
       context: {
         tag,
         spec,
@@ -218,7 +234,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
     templates.push({
       src: 'Client.cs.hbs',
-      dest: `Generated/${tag}Client.Generated.cs`,
+      dest: `Generated/${tag}sClient.Generated.cs`,
       context: {
         tag,
         spec,

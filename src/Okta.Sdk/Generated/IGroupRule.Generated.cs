@@ -13,12 +13,12 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="GroupRule"/> resources.</summary>
-    public partial interface IGroupRule
+    /// <summary>Represents a GroupRule resource in the Okta API.</summary>
+    public partial interface IGroupRule : IResource
     {
-        GroupRuleAction Actions { get; set; }
+        IGroupRuleAction Actions { get; set; }
 
-        GroupRuleConditions Conditions { get; set; }
+        IGroupRuleConditions Conditions { get; set; }
 
         DateTimeOffset? Created { get; }
 

@@ -14,22 +14,25 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a UserCredentials resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class UserCredentials : Resource, IUserCredentials
     {
-        public PasswordCredential Password
+        /// <inheritdoc/>
+        public IPasswordCredential Password
         {
             get => GetResourceProperty<PasswordCredential>("password");
             set => this["password"] = value;
         }
 
-        public AuthenticationProvider Provider
+        /// <inheritdoc/>
+        public IAuthenticationProvider Provider
         {
             get => GetResourceProperty<AuthenticationProvider>("provider");
             set => this["provider"] = value;
         }
 
-        public RecoveryQuestionCredential RecoveryQuestion
+        /// <inheritdoc/>
+        public IRecoveryQuestionCredential RecoveryQuestion
         {
             get => GetResourceProperty<RecoveryQuestionCredential>("recovery_question");
             set => this["recovery_question"] = value;

@@ -1,4 +1,4 @@
-// <copyright file="IClient.Generated.cs" company="Okta, Inc">
+// <copyright file="I{{tag}}sClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,8 +12,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for clients that work with <see cref="{{tag}}"/> resources.</summary>
-    public partial interface I{{tag}}Client : IOktaClient
+    /// <summary>A client that works with <see cref="I{{tag}}"/> resources.</summary>
+    public partial interface I{{tag}}sClient
     {
         {{~#each operations as |operation|}}
         {{~#unless hidden}}
@@ -22,7 +22,7 @@ namespace Okta.Sdk
         /// {{description}}
         /// </summary>
         {{#if bodyModel}}
-        /// <param name="{{camelCase bodyModel}}">The {{bodyModel}} resource.</param>
+        /// <param name="{{camelCase bodyModel}}">The <see cref="I{{bodyModel}}"/> resource.</param>
         {{/if}}
         {{#each pathParams}}
         /// <param name="{{name}}">{{description}}</param>
@@ -37,15 +37,15 @@ namespace Okta.Sdk
         {{~/unless}}
         {{#if isArray}}/// <returns>A collection that can be enumerated asynchronously.</returns>
         {{~else}}
-            {{~#if bodyModel}}/// <returns>The <see cref="{{operation.responseModel}}"/> response.</returns>
+            {{~#if bodyModel}}/// <returns>The <see cref="I{{operation.responseModel}}"/> response.</returns>
             {{~else}}/// <returns>A Task that represents the asynchronous operation.</returns>
             {{~/if}}
         {{~/if}}
         
         {{nbsp 0}}
 
-            {{~#if isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}{{nbsp}}
 
             {{~pascalCase operationId}}
@@ -54,17 +54,16 @@ namespace Okta.Sdk
             
             {{~nbsp 0}}(
                 {{~#if bodyModel}}
-                    {{~bodyModel}} {{camelCase bodyModel}},{{nbsp}}
+                    {{~nbsp 0}}I{{bodyModel}} {{camelCase bodyModel}},{{nbsp}}
                 {{~/if}}
 
                 {{~#each allParams}}
                     {{~paramToCLRType this}}{{nbsp}}
                     {{~name}}
-                    {{~#unless required}} =
-                        {{~#if (exists this "default")}} {{default}}
-                        {{~else}} null
-                        {{~/if}}
-                    {{~/unless}}
+                    {{~#if (exists this "default")}} = {{default}}
+                    {{~else}}
+                        {{~#unless required}} = null{{/unless}}
+                    {{~/if}}
                     {{~#unless @last}},{{nbsp}}{{/unless}}
                 {{~/each}}
                 {{~#unless isArray}}

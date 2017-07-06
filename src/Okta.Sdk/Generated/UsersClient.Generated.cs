@@ -1,4 +1,4 @@
-// <copyright file="Client.Generated.cs" company="Okta, Inc">
+// <copyright file="UsersClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -16,20 +16,21 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    public sealed partial class UserClient : OktaClient, IUserClient
+    /// <inheritdoc/>
+    public sealed partial class UsersClient : OktaClient, IUsersClient
     {
         // Remove parameterless constructor
-        private UserClient()
+        private UsersClient()
         {
         }
 
-        internal UserClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+        internal UsersClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
             : base(dataStore, configuration, requestContext)
         {
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<User> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
+        public IAsyncEnumerable<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
             => GetCollectionClient<User>(new HttpRequest
         {
             Uri = "/api/v1/users",
@@ -47,8 +48,8 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task<User> CreateUserAsync(User user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<User>(new HttpRequest
+        public async Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<User>(new HttpRequest
         {
             Uri = "/api/v1/users",
             Payload = user,
@@ -57,11 +58,11 @@ namespace Okta.Sdk
                 ["activate"] = activate,
                 ["provider"] = provider,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => DeleteAsync(new HttpRequest
+        public async Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}",
             
@@ -69,11 +70,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<User> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetAsync<User>(new HttpRequest
+        public async Task<IUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<User>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}",
             
@@ -81,11 +82,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<User> UpdateUserAsync(User user, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PutAsync<User>(new HttpRequest
+        public async Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<User>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}",
             Payload = user,
@@ -93,10 +94,10 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<AppLink> ListAppLinks(string userId, bool? showAll = false)
+        public IAsyncEnumerable<IAppLink> ListAppLinks(string userId, bool? showAll = false)
             => GetCollectionClient<AppLink>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/appLinks",
@@ -112,8 +113,8 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task<UserCredentials> ChangePasswordAsync(ChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<UserCredentials>(new HttpRequest
+        public async Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<UserCredentials>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/credentials/change_password",
             Payload = changePasswordRequest,
@@ -121,11 +122,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<UserCredentials> ChangeRecoveryQuestionAsync(UserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<UserCredentials>(new HttpRequest
+        public async Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<UserCredentials>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/credentials/change_recovery_question",
             Payload = userCredentials,
@@ -133,26 +134,10 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<ForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<ForgotPasswordResponse>(new HttpRequest
-        {
-            Uri = "/api/v1/users/{userId}/credentials/forgot_password",
-            Payload = userCredentials,
-            PathParameters = new Dictionary<string, object>()
-            {
-                ["userId"] = userId,
-            },
-            QueryParameters = new Dictionary<string, object>()
-            {
-                ["sendEmail"] = sendEmail,
-            },
-        }, cancellationToken);
-
-        /// <inheritdoc />
-        public IAsyncEnumerable<Group> ListUserGroups(string userId, string after = null, int? limit = -1)
+        public IAsyncEnumerable<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1)
             => GetCollectionClient<Group>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/groups",
@@ -169,8 +154,8 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task<UserActivationToken> ActivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<UserActivationToken>(new HttpRequest
+        public async Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<UserActivationToken>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/activate",
             
@@ -182,11 +167,11 @@ namespace Okta.Sdk
             {
                 ["sendEmail"] = sendEmail,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task DeactivateUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task DeactivateUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/deactivate",
             
@@ -194,11 +179,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<TempPassword> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<TempPassword>(new HttpRequest
+        public async Task<ITempPassword> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<TempPassword>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/expire_password",
             
@@ -210,11 +195,11 @@ namespace Okta.Sdk
             {
                 ["tempPassword"] = tempPassword,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task ResetAllFactorsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task ResetAllFactorsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/reset_factors",
             
@@ -222,11 +207,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task<ResetPasswordToken> ResetPasswordAsync(string userId, string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<ResetPasswordToken>(new HttpRequest
+        public async Task<IResetPasswordToken> ResetPasswordAsync(string userId, AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<ResetPasswordToken>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/reset_password",
             
@@ -239,11 +224,11 @@ namespace Okta.Sdk
                 ["provider"] = provider,
                 ["sendEmail"] = sendEmail,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task SuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task SuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/suspend",
             
@@ -251,11 +236,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task UnlockUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task UnlockUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/unlock",
             
@@ -263,11 +248,11 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task UnsuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest
+        public async Task UnsuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/unsuspend",
             
@@ -275,10 +260,10 @@ namespace Okta.Sdk
             {
                 ["userId"] = userId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<Role> ListAssignedRoles(string userId, string expand = null)
+        public IAsyncEnumerable<IRole> ListAssignedRoles(string userId, string expand = null)
             => GetCollectionClient<Role>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles",
@@ -294,20 +279,8 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task<Role> AddRoleToUserAsync(Role role, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync<Role>(new HttpRequest
-        {
-            Uri = "/api/v1/users/{userId}/roles",
-            Payload = role,
-            PathParameters = new Dictionary<string, object>()
-            {
-                ["userId"] = userId,
-            },
-        }, cancellationToken);
-
-        /// <inheritdoc />
-        public Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken))
-            => DeleteAsync(new HttpRequest
+        public async Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}",
             
@@ -316,10 +289,10 @@ namespace Okta.Sdk
                 ["userId"] = userId,
                 ["roleId"] = roleId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<Group> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
+        public IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
             => GetCollectionClient<Group>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups",
@@ -337,8 +310,8 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => DeleteAsync(new HttpRequest
+        public async Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId}",
             
@@ -348,11 +321,11 @@ namespace Okta.Sdk
                 ["roleId"] = roleId,
                 ["groupId"] = groupId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => PutAsync(new HttpRequest
+        public async Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId}",
             
@@ -362,6 +335,6 @@ namespace Okta.Sdk
                 ["roleId"] = roleId,
                 ["groupId"] = groupId,
             },
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
     }
 }

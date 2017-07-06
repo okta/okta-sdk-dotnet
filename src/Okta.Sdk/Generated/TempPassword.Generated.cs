@@ -14,9 +14,10 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a TempPassword resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class TempPassword : Resource, ITempPassword
     {
+        /// <inheritdoc/>
         public string Password => GetStringProperty("tempPassword");
 
     }

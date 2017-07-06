@@ -1,4 +1,4 @@
-﻿// <copyright file="GroupClient.cs" company="Okta, Inc">
+﻿// <copyright file="GroupsClient.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,10 +12,10 @@ namespace Okta.Sdk
     /// <summary>
     /// Provides methods that manipulate Group resources, by communicating with the Okta Groups API.
     /// </summary>
-    public sealed partial class GroupClient : OktaClient, IGroupClient, IAsyncEnumerable<Group>
+    public sealed partial class GroupsClient : OktaClient, IGroupsClient, IAsyncEnumerable<IGroup>
     {
         /// <inheritdoc/>
-        public Task<Group> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IGroup> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             var newGroup = new Group
             {
@@ -30,6 +30,6 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public IAsyncEnumerator<Group> GetEnumerator() => ListGroups().GetEnumerator();
+        public IAsyncEnumerator<IGroup> GetEnumerator() => ListGroups().GetEnumerator();
     }
 }

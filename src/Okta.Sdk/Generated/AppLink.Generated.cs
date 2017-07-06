@@ -14,27 +14,37 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a AppLink resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class AppLink : Resource, IAppLink
     {
+        /// <inheritdoc/>
         public string AppAssignmentId => GetStringProperty("appAssignmentId");
 
+        /// <inheritdoc/>
         public string AppInstanceId => GetStringProperty("appInstanceId");
 
+        /// <inheritdoc/>
         public string AppName => GetStringProperty("appName");
 
+        /// <inheritdoc/>
         public bool? CredentialsSetup => GetBooleanProperty("credentialsSetup");
 
+        /// <inheritdoc/>
         public bool? Hidden => GetBooleanProperty("hidden");
 
+        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
 
+        /// <inheritdoc/>
         public string Label => GetStringProperty("label");
 
+        /// <inheritdoc/>
         public string LinkUrl => GetStringProperty("linkUrl");
 
+        /// <inheritdoc/>
         public string LogoUrl => GetStringProperty("logoUrl");
 
+        /// <inheritdoc/>
         public int? SortOrder => GetIntegerProperty("sortOrder");
 
     }

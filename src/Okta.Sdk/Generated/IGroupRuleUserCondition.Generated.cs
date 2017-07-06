@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="GroupRuleUserCondition"/> resources.</summary>
-    public partial interface IGroupRuleUserCondition
+    /// <summary>Represents a GroupRuleUserCondition resource in the Okta API.</summary>
+    public partial interface IGroupRuleUserCondition : IResource
     {
         IList<string> Exclude { get; set; }
 

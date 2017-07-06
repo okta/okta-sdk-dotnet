@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="Group"/> resources.</summary>
-    public partial interface IGroup
+    /// <summary>Represents a Group resource in the Okta API.</summary>
+    public partial interface IGroup : IResource
     {
 
 
@@ -28,13 +28,11 @@ namespace Okta.Sdk
 
         IList<string> ObjectClass { get; }
 
-        GroupProfile Profile { get; set; }
+        IGroupProfile Profile { get; set; }
 
         string Type { get; }
 
         Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        IAsyncEnumerable<User> ListUsers(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

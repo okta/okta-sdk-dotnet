@@ -13,8 +13,8 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="User"/> resources.</summary>
-    public partial interface IUser
+    /// <summary>Represents a User resource in the Okta API.</summary>
+    public partial interface IUser : IResource
     {
 
 
@@ -22,7 +22,7 @@ namespace Okta.Sdk
 
         DateTimeOffset? Created { get; }
 
-        UserCredentials Credentials { get; set; }
+        IUserCredentials Credentials { get; set; }
 
         string Id { get; }
 
@@ -32,7 +32,7 @@ namespace Okta.Sdk
 
         DateTimeOffset? PasswordChanged { get; }
 
-        UserProfile Profile { get; set; }
+        IUserProfile Profile { get; set; }
 
         UserStatus Status { get; }
 
@@ -40,21 +40,7 @@ namespace Okta.Sdk
 
         UserStatus TransitioningToStatus { get; }
 
-        IAsyncEnumerable<AppLink> ListAppLinks(bool? showAll = false, CancellationToken cancellationToken = default(CancellationToken));
-
-        IAsyncEnumerable<Role> ListRoles(string expand = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken));
-
-        IAsyncEnumerable<Group> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task AddGroupTargetToRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
-
-        IAsyncEnumerable<Group> ListGroups(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task<UserActivationToken> ActivateAsync(bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
 
@@ -62,9 +48,7 @@ namespace Okta.Sdk
 
         Task UnsuspendAsync(CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task<TempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ITempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         Task UnlockAsync(CancellationToken cancellationToken = default(CancellationToken));
 

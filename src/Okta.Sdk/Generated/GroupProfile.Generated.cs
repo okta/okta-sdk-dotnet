@@ -14,15 +14,17 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a GroupProfile resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class GroupProfile : Resource, IGroupProfile
     {
+        /// <inheritdoc/>
         public string Description
         {
             get => GetStringProperty("description");
             set => this["description"] = value;
         }
 
+        /// <inheritdoc/>
         public string Name
         {
             get => GetStringProperty("name");

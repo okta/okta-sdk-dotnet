@@ -14,36 +14,39 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a Group resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class Group : Resource, IGroup
     {
 
 
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
+        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastMembershipUpdated => GetDateTimeProperty("lastMembershipUpdated");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
 
+        /// <inheritdoc/>
         public IList<string> ObjectClass => GetArrayProperty<string>("objectClass");
 
-        public GroupProfile Profile
+        /// <inheritdoc/>
+        public IGroupProfile Profile
         {
             get => GetResourceProperty<GroupProfile>("profile");
             set => this["profile"] = value;
         }
 
+        /// <inheritdoc/>
         public string Type => GetStringProperty("type");
 
 
         /// <inheritdoc />
         public Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Groups.RemoveGroupUserAsync(Id, userId, cancellationToken);
-
-        /// <inheritdoc />
-        public IAsyncEnumerable<User> ListUsers(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Groups.ListGroupUsers(Id, after, limit);
     }
 }

@@ -1,4 +1,4 @@
-// <copyright file="Client.Generated.cs" company="Okta, Inc">
+// <copyright file="{{tag}}sClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -16,14 +16,15 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    public sealed partial class {{tag}}Client : OktaClient, I{{tag}}Client
+    /// <inheritdoc/>
+    public sealed partial class {{tag}}sClient : OktaClient, I{{tag}}sClient
     {
         // Remove parameterless constructor
-        private {{tag}}Client()
+        private {{tag}}sClient()
         {
         }
 
-        internal {{tag}}Client(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+        internal {{tag}}sClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
             : base(dataStore, configuration, requestContext)
         {
         }
@@ -36,8 +37,8 @@ namespace Okta.Sdk
 
             {{~nbsp 0}}public{{nbsp}}
 
-            {{~#if isArray}}IAsyncEnumerable<{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}
+            {{~#if isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
+            {{~else}}async Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
             {{~/if}}{{nbsp}}
 
             {{~pascalCase operationId}}
@@ -46,17 +47,16 @@ namespace Okta.Sdk
             
             {{~nbsp 0}}(
                 {{~#if bodyModel}}
-                    {{~bodyModel}} {{camelCase bodyModel}},{{nbsp}}
+                    {{~nbsp 0}}I{{bodyModel}} {{camelCase bodyModel}},{{nbsp}}
                 {{~/if}}
 
                 {{~#each allParams}}
                     {{~paramToCLRType this}}{{nbsp}}
                     {{~name}}
-                    {{~#unless required}} =
-                        {{~#if (exists this "default")}} {{default}}
-                        {{~else}} null
-                        {{~/if}}
-                    {{~/unless}}
+                    {{~#if (exists this "default")}} = {{default}}
+                    {{~else}}
+                        {{~#unless required}} = null{{/unless}}
+                    {{~/if}}
                     {{~#unless @last}},{{nbsp}}{{/unless}}
                 {{~/each}}
                 {{~#unless isArray}}
@@ -88,7 +88,7 @@ namespace Okta.Sdk
             {{/if}}
         });
             {{~else}}
-        => {{pascalCase method}}Async{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}(new HttpRequest
+        => await {{pascalCase method}}Async{{#if operation.responseModel}}<{{operation.responseModel}}>{{/if}}(new HttpRequest
         {
             Uri = "{{path}}",
             {{#if bodyModel}}Payload = {{camelCase bodyModel}},{{/if}}
@@ -108,7 +108,7 @@ namespace Okta.Sdk
                 {{/each}}
             },
             {{/if}}
-        }, cancellationToken);
+        }, cancellationToken).ConfigureAwait(false);
             {{~/if}}
         {{~nbsp 0}}
 {{nbsp 0}}
