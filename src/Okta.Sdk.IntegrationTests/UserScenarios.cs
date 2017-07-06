@@ -249,6 +249,7 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = GetClient("change-user-password");
 
+<<<<<<< HEAD
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
                 Profile = new UserProfile
@@ -287,6 +288,8 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
+=======
+>>>>>>> Cleanup after merge conflicts
         [Fact]
         public async Task ExpireUserPassword()
         {

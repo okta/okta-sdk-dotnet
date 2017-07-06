@@ -224,16 +224,16 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public async Task PostWithNullBody()
         {
-            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
-            mockRequestExecutor
-                .PostAsync(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
-                .Returns(new HttpResponse<string>() { StatusCode = 200 });
-            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), NullLogger.Instance);
-
+            var (mockRequestExecutor, dataStore) = SetUpMocks();
             var request = new HttpRequest { Uri = "https://foo.dev" }; // Payload = null
-            await dataStore.PostAsync<TestResource>(request, CancellationToken.None);
 
-            await mockRequestExecutor.Received().PostAsync("https://foo.dev", null, CancellationToken.None);
+            await dataStore.PostAsync<TestResource>(request, new RequestContext(), CancellationToken.None);
+
+            await mockRequestExecutor.Received().PostAsync(
+                href: "https://foo.dev",
+                headers: Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
+                body: null,
+                cancellationToken: CancellationToken.None);
         }
     }
 }
