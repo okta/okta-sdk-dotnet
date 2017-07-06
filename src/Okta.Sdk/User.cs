@@ -26,6 +26,10 @@ namespace Okta.Sdk
         public IAsyncEnumerable<IGroup> Groups
             => GetClient().Users.ListUserGroups(Id);
 
+        /// <inheritdoc />
+        public Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ResetPasswordAsync(Id, null, sendEmail, cancellationToken);
+
         /// <inheritdoc/>
         public Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.DeactivateOrDeleteUserAsync(Id, cancellationToken);
