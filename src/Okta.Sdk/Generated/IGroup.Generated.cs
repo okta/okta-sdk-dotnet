@@ -34,7 +34,5 @@ namespace Okta.Sdk
 
         Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<IUser> ListUsers(string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
-
     }
 }
