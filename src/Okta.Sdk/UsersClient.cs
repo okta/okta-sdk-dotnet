@@ -40,8 +40,8 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public Task<IUserCredentials> ChangePasswordAsync(
-            ChangePasswordOptions options,
             string userId,
+            ChangePasswordOptions options,
             CancellationToken cancellationToken = default(CancellationToken))
         {
             if (options == null)

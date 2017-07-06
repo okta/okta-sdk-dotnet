@@ -21,11 +21,11 @@ namespace Okta.Sdk
         /// <summary>
         /// Changes a user's password.
         /// </summary>
-        /// <param name="options">The options for this Change Password request.</param>
         /// <param name="userId">The User ID.</param>
+        /// <param name="options">The options for this Change Password request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="UserCredentials"/> response.</returns>
-        Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserCredentials> ChangePasswordAsync(string userId, ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
