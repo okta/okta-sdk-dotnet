@@ -40,12 +40,6 @@ namespace Okta.Sdk
 
         UserStatus TransitioningToStatus { get; }
 
-        Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task AddGroupTargetToRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
-
         Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));

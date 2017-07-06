@@ -177,15 +177,6 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="role">The Role resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="Role"/> response.</returns>        
-        Task<IRole> AddRoleToUserAsync(IRole role, string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>

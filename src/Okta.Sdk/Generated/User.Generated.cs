@@ -66,18 +66,6 @@ namespace Okta.Sdk
 
 
         /// <inheritdoc />
-        public Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
-
-        /// <inheritdoc />
-        public Task RemoveGroupTargetFromRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.RemoveGroupTargetFromRoleAsync(Id, roleId, groupId, cancellationToken);
-
-        /// <inheritdoc />
-        public Task AddGroupTargetToRoleAsync(string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
-
-        /// <inheritdoc />
         public Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ActivateUserAsync(Id, sendEmail, cancellationToken);
 

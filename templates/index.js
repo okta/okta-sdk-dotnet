@@ -26,21 +26,24 @@ const propertyRenameList = [
 ];
 
 const operationSkipList = [
-  { id: 'forgotPassword', reason: 'Revisit in alpha2'},
+  { id: 'forgotPassword', reason: 'Revisit in alpha2 (#62)'},
+  { id: 'addRoleToUser', reason: 'Revisit in alpha2 (#102)'},
 ];
 
 const modelMethodSkipList = [
   { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
   { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
-  { path: 'User.forgotPassword', reason: 'Revisit in alpha2'},
+  { path: 'User.forgotPassword', reason: 'Revisit in alpha2 (#64)'},
   { path: 'User.addRole', reason: 'Implemented as a custom method'},
   { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
   { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
   { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
-  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser' },
+  { path: 'User.removeRole', reason: 'Add back in alpha2 (#64)' },
+  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser, leave on IUserClient' },
+  { path: 'User.addGroupTargetToRole', reason: 'Too complex for IUser, leave on IUserClient' },
+  { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
   { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
-  
 ];
 
 const getType = (specType) => {

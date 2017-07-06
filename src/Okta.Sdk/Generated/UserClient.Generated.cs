@@ -279,18 +279,6 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IRole> AddRoleToUserAsync(IRole role, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Role>(new HttpRequest
-        {
-            Uri = "/api/v1/users/{userId}/roles",
-            Payload = role,
-            PathParameters = new Dictionary<string, object>()
-            {
-                ["userId"] = userId,
-            },
-        }, cancellationToken).ConfigureAwait(false);
-
-        /// <inheritdoc />
         public async Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
         {
