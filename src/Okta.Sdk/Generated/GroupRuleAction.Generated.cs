@@ -14,9 +14,10 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a GroupRuleAction resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class GroupRuleAction : Resource, IGroupRuleAction
     {
+        /// <inheritdoc/>
         public GroupRuleGroupAssignment AssignUserToGroups
         {
             get => GetResourceProperty<GroupRuleGroupAssignment>("assignUserToGroups");

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="UserCredentials"/> resources.</summary>
+    /// <summary>Represents a UserCredentials resource in the Okta API.</summary>
     public partial interface IUserCredentials
     {
         PasswordCredential Password { get; set; }

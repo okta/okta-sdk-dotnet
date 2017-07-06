@@ -6,16 +6,15 @@
 // Do not modify this file directly. This file was automatically generated with:
 // spec.json - {{specVersion}}
 
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// An enumeration of {{modelName}} values in the Okta API.
+    /// </summary>
     public sealed class {{modelName}} : StringEnum
     {
         {{#each enum}}
+        /// <summary>The {{this}} {{../modelName}}.</summary>
         public static {{../modelName}} {{pascalCase this}} = new {{../modelName}}("{{this}}");
 
         {{/each}}

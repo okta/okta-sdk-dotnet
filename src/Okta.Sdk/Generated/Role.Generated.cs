@@ -14,26 +14,33 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a Role resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class Role : Resource, IRole
     {
 
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
+        /// <inheritdoc/>
         public string Description
         {
             get => GetStringProperty("description");
             set => this["description"] = value;
         }
 
+        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
 
+        /// <inheritdoc/>
         public string Label => GetStringProperty("label");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
 
+        /// <inheritdoc/>
         public RoleStatus Status => GetEnumProperty<RoleStatus>("status");
 
+        /// <inheritdoc/>
         public string Type => GetStringProperty("type");
 
     }

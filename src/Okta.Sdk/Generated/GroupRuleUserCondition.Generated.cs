@@ -14,15 +14,17 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a GroupRuleUserCondition resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class GroupRuleUserCondition : Resource, IGroupRuleUserCondition
     {
+        /// <inheritdoc/>
         public IList<string> Exclude
         {
             get => GetArrayProperty<string>("exclude");
             set => this["exclude"] = value;
         }
 
+        /// <inheritdoc/>
         public IList<string> Include
         {
             get => GetArrayProperty<string>("include");

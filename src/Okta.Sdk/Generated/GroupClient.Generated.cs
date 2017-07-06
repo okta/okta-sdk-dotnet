@@ -16,6 +16,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <inheritdoc/>
     public sealed partial class GroupClient : OktaClient, IGroupClient
     {
         // Remove parameterless constructor

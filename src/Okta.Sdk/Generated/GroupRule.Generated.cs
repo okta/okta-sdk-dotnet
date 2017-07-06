@@ -14,35 +14,43 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a GroupRule resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class GroupRule : Resource, IGroupRule
     {
+        /// <inheritdoc/>
         public GroupRuleAction Actions
         {
             get => GetResourceProperty<GroupRuleAction>("actions");
             set => this["actions"] = value;
         }
 
+        /// <inheritdoc/>
         public GroupRuleConditions Conditions
         {
             get => GetResourceProperty<GroupRuleConditions>("conditions");
             set => this["conditions"] = value;
         }
 
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
+        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
 
+        /// <inheritdoc/>
         public string Name
         {
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
 
+        /// <inheritdoc/>
         public GroupRuleStatus Status => GetEnumProperty<GroupRuleStatus>("status");
 
+        /// <inheritdoc/>
         public string Type
         {
             get => GetStringProperty("type");

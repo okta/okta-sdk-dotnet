@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="Group"/> resources.</summary>
+    /// <summary>Represents a Group resource in the Okta API.</summary>
     public partial interface IGroup
     {
 

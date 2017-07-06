@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="UserProfile"/> resources.</summary>
+    /// <summary>Represents a UserProfile resource in the Okta API.</summary>
     public partial interface IUserProfile
     {
         string Email { get; set; }

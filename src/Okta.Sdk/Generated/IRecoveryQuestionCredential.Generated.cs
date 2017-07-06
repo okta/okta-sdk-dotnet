@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="RecoveryQuestionCredential"/> resources.</summary>
+    /// <summary>Represents a RecoveryQuestionCredential resource in the Okta API.</summary>
     public partial interface IRecoveryQuestionCredential
     {
         string Answer { get; set; }

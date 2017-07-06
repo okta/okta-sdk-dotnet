@@ -14,15 +14,17 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a AuthenticationProvider resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class AuthenticationProvider : Resource, IAuthenticationProvider
     {
+        /// <inheritdoc/>
         public string Name
         {
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
 
+        /// <inheritdoc/>
         public AuthenticationProviderType Type
         {
             get => GetEnumProperty<AuthenticationProviderType>("type");

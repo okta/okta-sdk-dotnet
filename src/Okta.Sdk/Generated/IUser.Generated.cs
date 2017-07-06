@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="User"/> resources.</summary>
+    /// <summary>Represents a User resource in the Okta API.</summary>
     public partial interface IUser
     {
 

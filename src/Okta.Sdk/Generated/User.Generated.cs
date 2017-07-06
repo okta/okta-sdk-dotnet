@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a User resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class User : Resource, IUser
     {
         public User()
@@ -23,34 +23,45 @@ namespace Okta.Sdk
         }
 
 
+        /// <inheritdoc/>
         public DateTimeOffset? Activated => GetDateTimeProperty("activated");
 
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
+        /// <inheritdoc/>
         public UserCredentials Credentials
         {
             get => GetResourceProperty<UserCredentials>("credentials");
             set => this["credentials"] = value;
         }
 
+        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastLogin => GetDateTimeProperty("lastLogin");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
 
+        /// <inheritdoc/>
         public DateTimeOffset? PasswordChanged => GetDateTimeProperty("passwordChanged");
 
+        /// <inheritdoc/>
         public UserProfile Profile
         {
             get => GetResourceProperty<UserProfile>("profile");
             set => this["profile"] = value;
         }
 
+        /// <inheritdoc/>
         public UserStatus Status => GetEnumProperty<UserStatus>("status");
 
+        /// <inheritdoc/>
         public DateTimeOffset? StatusChanged => GetDateTimeProperty("statusChanged");
 
+        /// <inheritdoc/>
         public UserStatus TransitioningToStatus => GetEnumProperty<UserStatus>("transitioningToStatus");
 
 

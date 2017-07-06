@@ -14,15 +14,17 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a RecoveryQuestionCredential resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class RecoveryQuestionCredential : Resource, IRecoveryQuestionCredential
     {
+        /// <inheritdoc/>
         public string Answer
         {
             get => GetStringProperty("answer");
             set => this["answer"] = value;
         }
 
+        /// <inheritdoc/>
         public string Question
         {
             get => GetStringProperty("question");

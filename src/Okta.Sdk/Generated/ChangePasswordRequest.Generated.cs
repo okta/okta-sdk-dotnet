@@ -14,15 +14,17 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a ChangePasswordRequest resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class ChangePasswordRequest : Resource, IChangePasswordRequest
     {
+        /// <inheritdoc/>
         public PasswordCredential NewPassword
         {
             get => GetResourceProperty<PasswordCredential>("newPassword");
             set => this["newPassword"] = value;
         }
 
+        /// <inheritdoc/>
         public PasswordCredential OldPassword
         {
             get => GetResourceProperty<PasswordCredential>("oldPassword");

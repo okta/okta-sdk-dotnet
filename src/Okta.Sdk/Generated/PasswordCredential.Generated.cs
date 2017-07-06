@@ -14,9 +14,10 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a PasswordCredential resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class PasswordCredential : Resource, IPasswordCredential
     {
+        /// <inheritdoc/>
         public string Value
         {
             get => GetStringProperty("value");

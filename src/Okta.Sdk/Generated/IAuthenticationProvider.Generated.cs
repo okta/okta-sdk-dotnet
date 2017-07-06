@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="AuthenticationProvider"/> resources.</summary>
+    /// <summary>Represents a AuthenticationProvider resource in the Okta API.</summary>
     public partial interface IAuthenticationProvider
     {
         string Name { get; set; }

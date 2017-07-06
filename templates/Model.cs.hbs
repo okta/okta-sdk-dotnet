@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a {{modelName}} resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class {{modelName}} : Resource, I{{modelName}}
     {
         {{#if supportsPartialUpdates}}
@@ -26,6 +26,7 @@ namespace Okta.Sdk
 
         {{~#each properties}}
         {{~#unless hidden}}
+        /// <inheritdoc/>
         public {{{propToCLRType this}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} => {{{getterName this}}}("{{propertyName}}");
         {{~else}}

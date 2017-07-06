@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Interface for <see cref="GroupProfile"/> resources.</summary>
+    /// <summary>Represents a GroupProfile resource in the Okta API.</summary>
     public partial interface IGroupProfile
     {
         string Description { get; set; }

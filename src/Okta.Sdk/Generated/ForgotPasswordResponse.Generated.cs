@@ -14,9 +14,10 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a ForgotPasswordResponse resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class ForgotPasswordResponse : Resource, IForgotPasswordResponse
     {
+        /// <inheritdoc/>
         public string ResetPasswordUrl => GetStringProperty("resetPasswordUrl");
 
     }

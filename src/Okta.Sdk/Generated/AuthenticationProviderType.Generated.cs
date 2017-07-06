@@ -6,25 +6,29 @@
 // Do not modify this file directly. This file was automatically generated with:
 // spec.json - 0.3.0
 
-using System;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
-
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// An enumeration of AuthenticationProviderType values in the Okta API.
+    /// </summary>
     public sealed class AuthenticationProviderType : StringEnum
     {
+        /// <summary>The ACTIVE_DIRECTORY AuthenticationProviderType.</summary>
         public static AuthenticationProviderType ActiveDirectory = new AuthenticationProviderType("ACTIVE_DIRECTORY");
 
+        /// <summary>The FEDERATION AuthenticationProviderType.</summary>
         public static AuthenticationProviderType Federation = new AuthenticationProviderType("FEDERATION");
 
+        /// <summary>The LDAP AuthenticationProviderType.</summary>
         public static AuthenticationProviderType Ldap = new AuthenticationProviderType("LDAP");
 
+        /// <summary>The OKTA AuthenticationProviderType.</summary>
         public static AuthenticationProviderType Okta = new AuthenticationProviderType("OKTA");
 
+        /// <summary>The SOCIAL AuthenticationProviderType.</summary>
         public static AuthenticationProviderType Social = new AuthenticationProviderType("SOCIAL");
 
+        /// <summary>The IMPORT AuthenticationProviderType.</summary>
         public static AuthenticationProviderType Import = new AuthenticationProviderType("IMPORT");
 
         /// <summary>

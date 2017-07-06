@@ -14,27 +14,34 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a Group resource in the Okta API.</summary>
+    /// <inheritdoc/>
     public sealed partial class Group : Resource, IGroup
     {
 
 
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
 
+        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastMembershipUpdated => GetDateTimeProperty("lastMembershipUpdated");
 
+        /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
 
+        /// <inheritdoc/>
         public IList<string> ObjectClass => GetArrayProperty<string>("objectClass");
 
+        /// <inheritdoc/>
         public GroupProfile Profile
         {
             get => GetResourceProperty<GroupProfile>("profile");
             set => this["profile"] = value;
         }
 
+        /// <inheritdoc/>
         public string Type => GetStringProperty("type");
 
 
