@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a Group resource in the Okta API.</summary>
     public partial interface IGroup
     {
         /// <summary>
@@ -16,6 +17,13 @@ namespace Okta.Sdk
         /// </summary>
         /// <value>The colletion of Users in this Group.</value>
         IAsyncEnumerable<IUser> Users { get; }
+
+        /// <summary>
+        /// Deletes the group.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Saves changes and returns the updated resource.
