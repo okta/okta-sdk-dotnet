@@ -150,7 +150,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>        
-        Task<IResetPasswordToken> ResetPasswordAsync(string userId, string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IResetPasswordToken> ResetPasswordAsync(string userId, AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 

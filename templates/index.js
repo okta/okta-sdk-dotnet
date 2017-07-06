@@ -49,6 +49,10 @@ const getType = (specType) => {
 };
 
 function paramToCLRType(param) {
+  if (param.model) {
+    return param.model;
+  }
+  
   return getType(param.type);
 }
 

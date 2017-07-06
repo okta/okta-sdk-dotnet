@@ -226,7 +226,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IResetPasswordToken> ResetPasswordAsync(string userId, string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IResetPasswordToken> ResetPasswordAsync(string userId, AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<ResetPasswordToken>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/lifecycle/reset_password",

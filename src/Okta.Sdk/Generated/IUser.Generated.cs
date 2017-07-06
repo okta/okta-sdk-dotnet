@@ -54,7 +54,7 @@ namespace Okta.Sdk
 
         Task UnsuspendAsync(CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IResetPasswordToken> ResetPasswordAsync(AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<ITempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 

@@ -94,7 +94,7 @@ namespace Okta.Sdk
             => GetClient().Users.UnsuspendUserAsync(Id, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IResetPasswordToken> ResetPasswordAsync(string provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IResetPasswordToken> ResetPasswordAsync(AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ResetPasswordAsync(Id, provider, sendEmail, cancellationToken);
 
         /// <inheritdoc />
