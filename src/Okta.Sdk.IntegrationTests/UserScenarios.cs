@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Polly;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
@@ -38,17 +39,25 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
+                async Task UserShouldExist()
+                {
+                    var foundUsers = await client.Users
+                        .ListUsers(search: $"profile.nickName eq \"{createdUser.Profile.GetProperty<string>("nickName")}\"")
+                        .ToArray();
+
+                    foundUsers.Length.Should().Be(1);
+                    foundUsers.Single().Id.Should().Be(createdUser.Id);
+                }
+
                 // this delay is to handle:
                 // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
                 // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
-                await Task.Delay(1000);
-                var foundUsers = await client
-                    .Users
-                    .ListUsers(search: $"profile.nickName eq \"{createdUser.Profile.GetProperty<string>("nickName")}\"")
-                    .ToArray();
 
-                foundUsers.Length.Should().Be(1);
-                foundUsers.Single().Id.Should().Be(createdUser.Id);
+                var policy = Policy
+                    .Handle<Exception>()
+                    .WaitAndRetryAsync(3, attemptNumber => TimeSpan.FromSeconds(Math.Pow(2, attemptNumber - 1)));
+
+                await policy.ExecuteAsync(UserShouldExist);
             }
             finally
             {
@@ -249,7 +258,6 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = GetClient("change-user-password");
 
-<<<<<<< HEAD
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
                 Profile = new UserProfile
@@ -288,8 +296,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-=======
->>>>>>> Cleanup after merge conflicts
         [Fact]
         public async Task ExpireUserPassword()
         {
