@@ -13,10 +13,10 @@ namespace Okta.Sdk
         /// <summary>
         /// Creates a new user in your Okta organization with the specified password.
         /// </summary>
-        /// <param name="createUserOptions">The options for this Create User request.</param>
+        /// <param name="options">The options for this Create User (with password) request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The created user.</returns>
-        Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Changes a user's password.

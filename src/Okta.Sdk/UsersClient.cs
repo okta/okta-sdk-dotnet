@@ -19,23 +19,23 @@ namespace Okta.Sdk
         public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();
 
         /// <inheritdoc/>
-        public Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (createUserOptions == null)
+            if (options == null)
             {
-                throw new ArgumentNullException(nameof(createUserOptions));
+                throw new ArgumentNullException(nameof(options));
             }
 
             var user = new User
             {
-                Profile = createUserOptions.Profile,
+                Profile = options.Profile,
                 Credentials = new UserCredentials
                 {
-                    Password = new PasswordCredential { Value = createUserOptions.Password },
+                    Password = new PasswordCredential { Value = options.Password },
                 },
             };
 
-            return CreateUserAsync(user, createUserOptions.Activate, cancellationToken: cancellationToken);
+            return CreateUserAsync(user, options.Activate, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc/>
