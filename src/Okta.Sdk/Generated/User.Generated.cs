@@ -55,14 +55,6 @@ namespace Okta.Sdk
 
 
         /// <inheritdoc />
-        public IAsyncEnumerable<AppLink> ListAppLinks(bool? showAll = false, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ListAppLinks(Id, showAll);
-
-        /// <inheritdoc />
-        public IAsyncEnumerable<Role> ListRoles(string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ListAssignedRoles(Id, expand);
-
-        /// <inheritdoc />
         public Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
 

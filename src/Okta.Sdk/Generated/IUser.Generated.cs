@@ -40,10 +40,6 @@ namespace Okta.Sdk
 
         UserStatus TransitioningToStatus { get; }
 
-        IAsyncEnumerable<AppLink> ListAppLinks(bool? showAll = false, CancellationToken cancellationToken = default(CancellationToken));
-
-        IAsyncEnumerable<Role> ListRoles(string expand = null, CancellationToken cancellationToken = default(CancellationToken));
-
         Task RemoveRoleAsync(string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         IAsyncEnumerable<Group> ListGroupTargetsForRole(string roleId, string after = null, int? limit = -1, CancellationToken cancellationToken = default(CancellationToken));
