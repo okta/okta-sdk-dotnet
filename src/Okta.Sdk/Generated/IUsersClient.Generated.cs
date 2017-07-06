@@ -1,4 +1,4 @@
-// <copyright file="IClient.Generated.cs" company="Okta, Inc">
+// <copyright file="IUsersClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>A client that works with <see cref="User"/> resources.</summary>
-    public partial interface IUserClient
+    public partial interface IUsersClient
     {
         /// <summary>
         /// Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.

@@ -1,4 +1,4 @@
-// <copyright file="IClient.Generated.cs" company="Okta, Inc">
+// <copyright file="IGroupsClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>A client that works with <see cref="Group"/> resources.</summary>
-    public partial interface IGroupClient
+    public partial interface IGroupsClient
     {
         /// <summary>
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.

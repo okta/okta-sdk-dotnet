@@ -1,4 +1,4 @@
-﻿// <copyright file="UserClient.cs" company="Okta, Inc">
+﻿// <copyright file="UsersClient.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -13,7 +13,7 @@ namespace Okta.Sdk
     /// <summary>
     /// Provides methods that manipulate <see cref="User"/> resources, by communicating with the Okta Users API.
     /// </summary>
-    public sealed partial class UserClient : OktaClient, IUserClient, IAsyncEnumerable<IUser>
+    public sealed partial class UsersClient : OktaClient, IUsersClient, IAsyncEnumerable<IUser>
     {
         /// <inheritdoc/>
         public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();

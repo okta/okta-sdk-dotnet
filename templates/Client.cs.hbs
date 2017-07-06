@@ -1,4 +1,4 @@
-// <copyright file="Client.Generated.cs" company="Okta, Inc">
+// <copyright file="{{tag}}sClient.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -17,14 +17,14 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class {{tag}}Client : OktaClient, I{{tag}}Client
+    public sealed partial class {{tag}}sClient : OktaClient, I{{tag}}sClient
     {
         // Remove parameterless constructor
-        private {{tag}}Client()
+        private {{tag}}sClient()
         {
         }
 
-        internal {{tag}}Client(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+        internal {{tag}}sClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
             : base(dataStore, configuration, requestContext)
         {
         }

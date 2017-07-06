@@ -1,4 +1,4 @@
-﻿// <copyright file="IGroupClient.cs" company="Okta, Inc">
+﻿// <copyright file="IGroupsClient.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    public partial interface IGroupClient
+    public partial interface IGroupsClient
     {
         /// <summary>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.

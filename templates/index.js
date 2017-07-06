@@ -224,7 +224,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
   for (let tag of Object.keys(taggedOperations)) {
     templates.push({
       src: 'IClient.cs.hbs',
-      dest: `Generated/I${tag}Client.Generated.cs`,
+      dest: `Generated/I${tag}sClient.Generated.cs`,
       context: {
         tag,
         spec,
@@ -234,7 +234,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
     templates.push({
       src: 'Client.cs.hbs',
-      dest: `Generated/${tag}Client.Generated.cs`,
+      dest: `Generated/${tag}sClient.Generated.cs`,
       context: {
         tag,
         spec,
