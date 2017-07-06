@@ -32,7 +32,7 @@ namespace Okta.Sdk
         /// <param name="group">The Group resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="Group"/> response.</returns>        
-        Task<IGroup> CreateGroupAsync(Group group, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IGroup> CreateGroupAsync(IGroup group, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all group rules for your organization.
@@ -48,7 +48,7 @@ namespace Okta.Sdk
         /// <param name="groupRule">The GroupRule resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="GroupRule"/> response.</returns>        
-        Task<IGroupRule> CreateRuleAsync(GroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IGroupRule> CreateRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -74,7 +74,7 @@ namespace Okta.Sdk
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="GroupRule"/> response.</returns>        
-        Task<IGroupRule> UpdateRuleAsync(GroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IGroupRule> UpdateRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -116,7 +116,7 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="Group"/> response.</returns>        
-        Task<IGroup> UpdateGroupAsync(Group group, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 

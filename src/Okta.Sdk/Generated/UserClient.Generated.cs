@@ -47,7 +47,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IUser> CreateUserAsync(User user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<User>(new HttpRequest
         {
             Uri = "/api/v1/users",
@@ -84,7 +84,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IUser> UpdateUserAsync(User user, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync<User>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}",
@@ -112,7 +112,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IUserCredentials> ChangePasswordAsync(ChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserCredentials>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/credentials/change_password",
@@ -124,7 +124,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IUserCredentials> ChangeRecoveryQuestionAsync(UserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserCredentials>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/credentials/change_recovery_question",
@@ -136,7 +136,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IForgotPasswordResponse> ForgotPasswordAsync(IUserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<ForgotPasswordResponse>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/credentials/forgot_password",
@@ -294,7 +294,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IRole> AddRoleToUserAsync(Role role, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IRole> AddRoleToUserAsync(IRole role, string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Role>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/roles",

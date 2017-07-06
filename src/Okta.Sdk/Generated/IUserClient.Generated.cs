@@ -36,7 +36,7 @@ namespace Okta.Sdk
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="User"/> response.</returns>        
-        Task<IUser> CreateUserAsync(User user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -61,7 +61,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="User"/> response.</returns>        
-        Task<IUser> UpdateUserAsync(User user, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -78,7 +78,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="UserCredentials"/> response.</returns>        
-        Task<IUserCredentials> ChangePasswordAsync(ChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -87,7 +87,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="UserCredentials"/> response.</returns>        
-        Task<IUserCredentials> ChangeRecoveryQuestionAsync(UserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -97,7 +97,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ForgotPasswordResponse"/> response.</returns>        
-        Task<IForgotPasswordResponse> ForgotPasswordAsync(UserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IForgotPasswordResponse> ForgotPasswordAsync(IUserCredentials userCredentials, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -191,7 +191,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="Role"/> response.</returns>        
-        Task<IRole> AddRoleToUserAsync(Role role, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IRole> AddRoleToUserAsync(IRole role, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 

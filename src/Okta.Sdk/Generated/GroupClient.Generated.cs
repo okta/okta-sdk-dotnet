@@ -45,7 +45,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IGroup> CreateGroupAsync(Group group, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IGroup> CreateGroupAsync(IGroup group, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups",
@@ -66,7 +66,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IGroupRule> CreateRuleAsync(GroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IGroupRule> CreateRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules",
@@ -102,7 +102,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IGroupRule> UpdateRuleAsync(GroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IGroupRule> UpdateRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync<GroupRule>(new HttpRequest
         {
             Uri = "/api/v1/groups/rules/{ruleId}",
@@ -166,7 +166,7 @@ namespace Okta.Sdk
         }, cancellationToken).ConfigureAwait(false);
 
         /// <inheritdoc />
-        public async Task<IGroup> UpdateGroupAsync(Group group, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync<Group>(new HttpRequest
         {
             Uri = "/api/v1/groups/{groupId}",
