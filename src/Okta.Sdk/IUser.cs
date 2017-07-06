@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>Represents a User resource in the Okta API.</summary>
     public partial interface IUser
     {
         IAsyncEnumerable<IAppLink> AppLinks { get; }

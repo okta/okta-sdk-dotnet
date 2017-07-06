@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with <see cref="User"/> resources.</summary>
+    /// <summary>A client that works with <see cref="IUser"/> resources.</summary>
     public partial interface IUsersClient
     {
         /// <summary>

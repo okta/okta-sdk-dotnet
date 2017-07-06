@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <summary>A client that works with <see cref="IUser"/> resources.</summary>
     public partial interface IUsersClient : IAsyncEnumerable<IUser>
     {
         /// <summary>
@@ -22,12 +23,19 @@ namespace Okta.Sdk
         /// <summary>
         /// Changes a user's password.
         /// </summary>
-        /// <param name="userId">The User ID.</param>
+        /// <param name="userId">The user ID.</param>
         /// <param name="options">The options for this Change Password request.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="UserCredentials"/> response.</returns>
         Task<IUserCredentials> ChangePasswordAsync(string userId, ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <summary>
+        /// Changes a user's recovery question.
+        /// </summary>
+        /// <param name="userId">The user ID.</param>
+        /// <param name="options">The options for this Change Recovery Question request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>
         Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -36,7 +44,7 @@ namespace Okta.Sdk
         /// <param name="userId">The user ID.</param>
         /// <param name="sendEmail">Sends reset password email to the user if <c>true</c>.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ResetPasswordToken"/> response.</returns>
-        Task<IResetPasswordToken> ResetPasswordAsync(string userId,  bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IResetPasswordToken"/> response.</returns>
+        Task<IResetPasswordToken> ResetPasswordAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
