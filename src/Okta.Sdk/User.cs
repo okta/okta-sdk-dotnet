@@ -17,7 +17,8 @@ namespace Okta.Sdk
         public Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.DeactivateOrDeleteUserAsync(Id, cancellationToken);
 
+        /// <inheritdoc/>
         public Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
-            => new UserClient(GetDataStore()).ChangeRecoveryQuestionAsync(Id, options, cancellationToken);
+            => GetClient().Users.ChangeRecoveryQuestionAsync(Id, options, cancellationToken);
     }
 }
