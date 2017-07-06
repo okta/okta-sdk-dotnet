@@ -45,5 +45,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Groups.RemoveGroupUserAsync(groupId, Id, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.UpdateUserAsync(this, Id, cancellationToken);
     }
 }

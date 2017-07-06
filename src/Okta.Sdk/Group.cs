@@ -4,6 +4,8 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
@@ -13,5 +15,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IAsyncEnumerable<IUser> Users
             => GetClient().Groups.ListGroupUsers(Id);
+
+        /// <inheritdoc/>
+        public Task<IGroup> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.UpdateGroupAsync(this, Id, cancellationToken);
     }
 }

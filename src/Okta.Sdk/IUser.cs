@@ -27,5 +27,13 @@ namespace Okta.Sdk
         Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Saves changes and returns the updated resource.
+        /// </summary>
+        /// <remarks>Alias of <see cref="IUsersClient.UpdateUserAsync(IUser, string, CancellationToken)"/>.</remarks>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The updated <see cref="IUser">User</see>.</returns>
+        Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }

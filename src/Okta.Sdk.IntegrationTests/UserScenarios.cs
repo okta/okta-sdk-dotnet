@@ -88,7 +88,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 // Retrieve by ID
-                var retrievedById = await client.Users.GetUserAsync(createdUser.Id); // todo: Get(string)?
+                var retrievedById = await client.Users.GetUserAsync(createdUser.Id);
                 retrievedById.Profile.FirstName.Should().Be("John");
                 retrievedById.Profile.LastName.Should().Be("Get-User");
 
@@ -169,8 +169,7 @@ namespace Okta.Sdk.IntegrationTests
                 // Update profile
                 createdUser.Profile["nickName"] = "Batman";
 
-                throw new NotImplementedException("TODO - need a better Update method");
-                //var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
+                var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
                 // TODO: make this better
                 var retrievedUpdatedUser = await client.Users.GetUserAsync(createdUser.Id);
 

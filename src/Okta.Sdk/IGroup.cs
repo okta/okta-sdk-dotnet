@@ -4,6 +4,8 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
@@ -14,5 +16,13 @@ namespace Okta.Sdk
         /// </summary>
         /// <value>The colletion of Users in this Group.</value>
         IAsyncEnumerable<IUser> Users { get; }
+
+        /// <summary>
+        /// Saves changes and returns the updated resource.
+        /// </summary>
+        /// <remarks>Alias of <see cref="IGroupsClient.UpdateGroupAsync(IGroup, string, CancellationToken)"/>.</remarks>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The updated <see cref="IGroup">Group</see>.</returns>
+        Task<IGroup> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken));
     }
 }
