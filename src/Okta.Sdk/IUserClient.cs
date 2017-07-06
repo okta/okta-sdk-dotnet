@@ -28,5 +28,14 @@ namespace Okta.Sdk
         Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Resets a user's password.
+        /// </summary>
+        /// <param name="userId">The user ID.</param>
+        /// <param name="sendEmail">Sends reset password email to the user if <c>true</c>.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ResetPasswordToken"/> response.</returns>
+        Task<IResetPasswordToken> ResetPasswordAsync(string userId,  bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -31,8 +31,8 @@ namespace Okta.Sdk
             => GetClient().Users.ChangePasswordAsync(options, Id, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ResetPasswordAsync(Id, null, sendEmail, cancellationToken);
+        public Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ResetPasswordAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc/>
         public Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken))

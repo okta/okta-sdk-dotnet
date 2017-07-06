@@ -16,6 +16,9 @@ namespace Okta.Sdk
     public sealed partial class UserClient : OktaClient, IUserClient, IAsyncEnumerable<IUser>
     {
         /// <inheritdoc/>
+        public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();
+
+        /// <inheritdoc/>
         public Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions createUserOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (createUserOptions == null)
@@ -77,6 +80,10 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();
+        public Task<IResetPasswordToken> ResetPasswordAsync(
+            string userId,
+            bool? sendEmail = true,
+            CancellationToken cancellationToken = default(CancellationToken))
+            => ResetPasswordAsync(userId, null, sendEmail, cancellationToken);
     }
 }

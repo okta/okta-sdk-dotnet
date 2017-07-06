@@ -28,8 +28,8 @@ const propertyRenameList = [
 const operationSkipList = [];
 
 const modelMethodSkipList = [
-  { path: 'User.changePassword', reason: 'Implemented as IUser.ChangePasswordAsync(options)' },
-  { path: 'User.changeRecoveryQuestion', reason: 'Implemented as a custom method'},
+  { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
+  { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
   { path: 'User.forgotPassword', reason: 'Implemented as a custom method'},
   { path: 'User.addRole', reason: 'Implemented as a custom method'},
   { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },

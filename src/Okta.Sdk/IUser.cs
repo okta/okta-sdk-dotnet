@@ -19,7 +19,7 @@ namespace Okta.Sdk
 
         Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken));
 
