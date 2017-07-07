@@ -64,10 +64,31 @@ namespace Okta.Sdk.IntegrationTests
                 () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task SearchGroups()
         {
-            throw new NotImplementedException();
+            var client = GetClient("group-search");
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Search Test Group",
+            });
+
+            try
+            {
+                var groupList = await client.Groups
+                    .ListGroups(createdGroup.Profile.GetProperty<string>("name"))
+                    .ToArray();
+                groupList.SingleOrDefault(g => g.Id == createdGroup.Id).Should().NotBeNull();
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
         [Fact(Skip = "TODO")]
