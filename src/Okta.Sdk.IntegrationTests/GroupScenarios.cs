@@ -56,13 +56,12 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                // TODO: add this to IGroup
-                await client.Groups.DeleteGroupAsync(createdGroup.Id);
-
-                // Getting by ID should result in 404 error
-                await Assert.ThrowsAsync<OktaApiException>(
-                    () => client.Groups.GetGroupAsync(createdGroup.Id));
+                await createdGroup.DeleteAsync();
             }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
         [Fact(Skip = "TODO")]
