@@ -91,10 +91,32 @@ namespace Okta.Sdk.IntegrationTests
                 () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task UpdateGroup()
         {
-            throw new NotImplementedException();
+            var client = GetClient("group-update");
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Update Test Group",
+            });
+
+            await Task.Delay(1000);
+            createdGroup.Profile.Description = "This group has been updated";
+
+            try
+            {
+                var updatedGroup = await createdGroup.UpdateAsync();
+                updatedGroup.LastUpdated.Value.Should().BeAfter(updatedGroup.Created.Value);
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
         [Fact(Skip = "TODO")]
