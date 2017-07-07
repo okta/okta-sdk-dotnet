@@ -7,6 +7,7 @@ using System;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
+using System.Linq;
 
 namespace Okta.Sdk.IntegrationTests
 {
@@ -38,10 +39,29 @@ namespace Okta.Sdk.IntegrationTests
                 () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact]
         public async Task ListGroups()
         {
-            throw new NotImplementedException();
+            var client = GetClient("group-list");
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "List Test Group",
+            });
+
+            try
+            {
+                var groupList = await client.Groups.ListGroups().ToArray();
+                groupList.SingleOrDefault(g => g.Id == createdGroup.Id).Should().NotBeNull();
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
         [Fact(Skip = "TODO")]

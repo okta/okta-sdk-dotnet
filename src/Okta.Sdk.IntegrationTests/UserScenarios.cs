@@ -272,11 +272,13 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
+                await Task.Delay(1000); // just to make sure the date is later
                 await createdUser.ChangePasswordAsync(new ChangePasswordOptions
                 {
                     CurrentPassword = "Abcd1234",
                     NewPassword = "1234Abcd",
                 });
+
 
                 var updatedUser = await client.Users.GetUserAsync(createdUser.Id);
 
