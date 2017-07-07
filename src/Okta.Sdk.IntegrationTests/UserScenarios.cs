@@ -279,7 +279,6 @@ namespace Okta.Sdk.IntegrationTests
                     NewPassword = "1234Abcd",
                 });
 
-
                 var updatedUser = await client.Users.GetUserAsync(createdUser.Id);
 
                 updatedUser.PasswordChanged.Value.Should().BeAfter(createdUser.PasswordChanged.Value);
