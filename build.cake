@@ -62,6 +62,35 @@ Task("Test")
     }
 });
 
+Task("BuildDocs")
+.IsDependentOn("Build")
+.Does(() =>
+{
+    MSBuild("./docs/OktaSdkDocumentation.sln", new MSBuildSettings {
+        Verbosity = Verbosity.Minimal
+    });
+});
+
+Task("CleanDocsOutput")
+.IsDependentOn("BuildDocs")
+.Does(() =>
+{
+    // SHFB generates some junk files we want to get rid of
+    
+    var filesToRemove = new[]
+    {
+        "SearchHelp.aspx",
+        "SearchHelp.inc.php",
+        "SearchHelp.php",
+        "LastBuild.log",
+        "Web.Config",
+    };
+
+    filesToRemove
+        .ToList()
+        .ForEach(filename => DeleteFile(string.Format("./docs/OktaSdkDocumentation/Output/{0}", filename)));
+});
+
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
@@ -69,6 +98,10 @@ Task("Default")
     .IsDependentOn("Test")
     .IsDependentOn("Pack");
 
+Task("Docs")
+    .IsDependentOn("BuildDocs")
+    .IsDependentOn("CleanDocsOutput");
 
+// Default task
 var target = Argument("target", "Default");
 RunTarget(target);
