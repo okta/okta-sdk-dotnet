@@ -1,4 +1,4 @@
-﻿// <copyright file="CreateUserWithPasswordOptions.cs" company="Okta, Inc">
+﻿// <copyright file="CreateUserWithRecoveryQuestionOptions.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -6,11 +6,11 @@
 namespace Okta.Sdk
 {
     /// <summary>
-    /// Contains the options for creating a new <see cref="IUser">User</see> with a password.
-    /// Used with <see cref="IUsersClient.CreateUserAsync(CreateUserWithPasswordOptions, System.Threading.CancellationToken)"/>.
+    /// Contains the options for creating a new <see cref="IUser">User</see> with a recovery question/answer.
+    /// Used with <see cref="IUsersClient.CreateUserAsync(CreateUserWithRecoveryQuestionOptions, System.Threading.CancellationToken)"/>.
     /// </summary>
-    /// <remarks>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-password">Create User with Password</a> in the documentation.</remarks>
-    public sealed class CreateUserWithPasswordOptions
+    /// <remarks>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-recovery-question">Create User with Recovery Question</a> in the documentation.</remarks>
+    public class CreateUserWithRecoveryQuestionOptions
     {
         /// <summary>
         /// Gets or sets the new user's profile.
@@ -28,14 +28,6 @@ namespace Okta.Sdk
         /// Whether the new user should be activated immediately.
         /// </value>
         public bool Activate { get; set; } = true;
-
-        /// <summary>
-        /// Gets or sets the new user's password.
-        /// </summary>
-        /// <value>
-        /// The new user's password.
-        /// </value>
-        public string Password { get; set; }
 
         /// <summary>
         /// Gets or sets the new user's recovery question.

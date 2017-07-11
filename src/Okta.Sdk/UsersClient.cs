@@ -19,6 +19,46 @@ namespace Okta.Sdk
         public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();
 
         /// <inheritdoc/>
+        public Task<IUser> CreateUserAsync(CreateUserWithoutCredentialsOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            var user = new User
+            {
+                Profile = options.Profile,
+            };
+
+            return CreateUserAsync(user, options.Activate, cancellationToken: cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<IUser> CreateUserAsync(CreateUserWithRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            var user = new User
+            {
+                Profile = options.Profile,
+                Credentials = new UserCredentials
+                {
+                    RecoveryQuestion = new RecoveryQuestionCredential
+                    {
+                        Question = options.RecoveryQuestion,
+                        Answer = options.RecoveryAnswer,
+                    },
+                },
+            };
+
+            return CreateUserAsync(user, options.Activate, cancellationToken: cancellationToken);
+        }
+
+        /// <inheritdoc/>
         public Task<IUser> CreateUserAsync(CreateUserWithPasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (options == null)
@@ -32,6 +72,40 @@ namespace Okta.Sdk
                 Credentials = new UserCredentials
                 {
                     Password = new PasswordCredential { Value = options.Password },
+                },
+            };
+
+            var hasRecoveryQuestionAndAnswer = !string.IsNullOrEmpty(options.RecoveryQuestion) && !string.IsNullOrEmpty(options.RecoveryAnswer);
+            if (hasRecoveryQuestionAndAnswer)
+            {
+                user.Credentials.RecoveryQuestion = new RecoveryQuestionCredential
+                {
+                    Question = options.RecoveryQuestion,
+                    Answer = options.RecoveryAnswer,
+                };
+            }
+
+            return CreateUserAsync(user, options.Activate, cancellationToken: cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<IUser> CreateUserAsync(CreateUserWithProviderOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            var user = new User
+            {
+                Profile = options.Profile,
+                Credentials = new UserCredentials
+                {
+                    Provider = new AuthenticationProvider
+                    {
+                        Type = options.ProviderType,
+                        Name = options.ProviderName,
+                    },
                 },
             };
 
