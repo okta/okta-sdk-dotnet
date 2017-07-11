@@ -25,7 +25,7 @@ namespace Okta.Sdk
         /// <param name="format"></param>
         /// <param name="search">Searches for users with a supported filtering  expression for most properties</param>
         /// <param name="expand"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null);
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="showAll"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IAppLink"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IAppLink> ListAppLinks(string userId, bool? showAll = false);
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1);
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="expand"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IRole"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IRole> ListAssignedRoles(string userId, string expand = null);
 
         /// <summary>
@@ -190,7 +190,7 @@ namespace Okta.Sdk
         /// <param name="roleId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
 
         /// <summary>

@@ -35,7 +35,7 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
 {{nbsp 0}}
         {{~/unless}}
-        {{#if isArray}}/// <returns>A collection that can be enumerated asynchronously.</returns>
+        {{#if isArray}}/// <returns>A collection of <see cref="I{{operation.responseModel}}"/> that can be enumerated asynchronously.</returns>
         {{~else}}
             {{~#if operation.responseModel}}/// <returns>The <see cref="I{{operation.responseModel}}"/> response.</returns>
             {{~else}}/// <returns>A Task that represents the asynchronous operation.</returns>
