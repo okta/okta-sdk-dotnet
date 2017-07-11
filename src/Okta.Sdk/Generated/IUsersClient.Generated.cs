@@ -51,7 +51,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>The <see cref="IUser"/> response.</returns>        
         Task<IUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -104,7 +104,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>The <see cref="IUserActivationToken"/> response.</returns>        
         Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -121,7 +121,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="tempPassword"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>The <see cref="ITempPassword"/> response.</returns>        
         Task<ITempPassword> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Okta.Sdk
         /// <param name="provider"></param>
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>The <see cref="IResetPasswordToken"/> response.</returns>        
         Task<IResetPasswordToken> ResetPasswordAsync(string userId, AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
