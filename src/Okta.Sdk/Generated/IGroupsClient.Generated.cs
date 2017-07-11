@@ -23,7 +23,7 @@ namespace Okta.Sdk
         /// <param name="after">Specifies the pagination cursor for the next page of groups</param>
         /// <param name="limit">Specifies the number of group results in a page</param>
         /// <param name="expand"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null);
 
         /// <summary>
@@ -39,7 +39,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="limit">Specifies the number of rule results in a page</param>
         /// <param name="after">Specifies the pagination cursor for the next page of rules</param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroupRule"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null);
 
         /// <summary>
@@ -124,7 +124,7 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
-        /// <returns>A collection that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1);
 
         /// <summary>
