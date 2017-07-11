@@ -37,7 +37,7 @@ namespace Okta.Sdk
         {{~/unless}}
         {{#if isArray}}/// <returns>A collection that can be enumerated asynchronously.</returns>
         {{~else}}
-            {{~#if bodyModel}}/// <returns>The <see cref="I{{operation.responseModel}}"/> response.</returns>
+            {{~#if operation.responseModel}}/// <returns>The <see cref="I{{operation.responseModel}}"/> response.</returns>
             {{~else}}/// <returns>A Task that represents the asynchronous operation.</returns>
             {{~/if}}
         {{~/if}}

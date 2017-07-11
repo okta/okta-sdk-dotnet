@@ -64,7 +64,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>The <see cref="IGroupRule"/> response.</returns>        
         Task<IGroupRule> GetRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="expand"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>The <see cref="IGroup"/> response.</returns>        
         Task<IGroup> GetGroupAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
