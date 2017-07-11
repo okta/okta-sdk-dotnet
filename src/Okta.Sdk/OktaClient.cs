@@ -48,7 +48,7 @@ namespace Okta.Sdk
             compiled.GetSection("okta").GetSection("client").Bind(config);
 
             ThrowIfInvalidConfiguration(config);
-            Configuration = config; // TODO config.DeepClone()
+            Configuration = config.DeepClone();
 
             logger = logger ?? NullLogger.Instance;
 
