@@ -7,11 +7,116 @@ The SDK is compatible with:
 * .NET Framework 4.6.1
 * Mono
 
-## Development version (1.x)
+## Installation
+### Using Nuget Package Manager
+ 1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
+ 2. Search for Okta. Install the `Okta.Sdk` package.
 
-The [master](https://github.com/okta/okta-sdk-dotnet/tree/master) branch contains the 1.x version of the SDK, which is currently under active development. This version is a major update, and is a breaking change from all previously-released packages. It has not yet been published to NuGet.
+### Using The Package Manager Console
+Simply run `install-package Okta.Sdk`. Done!
 
-If you want to be notified when updates are released, use the Watch button above to watch this repository!
+## Getting Started
+To use the SDK, you will need an `OktaClient`. The `OktaClient` needs an OrgUrl and an API Token. You can see how to create them [here](https://developer.okta.com/docs/api/getting_started/getting_a_token.html).
+
+## Client Configuration
+
+You can configure the `OktaClient` in one of three ways:
+
+With a `okta.yaml` file either:
+
+* in the root of the project
+* in a .okta folder in the current user's home folder (`~/.okta/okta.yml` on \*nix machines, `%userprofile%\.okta\okta.yml` on Windows)
+
+``` yaml
+okta:
+  client:
+    orgUrl: "https://dev-<your id>.oktapreview.com/"
+    token: "<Your API Token>"
+```
+
+or with the environment variables:
+
+```
+OKTA_CLIENT_ORGURL
+OKTA_CLIENT_TOKEN
+```
+
+If you use one of these first two techniques, you can instantiate an `OktaClient` class:
+
+``` csharp
+var client = new OktaClient();
+```
+
+or you can pass an `OktaClientConfiguration` class directly into the Okta client class constructor.
+
+``` csharp
+var client = new OktaClient(
+    new OktaClientConfiguration
+    {
+        OrgUrl = "https://dev-<your id>.oktapreview.com",
+        Token = "<Your API Token>"
+    });
+```
+
+## OktaClient User Operations
+
+### Creating a user
+
+``` csharp
+var vader = await client.Users.CreateUserAsync(
+    // User with password
+    new CreateUserWithPasswordOptions
+    {
+        // User profile object
+        Profile = new UserProfile
+        {
+            FirstName = "Anakin",
+            LastName = "Skywalker",
+            Email = "darth.father@imperial-senate.gov",
+            Login = "darth.father@imperial-senate.gov",
+        },
+        Password = "D1sturB1ng!",
+        Activate = false,
+    });
+```
+
+This will create an inactive user for the client application.
+
+### Activating A User
+
+``` csharp
+// having a user, just call
+await vader.ActivateAsync();
+```
+
+### Getting A User
+``` csharp
+// have some user's ID, or login
+var someUserId = "<Some User ID String or Login>";
+
+// get the user with the ID or login
+var vader = await client.User.GetUserAsync(someUserId);
+```
+
+The string argument for `GetUserAsync` can be the user's ID or the user's login (email).
+
+### Updating A User
+``` csharp
+// set the nickname in the user's profile
+vader.Profile["nickName"] = "Lord Vader";
+
+// then, update the user
+var newVader = await vader.UpdateAsync();
+```
+
+### Removing A User
+``` csharp
+// first, deactivate the user
+await newVader.DeactivateAsync();
+
+// then delete the user
+await newVader.DeactivateOrDeleteAsync();
+```
 
 ## Previous version (0.x)
 
