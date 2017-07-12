@@ -66,7 +66,9 @@ Task("BuildDocs")
 .IsDependentOn("Build")
 .Does(() =>
 {
-    MSBuild("./docs/OktaSdkDocumentation.sln", new MSBuildSettings {
+    MSBuild("./docs/OktaSdkDocumentation.sln", new MSBuildSettings
+    {
+        Configuration = configuration,
         Verbosity = Verbosity.Minimal
     });
 });
@@ -91,6 +93,39 @@ Task("CleanDocsOutput")
         .ForEach(filename => DeleteFile(string.Format("./docs/OktaSdkDocumentation/Output/{0}", filename)));
 });
 
+Task("CopyDocsToVersionedDirectories")
+.IsDependentOn("CleanDocsOutput")
+.Does(() =>
+{
+    Console.WriteLine("Copying docs to docs/built/latest");
+
+    if (DirectoryExists("./docs/built/latest"))
+    {
+        DeleteDirectory("./docs/built/latest", recursive: true);
+    }
+    
+    EnsureDirectoryExists("./docs/built");
+    CopyDirectory("./docs/OktaSdkDocumentation/Output/", "./docs/built/latest/");
+
+    var travisTag = EnvironmentVariable("TRAVIS_TAG");
+    if (string.IsNullOrEmpty(travisTag))
+    {
+        Console.WriteLine("TRAVIS_TAG not set, won't copy docs to a tagged directory");
+        return;
+    }
+
+    var taggedVersion = travisTag.TrimStart('v');
+    var tagDocsDirectory = string.Format("./docs/built/{0}", taggedVersion);
+    Console.WriteLine("Copying docs to " + tagDocsDirectory);
+    CopyDirectory("./docs/OktaSdkDocumentation/Output", tagDocsDirectory);
+});
+
+Task("Docs")
+    .IsDependentOn("Build")
+    .IsDependentOn("BuildDocs")
+    .IsDependentOn("CleanDocsOutput")
+    .IsDependentOn("CopyDocsToVersionedDirectories");
+
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
@@ -98,9 +133,6 @@ Task("Default")
     .IsDependentOn("Test")
     .IsDependentOn("Pack");
 
-Task("Docs")
-    .IsDependentOn("BuildDocs")
-    .IsDependentOn("CleanDocsOutput");
 
 // Default task
 var target = Argument("target", "Default");
