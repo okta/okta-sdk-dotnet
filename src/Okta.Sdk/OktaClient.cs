@@ -18,6 +18,16 @@ namespace Okta.Sdk
     /// <summary>
     /// A client that communicates with the Okta management API.
     /// </summary>
+    /// <example>
+    /// Initialize an OktaClient by passing configuration via code
+    /// <code>
+    /// var oktaClient = new OktaClient(new OktaClientConfiguration
+    /// {
+    ///   OrgUrl = "https://dev-12345.oktapreview.com/",
+    ///   Token = "my_api_token"
+    /// });
+    /// </code>
+    /// </example>
     public partial class OktaClient : IOktaClient
     {
         private readonly IDataStore _dataStore;

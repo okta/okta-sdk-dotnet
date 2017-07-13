@@ -1,14 +1,15 @@
 language: csharp
-mono: none
-dotnet: 1.0.3
+mono: latest # Necessary for Cake and DocFx (for now)
+dotnet: 1.0.3 # .NET Core
 dist: trusty
-script: "./build.sh"
-after_success: if [[ $DEPLOY_DOCS ]]; then ./build.sh --target Docs; fi
+script:
+  - ./build.sh
+  - if [[ $DEPLOY_DOCS ]]; then ./build.sh --target Docs; fi
 deploy:
 - provider: pages
   skip_cleanup: true
   github_token: "$GITHUB_TOKEN"
-  local_dir: docs/built
+  local_dir: docs/temp
   email: deploy-dotnet@okta.com
   name: ".NET Deployment Bot"
   on:

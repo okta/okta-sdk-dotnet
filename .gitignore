@@ -276,7 +276,7 @@ __pycache__/
 
 # Cake - Uncomment if you are using it
 tools/**
-!tools/packages.csproj
+!tools/packages.config
 
 # Telerik's JustMock configuration file
 *.jmconfig
@@ -290,3 +290,4 @@ tools/**
 # Hide autodoc output
 
 docs/_site
+docs/temp

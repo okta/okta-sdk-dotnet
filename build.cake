@@ -1,3 +1,6 @@
+#addin "Cake.DocFx"
+#tool "docfx.console"
+
 var configuration = Argument("configuration", "Release");
 
 Task("Clean")
@@ -63,51 +66,24 @@ Task("Test")
 });
 
 Task("BuildDocs")
-.IsDependentOn("Build")
-.Does(() =>
-{
-    MSBuild("./docs/OktaSdkDocumentation.sln", new MSBuildSettings
-    {
-        Configuration = configuration,
-        Verbosity = Verbosity.Minimal
-    });
-});
+.Does(() => DocFxBuild("./docs/docfx.json"));
 
-Task("CleanDocsOutput")
+Task("CopyDocsToVersionedDirectories")
 .IsDependentOn("BuildDocs")
 .Does(() =>
 {
-    // SHFB generates some junk files we want to get rid of
-    
-    var filesToRemove = new[]
+    Console.WriteLine("Copying docs to docs/temp/latest");
+
+    if (DirectoryExists("./docs/temp/latest"))
     {
-        "SearchHelp.aspx",
-        "SearchHelp.inc.php",
-        "SearchHelp.php",
-        "LastBuild.log",
-        "Web.Config",
-    };
-
-    filesToRemove
-        .ToList()
-        .ForEach(filename => DeleteFile(string.Format("./docs/OktaSdkDocumentation/Output/{0}", filename)));
-});
-
-Task("CopyDocsToVersionedDirectories")
-.IsDependentOn("CleanDocsOutput")
-.Does(() =>
-{
-    Console.WriteLine("Copying docs to docs/built/latest");
-
-    if (DirectoryExists("./docs/built/latest"))
-    {
-        DeleteDirectory("./docs/built/latest", recursive: true);
+        DeleteDirectory("./docs/temp/latest", recursive: true);
     }
     
-    EnsureDirectoryExists("./docs/built");
-    CopyDirectory("./docs/OktaSdkDocumentation/Output/", "./docs/built/latest/");
+    EnsureDirectoryExists("./docs/temp");
+    CopyDirectory("./docs/_site/", "./docs/temp/latest/");
 
-    var travisTag = EnvironmentVariable("TRAVIS_TAG");
+    var travisTag = "v1.0.0-alpha1";
+    //var travisTag = EnvironmentVariable("TRAVIS_TAG");
     if (string.IsNullOrEmpty(travisTag))
     {
         Console.WriteLine("TRAVIS_TAG not set, won't copy docs to a tagged directory");
@@ -115,23 +91,23 @@ Task("CopyDocsToVersionedDirectories")
     }
 
     var taggedVersion = travisTag.TrimStart('v');
-    var tagDocsDirectory = string.Format("./docs/built/{0}", taggedVersion);
+    var tagDocsDirectory = string.Format("./docs/temp/{0}", taggedVersion);
     Console.WriteLine("Copying docs to " + tagDocsDirectory);
-    CopyDirectory("./docs/OktaSdkDocumentation/Output", tagDocsDirectory);
+    CopyDirectory("./docs/_site/", tagDocsDirectory);
 });
 
-Task("Docs")
-    .IsDependentOn("Build")
-    .IsDependentOn("BuildDocs")
-    .IsDependentOn("CleanDocsOutput")
-    .IsDependentOn("CopyDocsToVersionedDirectories");
 
+// Define top-level tasks
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
     .IsDependentOn("Test")
     .IsDependentOn("Pack");
+
+Task("Docs")
+    .IsDependentOn("BuildDocs")
+    .IsDependentOn("CopyDocsToVersionedDirectories");
 
 
 // Default task
