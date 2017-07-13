@@ -1,3 +1,6 @@
+#addin "Cake.DocFx"
+#tool "docfx.console"
+
 var configuration = Argument("configuration", "Release");
 
 Task("Clean")
@@ -63,34 +66,38 @@ Task("Test")
 });
 
 Task("BuildDocs")
-.IsDependentOn("Build")
-.Does(() =>
-{
-    MSBuild("./docs/OktaSdkDocumentation.sln", new MSBuildSettings {
-        Verbosity = Verbosity.Minimal
-    });
-});
+.Does(() => DocFxBuild("./docs/docfx.json"));
 
-Task("CleanDocsOutput")
+Task("CopyDocsToVersionedDirectories")
 .IsDependentOn("BuildDocs")
 .Does(() =>
 {
-    // SHFB generates some junk files we want to get rid of
-    
-    var filesToRemove = new[]
-    {
-        "SearchHelp.aspx",
-        "SearchHelp.inc.php",
-        "SearchHelp.php",
-        "LastBuild.log",
-        "Web.Config",
-    };
+    Console.WriteLine("Copying docs to docs/temp/latest");
 
-    filesToRemove
-        .ToList()
-        .ForEach(filename => DeleteFile(string.Format("./docs/OktaSdkDocumentation/Output/{0}", filename)));
+    if (DirectoryExists("./docs/temp/latest"))
+    {
+        DeleteDirectory("./docs/temp/latest", recursive: true);
+    }
+    
+    EnsureDirectoryExists("./docs/temp");
+    CopyDirectory("./docs/_site/", "./docs/temp/latest/");
+
+    var travisTag = "v1.0.0-alpha1";
+    //var travisTag = EnvironmentVariable("TRAVIS_TAG");
+    if (string.IsNullOrEmpty(travisTag))
+    {
+        Console.WriteLine("TRAVIS_TAG not set, won't copy docs to a tagged directory");
+        return;
+    }
+
+    var taggedVersion = travisTag.TrimStart('v');
+    var tagDocsDirectory = string.Format("./docs/temp/{0}", taggedVersion);
+    Console.WriteLine("Copying docs to " + tagDocsDirectory);
+    CopyDirectory("./docs/_site/", tagDocsDirectory);
 });
 
+
+// Define top-level tasks
 Task("Default")
     .IsDependentOn("Clean")
     .IsDependentOn("Restore")
@@ -100,7 +107,8 @@ Task("Default")
 
 Task("Docs")
     .IsDependentOn("BuildDocs")
-    .IsDependentOn("CleanDocsOutput");
+    .IsDependentOn("CopyDocsToVersionedDirectories");
+
 
 // Default task
 var target = Argument("target", "Default");

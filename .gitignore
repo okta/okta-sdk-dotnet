@@ -289,4 +289,5 @@ tools/**
 
 # Hide autodoc output
 
-docs/OktaSdkDocumentation/Output
+docs/_site
+docs/temp
