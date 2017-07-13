@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -40,9 +41,9 @@ namespace Okta.Sdk.Internal
         {
             var sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
 
-            var runtimeToken = $"runtime/{RuntimeInformation.FrameworkDescription}";
+            var runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
 
-            var operatingSystemToken = $"os/{RuntimeInformation.OSDescription}";
+            var operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
 
             return string.Join(
                 " ",
@@ -59,5 +60,10 @@ namespace Okta.Sdk.Internal
 
             return $"{sdkVersion.Major}.{sdkVersion.Minor}.{sdkVersion.Build}";
         }
+
+        private static readonly char[] IllegalCharacters = new char[] { '/', ':', ';' };
+
+        private static string Sanitize(string input)
+            => IllegalCharacters.Aggregate(input, (current, bad) => current.Replace(bad, '-'));
     }
 }
