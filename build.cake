@@ -66,6 +66,7 @@ Task("Test")
 });
 
 Task("BuildDocs")
+.IsDependentOn("Build")
 .Does(() =>
 {
     DocFxMetadata("./docs/docfx.json");
