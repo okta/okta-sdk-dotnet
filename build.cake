@@ -87,8 +87,7 @@ Task("CopyDocsToVersionedDirectories")
     EnsureDirectoryExists("./docs/temp");
     CopyDirectory("./docs/_site/", "./docs/temp/latest/");
 
-    var travisTag = "v1.0.0-alpha1";
-    //var travisTag = EnvironmentVariable("TRAVIS_TAG");
+    var travisTag = EnvironmentVariable("TRAVIS_TAG");
     if (string.IsNullOrEmpty(travisTag))
     {
         Console.WriteLine("TRAVIS_TAG not set, won't copy docs to a tagged directory");
