@@ -66,7 +66,11 @@ Task("Test")
 });
 
 Task("BuildDocs")
-.Does(() => DocFxBuild("./docs/docfx.json"));
+.Does(() =>
+{
+    DocFxMetadata("./docs/docfx.json");
+    DocFxBuild("./docs/docfx.json");  
+});
 
 Task("CopyDocsToVersionedDirectories")
 .IsDependentOn("BuildDocs")
