@@ -31,6 +31,6 @@
     <Authors>Okta, Inc.</Authors>
     <Owners>nbarbettini, leebrandt</Owners>
     <PackageTags>okta api authentication identity management</PackageTags>
-    <PackageIconUrl>https://github.com/okta/okta-sdk-dotnet/blob/master/icon.png</PackageIconUrl>
+    <PackageIconUrl>https://raw.githubusercontent.com/okta/okta-sdk-dotnet/master/icon.png</PackageIconUrl>
   </PropertyGroup>
 </Project>
