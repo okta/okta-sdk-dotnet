@@ -27,8 +27,6 @@
       },
       {
         "files": [
-          "articles/**.md",
-          "articles/**/toc.yml",
           "toc.yml",
           "*.md"
         ],
@@ -42,17 +40,6 @@
       {
         "files": [
           "images/**"
-        ],
-        "exclude": [
-          "obj/**",
-          "_site/**"
-        ]
-      }
-    ],
-    "overwrite": [
-      {
-        "files": [
-          "apidoc/**.md"
         ],
         "exclude": [
           "obj/**",
