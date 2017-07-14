@@ -5,11 +5,10 @@
         {
           "cwd": "../",
           "files": [
-            "src/Okta.Sdk/Okta.Sdk.csproj"
+            "src/Okta.Sdk/bin/Release/netstandard1.3/Okta.Sdk.dll"
           ],
           "exclude": [
             "**/obj/**",
-            "**/bin/**",
             "_site/**"
           ]
         }
