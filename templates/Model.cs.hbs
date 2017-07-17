@@ -17,12 +17,7 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public sealed partial class {{modelName}} : Resource, I{{modelName}}
     {
-        {{#if supportsPartialUpdates}}
-        public {{modelName}}()
-            : base(ResourceBehavior.ChangeTracking)
-        {
-        }
-        {{/if}}
+{{nbsp 0}}
 
         {{~#each properties}}
         {{~#unless hidden}}
