@@ -1,21 +1,4 @@
 {
-  "metadata": [
-    {
-      "src": [
-        {
-          "cwd": "../",
-          "files": [
-            "src/Okta.Sdk/bin/Release/netstandard1.3/Okta.Sdk.dll"
-          ],
-          "exclude": [
-            "**/obj/**",
-            "_site/**"
-          ]
-        }
-      ],
-      "dest": "api"
-    }
-  ],
   "build": {
     "content": [
       {
