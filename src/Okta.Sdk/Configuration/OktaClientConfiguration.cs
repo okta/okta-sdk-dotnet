@@ -60,7 +60,7 @@ namespace Okta.Sdk.Configuration
             {
                 ConnectionTimeout = ConnectionTimeout.HasValue ? this.ConnectionTimeout.Value : (int?)null,
                 OrgUrl = this.OrgUrl,
-                Proxy = this.Proxy.DeepClone(),
+                Proxy = this.Proxy?.DeepClone(),
             };
     }
 }
