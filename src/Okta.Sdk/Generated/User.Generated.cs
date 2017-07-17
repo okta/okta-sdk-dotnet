@@ -17,10 +17,6 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public sealed partial class User : Resource, IUser
     {
-        public User()
-            : base(ResourceBehavior.ChangeTracking)
-        {
-        }
 
 
         /// <inheritdoc/>

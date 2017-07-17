@@ -17,10 +17,6 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public sealed partial class UserProfile : Resource, IUserProfile
     {
-        public UserProfile()
-            : base(ResourceBehavior.ChangeTracking)
-        {
-        }
         /// <inheritdoc/>
         public string Email
         {
