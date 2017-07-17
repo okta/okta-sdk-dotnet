@@ -3,17 +3,17 @@
   <metadata>
     <title>Okta PowerShell Module</title>
     <id>okta.core.automation</id>
-    <version>0.3.0.0</version>
+    <version>1.0.0.0</version>
     <authors>Okta, Inc</authors>
     <owners>Okta</owners>
-    <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
+    <projectUrl>https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation</projectUrl>
     <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
-    <projectSourceUrl>https://github.com/okta/oktasdk-csharp/tree/master/Okta.Core.Automation</projectSourceUrl>
-    <packageSourceUrl>https://github.com/okta/oktasdk-csharp/tree/master/Okta.Core.Automation</packageSourceUrl>
-    <docsUrl>https://github.com/okta/oktasdk-csharp/blob/master/Okta.Core.Automation/README.md</docsUrl>
+    <projectSourceUrl>https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation</projectSourceUrl>
+    <packageSourceUrl>https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation</packageSourceUrl>
+    <docsUrl>https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation/README.md</docsUrl>
     <mailingListUrl>mailto:developers@okta.com</mailingListUrl>
-    <bugTrackerUrl>https://github.com/okta/oktasdk-csharp/issues</bugTrackerUrl>
+    <bugTrackerUrl>https://github.com/okta/okta-sdk-dotnet/issues</bugTrackerUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <summary>Official PowerShell Module for Okta</summary>
     <description>

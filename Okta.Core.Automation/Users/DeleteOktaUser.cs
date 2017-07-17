@@ -8,7 +8,7 @@ using Okta.Core.Models;
 
 namespace Okta.Core.Automation
 {
-    [Cmdlet("Delete", "OktaUser")]
+    [Cmdlet("Delete", "OktaUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     public class DeleteOktaUser : OktaCmdlet
     {
         [Parameter(
@@ -68,6 +68,15 @@ namespace Okta.Core.Automation
                     users = usersEnum.ToList<User>();
                 }
 
+                if (users.Count > 1)
+                {
+                    if (!ShouldProcess($"Delete-OktaUser matched {users.Count} users, and will permanently delete them if confirmed", $"This action will permanently delete {users.Count} users.", "Are you sure you want to perform this action?"))
+                    {
+                        WriteVerbose("Operation canceled, no users deleted.");
+                        return;
+                    }
+                }
+
                 foreach (User user in users)
                 {
                     string strUserLogin = user.Profile.Login;
@@ -82,6 +91,10 @@ namespace Okta.Core.Automation
                         if (oex2.ErrorCode == OktaErrorCodes.ResourceNotFoundException)
                         {
                             bDeactivated = true;
+                        }
+                        else
+                        {
+                            throw; // Rethrow; will be handled by the outer try/catch
                         }
                     }
 
