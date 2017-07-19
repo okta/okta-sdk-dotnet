@@ -223,6 +223,7 @@ New-OktaUser
 Unlock-OktaUser
 Enable-OktaUser
 Disable-OktaUser
+Delete-OktaUser
 Set-OktaUserResetPassword
 Get-OktaGroup
 New-OktaGroup
@@ -238,6 +239,7 @@ Activate-OktaUserFactor
 Get-OktaUserFactor
 Reset-OktaUserFactor
 Get-OktaEvents
+Get-OktaApp
 ```
 
 ### Troubleshooting
