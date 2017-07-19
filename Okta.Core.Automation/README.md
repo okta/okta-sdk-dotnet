@@ -24,6 +24,10 @@ To uninstall the Okta PowerShell Module open a PowerShell prompt as an administr
 
 `Get-InstalledModule -Name Okta.Core.Automation | Uninstall-Module`
 
+## Changelog
+
+See the [changelog](changelog.md) for a release history.
+
 ## Usage
 
 ```powershell
