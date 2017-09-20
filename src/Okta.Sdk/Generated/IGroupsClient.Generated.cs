@@ -3,8 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-// Do not modify this file directly. This file was automatically generated with:
-// spec.json - 0.3.0
+// This file was automatically generated. Don't modify it directly.
 
 using System.Collections.Generic;
 using System.Threading;
@@ -51,7 +50,7 @@ namespace Okta.Sdk
         Task<IGroupRule> CreateRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Removes a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="removeUsers"></param>
@@ -60,7 +59,7 @@ namespace Okta.Sdk
         Task DeleteRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Fetches a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -77,7 +76,7 @@ namespace Okta.Sdk
         Task<IGroupRule> UpdateRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Activates a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -85,7 +84,7 @@ namespace Okta.Sdk
         Task ActivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Deactivates a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -93,7 +92,7 @@ namespace Okta.Sdk
         Task DeactivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -101,7 +100,7 @@ namespace Okta.Sdk
         Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Lists all group rules for your organization.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="expand"></param>
@@ -110,7 +109,7 @@ namespace Okta.Sdk
         Task<IGroup> GetGroupAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <param name="group">The <see cref="IGroup"/> resource.</param>
         /// <param name="groupId"></param>
@@ -119,16 +118,16 @@ namespace Okta.Sdk
         Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Enumerates all [users](/docs/api/resources/users.html#user-model) that are a member of a group.
         /// </summary>
         /// <param name="groupId"></param>
-        /// <param name="after"></param>
-        /// <param name="limit"></param>
+        /// <param name="after">Specifies the pagination cursor for the next page of users</param>
+        /// <param name="limit">Specifies the number of user results in a page</param>
         /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>        
         IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1);
 
         /// <summary>
-        /// 
+        /// Removes a [user](users.html#user-model) from a group with &#x60;OKTA_GROUP&#x60; type.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="userId"></param>
@@ -137,7 +136,7 @@ namespace Okta.Sdk
         Task RemoveGroupUserAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Adds a [user](users.html#user-model) to a group with &#x60;OKTA_GROUP&#x60; type.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="userId"></param>
