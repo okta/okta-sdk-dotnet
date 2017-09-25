@@ -44,7 +44,10 @@ namespace Okta.Sdk
                 {{~#unless (getMappedArgName method name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
-                {{~#if (exists this "default")}} = {{default}}
+                {{~#if (exists this "default")}}
+                    {{~nbsp}}= {{#if (eq this.type "string")}}"{{/if}}
+                    {{~nbsp 0}}{{default}}
+                    {{~nbsp 0}}{{#if (eq this.type "string")}}"{{/if}}
                 {{~else}}
                     {{~#unless required}} = null{{/unless}}
                 {{~/if}}
