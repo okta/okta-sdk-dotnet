@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PushFactor : Resource, IPushFactor
+    public sealed partial class PushFactor : Factor, IPushFactor
     {
         /// <inheritdoc/>
         public IPushFactorProfile Profile

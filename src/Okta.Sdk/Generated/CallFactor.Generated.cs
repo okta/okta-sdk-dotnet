@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class CallFactor : Resource, ICallFactor
+    public sealed partial class CallFactor : Factor, ICallFactor
     {
         /// <inheritdoc/>
         public ICallFactorProfile Profile

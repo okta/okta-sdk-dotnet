@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class HardwareFactorProfile : Resource, IHardwareFactorProfile
+    public sealed partial class HardwareFactorProfile : FactorProfile, IHardwareFactorProfile
     {
         /// <inheritdoc/>
         public string CredentialId

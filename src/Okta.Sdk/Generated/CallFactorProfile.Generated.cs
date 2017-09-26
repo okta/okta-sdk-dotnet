@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class CallFactorProfile : Resource, ICallFactorProfile
+    public sealed partial class CallFactorProfile : FactorProfile, ICallFactorProfile
     {
         /// <inheritdoc/>
         public string PhoneExtension

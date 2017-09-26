@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class TotpFactorProfile : Resource, ITotpFactorProfile
+    public sealed partial class TotpFactorProfile : FactorProfile, ITotpFactorProfile
     {
         /// <inheritdoc/>
         public string CredentialId

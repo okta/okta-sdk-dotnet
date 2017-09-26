@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class WebFactor : Resource, IWebFactor
+    public sealed partial class WebFactor : Factor, IWebFactor
     {
         /// <inheritdoc/>
         public IWebFactorProfile Profile

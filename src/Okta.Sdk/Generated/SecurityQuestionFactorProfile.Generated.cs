@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SecurityQuestionFactorProfile : Resource, ISecurityQuestionFactorProfile
+    public sealed partial class SecurityQuestionFactorProfile : FactorProfile, ISecurityQuestionFactorProfile
     {
         /// <inheritdoc/>
         public string Answer

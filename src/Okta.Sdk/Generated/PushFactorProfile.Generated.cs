@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PushFactorProfile : Resource, IPushFactorProfile
+    public sealed partial class PushFactorProfile : FactorProfile, IPushFactorProfile
     {
         /// <inheritdoc/>
         public string CredentialId

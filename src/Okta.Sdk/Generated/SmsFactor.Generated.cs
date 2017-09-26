@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SmsFactor : Resource, ISmsFactor
+    public sealed partial class SmsFactor : Factor, ISmsFactor
     {
         /// <inheritdoc/>
         public ISmsFactorProfile Profile

@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SmsFactorProfile : Resource, ISmsFactorProfile
+    public sealed partial class SmsFactorProfile : FactorProfile, ISmsFactorProfile
     {
         /// <inheritdoc/>
         public string PhoneNumber
