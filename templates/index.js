@@ -118,6 +118,8 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
   const templates = [];
 
+  let baseModels = new Set();
+
   // add all the models
   for (let model of models) {
     model.specVersion = spec.info.version;
@@ -135,6 +137,10 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
     if (partialUpdateList.has(model.modelName)) {
       model.supportsPartialUpdates = true;
+    }
+
+    if (model.extends && !baseModels.has(model.extends)) {
+      baseModels.add(model.extends);
     }
 
     model.properties = model.properties || [];
@@ -199,6 +205,18 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       dest: `Generated/${model.modelName}.Generated.cs`,
       context: model
     });
+  }
+
+  // Second pass to mark base models (models that are inherited from other models)
+  for (let name of baseModels) {
+    let foundModel = models.find(x => x.modelName === name);
+
+    if (!foundModel) {
+      console.warn(`Could not mark ${name} as a base model`);
+      continue;
+    }
+
+    foundModel.isBaseModel = true;
   }
 
   const taggedOperations = {};

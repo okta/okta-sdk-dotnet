@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class Factor : Resource, IFactor
+    public partial class Factor : Resource, IFactor
     {
         /// <inheritdoc/>
         public string Device

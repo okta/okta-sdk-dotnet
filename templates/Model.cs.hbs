@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class {{modelName}} : Resource, I{{modelName}}
+    public {{#unless isBaseModel}}sealed {{/unless}}partial class {{modelName}} : {{#if extends}}{{pascalCase extends}}{{else}}Resource{{/if}}, I{{modelName}}
     {
 {{nbsp 0}}
 
