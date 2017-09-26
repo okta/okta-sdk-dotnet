@@ -33,6 +33,14 @@ namespace Okta.Sdk
         IUsersClient Users { get; }
 
         /// <summary>
+        /// Gets a <see cref="IUserFactorsClient">UserFactorsClient</see> that interacts with the Okta Factors API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IUserFactorsClient">UserFactorsClient</see> that interacts with the Okta Factors API.
+        /// </value>
+        IUserFactorsClient UserFactors { get; }
+
+        /// <summary>
         /// Gets a <see cref="IGroupsClient">GroupsClient</see> that interacts with the Okta Groups API.
         /// </summary>
         /// <value>

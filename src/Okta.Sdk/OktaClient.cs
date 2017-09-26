@@ -112,6 +112,9 @@ namespace Okta.Sdk
         public IUsersClient Users => new UsersClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public IUserFactorsClient UserFactors => new UserFactorsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IGroupsClient Groups => new GroupsClient(_dataStore, Configuration, _requestContext);
 
         /// <summary>
