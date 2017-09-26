@@ -3,8 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-// Do not modify this file directly. This file was automatically generated with:
-// spec.json - 0.3.0
+// This file was automatically generated. Don't modify it directly.
 
 using System;
 using System.Collections.Generic;
@@ -55,6 +54,12 @@ namespace Okta.Sdk
         Task ResetFactorsAsync(CancellationToken cancellationToken = default(CancellationToken));
 
         Task AddToGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = "", CancellationToken cancellationToken = default(CancellationToken));
+
+        IAsyncEnumerable<IFactor> ListSupportedFactors(CancellationToken cancellationToken = default(CancellationToken));
+
+        IAsyncEnumerable<IFactor> ListFactors(CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }
