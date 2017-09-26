@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a PushFactorProfile resource in the Okta API.</summary>
-    public partial interface IPushFactorProfile : IResource
+    public partial interface IPushFactorProfile : IFactorProfile
     {
         string CredentialId { get; set; }
 

@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SecurityQuestionFactor resource in the Okta API.</summary>
-    public partial interface ISecurityQuestionFactor : IResource
+    public partial interface ISecurityQuestionFactor : IFactor
     {
-        ISecurityQuestionFactorProfile Profile { get; set; }
+        new ISecurityQuestionFactorProfile Profile { get; set; }
 
     }
 }

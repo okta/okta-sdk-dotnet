@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a WebFactorProfile resource in the Okta API.</summary>
-    public partial interface IWebFactorProfile : IResource
+    public partial interface IWebFactorProfile : IFactorProfile
     {
         string CredentialId { get; set; }
 

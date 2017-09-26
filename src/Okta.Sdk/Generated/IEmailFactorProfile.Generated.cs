@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a EmailFactorProfile resource in the Okta API.</summary>
-    public partial interface IEmailFactorProfile : IResource
+    public partial interface IEmailFactorProfile : IFactorProfile
     {
         string Email { get; set; }
 

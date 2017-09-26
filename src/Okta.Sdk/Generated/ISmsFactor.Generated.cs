@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SmsFactor resource in the Okta API.</summary>
-    public partial interface ISmsFactor : IResource
+    public partial interface ISmsFactor : IFactor
     {
-        ISmsFactorProfile Profile { get; set; }
+        new ISmsFactorProfile Profile { get; set; }
 
     }
 }

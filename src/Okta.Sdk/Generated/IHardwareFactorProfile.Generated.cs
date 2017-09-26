@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a HardwareFactorProfile resource in the Okta API.</summary>
-    public partial interface IHardwareFactorProfile : IResource
+    public partial interface IHardwareFactorProfile : IFactorProfile
     {
         string CredentialId { get; set; }
 

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a TokenFactorProfile resource in the Okta API.</summary>
-    public partial interface ITokenFactorProfile : IResource
+    public partial interface ITokenFactorProfile : IFactorProfile
     {
         string CredentialId { get; set; }
 

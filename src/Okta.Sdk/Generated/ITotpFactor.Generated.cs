@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a TotpFactor resource in the Okta API.</summary>
-    public partial interface ITotpFactor : IResource
+    public partial interface ITotpFactor : IFactor
     {
-        ITotpFactorProfile Profile { get; set; }
+        new ITotpFactorProfile Profile { get; set; }
 
     }
 }

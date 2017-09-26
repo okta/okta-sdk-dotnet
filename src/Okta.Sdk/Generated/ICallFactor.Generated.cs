@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a CallFactor resource in the Okta API.</summary>
-    public partial interface ICallFactor : IResource
+    public partial interface ICallFactor : IFactor
     {
-        ICallFactorProfile Profile { get; set; }
+        new ICallFactorProfile Profile { get; set; }
 
     }
 }

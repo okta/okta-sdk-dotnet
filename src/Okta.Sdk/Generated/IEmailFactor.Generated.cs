@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a EmailFactor resource in the Okta API.</summary>
-    public partial interface IEmailFactor : IResource
+    public partial interface IEmailFactor : IFactor
     {
-        IEmailFactorProfile Profile { get; set; }
+        new IEmailFactorProfile Profile { get; set; }
 
     }
 }

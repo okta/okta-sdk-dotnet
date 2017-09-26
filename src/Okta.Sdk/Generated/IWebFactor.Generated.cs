@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a WebFactor resource in the Okta API.</summary>
-    public partial interface IWebFactor : IResource
+    public partial interface IWebFactor : IFactor
     {
-        IWebFactorProfile Profile { get; set; }
+        new IWebFactorProfile Profile { get; set; }
 
     }
 }

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a CallFactorProfile resource in the Okta API.</summary>
-    public partial interface ICallFactorProfile : IResource
+    public partial interface ICallFactorProfile : IFactorProfile
     {
         string PhoneExtension { get; set; }
 

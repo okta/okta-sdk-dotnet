@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a HardwareFactor resource in the Okta API.</summary>
-    public partial interface IHardwareFactor : IResource
+    public partial interface IHardwareFactor : IFactor
     {
-        IHardwareFactorProfile Profile { get; set; }
+        new IHardwareFactorProfile Profile { get; set; }
 
     }
 }

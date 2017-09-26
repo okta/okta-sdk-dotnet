@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a PushFactor resource in the Okta API.</summary>
-    public partial interface IPushFactor : IResource
+    public partial interface IPushFactor : IFactor
     {
-        IPushFactorProfile Profile { get; set; }
+        new IPushFactorProfile Profile { get; set; }
 
     }
 }

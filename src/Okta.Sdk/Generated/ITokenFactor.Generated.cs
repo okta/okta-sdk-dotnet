@@ -13,9 +13,9 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a TokenFactor resource in the Okta API.</summary>
-    public partial interface ITokenFactor : IResource
+    public partial interface ITokenFactor : IFactor
     {
-        ITokenFactorProfile Profile { get; set; }
+        new ITokenFactorProfile Profile { get; set; }
 
     }
 }

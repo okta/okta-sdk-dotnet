@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SecurityQuestionFactorProfile resource in the Okta API.</summary>
-    public partial interface ISecurityQuestionFactorProfile : IResource
+    public partial interface ISecurityQuestionFactorProfile : IFactorProfile
     {
         string Answer { get; set; }
 
