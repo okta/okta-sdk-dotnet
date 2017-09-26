@@ -39,6 +39,8 @@ namespace Okta.Sdk
             {{~#unless operation.isArray}}Async{{/unless}}
             
             {{~nbsp 0}}(
+
+            {{~#if operation.bodyModel}}{{operation.bodyModel}} {{camelCase operation.bodyModel}}, {{/if}}
             
             {{~#each operation.allParams}}
                 {{~#unless (getMappedArgName method name)}}
