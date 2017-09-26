@@ -72,7 +72,10 @@ namespace Okta.Sdk
                 {{~/unless}}
             {{~/each}}
 
-            {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken))
+            {{~#unless operation.isArray}}
+                {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
+            {{~/unless}}
+            {{~nbsp 0}})
             {{nbsp 0}}
             {{~nbsp 0}}=> GetClient().{{pascalCase operation.tags.[0]}}s.{{pascalCase operation.operationId}}
             {{~#unless operation.isArray}}Async{{/unless}}

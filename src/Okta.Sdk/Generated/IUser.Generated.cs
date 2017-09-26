@@ -57,9 +57,9 @@ namespace Okta.Sdk
 
         Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = "", CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<IFactor> ListSupportedFactors(CancellationToken cancellationToken = default(CancellationToken));
+        IAsyncEnumerable<IFactor> ListSupportedFactors();
 
-        IAsyncEnumerable<IFactor> ListFactors(CancellationToken cancellationToken = default(CancellationToken));
+        IAsyncEnumerable<IFactor> ListFactors();
 
     }
 }

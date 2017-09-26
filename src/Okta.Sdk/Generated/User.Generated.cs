@@ -97,11 +97,11 @@ namespace Okta.Sdk
             => GetClient().UserFactors.AddFactorAsync(factor, Id, updatePhone, templateId, cancellationToken);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<IFactor> ListSupportedFactors(CancellationToken cancellationToken = default(CancellationToken))
+        public IAsyncEnumerable<IFactor> ListSupportedFactors()
             => GetClient().UserFactors.ListSupportedFactors(Id);
 
         /// <inheritdoc />
-        public IAsyncEnumerable<IFactor> ListFactors(CancellationToken cancellationToken = default(CancellationToken))
+        public IAsyncEnumerable<IFactor> ListFactors()
             => GetClient().UserFactors.ListFactors(Id);
     }
 }
