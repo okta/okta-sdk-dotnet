@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
 
 
-        string ExpiresAt { get; }
+        DateTimeOffset? ExpiresAt { get; }
 
         FactorResultType FactorResult { get; }
 

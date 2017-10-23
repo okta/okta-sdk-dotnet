@@ -93,7 +93,7 @@ namespace Okta.Sdk
             => GetClient().Groups.AddUserToGroupAsync(groupId, Id, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = "", CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(factor, Id, updatePhone, templateId, cancellationToken);
 
         /// <inheritdoc />
@@ -103,5 +103,13 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public IAsyncEnumerable<IFactor> ListFactors()
             => GetClient().UserFactors.ListFactors(Id);
+
+        /// <inheritdoc />
+        public IAsyncEnumerable<ISecurityQuestion> ListSupportedSecurityQuestions()
+            => GetClient().UserFactors.ListSupportedSecurityQuestions(Id);
+
+        /// <inheritdoc />
+        public Task<IFactor> GetFactorAsync(string factorId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserFactors.GetFactorAsync(Id, factorId, cancellationToken);
     }
 }

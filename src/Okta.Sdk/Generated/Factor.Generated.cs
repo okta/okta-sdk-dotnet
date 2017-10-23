@@ -16,6 +16,8 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public partial class Factor : Resource, IFactor
     {
+
+
         /// <inheritdoc/>
         public string Device
         {
@@ -34,11 +36,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public string Id
-        {
-            get => GetStringProperty("id");
-            set => this["id"] = value;
-        }
+        public string Id => GetStringProperty("id");
 
         /// <inheritdoc/>
         public string MfaStateTokenId
@@ -74,6 +72,9 @@ namespace Okta.Sdk
             get => GetStringProperty("sessionId");
             set => this["sessionId"] = value;
         }
+
+        /// <inheritdoc/>
+        public FactorStatus Status => GetEnumProperty<FactorStatus>("status");
 
         /// <inheritdoc/>
         public string UserId

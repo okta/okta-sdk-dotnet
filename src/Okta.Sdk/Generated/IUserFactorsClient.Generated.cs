@@ -30,7 +30,7 @@ namespace Okta.Sdk
         /// <param name="templateId">id of SMS template (only for SMS factor)</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IFactor"/> response.</returns>        
-        Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = "", CancellationToken cancellationToken = default(CancellationToken));
+        Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates all the [supported factors](#supported-factors-for-providers) that can be enrolled for the specified user

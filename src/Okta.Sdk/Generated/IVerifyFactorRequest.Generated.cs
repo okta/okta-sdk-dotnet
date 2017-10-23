@@ -17,6 +17,8 @@ namespace Okta.Sdk
     {
         string ActivationToken { get; set; }
 
+        string Answer { get; set; }
+
         string NextPassCode { get; set; }
 
         string PassCode { get; set; }

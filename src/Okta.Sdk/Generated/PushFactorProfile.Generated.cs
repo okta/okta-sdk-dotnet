@@ -24,11 +24,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public string DeviceType
-        {
-            get => GetStringProperty("deviceType");
-            set => this["deviceType"] = value;
-        }
+        public string DeviceType => GetStringProperty("deviceType");
 
         /// <inheritdoc/>
         public string Name
@@ -38,11 +34,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public string Platform
-        {
-            get => GetStringProperty("platform");
-            set => this["platform"] = value;
-        }
+        public string Platform => GetStringProperty("platform");
 
         /// <inheritdoc/>
         public string Version

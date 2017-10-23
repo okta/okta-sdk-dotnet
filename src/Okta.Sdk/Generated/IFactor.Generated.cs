@@ -15,13 +15,15 @@ namespace Okta.Sdk
     /// <summary>Represents a Factor resource in the Okta API.</summary>
     public partial interface IFactor : IResource
     {
+
+
         string Device { get; set; }
 
         string DeviceType { get; }
 
         FactorType FactorType { get; set; }
 
-        string Id { get; set; }
+        string Id { get; }
 
         string MfaStateTokenId { get; set; }
 
@@ -32,6 +34,8 @@ namespace Okta.Sdk
         bool? RechallengeExistingFactor { get; set; }
 
         string SessionId { get; set; }
+
+        FactorStatus Status { get; }
 
         string UserId { get; set; }
 

@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
+        public string Answer
+        {
+            get => GetStringProperty("answer");
+            set => this["answer"] = value;
+        }
+
+        /// <inheritdoc/>
         public string NextPassCode
         {
             get => GetStringProperty("nextPassCode");

@@ -41,7 +41,7 @@ namespace Okta.Sdk
         });
 
         /// <inheritdoc />
-        public async Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = "", CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Factor>(new HttpRequest
         {
             Uri = "/api/v1/users/{userId}/factors",

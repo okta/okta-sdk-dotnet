@@ -17,11 +17,11 @@ namespace Okta.Sdk
     {
         string CredentialId { get; set; }
 
-        string DeviceType { get; set; }
+        string DeviceType { get; }
 
         string Name { get; set; }
 
-        string Platform { get; set; }
+        string Platform { get; }
 
         string Version { get; set; }
 

@@ -19,7 +19,7 @@ namespace Okta.Sdk
 
 
         /// <inheritdoc/>
-        public string ExpiresAt => GetStringProperty("expiresAt");
+        public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
 
         /// <inheritdoc/>
         public FactorResultType FactorResult => GetEnumProperty<FactorResultType>("factorResult");
