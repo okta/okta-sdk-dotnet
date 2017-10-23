@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class TotpFactor : Factor, ITotpFactor
     {
         /// <inheritdoc/>
-        public ITotpFactorProfile Profile
+        public new ITotpFactorProfile Profile
         {
             get => GetResourceProperty<TotpFactorProfile>("profile");
             set => this["profile"] = value;

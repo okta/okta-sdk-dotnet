@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with <see cref="IUserFactor"/> resources.</summary>
+    /// <summary>A client that works with Okta UserFactor resources.</summary>
     public partial interface IUserFactorsClient
     {
         /// <summary>

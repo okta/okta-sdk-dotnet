@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class CallFactor : Factor, ICallFactor
     {
         /// <inheritdoc/>
-        public ICallFactorProfile Profile
+        public new ICallFactorProfile Profile
         {
             get => GetResourceProperty<CallFactorProfile>("profile");
             set => this["profile"] = value;

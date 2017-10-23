@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class EmailFactor : Factor, IEmailFactor
     {
         /// <inheritdoc/>
-        public IEmailFactorProfile Profile
+        public new IEmailFactorProfile Profile
         {
             get => GetResourceProperty<EmailFactorProfile>("profile");
             set => this["profile"] = value;

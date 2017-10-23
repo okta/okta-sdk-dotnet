@@ -61,6 +61,7 @@ namespace Okta.Sdk
         /// Initializes a new instance of the <see cref="OktaClient"/> class.
         /// </summary>
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
+        /// <param name="configuration">The client configuration.</param>
         /// <param name="requestContext">The request context, if any.</param>
         protected OktaClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
         {

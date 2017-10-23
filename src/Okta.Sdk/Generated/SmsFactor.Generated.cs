@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class SmsFactor : Factor, ISmsFactor
     {
         /// <inheritdoc/>
-        public ISmsFactorProfile Profile
+        public new ISmsFactorProfile Profile
         {
             get => GetResourceProperty<SmsFactorProfile>("profile");
             set => this["profile"] = value;

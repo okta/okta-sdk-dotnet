@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class HardwareFactor : Factor, IHardwareFactor
     {
         /// <inheritdoc/>
-        public IHardwareFactorProfile Profile
+        public new IHardwareFactorProfile Profile
         {
             get => GetResourceProperty<HardwareFactorProfile>("profile");
             set => this["profile"] = value;
