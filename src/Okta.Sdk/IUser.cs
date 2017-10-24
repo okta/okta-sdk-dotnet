@@ -18,6 +18,8 @@ namespace Okta.Sdk
 
         IAsyncEnumerable<IGroup> Groups { get; }
 
+        IAsyncEnumerable<IFactor> Factors { get; }
+
         Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
@@ -35,5 +37,7 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="IUser">User</see>.</returns>
         Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

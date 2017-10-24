@@ -27,6 +27,10 @@ namespace Okta.Sdk
             => GetClient().Users.ListUserGroups(Id);
 
         /// <inheritdoc/>
+        public IAsyncEnumerable<IFactor> Factors
+            => GetClient().UserFactors.ListFactors(Id);
+
+        /// <inheritdoc/>
         public Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ChangePasswordAsync(Id, options, cancellationToken);
 
@@ -49,5 +53,8 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.UpdateUserAsync(this, Id, cancellationToken);
+
+        public Task<IFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserFactors.AddFactorAsync(Id, securityQuestionFactorOptions, cancellationToken);
     }
 }
