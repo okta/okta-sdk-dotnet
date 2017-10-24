@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with <see cref="IGroup"/> resources.</summary>
+    /// <summary>A client that works with Okta Group resources.</summary>
     public partial interface IGroupsClient : IAsyncEnumerable<IGroup>
     {
         /// <summary>
