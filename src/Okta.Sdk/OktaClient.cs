@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
@@ -140,6 +141,19 @@ namespace Okta.Sdk
             var response = await _dataStore.GetAsync<T>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
+
+        /// <inheritdoc/>
+        public IAsyncEnumerable<T> GetCollection<T>(string href)
+            where T : Resource, new()
+            => GetCollection<T>(new HttpRequest
+            {
+                Uri = href,
+            });
+
+        /// <inheritdoc/>
+        public IAsyncEnumerable<T> GetCollection<T>(HttpRequest request)
+            where T : Resource, new()
+            => GetCollectionClient<T>(request);
 
         /// <inheritdoc/>
         public Task PostAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
