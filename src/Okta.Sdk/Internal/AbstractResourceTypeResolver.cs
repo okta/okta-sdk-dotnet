@@ -9,8 +9,17 @@ using System.Text;
 
 namespace Okta.Sdk.Internal
 {
-    internal abstract class AbstractResourceTypeResolver<T>
+    /// <summary>
+    /// Resolves a resource type based on the resource data. Base class for all resource type resolvers.
+    /// </summary>
+    /// <typeparam name="T">The base type of resource to resolve.</typeparam>
+    public abstract class AbstractResourceTypeResolver<T>
     {
+        /// <summary>
+        /// Get the resolved resource type given its <paramref name="data"/>.
+        /// </summary>
+        /// <param name="data">The resource data.</param>
+        /// <returns>The resource type.</returns>
         public abstract Type GetResolvedType(IDictionary<string, object> data);
     }
 }

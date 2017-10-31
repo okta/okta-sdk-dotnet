@@ -194,6 +194,14 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       method.operation.allParams = (method.operation.pathParams || []).concat(method.operation.queryParams || []);
     }
 
+    if (model.requiresResolution) {
+      templates.push({
+        src: 'Resolver.cs.hbs',
+        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
+        context: model
+      });
+    }
+
     templates.push({
       src: 'IModel.cs.hbs',
       dest: `Generated/I${model.modelName}.Generated.cs`,

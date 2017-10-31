@@ -20,9 +20,9 @@ namespace Okta.Sdk.UnitTests
         private static readonly List<Factor> AllFactors = new List<Factor>()
         {
             new ResourceCreator<Factor>().With(
-                (f => f.FactorType, FactorType.Question),
+                (f => f.FactorType, FactorType.Question.ToString()), // todo removing ToString breaks the mocked RequestExecutor
                 (f => f.Provider, "OKTA"),
-                (f => f.Profile, new SecurityQuestionFactorProfile{ Question = "disliked_food" })),
+                (f => f.Profile, new SecurityQuestionFactorProfile { Question = "disliked_food" })),
         };
 
         [Fact]
@@ -40,7 +40,8 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var securityQuestionFactor = await collection.OfType<SecurityQuestionFactor>().FirstOrDefault();
+            var retrievedItems = await collection.ToArray();
+            var securityQuestionFactor = retrievedItems.OfType<SecurityQuestionFactor>().FirstOrDefault();
             securityQuestionFactor.Should().NotBeNull();
         }
     }
