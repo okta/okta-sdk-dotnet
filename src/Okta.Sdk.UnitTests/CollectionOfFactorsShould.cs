@@ -44,5 +44,25 @@ namespace Okta.Sdk.UnitTests
             var securityQuestionFactor = retrievedItems.OfType<SecurityQuestionFactor>().FirstOrDefault();
             securityQuestionFactor.Should().NotBeNull();
         }
+
+        [Fact]
+        public async Task RetrieveQuestionFactorAsInterface()
+        {
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IFactor>(pageSize: 2, items: AllFactors);
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, null),
+                NullLogger.Instance);
+
+            var collection = new CollectionClient<Factor>(
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
+
+            var retrievedItems = await collection.ToArray();
+            var securityQuestionFactor = retrievedItems.OfType<ISecurityQuestionFactor>().FirstOrDefault();
+            securityQuestionFactor.Should().NotBeNull();
+        }
     }
 }
