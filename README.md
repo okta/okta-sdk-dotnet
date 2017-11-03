@@ -132,3 +132,5 @@ The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) conta
 ## Getting help
 
 This library is maintained and supported by Okta. If you run into trouble using the SDK, post an [issue](https://github.com/okta/okta-sdk-dotnet/issues) or send us an email at [developers@okta.com](mailto:developers@okta.com).
+
+[Okta Developer Forum]: https://devforum.okta.com/
