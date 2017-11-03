@@ -7,6 +7,13 @@ The SDK is compatible with:
 * .NET Framework 4.6.1
 * Mono
 
+## :warning: :construction: Alpha Preview :construction: :warning:
+
+This library is under development and is currently a 1.0.0-alpha series.  Some of the API is not yet expressed in this library.  To install this library through NuGet, you will need to enable the "Include Prereleases" option when you search for this package.
+
+Need help? Contact [developers@okta.com](mailto:developers@okta.com) or use the [Okta Developer Forum].
+
+
 ## Installation
 ### Using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
