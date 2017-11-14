@@ -29,7 +29,7 @@ namespace Okta.Sdk
 
         IFactorProfile Profile { get; set; }
 
-        string Provider { get; set; }
+        FactorProvider Provider { get; set; }
 
         bool? RechallengeExistingFactor { get; set; }
 

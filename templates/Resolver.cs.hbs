@@ -29,9 +29,7 @@ namespace Okta.Sdk.Internal
             {
                 return typeof({{modelName}});
             }
-
             {{nbsp 0}}{{~#each resolutionStrategy.valueToModelMapping}}
-            {{nbsp 0}}
             if (value.Equals("{{@key}}"))
             {
                 return typeof({{this}});

@@ -11,6 +11,6 @@ namespace Okta.Sdk
 {
     public sealed class AddTotpFactorOptions
     {
-
+        public FactorProvider Provider { get; set; }
     }
 }

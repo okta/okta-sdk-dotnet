@@ -31,7 +31,7 @@ namespace Okta.Sdk
             var factor = new SecurityQuestionFactor
             {
                 FactorType = FactorType.Question,
-                Provider = "OKTA",
+                Provider = FactorProvider.Okta,
                 Profile = profile,
             };
 
@@ -39,7 +39,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        Task<IFactor> AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (callFactorOptions == null)
             {
@@ -55,48 +55,48 @@ namespace Okta.Sdk
             var factor = new CallFactor
             {
                 FactorType = FactorType.Call,
-                Provider = "OKTA",
+                Provider = FactorProvider.Okta,
                 Profile = profile,
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
         }
 
-        // /// <inheritdoc/>
-        // Task<IFactor> AddFactorAsync(string userId, AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
-        // {
-        //     if (emailFactorOptions == null)
-        //     {
-        //         throw new ArgumentNullException(nameof(emailFactorOptions));
-        //     }
+        /// <inheritdoc/>
+        public Task<IFactor> AddFactorAsync(string userId, AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (emailFactorOptions == null)
+            {
+                throw new ArgumentNullException(nameof(emailFactorOptions));
+            }
 
-        //     var profile = new EmailFactorProfile
-        //     {
-        //         Email = emailFactorOptions.Email
-        //     };
+            var profile = new EmailFactorProfile
+            {
+                Email = emailFactorOptions.Email
+            };
 
-        //     var factor = new EmailFactor
-        //     {
-        //         FactorType = "email", // TODO: add this to the FactorType enum
-        //         Provider = "OKTA",
-        //         Profile = profile,
-        //     };
+            var factor = new EmailFactor
+            {
+                FactorType = FactorType.Email,
+                Provider = FactorProvider.Okta,
+                Profile = profile,
+            };
 
-        //     return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
-        // }
+            return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
+        }
 
         /// <inheritdoc/>
-        Task<IFactor> AddFactorAsync(string userId, AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(string userId, AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (hardwareFactorOptions == null)
             {
                 throw new ArgumentNullException(nameof(hardwareFactorOptions));
             }
 
-            var profile = new HardwareFactorProfile
+            if (hardwareFactorOptions.Provider == null)
             {
-                CredentialId = hardwareFactorOptions.CredentialId
-            };
+                throw new ArgumentNullException(nameof(hardwareFactorOptions.Provider));
+            }
 
             var verify = new VerifyFactorRequest
             {
@@ -106,8 +106,7 @@ namespace Okta.Sdk
             var factor = new HardwareFactor
             {
                 FactorType = FactorType.TokenHardware,
-                Provider = "YUBICO",
-                Profile = profile,
+                Provider = hardwareFactorOptions.Provider,
                 Verify = verify
             };
 
@@ -115,7 +114,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        Task<IFactor> AddFactorAsync(string userId, AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(string userId, AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (pushFactorOptions == null)
             {
@@ -125,14 +124,14 @@ namespace Okta.Sdk
             var factor = new PushFactor
             {
                 FactorType = FactorType.Push,
-                Provider = "OKTA"
+                Provider = FactorProvider.Okta
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc/>
-        Task<IFactor> AddFactorAsync(string userId, AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(string userId, AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (smsFactorOptions == null)
             {
@@ -147,7 +146,7 @@ namespace Okta.Sdk
             var factor = new SmsFactor
             {
                 FactorType = FactorType.Sms,
-                Provider = "OKTA",
+                Provider = FactorProvider.Okta,
                 Profile = profile,
             };
 
@@ -155,11 +154,16 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        Task<IFactor> AddFactorAsync(string userId, AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(string userId, AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (tokenFactorOptions == null)
             {
                 throw new ArgumentNullException(nameof(tokenFactorOptions));
+            }
+
+            if (tokenFactorOptions.Provider == null)
+            {
+                throw new ArgumentNullException(nameof(tokenFactorOptions.Provider));
             }
 
             var profile = new TokenFactorProfile
@@ -185,23 +189,22 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        Task<IFactor> AddFactorAsync(string userId, AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IFactor> AddFactorAsync(string userId, AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (totpFactorOptions == null)
             {
                 throw new ArgumentNullException(nameof(totpFactorOptions));
             }
 
-            var profile = new TotpFactorProfile
+            if (totpFactorOptions.Provider == null)
             {
-                CredentialId = totpFactorOptions.CredentialId
-            };
+                throw new ArgumentNullException(nameof(totpFactorOptions.Provider));
+            }
 
             var factor = new TotpFactor
             {
                 FactorType = FactorType.TokenSoftwareTotp,
-                Provider = "OKTA",
-                Profile = profile,
+                Provider = totpFactorOptions.Provider
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);

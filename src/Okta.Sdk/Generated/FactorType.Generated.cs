@@ -36,6 +36,9 @@ namespace Okta.Sdk
         /// <summary>The web FactorType.</summary>
         public static FactorType Web = new FactorType("web");
 
+        /// <summary>The email FactorType.</summary>
+        public static FactorType Email = new FactorType("email");
+
         /// <summary>
         /// Creates a new <see cref="FactorType"/> instance.
         /// </summary>

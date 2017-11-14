@@ -28,42 +28,48 @@ namespace Okta.Sdk.Internal
             if (string.IsNullOrEmpty(value))
             {
                 return typeof(Factor);
-            }            
+            }
+            
             if (value.Equals("call"))
             {
                 return typeof(CallFactor);
             }
-                        
+            
+            if (value.Equals("email"))
+            {
+                return typeof(EmailFactor);
+            }
+            
             if (value.Equals("push"))
             {
                 return typeof(PushFactor);
             }
-                        
+            
             if (value.Equals("question"))
             {
                 return typeof(SecurityQuestionFactor);
             }
-                        
+            
             if (value.Equals("sms"))
             {
                 return typeof(SmsFactor);
             }
-                        
+            
             if (value.Equals("token"))
             {
                 return typeof(TokenFactor);
             }
-                        
+            
             if (value.Equals("token:hardware"))
             {
                 return typeof(HardwareFactor);
             }
-                        
+            
             if (value.Equals("token:software:totp"))
             {
                 return typeof(TotpFactor);
             }
-                        
+            
             if (value.Equals("web"))
             {
                 return typeof(WebFactor);

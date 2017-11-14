@@ -11,7 +11,8 @@ namespace Okta.Sdk
 {
     public sealed class AddHardwareFactorOptions
     {
-        public string CredentialId { get; set; }
         public string PassCode { get; set; }
+
+        public FactorProvider Provider { get; set; }
     }
 }

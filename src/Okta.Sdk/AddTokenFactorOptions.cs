@@ -12,8 +12,11 @@ namespace Okta.Sdk
     public sealed class AddTokenFactorOptions
     {
         public string CredentialId { get; set; }
+        
         public string PassCode { get; set; }
+
         public string NextPassCode { get; set; }
-        public string Provider { get; set; }
+
+        public FactorProvider Provider { get; set; }
     }
 }

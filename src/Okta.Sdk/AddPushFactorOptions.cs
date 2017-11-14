@@ -11,6 +11,5 @@ namespace Okta.Sdk
 {
     public sealed class AddPushFactorOptions
     {
-
     }
 }

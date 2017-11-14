@@ -53,9 +53,9 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public string Provider
+        public FactorProvider Provider
         {
-            get => GetStringProperty("provider");
+            get => GetEnumProperty<FactorProvider>("provider");
             set => this["provider"] = value;
         }
 
