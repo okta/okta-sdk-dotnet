@@ -14,5 +14,6 @@ namespace Okta.Sdk
         public string CredentialId { get; set; }
         public string PassCode { get; set; }
         public string NextPassCode { get; set; }
+        public string Provider { get; set; }
     }
 }
