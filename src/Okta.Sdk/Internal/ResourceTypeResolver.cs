@@ -17,7 +17,7 @@ namespace Okta.Sdk.Internal
             typeof(Resource).GetTypeInfo().Assembly.DefinedTypes
             .Where(typeInfo =>
             {
-                if (typeInfo.BaseType == null)
+                if (typeInfo?.BaseType == null)
                 {
                     return false;
                 }
