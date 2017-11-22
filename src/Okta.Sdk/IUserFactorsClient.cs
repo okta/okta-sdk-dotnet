@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>A client that works with Okta UserFactor resources.</summary>
-    public partial interface IUserFactorsClient // : IAsyncEnumerable<IFactor> todo
+    public partial interface IUserFactorsClient
     {
         Task<IFactor> AddFactorAsync(string userId, AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
         Task<IFactor> AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken));

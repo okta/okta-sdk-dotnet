@@ -59,8 +59,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        // TODO test custom security question text
-
         [Fact]
         public async Task ListFactorsForNewUser()
         {
