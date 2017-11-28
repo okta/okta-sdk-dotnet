@@ -3,8 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-// Do not modify this file directly. This file was automatically generated with:
-// spec.json - {{specVersion}}
+// This file was automatically generated. Don't modify it directly.
 
 using System;
 using System.Collections.Generic;
@@ -14,11 +13,11 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a {{modelName}} resource in the Okta API.</summary>
-    public partial interface I{{modelName}} : IResource
+    public partial interface I{{modelName}} : {{#if extends}}I{{extends}}{{else}}IResource{{/if}}
     {
         {{#each properties}}
         {{~#unless hidden}}
-        {{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
+        {{#if hidesBaseMember}}new {{/if}}{{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} { get; }
         {{~else}} { get; set; }
         {{~/if}}
@@ -40,12 +39,17 @@ namespace Okta.Sdk
             {{~#unless operation.isArray}}Async{{/unless}}
             
             {{~nbsp 0}}(
+
+            {{~#if operation.bodyModel}}{{operation.bodyModel}} {{camelCase operation.bodyModel}}, {{/if}}
             
             {{~#each operation.allParams}}
                 {{~#unless (getMappedArgName method name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
-                {{~#if (exists this "default")}} = {{default}}
+                {{~#if (exists this "default")}}
+                    {{~nbsp}}= {{#if (eq this.type "string")}}"{{/if}}
+                    {{~nbsp 0}}{{default}}
+                    {{~nbsp 0}}{{#if (eq this.type "string")}}"{{/if}}
                 {{~else}}
                     {{~#unless required}} = null{{/unless}}
                 {{~/if}}
@@ -53,7 +57,10 @@ namespace Okta.Sdk
                 {{~/unless}}
             {{~/each}}
 
-            {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken));
+            {{~#unless operation.isArray}}
+                {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
+            {{~/unless}}
+            {{~nbsp 0}});
 {{nbsp 0}}
 {{nbsp 0}}
             {{~/unless}}

@@ -11,18 +11,26 @@ const partialUpdateList = new Set([
   'UserProfile'
 ]);
 
-const propertySkipList = [
-  { path: 'FactorDevice.links', reason: 'Not currently supported' },
-  { path: 'Link.hints', reason: 'Not currently supported' },
-  { path: 'User._links', reason: 'Not currently supported' },
-  { path: 'UserGroup._embedded', reason: 'Not currently supported' },
-  { path: 'UserGroup._links', reason: 'Not currently supported' },
-  { path: 'UserGroupStats._links', reason: 'Not currently supported' },
-];
+const propertyDetailsList = [
+  { path: 'FactorDevice.links', skip: true, skipReason: 'Not currently supported' },
+  { path: 'Link.hints', skip: true, skipReason: 'Not currently supported' },
+  { path: 'User._links', skip: true, skipReason: 'Not currently supported' },
+  { path: 'UserGroup._embedded', skip: true, skipReason: 'Not currently supported' },
+  { path: 'UserGroup._links', skip: true, skipReason: 'Not currently supported' },
+  { path: 'UserGroupStats._links', skip: true, skipReason: 'Not currently supported' },
+  
+  { path: 'ActivationToken.activationToken', rename: 'token', renameReason: '.NET type name and member name cannot be identical' },
+  { path: 'TempPassword.tempPassword', rename: 'password', renameReason: '.NET type name and member name cannot be identical' },
 
-const propertyRenameList = [
-  { path: 'ActivationToken.activationToken', new: 'token', reason: '.NET type name and member name cannot be identical' },
-  { path: 'TempPassword.tempPassword', new: 'password', reason: '.NET type name and member name cannot be identical' }
+  { path: 'CallFactor.profile', hidesBaseMember: true },
+  { path: 'EmailFactor.profile', hidesBaseMember: true },
+  { path: 'HardwareFactor.profile', hidesBaseMember: true },
+  { path: 'PushFactor.profile', hidesBaseMember: true },
+  { path: 'SecurityQuestionFactor.profile', hidesBaseMember: true },
+  { path: 'SmsFactor.profile', hidesBaseMember: true },
+  { path: 'TokenFactor.profile', hidesBaseMember: true },
+  { path: 'TotpFactor.profile', hidesBaseMember: true },
+  { path: 'WebFactor.profile', hidesBaseMember: true },
 ];
 
 const operationSkipList = [
@@ -110,6 +118,8 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
   const templates = [];
 
+  let baseModels = new Set();
+
   // add all the models
   for (let model of models) {
     model.specVersion = spec.info.version;
@@ -129,6 +139,10 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       model.supportsPartialUpdates = true;
     }
 
+    if (model.extends && !baseModels.has(model.extends)) {
+      baseModels.add(model.extends);
+    }
+
     model.properties = model.properties || [];
 
     for (let property of model.properties) {
@@ -146,17 +160,22 @@ csharp.process = ({spec, operations, models, handlebars}) => {
         continue;
       }
 
-      let skipRule = propertySkipList.find(x => x.path === fullPath);
-      if (skipRule) {
-        console.log('Skipping property', fullPath, `(Reason: ${skipRule.reason})`);
+      let propertyDetails = propertyDetailsList.find(x => x.path == fullPath);
+      if (!propertyDetails) continue;
+
+      if (propertyDetails.skip) {
+        console.log('Skipping property', fullPath, `(Reason: ${propertyDetails.skipReason})`);
         property.hidden = true;
         continue;
       }
 
-      let renameRule = propertyRenameList.find(x => x.path === fullPath);
-      if (renameRule) {
-        console.log(`Renaming property ${fullPath} to ${renameRule.new}`, `(Reason: ${renameRule.reason})`);
-        property.displayName = renameRule.new;
+      if (propertyDetails.rename) {
+        console.log(`Renaming property ${fullPath} to ${propertyDetails.rename}`, `(Reason: ${propertyDetails.renameReason})`);
+        property.displayName = propertyDetails.rename;
+      }
+
+      if (propertyDetails.hidesBaseMember) {
+        property.hidesBaseMember = true;
       }
     }
 
@@ -175,6 +194,14 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       method.operation.allParams = (method.operation.pathParams || []).concat(method.operation.queryParams || []);
     }
 
+    if (model.requiresResolution) {
+      templates.push({
+        src: 'Resolver.cs.hbs',
+        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
+        context: model
+      });
+    }
+
     templates.push({
       src: 'IModel.cs.hbs',
       dest: `Generated/I${model.modelName}.Generated.cs`,
@@ -186,6 +213,18 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       dest: `Generated/${model.modelName}.Generated.cs`,
       context: model
     });
+  }
+
+  // Second pass to mark base models (models that are inherited from other models)
+  for (let name of baseModels) {
+    let foundModel = models.find(x => x.modelName === name);
+
+    if (!foundModel) {
+      console.warn(`Could not mark ${name} as a base model`);
+      continue;
+    }
+
+    foundModel.isBaseModel = true;
   }
 
   const taggedOperations = {};

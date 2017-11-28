@@ -3,8 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-// Do not modify this file directly. This file was automatically generated with:
-// spec.json - 0.3.0
+// This file was automatically generated. Don't modify it directly.
 
 using System;
 using System.Collections.Generic;
@@ -92,5 +91,25 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public Task AddToGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Groups.AddUserToGroupAsync(groupId, Id, cancellationToken);
+
+        /// <inheritdoc />
+        public Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserFactors.AddFactorAsync(factor, Id, updatePhone, templateId, cancellationToken);
+
+        /// <inheritdoc />
+        public IAsyncEnumerable<IFactor> ListSupportedFactors()
+            => GetClient().UserFactors.ListSupportedFactors(Id);
+
+        /// <inheritdoc />
+        public IAsyncEnumerable<IFactor> ListFactors()
+            => GetClient().UserFactors.ListFactors(Id);
+
+        /// <inheritdoc />
+        public IAsyncEnumerable<ISecurityQuestion> ListSupportedSecurityQuestions()
+            => GetClient().UserFactors.ListSupportedSecurityQuestions(Id);
+
+        /// <inheritdoc />
+        public Task<IFactor> GetFactorAsync(string factorId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserFactors.GetFactorAsync(Id, factorId, cancellationToken);
     }
 }

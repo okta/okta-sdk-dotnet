@@ -4,10 +4,10 @@
 // </copyright>
 
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
-using System.Linq;
 
 namespace Okta.Sdk.IntegrationTests
 {

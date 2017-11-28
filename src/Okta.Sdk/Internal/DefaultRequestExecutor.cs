@@ -200,7 +200,7 @@ namespace Okta.Sdk.Internal
 
             var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
             ApplyHeadersToRequest(request, headers);
-            
+
             request.Content = string.IsNullOrEmpty(body)
                 ? null
                 : new StringContent(body, System.Text.Encoding.UTF8, "application/json");

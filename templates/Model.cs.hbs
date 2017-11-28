@@ -3,8 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-// Do not modify this file directly. This file was automatically generated with:
-// spec.json - {{specVersion}}
+// This file was automatically generated. Don't modify it directly.
 
 using System;
 using System.Collections.Generic;
@@ -15,14 +14,14 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class {{modelName}} : Resource, I{{modelName}}
+    public {{#unless isBaseModel}}sealed {{/unless}}partial class {{modelName}} : {{#if extends}}{{pascalCase extends}}{{else}}Resource{{/if}}, I{{modelName}}
     {
 {{nbsp 0}}
 
         {{~#each properties}}
         {{~#unless hidden}}
         /// <inheritdoc/>
-        public {{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
+        public {{#if hidesBaseMember}}new {{/if}}{{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
         {{~#if readOnly}} => {{{getterName this}}}("{{propertyName}}");
         {{~else}}
 {{nbsp 0}}
@@ -56,11 +55,16 @@ namespace Okta.Sdk
             
             {{~nbsp 0}}(
 
+            {{~#if operation.bodyModel}}{{operation.bodyModel}} {{camelCase operation.bodyModel}}, {{/if}}
+
             {{~#each operation.allParams}}
                 {{~#unless (getMappedArgName method name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
-                {{~#if (exists this "default")}} = {{default}}
+                {{~#if (exists this "default")}}
+                    {{~nbsp}}= {{#if (eq this.type "string")}}"{{/if}}
+                    {{~nbsp 0}}{{default}}
+                    {{~nbsp 0}}{{#if (eq this.type "string")}}"{{/if}}
                 {{~else}}
                     {{~#unless required}} = null{{/unless}}
                 {{~/if}}
@@ -68,12 +72,15 @@ namespace Okta.Sdk
                 {{~/unless}}
             {{~/each}}
 
-            {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken))
+            {{~#unless operation.isArray}}
+                {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
+            {{~/unless}}
+            {{~nbsp 0}})
             {{nbsp 0}}
             {{~nbsp 0}}=> GetClient().{{pascalCase operation.tags.[0]}}s.{{pascalCase operation.operationId}}
             {{~#unless operation.isArray}}Async{{/unless}}
             {{~nbsp 0}}(
-                {{~#if operation.bodyModel}}this, {{/if}}
+                {{~#if operation.bodyModel}}{{camelCase operation.bodyModel}}, {{/if}}
                 {{~#each operation.allParams}}
                     {{~#if (getMappedArgName method name)}}{{pascalCase (getMappedArgName method name)}}
                     {{~else}}{{name}}
