@@ -1,6 +1,6 @@
 language: csharp
 mono: latest # Necessary for Cake and DocFx (for now)
-dotnet: 1.0.3 # .NET Core
+dotnet: 1.0.4 # .NET Core
 dist: trusty
 script:
   - ./build.sh
