@@ -11,8 +11,9 @@ The SDK is compatible with:
 
 This library is under development and is currently a 1.0.0-alpha series.  Some of the API is not yet expressed in this library.  To install this library through NuGet, you will need to enable the "Include Prereleases" option when you search for this package.
 
-Need help? Contact [developers@okta.com](mailto:developers@okta.com) or use the [Okta Developer Forum].
+The latest SDK is where all the new and exciting development will happen. Our [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) contains the previous version of the SDK. It is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3) and lower. This older version has GA support, but only bug fixes will be applied.
 
+Need help? Contact [developers@okta.com](mailto:developers@okta.com) or use the [Okta Developer Forum].
 
 ## Installation
 ### Using Nuget Package Manager
@@ -124,10 +125,6 @@ await newVader.DeactivateAsync();
 // then delete the user
 await newVader.DeactivateOrDeleteAsync();
 ```
-
-## Previous version (0.x)
-
-The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) contains the previous version of the SDK. This is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3) and lower.
 
 ## Getting help
 
