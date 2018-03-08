@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Management.Automation;
 using Okta.Core.Clients;
+using System.Net;
 
 namespace Okta.Core.Automation
 {
@@ -44,6 +45,8 @@ namespace Okta.Core.Automation
                     Subdomain = Subdomain
                 };
 
+                // Support TLS 1.2
+                ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072;
                 Client = new OktaClient(oktaSettings);
             }
         }
