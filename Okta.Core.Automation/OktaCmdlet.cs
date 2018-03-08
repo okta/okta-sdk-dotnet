@@ -46,7 +46,7 @@ namespace Okta.Core.Automation
                 };
 
                 // Support TLS 1.2
-                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+                ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072;
                 Client = new OktaClient(oktaSettings);
             }
         }
