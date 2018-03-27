@@ -84,7 +84,6 @@ namespace Okta.Sdk.Internal
             var handler = new HttpClientHandler
             {
                 AllowAutoRedirect = false,
-                SslProtocols = SslProtocols.Tls | SslProtocols.Tls11 | SslProtocols.Tls12,
             };
 
             if (proxyConfiguration != null)
