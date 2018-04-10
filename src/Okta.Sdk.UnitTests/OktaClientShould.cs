@@ -36,6 +36,11 @@ namespace Okta.Sdk.UnitTests
 
             items.Count().Should().Be(3);
             items.ElementAt(0).Foo.Should().Be("foo1");
+            items.ElementAt(0).Bar.Should().BeNull();
+
+            items.ElementAt(1).Foo.Should().Be("foo2");
+            items.ElementAt(1).Bar.Should().Be(true);
+
             items.ElementAt(2).Foo.Should().Be("foo3");
             items.ElementAt(2).Bar.Should().Be(false);
         }
