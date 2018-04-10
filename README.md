@@ -139,6 +139,8 @@ vader.Profile["nickName"] = "Lord Vader";
 var newVader = await vader.UpdateAsync();
 ```
 
+*Note:* You can't create the attributes via code right now, but you can get/set them. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code above.
+
 ###  5.5. <a name='RemovingaUser'></a>Removing a User
 ``` csharp
 // first, deactivate the user
