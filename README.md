@@ -90,14 +90,14 @@ var vader = await client.Users.CreateUserAsync(
 
 This will create an inactive user for the client application.
 
-### Activating A User
+### Activating a User
 
 ``` csharp
 // having a user, just call
 await vader.ActivateAsync();
 ```
 
-### Getting A User
+### Getting a User
 ``` csharp
 // have some user's ID, or login
 var someUserId = "<Some User ID String or Login>";
@@ -108,7 +108,7 @@ var vader = await client.User.GetUserAsync(someUserId);
 
 The string argument for `GetUserAsync` can be the user's ID or the user's login (email).
 
-### Updating A User
+### Updating a User
 ``` csharp
 // set the nickname in the user's profile
 vader.Profile["nickName"] = "Lord Vader";
@@ -117,13 +117,49 @@ vader.Profile["nickName"] = "Lord Vader";
 var newVader = await vader.UpdateAsync();
 ```
 
-### Removing A User
+### Removing a User
 ``` csharp
 // first, deactivate the user
 await newVader.DeactivateAsync();
 
 // then delete the user
 await newVader.DeactivateOrDeleteAsync();
+```
+
+### Creating a Group
+``` csharp
+await _oktaClient.Groups.CreateGroupAsync
+(
+    new CreateGroupOptions()
+    {
+        Name = "Stormtroopers",
+        Description = "Some description here..."
+    }
+);
+```
+
+### Adding a User to a Group
+``` csharp
+// find the desired user
+var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "darth.father@imperial-senate.gov");
+
+// find the desired group
+var group = await _oktaClient.Groups.FirstOrDefault(x => x.Profile.Name == "Stormtroopers");
+
+// add the user to the group by using their id's
+if (group != null && user != null)
+{
+    await _oktaClient.Groups.AddUserToGroupAsync(group.Id, user.Id);
+}
+```
+
+### Retrieving a User's Groups
+``` csharp
+// find the desired user
+var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "laura.rodriguez@okta.com");
+
+// get the user's groups
+var groups = await user.Groups.ToList();
 ```
 
 ## Getting help
