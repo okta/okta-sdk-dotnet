@@ -1,3 +1,9 @@
+const { 
+  paramToCLRType,
+  propToCLRType,
+  getterName
+ } = require('./utils');
+
 const csharp = module.exports;
 
 /**
@@ -54,52 +60,7 @@ const modelMethodSkipList = [
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
 ];
 
-const getType = (specType) => {
-  switch(specType) {
-    case 'boolean': return 'bool?';
-    case 'integer': return 'int?';
-    case 'dateTime': return 'DateTimeOffset?';
-    default: return specType;
-  }
-};
 
-function paramToCLRType(param) {
-  if (param.model) {
-    return param.model;
-  }
-  
-  return getType(param.type);
-}
-
-function propToCLRType(prop, isInterface) {
-  switch (prop.commonType) {
-    case 'array': return `IList<${getType(prop.model)}>`;
-    case 'object': return isInterface ? `I${prop.model}` : prop.model;
-    case 'enum': return prop.model;
-    case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
-    default: return getType(prop.commonType);
-  }
-}
-
-function getterName(prop) {
-  if (prop.commonType === 'array') {
-    return `GetArrayProperty<${getType(prop.model)}>`;
-  }
-
-  if (prop.commonType === 'enum') {
-    return `GetEnumProperty<${prop.model}>`;
-  }
-
-  let clrType = propToCLRType(prop);
-
-  switch (clrType) {
-    case 'bool?': return 'GetBooleanProperty';
-    case 'int?': return 'GetIntegerProperty';
-    case 'DateTimeOffset?': return 'GetDateTimeProperty';
-    case 'string': return 'GetStringProperty';
-    default: return `GetResourceProperty<${clrType}>`;
-  }
-}
 
 function getMappedArgName(method, argName) {
   let mapping = method.arguments.find(x => x.dest === argName);
@@ -126,7 +87,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
     if (model.enum) {
       templates.push({
-        src: 'Enum.cs.hbs',
+        src: 'templates/Enum.cs.hbs',
         dest: `Generated/${model.modelName}.Generated.cs`,
         context: model
       });
@@ -196,20 +157,20 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
     if (model.requiresResolution) {
       templates.push({
-        src: 'Resolver.cs.hbs',
+        src: 'templates/Resolver.cs.hbs',
         dest: `Generated/${model.modelName}Resolver.Generated.cs`,
         context: model
       });
     }
 
     templates.push({
-      src: 'IModel.cs.hbs',
+      src: 'templates/IModel.cs.hbs',
       dest: `Generated/I${model.modelName}.Generated.cs`,
       context: model
     });
 
     templates.push({
-      src: 'Model.cs.hbs',
+      src: 'templates/Model.cs.hbs',
       dest: `Generated/${model.modelName}.Generated.cs`,
       context: model
     });
@@ -262,7 +223,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
 
   for (let tag of Object.keys(taggedOperations)) {
     templates.push({
-      src: 'IClient.cs.hbs',
+      src: 'templates/IClient.cs.hbs',
       dest: `Generated/I${tag}sClient.Generated.cs`,
       context: {
         tag,
@@ -272,7 +233,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
     });
 
     templates.push({
-      src: 'Client.cs.hbs',
+      src: 'templates/Client.cs.hbs',
       dest: `Generated/${tag}sClient.Generated.cs`,
       context: {
         tag,
