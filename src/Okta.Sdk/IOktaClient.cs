@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Configuration;
@@ -78,6 +79,24 @@ namespace Okta.Sdk
         /// <returns>The deserialized resource.</returns>
         /// <exception cref="OktaApiException">An API error occurred.</exception>
         Task<T> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+            where T : Resource, new();
+
+        /// <summary>
+        /// Gets a collection of resources from the Okta API by URL.
+        /// </summary>
+        /// <typeparam name="T">The <see cref="Resource"/> type of the collection.</typeparam>
+        /// <param name="href">The collection URL.</param>
+        /// <returns>A collection that can be enumerated asynchronously.</returns>
+        IAsyncEnumerable<T> GetCollection<T>(string href)
+            where T : Resource, new();
+
+        /// <summary>
+        /// Gets a collection of resources from the Okta API by URL.
+        /// </summary>
+        /// <typeparam name="T">The <see cref="Resource"/> type of the collection.</typeparam>
+        /// <param name="request">The request options.</param>
+        /// <returns>A collection that can be enumerated asynchronously.</returns>
+        IAsyncEnumerable<T> GetCollection<T>(HttpRequest request)
             where T : Resource, new();
 
         /// <summary>
