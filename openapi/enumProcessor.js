@@ -1,9 +1,5 @@
-const { 
-  pascalCase
- } = require('./utils');
-
 /*
-Creates the model that the Enum.cs.hbs handlebars template is bound to:
+Creates the context that the handlebars template is bound to:
 
 {
   "memberName": "FactorStatus",
@@ -13,7 +9,11 @@ Creates the model that the Enum.cs.hbs handlebars template is bound to:
 }
 */
 
-function makeEnumFromModel(model, err) {
+const { 
+  pascalCase
+ } = require('./utils');
+
+function createEnumContext(model, err) {
   let memberName = model.modelName || '';
   if (!memberName.length) err("modelName is zero-length", model);
 
@@ -32,4 +32,4 @@ function makeEnumFromModel(model, err) {
   return outputModel;
 }
 
-module.exports.makeEnumFromModel = makeEnumFromModel;
+module.exports.createEnumContext = createEnumContext;

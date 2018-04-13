@@ -51,7 +51,14 @@ function getterName(prop) {
   }
 }
 
+function getMappedArgName(method, argName) {
+  let mapping = method.arguments.find(x => x.dest === argName);
+  if (!mapping) return null;
+  return mapping.src;
+}
+
 module.exports.pascalCase = pascalCase;
 module.exports.paramToCLRType = paramToCLRType;
 module.exports.propToCLRType = propToCLRType;
 module.exports.getterName = getterName;
+module.exports.getMappedArgName = getMappedArgName;

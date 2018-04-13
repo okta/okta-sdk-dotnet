@@ -1,81 +1,31 @@
-const { 
-  paramToCLRType,
-  propToCLRType,
-  getterName
- } = require('./utils');
-
- const { makeEnumFromModel } = require('./enumProcessor.js');
-
-const csharp = module.exports;
-
 /**
  * This file is used by the @okta/openapi generator.  It defines language-specific
  * post-processing of the JSON spec, as well as handebars helpers.  This file is meant
  * to give you control over the data that handlebars uses when processing your templates
  */
 
-const partialUpdateList = new Set([
-  'User',
-  'UserProfile'
-]);
+const { 
+  paramToCLRType,
+  propToCLRType,
+  getterName,
+  getMappedArgName
+ } = require('./utils');
 
-const propertyDetailsList = [
-  { path: 'FactorDevice.links', skip: true, skipReason: 'Not currently supported' },
-  { path: 'Link.hints', skip: true, skipReason: 'Not currently supported' },
-  { path: 'User._links', skip: true, skipReason: 'Not currently supported' },
-  { path: 'UserGroup._embedded', skip: true, skipReason: 'Not currently supported' },
-  { path: 'UserGroup._links', skip: true, skipReason: 'Not currently supported' },
-  { path: 'UserGroupStats._links', skip: true, skipReason: 'Not currently supported' },
-  
-  { path: 'ActivationToken.activationToken', rename: 'token', renameReason: '.NET type name and member name cannot be identical' },
-  { path: 'TempPassword.tempPassword', rename: 'password', renameReason: '.NET type name and member name cannot be identical' },
+const { createEnumContext } = require('./enumProcessor.js');
 
-  { path: 'CallFactor.profile', hidesBaseMember: true },
-  { path: 'EmailFactor.profile', hidesBaseMember: true },
-  { path: 'HardwareFactor.profile', hidesBaseMember: true },
-  { path: 'PushFactor.profile', hidesBaseMember: true },
-  { path: 'SecurityQuestionFactor.profile', hidesBaseMember: true },
-  { path: 'SmsFactor.profile', hidesBaseMember: true },
-  { path: 'TokenFactor.profile', hidesBaseMember: true },
-  { path: 'TotpFactor.profile', hidesBaseMember: true },
-  { path: 'WebFactor.profile', hidesBaseMember: true },
-];
-
-const operationSkipList = [
-  { id: 'forgotPassword', reason: 'Revisit in alpha2 (#62)'},
-  { id: 'addRoleToUser', reason: 'Revisit in alpha2 (#102)'},
-];
-
-const modelMethodSkipList = [
-  { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
-  { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
-  { path: 'User.forgotPassword', reason: 'Revisit in alpha2 (#64)'},
-  { path: 'User.addRole', reason: 'Implemented as a custom method'},
-  { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
-  { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
-  { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
-  { path: 'User.removeRole', reason: 'Add back in alpha2 (#64)' },
-  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.addGroupTargetToRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
-  { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
-];
-
-
-
-function getMappedArgName(method, argName) {
-  let mapping = method.arguments.find(x => x.dest === argName);
-  if (!mapping) return null;
-  return mapping.src;
-}
+const {
+  partialUpdateList,
+  propertyDetailsList,
+  operationSkipList,
+  modelMethodSkipList
+} = require('./constants');
 
 function errorLogger(message, model) {
   console.error(model);
   throw new Error(message);
 }
 
-csharp.process = ({spec, operations, models, handlebars}) => {
+module.exports.process = ({spec, operations, models, handlebars}) => {
 
   handlebars.registerHelper({
     paramToCLRType,
@@ -96,7 +46,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       templates.push({
         src: 'templates/Enum.cs.hbs',
         dest: `Generated/${model.modelName}.Generated.cs`,
-        context: makeEnumFromModel(model, errorLogger)
+        context: createEnumContext(model, errorLogger)
       });
 
       // Don't do anything else for enums
