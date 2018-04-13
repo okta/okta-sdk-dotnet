@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "generate": "okta-sdk-generator -o src/Okta.Sdk/ -t openapi",
-    "test-server": "node test-server.js"
+    "generate": "okta-sdk-generator -o ../src/Okta.Sdk/"
   },
   "repository": {
     "type": "git",
