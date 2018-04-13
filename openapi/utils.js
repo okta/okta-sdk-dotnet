@@ -1,4 +1,10 @@
-const getType = (specType) => {
+const _ = require('lodash');
+
+function pascalCase(str) {
+  return _.upperFirst(_.camelCase(str))
+}
+
+function getType(specType) {
   switch(specType) {
     case 'boolean': return 'bool?';
     case 'integer': return 'int?';
@@ -45,6 +51,7 @@ function getterName(prop) {
   }
 }
 
+module.exports.pascalCase = pascalCase;
 module.exports.paramToCLRType = paramToCLRType;
 module.exports.propToCLRType = propToCLRType;
 module.exports.getterName = getterName;

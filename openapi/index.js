@@ -4,6 +4,8 @@ const {
   getterName
  } = require('./utils');
 
+ const { makeEnumFromModel } = require('./enumProcessor.js');
+
 const csharp = module.exports;
 
 /**
@@ -68,6 +70,11 @@ function getMappedArgName(method, argName) {
   return mapping.src;
 }
 
+function errorLogger(message, model) {
+  console.error(model);
+  throw new Error(message);
+}
+
 csharp.process = ({spec, operations, models, handlebars}) => {
 
   handlebars.registerHelper({
@@ -89,7 +96,7 @@ csharp.process = ({spec, operations, models, handlebars}) => {
       templates.push({
         src: 'templates/Enum.cs.hbs',
         dest: `Generated/${model.modelName}.Generated.cs`,
-        context: model
+        context: makeEnumFromModel(model, errorLogger)
       });
 
       // Don't do anything else for enums

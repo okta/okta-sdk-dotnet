@@ -1,4 +1,4 @@
-// <copyright file="{{modelName}}.Generated.cs" company="Okta, Inc">
+// <copyright file="{{memberName}}.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -8,20 +8,20 @@
 namespace Okta.Sdk
 {
     /// <summary>
-    /// An enumeration of {{modelName}} values in the Okta API.
+    /// An enumeration of {{memberName}} values in the Okta API.
     /// </summary>
-    public sealed class {{modelName}} : StringEnum
+    public sealed class {{memberName}} : StringEnum
     {
-        {{#each enum}}
-        /// <summary>The {{this}} {{../modelName}}.</summary>
-        public static {{../modelName}} {{pascalCase this}} = new {{../modelName}}("{{this}}");
+        {{#each items}}
+        /// <summary>The {{value}} {{../memberName}}.</summary>
+        public static {{../memberName}} {{memberName}} = new {{../memberName}}("{{value}}");
 
         {{/each}}
         /// <summary>
-        /// Creates a new <see cref="{{modelName}}"/> instance.
+        /// Creates a new <see cref="{{memberName}}"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
-        public {{modelName}}(string value)
+        public {{memberName}}(string value)
             : base(value)
         {
         }
