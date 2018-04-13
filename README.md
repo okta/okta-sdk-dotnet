@@ -188,6 +188,10 @@ var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "laura
 var groups = await user.Groups.ToList();
 ```
 
+## Using raw HTTP methods
+
+The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods. You take a look at [GitHub](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/OktaClient.cs) to see the different overloadings.
+
 ##  7. <a name='Gettinghelp'></a>Getting help
 
 This library is maintained and supported by Okta. If you run into trouble using the SDK, post an [issue](https://github.com/okta/okta-sdk-dotnet/issues) or send us an email at [developers@okta.com](mailto:developers@okta.com).
