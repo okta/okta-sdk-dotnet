@@ -11,7 +11,11 @@ const {
   getMappedArgName
  } = require('./utils');
 
-const { createEnumContext } = require('./enumProcessor.js');
+const { createContextForEnum } = require('./enumProcessor.js');
+
+const {
+  createContextForResolver
+} = require('./modelProcessor');
 
 const {
   partialUpdateList,
@@ -46,7 +50,7 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       templates.push({
         src: 'templates/Enum.cs.hbs',
         dest: `Generated/${model.modelName}.Generated.cs`,
-        context: createEnumContext(model, errorLogger)
+        context: createContextForEnum(model, errorLogger)
       });
 
       // Don't do anything else for enums
@@ -116,7 +120,7 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       templates.push({
         src: 'templates/Resolver.cs.hbs',
         dest: `Generated/${model.modelName}Resolver.Generated.cs`,
-        context: model
+        context: createContextForResolver(model, errorLogger)
       });
     }
 

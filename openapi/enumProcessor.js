@@ -12,10 +12,10 @@ Creates the context that the handlebars template is bound to:
 const { 
   pascalCase
  } = require('./utils');
-
-function createEnumContext(model, err) {
+ 
+function createContextForEnum(model, errFunc) {
   let memberName = model.modelName || '';
-  if (!memberName.length) err("modelName is zero-length", model);
+  if (!memberName.length) errFunc("modelName is zero-length", model);
 
   let outputModel = {
     memberName,
@@ -32,4 +32,4 @@ function createEnumContext(model, err) {
   return outputModel;
 }
 
-module.exports.createEnumContext = createEnumContext;
+module.exports.createContextForEnum = createContextForEnum;
