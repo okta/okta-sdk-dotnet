@@ -1,4 +1,4 @@
-// <copyright file="{{modelName}}.Generated.cs" company="Okta, Inc">
+// <copyright file="{{memberName}}.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,84 +14,24 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public {{#unless isBaseModel}}sealed {{/unless}}partial class {{modelName}} : {{#if extends}}{{pascalCase extends}}{{else}}Resource{{/if}}, I{{modelName}}
+    public {{#unless isBaseModel}}sealed {{/unless}}partial class {{memberName}} : {{baseClass}}, I{{memberName}}
     {
-{{nbsp 0}}
-
-        {{~#each properties}}
-        {{~#unless hidden}}
+        {{#each properties}}
         /// <inheritdoc/>
-        public {{#if hidesBaseMember}}new {{/if}}{{{propToCLRType this true}}} {{pascalCase (or displayName propertyName)}}
-        {{~#if readOnly}} => {{{getterName this}}}("{{propertyName}}");
-        {{~else}}
-{{nbsp 0}}
+        public {{#if hidesBaseMember}}new {{/if}}{{{type}}} {{memberName}} {{#if readOnly}}=> {{{getterLiteral}}};{{/if}}
+        {{#unless readOnly}}
         {
-            get => {{{getterName this}}}("{{propertyName}}");
+            get => {{{getterLiteral}}};
             set => this["{{propertyName}}"] = value;
         }
-        {{~/if}}
-{{nbsp 0}}
-{{nbsp 0}}
-        {{~/unless}}
-
+        {{/unless}}
+        
         {{/each}}
-
-        {{~#each methods as |method|}}
-        {{~#unless hidden}}
-        {{~nbsp 0}}
+        {{#each methods}}
         /// <inheritdoc />
-        {{nbsp 0}}
-
-            {{~nbsp 0}}public
-
-            {{~nbsp}}
-            {{~#if operation.isArray}}IAsyncEnumerable<I{{operation.responseModel}}>
-            {{~else}}Task{{#if operation.responseModel}}<I{{operation.responseModel}}>{{/if}}
-            {{~/if}}
-
-            {{~nbsp}}{{~pascalCase alias}}
-
-            {{~#unless operation.isArray}}Async{{/unless}}
-            
-            {{~nbsp 0}}(
-
-            {{~#if operation.bodyModel}}{{operation.bodyModel}} {{camelCase operation.bodyModel}}, {{/if}}
-
-            {{~#each operation.allParams}}
-                {{~#unless (getMappedArgName method.arguments name)}}
-                {{~paramToCLRType this}}{{nbsp}}
-                {{~name}}
-                {{~#if (exists this "default")}}
-                    {{~nbsp}}= {{#if (eq this.type "string")}}"{{/if}}
-                    {{~nbsp 0}}{{default}}
-                    {{~nbsp 0}}{{#if (eq this.type "string")}}"{{/if}}
-                {{~else}}
-                    {{~#unless required}} = null{{/unless}}
-                {{~/if}}
-                {{~nbsp 0}},{{nbsp}}
-                {{~/unless}}
-            {{~/each}}
-
-            {{~#unless operation.isArray}}
-                {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
-            {{~/unless}}
-            {{~nbsp 0}})
-            {{nbsp 0}}
-            {{~nbsp 0}}=> GetClient().{{pascalCase operation.tags.[0]}}s.{{pascalCase operation.operationId}}
-            {{~#unless operation.isArray}}Async{{/unless}}
-            {{~nbsp 0}}(
-                {{~#if operation.bodyModel}}{{camelCase operation.bodyModel}}, {{/if}}
-                {{~#each operation.allParams}}
-                    {{~#if (getMappedArgName method.arguments name)}}{{pascalCase (getMappedArgName method.arguments name)}}
-                    {{~else}}{{name}}
-                    {{~/if}}
-                    {{~#unless @last}},{{nbsp}}{{/unless}}
-                {{~/each}}
-                {{~#unless operation.isArray}}, cancellationToken{{/unless}}
-                {{~nbsp 0}});
-        {{~nbsp 0}}
-{{nbsp 0}}
-        {{~/unless}}
-        {{~/each}}
+        public {{{returnTypeLiteral}}} {{memberName}}({{{parametersDefinitionLiteral}}})
+            => GetClient().{{clientType}}.{{methodOperation.memberName}}({{{parametersLiteral}}});
+        
+        {{/each}}
     }
 }

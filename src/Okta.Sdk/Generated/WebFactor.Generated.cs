@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class WebFactor : Factor, IWebFactor
     {
         /// <inheritdoc/>
-        public new IWebFactorProfile Profile
+        public new IWebFactorProfile Profile 
         {
             get => GetResourceProperty<WebFactorProfile>("profile");
             set => this["profile"] = value;
         }
-
+        
     }
 }

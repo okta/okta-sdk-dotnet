@@ -4,6 +4,7 @@ const {
   propToCLRType,
   paramToCLRType,
   getMappedArgName,
+  getterName,
   isNullOrUndefined
  } = require('./utils');
 
@@ -53,25 +54,30 @@ Creates the context that the handlebars template is bound to:
 {
   memberName: 'User',
   baseClass: 'Resource',
+  isBaseModel: false,
   properties: [
     {
       type: 'IUserCredentials',
       memberName: 'Credentials',
-      getterSetterLiteral: '{ get; set; }',
+      getterLiteral: 'GetResource<IUserCredentials>("credentials")'
+      propertyName: 'credentials',
+      readOnly: true,
       hidesBaseMember: false
     }
   ],
   methods: [
     returnTypeLiteral: 'Task<IFactor>',
     memberName: 'AddFactorAsync',
-    parametersLiteral: 'Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken)'
+    parametersDefinitionLiteral: 'Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken)',
+    parametersLiteral: 'factor, updatePhone, templateId, cancellationToken'
   ]
 }
 */
-function createContextForModelInterface(model, errFunc) {
+function createContextForModel(model, errFunc) {
   let context = {
     memberName: model.modelName,
     baseClass: model.extends || 'Resource',
+    isBaseModel: model.isBaseModel,
     properties: [],
     methods: []
   };
@@ -83,12 +89,12 @@ function createContextForModelInterface(model, errFunc) {
 
     let memberName = pascalCase(property.displayName || property.propertyName);
 
-    let getterSetterLiteral = property.readOnly
-      ? '{ get; }'
-      : '{ get; set; }';
+    let getterLiteral = `${getterName(property)}("${property.propertyName}")`;
 
     context.properties.push({
-      type, memberName, getterSetterLiteral,
+      type, memberName, getterLiteral,
+      propertyName: property.propertyName,
+      readOnly: property.readOnly,
       hidesBaseMember: property.hidesBaseMember
     });
   }
@@ -110,6 +116,16 @@ function createContextForModelInterface(model, errFunc) {
     if (!method.operation.isArray)
       methodContext.memberName += 'Async';
 
+    methodContext.clientType = `${method.operation.tags[0]}s`;
+
+    methodContext.methodOperation = {};
+    methodContext.methodOperation.memberName = pascalCase(method.operation.operationId);
+    if (!method.operation.isArray) methodContext.methodOperation.memberName += 'Async';
+
+    methodContext.parametersDefinitionLiteral = createParametersDefinitionLiteral(
+      method.operation,
+      method.arguments);
+
     methodContext.parametersLiteral = createParametersLiteral(
       method.operation,
       method.arguments);
@@ -120,11 +136,7 @@ function createContextForModelInterface(model, errFunc) {
   return context;
 }
 
-function createContextForModel(model, errFunc) {
-  return model;
-}
-
-function createParametersLiteral(operation, arguments) {
+function createParametersDefinitionLiteral(operation, args) {
   let parameters = [];
 
   let hasBodyArgument = !!operation.bodyModel;
@@ -135,7 +147,7 @@ function createParametersLiteral(operation, arguments) {
   }
 
   for (let param of operation.allParams) {
-    let alreadyMapped = getMappedArgName(arguments, param.name);
+    let alreadyMapped = getMappedArgName(args, param.name);
     if (alreadyMapped) continue;
 
     let typeMemberName = paramToCLRType(param);
@@ -166,6 +178,30 @@ function createParametersLiteral(operation, arguments) {
   return parameters.join(', ');
 }
 
+function createParametersLiteral(operation, args) {
+  let parameters = [];
+
+  let hasBodyArgument = !!operation.bodyModel;
+  if (hasBodyArgument) {
+    let parameterName = camelCase(operation.bodyModel);
+    parameters.push(parameterName);
+  }
+
+  for (let param of operation.allParams) {
+    let isMappedParameter = getMappedArgName(args, param.name);
+    let parameterName = isMappedParameter
+      ? pascalCase(getMappedArgName(args, param.name))
+      : param.name;
+
+    parameters.push(parameterName);
+  }
+  
+  if (!operation.isArray) {
+    parameters.push('cancellationToken');
+  }
+
+  return parameters.join(', ');
+}
+
 module.exports.createContextForResolver = createContextForResolver;
-module.exports.createContextForModelInterface = createContextForModelInterface;
 module.exports.createContextForModel = createContextForModel;

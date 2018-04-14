@@ -17,25 +17,25 @@ namespace Okta.Sdk
     public sealed partial class UserCredentials : Resource, IUserCredentials
     {
         /// <inheritdoc/>
-        public IPasswordCredential Password
+        public IPasswordCredential Password 
         {
             get => GetResourceProperty<PasswordCredential>("password");
             set => this["password"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public IAuthenticationProvider Provider
+        public IAuthenticationProvider Provider 
         {
             get => GetResourceProperty<AuthenticationProvider>("provider");
             set => this["provider"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public IRecoveryQuestionCredential RecoveryQuestion
+        public IRecoveryQuestionCredential RecoveryQuestion 
         {
             get => GetResourceProperty<RecoveryQuestionCredential>("recovery_question");
             set => this["recovery_question"] = value;
         }
-
+        
     }
 }

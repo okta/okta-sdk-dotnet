@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class ChangePasswordRequest : Resource, IChangePasswordRequest
     {
         /// <inheritdoc/>
-        public IPasswordCredential NewPassword
+        public IPasswordCredential NewPassword 
         {
             get => GetResourceProperty<PasswordCredential>("newPassword");
             set => this["newPassword"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public IPasswordCredential OldPassword
+        public IPasswordCredential OldPassword 
         {
             get => GetResourceProperty<PasswordCredential>("oldPassword");
             set => this["oldPassword"] = value;
         }
-
+        
     }
 }

@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class RecoveryQuestionCredential : Resource, IRecoveryQuestionCredential
     {
         /// <inheritdoc/>
-        public string Answer
+        public string Answer 
         {
             get => GetStringProperty("answer");
             set => this["answer"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string Question
+        public string Question 
         {
             get => GetStringProperty("question");
             set => this["question"] = value;
         }
-
+        
     }
 }

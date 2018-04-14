@@ -18,9 +18,9 @@ namespace Okta.Sdk
     {
         /// <inheritdoc/>
         public string ActivationToken => GetStringProperty("activationToken");
-
+        
         /// <inheritdoc/>
         public string ActivationUrl => GetStringProperty("activationUrl");
-
+        
     }
 }

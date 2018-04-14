@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class GroupRuleGroupCondition : Resource, IGroupRuleGroupCondition
     {
         /// <inheritdoc/>
-        public IList<string> Exclude
+        public IList<string> Exclude 
         {
             get => GetArrayProperty<string>("exclude");
             set => this["exclude"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public IList<string> Include
+        public IList<string> Include 
         {
             get => GetArrayProperty<string>("include");
             set => this["include"] = value;
         }
-
+        
     }
 }

@@ -15,7 +15,6 @@ const { createContextForEnum } = require('./enumProcessor.js');
 
 const {
   createContextForResolver,
-  createContextForModelInterface,
   createContextForModel
 } = require('./modelProcessor');
 
@@ -47,7 +46,9 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
 
   const templates = [];
 
-  let baseModels = new Set();
+  let baseModels = new Set(models
+    .filter(model => model.extends)
+    .map(model => model.extends));
 
   // add all the models
   for (let model of models) {
@@ -64,12 +65,13 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       continue;
     }
 
+    // TODO remove
     if (partialUpdateList.has(model.modelName)) {
       model.supportsPartialUpdates = true;
     }
 
-    if (model.extends && !baseModels.has(model.extends)) {
-      baseModels.add(model.extends);
+    if (baseModels.has(model.modelName)) {
+      model.isBaseModel = true;
     }
 
     model.properties = model.properties || [];
@@ -134,7 +136,7 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     templates.push({
       src: 'templates/IModel.cs.hbs',
       dest: `Generated/I${model.modelName}.Generated.cs`,
-      context: createContextForModelInterface(model, errorLogger)
+      context: createContextForModel(model, errorLogger)
     });
 
     templates.push({
@@ -142,18 +144,6 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       dest: `Generated/${model.modelName}.Generated.cs`,
       context: createContextForModel(model, errorLogger)
     });
-  }
-
-  // Second pass to mark base models (models that are inherited from other models)
-  for (let name of baseModels) {
-    let foundModel = models.find(x => x.modelName === name);
-
-    if (!foundModel) {
-      console.warn(`Could not mark ${name} as a base model`);
-      continue;
-    }
-
-    foundModel.isBaseModel = true;
   }
 
   const taggedOperations = {};

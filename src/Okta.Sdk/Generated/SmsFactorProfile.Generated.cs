@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class SmsFactorProfile : FactorProfile, ISmsFactorProfile
     {
         /// <inheritdoc/>
-        public string PhoneNumber
+        public string PhoneNumber 
         {
             get => GetStringProperty("phoneNumber");
             set => this["phoneNumber"] = value;
         }
-
+        
     }
 }

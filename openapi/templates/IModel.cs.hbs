@@ -16,11 +16,11 @@ namespace Okta.Sdk
     public partial interface I{{memberName}} : I{{baseClass}}
     {
         {{#each properties}}
-        {{#if hidesBaseMember}}new {{/if}}{{{type}}} {{memberName}} {{getterSetterLiteral}}
+        {{#if hidesBaseMember}}new {{/if}}{{{type}}} {{memberName}} { get;{{#unless readOnly}} set;{{/unless}} }
 
         {{/each}}
-        {{#each methods as |method|}}
-        {{{returnTypeLiteral}}} {{memberName}}({{{parametersLiteral}}});
+        {{#each methods}}
+        {{{returnTypeLiteral}}} {{memberName}}({{{parametersDefinitionLiteral}}});
 
         {{/each}}
     }
