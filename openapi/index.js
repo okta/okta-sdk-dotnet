@@ -14,8 +14,15 @@ const {
 const { createContextForEnum } = require('./enumProcessor.js');
 
 const {
-  createContextForResolver
+  createContextForResolver,
+  createContextForModelInterface,
+  createContextForModel
 } = require('./modelProcessor');
+
+const {
+  createContextForOperationInterface,
+  createContextForOperation
+} = require('./operationProcessor')
 
 const {
   partialUpdateList,
@@ -127,13 +134,13 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     templates.push({
       src: 'templates/IModel.cs.hbs',
       dest: `Generated/I${model.modelName}.Generated.cs`,
-      context: model
+      context: createContextForModelInterface(model, errorLogger)
     });
 
     templates.push({
       src: 'templates/Model.cs.hbs',
       dest: `Generated/${model.modelName}.Generated.cs`,
-      context: model
+      context: createContextForModel(model, errorLogger)
     });
   }
 
@@ -186,21 +193,13 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     templates.push({
       src: 'templates/IClient.cs.hbs',
       dest: `Generated/I${tag}sClient.Generated.cs`,
-      context: {
-        tag,
-        spec,
-        operations: taggedOperations[tag]
-      }
+      context: createContextForOperationInterface(tag, spec, taggedOperations[tag])
     });
 
     templates.push({
       src: 'templates/Client.cs.hbs',
       dest: `Generated/${tag}sClient.Generated.cs`,
-      context: {
-        tag,
-        spec,
-        operations: taggedOperations[tag]
-      }
+      context: createContextForOperationInterface(tag, spec, taggedOperations[tag])
     });
   }
 
