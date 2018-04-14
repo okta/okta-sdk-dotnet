@@ -17,19 +17,19 @@ function createContextForEnum(model, errFunc) {
   let memberName = model.modelName || '';
   if (!memberName.length) errFunc("modelName is zero-length", model);
 
-  let outputModel = {
+  let context = {
     memberName,
     items: []
   };
 
   for (let rawEnum of model.enum) {
-    outputModel.items.push({
+    context.items.push({
       memberName: pascalCase(rawEnum),
       value: rawEnum
     })
   }
 
-  return outputModel;
+  return context;
 }
 
 module.exports.createContextForEnum = createContextForEnum;

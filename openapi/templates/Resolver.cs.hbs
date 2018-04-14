@@ -1,4 +1,4 @@
-// <copyright file="{{modelName}}Resolver.cs" company="Okta, Inc">
+// <copyright file="{{parentType.memberName}}Resolver.cs" company="Okta, Inc">
 // Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -10,34 +10,34 @@ using System.Linq;
 namespace Okta.Sdk.Internal
 {
     /// <summary>
-    /// Resolves {{modelName}} resources based on the {{pascalCase resolutionStrategy.propertyName}} property.
+    /// Resolves {{parentType.memberName}} resources based on the {{resolvingProperty.memberName}} property.
     /// </summary>
-    public class {{modelName}}Resolver : AbstractResourceTypeResolver<{{modelName}}>
+    public class {{parentType.memberName}}Resolver : AbstractResourceTypeResolver<{{parentType.memberName}}>
     {
         /// <summary>
-        /// Gets the type of a {{modelName}} resource given its <paramref name="data"/>.
+        /// Gets the type of a {{parentType.memberName}} resource given its <paramref name="data"/>.
         /// </summary>
         /// <param name="data">The resource data.</param>
         /// <returns>The resource type.</returns>
         public override Type GetResolvedType(IDictionary<string, object> data)
         {
             var value = data
-                ?.Where(kv => kv.Key.Equals("{{resolutionStrategy.propertyName}}", StringComparison.OrdinalIgnoreCase))
+                ?.Where(kv => kv.Key.Equals("{{resolvingProperty.name}}", StringComparison.OrdinalIgnoreCase))
                 ?.FirstOrDefault().Value?.ToString();
 
             if (string.IsNullOrEmpty(value))
             {
-                return typeof({{modelName}});
+                return typeof({{parentType.memberName}});
             }
-            {{nbsp 0}}{{~#each resolutionStrategy.valueToModelMapping}}
-            if (value.Equals("{{@key}}"))
+            {{nbsp 0}}{{~#each namesToValues as |member|}}
+            if (value.Equals("{{member.value}}"))
             {
-                return typeof({{this}});
+                return typeof({{member.resolvedType.memberName}});
             }
             {{nbsp 0}}
             {{~/each}}
 
-            return typeof({{modelName}});
+            return typeof({{parentType.memberName}});
         }
     }
 }
