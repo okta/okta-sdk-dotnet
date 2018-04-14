@@ -4,6 +4,10 @@ function pascalCase(str) {
   return _.upperFirst(_.camelCase(str))
 }
 
+function camelCase(str) {
+  return _.camelCase(str);
+}
+
 function getType(specType) {
   switch(specType) {
     case 'boolean': return 'bool?';
@@ -51,14 +55,20 @@ function getterName(prop) {
   }
 }
 
-function getMappedArgName(method, argName) {
-  let mapping = method.arguments.find(x => x.dest === argName);
+function getMappedArgName(methodArguments, argName) {
+  let mapping = methodArguments.find(x => x.dest === argName);
   if (!mapping) return null;
   return mapping.src;
 }
 
+function isNullOrUndefined(variable) {
+  return variable === null || typeof variable === 'undefined';
+}
+
 module.exports.pascalCase = pascalCase;
+module.exports.camelCase = camelCase;
 module.exports.paramToCLRType = paramToCLRType;
 module.exports.propToCLRType = propToCLRType;
 module.exports.getterName = getterName;
 module.exports.getMappedArgName = getMappedArgName;
+module.exports.isNullOrUndefined = isNullOrUndefined;

@@ -58,7 +58,7 @@ namespace Okta.Sdk
             {{~#if operation.bodyModel}}{{operation.bodyModel}} {{camelCase operation.bodyModel}}, {{/if}}
 
             {{~#each operation.allParams}}
-                {{~#unless (getMappedArgName method name)}}
+                {{~#unless (getMappedArgName method.arguments name)}}
                 {{~paramToCLRType this}}{{nbsp}}
                 {{~name}}
                 {{~#if (exists this "default")}}
@@ -82,7 +82,7 @@ namespace Okta.Sdk
             {{~nbsp 0}}(
                 {{~#if operation.bodyModel}}{{camelCase operation.bodyModel}}, {{/if}}
                 {{~#each operation.allParams}}
-                    {{~#if (getMappedArgName method name)}}{{pascalCase (getMappedArgName method name)}}
+                    {{~#if (getMappedArgName method.arguments name)}}{{pascalCase (getMappedArgName method.arguments name)}}
                     {{~else}}{{name}}
                     {{~/if}}
                     {{~#unless @last}},{{nbsp}}{{/unless}}

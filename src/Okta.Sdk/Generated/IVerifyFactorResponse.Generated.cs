@@ -15,8 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a VerifyFactorResponse resource in the Okta API.</summary>
     public partial interface IVerifyFactorResponse : IResource
     {
-
-
         DateTimeOffset? ExpiresAt { get; }
 
         FactorResultType FactorResult { get; }

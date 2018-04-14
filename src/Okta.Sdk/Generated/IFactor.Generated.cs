@@ -15,8 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a Factor resource in the Okta API.</summary>
     public partial interface IFactor : IResource
     {
-
-
         string Device { get; set; }
 
         string DeviceType { get; }

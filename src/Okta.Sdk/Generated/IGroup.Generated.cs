@@ -15,8 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a Group resource in the Okta API.</summary>
     public partial interface IGroup : IResource
     {
-
-
         DateTimeOffset? Created { get; }
 
         string Id { get; }
