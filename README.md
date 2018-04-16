@@ -68,7 +68,7 @@ var client = new OktaClient(
 
 ## OktaClient User Operations
 
-### Creating a user
+### Creating a User
 
 ``` csharp
 var vader = await client.Users.CreateUserAsync(
@@ -103,7 +103,7 @@ await vader.ActivateAsync();
 var someUserId = "<Some User ID String or Login>";
 
 // get the user with the ID or login
-var vader = await client.User.GetUserAsync(someUserId);
+var vader = await client.Users.GetUserAsync(someUserId);
 ```
 
 The string argument for `GetUserAsync` can be the user's ID or the user's login (email).
