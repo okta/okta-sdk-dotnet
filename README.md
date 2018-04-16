@@ -166,7 +166,44 @@ var groups = await user.Groups.ToList();
 
 ## Using raw HTTP methods
 
-The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods. You take a look at [GitHub](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/OktaClient.cs) to see the different overloadings.
+The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods. You can take a look at [GitHub](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/OktaClient.cs) to see the different overloadings.
+
+### Activating a User via `PostAsync`
+
+```csharp
+var userId = "<Some User ID String or Login>";
+
+await _oktaClient.PostAsync(
+    new Okta.Sdk.Internal.HttpRequest
+    {
+        Uri = "/api/v1/users/{userId}/lifecycle/activate",
+            
+        PathParameters = new Dictionary<string, object>()
+        {
+            ["userId"] = userId,
+        },
+        QueryParameters = new Dictionary<string, object>()
+        {
+            ["sendEmail"] = true,
+        }
+    });
+```
+
+### Deleting a User via `DeleteAsync`
+
+```csharp
+var userId = "<Some User ID String or Login>";
+
+await _oktaClient.DeleteAsync(new Okta.Sdk.Internal.HttpRequest
+{
+    Uri = "/api/v1/users/{userId}",
+    
+    PathParameters = new Dictionary<string, object>()
+    {
+        ["userId"] = userId,
+    },
+}
+```
 
 ## Getting help
 
