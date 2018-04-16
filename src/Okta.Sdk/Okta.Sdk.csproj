@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard1.3</TargetFramework>
-    <Version>1.0.0-alpha5</Version>
+    <Version>1.0.0-alpha6</Version>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,7 +30,6 @@
     <PackageProjectUrl>https://github.com/okta/okta-sdk-dotnet</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/okta/okta-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
     <Authors>Okta, Inc.</Authors>
-    <Owners>nbarbettini, leebrandt</Owners>
     <PackageTags>okta api authentication identity management</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/okta/okta-sdk-dotnet/master/icon.png</PackageIconUrl>
   </PropertyGroup>
