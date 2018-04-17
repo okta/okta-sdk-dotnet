@@ -114,10 +114,18 @@ The string argument for `GetUserAsync` can be the user's ID or the user's login 
 vader.Profile["nickName"] = "Lord Vader";
 
 // then, update the user
-var newVader = await vader.UpdateAsync();
+await vader.UpdateAsync();
 ```
 
-*Note:* You can't create the attributes via code right now, but you can get/set them. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code above.
+### Get and Set Custom Attributes
+
+You can't create attributes via code right now, but you can get/set them. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code below:
+
+```csharp
+vader.Profile["homeworld"] = "Tattooine";
+
+await vader.UpdateAsync();
+```
 
 ### Removing a User
 ``` csharp
