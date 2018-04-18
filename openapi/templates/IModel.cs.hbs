@@ -20,7 +20,9 @@ namespace Okta.Sdk
 
         {{/each}}
         {{#each methods}}
-        {{{returnTypeLiteral}}} {{memberName}}({{{parametersDefinitionLiteral}}});
+        {{{returnTypeLiteral}}} {{memberName}}(
+            {{~#if bodyModel}}{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
+            {{~nbsp 0}}{{{methodSignatureLiteral}}});
 
         {{/each}}
     }

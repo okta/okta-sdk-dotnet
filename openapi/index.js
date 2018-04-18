@@ -19,9 +19,8 @@ const {
 } = require('./modelProcessor');
 
 const {
-  createContextForOperationInterface,
-  createContextForOperation
-} = require('./operationProcessor')
+  createContextForClient
+} = require('./clientProcessor')
 
 const {
   partialUpdateList,
@@ -183,13 +182,17 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     templates.push({
       src: 'templates/IClient.cs.hbs',
       dest: `Generated/I${tag}sClient.Generated.cs`,
-      context: createContextForOperationInterface(tag, spec, taggedOperations[tag])
+      context: createContextForClient(tag, spec, taggedOperations[tag])
     });
 
     templates.push({
       src: 'templates/Client.cs.hbs',
       dest: `Generated/${tag}sClient.Generated.cs`,
-      context: createContextForOperationInterface(tag, spec, taggedOperations[tag])
+      context: {
+        tag, spec,
+        operations: taggedOperations[tag]
+      }
+      //context: createContextForClient(tag, spec, taggedOperations[tag])
     });
   }
 

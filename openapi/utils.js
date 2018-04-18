@@ -65,6 +65,74 @@ function isNullOrUndefined(variable) {
   return variable === null || typeof variable === 'undefined';
 }
 
+function createMethodSignatureLiteral(operation, args) {
+  let parameters = [];
+
+  // let hasBodyArgument = !!operation.bodyModel;
+  // if (hasBodyArgument) {
+  //   let typeMemberName = operation.bodyModel;
+  //   let parameterName = camelCase(operation.bodyModel);
+    
+  //   parameters.push(`I${typeMemberName} ${parameterName}`);
+  // }
+
+  for (let param of operation.allParams) {
+    let alreadyMapped = args && getMappedArgName(args, param.name);
+    if (alreadyMapped) continue;
+
+    let typeMemberName = paramToCLRType(param);
+    let parameterName = param.name;
+
+    let parameterLiteral = `${typeMemberName} ${parameterName}`;
+
+    let hasDefaultValue = !isNullOrUndefined(param.default);
+    if (hasDefaultValue) {
+      parameterLiteral += ' = ';
+      parameterLiteral += param.type === 'string'
+        ? `"${param.default}"`
+        : param.default;
+    }
+
+    let optionalAndNoDefaultValue = !hasDefaultValue && !param.required;
+    if (optionalAndNoDefaultValue) {
+      parameterLiteral += ' = null';
+    }
+
+    parameters.push(parameterLiteral);
+  }
+  
+  if (!operation.isArray) {
+    parameters.push('CancellationToken cancellationToken = default(CancellationToken)');
+  }
+
+  return parameters.join(', ');
+}
+
+function createParametersLiteral(operation, args) {
+  let parameters = [];
+
+  let hasBodyArgument = !!operation.bodyModel;
+  if (hasBodyArgument) {
+    let parameterName = camelCase(operation.bodyModel);
+    parameters.push(parameterName);
+  }
+
+  for (let param of operation.allParams) {
+    let isMappedParameter = args && getMappedArgName(args, param.name);
+    let parameterName = isMappedParameter
+      ? pascalCase(getMappedArgName(args, param.name))
+      : param.name;
+
+    parameters.push(parameterName);
+  }
+  
+  if (!operation.isArray) {
+    parameters.push('cancellationToken');
+  }
+
+  return parameters.join(', ');
+}
+
 module.exports.pascalCase = pascalCase;
 module.exports.camelCase = camelCase;
 module.exports.paramToCLRType = paramToCLRType;
@@ -72,3 +140,5 @@ module.exports.propToCLRType = propToCLRType;
 module.exports.getterName = getterName;
 module.exports.getMappedArgName = getMappedArgName;
 module.exports.isNullOrUndefined = isNullOrUndefined;
+module.exports.createMethodSignatureLiteral = createMethodSignatureLiteral;
+module.exports.createParametersLiteral = createParametersLiteral;

@@ -5,7 +5,9 @@ const {
   paramToCLRType,
   getMappedArgName,
   getterName,
-  isNullOrUndefined
+  isNullOrUndefined,
+  createMethodSignatureLiteral,
+  createParametersLiteral
  } = require('./utils');
 
 /*
@@ -68,8 +70,11 @@ Creates the context that the handlebars template is bound to:
   methods: [
     returnTypeLiteral: 'Task<IFactor>',
     memberName: 'AddFactorAsync',
-    parametersDefinitionLiteral: 'Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken)',
-    parametersLiteral: 'factor, updatePhone, templateId, cancellationToken'
+    methodSignatureLiteral: 'Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken)',
+    parametersLiteral: 'factor, updatePhone, templateId, cancellationToken',
+    client: {
+      memberName: 'Users'
+    }
   ]
 }
 */
@@ -103,6 +108,15 @@ function createContextForModel(model, errFunc) {
     if (method.hidden) continue;
 
     let methodContext = {};
+
+    if (method.operation.bodyModel) {
+      methodContext.bodyModel = {
+        type: { 
+          memberName: method.operation.bodyModel
+        },
+        parameterName: camelCase(method.operation.bodyModel)
+      };
+    }
     
     if (method.operation.isArray) {
       methodContext.returnTypeLiteral = `IAsyncEnumerable<I${method.operation.responseModel}>`;
@@ -116,13 +130,14 @@ function createContextForModel(model, errFunc) {
     if (!method.operation.isArray)
       methodContext.memberName += 'Async';
 
-    methodContext.clientType = `${method.operation.tags[0]}s`;
+    methodContext.client = {};
+    methodContext.client.memberName = `${method.operation.tags[0]}s`;
 
     methodContext.methodOperation = {};
     methodContext.methodOperation.memberName = pascalCase(method.operation.operationId);
     if (!method.operation.isArray) methodContext.methodOperation.memberName += 'Async';
 
-    methodContext.parametersDefinitionLiteral = createParametersDefinitionLiteral(
+    methodContext.methodSignatureLiteral = createMethodSignatureLiteral(
       method.operation,
       method.arguments);
 
@@ -134,73 +149,6 @@ function createContextForModel(model, errFunc) {
   }
 
   return context;
-}
-
-function createParametersDefinitionLiteral(operation, args) {
-  let parameters = [];
-
-  let hasBodyArgument = !!operation.bodyModel;
-  if (hasBodyArgument) {
-    let typeMemberName = operation.bodyModel;
-    let parameterName = camelCase(operation.bodyModel);
-    parameters.push(`${typeMemberName} ${parameterName}`);
-  }
-
-  for (let param of operation.allParams) {
-    let alreadyMapped = getMappedArgName(args, param.name);
-    if (alreadyMapped) continue;
-
-    let typeMemberName = paramToCLRType(param);
-    let parameterName = param.name;
-
-    let parameterLiteral = `${typeMemberName} ${parameterName}`;
-
-    let hasDefaultValue = !isNullOrUndefined(param.default);
-    if (hasDefaultValue) {
-      parameterLiteral += ' = ';
-      parameterLiteral += param.type === 'string'
-        ? `"${param.default}"`
-        : param.default;
-    }
-
-    let optionalAndNoDefaultValue = !hasDefaultValue && !param.required;
-    if (optionalAndNoDefaultValue) {
-      parameterLiteral += ' = null';
-    }
-
-    parameters.push(parameterLiteral);
-  }
-  
-  if (!operation.isArray) {
-    parameters.push('CancellationToken cancellationToken = default(CancellationToken)');
-  }
-
-  return parameters.join(', ');
-}
-
-function createParametersLiteral(operation, args) {
-  let parameters = [];
-
-  let hasBodyArgument = !!operation.bodyModel;
-  if (hasBodyArgument) {
-    let parameterName = camelCase(operation.bodyModel);
-    parameters.push(parameterName);
-  }
-
-  for (let param of operation.allParams) {
-    let isMappedParameter = getMappedArgName(args, param.name);
-    let parameterName = isMappedParameter
-      ? pascalCase(getMappedArgName(args, param.name))
-      : param.name;
-
-    parameters.push(parameterName);
-  }
-  
-  if (!operation.isArray) {
-    parameters.push('cancellationToken');
-  }
-
-  return parameters.join(', ');
 }
 
 module.exports.createContextForResolver = createContextForResolver;
