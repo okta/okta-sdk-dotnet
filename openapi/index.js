@@ -4,20 +4,12 @@
  * to give you control over the data that handlebars uses when processing your templates
  */
 
-const { 
-  paramToCLRType,
-  propToCLRType,
-  getterName,
-  getMappedArgName
- } = require('./utils');
-
 const { createContextForEnum } = require('./processEnum');
 const { createContextForResolver } = require('./processResolver');
 const { createContextForModel } = require('./processModel');
 const { createContextForClient } = require('./processClient')
 
 const {
-  partialUpdateList,
   propertyDetailsList,
   operationSkipList,
   modelMethodSkipList
@@ -29,17 +21,9 @@ function errorLogger(message, model) {
 }
 
 module.exports.process = ({spec, operations, models, handlebars}) => {
-
-  handlebars.registerHelper({
-    paramToCLRType,
-    propToCLRType,
-    getterName,
-    getMappedArgName
-  });
-
   const templates = [];
 
-  let baseModels = new Set(models
+  let baseModelsList = new Set(models
     .filter(model => model.extends)
     .map(model => model.extends));
 
@@ -58,12 +42,7 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       continue;
     }
 
-    // TODO remove
-    if (partialUpdateList.has(model.modelName)) {
-      model.supportsPartialUpdates = true;
-    }
-
-    if (baseModels.has(model.modelName)) {
+    if (baseModelsList.has(model.modelName)) {
       model.isBaseModel = true;
     }
 
