@@ -11,16 +11,10 @@ const {
   getMappedArgName
  } = require('./utils');
 
-const { createContextForEnum } = require('./enumProcessor.js');
-
-const {
-  createContextForResolver,
-  createContextForModel
-} = require('./modelProcessor');
-
-const {
-  createContextForClient
-} = require('./clientProcessor')
+const { createContextForEnum } = require('./processEnum');
+const { createContextForResolver } = require('./processResolver');
+const { createContextForModel } = require('./processModel');
+const { createContextForClient } = require('./processClient')
 
 const {
   partialUpdateList,
