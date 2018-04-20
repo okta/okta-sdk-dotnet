@@ -68,14 +68,6 @@ function isNullOrUndefined(variable) {
 function createMethodSignatureLiteral(operation, args) {
   let parameters = [];
 
-  // let hasBodyArgument = !!operation.bodyModel;
-  // if (hasBodyArgument) {
-  //   let typeMemberName = operation.bodyModel;
-  //   let parameterName = camelCase(operation.bodyModel);
-    
-  //   parameters.push(`I${typeMemberName} ${parameterName}`);
-  // }
-
   for (let param of operation.allParams) {
     let alreadyMapped = args && getMappedArgName(args, param.name);
     if (alreadyMapped) continue;

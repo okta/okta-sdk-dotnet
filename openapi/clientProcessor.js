@@ -16,20 +16,27 @@ Creates the context that the handlebars template is bound to:
       memberName: 'ListUsers',
       description: 'Lists users in your organization with pagination in most cases.',
       hasCancellationToken: false,
-      returnTypeLiteral = 'IAsyncEnumerable<IUser>',
-      returnDocumentationLiteral = 'A collection of <see cref="IUser"/> that can be enumerated asynchronously.'
-      methodSignatureLiteral: '',
-      parametersLiteral: '',
+      isCollection: true,
+      returnType = {
+        memberName: 'IUser,
+        literal = 'IAsyncEnumerable<IUser>',
+        documentationLiteral = 'A collection of <see cref="IUser"/> that can be enumerated asynchronously.'
+      },
+      methodSignatureLiteral: 'string q = null, string after = null, int? limit = -1',
+      path: '/api/v1/users',
+      httpMethod: {
+        memberName: 'Post'
+      },
       bodyModel: {
         type: {
           memberName: 'User'
         },
         parameterName: 'user'
       },
-      pathParams: [
+      pathParameters: [
         { name: 'id', description: 'The user ID' }
       ],
-      queryParams: [
+      queryParameters: [
         { name: 'q', description: 'Finds a user that matches firstName, lastName, and email properties' }
       ],
     }
@@ -51,8 +58,10 @@ function createContextForClient(tag, spec, operations) {
       pathParameters: operation.pathParams,
       queryParameters: operation.queryParams,
       hasCancellationToken: !operation.isArray,
-      responseType: {
-        memberName: operation.responseModel
+      isCollection: operation.isArray,
+      path: operation.path,
+      httpMethod: {
+        memberName: `${pascalCase(operation.method)}Async`
       }
     }
 
@@ -68,51 +77,28 @@ function createContextForClient(tag, spec, operations) {
       };
     }
 
+    operationContext.returnType = {
+      memberName: operation.responseModel
+    };
+
     if (operation.isArray) {
-      operationContext.returnTypeLiteral = `IAsyncEnumerable<I${operationContext.responseType.memberName}>`;
-      operationContext.returnDocumentationLiteral = `A collection of <see cref="I${operationContext.responseType.memberName}"/> that can be enumerated asynchronously.`;
+      operationContext.returnType.literal = `IAsyncEnumerable<I${operationContext.returnType.memberName}>`;
+      operationContext.returnType.documentationLiteral = `A collection of <see cref="I${operationContext.returnType.memberName}"/> that can be enumerated asynchronously.`;
     } else if (operation.responseModel) {
-      operationContext.returnTypeLiteral = `Task<I${operationContext.responseType.memberName}>`;
-      operationContext.returnDocumentationLiteral = `The <see cref="I${operationContext.responseType.memberName}"/> response.`;
+      operationContext.returnType.literal = `Task<I${operationContext.returnType.memberName}>`;
+      operationContext.returnType.documentationLiteral = `The <see cref="I${operationContext.returnType.memberName}"/> response.`;
     } else {
-      operationContext.returnTypeLiteral = 'Task';
-      operationContext.returnDocumentationLiteral = 'A Task that represents the asynchronous operation.';
+      operationContext.returnType.literal = 'Task';
+      operationContext.returnType.documentationLiteral = 'A Task that represents the asynchronous operation.';
     }
 
     operationContext.methodSignatureLiteral
       = createMethodSignatureLiteral(operation);
-
-    operationContext.parametersLiteral
-      = createParametersLiteral(operation);
 
     context.operations.push(operationContext);
   }
 
   return context;
 }
-
-// {{~nbsp 0}}(
-//   {{~#if bodyModel}}
-//       {{~nbsp 0}}I{{bodyModel}} {{camelCase bodyModel}},{{nbsp}}
-//   {{~/if}}
-
-//   {{~#each allParams}}
-//       {{~paramToCLRType this}}{{nbsp}}
-//       {{~name}}
-//       {{~#if (exists this "default")}}
-//           {{~nbsp}}= {{#if (eq this.type "string")}}"{{/if}}
-//           {{~nbsp 0}}{{default}}
-//           {{~nbsp 0}}{{#if (eq this.type "string")}}"{{/if}}
-//       {{~else}}
-//           {{~#unless required}} = null{{/unless}}
-//       {{~/if}}
-//       {{~#unless @last}},{{nbsp}}{{/unless}}
-//   {{~/each}}
-//   {{~#unless isArray}}
-//       {{~#if allParams.length}},{{nbsp}}{{/if}}
-//       {{~nbsp 0}}CancellationToken cancellationToken = default(CancellationToken)
-//   {{~/unless}}
-// {{~nbsp 0}});
-
 
 module.exports.createContextForClient = createContextForClient;

@@ -30,8 +30,8 @@ namespace Okta.Sdk
         {{#if hasCancellationToken}}
         /// <param name="cancellationToken">The cancellation token.</param>
         {{/if}}
-        /// <returns>{{{returnDocumentationLiteral}}}</returns>
-        {{{returnTypeLiteral}}} {{memberName}}(
+        /// <returns>{{{returnType.documentationLiteral}}}</returns>
+        {{{returnType.literal}}} {{memberName}}(
             {{~#if bodyModel}}I{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
             {{~nbsp 0}}{{{methodSignatureLiteral}}});
 

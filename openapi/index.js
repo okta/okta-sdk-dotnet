@@ -191,8 +191,8 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       context: {
         tag, spec,
         operations: taggedOperations[tag]
-      }
-      //context: createContextForClient(tag, spec, taggedOperations[tag])
+      },
+      context: createContextForClient(tag, spec, taggedOperations[tag])
     });
   }
 
