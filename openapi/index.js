@@ -1,7 +1,11 @@
 /**
- * This file is used by the @okta/openapi generator.  It defines language-specific
- * post-processing of the JSON spec, as well as handebars helpers.  This file is meant
- * to give you control over the data that handlebars uses when processing your templates
+ * This file is called by the @okta/openapi generator (npm run generate).
+ * 
+ * The input (JSON spec from @okta/openapi) is kind of messy, so this do some
+ * pre-processing before handing the spec data to the below createContextFor*
+ * methods. Each of those methods create the object ("context") that each
+ * handlebars template is bound to. The handlebars templates are purposefully
+ * light on logic. Most logic is performed in the createContextFor* methods.
  */
 
 const { createContextForEnum } = require('./processEnum');
@@ -10,7 +14,7 @@ const { createContextForModel } = require('./processModel');
 const { createContextForClient } = require('./processClient')
 
 const {
-  propertyDetailsList,
+  propertyErrata,
   operationSkipList,
   modelMethodSkipList
 } = require('./constants');
@@ -23,57 +27,64 @@ function errorLogger(message, model) {
 module.exports.process = ({spec, operations, models, handlebars}) => {
   const templates = [];
 
+  // baseModels are types that have child/inherited
+  // types somewhere else in the spec
   let baseModelsList = new Set(models
     .filter(model => model.extends)
     .map(model => model.extends));
 
-  // add all the models
-  for (let model of models) {
+  // Preprocess all the models and enrich with extra data
+  models = models.map(model => {
     model.specVersion = spec.info.version;
-
-    if (model.enum) {
-      templates.push({
-        src: 'templates/Enum.cs.hbs',
-        dest: `Generated/${model.modelName}.Generated.cs`,
-        context: createContextForEnum(model, errorLogger)
-      });
-
-      // Don't do anything else for enums
-      continue;
-    }
 
     if (baseModelsList.has(model.modelName)) {
       model.isBaseModel = true;
     }
 
     model.properties = model.properties || [];
+    model.properties = model.properties.map(property => {
+      property.fullPath = `${model.modelName}.${property.propertyName}`;
 
+      return property;
+    });
+
+    model.methods = model.methods || [];
+    model.methods = model.methods.map(method => {
+      method.fullPath = `${model.modelName}.${method.alias}`;
+      method.operation.allParams = (method.operation.pathParams || [])
+        .concat(method.operation.queryParams || []);
+
+      return method;
+    });
+
+    return model;
+  });
+
+  for (let model of models) {
     for (let property of model.properties) {
-      let fullPath = `${model.modelName}.${property.propertyName}`;
-
       if (property.model && property.model === 'object') {
-        console.log('Skipping property', fullPath, '(Reason: object properties are not supported)');
+        console.log('Skipping property', property.fullPath, '(Reason: object properties are not supported)');
         property.hidden = true;
         continue;
       }
 
       if (typeof property.commonType === 'undefined') {
-        console.log('Skipping property', fullPath, '(Reason: properties without commonType are not supported)');
+        console.log('Skipping property', property.fullPath, '(Reason: properties without commonType are not supported)');
         property.hidden = true;
         continue;
       }
 
-      let propertyDetails = propertyDetailsList.find(x => x.path == fullPath);
+      let propertyDetails = propertyErrata.find(x => x.path == property.fullPath);
       if (!propertyDetails) continue;
 
       if (propertyDetails.skip) {
-        console.log('Skipping property', fullPath, `(Reason: ${propertyDetails.skipReason})`);
+        console.log('Skipping property', property.fullPath, `(Reason: ${propertyDetails.skipReason})`);
         property.hidden = true;
         continue;
       }
 
       if (propertyDetails.rename) {
-        console.log(`Renaming property ${fullPath} to ${propertyDetails.rename}`, `(Reason: ${propertyDetails.renameReason})`);
+        console.log(`Renaming property ${property.fullPath} to ${propertyDetails.rename}`, `(Reason: ${propertyDetails.renameReason})`);
         property.displayName = propertyDetails.rename;
       }
 
@@ -82,40 +93,14 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       }
     }
 
-    model.methods = model.methods || [];
-
     for (let method of model.methods) {
-      let fullPath = `${model.modelName}.${method.alias}`;
-
-      let skipRule = modelMethodSkipList.find(x => x.path === fullPath);
+      let skipRule = modelMethodSkipList.find(x => x.path === method.fullPath);
       if (skipRule) {
-        console.log('Skipping model method', fullPath, `(Reason: ${skipRule.reason})`);
+        console.log('Skipping model method', method.fullPath, `(Reason: ${skipRule.reason})`);
         method.hidden = true;
         continue;
       }
-
-      method.operation.allParams = (method.operation.pathParams || []).concat(method.operation.queryParams || []);
     }
-
-    if (model.requiresResolution) {
-      templates.push({
-        src: 'templates/Resolver.cs.hbs',
-        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
-        context: createContextForResolver(model, errorLogger)
-      });
-    }
-
-    templates.push({
-      src: 'templates/IModel.cs.hbs',
-      dest: `Generated/I${model.modelName}.Generated.cs`,
-      context: createContextForModel(model, errorLogger)
-    });
-
-    templates.push({
-      src: 'templates/Model.cs.hbs',
-      dest: `Generated/${model.modelName}.Generated.cs`,
-      context: createContextForModel(model, errorLogger)
-    });
   }
 
   const taggedOperations = {};
@@ -149,6 +134,40 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       }
 
       taggedOperations[operation.tags[0]].push(operation);
+  }
+
+  for (let model of models)
+  {
+    if (model.enum) {
+      templates.push({
+        src: 'templates/Enum.cs.hbs',
+        dest: `Generated/${model.modelName}.Generated.cs`,
+        context: createContextForEnum(model, errorLogger)
+      });
+
+      // Don't do anything else for enums
+      continue;
+    }
+
+    if (model.requiresResolution) {
+      templates.push({
+        src: 'templates/Resolver.cs.hbs',
+        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
+        context: createContextForResolver(model, errorLogger)
+      });
+    }
+
+    templates.push({
+      src: 'templates/IModel.cs.hbs',
+      dest: `Generated/I${model.modelName}.Generated.cs`,
+      context: createContextForModel(model, errorLogger)
+    });
+
+    templates.push({
+      src: 'templates/Model.cs.hbs',
+      dest: `Generated/${model.modelName}.Generated.cs`,
+      context: createContextForModel(model, errorLogger)
+    });
   }
 
   for (let tag of Object.keys(taggedOperations)) {

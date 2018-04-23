@@ -1,9 +1,4 @@
-const partialUpdateList = new Set([
-  'User',
-  'UserProfile'
-]);
-
-const propertyDetailsList = [
+const propertyErrata = [
   { path: 'FactorDevice.links', skip: true, skipReason: 'Not currently supported' },
   { path: 'Link.hints', skip: true, skipReason: 'Not currently supported' },
   { path: 'User._links', skip: true, skipReason: 'Not currently supported' },
@@ -46,7 +41,6 @@ const modelMethodSkipList = [
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
 ];
 
-module.exports.partialUpdateList = partialUpdateList;
-module.exports.propertyDetailsList = propertyDetailsList;
+module.exports.propertyErrata = propertyErrata;
 module.exports.operationSkipList = operationSkipList;
 module.exports.modelMethodSkipList = modelMethodSkipList;
