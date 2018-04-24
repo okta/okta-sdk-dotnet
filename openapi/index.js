@@ -8,6 +8,11 @@
  * light on logic. Most logic is performed in the createContextFor* methods.
  */
 
+const {
+  shouldSkipProperty,
+  shouldSkipMethod,
+} = require('./errata');
+
 const { createContextForEnum } = require('./processEnum');
 const { createContextForResolver } = require('./processResolver');
 const { createContextForModel } = require('./processModel');
@@ -15,9 +20,12 @@ const { createContextForClient } = require('./processClient')
 
 const {
   propertyErrata,
-  operationSkipList,
-  modelMethodSkipList
+  operationSkipList
 } = require('./constants');
+
+function infoLogger() {
+  console.log(...arguments);
+}
 
 function errorLogger(message, model) {
   console.error(model);
@@ -42,15 +50,34 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     }
 
     model.properties = model.properties || [];
-    model.properties = model.properties.map(property => {
+    model.properties = model.properties.map(property =>
+    {
       property.fullPath = `${model.modelName}.${property.propertyName}`;
+
+      property.hidden = shouldSkipProperty(property, infoLogger);
+
+      let propertyDetails = propertyErrata.find(x => x.path == property.fullPath);
+      if (propertyDetails) {
+        if (propertyDetails.rename) {
+          console.log(`Renaming property ${property.fullPath} to ${propertyDetails.rename}`, `(Reason: ${propertyDetails.renameReason})`);
+          property.displayName = propertyDetails.rename;
+        }
+  
+        if (propertyDetails.hidesBaseMember) {
+          property.hidesBaseMember = true;
+        }
+      }
 
       return property;
     });
 
     model.methods = model.methods || [];
-    model.methods = model.methods.map(method => {
+    model.methods = model.methods.map(method =>
+    {
       method.fullPath = `${model.modelName}.${method.alias}`;
+
+      method.hidden = shouldSkipMethod(method, infoLogger);
+
       method.operation.allParams = (method.operation.pathParams || [])
         .concat(method.operation.queryParams || []);
 
@@ -59,49 +86,6 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
 
     return model;
   });
-
-  for (let model of models) {
-    for (let property of model.properties) {
-      if (property.model && property.model === 'object') {
-        console.log('Skipping property', property.fullPath, '(Reason: object properties are not supported)');
-        property.hidden = true;
-        continue;
-      }
-
-      if (typeof property.commonType === 'undefined') {
-        console.log('Skipping property', property.fullPath, '(Reason: properties without commonType are not supported)');
-        property.hidden = true;
-        continue;
-      }
-
-      let propertyDetails = propertyErrata.find(x => x.path == property.fullPath);
-      if (!propertyDetails) continue;
-
-      if (propertyDetails.skip) {
-        console.log('Skipping property', property.fullPath, `(Reason: ${propertyDetails.skipReason})`);
-        property.hidden = true;
-        continue;
-      }
-
-      if (propertyDetails.rename) {
-        console.log(`Renaming property ${property.fullPath} to ${propertyDetails.rename}`, `(Reason: ${propertyDetails.renameReason})`);
-        property.displayName = propertyDetails.rename;
-      }
-
-      if (propertyDetails.hidesBaseMember) {
-        property.hidesBaseMember = true;
-      }
-    }
-
-    for (let method of model.methods) {
-      let skipRule = modelMethodSkipList.find(x => x.path === method.fullPath);
-      if (skipRule) {
-        console.log('Skipping model method', method.fullPath, `(Reason: ${skipRule.reason})`);
-        method.hidden = true;
-        continue;
-      }
-    }
-  }
 
   const taggedOperations = {};
 
