@@ -32,10 +32,8 @@ function errorLogger(message, model) {
   throw new Error(message);
 }
 
-module.exports.process = ({spec, operations, models, handlebars}) => {
-  const templates = [];
-
-  // baseModels are types that have child/inherited
+function getTemplatesforModels(models) {
+    // baseModels are types that have child/inherited
   // types somewhere else in the spec
   let baseModelsList = new Set(models
     .filter(model => model.extends)
@@ -43,8 +41,6 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
 
   // Preprocess all the models and enrich with extra data
   models = models.map(model => {
-    model.specVersion = spec.info.version;
-
     if (baseModelsList.has(model.modelName)) {
       model.isBaseModel = true;
     }
@@ -53,7 +49,6 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     model.properties = model.properties.map(property =>
     {
       property.fullPath = `${model.modelName}.${property.propertyName}`;
-
       property.hidden = shouldSkipProperty(property, infoLogger);
 
       let propertyDetails = propertyErrata.find(x => x.path == property.fullPath);
@@ -75,11 +70,12 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     model.methods = model.methods.map(method =>
     {
       method.fullPath = `${model.modelName}.${method.alias}`;
-
       method.hidden = shouldSkipMethod(method, infoLogger);
 
-      method.operation.allParams = (method.operation.pathParams || [])
-        .concat(method.operation.queryParams || []);
+      method.operation.pathParams = method.operation.pathParams || [];
+      method.operation.queryParams = method.operation.queryParams || [];
+      method.operation.allParams = method.operation.pathParams
+        .concat(method.operation.queryParams);
 
       return method;
     });
@@ -87,6 +83,45 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     return model;
   });
 
+  let modelTemplates = [];
+
+  for (let model of models) {
+    if (model.enum) {
+      modelTemplates.push({
+        src: 'templates/Enum.cs.hbs',
+        dest: `Generated/${model.modelName}.Generated.cs`,
+        context: createContextForEnum(model, errorLogger)
+      });
+
+      // Don't do anything else for enums
+      continue;
+    }
+
+    if (model.requiresResolution) {
+      modelTemplates.push({
+        src: 'templates/Resolver.cs.hbs',
+        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
+        context: createContextForResolver(model, errorLogger)
+      });
+    }
+
+    modelTemplates.push({
+      src: 'templates/IModel.cs.hbs',
+      dest: `Generated/I${model.modelName}.Generated.cs`,
+      context: createContextForModel(model, errorLogger)
+    });
+
+    modelTemplates.push({
+      src: 'templates/Model.cs.hbs',
+      dest: `Generated/${model.modelName}.Generated.cs`,
+      context: createContextForModel(model, errorLogger)
+    });
+  }
+
+  return modelTemplates;
+}
+
+function getTemplatesForClients(operations) {
   const taggedOperations = {};
 
   // pre-process the operations and split into tags
@@ -120,53 +155,30 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
       taggedOperations[operation.tags[0]].push(operation);
   }
 
-  for (let model of models)
-  {
-    if (model.enum) {
-      templates.push({
-        src: 'templates/Enum.cs.hbs',
-        dest: `Generated/${model.modelName}.Generated.cs`,
-        context: createContextForEnum(model, errorLogger)
-      });
-
-      // Don't do anything else for enums
-      continue;
-    }
-
-    if (model.requiresResolution) {
-      templates.push({
-        src: 'templates/Resolver.cs.hbs',
-        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
-        context: createContextForResolver(model, errorLogger)
-      });
-    }
-
-    templates.push({
-      src: 'templates/IModel.cs.hbs',
-      dest: `Generated/I${model.modelName}.Generated.cs`,
-      context: createContextForModel(model, errorLogger)
-    });
-
-    templates.push({
-      src: 'templates/Model.cs.hbs',
-      dest: `Generated/${model.modelName}.Generated.cs`,
-      context: createContextForModel(model, errorLogger)
-    });
-  }
+  let clientTemplates = [];
 
   for (let tag of Object.keys(taggedOperations)) {
-    templates.push({
+    clientTemplates.push({
       src: 'templates/IClient.cs.hbs',
       dest: `Generated/I${tag}sClient.Generated.cs`,
       context: createContextForClient(tag, taggedOperations[tag])
     });
 
-    templates.push({
+    clientTemplates.push({
       src: 'templates/Client.cs.hbs',
       dest: `Generated/${tag}sClient.Generated.cs`,
       context: createContextForClient(tag, taggedOperations[tag])
     });
   }
+
+  return clientTemplates;
+}
+
+module.exports.process = ({spec, operations, models, handlebars}) => {
+  const templates = [];
+
+  templates.push(...getTemplatesforModels(models));
+  templates.push(...getTemplatesForClients(operations));
 
   return templates;
 }
