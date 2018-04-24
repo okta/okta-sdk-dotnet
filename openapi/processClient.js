@@ -43,7 +43,7 @@ Creates the context that the handlebars template is bound to:
   ]
 }
 */
-function createContextForClient(tag, spec, operations) {
+function createContextForClient(tag, operations) {
   let context = {
     memberName: `${tag}s`,
     resourceName: tag,

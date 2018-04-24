@@ -158,17 +158,13 @@ module.exports.process = ({spec, operations, models, handlebars}) => {
     templates.push({
       src: 'templates/IClient.cs.hbs',
       dest: `Generated/I${tag}sClient.Generated.cs`,
-      context: createContextForClient(tag, spec, taggedOperations[tag])
+      context: createContextForClient(tag, taggedOperations[tag])
     });
 
     templates.push({
       src: 'templates/Client.cs.hbs',
       dest: `Generated/${tag}sClient.Generated.cs`,
-      context: {
-        tag, spec,
-        operations: taggedOperations[tag]
-      },
-      context: createContextForClient(tag, spec, taggedOperations[tag])
+      context: createContextForClient(tag, taggedOperations[tag])
     });
   }
 
