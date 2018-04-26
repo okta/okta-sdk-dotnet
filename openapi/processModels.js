@@ -62,7 +62,7 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
       let shouldSkip = shouldSkipModelMethod(method.fullPath);
       if (shouldSkip) {
         method.hidden = true;
-        infoLogger('Skipping model method', method.fullPath, `(Reason: ${shouldSkip.reason})`);
+        infoLogger(`Skipping model method ${method.fullPath} (Reason: ${shouldSkip.reason})`);
       }
 
       method.operation.pathParams = method.operation.pathParams || [];
@@ -76,8 +76,8 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     return model;
   });
 
+  // Assign handlebars templates to each model
   let modelTemplates = [];
-
   for (let model of models) {
     if (model.enum) {
       modelTemplates.push({

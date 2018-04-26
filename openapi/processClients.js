@@ -10,7 +10,7 @@ const {
 } = require('./errata');
 
 function getTemplatesForClients(operations, infoLogger, errorLogger) {
-  const taggedOperations = {};
+  let clients = {};
 
   // pre-process the operations and split into tags
   for (let operation of operations) {
@@ -35,26 +35,24 @@ function getTemplatesForClients(operations, infoLogger, errorLogger) {
       infoLogger(`Warning: more than one tag on ${operation.operationId}`);
     }
 
-    if (!taggedOperations[operation.tags[0]]) {
-      taggedOperations[operation.tags[0]] = []; 
-    }
-
-    taggedOperations[operation.tags[0]].push(operation);
+    let clientName = operation.tags[0];
+    clients[clientName] = clients[clientName] || [];
+    clients[clientName].push(operation);
   }
 
+  // Assign handlebars templates to each client
   let clientTemplates = [];
-
-  for (let clientName of Object.keys(taggedOperations)) {
+  for (let clientName of Object.keys(clients)) {
     clientTemplates.push({
       src: 'templates/IClient.cs.hbs',
       dest: `Generated/I${clientName}sClient.Generated.cs`,
-      context: createContextForClient(clientName, taggedOperations[clientName])
+      context: createContextForClient(clientName, clients[clientName])
     });
 
     clientTemplates.push({
       src: 'templates/Client.cs.hbs',
       dest: `Generated/${clientName}sClient.Generated.cs`,
-      context: createContextForClient(clientName, taggedOperations[clientName])
+      context: createContextForClient(clientName, clients[clientName])
     });
   }
 
