@@ -1,0 +1,218 @@
+const { 
+  pascalCase,
+  camelCase,
+  propToCLRType,
+  paramToCLRType,
+  getMappedArgName,
+  getterName,
+  isNullOrUndefined,
+  createMethodSignatureLiteral,
+  createParametersLiteral
+} = require('./utils');
+
+const {
+  shouldSkipProperty,
+  shouldSkipModelMethod,
+  shouldHideBaseMember,
+  getRenamedProperty
+} = require('./errata');
+
+const { createContextForEnum } = require('./processEnum');
+const { createContextForResolver } = require('./processResolver');
+
+function getTemplatesforModels(models, infoLogger, errorLogger) {
+  // baseModels are types that have child/inherited
+  // types somewhere else in the spec
+  let baseModelsList = new Set(models
+    .filter(model => model.extends)
+    .map(model => model.extends));
+
+  // Preprocess all the models and enrich with extra data
+  models = models.map(model => {
+    if (baseModelsList.has(model.modelName)) {
+      model.isBaseModel = true;
+    }
+
+    model.properties = model.properties || [];
+    model.properties = model.properties.map(property =>
+    {
+      property.fullPath = `${model.modelName}.${property.propertyName}`;
+      property.hidesBaseMember = shouldHideBaseMember(property.fullPath);
+
+      let shouldSkip = shouldSkipProperty(property);
+      if (shouldSkip) {
+        infoLogger(`Skipping property ${property.fullPath}`, `Reason: ${shouldSkip.reason}`);
+        property.hidden = true;
+      }
+
+      let renamedProperty = getRenamedProperty(property.fullPath);
+      let isRenamed = renamedProperty && renamedProperty.displayName !== property.displayName;
+      if (isRenamed) {
+        infoLogger(`Renaming property ${property.fullPath} to ${renamedProperty.displayName}`, `(Reason: ${renamedProperty.reason})`);
+        property.displayName = renamedProperty.displayName;
+      }
+
+      return property;
+    });
+
+    model.methods = model.methods || [];
+    model.methods = model.methods.map(method =>
+    {
+      method.fullPath = `${model.modelName}.${method.alias}`;
+      let shouldSkip = shouldSkipModelMethod(method.fullPath);
+      if (shouldSkip) {
+        method.hidden = true;
+        infoLogger('Skipping model method', method.fullPath, `(Reason: ${shouldSkip.reason})`);
+      }
+
+      method.operation.pathParams = method.operation.pathParams || [];
+      method.operation.queryParams = method.operation.queryParams || [];
+      method.operation.allParams = method.operation.pathParams
+        .concat(method.operation.queryParams);
+
+      return method;
+    });
+
+    return model;
+  });
+
+  let modelTemplates = [];
+
+  for (let model of models) {
+    if (model.enum) {
+      modelTemplates.push({
+        src: 'templates/Enum.cs.hbs',
+        dest: `Generated/${model.modelName}.Generated.cs`,
+        context: createContextForEnum(model, errorLogger)
+      });
+
+      // Don't do anything else for enums
+      continue;
+    }
+
+    if (model.requiresResolution) {
+      modelTemplates.push({
+        src: 'templates/Resolver.cs.hbs',
+        dest: `Generated/${model.modelName}Resolver.Generated.cs`,
+        context: createContextForResolver(model, errorLogger)
+      });
+    }
+
+    modelTemplates.push({
+      src: 'templates/IModel.cs.hbs',
+      dest: `Generated/I${model.modelName}.Generated.cs`,
+      context: createContextForModel(model, errorLogger)
+    });
+
+    modelTemplates.push({
+      src: 'templates/Model.cs.hbs',
+      dest: `Generated/${model.modelName}.Generated.cs`,
+      context: createContextForModel(model, errorLogger)
+    });
+  }
+
+  return modelTemplates;
+}
+
+/*
+Creates the context that the handlebars template is bound to:
+
+{
+  memberName: 'User',
+  baseClass: 'Resource',
+  isBaseModel: false,
+  properties: [
+    {
+      type: 'IUserCredentials',
+      memberName: 'Credentials',
+      getterLiteral: 'GetResource<IUserCredentials>("credentials")'
+      propertyName: 'credentials',
+      readOnly: true,
+      hidesBaseMember: false
+    }
+  ],
+  methods: [
+    returnTypeLiteral: 'Task<IFactor>',
+    memberName: 'AddFactorAsync',
+    methodSignatureLiteral: 'Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken)',
+    parametersLiteral: 'factor, updatePhone, templateId, cancellationToken',
+    client: {
+      memberName: 'Users'
+    }
+  ]
+}
+*/
+function createContextForModel(model, errFunc) {
+  let context = {
+    memberName: model.modelName,
+    baseClass: model.extends || 'Resource',
+    isBaseModel: model.isBaseModel,
+    properties: [],
+    methods: []
+  };
+
+  for (let property of model.properties) {
+    if (property.hidden) continue;
+
+    let type = propToCLRType(property, true);
+
+    let memberName = pascalCase(property.displayName || property.propertyName);
+
+    let getterLiteral = `${getterName(property)}("${property.propertyName}")`;
+
+    context.properties.push({
+      type, memberName, getterLiteral,
+      propertyName: property.propertyName,
+      readOnly: property.readOnly,
+      hidesBaseMember: property.hidesBaseMember
+    });
+  }
+
+  for (let method of model.methods) {
+    if (method.hidden) continue;
+
+    let methodContext = {};
+
+    if (method.operation.bodyModel) {
+      methodContext.bodyModel = {
+        type: { 
+          memberName: method.operation.bodyModel
+        },
+        parameterName: camelCase(method.operation.bodyModel)
+      };
+    }
+    
+    if (method.operation.isArray) {
+      methodContext.returnTypeLiteral = `IAsyncEnumerable<I${method.operation.responseModel}>`;
+    } else if (method.operation.responseModel) {
+      methodContext.returnTypeLiteral = `Task<I${method.operation.responseModel}>`;
+    } else {
+      methodContext.returnTypeLiteral = 'Task'
+    }
+
+    methodContext.memberName = pascalCase(method.alias);
+    if (!method.operation.isArray)
+      methodContext.memberName += 'Async';
+
+    methodContext.client = {};
+    methodContext.client.memberName = `${method.operation.tags[0]}s`;
+
+    methodContext.methodOperation = {};
+    methodContext.methodOperation.memberName = pascalCase(method.operation.operationId);
+    if (!method.operation.isArray) methodContext.methodOperation.memberName += 'Async';
+
+    methodContext.methodSignatureLiteral = createMethodSignatureLiteral(
+      method.operation,
+      method.arguments);
+
+    methodContext.parametersLiteral = createParametersLiteral(
+      method.operation,
+      method.arguments);
+
+    context.methods.push(methodContext);
+  }
+
+  return context;
+}
+
+module.exports.getTemplatesforModels = getTemplatesforModels;

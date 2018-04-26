@@ -5,6 +5,62 @@ const {
   createParametersLiteral
 } = require('./utils');
 
+const {
+  shouldSkipOperation
+} = require('./errata');
+
+function getTemplatesForClients(operations, infoLogger, errorLogger) {
+  const taggedOperations = {};
+
+  // pre-process the operations and split into tags
+  for (let operation of operations) {
+    let shouldSkip = shouldSkipOperation(operation.operationId);
+    if (shouldSkip) {
+      infoLogger(`Skipping operation ${operation.operationId} (Reason: ${shouldSkip.reason})`);
+      operation.hidden = true;
+      continue;
+    }
+
+    operation.allParams = (operation.pathParams || [])
+                   .concat(operation.queryParams || []);
+
+    operation.tags = operation.tags || [];
+
+    if (operation.tags.length === 0) {
+      operation.tags.push('Okta');
+      infoLogger(`Adding default tag to ${operation.operationId}`);
+    }
+
+    if (operation.tags.length > 1) {
+      infoLogger(`Warning: more than one tag on ${operation.operationId}`);
+    }
+
+    if (!taggedOperations[operation.tags[0]]) {
+      taggedOperations[operation.tags[0]] = []; 
+    }
+
+    taggedOperations[operation.tags[0]].push(operation);
+  }
+
+  let clientTemplates = [];
+
+  for (let clientName of Object.keys(taggedOperations)) {
+    clientTemplates.push({
+      src: 'templates/IClient.cs.hbs',
+      dest: `Generated/I${clientName}sClient.Generated.cs`,
+      context: createContextForClient(clientName, taggedOperations[clientName])
+    });
+
+    clientTemplates.push({
+      src: 'templates/Client.cs.hbs',
+      dest: `Generated/${clientName}sClient.Generated.cs`,
+      context: createContextForClient(clientName, taggedOperations[clientName])
+    });
+  }
+
+  return clientTemplates;
+}
+
 /*
 Creates the context that the handlebars template is bound to:
 
@@ -101,4 +157,4 @@ function createContextForClient(tag, operations) {
   return context;
 }
 
-module.exports.createContextForClient = createContextForClient;
+module.exports.getTemplatesForClients = getTemplatesForClients;
