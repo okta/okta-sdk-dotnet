@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class TokenFactor : Factor, ITokenFactor
     {
         /// <inheritdoc/>
-        public new ITokenFactorProfile Profile
+        public new ITokenFactorProfile Profile 
         {
             get => GetResourceProperty<TokenFactorProfile>("profile");
             set => this["profile"] = value;
         }
-
+        
     }
 }

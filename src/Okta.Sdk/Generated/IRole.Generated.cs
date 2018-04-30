@@ -15,7 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a Role resource in the Okta API.</summary>
     public partial interface IRole : IResource
     {
-
         DateTimeOffset? Created { get; }
 
         string Description { get; set; }

@@ -18,6 +18,6 @@ namespace Okta.Sdk
     {
         /// <inheritdoc/>
         public string ResetPasswordUrl => GetStringProperty("resetPasswordUrl");
-
+        
     }
 }

@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class AuthenticationProvider : Resource, IAuthenticationProvider
     {
         /// <inheritdoc/>
-        public string Name
+        public string Name 
         {
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public AuthenticationProviderType Type
+        public AuthenticationProviderType Type 
         {
             get => GetEnumProperty<AuthenticationProviderType>("type");
             set => this["type"] = value;
         }
-
+        
     }
 }

@@ -16,16 +16,14 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public sealed partial class VerifyFactorResponse : Resource, IVerifyFactorResponse
     {
-
-
         /// <inheritdoc/>
         public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
-
+        
         /// <inheritdoc/>
         public FactorResultType FactorResult => GetEnumProperty<FactorResultType>("factorResult");
-
+        
         /// <inheritdoc/>
         public string FactorResultMessage => GetStringProperty("factorResultMessage");
-
+        
     }
 }

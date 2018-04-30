@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class PushFactor : Factor, IPushFactor
     {
         /// <inheritdoc/>
-        public new IPushFactorProfile Profile
+        public new IPushFactorProfile Profile 
         {
             get => GetResourceProperty<PushFactorProfile>("profile");
             set => this["profile"] = value;
         }
-
+        
     }
 }

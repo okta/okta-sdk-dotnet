@@ -15,8 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a User resource in the Okta API.</summary>
     public partial interface IUser : IResource
     {
-
-
         DateTimeOffset? Activated { get; }
 
         DateTimeOffset? Created { get; }

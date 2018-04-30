@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class GroupRuleExpression : Resource, IGroupRuleExpression
     {
         /// <inheritdoc/>
-        public string Type
+        public string Type 
         {
             get => GetStringProperty("type");
             set => this["type"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string Value
+        public string Value 
         {
             get => GetStringProperty("value");
             set => this["value"] = value;
         }
-
+        
     }
 }

@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class GroupRuleGroupAssignment : Resource, IGroupRuleGroupAssignment
     {
         /// <inheritdoc/>
-        public IList<string> GroupIds
+        public IList<string> GroupIds 
         {
             get => GetArrayProperty<string>("groupIds");
             set => this["groupIds"] = value;
         }
-
+        
     }
 }

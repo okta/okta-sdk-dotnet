@@ -1,10 +1,9 @@
 {
   "name": "okta-sdk-dotnet",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
-    "generate": "okta-sdk-generator -o src/Okta.Sdk/ -t templates",
-    "test-server": "node test-server.js"
+    "generate": "okta-sdk-generator -o ../src/Okta.Sdk/"
   },
   "repository": {
     "type": "git",

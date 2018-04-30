@@ -17,32 +17,32 @@ namespace Okta.Sdk
     public sealed partial class VerifyFactorRequest : Resource, IVerifyFactorRequest
     {
         /// <inheritdoc/>
-        public string ActivationToken
+        public string ActivationToken 
         {
             get => GetStringProperty("activationToken");
             set => this["activationToken"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string Answer
+        public string Answer 
         {
             get => GetStringProperty("answer");
             set => this["answer"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string NextPassCode
+        public string NextPassCode 
         {
             get => GetStringProperty("nextPassCode");
             set => this["nextPassCode"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string PassCode
+        public string PassCode 
         {
             get => GetStringProperty("passCode");
             set => this["passCode"] = value;
         }
-
+        
     }
 }

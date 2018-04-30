@@ -1,0 +1,40 @@
+// <copyright file="I{{memberName}}Client.Generated.cs" company="Okta, Inc">
+// Copyright (c) 2014-2017 Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+// This file was automatically generated. Don't modify it directly.
+
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Okta.Sdk
+{
+    /// <summary>A client that works with Okta {{resourceName}} resources.</summary>
+    public partial interface I{{memberName}}Client
+    {
+        {{#each operations}}
+        /// <summary>
+        /// {{description}}
+        /// </summary>
+        {{#if bodyModel}}
+        /// <param name="{{bodyModel.parameterName}}">The <see cref="I{{bodyModel.type.memberName}}"/> resource.</param>
+        {{/if}}
+        {{#each pathParameters}}
+        /// <param name="{{name}}">{{description}}</param>
+        {{/each}}
+        {{#each queryParameters}}
+        /// <param name="{{name}}">{{description}}</param>
+        {{/each}}
+        {{#if hasCancellationToken}}
+        /// <param name="cancellationToken">The cancellation token.</param>
+        {{/if}}
+        /// <returns>{{{returnType.documentationLiteral}}}</returns>
+        {{{returnType.literal}}} {{memberName}}(
+            {{~#if bodyModel}}I{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
+            {{~nbsp 0}}{{{methodSignatureLiteral}}});
+
+        {{/each}}
+    }
+}

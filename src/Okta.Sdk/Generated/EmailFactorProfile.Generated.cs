@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class EmailFactorProfile : FactorProfile, IEmailFactorProfile
     {
         /// <inheritdoc/>
-        public string Email
+        public string Email 
         {
             get => GetStringProperty("email");
             set => this["email"] = value;
         }
-
+        
     }
 }

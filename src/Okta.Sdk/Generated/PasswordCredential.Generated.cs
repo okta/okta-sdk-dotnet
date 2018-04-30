@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class PasswordCredential : Resource, IPasswordCredential
     {
         /// <inheritdoc/>
-        public string Value
+        public string Value 
         {
             get => GetStringProperty("value");
             set => this["value"] = value;
         }
-
+        
     }
 }

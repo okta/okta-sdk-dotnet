@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class GroupProfile : Resource, IGroupProfile
     {
         /// <inheritdoc/>
-        public string Description
+        public string Description 
         {
             get => GetStringProperty("description");
             set => this["description"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string Name
+        public string Name 
         {
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
-
+        
     }
 }

@@ -24,7 +24,7 @@ namespace Okta.Sdk
         /// <param name="format"></param>
         /// <param name="search">Searches for users with a supported filtering  expression for most properties</param>
         /// <param name="expand"></param>
-        /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null);
 
         /// <summary>
@@ -34,7 +34,7 @@ namespace Okta.Sdk
         /// <param name="activate">Executes activation lifecycle operation when creating the user</param>
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUser"/> response.</returns>        
+        /// <returns>The <see cref="IUser"/> response.</returns>
         Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -50,7 +50,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUser"/> response.</returns>        
+        /// <returns>The <see cref="IUser"/> response.</returns>
         Task<IUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -59,7 +59,7 @@ namespace Okta.Sdk
         /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUser"/> response.</returns>        
+        /// <returns>The <see cref="IUser"/> response.</returns>
         Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -67,7 +67,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="showAll"></param>
-        /// <returns>A collection of <see cref="IAppLink"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IAppLink"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IAppLink> ListAppLinks(string userId, bool? showAll = false);
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace Okta.Sdk
         /// <param name="changePasswordRequest">The <see cref="IChangePasswordRequest"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserCredentials"/> response.</returns>        
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>
         Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -85,7 +85,7 @@ namespace Okta.Sdk
         /// <param name="userCredentials">The <see cref="IUserCredentials"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserCredentials"/> response.</returns>        
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>
         Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -94,7 +94,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
-        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1);
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="sendEmail">Sends an activation email to the user if true</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserActivationToken"/> response.</returns>        
+        /// <returns>The <see cref="IUserActivationToken"/> response.</returns>
         Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeactivateUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -120,7 +120,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="tempPassword">Sets the user&#x27;s password to a temporary password,  if true</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITempPassword"/> response.</returns>        
+        /// <returns>The <see cref="ITempPassword"/> response.</returns>
         Task<ITempPassword> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -128,7 +128,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task ResetAllFactorsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Okta.Sdk
         /// <param name="provider"></param>
         /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IResetPasswordToken"/> response.</returns>        
+        /// <returns>The <see cref="IResetPasswordToken"/> response.</returns>
         Task<IResetPasswordToken> ResetPasswordAsync(string userId, AuthenticationProviderType provider = null, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -146,7 +146,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task SuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -154,7 +154,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task UnlockUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -162,7 +162,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task UnsuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="expand"></param>
-        /// <returns>A collection of <see cref="IRole"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IRole"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IRole> ListAssignedRoles(string userId, string expand = null);
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="roleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -189,7 +189,7 @@ namespace Okta.Sdk
         /// <param name="roleId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
-        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
 
         /// <summary>
@@ -199,7 +199,7 @@ namespace Okta.Sdk
         /// <param name="roleId"></param>
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -209,7 +209,8 @@ namespace Okta.Sdk
         /// <param name="roleId"></param>
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

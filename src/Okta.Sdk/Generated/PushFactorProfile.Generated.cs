@@ -17,31 +17,31 @@ namespace Okta.Sdk
     public sealed partial class PushFactorProfile : FactorProfile, IPushFactorProfile
     {
         /// <inheritdoc/>
-        public string CredentialId
+        public string CredentialId 
         {
             get => GetStringProperty("credentialId");
             set => this["credentialId"] = value;
         }
-
+        
         /// <inheritdoc/>
         public string DeviceType => GetStringProperty("deviceType");
-
+        
         /// <inheritdoc/>
-        public string Name
+        public string Name 
         {
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
-
+        
         /// <inheritdoc/>
         public string Platform => GetStringProperty("platform");
-
+        
         /// <inheritdoc/>
-        public string Version
+        public string Version 
         {
             get => GetStringProperty("version");
             set => this["version"] = value;
         }
-
+        
     }
 }

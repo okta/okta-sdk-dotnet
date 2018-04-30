@@ -17,11 +17,11 @@ namespace Okta.Sdk
     public sealed partial class SecurityQuestionFactor : Factor, ISecurityQuestionFactor
     {
         /// <inheritdoc/>
-        public new ISecurityQuestionFactorProfile Profile
+        public new ISecurityQuestionFactorProfile Profile 
         {
             get => GetResourceProperty<SecurityQuestionFactorProfile>("profile");
             set => this["profile"] = value;
         }
-
+        
     }
 }

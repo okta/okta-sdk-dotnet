@@ -22,7 +22,7 @@ namespace Okta.Sdk
         /// <param name="after">Specifies the pagination cursor for the next page of groups</param>
         /// <param name="limit">Specifies the number of group results in a page</param>
         /// <param name="expand"></param>
-        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null);
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="group">The <see cref="IGroup"/> resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IGroup"/> response.</returns>        
+        /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> CreateGroupAsync(IGroup group, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -38,7 +38,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="limit">Specifies the number of rule results in a page</param>
         /// <param name="after">Specifies the pagination cursor for the next page of rules</param>
-        /// <returns>A collection of <see cref="IGroupRule"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IGroupRule"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null);
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="groupRule">The <see cref="IGroupRule"/> resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IGroupRule"/> response.</returns>        
+        /// <returns>The <see cref="IGroupRule"/> response.</returns>
         Task<IGroupRule> CreateRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Okta.Sdk
         /// <param name="ruleId"></param>
         /// <param name="removeUsers"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeleteRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -63,7 +63,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IGroupRule"/> response.</returns>        
+        /// <returns>The <see cref="IGroupRule"/> response.</returns>
         Task<IGroupRule> GetRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -72,7 +72,7 @@ namespace Okta.Sdk
         /// <param name="groupRule">The <see cref="IGroupRule"/> resource.</param>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IGroupRule"/> response.</returns>        
+        /// <returns>The <see cref="IGroupRule"/> response.</returns>
         Task<IGroupRule> UpdateRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -80,7 +80,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task ActivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -88,7 +88,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="ruleId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeactivateRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -96,7 +96,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -105,7 +105,7 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="expand"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IGroup"/> response.</returns>        
+        /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> GetGroupAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -114,7 +114,7 @@ namespace Okta.Sdk
         /// <param name="group">The <see cref="IGroup"/> resource.</param>
         /// <param name="groupId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IGroup"/> response.</returns>        
+        /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -123,7 +123,7 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="after">Specifies the pagination cursor for the next page of users</param>
         /// <param name="limit">Specifies the number of user results in a page</param>
-        /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>        
+        /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>
         IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1);
 
         /// <summary>
@@ -132,7 +132,7 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task RemoveGroupUserAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -141,7 +141,8 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>        
+        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task AddUserToGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

@@ -17,18 +17,18 @@ namespace Okta.Sdk
     public sealed partial class CallFactorProfile : FactorProfile, ICallFactorProfile
     {
         /// <inheritdoc/>
-        public string PhoneExtension
+        public string PhoneExtension 
         {
             get => GetStringProperty("phoneExtension");
             set => this["phoneExtension"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string PhoneNumber
+        public string PhoneNumber 
         {
             get => GetStringProperty("phoneNumber");
             set => this["phoneNumber"] = value;
         }
-
+        
     }
 }

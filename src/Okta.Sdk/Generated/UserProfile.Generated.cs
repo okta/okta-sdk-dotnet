@@ -17,46 +17,46 @@ namespace Okta.Sdk
     public sealed partial class UserProfile : Resource, IUserProfile
     {
         /// <inheritdoc/>
-        public string Email
+        public string Email 
         {
             get => GetStringProperty("email");
             set => this["email"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string FirstName
+        public string FirstName 
         {
             get => GetStringProperty("firstName");
             set => this["firstName"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string LastName
+        public string LastName 
         {
             get => GetStringProperty("lastName");
             set => this["lastName"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string Login
+        public string Login 
         {
             get => GetStringProperty("login");
             set => this["login"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string MobilePhone
+        public string MobilePhone 
         {
             get => GetStringProperty("mobilePhone");
             set => this["mobilePhone"] = value;
         }
-
+        
         /// <inheritdoc/>
-        public string SecondEmail
+        public string SecondEmail 
         {
             get => GetStringProperty("secondEmail");
             set => this["secondEmail"] = value;
         }
-
+        
     }
 }
