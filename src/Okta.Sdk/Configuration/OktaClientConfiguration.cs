@@ -54,6 +54,14 @@ namespace Okta.Sdk.Configuration
         /// <remarks>An API token can be generated from the Okta developer dashboard.</remarks>
         public string Token { get; set; }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the server's TLS certificate is validated. Warning this should only be used for debugging purposes and never used in production.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether the server's TLS certificate is validated
+        /// </value>
+        public bool DisableServerCertificateValidation { get; set; }
+
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
@@ -61,6 +69,7 @@ namespace Okta.Sdk.Configuration
                 ConnectionTimeout = ConnectionTimeout.HasValue ? this.ConnectionTimeout.Value : (int?)null,
                 OrgUrl = this.OrgUrl,
                 Proxy = this.Proxy?.DeepClone(),
+                DisableServerCertificateValidation = this.DisableServerCertificateValidation,
             };
     }
 }
