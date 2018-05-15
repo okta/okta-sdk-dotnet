@@ -19,6 +19,12 @@ namespace Okta.Sdk
         IAsyncEnumerable<IUser> Users { get; }
 
         /// <summary>
+        /// Gets the collection of <see cref="IUser">Users</see> in this Group.
+        /// </summary>
+        /// <value>The colletion of Users in this Group.</value>
+        IAsyncEnumerable<IUser> UsersSkinny { get; }
+
+        /// <summary>
         /// Deletes the group.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>

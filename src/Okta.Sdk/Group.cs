@@ -16,6 +16,9 @@ namespace Okta.Sdk
         public IAsyncEnumerable<IUser> Users
             => GetClient().Groups.ListGroupUsers(Id);
 
+        public IAsyncEnumerable<IUser> UsersSkinny
+            => GetClient().Groups.ListGroupUsersSkinny(Id);
+
         /// <inheritdoc/>
         public Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Groups.DeleteGroupAsync(Id, cancellationToken);
