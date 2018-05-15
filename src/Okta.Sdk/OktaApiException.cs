@@ -3,6 +3,10 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+
 namespace Okta.Sdk
 {
     /// <summary>
@@ -18,7 +22,7 @@ namespace Okta.Sdk
         /// <param name="statusCode">The HTTP status code.</param>
         /// <param name="data">The error data.</param>
         public OktaApiException(int statusCode, Resource data)
-            : base(message: data.GetProperty<string>(nameof(ErrorSummary)))
+            : base(message: OktaApiException.GetMessageText(statusCode, data))
         {
             StatusCode = statusCode;
             _resource = data;
@@ -64,6 +68,37 @@ namespace Okta.Sdk
         /// </value>
         public string ErrorId => _resource.GetProperty<string>(nameof(ErrorId));
 
-        // TODO errorCauses (list of ?)
+        /// <summary>
+        /// Gets the list of error causes from the API response.
+        /// </summary>
+        /// <value>
+        /// The list of error causes from the API response
+        /// </value>
+        public IEnumerable<string> ErrorCauses
+        {
+            get
+            {
+                return GetErrorCauses(_resource);
+            }
+        }
+
+        private static IEnumerable<string> GetErrorCauses(Resource resource)
+        {
+            if (!(resource?.GetData()["errorCauses"] is IList<object> causes))
+            {
+                yield break;
+            }
+
+            foreach (JObject o in causes.OfType<JObject>())
+            {
+                yield return o.Value<string>("errorSummary");
+            }
+        }
+
+        private static string GetMessageText(int statusCode, Resource resource)
+        {
+            string summary = resource.GetProperty<string>(nameof(ErrorSummary));
+            return $"{statusCode}: {summary}\r\n{string.Join("\r\n", GetErrorCauses(resource))}";
+        }
     }
 }
