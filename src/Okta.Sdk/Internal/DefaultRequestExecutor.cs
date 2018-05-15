@@ -56,7 +56,8 @@ namespace Okta.Sdk.Internal
                 configuration.Token,
                 configuration.ConnectionTimeout,
                 configuration.Proxy,
-                logger);
+                logger,
+                configuration.DisableServerCertificateValidation);
         }
 
         private static string EnsureCorrectOrgUrl(string orgUrl)
@@ -84,7 +85,8 @@ namespace Okta.Sdk.Internal
             string token,
             int? connectionTimeout,
             ProxyConfiguration proxyConfiguration,
-            ILogger logger)
+            ILogger logger,
+            bool disableServerCertificateValidation)
         {
             var handler = new HttpClientHandler
             {
@@ -94,6 +96,12 @@ namespace Okta.Sdk.Internal
             if (proxyConfiguration != null)
             {
                 handler.Proxy = new DefaultProxy(proxyConfiguration, logger);
+            }
+
+            if (disableServerCertificateValidation)
+            {
+                logger.LogWarning("Server certificate validation disabled");
+                handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, x509Certificate2, x509Chain, sslPolicyErrors) => true;
             }
 
             var client = new HttpClient(handler, true)

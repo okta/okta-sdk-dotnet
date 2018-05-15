@@ -62,6 +62,14 @@ namespace Okta.Sdk.Configuration
         /// </value>
         public int MaximumRateLimitRetryAttempts { get; set; } = 8;
 
+        /// <summary>
+        /// Gets or sets a value indicating whether the server's TLS certificate is validated. Warning this should only be used for debugging purposes and never used in production.
+        /// </summary>
+        /// <value>
+        /// A value indicating whether the server's TLS certificate is validated
+        /// </value>
+        public bool DisableServerCertificateValidation { get; set; }
+
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
