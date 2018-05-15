@@ -6,6 +6,7 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
@@ -31,5 +32,21 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IAsyncEnumerator<IGroup> GetEnumerator() => ListGroups().GetEnumerator();
+
+        public IAsyncEnumerable<IUser> ListGroupUsersSkinny(string groupId, string after = null, int? limit = -1)
+            => GetCollectionClient<User>(new HttpRequest
+            {
+                Uri = "/api/v1/groups/{groupId}/skinny_users",
+
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["groupId"] = groupId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["after"] = after,
+                    ["limit"] = limit,
+                },
+            });
     }
 }
