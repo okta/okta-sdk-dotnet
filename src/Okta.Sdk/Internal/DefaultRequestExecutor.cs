@@ -5,9 +5,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Authentication;
+using System.Net.Http.Headers;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -21,10 +23,12 @@ namespace Okta.Sdk.Internal
     public sealed class DefaultRequestExecutor : IRequestExecutor
     {
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
+        private static Random randomNumberGenerator = new Random();
 
         private readonly string _orgUrl;
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
+        private readonly int _retryLimit = 8;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -45,13 +49,15 @@ namespace Okta.Sdk.Internal
 
             _orgUrl = EnsureCorrectOrgUrl(configuration.OrgUrl);
             _logger = logger;
+            _retryLimit = configuration.MaximumRateLimitRetryAttempts;
 
             _httpClient = CreateClient(
                 _orgUrl,
                 configuration.Token,
                 configuration.ConnectionTimeout,
                 configuration.Proxy,
-                logger);
+                logger,
+                configuration.DisableServerCertificateValidation);
         }
 
         private static string EnsureCorrectOrgUrl(string orgUrl)
@@ -79,7 +85,8 @@ namespace Okta.Sdk.Internal
             string token,
             int? connectionTimeout,
             ProxyConfiguration proxyConfiguration,
-            ILogger logger)
+            ILogger logger,
+            bool disableServerCertificateValidation)
         {
             var handler = new HttpClientHandler
             {
@@ -89,6 +96,12 @@ namespace Okta.Sdk.Internal
             if (proxyConfiguration != null)
             {
                 handler.Proxy = new DefaultProxy(proxyConfiguration, logger);
+            }
+
+            if (disableServerCertificateValidation)
+            {
+                logger.LogWarning("Server certificate validation disabled");
+                handler.ServerCertificateCustomValidationCallback = (httpRequestMessage, x509Certificate2, x509Chain, sslPolicyErrors) => true;
             }
 
             var client = new HttpClient(handler, true)
@@ -126,28 +139,105 @@ namespace Okta.Sdk.Internal
         }
 
         private async Task<HttpResponse<string>> SendAsync(
-            HttpRequestMessage request,
+            Func<HttpRequestMessage> requestFactory,
             CancellationToken cancellationToken)
         {
-            _logger.LogTrace($"{request.Method} {request.RequestUri}");
+            int attemptCount = 1;
 
-            using (var response = await _httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false))
+            while (true)
             {
-                _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
+                HttpRequestMessage request = requestFactory.Invoke();
 
-                string stringContent = null;
-                if (response.Content != null)
+                _logger.LogTrace($"{request.Method} {request.RequestUri}");
+
+                using (var response = await _httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false))
                 {
-                    stringContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
+
+                    if (await this.ShouldRetryOperationAsync(cancellationToken, response, attemptCount).ConfigureAwait(false))
+                    {
+                        attemptCount++;
+                        continue;
+                    }
+
+                    string stringContent = null;
+                    if (response.Content != null)
+                    {
+                        stringContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    }
+
+                    return new HttpResponse<string>
+                    {
+                        Headers = ExtractHeaders(response),
+                        StatusCode = (int)response.StatusCode,
+                        Payload = stringContent,
+                    };
                 }
-
-                return new HttpResponse<string>
-                {
-                    Headers = ExtractHeaders(response),
-                    StatusCode = (int)response.StatusCode,
-                    Payload = stringContent,
-                };
             }
+        }
+
+        private async Task<bool> ShouldRetryOperationAsync(CancellationToken cancellationToken, HttpResponseMessage response, int attemptCount)
+        {
+            if (response.StatusCode != (System.Net.HttpStatusCode)429)
+            {
+                return false;
+            }
+
+            long? rateLimitReset = DefaultRequestExecutor.GetHeaderValue<long?>(response.Headers, "X-Rate-Limit-Reset");
+            int? rateLimitLimit = DefaultRequestExecutor.GetHeaderValue<int?>(response.Headers, "X-Rate-Limit-Limit");
+            int? rateLimitRemaining = DefaultRequestExecutor.GetHeaderValue<int?>(response.Headers, "X-Rate-Limit-Remaining");
+
+            if (rateLimitReset == null || rateLimitLimit == null || rateLimitRemaining == null)
+            {
+                _logger.LogTrace($"Rate limit exceeded, but expected rate-limit headers were missing");
+                return false;
+            }
+
+            DateTimeOffset rateLimitResetTime = DateTimeOffset.FromUnixTimeSeconds(rateLimitReset.Value);
+
+            _logger.LogTrace($"Rate limit exceeded. Limit {rateLimitLimit}, remaining {rateLimitRemaining}, reset time {rateLimitResetTime}, attempt count {attemptCount}");
+
+            if (attemptCount >= _retryLimit)
+            {
+                _logger.LogTrace($"Retry limit exceeded");
+                return false;
+            }
+
+            int delay = 0;
+
+            if (rateLimitLimit == 0 && rateLimitRemaining == 0)
+            {
+                // Concurrent rate limit has been hit. Perform exponential back-off
+                delay = (attemptCount * 1000) + randomNumberGenerator.Next(1000);
+                _logger.LogTrace($"Backing off request attempt {attemptCount} for {delay} milliseconds");
+            }
+            else
+            {
+                // Org-wide rate limit has been hit. Wait until the limit reset time
+                TimeSpan delaySpan = rateLimitResetTime.Subtract(DateTimeOffset.UtcNow);
+                _logger.LogTrace($"Delaying request attempt {attemptCount} for {delaySpan} before retrying");
+                delay = (int)delaySpan.TotalMilliseconds + (attemptCount * 1000) + randomNumberGenerator.Next(1000);
+            }
+
+            delay = Math.Max(delay, 1000);
+
+            await Task.Delay(delay, cancellationToken).ConfigureAwait(false);
+
+            return true;
+        }
+
+        private static T GetHeaderValue<T>(HttpResponseHeaders headers, string name)
+        {
+            string valueString = headers.FirstOrDefault(t => t.Key == name).Value?.FirstOrDefault();
+
+            if (valueString == null)
+            {
+                return default(T);
+            }
+
+            TypeConverter converter = TypeDescriptor.GetConverter(typeof(T));
+
+            return (T)converter.ConvertFromString(null, CultureInfo.InvariantCulture, valueString);
         }
 
         private static void ApplyHeadersToRequest(HttpRequestMessage request, IEnumerable<KeyValuePair<string, string>> headers)
@@ -171,10 +261,13 @@ namespace Okta.Sdk.Internal
         {
             var path = EnsureRelativeUrl(href);
 
-            var request = new HttpRequestMessage(HttpMethod.Get, new Uri(path, UriKind.Relative));
-            ApplyHeadersToRequest(request, headers);
-
-            return SendAsync(request, cancellationToken);
+            return SendAsync(
+                () =>
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Get, new Uri(path, UriKind.Relative));
+                    ApplyHeadersToRequest(request, headers);
+                    return request;
+                }, cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -182,14 +275,18 @@ namespace Okta.Sdk.Internal
         {
             var path = EnsureRelativeUrl(href);
 
-            var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
-            ApplyHeadersToRequest(request, headers);
+            return SendAsync(
+                () =>
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Post, new Uri(path, UriKind.Relative));
+                    ApplyHeadersToRequest(request, headers);
 
-            request.Content = string.IsNullOrEmpty(body)
-                ? null
-                : new StringContent(body, System.Text.Encoding.UTF8, "application/json");
+                    request.Content = string.IsNullOrEmpty(body)
+                        ? null
+                        : new StringContent(body, System.Text.Encoding.UTF8, "application/json");
 
-            return SendAsync(request, cancellationToken);
+                    return request;
+                }, cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -197,14 +294,18 @@ namespace Okta.Sdk.Internal
         {
             var path = EnsureRelativeUrl(href);
 
-            var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
-            ApplyHeadersToRequest(request, headers);
+            return SendAsync(
+                () =>
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Put, new Uri(path, UriKind.Relative));
+                    ApplyHeadersToRequest(request, headers);
 
-            request.Content = string.IsNullOrEmpty(body)
-                ? null
-                : new StringContent(body, System.Text.Encoding.UTF8, "application/json");
+                    request.Content = string.IsNullOrEmpty(body)
+                        ? null
+                        : new StringContent(body, System.Text.Encoding.UTF8, "application/json");
 
-            return SendAsync(request, cancellationToken);
+                    return request;
+                }, cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -212,10 +313,14 @@ namespace Okta.Sdk.Internal
         {
             var path = EnsureRelativeUrl(href);
 
-            var request = new HttpRequestMessage(HttpMethod.Delete, new Uri(path, UriKind.Relative));
-            ApplyHeadersToRequest(request, headers);
 
-            return SendAsync(request, cancellationToken);
+            return SendAsync(
+                () =>
+                {
+                    var request = new HttpRequestMessage(HttpMethod.Delete, new Uri(path, UriKind.Relative));
+                    ApplyHeadersToRequest(request, headers);
+                    return request;
+                }, cancellationToken);
         }
     }
 }
