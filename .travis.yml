@@ -1,6 +1,4 @@
 language: csharp
-dotnet: 1.0.4 # .NET Core
-mono: none
 dist: trusty
 script:
   - ./build.sh
