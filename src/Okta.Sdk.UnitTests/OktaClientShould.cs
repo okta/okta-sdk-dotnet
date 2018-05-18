@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -27,7 +28,7 @@ namespace Okta.Sdk.UnitTests
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
-                new ResourceFactory(null, null),
+                new ResourceFactory(null, NullLogger.Instance),
                 NullLogger.Instance);
 
             var client = new TestableOktaClient(dataStore);
@@ -43,6 +44,86 @@ namespace Okta.Sdk.UnitTests
 
             items.ElementAt(2).Foo.Should().Be("foo3");
             items.ElementAt(2).Bar.Should().Be(false);
+        }
+
+        [Fact]
+        public async Task ThrowApiExceptionFor4xx()
+        {
+            var rawErrorResponse = @"
+{
+    ""errorCode"": ""E0000011"",
+    ""errorSummary"": ""Invalid token provided"",
+    ""errorLink"": ""E0000011"",
+    ""errorId"": ""oaelUIU6UZ_RxuqVbi3pxR1ag"",
+    ""errorCauses"": []
+}";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawErrorResponse, 400);
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, NullLogger.Instance),
+                NullLogger.Instance);
+
+            var client = new TestableOktaClient(dataStore);
+
+            try
+            {
+                await client.Users.GetUserAsync("12345");
+            }
+            catch (OktaApiException apiException)
+            {
+                apiException.Message.Should().Be("Invalid token provided");
+                apiException.ErrorCode.Should().Be("E0000011");
+                apiException.ErrorSummary.Should().Be("Invalid token provided");
+                apiException.ErrorLink.Should().Be("E0000011");
+                apiException.ErrorId.Should().Be("oaelUIU6UZ_RxuqVbi3pxR1ag");
+                apiException.ErrorId.Should().NotBeNullOrEmpty();
+                apiException.DetailedMessage.Should().Be("400: Invalid token provided");
+            }
+        }
+
+        [Fact]
+        public async Task IncludeErrorCausesInApiException()
+        {
+            var rawErrorResponse = @"
+{
+    ""errorCode"": ""E0000001"",
+    ""errorSummary"": ""Api validation failed"",
+    ""errorLink"": ""E0000001"",
+    ""errorId"": ""oae3xUDal8cTr-_k3gWnVmXhQ"",
+    ""errorCauses"": [
+        {
+            ""errorSummary"": ""Password requirements were not met.""
+        },
+        {
+            ""errorSummary"": ""Another bad thing that happened""
+        }
+    ]
+}";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawErrorResponse, 500);
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, NullLogger.Instance),
+                NullLogger.Instance);
+
+            var client = new TestableOktaClient(dataStore);
+
+            try
+            {
+                await client.GetAsync<Resource>("/something");
+            }
+            catch (OktaApiException apiException)
+            {
+                apiException.Message.Should().Be("Api validation failed");
+                apiException.DetailedMessage.Should().Be("500: Api validation failed. Causes: 'Password requirements were not met.', 'Another bad thing that happened'");
+
+                var causes = apiException.ErrorCauses.ToArray();
+
+                causes.Should().HaveCount(2);
+                causes.First().ErrorSummary.Should().Be("Password requirements were not met.");
+                causes.Last().ErrorSummary.Should().Be("Another bad thing that happened");
+            }
         }
     }
 }

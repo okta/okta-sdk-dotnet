@@ -154,7 +154,7 @@ namespace Okta.Sdk.Internal
                 throw new InvalidOperationException($"An error occurred deserializing the error body for response code {response.StatusCode}. See the inner exception for details.", ex);
             }
 
-            throw new OktaApiException(response.StatusCode, _resourceFactory.CreateNew<Resource>(errorData));
+            throw new OktaApiException(response.StatusCode, _resourceFactory.CreateNew<ApiError>(errorData));
         }
 
         private void PrepareRequest(HttpRequest request, RequestContext context)

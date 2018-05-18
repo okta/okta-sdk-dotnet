@@ -219,6 +219,37 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void AccessListOfResources()
+        {
+            var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["profiles"] = new List<object>()
+                {
+                    new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+                    {
+                        ["firstName"] = "John",
+                        ["lastName"] = "Foobar",
+                    },
+                    new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+                    {
+                        ["firstName"] = "Jane",
+                        ["lastName"] = "Qux",
+                    },
+                },
+            };
+
+            var factory = new ResourceFactory(null, null);
+            var resource = factory.CreateNew<Resource>(data);
+
+            var profiles = resource.GetArrayProperty<UserProfile>("profiles");
+            profiles.Should().HaveCount(2);
+            profiles.First().FirstName.Should().Be("John");
+            profiles.First().LastName.Should().Be("Foobar");
+            profiles.Last().FirstName.Should().Be("Jane");
+            profiles.Last().LastName.Should().Be("Qux");
+        }
+
+        [Fact]
         public void RoundtripListProperty()
         {
             var factory = new ResourceFactory(null, null);
