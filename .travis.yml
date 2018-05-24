@@ -1,20 +1,9 @@
 language: csharp
-mono: latest # Necessary for Cake and DocFx (for now)
 dotnet: 1.0.4 # .NET Core
+mono: latest
 dist: trusty
 script:
   - ./build.sh
-  - if [[ $DEPLOY_DOCS ]]; then ./build.sh --target Docs; fi
-deploy:
-- provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: docs/temp
-  email: deploy-dotnet@okta.com
-  name: ".NET Deployment Bot"
-  on:
-    condition: "$DEPLOY_DOCS = true"
-    tags: true
 env:
   global:
     secure: Nn2fgkaM5WjJiGtjAqPnFH2ULzef+lxemF8TgVaWysshgYWx3G8p70a1sm7tAzw15WQAeg7kGszSdpQqaVOd1fS7Hu7DoGexQcOJmHpoRZn6a50cxIc/2AFAcbW1Ar051Cl3KnNc+9b6L8KcOjAmDs4CMXHrg7BTsiqKbDoCuns=
