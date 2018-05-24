@@ -22,11 +22,19 @@ namespace Okta.Sdk
         /// <param name="statusCode">The HTTP status code.</param>
         /// <param name="error">The error data.</param>
         public OktaApiException(int statusCode, IApiError error)
-            : base(message: error.ErrorSummary)
+            : base(message: GetDetailedErrorMessage(statusCode, error))
         {
             StatusCode = statusCode;
             _error = error;
         }
+
+        /// <summary>
+        /// Gets the error object returned by the Okta API.
+        /// </summary>
+        /// <value>
+        /// The error object returned by the Okta API.
+        /// </value>
+        public IApiError Error => _error;
 
         /// <summary>
         /// Gets the HTTP status code.
@@ -37,27 +45,7 @@ namespace Okta.Sdk
         public int StatusCode { get; }
 
         /// <summary>
-        /// Gets a detailed error message, including the HTTP status code and error causes.
-        /// </summary>
-        /// <value>A detailed error message.</value>
-        public string DetailedMessage
-        {
-            get
-            {
-                var message = $"{StatusCode}: {_error.ErrorSummary}";
-
-                var hasErrorCauses = _error?.ErrorCauses?.Any() ?? false;
-                if (hasErrorCauses)
-                {
-                    message += $". Causes: {string.Join(", ", _error.ErrorCauses.Select(x => $"'{x.ErrorSummary}'"))}";
-                }
-
-                return message;
-            }
-        }
-
-        /// <summary>
-        /// Gets the error code from the API error response.
+        /// Gets the error code from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error code.
@@ -65,7 +53,7 @@ namespace Okta.Sdk
         public string ErrorCode => _error?.ErrorCode;
 
         /// <summary>
-        /// Gets the error summary from the API error response.
+        /// Gets the error summary from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error summary.
@@ -73,7 +61,7 @@ namespace Okta.Sdk
         public string ErrorSummary => _error?.ErrorSummary;
 
         /// <summary>
-        /// Gets the error link from the API error response.
+        /// Gets the error link from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error link.
@@ -81,7 +69,7 @@ namespace Okta.Sdk
         public string ErrorLink => _error?.ErrorLink;
 
         /// <summary>
-        /// Gets the error ID from the API error response.
+        /// Gets the error ID from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error ID.
@@ -89,11 +77,25 @@ namespace Okta.Sdk
         public string ErrorId => _error?.ErrorId;
 
         /// <summary>
-        /// Gets the list of error causes from the API error response.
+        /// Gets the list of error causes from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The list of error causes.
         /// </value>
         public IEnumerable<IApiErrorCause> ErrorCauses => _error?.ErrorCauses;
+
+        private static string GetDetailedErrorMessage(int statusCode, IApiError error)
+        {
+            var baseMessage = $"{error.ErrorSummary} ({statusCode}, {error.ErrorCode})";
+
+            var hasErrorCauses = error?.ErrorCauses?.Any() ?? false;
+            if (!hasErrorCauses)
+            {
+                return baseMessage;
+            }
+
+            var causes = string.Join(", ", error.ErrorCauses.Select(x => $"{x.ErrorSummary}"));
+            return $"{baseMessage}: {causes}";
+        }
     }
 }

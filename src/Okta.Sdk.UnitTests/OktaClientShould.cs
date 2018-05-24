@@ -72,13 +72,12 @@ namespace Okta.Sdk.UnitTests
             }
             catch (OktaApiException apiException)
             {
-                apiException.Message.Should().Be("Invalid token provided");
+                apiException.Message.Should().Be("Invalid token provided (400, E0000011)");
                 apiException.ErrorCode.Should().Be("E0000011");
                 apiException.ErrorSummary.Should().Be("Invalid token provided");
                 apiException.ErrorLink.Should().Be("E0000011");
                 apiException.ErrorId.Should().Be("oaelUIU6UZ_RxuqVbi3pxR1ag");
-                apiException.ErrorId.Should().NotBeNullOrEmpty();
-                apiException.DetailedMessage.Should().Be("400: Invalid token provided");
+                apiException.Error.Should().NotBeNull();
             }
         }
 
@@ -115,11 +114,11 @@ namespace Okta.Sdk.UnitTests
             }
             catch (OktaApiException apiException)
             {
-                apiException.Message.Should().Be("Api validation failed");
-                apiException.DetailedMessage.Should().Be("500: Api validation failed. Causes: 'Password requirements were not met.', 'Another bad thing that happened'");
+                var expectedMessage = "Api validation failed (500, E0000001): Password requirements were not met., Another bad thing that happened";
+                apiException.Message.Should().Be(expectedMessage);
+                apiException.ToString().Should().StartWith($"Okta.Sdk.OktaApiException: {expectedMessage}");
 
                 var causes = apiException.ErrorCauses.ToArray();
-
                 causes.Should().HaveCount(2);
                 causes.First().ErrorSummary.Should().Be("Password requirements were not met.");
                 causes.Last().ErrorSummary.Should().Be("Another bad thing that happened");

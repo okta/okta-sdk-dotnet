@@ -91,7 +91,10 @@ namespace Okta.Sdk.IntegrationTests
             }
             catch (OktaApiException apiException)
             {
-                apiException.Message.Should().Be("Invalid token provided");
+                apiException.Message.Should().Be("Invalid token provided (400, E0000011)");
+
+                apiException.Error.Should().NotBeNull();
+                apiException.Error.ErrorCode.Should().Be("E0000011");
             }
         }
     }
