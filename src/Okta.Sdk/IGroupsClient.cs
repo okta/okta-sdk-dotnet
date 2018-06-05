@@ -19,5 +19,7 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken));
+
+        IAsyncEnumerable<IUser> ListGroupUsersSkinny(string groupId, string after = null, int? limit = -1);
     }
 }
