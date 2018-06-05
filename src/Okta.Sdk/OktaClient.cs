@@ -45,15 +45,14 @@ namespace Okta.Sdk
         public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null)
         {
             var compiled = CompileFromConfigurationSources(apiClientConfiguration);
-            var config = new OktaClientConfiguration();
-            compiled.GetSection("okta").GetSection("client").Bind(config);
+            Configuration = new OktaClientConfiguration();
+            compiled.GetSection("okta").GetSection("client").Bind(Configuration);
 
-            ThrowIfInvalidConfiguration(config);
-            Configuration = config.DeepClone();
+            ThrowIfInvalidConfiguration(Configuration);
 
             logger = logger ?? NullLogger.Instance;
 
-            var requestExecutor = new DefaultRequestExecutor(config, logger);
+            var requestExecutor = new DefaultRequestExecutor(Configuration, logger);
             var resourceFactory = new ResourceFactory(this, logger);
             _dataStore = new DefaultDataStore(requestExecutor, new DefaultSerializer(), resourceFactory, logger);
         }

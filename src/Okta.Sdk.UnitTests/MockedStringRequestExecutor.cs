@@ -14,18 +14,20 @@ namespace Okta.Sdk.UnitTests
     public class MockedStringRequestExecutor : IRequestExecutor
     {
         private readonly string _returnThis;
+        private readonly int _statusCode;
 
         public string OrgUrl => throw new NotImplementedException();
 
-        public MockedStringRequestExecutor(string returnThis)
+        public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
         {
             _returnThis = returnThis ?? throw new ArgumentNullException(nameof(returnThis));
+            _statusCode = statusCode;
         }
 
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
             => Task.FromResult(new HttpResponse<string>
             {
-                StatusCode = 200,
+                StatusCode = _statusCode,
                 Payload = _returnThis,
             });
 
