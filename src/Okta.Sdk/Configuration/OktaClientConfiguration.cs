@@ -54,6 +54,14 @@ namespace Okta.Sdk.Configuration
         /// <remarks>An API token can be generated from the Okta developer dashboard.</remarks>
         public string Token { get; set; }
 
+        /// <summary>
+        /// Gets or sets the amount of times the client will retry after experiencing an API rate-limit
+        /// </summary>
+        /// <value>
+        /// The number of times to retry after experiencing an API rate-limit
+        /// </value>
+        public int MaximumRateLimitRetryAttempts { get; set; } = 8;
+
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
@@ -62,6 +70,7 @@ namespace Okta.Sdk.Configuration
                 OrgUrl = this.OrgUrl,
                 Token = this.Token,
                 Proxy = this.Proxy?.DeepClone(),
+                MaximumRateLimitRetryAttempts = this.MaximumRateLimitRetryAttempts,
             };
     }
 }
