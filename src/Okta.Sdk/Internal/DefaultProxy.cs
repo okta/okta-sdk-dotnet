@@ -32,7 +32,7 @@ namespace Okta.Sdk.Internal
 
             if (!string.IsNullOrEmpty(proxyConfiguration.Username) || !string.IsNullOrEmpty(proxyConfiguration.Password))
             {
-                logger.LogInformation("Using supplied proxy credentials");
+                logger.LogTrace("Using supplied proxy credentials");
                 _credentials = new NetworkCredential(proxyConfiguration.Username, proxyConfiguration.Password);
             }
 
@@ -44,7 +44,7 @@ namespace Okta.Sdk.Internal
                 host = $"{host}:{port}";
             }
 
-            logger.LogInformation($"Using proxy host {host}");
+            logger.LogTrace($"Using proxy host {host}");
             _proxyUri = new Uri(host, UriKind.Absolute);
         }
 

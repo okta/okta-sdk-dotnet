@@ -5,10 +5,10 @@
 
 using System;
 using System.Linq;
+using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Microsoft.Extensions.Logging.Abstractions;
-using Okta.Sdk.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -18,6 +18,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public async Task GetCollection()
         {
+            // Arrange
             var testItems = new[]
             {
                 new TestResource { Foo = "foo1" },
@@ -25,16 +26,12 @@ namespace Okta.Sdk.UnitTests
                 new TestResource { Foo = "foo3", Bar = false },
             };
             var mockRequestExecutor = new MockedCollectionRequestExecutor<TestResource>(pageSize: 2, items: testItems);
-            var dataStore = new DefaultDataStore(
-                mockRequestExecutor,
-                new DefaultSerializer(),
-                new ResourceFactory(null, NullLogger.Instance),
-                NullLogger.Instance);
+            var client = new TestableOktaClient(mockRequestExecutor);
 
-            var client = new TestableOktaClient(dataStore);
-
+            // Act
             var items = await client.GetCollection<TestResource>("https://stuff").ToArray();
 
+            // Assert
             items.Count().Should().Be(3);
             items.ElementAt(0).Foo.Should().Be("foo1");
             items.ElementAt(0).Bar.Should().BeNull();
@@ -58,13 +55,7 @@ namespace Okta.Sdk.UnitTests
     ""errorCauses"": []
 }";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawErrorResponse, 400);
-            var dataStore = new DefaultDataStore(
-                mockRequestExecutor,
-                new DefaultSerializer(),
-                new ResourceFactory(null, NullLogger.Instance),
-                NullLogger.Instance);
-
-            var client = new TestableOktaClient(dataStore);
+            var client = new TestableOktaClient(mockRequestExecutor);
 
             try
             {
@@ -100,13 +91,7 @@ namespace Okta.Sdk.UnitTests
     ]
 }";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawErrorResponse, 500);
-            var dataStore = new DefaultDataStore(
-                mockRequestExecutor,
-                new DefaultSerializer(),
-                new ResourceFactory(null, NullLogger.Instance),
-                NullLogger.Instance);
-
-            var client = new TestableOktaClient(dataStore);
+            var client = new TestableOktaClient(mockRequestExecutor);
 
             try
             {
@@ -122,6 +107,29 @@ namespace Okta.Sdk.UnitTests
                 causes.Should().HaveCount(2);
                 causes.First().ErrorSummary.Should().Be("Password requirements were not met.");
                 causes.Last().ErrorSummary.Should().Be("Another bad thing that happened");
+
+            }
+        }
+
+        [Fact]
+        public void UsePassedHttpClient()
+        {
+            var testableClient = new TestableHttpClient();
+            var client = new OktaClient(
+                TestableOktaClient.DefaultFakeConfiguration,
+                testableClient);
+
+            Func<Task> act = async () => await client.Users.GetUserAsync("foobar");
+
+            act.Should().Throw<NotImplementedException>()
+                .WithMessage("Used the client!");
+        }
+
+        public class TestableHttpClient : System.Net.Http.HttpClient
+        {
+            public override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+            {
+                throw new NotImplementedException("Used the client!");
             }
         }
     }
