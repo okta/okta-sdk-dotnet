@@ -21,7 +21,7 @@ Need help? Contact [developers@okta.com](mailto:developers@okta.com) or use the 
 
 ## API reference
 
-You can browse the [SDK reference documentation](https://developer.okta.com/okta-sdk-dotnet/latest/api/index.html) to understand what classes and methods are available, Or, read below to see how to accomplish common tasks.
+You can browse the [SDK reference documentation](https://developer.okta.com/okta-sdk-dotnet/latest/api/index.html) to understand what classes and methods are available. Or, read below to see how to accomplish common tasks.
 
 ## Installation
 
