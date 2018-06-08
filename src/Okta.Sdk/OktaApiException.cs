@@ -3,26 +3,38 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System.Collections.Generic;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+
 namespace Okta.Sdk
 {
     /// <summary>
-    /// Represents an error returned by the Okta API.
+    /// An exception wrapping an error returned by the Okta API.
     /// </summary>
     public class OktaApiException : OktaException
     {
-        private readonly Resource _resource = new Resource();
+        private readonly IApiError _error;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="OktaApiException"/> class.
         /// </summary>
         /// <param name="statusCode">The HTTP status code.</param>
-        /// <param name="data">The error data.</param>
-        public OktaApiException(int statusCode, Resource data)
-            : base(message: data.GetProperty<string>(nameof(ErrorSummary)))
+        /// <param name="error">The error data.</param>
+        public OktaApiException(int statusCode, IApiError error)
+            : base(message: GetDetailedErrorMessage(statusCode, error))
         {
             StatusCode = statusCode;
-            _resource = data;
+            _error = error;
         }
+
+        /// <summary>
+        /// Gets the error object returned by the Okta API.
+        /// </summary>
+        /// <value>
+        /// The error object returned by the Okta API.
+        /// </value>
+        public IApiError Error => _error;
 
         /// <summary>
         /// Gets the HTTP status code.
@@ -33,37 +45,57 @@ namespace Okta.Sdk
         public int StatusCode { get; }
 
         /// <summary>
-        /// Gets the error code from the Okta error details.
+        /// Gets the error code from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error code.
         /// </value>
-        public string ErrorCode => _resource.GetProperty<string>(nameof(ErrorCode));
+        public string ErrorCode => _error?.ErrorCode;
 
         /// <summary>
-        /// Gets the error summary from the Okta error details.
+        /// Gets the error summary from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error summary.
         /// </value>
-        public string ErrorSummary => _resource.GetProperty<string>(nameof(ErrorSummary));
+        public string ErrorSummary => _error?.ErrorSummary;
 
         /// <summary>
-        /// Gets the error link from the Okta error details.
+        /// Gets the error link from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error link.
         /// </value>
-        public string ErrorLink => _resource.GetProperty<string>(nameof(ErrorLink));
+        public string ErrorLink => _error?.ErrorLink;
 
         /// <summary>
-        /// Gets the error ID from the Okta error details.
+        /// Gets the error ID from the <see cref="Error"/> object.
         /// </summary>
         /// <value>
         /// The error ID.
         /// </value>
-        public string ErrorId => _resource.GetProperty<string>(nameof(ErrorId));
+        public string ErrorId => _error?.ErrorId;
 
-        // TODO errorCauses (list of ?)
+        /// <summary>
+        /// Gets the list of error causes from the <see cref="Error"/> object.
+        /// </summary>
+        /// <value>
+        /// The list of error causes.
+        /// </value>
+        public IEnumerable<IApiErrorCause> ErrorCauses => _error?.ErrorCauses;
+
+        private static string GetDetailedErrorMessage(int statusCode, IApiError error)
+        {
+            var baseMessage = $"{error.ErrorSummary} ({statusCode}, {error.ErrorCode})";
+
+            var hasErrorCauses = error?.ErrorCauses?.Any() ?? false;
+            if (!hasErrorCauses)
+            {
+                return baseMessage;
+            }
+
+            var causes = string.Join(", ", error.ErrorCauses.Select(x => $"{x.ErrorSummary}"));
+            return $"{baseMessage}: {causes}";
+        }
     }
 }

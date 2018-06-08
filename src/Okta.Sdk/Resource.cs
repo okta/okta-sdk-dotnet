@@ -15,8 +15,8 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public class Resource : IResource
     {
-        private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
-        private static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
+        internal static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
+        internal static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
 
         private readonly ResourceBehavior _dictionaryType;
         private IOktaClient _client;
@@ -262,7 +262,7 @@ namespace Okta.Sdk
                 return null;
             }
 
-            return new CastingListAdapter<T>(genericList, _logger);
+            return new CastingListAdapter<T>(genericList, _resourceFactory, _logger);
         }
 
         /// <summary>

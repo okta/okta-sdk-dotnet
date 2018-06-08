@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Microsoft.Extensions.Logging;
 
 namespace Okta.Sdk.Internal
@@ -18,6 +19,8 @@ namespace Okta.Sdk.Internal
     public sealed class CastingListAdapter<T> : IList<T>
     {
         private readonly IList<object> _genericList;
+        private readonly ResourceFactory _resourceFactory;
+        private readonly TypeInfo _targetTypeInfo;
         private readonly ILogger _logger;
 
         /// <summary>
@@ -25,14 +28,24 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="genericList">The generic list to wrap.</param>
         /// <param name="logger">The logging interface.</param>
-        public CastingListAdapter(IList<object> genericList, ILogger logger)
+        public CastingListAdapter(IList<object> genericList, ResourceFactory resourceFactory, ILogger logger)
         {
             _genericList = genericList;
+            _resourceFactory = resourceFactory;
+            _targetTypeInfo = typeof(T).GetTypeInfo();
             _logger = logger;
         }
 
         private T Cast(object item)
         {
+            var isResource = Resource.ResourceTypeInfo.IsAssignableFrom(_targetTypeInfo);
+            if (isResource)
+            {
+                var nestedData = item as IDictionary<string, object>;
+                return _resourceFactory.CreateFromExistingData<T>(nestedData);
+            }
+
+            // Fall back to primitive conversion
             try
             {
                 return (T)Convert.ChangeType(item, typeof(T));
