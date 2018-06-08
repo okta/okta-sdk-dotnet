@@ -19,9 +19,12 @@ The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) conta
 
 Need help? Contact [developers@okta.com](mailto:developers@okta.com) or use the [Okta Developer Forum].
 
-See this project's documentation on the [API Reference section](https://developer.okta.com/okta-sdk-dotnet/latest/api/index.html).
+## API reference
+
+You can browse the [SDK reference documentation] to understand what classes and methods are available, Or, read below to see how to accomplish common tasks.
 
 ## Installation
+
 ### Using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
  2. Search for Okta. Install the `Okta.Sdk` package.
