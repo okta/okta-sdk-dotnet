@@ -1,3 +1,7 @@
+[<img src="https://devforum.okta.com/uploads/oktadev/original/1X/bf54a16b5fda189e4ad2706fb57cbb7a1e5b8deb.png" align="right" width="256px"/>](https://devforum.okta.com/)
+
+[![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)](https://devforum.okta.com/)
+
 # Okta .NET SDK
 
 This repository contains the Okta Management SDK for .NET (C# and Visual Basic). This SDK can be used in your server code to create and update users, manage groups and roles, and more.
@@ -14,6 +18,8 @@ The 1.x version of this library is under active development.  Some of the API is
 The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) contains the previous version of the SDK. It is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3). This older version has GA support, but only bug fixes will be applied.
 
 Need help? Contact [developers@okta.com](mailto:developers@okta.com) or use the [Okta Developer Forum].
+
+See this project's documentation on the [API Reference section](https://developer.okta.com/okta-sdk-dotnet/latest/api/index.html).
 
 ## Installation
 ### Using Nuget Package Manager
