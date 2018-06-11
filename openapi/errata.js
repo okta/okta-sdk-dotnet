@@ -20,26 +20,34 @@ const propertyErrata = [
   { path: 'WebFactor.profile', hidesBaseMember: true },
 ];
 
-function getRenamedProperty(fullPath) {
-  let errata = propertyErrata.find(x => x.path === fullPath);
-  if (!errata) return;
-  if (!errata.rename) return;
+function applyPropertyErrata(existingProperty) {
+  let exists = existingProperty && existingProperty.fullPath;
+  if (!exists) return existingProperty;
 
-  return {
-    displayName: errata.rename,
-    reason: errata.renameReason
+  let errataDescriptions = {};
+  let errata = propertyErrata.find(x => x.path === existingProperty.fullPath);
+  if (!errata) return existingProperty;
+
+  if (errata.rename) {
+    existingProperty.wasRenamed = true;
+    existingProperty.displayName = errata.rename;
+    errataDescriptions.renameReason = errata.renameReason;
   }
+
+  if (errata.hidesBaseMember) {
+    existingProperty.hidesBaseMember = true;
+  }
+
+  if (errata.skip) {
+    existingProperty.hidden = true;
+    errataDescriptions.skipReason = errata.skipReason;
+  }
+
+  existingProperty.errataDescriptions = errataDescriptions;
+  return existingProperty;
 }
 
-function shouldHideBaseMember(fullPath) {
-  let errata = propertyErrata.find(x => x.path === fullPath);
-  if (!errata) return;
-  if (!errata.hidesBaseMember) return;
-
-  return true;
-}
-
-function shouldSkipProperty(property) {
+function isPropertyUnsupported(property) {
   if (property.model && property.model === 'object') {
     return {
       reason: 'object properties are not supported'
@@ -52,13 +60,7 @@ function shouldSkipProperty(property) {
     };
   }
 
-  let propertyDetails = propertyErrata.find(x => x.path == property.fullPath);
-  if (!propertyDetails) return null;
-  if (!propertyDetails.skip) return null;
-
-  return {
-    reason: propertyDetails.skipReason
-  };
+  return false;
 }
 
 const modelMethodSkipList = [
@@ -100,8 +102,7 @@ function shouldSkipOperation(operationId) {
   };
 }
 
-module.exports.shouldSkipProperty = shouldSkipProperty;
+module.exports.applyPropertyErrata = applyPropertyErrata;
+module.exports.isPropertyUnsupported = isPropertyUnsupported;
 module.exports.shouldSkipModelMethod = shouldSkipModelMethod;
-module.exports.getRenamedProperty = getRenamedProperty;
-module.exports.shouldHideBaseMember = shouldHideBaseMember;
 module.exports.shouldSkipOperation = shouldSkipOperation;

@@ -11,10 +11,9 @@ const {
 } = require('./utils');
 
 const {
-  shouldSkipProperty,
-  shouldSkipModelMethod,
-  shouldHideBaseMember,
-  getRenamedProperty
+  isPropertyUnsupported,
+  applyPropertyErrata,
+  shouldSkipModelMethod
 } = require('./errata');
 
 const { createContextForEnum } = require('./processEnum');
@@ -37,19 +36,22 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     model.properties = model.properties.map(property =>
     {
       property.fullPath = `${model.modelName}.${property.propertyName}`;
-      property.hidesBaseMember = shouldHideBaseMember(property.fullPath);
 
-      let shouldSkip = shouldSkipProperty(property);
-      if (shouldSkip) {
-        infoLogger(`Skipping property ${property.fullPath}`, `Reason: ${shouldSkip.reason}`);
-        property.hidden = true;
+      // See errata.js
+      property = applyPropertyErrata(property);
+
+      if (property.hidden) {
+        infoLogger(`Skipping property ${property.fullPath}`, `Reason: ${property.errataDescriptions.skipReason}`);
       }
 
-      let renamedProperty = getRenamedProperty(property.fullPath);
-      let isRenamed = renamedProperty && renamedProperty.displayName !== property.displayName;
-      if (isRenamed) {
-        infoLogger(`Renaming property ${property.fullPath} to ${renamedProperty.displayName}`, `(Reason: ${renamedProperty.reason})`);
-        property.displayName = renamedProperty.displayName;
+      if (property.wasRenamed) {
+        infoLogger(`Renaming property ${property.fullPath} to ${property.displayName}`, `(Reason: ${property.errataDescriptions.renameReason})`);
+      }
+
+      let unsupported = isPropertyUnsupported(property);
+      if (unsupported) {
+        infoLogger(`Skipping unsupported property ${property.fullPath}`, `Reason: ${unsupported.reason}`);
+        property.hidden = true;
       }
 
       return property;
