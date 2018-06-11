@@ -19,7 +19,14 @@ const propertyErrata = [
   { path: 'TotpFactor.profile', hidesBaseMember: true },
   { path: 'WebFactor.profile', hidesBaseMember: true },
 
-  { path: 'BasicAuthApplication.name', type: 'string', typeReason: 'Spec does not define type for this property' }
+  { path: 'BasicAuthApplication.credentials', hidesBaseMember: true },
+  {
+    path: 'BasicAuthApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+   { path: 'BasicAuthApplication.settings', hidesBaseMember: true }
 ];
 
 function applyPropertyErrata(existingProperty, infoLogger) {
@@ -44,7 +51,7 @@ function applyPropertyErrata(existingProperty, infoLogger) {
   }
 
   if (errata.type) {
-    existingProperty.type = errata.type;
+    existingProperty.commonType = errata.type;
     infoLogger(`Errata: Explicitly setting type of ${existingProperty.fullPath} to '${errata.type}'`, `(Reason: ${errata.typeReason})`)
   }
 
