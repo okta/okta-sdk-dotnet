@@ -26,7 +26,8 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     .filter(model => model.extends)
     .map(model => model.extends));
 
-  // Preprocess all the models and enrich with extra data
+  // Preprocess all the models, apply errata, and enrich with extra data
+  // This is only step 1; the next step is createContextForModel() below
   models = models.map(model => {
     if (baseModelsList.has(model.modelName)) {
       model.isBaseModel = true;
@@ -37,16 +38,7 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     {
       property.fullPath = `${model.modelName}.${property.propertyName}`;
 
-      // See errata.js
-      property = applyPropertyErrata(property);
-
-      if (property.hidden) {
-        infoLogger(`Skipping property ${property.fullPath}`, `Reason: ${property.errataDescriptions.skipReason}`);
-      }
-
-      if (property.wasRenamed) {
-        infoLogger(`Renaming property ${property.fullPath} to ${property.displayName}`, `(Reason: ${property.errataDescriptions.renameReason})`);
-      }
+      property = applyPropertyErrata(property, infoLogger); // See errata.js
 
       let unsupported = isPropertyUnsupported(property);
       if (unsupported) {
