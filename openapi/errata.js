@@ -18,20 +18,20 @@ const propertyErrata = [
   { path: 'TokenFactor.profile', hidesBaseMember: true },
   { path: 'TotpFactor.profile', hidesBaseMember: true },
   { path: 'WebFactor.profile', hidesBaseMember: true },
+
+  { path: 'BasicAuthApplication.name', type: 'string', typeReason: 'Spec does not define type for this property' }
 ];
 
-function applyPropertyErrata(existingProperty) {
+function applyPropertyErrata(existingProperty, infoLogger) {
   let exists = existingProperty && existingProperty.fullPath;
   if (!exists) return existingProperty;
 
-  let errataDescriptions = {};
   let errata = propertyErrata.find(x => x.path === existingProperty.fullPath);
   if (!errata) return existingProperty;
 
   if (errata.rename) {
-    existingProperty.wasRenamed = true;
     existingProperty.displayName = errata.rename;
-    errataDescriptions.renameReason = errata.renameReason;
+    infoLogger(`Errata: Renaming property ${existingProperty.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
   }
 
   if (errata.hidesBaseMember) {
@@ -40,10 +40,14 @@ function applyPropertyErrata(existingProperty) {
 
   if (errata.skip) {
     existingProperty.hidden = true;
-    errataDescriptions.skipReason = errata.skipReason;
+    infoLogger(`Errata: Hiding property ${existingProperty.fullPath}`, `Reason: ${errata.skipReason}`)
   }
 
-  existingProperty.errataDescriptions = errataDescriptions;
+  if (errata.type) {
+    existingProperty.type = errata.type;
+    infoLogger(`Errata: Explicitly setting type of ${existingProperty.fullPath} to '${errata.type}'`, `(Reason: ${errata.typeReason})`)
+  }
+
   return existingProperty;
 }
 
