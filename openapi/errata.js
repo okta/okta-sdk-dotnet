@@ -26,7 +26,53 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
-   { path: 'BasicAuthApplication.settings', hidesBaseMember: true }
+   { path: 'BasicAuthApplication.settings', hidesBaseMember: true },
+
+   {
+    path: 'BookmarkApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'OpenIdConnectApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'SecurePasswordStoreApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'SwaApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'SwaThreeFieldApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'WsFederationApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },
+   { path: 'OktaClient.applications', skip: true, skipReason: 'Not currently supported' },
+   
 ];
 
 function applyPropertyErrata(existingProperty, infoLogger) {
