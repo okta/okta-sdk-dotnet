@@ -11,7 +11,7 @@ namespace Okta.Sdk.IntegrationTests
     /// This collection is used group all integration tests that can run against a single shared instance of a local test server.
     /// </summary>
     [CollectionDefinition(nameof(ScenariosCollection))]
-    public sealed class ScenariosCollection : ICollectionFixture<LocalServerFixture>
+    public sealed class ScenariosCollection
     {
         // Intentionally left blank. This class only serves as an anchor for CollectionDefinition.
     }
