@@ -71,8 +71,6 @@ const propertyErrata = [
    },
 
    { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },
-   { path: 'OktaClient.applications', skip: true, skipReason: 'Not currently supported' },
-   
 ];
 
 function applyPropertyErrata(existingProperty, infoLogger) {
