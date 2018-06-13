@@ -58,11 +58,16 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
         method.hidden = true;
         infoLogger(`Skipping model method ${method.fullPath} (Reason: ${shouldSkip.reason})`);
       }
-
-      method.operation.pathParams = method.operation.pathParams || [];
-      method.operation.queryParams = method.operation.queryParams || [];
-      method.operation.allParams = method.operation.pathParams
+    
+      if(method.operation != null) {
+        method.operation.pathParams = method.operation.pathParams || [];
+        method.operation.queryParams = method.operation.queryParams || [];
+        method.operation.allParams = method.operation.pathParams
         .concat(method.operation.queryParams);
+      }
+      else {
+        infoLogger(`Method operation undefined ${method.fullPath}`);
+      }
 
       return method;
     });

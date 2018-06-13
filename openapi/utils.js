@@ -14,6 +14,7 @@ function getType(specType) {
     case 'integer': return 'int?';
     case 'dateTime': return 'DateTimeOffset?';
     case 'double': return 'double?';
+    case 'password': return 'string';
     default: return specType;
   }
 };

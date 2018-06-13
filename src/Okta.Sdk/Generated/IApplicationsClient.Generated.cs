@@ -69,15 +69,6 @@ namespace Okta.Sdk
         IAsyncEnumerable<IJsonWebKey> ListApplicationKeys(string appId);
 
         /// <summary>
-        /// Generates a new X.509 certificate for an application key credential
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="validityYears">expiry of the Application Key Credential</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets a specific [application key credential](#application-key-credential-model) by &#x60;kid&#x60;
         /// </summary>
         /// <param name="appId"></param>

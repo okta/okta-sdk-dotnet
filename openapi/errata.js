@@ -132,6 +132,7 @@ const modelMethodSkipList = [
   { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
   { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
+  { path: 'Application.generateApplicationKey', reason: 'Operation is not defined' },
 ];
 
 function shouldSkipModelMethod(fullPath) {

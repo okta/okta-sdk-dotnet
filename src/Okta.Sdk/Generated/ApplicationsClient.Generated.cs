@@ -110,22 +110,6 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IJsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<JsonWebKey>(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/credentials/keys/generate",
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["validityYears"] = validityYears,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IJsonWebKey> GetApplicationKeyAsync(string appId, string keyId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<JsonWebKey>(new HttpRequest
             {
