@@ -70,9 +70,7 @@ const propertyErrata = [
     typeReason: 'Spec does not define type for this property'
    },
 
-   { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },
-   { path: 'OktaClient.applications', skip: true, skipReason: 'Not currently supported' },
-   
+   { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },   
 ];
 
 function applyPropertyErrata(existingProperty, infoLogger) {

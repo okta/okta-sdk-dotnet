@@ -128,6 +128,11 @@ namespace Okta.Sdk
                 return (T)(object)GetLongProperty(name);
             }
 
+            if (typeof(T) == typeof(double?))
+            {
+                return (T)(object)GetDoubleProperty(name);
+            }
+
             if (typeof(T) == typeof(DateTimeOffset?))
             {
                 return (T)(object)GetDateTimeProperty(name);
@@ -230,6 +235,24 @@ namespace Okta.Sdk
             }
 
             return long.Parse(raw);
+        }
+
+        /// <summary>
+        /// Gets a <see cref="double"/> property from the resource by name.
+        /// </summary>
+        /// <param name="name">The property name.</param>
+        /// <returns>The property value as a <see cref="double"/>, or <c>null</c>.</returns>
+        /// <exception cref="FormatException">The value is not in the correct format.</exception>
+        /// <exception cref="OverflowException">The value represents a number less than <see cref="double.MinValue"/> or greater than <see cref="double.MaxValue"/>.</exception>
+        protected double? GetDoubleProperty(string name)
+        {
+            var raw = GetStringProperty(name);
+            if (raw == null)
+            {
+                return null;
+            }
+
+            return double.Parse(raw);
         }
 
         /// <summary>

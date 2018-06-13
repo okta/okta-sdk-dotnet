@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/okta/oktasdk-sdk-dotnet#readme",
   "devDependencies": {
-    "@okta/openapi": "0.10.0",
+    "@okta/openapi": "0.11.0",
     "json-stable-stringify": "^1.0.1",
     "lodash": "^4.17.4"
   }

@@ -317,5 +317,23 @@ namespace Okta.Sdk
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
+        /// <inheritdoc />
+        public IAsyncEnumerable<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
+            => GetCollectionClient<LogEvent>(new HttpRequest
+            {
+                Uri = "/api/v1/logs",
+                
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["until"] = until,
+                    ["since"] = since,
+                    ["filter"] = filter,
+                    ["q"] = q,
+                    ["limit"] = limit,
+                    ["sortOrder"] = sortOrder,
+                    ["after"] = after,
+                },
+            });
+                    
     }
 }
