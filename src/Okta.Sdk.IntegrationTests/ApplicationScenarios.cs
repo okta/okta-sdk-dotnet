@@ -106,11 +106,11 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     App = new SwaApplicationSettingsApplication
                     {
-                          ButtonField = "btn-login",
-                          PasswordField = "txtbox-password",
-                          UsernameField = "txtbox-username",
-                          Url = "https://example.com/login.html",
-                          LoginUrlRegex = "^https://example.com/login.html",
+                        ButtonField = "btn-login",
+                        PasswordField = "txtbox-password",
+                        UsernameField = "txtbox-username",
+                        Url = "https://example.com/login.html",
+                        LoginUrlRegex = "^https://example.com/login.html",
                     },
                 },
             });
@@ -542,6 +542,256 @@ namespace Okta.Sdk.IntegrationTests
                 ((OpenIdConnectApplicationSettingsClient)retrievedSettings.OauthClient).ApplicationType.Should().Be(OpenIdConnectApplicationType.Native);
                 ((OpenIdConnectApplicationSettingsClient)retrievedSettings.OauthClient).TosUri.Should().Be("https://example.com/client/tos");
                 ((OpenIdConnectApplicationSettingsClient)retrievedSettings.OauthClient).PolicyUri.Should().Be("https://example.com/client/policy");
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetApplication()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new BasicAuthApplication
+            {
+                Name = "template_basic_auth",
+                Label = "Sample Basic Auth App",
+                SignOnMode = ApplicationSignOnMode.BasicAuth,
+                Settings = new BasicApplicationSettings
+                {
+                    App = new BasicApplicationSettingsApplication
+                    {
+                        Url = "https://example.com/login.html",
+                        AuthUrl = "https://example.com/auth.html",
+                    },
+                },
+            });
+
+            try
+            {
+                var retrievedById = await client.Applications.GetApplicationAsync(createdApp.Id);
+                retrievedById.Id.Should().Be(createdApp.Id);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task ListApplications()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new BasicAuthApplication
+            {
+                Name = "template_basic_auth",
+                Label = "Sample Basic Auth App",
+                SignOnMode = ApplicationSignOnMode.BasicAuth,
+                Settings = new BasicApplicationSettings
+                {
+                    App = new BasicApplicationSettingsApplication
+                    {
+                        Url = "https://example.com/login.html",
+                        AuthUrl = "https://example.com/auth.html",
+                    },
+                },
+            });
+
+            try
+            {
+                var appList = await client.Applications.ListApplications().ToArray();
+                appList.SingleOrDefault(a => a.Id == createdApp.Id).Should().NotBeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateSWAApplicationAdminSetUsernameAndPassword()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new SwaApplication
+            {
+                Name = "template_swa",
+                Label = "Sample Plugin App",
+                SignOnMode = ApplicationSignOnMode.BrowserPlugin,
+                Settings = new SwaApplicationSettings
+                {
+                    App = new SwaApplicationSettingsApplication
+                    {
+                        ButtonField = "btn-login",
+                        PasswordField = "txtbox-password",
+                        UsernameField = "txtbox-username",
+                        Url = "https://example.com/login.html",
+                        LoginUrlRegex = "^https://example.com/login.html",
+                    },
+                },
+            });
+
+
+            try
+            {
+                var retrieved = await client.Applications.GetApplicationAsync(createdApp.Id);
+
+                // Checking defaults
+                var retrievedCredentials = retrieved.GetProperty<SchemeApplicationCredentials>("credentials");
+                retrievedCredentials.Scheme.Should().Be(ApplicationCredentialsScheme.EditUsernameAndPassword);
+                retrievedCredentials.UserNameTemplate.Template.Should().Be("${source.login}");
+                retrievedCredentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
+
+                var schemeAppCredentials = new SchemeApplicationCredentials()
+                {
+                    Scheme = ApplicationCredentialsScheme.AdminSetsCredentials,
+                    UserNameTemplate = new ApplicationCredentialsUsernameTemplate()
+                    {
+                        Template = "${source.login}",
+                        Type = "BUILT_IN",
+                    },
+                };
+
+                retrieved.Credentials = schemeAppCredentials;
+                retrieved = await client.Applications.UpdateApplicationAsync(retrieved, retrieved.Id);
+
+                retrievedCredentials = retrieved.GetProperty<SchemeApplicationCredentials>("credentials");
+                retrievedCredentials.Scheme.Should().Be(ApplicationCredentialsScheme.AdminSetsCredentials);
+                retrievedCredentials.UserNameTemplate.Template.Should().Be("${source.login}");
+                retrievedCredentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateSWAApplicationSetUserEditablePassword()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new SwaApplication
+            {
+                Name = "template_swa",
+                Label = "Sample Plugin App",
+                SignOnMode = ApplicationSignOnMode.BrowserPlugin,
+                Settings = new SwaApplicationSettings
+                {
+                    App = new SwaApplicationSettingsApplication
+                    {
+                        ButtonField = "btn-login",
+                        PasswordField = "txtbox-password",
+                        UsernameField = "txtbox-username",
+                        Url = "https://example.com/login.html",
+                        LoginUrlRegex = "^https://example.com/login.html",
+                    },
+                },
+            });
+
+
+            try
+            {
+                var retrieved = await client.Applications.GetApplicationAsync(createdApp.Id);
+
+                // Checking defaults
+                var retrievedCredentials = retrieved.GetProperty<SchemeApplicationCredentials>("credentials");
+                retrievedCredentials.Scheme.Should().Be(ApplicationCredentialsScheme.EditUsernameAndPassword);
+                retrievedCredentials.UserNameTemplate.Template.Should().Be("${source.login}");
+                retrievedCredentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
+
+                var schemeAppCredentials = new SchemeApplicationCredentials()
+                {
+                    Scheme = ApplicationCredentialsScheme.EditPasswordOnly,
+                    UserNameTemplate = new ApplicationCredentialsUsernameTemplate()
+                    {
+                        Template = "${source.login}",
+                        Type = "BUILT_IN",
+                    },
+                };
+
+                retrieved.Credentials = schemeAppCredentials;
+                retrieved = await client.Applications.UpdateApplicationAsync(retrieved, retrieved.Id);
+
+                retrievedCredentials = retrieved.GetProperty<SchemeApplicationCredentials>("credentials");
+                retrievedCredentials.Scheme.Should().Be(ApplicationCredentialsScheme.EditPasswordOnly);
+                retrievedCredentials.UserNameTemplate.Template.Should().Be("${source.login}");
+                retrievedCredentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateSWAApplicationSetSharedCredentials()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new SwaApplication
+            {
+                Name = "template_swa",
+                Label = "Sample Plugin App",
+                SignOnMode = ApplicationSignOnMode.BrowserPlugin,
+                Settings = new SwaApplicationSettings
+                {
+                    App = new SwaApplicationSettingsApplication
+                    {
+                        ButtonField = "btn-login",
+                        PasswordField = "txtbox-password",
+                        UsernameField = "txtbox-username",
+                        Url = "https://example.com/login.html",
+                        LoginUrlRegex = "^https://example.com/login.html",
+                    },
+                },
+            });
+
+
+            try
+            {
+                var retrieved = await client.Applications.GetApplicationAsync(createdApp.Id);
+
+                // Checking defaults
+                var retrievedCredentials = retrieved.GetProperty<SchemeApplicationCredentials>("credentials");
+                retrievedCredentials.Scheme.Should().Be(ApplicationCredentialsScheme.EditUsernameAndPassword);
+                retrievedCredentials.UserNameTemplate.Template.Should().Be("${source.login}");
+                retrievedCredentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
+
+                var schemeAppCredentials = new SchemeApplicationCredentials()
+                {
+                    Scheme = ApplicationCredentialsScheme.SharedUsernameAndPassword,
+                    UserNameTemplate = new ApplicationCredentialsUsernameTemplate()
+                    {
+                        Template = "${source.login}",
+                        Type = "BUILT_IN",
+                    },
+                    UserName = "sharedusername",
+                    Password = new PasswordCredential()
+                    {
+                        Value = "sharedpassword",
+                    },
+                };
+
+                retrieved.Credentials = schemeAppCredentials;
+                retrieved = await client.Applications.UpdateApplicationAsync(retrieved, retrieved.Id);
+
+                retrievedCredentials = retrieved.GetProperty<SchemeApplicationCredentials>("credentials");
+                retrievedCredentials.Scheme.Should().Be(ApplicationCredentialsScheme.SharedUsernameAndPassword);
+                retrievedCredentials.UserNameTemplate.Template.Should().Be("${source.login}");
+                retrievedCredentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
+                retrievedCredentials.UserName.Should().Be("sharedusername");
+
+                // Fail - Password is null
+                retrievedCredentials.Password.Value.Should().Be("sharedpassword");
             }
             finally
             {
