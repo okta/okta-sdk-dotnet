@@ -45,6 +45,16 @@ namespace Okta.Sdk.Internal
                 return _resourceFactory.CreateFromExistingData<T>(nestedData);
             }
 
+            /***** Check if this logic should be encapsulated in another place *****/
+            var isStringEnum = StringEnum.StringEnumTypeInfo.IsAssignableFrom(_targetTypeInfo);
+
+            if (isStringEnum)
+            {
+                return (T)Activator.CreateInstance(typeof(T), item);
+            }
+
+            /************************************************************************/
+
             // Fall back to primitive conversion
             try
             {

@@ -77,7 +77,7 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
       modelTemplates.push({
         src: 'templates/Enum.cs.hbs',
         dest: `Generated/${model.modelName}.Generated.cs`,
-        context: createContextForEnum(model, errorLogger)
+        context: createContextForEnum(model, errorLogger, infoLogger)
       });
 
       // Don't do anything else for enums

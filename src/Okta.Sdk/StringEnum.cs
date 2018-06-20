@@ -3,7 +3,10 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using System;
+using System.Reflection;
 
 namespace Okta.Sdk
 {
@@ -12,6 +15,8 @@ namespace Okta.Sdk
     /// </summary>
     public abstract class StringEnum : IComparable
     {
+        internal static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
+
         private readonly string _value;
 
         // Remove the ability to call the parameterless constructor.

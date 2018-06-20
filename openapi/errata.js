@@ -71,7 +71,33 @@ const propertyErrata = [
    },
 
    { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },
+   { path: 'OpenIdConnectApplicationSettingsClient.tos_uri', rename: 'termsOfServiceUri', renameReason: 'Legibility' },
+   { path: 'OpenIdConnectApplicationSettings.oauthClient', rename: 'oAuthClient', renameReason: 'Legibility' },
+   { path: 'SamlApplicationSettingsSignOn.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
+   { path: 'WsFederationApplicationSettingsApplication.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
+   { path: 'SamlApplicationSettingsSignOn.honorForceAuthn', rename: 'honorForceAuthentication', renameReason: 'Legibility' },
+
 ];
+
+const enumErrata = [
+  { path: 'ApplicationSignOnMode.openidConnect', rename: 'openIdConnect', renameReason: 'Convention' },
+  { path: 'ApplicationSignOnMode.saml20', rename: 'saml2', renameReason: 'Legibility' },
+];
+
+function applyEnumErrata(existingMember, infoLogger) {
+  let exists = existingMember && existingMember.fullPath;
+  if (!exists) return existingMember;
+
+  let errata = enumErrata.find(x => x.path === existingMember.fullPath);
+  if(!errata) return existingMember;
+
+  if (errata.rename) {
+    existingMember.memberName = errata.rename;
+    infoLogger(`Errata: Renaming property ${existingMember.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  return existingMember;
+}
 
 function applyPropertyErrata(existingProperty, infoLogger) {
   let exists = existingProperty && existingProperty.fullPath;
@@ -158,6 +184,7 @@ function shouldSkipOperation(operationId) {
 }
 
 module.exports.applyPropertyErrata = applyPropertyErrata;
+module.exports.applyEnumErrata = applyEnumErrata;
 module.exports.isPropertyUnsupported = isPropertyUnsupported;
 module.exports.shouldSkipModelMethod = shouldSkipModelMethod;
 module.exports.shouldSkipOperation = shouldSkipOperation;
