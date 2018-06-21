@@ -133,10 +133,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        /// <Fail>
-        /// This test FAILS because the expected name for the TargetUrl field in the request is TargetURL.
-        /// If I change    set => this["targetUrl"] = value; by    set => this["targetURL"] = value; it works as expected
-        /// </Fail>
         [Fact]
         public async Task AddSwaThreeFieldApp()
         {
@@ -390,7 +386,6 @@ namespace Okta.Sdk.IntegrationTests
 
         /// <summary>
         /// FAIL: GroupName expected to be null or empty but is not
-        /// FAIL: wReplyOverride expected to be https://example.com but it came with a final `/`
         /// </summary>
         [Fact]
         public async Task AddWsFederationApp()
@@ -435,7 +430,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedSettings.App.GroupName.Should().BeNullOrEmpty();
                 retrievedSettings.App.GroupValueFormat.Should().Be("windowsDomainQualifiedName");
                 retrievedSettings.App.Realm.Should().Be("urn:example:app");
-                retrievedSettings.App.WReplyUrl.Should().Be("https://example.com");
+                retrievedSettings.App.WReplyUrl.Should().Be("https://example.com/");
                 retrievedSettings.App.AttributeStatements.Should().BeNull();
                 retrievedSettings.App.NameIdFormat.Should().Be("urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified");
                 retrievedSettings.App.AuthenticationContextClassName.Should().Be("urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport");

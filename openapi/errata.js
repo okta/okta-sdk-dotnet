@@ -76,6 +76,7 @@ const propertyErrata = [
    { path: 'SamlApplicationSettingsSignOn.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
    { path: 'WsFederationApplicationSettingsApplication.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
    { path: 'SamlApplicationSettingsSignOn.honorForceAuthn', rename: 'honorForceAuthentication', renameReason: 'Legibility' },
+   { path: 'SwaThreeFieldApplicationSettingsApplication.targetUrl', binding: 'targetURL', renameReason: 'Matching the API' },
 
 ];
 
@@ -109,6 +110,11 @@ function applyPropertyErrata(existingProperty, infoLogger) {
   if (errata.rename) {
     existingProperty.displayName = errata.rename;
     infoLogger(`Errata: Renaming property ${existingProperty.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  if(errata.binding) {
+    existingProperty.propertyName = errata.binding;
+    infoLogger(`Errata: Renaming binding of property ${existingProperty.fullPath} to ${errata.binding}`, `(Reason: ${errata.renameReason})`);
   }
 
   if (errata.hidesBaseMember) {
