@@ -36,5 +36,51 @@ namespace Okta.Sdk.UnitTests
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<string>(fakeData));
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<SomeClass>(fakeData));
         }
+
+        [Fact]
+        public void CreateSwaApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
+            fakeData.Add("name", "template_swa");
+
+            Assert.NotNull(factory.CreateFromExistingData<SwaApplication>(fakeData));
+        }
+
+        [Fact]
+        public void CreateSwaThreeFieldApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
+            fakeData.Add("name", "template_swa3field");
+
+            Assert.NotNull(factory.CreateFromExistingData<SwaThreeFieldApplication>(fakeData));
+        }
+
+        [Fact]
+        public void CreateBookmarkApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.Bookmark);
+
+            Assert.NotNull(factory.CreateFromExistingData<BookmarkApplication>(fakeData));
+        }
+
+        [Fact]
+        public void CreateBasicApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BasicAuth);
+
+            Assert.NotNull(factory.CreateFromExistingData<BasicAuthApplication>(fakeData));
+        }
     }
 }

@@ -8,6 +8,9 @@ namespace Okta.Sdk
 {
     public partial interface IApplicationsClient
     {
+        Task<T> GetApplicationAsync<T>(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IApplication;
+
         Task<IApplication> CreateApplicationAsync(CreateBasicAuthApplicationOptions basicAuthApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IApplication> CreateApplicationAsync(CreateBookmarkApplicationOptions bookmarkApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
