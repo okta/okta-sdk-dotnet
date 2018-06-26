@@ -10,6 +10,14 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IAsyncEnumerator<IApplication> GetEnumerator() => ListApplications().GetEnumerator();
 
+        public async Task<T> GetApplicationAsync<T>(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IApplication
+            => await GetApplicationAsync(appId, null, cancellationToken).ConfigureAwait(false) as T;
+
+        public async Task<T> UpdateApplicationAsync<T>(IApplication application, string appId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IApplication
+            => await UpdateApplicationAsync(application, appId, cancellationToken).ConfigureAwait(false) as T;
+
         public Task<IApplication> CreateApplicationAsync(CreateBasicAuthApplicationOptions basicAuthApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (basicAuthApplicationOptions == null)
@@ -106,13 +114,13 @@ namespace Okta.Sdk
                     {
                         Url = swaNoPluginApplicationOptions.Url,
                         PasswordField = swaNoPluginApplicationOptions.PasswordField,
-                        UsernameField = swaNoPluginApplicationOptions.UserNameField,
+                        UsernameField = swaNoPluginApplicationOptions.UsernameField,
                         OptionalField1 = swaNoPluginApplicationOptions.OptionalField1,
                         OptionalField1Value = swaNoPluginApplicationOptions.OptionalField1Value,
                         OptionalField2 = swaNoPluginApplicationOptions.OptionalField2,
                         OptionalField2Value = swaNoPluginApplicationOptions.OptionalField2Value,
                         OptionalField3 = swaNoPluginApplicationOptions.OptionalField3,
-                        OptionalField3Value = swaNoPluginApplicationOptions.OptionalField3,
+                        OptionalField3Value = swaNoPluginApplicationOptions.OptionalField3Value,
 
                     },
                 },
@@ -226,16 +234,7 @@ namespace Okta.Sdk
                         AuthenticationContextClassName = samlApplicationOptions.AuthenticationContextClassName,
                         SpIssuer = samlApplicationOptions.SpIssuer,
                         RequestCompressed = samlApplicationOptions.RequestCompressed,
-                        AttributeStatements = new List<SamlAttributeStatement>
-                        {
-                            new SamlAttributeStatement()
-                             {
-                                Name = samlApplicationOptions.StatementName,
-                                Type = samlApplicationOptions.StatementType,
-                                Namespace = samlApplicationOptions.StatementNamespace,
-                                Values = samlApplicationOptions.StatementValues,
-                            },
-                        },
+                        AttributeStatements = samlApplicationOptions.AttributeStatements,
                     },
                 },
             };

@@ -48,12 +48,8 @@ namespace Okta.Sdk
 
         public bool RequestCompressed { get; set; }
 
-        public string StatementName { get; set; }
+        public IList<SamlAttributeStatement> AttributeStatements { get; set; }
 
-        public string StatementType { get; set; }
-
-        public string StatementNamespace { get; set; }
-
-        public IList<string> StatementValues { get; set; }
+        public bool Activate { get; set; } = true;
     }
 }

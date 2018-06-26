@@ -19,5 +19,7 @@ namespace Okta.Sdk
         public string LoginUrl { get; set; }
 
         public IList<string> Features { get; set; }
+
+        public bool Activate { get; set; } = true;
     }
 }

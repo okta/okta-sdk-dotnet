@@ -12,7 +12,7 @@ namespace Okta.Sdk
 
         public string PasswordField { get; set; }
 
-        public string UserNameField { get; set; }
+        public string UsernameField { get; set; }
 
         public string OptionalField1 { get; set; }
 
@@ -25,6 +25,8 @@ namespace Okta.Sdk
         public string OptionalField3 { get; set; }
 
         public string OptionalField3Value { get; set; }
+
+        public bool Activate { get; set; } = true;
 
     }
 }

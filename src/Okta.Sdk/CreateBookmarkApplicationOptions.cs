@@ -7,5 +7,7 @@
         public bool RequestIntegration { get; set; } = false;
 
         public string Url { get; set; }
+
+        public bool Activate { get; set; } = true;
     }
 }
