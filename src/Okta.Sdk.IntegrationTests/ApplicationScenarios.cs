@@ -1091,8 +1091,196 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task AssignGroupForApplication()
+        {
+            var client = GetClient();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Test Group",
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+            try
+            {
+                // Helper with Priority, AppId, GroupId ?
+                var appGroup = new ApplicationGroupAssignment()
+                {
+                    Priority = 0,
+                };
+
+                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup.Id);
+                var retrievedAppGroup = await client.Applications.GetApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
+
+                retrievedAppGroup.Should().NotBeNull();
+                retrievedAppGroup.Id.Should().Be(createdAppGroup.Id);
+                retrievedAppGroup.Priority.Should().Be(0);
+            }
+            finally
+            {
+                // Remove the group
+                await createdGroup.DeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetAssignmentGroupForApplication()
+        {
+            var client = GetClient();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Test Group",
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+            try
+            {
+                // Helper with Priority, AppId, GroupId ?
+                var appGroup = new ApplicationGroupAssignment()
+                {
+                    Priority = 0,
+                };
+
+                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup.Id);
+
+                var retrievedAssignmentGroup = await createdApp.GetApplicationGroupAssignmentAsync(createdGroup.Id);
+
+                retrievedAssignmentGroup.Should().NotBeNull();
+                retrievedAssignmentGroup.Id.Should().Be(createdAppGroup.Id);
+                retrievedAssignmentGroup.Priority.Should().Be(0);
+            }
+            finally
+            {
+                // Remove the group
+                await createdGroup.DeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task ListAssignmentGroupsForApplication()
+        {
+            var client = GetClient();
+
+            var createdGroup1 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Test Group 1",
+            });
+
+            var createdGroup2 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Test Group 2",
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+            try
+            {
+                // Helper with Priority, AppId, GroupId ?
+                var appGroup = new ApplicationGroupAssignment()
+                {
+                    Priority = 0,
+                };
+
+                var createdAppGroup1 = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup1.Id);
+                var createdAppGroup2 = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup2.Id);
+
+                var groupAssignmentList = await createdApp.ListGroupAssignments().ToList<IApplicationGroupAssignment>();
+
+                groupAssignmentList.Should().NotBeNullOrEmpty();
+                groupAssignmentList.Should().HaveCount(2);
+                groupAssignmentList.FirstOrDefault(x => x.Id == createdAppGroup1.Id).Should().NotBeNull();
+                groupAssignmentList.FirstOrDefault(x => x.Id == createdAppGroup2.Id).Should().NotBeNull();
+            }
+            finally
+            {
+                // Remove the groups
+                await createdGroup1.DeleteAsync();
+                await createdGroup2.DeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task RemoveGroupForApplication()
+        {
+            var client = GetClient();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "Test Group",
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+            try
+            {
+                // Helper with Priority, AppId, GroupId ?
+                var appGroup = new ApplicationGroupAssignment()
+                {
+                    Priority = 0,
+                };
+
+                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup.Id);
+
+                var retrievedAssignmentGroup = await createdApp.GetApplicationGroupAssignmentAsync(createdGroup.Id);
+                retrievedAssignmentGroup.Should().NotBeNull();
+                retrievedAssignmentGroup.Id.Should().Be(createdAppGroup.Id);
+
+                await client.Applications.DeleteApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
+
+                var appGroupAssignmentList = await createdApp.ListGroupAssignments().ToList<IApplicationGroupAssignment>();
+                appGroupAssignmentList.Should().BeNullOrEmpty();
+            }
+            finally
+            {
+                // Remove the group
+                await createdGroup.DeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact(Skip = "Need to add Profile")]
         // TODO: Need more context here / No Profile available for AppUser
         public async Task CreateAssignUserForSSOApplicationAndProvisioning()
+        {
+            throw new NotImplementedException();
+        }
+
+        [Fact(Skip = "Need to add Profile")]
+        public async Task UpdateApplicationProfileForAssignedUser()
         {
             throw new NotImplementedException();
         }
