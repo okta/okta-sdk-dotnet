@@ -46,7 +46,9 @@ namespace Okta.Sdk.UnitTests
             fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
             fakeData.Add("name", "template_swa");
 
-            Assert.NotNull(factory.CreateFromExistingData<SwaApplication>(fakeData));
+            var app = factory.CreateFromExistingData<SwaApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<SwaApplication>(app);
         }
 
         [Fact]
@@ -58,7 +60,9 @@ namespace Okta.Sdk.UnitTests
             fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
             fakeData.Add("name", "template_swa3field");
 
-            Assert.NotNull(factory.CreateFromExistingData<SwaThreeFieldApplication>(fakeData));
+            var app = factory.CreateFromExistingData<SwaThreeFieldApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<SwaThreeFieldApplication>(app);
         }
 
         [Fact]
@@ -69,7 +73,9 @@ namespace Okta.Sdk.UnitTests
             var fakeData = new Dictionary<string, object>();
             fakeData.Add("signOnMode", ApplicationSignOnMode.Bookmark);
 
-            Assert.NotNull(factory.CreateFromExistingData<BookmarkApplication>(fakeData));
+            var app = factory.CreateFromExistingData<BookmarkApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<BookmarkApplication>(app);
         }
 
         [Fact]
@@ -80,7 +86,9 @@ namespace Okta.Sdk.UnitTests
             var fakeData = new Dictionary<string, object>();
             fakeData.Add("signOnMode", ApplicationSignOnMode.BasicAuth);
 
-            Assert.NotNull(factory.CreateFromExistingData<BasicAuthApplication>(fakeData));
+            var app = factory.CreateFromExistingData<BasicAuthApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<BasicAuthApplication>(app);
         }
     }
 }

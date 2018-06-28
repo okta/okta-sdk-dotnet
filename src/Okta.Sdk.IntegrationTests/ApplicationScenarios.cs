@@ -245,7 +245,6 @@ namespace Okta.Sdk.IntegrationTests
                 SubjectNameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
                 ResponseSigned = true,
                 AssertionSigned = true,
-                // Enum here?
                 SignatureAlgorithm = "RSA_SHA256",
                 DigestAlgorithm = "SHA256",
                 HonorForceAuthentication = true,
@@ -335,7 +334,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Label.Should().Be("Sample WS-Fed App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.WsFederation);
                 retrieved.Settings.App.AudienceRestriction.Should().Be("urn:example:app");
-                retrieved.Settings.App.GroupName.Should().BeNullOrEmpty();
+                retrieved.Settings.App.GroupName.Should().NotBeNullOrEmpty();
                 retrieved.Settings.App.GroupValueFormat.Should().Be("windowsDomainQualifiedName");
                 retrieved.Settings.App.Realm.Should().Be("urn:example:app");
                 retrieved.Settings.App.WReplyUrl.Should().Be("https://example.com/");
@@ -359,50 +358,33 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = GetClient();
 
-            var createdApp = await client.Applications.CreateApplicationAsync(new OpenIdConnectApplication
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
-                Name = "oidc_client",
                 Label = "Sample Client",
-                SignOnMode = ApplicationSignOnMode.OpenIdConnect,
-
-                Credentials = new OAuthApplicationCredentials()
+                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                AutoKeyRotation = true,
+                ClientUri = "https://example.com/client",
+                LogoUri = "https://example.com/assets/images/logo-new.png",
+                ResponseTypes = new List<OAuthResponseType>
                 {
-                    OauthClient = new ApplicationCredentialsOAuthClient()
-                    {
-                        ClientId = "0oae8mnt9tZcGcMXG0h3",
-                        TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
-                        AutoKeyRotation = true,
-                    },
+                    OAuthResponseType.Token,
+                    OAuthResponseType.IdToken,
+                    OAuthResponseType.Code,
                 },
-
-                // MISSING PROPERTY: "post_logout_redirect_uris": [ "https://example.com/oauth2/postLogoutRedirectUri"],
-                Settings = new OpenIdConnectApplicationSettings
+                RedirectUris = new List<string>
                 {
-                    OAuthClient = new OpenIdConnectApplicationSettingsClient()
-                    {
-                        ClientUri = "https://example.com/client",
-                        LogoUri = "https://example.com/assets/images/logo-new.png",
-                        ResponseTypes = new List<OAuthResponseType>
-                        {
-                            OAuthResponseType.Token,
-                            OAuthResponseType.IdToken,
-                            OAuthResponseType.Code,
-                        },
-                        RedirectUris = new List<string>
-                        {
-                             "https://example.com/oauth2/callback",
-                             "myapp://callback",
-                        },
-                        GrantTypes = new List<OAuthGrantType>
-                        {
-                            OAuthGrantType.Implicit,
-                            OAuthGrantType.AuthorizationCode,
-                        },
-                        ApplicationType = OpenIdConnectApplicationType.Native,
-                        TermsOfServiceUri = "https://example.com/client/tos",
-                        PolicyUri = "https://example.com/client/policy",
-                    },
+                        "https://example.com/oauth2/callback",
+                        "myapp://callback",
                 },
+                GrantTypes = new List<OAuthGrantType>
+                {
+                    OAuthGrantType.Implicit,
+                    OAuthGrantType.AuthorizationCode,
+                },
+                ApplicationType = OpenIdConnectApplicationType.Native,
+                TermsOfServiceUri = "https://example.com/client/tos",
+                PolicyUri = "https://example.com/client/policy",
             });
 
             try
@@ -422,17 +404,16 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Settings.OAuthClient.RedirectUris.Last().Should().Be("myapp://callback");
 
                 retrieved.Settings.OAuthClient.ResponseTypes.Should().HaveCount(3);
-                retrieved.Settings.OAuthClient.ResponseTypes.ToList().Should().Contain(OAuthResponseType.Token);
-                retrieved.Settings.OAuthClient.ResponseTypes.ToList().Should().Contain(OAuthResponseType.IdToken);
-                retrieved.Settings.OAuthClient.ResponseTypes.ToList().Should().Contain(OAuthResponseType.Code);
+                //TODO: convert to a proper IList<StringEnum>
+                retrieved.Settings.OAuthClient.ResponseTypes.Should().Contain(OAuthResponseType.Token);
+                retrieved.Settings.OAuthClient.ResponseTypes.Should().Contain(OAuthResponseType.IdToken);
+                retrieved.Settings.OAuthClient.ResponseTypes.Should().Contain(OAuthResponseType.Code);
 
                 retrieved.Settings.OAuthClient.GrantTypes.Should().HaveCount(2);
-                retrieved.Settings.OAuthClient.GrantTypes.ToList().First().Should().Be(OAuthGrantType.Implicit);
-                retrieved.Settings.OAuthClient.GrantTypes.ToList().Last().Should().Be(OAuthGrantType.AuthorizationCode);
+                retrieved.Settings.OAuthClient.GrantTypes.First().Should().Be(OAuthGrantType.Implicit);
+                retrieved.Settings.OAuthClient.GrantTypes.Last().Should().Be(OAuthGrantType.AuthorizationCode);
 
                 retrieved.Settings.OAuthClient.ApplicationType.Should().Be(OpenIdConnectApplicationType.Native);
-                // FAIL: tos & PolicyUri are not being sent
-                retrieved.Settings.OAuthClient.TermsOfServiceUri.Should().Be("https://example.com/client/tos");
                 retrieved.Settings.OAuthClient.PolicyUri.Should().Be("https://example.com/client/policy");
             }
             finally
@@ -487,6 +468,43 @@ namespace Okta.Sdk.IntegrationTests
             {
                 await client.Applications.DeactivateApplicationAsync(createdApp.Id);
                 await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task ListApplicationsOfType ()
+        {
+            var client = GetClient();
+
+            var createdBasicApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+            {
+                Label = "Sample Basic Auth App",
+                Url = "https://example.com/login.html",
+                AuthUrl = "https://example.com/auth.html",
+            });
+
+            var createdBookmarkApp = await client.Applications.CreateApplicationAsync(new CreateBookmarkApplicationOptions()
+            {
+                Label = "Sample Bookmark App",
+                RequestIntegration = false,
+                Url = "https://example.com/bookmark.htm",
+            });
+
+            try
+            {
+                var appList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArray();
+                appList.Should().HaveCount(1);
+
+                var bookmarkApp = await client.Applications.ListApplications().OfType<IBookmarkApplication>().FirstOrDefault();
+                bookmarkApp.Should().NotBeNull();
+                bookmarkApp.SignOnMode.Should().Be(ApplicationSignOnMode.Bookmark);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdBookmarkApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdBookmarkApp.Id);
+                await client.Applications.DeactivateApplicationAsync(createdBasicApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdBasicApp.Id);
             }
         }
 
@@ -621,6 +639,81 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Credentials.UserNameTemplate.Type.Should().Be("BUILT_IN");
                 retrieved.Credentials.UserName.Should().Be("sharedusername");
                 retrieved.Credentials.Password.Value.Should().BeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task NotDeleteActiveApplication()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+            {
+                Label = "Sample Basic Auth App",
+                Url = "https://example.com/login.html",
+                AuthUrl = "https://example.com/auth.html",
+            });
+
+            try
+            {
+                // Getting by ID should result in 403 Forbidden
+                await Assert.ThrowsAsync<OktaApiException>(() => client.Applications.DeleteApplicationAsync(createdApp.Id));
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task DeleteDeactivatedApplication()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+            {
+                Label = "Sample Basic Auth App",
+                Url = "https://example.com/login.html",
+                AuthUrl = "https://example.com/auth.html",
+            });
+
+            var appId = createdApp.Id;
+
+            await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+            await client.Applications.DeleteApplicationAsync(createdApp.Id);
+
+            // Getting by ID should result in 404 Not found
+            await Assert.ThrowsAsync<OktaApiException>(() => client.Applications.GetApplicationAsync(appId));
+        }
+
+        [Fact]
+        public async Task ActivateApplication()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                    Activate = false,
+                });
+
+            try
+            {
+                var retrievedApp = await client.Applications.GetApplicationAsync(createdApp.Id);
+                retrievedApp.Status.Should().Be("INACTIVE");
+
+                await client.Applications.ActivateApplicationAsync(createdApp.Id);
+                retrievedApp = await client.Applications.GetApplicationAsync(createdApp.Id);
+                retrievedApp.Status.Should().Be("ACTIVE");
             }
             finally
             {

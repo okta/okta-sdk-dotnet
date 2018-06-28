@@ -97,7 +97,7 @@ namespace Okta.Sdk
                 return GetResourcePropertyInternal<T>(name);
             }
 
-            if (typeof(T) == typeof(StringEnum))
+            if (StringEnum.TypeInfo.IsAssignableFrom(typeInfo))
             {
                 return GetEnumPropertyInternal<T>(name);
             }

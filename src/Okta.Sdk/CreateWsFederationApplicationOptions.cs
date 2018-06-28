@@ -8,6 +8,8 @@ namespace Okta.Sdk
     {
         public string Label { get; set; }
 
+        public bool Activate { get; set; } = true;
+
         public string AudienceRestriction { get; set; }
 
         public string GroupName { get; set; }
@@ -31,5 +33,6 @@ namespace Okta.Sdk
         public string GroupFilter { get; set; }
 
         public string UsernameAttribute { get; set; }
+
     }
 }

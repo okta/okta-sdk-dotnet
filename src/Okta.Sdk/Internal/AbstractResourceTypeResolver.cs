@@ -23,6 +23,7 @@ namespace Okta.Sdk.Internal
         {
             var resourceType = GetResolvedTypeInternal(data);
 
+            // If there is a more specific resolver available, resolve again recursively
             if (ResourceTypeResolverFactory.GetResolver(resourceType) == null)
             {
                 return resourceType;

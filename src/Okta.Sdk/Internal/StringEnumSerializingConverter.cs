@@ -9,10 +9,8 @@ namespace Okta.Sdk.Internal
 {
     public sealed class StringEnumSerializingConverter : JsonConverter
     {
-        private static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
-
         public override bool CanConvert(Type objectType)
-        => StringEnumTypeInfo.IsAssignableFrom(objectType.GetTypeInfo());
+        => StringEnum.TypeInfo.IsAssignableFrom(objectType.GetTypeInfo());
 
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
         {

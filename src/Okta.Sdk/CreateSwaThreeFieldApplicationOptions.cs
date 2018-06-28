@@ -17,5 +17,7 @@
         public string ExtraFieldValue { get; set; }
 
         public string LoginUrlRegex { get; set; }
+
+        public bool? Activate { get; set; } = true;
     }
 }

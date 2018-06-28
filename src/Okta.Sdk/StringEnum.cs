@@ -6,6 +6,7 @@
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.Collections.Generic;
 using System.Reflection;
 
 namespace Okta.Sdk
@@ -15,7 +16,7 @@ namespace Okta.Sdk
     /// </summary>
     public abstract class StringEnum : IComparable
     {
-        internal static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
+        internal static readonly TypeInfo TypeInfo = typeof(StringEnum).GetTypeInfo();
 
         private readonly string _value;
 
@@ -101,5 +102,21 @@ namespace Okta.Sdk
         /// <param name="other">The object to compare to.</param>
         public int CompareTo(object other)
             => string.Compare(Value, ((StringEnum)other).Value, StringComparison.OrdinalIgnoreCase);
+
+        /// <summary>
+        /// Creates a new <see cref="StringEnum"/> from an existing dictionary.
+        /// </summary>
+        /// <typeparam name="T">The <see cref="StringEnum"/> type.</typeparam>
+        /// <param name="item">The existing dictionary.</param>
+        /// <returns>The created <see cref="StringEnum"/>.</returns>
+        public static T CreateFromExistingData<T>(IDictionary<string, object> item)
+        {
+            if (!TypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
+            {
+                throw new InvalidOperationException("StringEnums must inherit from the StringEnum class.");
+            }
+
+            return (T)Activator.CreateInstance(typeof(T), item);
+        }
     }
 }

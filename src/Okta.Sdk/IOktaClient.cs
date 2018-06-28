@@ -35,7 +35,7 @@ namespace Okta.Sdk
 
         /// <summary>
         /// Gets a <see cref="IApplicationsClient">ApplicationsClient</see> that interacts with the Okta Applications API.
-        /// </summary>i
+        /// </summary>
         /// <value>
         /// A <see cref="IApplicationsClient">ApplicationsClient</see> that interacts with the Okta Applications API.
         /// </value>

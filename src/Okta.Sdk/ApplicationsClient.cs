@@ -18,7 +18,7 @@ namespace Okta.Sdk
             where T : class, IApplication
             => await UpdateApplicationAsync(application, appId, cancellationToken).ConfigureAwait(false) as T;
 
-        public Task<IApplication> CreateApplicationAsync(CreateBasicAuthApplicationOptions basicAuthApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateBasicAuthApplicationOptions basicAuthApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (basicAuthApplicationOptions == null)
             {
@@ -40,10 +40,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, basicAuthApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateBookmarkApplicationOptions bookmarkApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateBookmarkApplicationOptions bookmarkApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (bookmarkApplicationOptions == null)
             {
@@ -65,10 +65,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, bookmarkApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateSwaApplicationOptions swaApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateSwaApplicationOptions swaApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaApplicationOptions == null)
             {
@@ -93,10 +93,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, swaApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateSwaNoPluginApplicationOptions swaNoPluginApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateSwaNoPluginApplicationOptions swaNoPluginApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaNoPluginApplicationOptions == null)
             {
@@ -126,10 +126,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, swaNoPluginApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateSwaThreeFieldApplicationOptions swaThreeFieldApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateSwaThreeFieldApplicationOptions swaThreeFieldApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaThreeFieldApplicationOptions == null)
             {
@@ -156,10 +156,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, swaThreeFieldApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateSwaCustomApplicationOptions swaCustomApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateSwaCustomApplicationOptions swaCustomApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaCustomApplicationOptions == null)
             {
@@ -190,10 +190,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, swaCustomApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateSamlApplicationOptions samlApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateSamlApplicationOptions samlApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (samlApplicationOptions == null)
             {
@@ -239,10 +239,10 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, samlApplicationOptions.Activate, cancellationToken);
         }
 
-        public Task<IApplication> CreateApplicationAsync(CreateWsFederationApplicationOptions wsFederationApplicationOptions, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplication> CreateApplicationAsync(CreateWsFederationApplicationOptions wsFederationApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (wsFederationApplicationOptions == null)
             {
@@ -274,7 +274,49 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, activate, cancellationToken);
+            return CreateApplicationAsync(app, wsFederationApplicationOptions.Activate, cancellationToken);
+        }
+
+        public Task<IApplication> CreateApplicationAsync(CreateOpenIdConnectApplication openIdApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (openIdApplicationOptions == null)
+            {
+                throw new ArgumentNullException(nameof(openIdApplicationOptions));
+            }
+
+            var app = new OpenIdConnectApplication
+            {
+                Name = "oidc_client",
+                Label = openIdApplicationOptions.Label,
+                SignOnMode = ApplicationSignOnMode.OpenIdConnect,
+
+                Credentials = new OAuthApplicationCredentials()
+                {
+                    OauthClient = new ApplicationCredentialsOAuthClient()
+                    {
+                        ClientId = openIdApplicationOptions.ClientId,
+                        TokenEndpointAuthMethod = openIdApplicationOptions.TokenEndpointAuthMethod,
+                        AutoKeyRotation = openIdApplicationOptions.AutoKeyRotation,
+                    },
+                },
+
+                Settings = new OpenIdConnectApplicationSettings
+                {
+                    OAuthClient = new OpenIdConnectApplicationSettingsClient()
+                    {
+                        ClientUri = openIdApplicationOptions.ClientUri,
+                        LogoUri = openIdApplicationOptions.LogoUri,
+                        ResponseTypes = openIdApplicationOptions.ResponseTypes,
+                        RedirectUris = openIdApplicationOptions.RedirectUris,
+                        GrantTypes = openIdApplicationOptions.GrantTypes,
+                        ApplicationType = openIdApplicationOptions.ApplicationType,
+                        TermsOfServiceUri = openIdApplicationOptions.TermsOfServiceUri,
+                        PolicyUri = openIdApplicationOptions.PolicyUri,
+                    },
+                },
+            };
+
+            return CreateApplicationAsync(app, openIdApplicationOptions.Activate, cancellationToken);
         }
     }
 }
