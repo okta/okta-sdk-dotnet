@@ -721,5 +721,381 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Applications.DeleteApplicationAsync(createdApp.Id);
             }
         }
+
+        [Fact]
+        public async Task CreateActivateApplication()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var retrievedApp = await client.Applications.GetApplicationAsync(createdApp.Id);
+                retrievedApp.Status.Should().Be("ACTIVE");
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateAssignUserForSSOApplication()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Okta",
+                    Email = "john-sso@example.com",
+                    Login = "john-sso@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            // TODO: Possible Helper
+            var appUser = new AppUser()
+            {
+                Id = createdUser.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
+                    UserName = createdUser.Profile.Email,
+                },
+            };
+
+            try
+            {
+                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+
+                createdAppUser.Scope.Should().Be("USER");
+                createdAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                createdAppUser.Status.Should().Be("ACTIVE");
+                createdAppUser.SyncState.Should().Be("DISABLED");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetAssignedUsersForApplication()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Okta",
+                    Email = "john-sso@example.com",
+                    Login = "john-sso@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var appUser = new AppUser()
+            {
+                Id = createdUser.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
+                    UserName = createdUser.Profile.Email,
+                },
+            };
+
+            try
+            {
+                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var retrievedAppUser = await createdApp.GetApplicationUserAsync(createdUser.Id);
+
+                retrievedAppUser.Should().NotBeNull();
+                retrievedAppUser.Id.Should().Be(createdAppUser.Id);
+                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                // docs response has below status
+                //retrievedAppUser.Status.Should().Be("PROVISIONED");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task ListUsersForApplication()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser1 = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Okta",
+                    Email = "john-sso@example.com",
+                    Login = "john-sso@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdUser2 = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "Bob",
+                    LastName = "Okta",
+                    Email = "bob-sso@example.com",
+                    Login = "bob-sso@example.com",
+                },
+                Password = "Abcd4321",
+                Activate = true,
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var appUser1 = new AppUser()
+            {
+                Id = createdUser1.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
+                    UserName = createdUser1.Profile.Email,
+                },
+            };
+
+            var appUser2 = new AppUser()
+            {
+                Id = createdUser2.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd4321" },
+                    UserName = createdUser2.Profile.Email,
+                },
+            };
+
+            try
+            {
+                var createdAppUser1 = await createdApp.AssignUserToApplicationAsync(appUser1);
+                var createdAppUser2 = await createdApp.AssignUserToApplicationAsync(appUser2);
+
+                var appUserList = await createdApp.ListApplicationUsers().ToList<IAppUser>();
+
+                appUserList.Should().NotBeNullOrEmpty();
+                appUserList.Should().HaveCount(2);
+                appUserList.FirstOrDefault(x => x.Credentials.UserName == createdUser1.Profile.Email).Should().NotBeNull();
+                appUserList.FirstOrDefault(x => x.Credentials.UserName == createdUser2.Profile.Email).Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser1.DeactivateAsync();
+                await createdUser1.DeactivateOrDeleteAsync();
+                await createdUser2.DeactivateAsync();
+                await createdUser2.DeactivateOrDeleteAsync();
+
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateApplicationCredentialsForAssignedUser()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Okta",
+                    Email = "john-sso@example.com",
+                    Login = "john-sso@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var appUser = new AppUser()
+            {
+                Id = createdUser.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
+                    UserName = createdUser.Profile.Email,
+                },
+            };
+
+            try
+            {
+                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var retrievedAppUser = await createdApp.GetApplicationUserAsync(createdUser.Id);
+
+                retrievedAppUser.Should().NotBeNull();
+                retrievedAppUser.Id.Should().Be(createdAppUser.Id);
+                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+
+                createdUser.Profile.Email = "john-sso-updated@example.com";
+                createdUser.Profile.Login = "john-sso-updated@example.com";
+                createdUser.Credentials.Password = new PasswordCredential() { Value = "Abcd12345"};
+
+                var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
+
+                retrievedAppUser.Credentials.UserName = updatedUser.Profile.Email;
+                retrievedAppUser.Credentials.Password = new AppUserPasswordCredential() { Value = "Abcd12345" };
+
+                var updatedAppUser = await client.Applications.UpdateApplicationUserAsync(retrievedAppUser, createdApp.Id, updatedUser.Id);
+
+                updatedAppUser.Should().NotBeNull();
+                updatedAppUser.Credentials.UserName.Should().Be("john-sso-updated@example.com");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task RemoveUserForApplication()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Okta",
+                    Email = "john-sso@example.com",
+                    Login = "john-sso@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var appUser = new AppUser()
+            {
+                Id = createdUser.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
+                    UserName = createdUser.Profile.Email,
+                },
+            };
+
+            try
+            {
+                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var retrievedAppUser = await createdApp.GetApplicationUserAsync(createdUser.Id);
+
+                retrievedAppUser.Should().NotBeNull();
+                retrievedAppUser.Id.Should().Be(createdAppUser.Id);
+                retrievedAppUser.Scope.Should().Be("USER");
+                retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+
+                await client.Applications.DeleteApplicationUserAsync(createdApp.Id, createdUser.Id);
+
+                var appUserList = await createdApp.ListApplicationUsers().ToList<IAppUser>();
+                appUserList.Should().BeNullOrEmpty();
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        // TODO: Need more context here / No Profile available for AppUser
+        public async Task CreateAssignUserForSSOApplicationAndProvisioning()
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
