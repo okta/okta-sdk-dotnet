@@ -1272,6 +1272,120 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
+        [Fact]
+        public async Task CloneApplicationKeyCredential()
+        {
+            var client = GetClient();
+
+            var createdApp1 = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App 1",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var createdApp2 = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App 2",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var createdApp1Key = await createdApp1.GenerateApplicationKeyAsync(2);
+                var clonedApp2Key = await createdApp1.CloneApplicationKeyAsync(createdApp1Key.Kid, createdApp2.Id);
+
+                clonedApp2Key.Should().NotBeNull();
+                clonedApp2Key.ExpiresAt.Should().Be(createdApp1Key.ExpiresAt);
+                clonedApp2Key.Kty.Should().Be(createdApp1Key.Kty);
+                clonedApp2Key.Use.Should().Be(createdApp1Key.Use);
+                clonedApp2Key.Kid.Should().Be(createdApp1Key.Kid);
+                clonedApp2Key.X5T.Should().Be(createdApp1Key.X5T);
+                clonedApp2Key.X5C.Should().BeEquivalentTo(createdApp1Key.X5C);
+                clonedApp2Key.N.Should().Be(createdApp1Key.N);
+                clonedApp2Key.E.Should().Be(createdApp1Key.E);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp1.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp1.Id);
+
+                await client.Applications.DeactivateApplicationAsync(createdApp2.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp2.Id);
+            }
+        }
+
+        [Fact]
+        public async Task ListApplicationKeyCredentials()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var appKeys = await createdApp.ListKeys().ToList();
+                // One key is created by default
+                appKeys.Should().NotBeNull();
+                appKeys.Should().HaveCount(1);
+
+                var createdAppKey1 = await createdApp.GenerateApplicationKeyAsync(2);
+                var createdAppKey2 = await createdApp.GenerateApplicationKeyAsync(2);
+
+                appKeys = await createdApp.ListKeys().ToList();
+
+                appKeys.Should().NotBeNull();
+                appKeys.Should().HaveCount(3);
+                appKeys.FirstOrDefault(x => x.Kid == createdAppKey1.Kid).Should().NotBeNull();
+                appKeys.FirstOrDefault(x => x.Kid == createdAppKey2.Kid).Should().NotBeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetApplicationKeyCredentials()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var createdAppKey1 = await createdApp.GenerateApplicationKeyAsync(2);
+                var retrievedAppKey = await createdApp.GetApplicationKeyAsync(createdAppKey1.Kid);
+
+                retrievedAppKey.Should().NotBeNull();
+                retrievedAppKey.Kid.Should().Be(createdAppKey1.Kid);
+                retrievedAppKey.Created.Should().Be(createdAppKey1.Created);
+                retrievedAppKey.ExpiresAt.Should().Be(createdAppKey1.ExpiresAt);
+                retrievedAppKey.X5C.Should().BeEquivalentTo(createdAppKey1.X5C);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
         [Fact(Skip = "Need to add Profile")]
         // TODO: Need more context here / No Profile available for AppUser
         public async Task CreateAssignUserForSSOApplicationAndProvisioning()
