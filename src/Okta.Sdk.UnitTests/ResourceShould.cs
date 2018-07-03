@@ -284,6 +284,42 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void AccessListEnumProperty()
+        {
+            var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["things"] = new List<object>() { OAuthResponseType.IdToken, OAuthResponseType.Token, OAuthResponseType.Code },
+            };
+
+            var factory = new ResourceFactory(null, null);
+            var resource = factory.CreateNew<Resource>(data);
+            var things = resource.GetArrayProperty<OAuthResponseType>("things");
+            things.Should().NotBeNullOrEmpty();
+            things.Should().HaveCount(3);
+            things.Should().Contain(OAuthResponseType.IdToken);
+            things.Should().Contain(OAuthResponseType.Token);
+            things.Should().Contain(OAuthResponseType.Code);
+        }
+
+        [Fact]
+        public void ConvertListStringToListEnumProperty()
+        {
+            var data = new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase)
+            {
+                ["things"] = new List<object>() { "id_token", "token", "code" },
+            };
+
+            var factory = new ResourceFactory(null, null);
+            var resource = factory.CreateNew<Resource>(data);
+            var things = resource.GetArrayProperty<OAuthResponseType>("things");
+            things.Should().NotBeNullOrEmpty();
+            things.Should().HaveCount(3);
+            things.Should().Contain(OAuthResponseType.IdToken);
+            things.Should().Contain(OAuthResponseType.Token);
+            things.Should().Contain(OAuthResponseType.Code);
+        }
+
+        [Fact]
         public void RoundtripEnumProperty()
         {
             var factory = new ResourceFactory(null, null);

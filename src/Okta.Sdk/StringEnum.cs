@@ -109,7 +109,7 @@ namespace Okta.Sdk
         /// <typeparam name="T">The <see cref="StringEnum"/> type.</typeparam>
         /// <param name="item">The existing dictionary.</param>
         /// <returns>The created <see cref="StringEnum"/>.</returns>
-        public static T CreateFromExistingData<T>(IDictionary<string, object> item)
+        public static T CreateFromExistingData<T>(string item)
         {
             if (!TypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
             {

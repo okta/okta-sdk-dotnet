@@ -30,10 +30,32 @@ namespace Okta.Sdk.Internal
         /// <param name="logger">The logging interface.</param>
         public CastingListAdapter(IList<object> genericList, ResourceFactory resourceFactory, ILogger logger)
         {
-            _genericList = genericList;
-            _resourceFactory = resourceFactory;
             _targetTypeInfo = typeof(T).GetTypeInfo();
+            _resourceFactory = resourceFactory;
+            _genericList = EnsureGenericListItemsType(genericList);
             _logger = logger;
+        }
+
+        /// <summary>
+        /// Ensure that genericList items are cast to type T
+        /// </summary>
+        /// <param name="genericList">The generic list of items</param>
+        /// <returns>The genericList correctly cast</returns>
+        private IList<object> EnsureGenericListItemsType(IList<object> genericList)
+        {
+            if (StringEnum.TypeInfo.IsAssignableFrom(_targetTypeInfo))
+            {
+                IList<object> typedGenericList = new List<object>();
+
+                foreach (var item in genericList)
+                {
+                    typedGenericList.Add(Cast(item));
+                }
+
+                return typedGenericList;
+            }
+
+            return genericList;
         }
 
         private T Cast(object item)
@@ -48,8 +70,7 @@ namespace Okta.Sdk.Internal
             var isStringEnum = StringEnum.TypeInfo.IsAssignableFrom(_targetTypeInfo);
             if (isStringEnum)
             {
-                var nestedData = item as IDictionary<string, object>;
-                return StringEnum.CreateFromExistingData<T>(nestedData);
+                return StringEnum.CreateFromExistingData<T>(item?.ToString());
             }
 
             // Fall back to primitive conversion
