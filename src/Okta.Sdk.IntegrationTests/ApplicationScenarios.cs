@@ -411,10 +411,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Settings.OAuthClient.GrantTypes.Should().HaveCount(2);
                 retrieved.Settings.OAuthClient.GrantTypes.First().Should().Be(OAuthGrantType.Implicit);
                 retrieved.Settings.OAuthClient.GrantTypes.Last().Should().Be(OAuthGrantType.AuthorizationCode);
-
                 retrieved.Settings.OAuthClient.ApplicationType.Should().Be(OpenIdConnectApplicationType.Native);
-                // Fail: PolicyUri is null
-                //retrieved.Settings.OAuthClient.PolicyUri.Should().Be("https://example.com/client/policy");
             }
             finally
             {
