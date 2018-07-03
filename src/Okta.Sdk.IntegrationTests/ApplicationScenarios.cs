@@ -803,6 +803,80 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
+
+        [Fact]
+        // FAIL:
+        //    "errorCauses": [
+        //    {
+        //        "errorSummary": "Property 'salesforceGroups' not found"
+        //    },
+        //    {
+        //        "errorSummary": "Property 'role' not found"
+        //    }]
+        public async Task CreateAssignUserForSSOApplicationAndProvisioning()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Okta",
+                    Email = "john-sso@example.com",
+                    Login = "john-sso@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var profile = new AppUserProfile();
+            profile["salesforceGroups"] = new List<string> { "Employee" };
+            profile["role"] = "Developer";
+            profile["profile"] = "Standard User";
+
+            // TODO: Possible Helper
+            var appUser = new AppUser()
+            {
+                Id = createdUser.Id,
+                Scope = "USER",
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
+                    UserName = createdUser.Profile.Email,
+                },
+                Profile = profile,
+            };
+
+            try
+            {
+                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+
+                createdAppUser.Scope.Should().Be("USER");
+                createdAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                createdAppUser.Status.Should().Be("PROVISIONED");
+                createdAppUser.SyncState.Should().Be("DISABLED");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                // Remove App
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
         [Fact]
         public async Task GetAssignedUsersForApplication()
         {
@@ -1383,12 +1457,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "Need to add Profile")]
-        // TODO: Need more context here / No Profile available for AppUser
-        public async Task CreateAssignUserForSSOApplicationAndProvisioning()
-        {
-            throw new NotImplementedException();
-        }
 
         [Fact(Skip = "Need to add Profile")]
         public async Task UpdateApplicationProfileForAssignedUser()
