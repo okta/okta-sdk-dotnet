@@ -31,7 +31,7 @@ namespace Okta.Sdk
 
         IList<OAuthResponseType> ResponseTypes { get; set; }
 
-        string TosUri { get; set; }
+        string TermsOfServiceUri { get; set; }
 
     }
 }

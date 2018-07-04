@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using FlexibleConfiguration;
@@ -37,24 +38,55 @@ namespace Okta.Sdk
         /// <summary>
         /// Initializes a new instance of the <see cref="OktaClient"/> class.
         /// </summary>
-        /// <param name="apiClientConfiguration">The client configuration.</param>
-        /// <param name="logger">The logging interface.</param>
-        /// <remarks>
-        /// Configuration can also be specified with a YAML file, or by environment variables.
-        /// </remarks>
+        /// <param name="apiClientConfiguration">
+        /// The client configuration. If <c>null</c>, the library will attempt to load
+        /// configuration from an <c>okta.yaml</c> file or environment variables.
+        /// </param>
+        /// <param name="logger">The logging interface to use, if any.</param>
         public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null)
         {
-            var compiled = CompileFromConfigurationSources(apiClientConfiguration);
-            Configuration = new OktaClientConfiguration();
-            compiled.GetSection("okta").GetSection("client").Bind(Configuration);
-
+            Configuration = GetConfigurationOrDefault(apiClientConfiguration);
             ThrowIfInvalidConfiguration(Configuration);
 
             logger = logger ?? NullLogger.Instance;
 
-            var requestExecutor = new DefaultRequestExecutor(Configuration, logger);
+            var defaultClient = DefaultHttpClient.Create(
+                Configuration.ConnectionTimeout,
+                Configuration.Proxy,
+                logger);
+
+            var requestExecutor = new DefaultRequestExecutor(Configuration, defaultClient, logger);
             var resourceFactory = new ResourceFactory(this, logger);
-            _dataStore = new DefaultDataStore(requestExecutor, new DefaultSerializer(), resourceFactory, logger);
+            _dataStore = new DefaultDataStore(
+                requestExecutor,
+                new DefaultSerializer(),
+                resourceFactory,
+                logger);
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaClient"/> class using the specified <see cref="HttpClient"/>.
+        /// </summary>
+        /// <param name="apiClientConfiguration">
+        /// The client configuration. If <c>null</c>, the library will attempt to load
+        /// configuration from an <c>okta.yaml</c> file or environment variables.
+        /// </param>
+        /// <param name="httpClient">The HTTP client to use for requests to the Okta API.</param>
+        /// <param name="logger">The logging interface to use, if any.</param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null)
+        {
+            Configuration = GetConfigurationOrDefault(apiClientConfiguration);
+            ThrowIfInvalidConfiguration(Configuration);
+
+            logger = logger ?? NullLogger.Instance;
+
+            var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger);
+            var resourceFactory = new ResourceFactory(this, logger);
+            _dataStore = new DefaultDataStore(
+                requestExecutor,
+                new DefaultSerializer(),
+                resourceFactory,
+                logger);
         }
 
         /// <summary>
@@ -63,6 +95,7 @@ namespace Okta.Sdk
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
         /// <param name="configuration">The client configuration.</param>
         /// <param name="requestContext">The request context, if any.</param>
+        /// <remarks>This overload is used internally to create cheap copies of an existing client.</remarks>
         protected OktaClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
@@ -70,14 +103,7 @@ namespace Okta.Sdk
             _requestContext = requestContext;
         }
 
-        /// <inheritdoc/>
-        public OktaClientConfiguration Configuration { get; }
-
-        /// <inheritdoc/>
-        public IOktaClient CreatedScoped(RequestContext requestContext)
-            => new OktaClient(_dataStore, Configuration, requestContext);
-
-        private static FlexibleConfiguration.Abstractions.IConfigurationRoot CompileFromConfigurationSources(OktaClientConfiguration apiClientConfiguration = null)
+        private static OktaClientConfiguration GetConfigurationOrDefault(OktaClientConfiguration apiClientConfiguration = null)
         {
             string configurationFileRoot = Directory.GetCurrentDirectory();
 
@@ -93,8 +119,18 @@ namespace Okta.Sdk
                 .AddEnvironmentVariables("okta", "_", root: "okta")
                 .AddObject(apiClientConfiguration, root: "okta:client");
 
-            return configBuilder.Build();
+            var compiledConfig = new OktaClientConfiguration();
+            configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
+
+            return compiledConfig;
         }
+
+        /// <inheritdoc/>
+        public OktaClientConfiguration Configuration { get; }
+
+        /// <inheritdoc/>
+        public IOktaClient CreatedScoped(RequestContext requestContext)
+            => new OktaClient(_dataStore, Configuration, requestContext);
 
         private static void ThrowIfInvalidConfiguration(OktaClientConfiguration configuration)
         {

@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Okta.Sdk.Internal
 {
-    internal static class ResourceTypeResolver
+    internal static class ResourceTypeResolverFactory
     {
         private static readonly (Type Resolver, Type For)[] CachedResolvers =
             typeof(Resource).GetTypeInfo().Assembly.DefinedTypes
@@ -31,16 +31,24 @@ namespace Okta.Sdk.Internal
             .Select(typeInfo => (typeInfo.AsType(), typeInfo.BaseType.GenericTypeArguments[0]))
             .ToArray();
 
+        public static Type GetResolver(Type resourceType)
+            => CachedResolvers.FirstOrDefault(x => x.For == resourceType).Resolver;
+
         public static AbstractResourceTypeResolver<T> Create<T>()
         {
-            var resolver = CachedResolvers.FirstOrDefault(x => x.For == typeof(T)).Resolver;
+            var resolverType = GetResolver(typeof(T));
 
-            if (resolver == null)
+            if (resolverType == null)
             {
                 return new DefaultResourceTypeResolver<T>();
             }
 
-            return (AbstractResourceTypeResolver<T>)Activator.CreateInstance(resolver);
+            return (AbstractResourceTypeResolver<T>)Activator.CreateInstance(resolverType);
+        }
+
+        public static IResourceTypeResolver Create(Type resourceType)
+        {
+            return (IResourceTypeResolver)Activator.CreateInstance(resourceType);
         }
     }
 }

@@ -45,7 +45,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string AuthnContextClassRef 
+        public string AuthenticationContextClassName 
         {
             get => GetStringProperty("authnContextClassRef");
             set => this["authnContextClassRef"] = value;
@@ -80,7 +80,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public bool? HonorForceAuthn 
+        public bool? HonorForceAuthentication 
         {
             get => GetBooleanProperty("honorForceAuthn");
             set => this["honorForceAuthn"] = value;

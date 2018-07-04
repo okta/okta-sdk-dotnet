@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a OpenIdConnectApplicationSettings resource in the Okta API.</summary>
     public partial interface IOpenIdConnectApplicationSettings : IApplicationSettings
     {
-        IOpenIdConnectApplicationSettingsClient OauthClient { get; set; }
+        IOpenIdConnectApplicationSettingsClient OAuthClient { get; set; }
 
     }
 }

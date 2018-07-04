@@ -19,7 +19,7 @@ namespace Okta.Sdk
 
         string AudienceRestriction { get; set; }
 
-        string AuthnContextClassRef { get; set; }
+        string AuthenticationContextClassName { get; set; }
 
         string GroupFilter { get; set; }
 

@@ -73,7 +73,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string TosUri 
+        public string TermsOfServiceUri 
         {
             get => GetStringProperty("tos_uri");
             set => this["tos_uri"] = value;

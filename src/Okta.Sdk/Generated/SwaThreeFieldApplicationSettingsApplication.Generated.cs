@@ -54,8 +54,8 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public string TargetUrl 
         {
-            get => GetStringProperty("targetUrl");
-            set => this["targetUrl"] = value;
+            get => GetStringProperty("targetURL");
+            set => this["targetURL"] = value;
         }
         
         /// <inheritdoc/>

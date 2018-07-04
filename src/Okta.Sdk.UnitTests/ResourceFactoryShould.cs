@@ -36,5 +36,59 @@ namespace Okta.Sdk.UnitTests
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<string>(fakeData));
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<SomeClass>(fakeData));
         }
+
+        [Fact]
+        public void CreateSwaApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
+            fakeData.Add("name", "template_swa");
+
+            var app = factory.CreateFromExistingData<SwaApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<SwaApplication>(app);
+        }
+
+        [Fact]
+        public void CreateSwaThreeFieldApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
+            fakeData.Add("name", "template_swa3field");
+
+            var app = factory.CreateFromExistingData<SwaThreeFieldApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<SwaThreeFieldApplication>(app);
+        }
+
+        [Fact]
+        public void CreateBookmarkApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.Bookmark);
+
+            var app = factory.CreateFromExistingData<BookmarkApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<BookmarkApplication>(app);
+        }
+
+        [Fact]
+        public void CreateBasicApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BasicAuth);
+
+            var app = factory.CreateFromExistingData<BasicAuthApplication>(fakeData);
+            Assert.NotNull(app);
+            Assert.IsType<BasicAuthApplication>(app);
+        }
     }
 }

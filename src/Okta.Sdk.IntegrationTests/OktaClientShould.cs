@@ -13,20 +13,12 @@ namespace Okta.Sdk.IntegrationTests
 {
     public class OktaClientShould
     {
-        private static IOktaClient CreateClient()
-        {
-            // Client settings are expected to be in environment variables on the test machine.
-            return new OktaClient();
-        }
-
         [Fact]
         public void ThrowForNullOrgUrl()
         {
-            IOktaClient client;
-
             Assert.Throws<ArgumentNullException>(() =>
             {
-                client = new OktaClient(new OktaClientConfiguration
+                var client = new OktaClient(new OktaClientConfiguration
                 {
                     OrgUrl = string.Empty,
                     Token = "foobar",
@@ -37,11 +29,9 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public void ThrowForInvalidOrgUrl()
         {
-            IOktaClient client;
-
             Assert.Throws<ArgumentException>(() =>
             {
-                client = new OktaClient(new OktaClientConfiguration
+                var client = new OktaClient(new OktaClientConfiguration
                 {
                     // Must start with https://
                     OrgUrl = "http://insecure.dev",
@@ -53,11 +43,9 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public void ThrowForNullToken()
         {
-            IOktaClient client;
-
             Assert.Throws<ArgumentNullException>(() =>
             {
-                client = new OktaClient(new OktaClientConfiguration
+                var client = new OktaClient(new OktaClientConfiguration
                 {
                     OrgUrl = "https://dev-12345.oktapreview.com",
                     Token = string.Empty,
@@ -68,7 +56,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ThrowForArbitraryRequestUrl()
         {
-            var client = CreateClient();
+            var client = TestClient.Create();
 
             await Assert.ThrowsAsync<InvalidOperationException>(() =>
             {
@@ -80,7 +68,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ThrowApiExceptionForInvalidToken()
         {
-            var client = new OktaClient(new OktaClientConfiguration
+            var client = TestClient.Create(new OktaClientConfiguration
             {
                 Token = "abcd1234",
             });
@@ -91,7 +79,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             catch (OktaApiException apiException)
             {
-                apiException.Message.Should().Be("Invalid token provided (400, E0000011)");
+                apiException.Message.Should().StartWith("Invalid token provided");
 
                 apiException.Error.Should().NotBeNull();
                 apiException.Error.ErrorCode.Should().Be("E0000011");

@@ -30,8 +30,9 @@ namespace Okta.Sdk.Internal
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
         /// </summary>
         /// <param name="configuration">The client configuration.</param>
+        /// <param name="httpClient">The HTTP client to use, if any.</param>
         /// <param name="logger">The logging interface.</param>
-        public DefaultRequestExecutor(OktaClientConfiguration configuration, ILogger logger)
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger)
         {
             if (configuration == null)
             {
@@ -45,13 +46,9 @@ namespace Okta.Sdk.Internal
 
             _orgUrl = EnsureCorrectOrgUrl(configuration.OrgUrl);
             _logger = logger;
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
 
-            _httpClient = CreateClient(
-                _orgUrl,
-                configuration.Token,
-                configuration.ConnectionTimeout,
-                configuration.Proxy,
-                logger);
+            ApplyDefaultClientSettings(_httpClient, _orgUrl, configuration);
         }
 
         private static string EnsureCorrectOrgUrl(string orgUrl)
@@ -74,35 +71,10 @@ namespace Okta.Sdk.Internal
             return orgUrl;
         }
 
-        private static HttpClient CreateClient(
-            string orgBaseUrl,
-            string token,
-            int? connectionTimeout,
-            ProxyConfiguration proxyConfiguration,
-            ILogger logger)
+        private static void ApplyDefaultClientSettings(HttpClient client, string orgUrl, OktaClientConfiguration configuration)
         {
-            var handler = new HttpClientHandler
-            {
-                AllowAutoRedirect = false,
-            };
-
-            if (proxyConfiguration != null)
-            {
-                handler.Proxy = new DefaultProxy(proxyConfiguration, logger);
-            }
-
-            var client = new HttpClient(handler, true)
-            {
-                BaseAddress = new Uri(orgBaseUrl, UriKind.Absolute),
-                Timeout = TimeSpan.FromSeconds(connectionTimeout ?? OktaClientConfiguration.DefaultConnectionTimeout),
-            };
-
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", token);
-
-            // Workaround for https://github.com/dotnet/corefx/issues/11224
-            client.DefaultRequestHeaders.Add("Connection", "close");
-
-            return client;
+            client.BaseAddress = new Uri(orgUrl, UriKind.Absolute);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", configuration.Token);
         }
 
         private string EnsureRelativeUrl(string uri)
