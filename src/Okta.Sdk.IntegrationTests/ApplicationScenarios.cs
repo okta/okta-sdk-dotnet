@@ -302,9 +302,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        /// <summary>
-        /// FAIL: GroupName expected to be null or empty but is not
-        /// </summary>
         [Fact]
         public async Task AddWsFederationApp()
         {
@@ -720,7 +717,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task CreateActivateApplication()
+        public async Task CreateActiveApplication()
         {
             var client = GetClient();
 
@@ -771,21 +768,17 @@ namespace Okta.Sdk.IntegrationTests
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-            // TODO: Possible Helper
-            var appUser = new AppUser()
+            var assignUserOptions = new AssignUserToApplicationOptions()
             {
-                Id = createdUser.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
-                    UserName = createdUser.Profile.Email,
-                },
+                UserId = createdUser.Id,
+                Password = "Abcd1234",
+                UserName = createdUser.Profile.Email,
+                ApplicationId = createdApp.Id,
             };
 
             try
             {
-                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var createdAppUser = await client.Applications.AssignUserToApplicationAsync(assignUserOptions);
 
                 createdAppUser.Scope.Should().Be("USER");
                 createdAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
@@ -804,15 +797,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
 
-        [Fact]
-        // FAIL:
-        //    "errorCauses": [
-        //    {
-        //        "errorSummary": "Property 'salesforceGroups' not found"
-        //    },
-        //    {
-        //        "errorSummary": "Property 'role' not found"
-        //    }]
+        [Fact(Skip = "https://github.com/okta/okta.github.io/issues/2167")]
         public async Task CreateAssignUserForSSOApplicationAndProvisioning()
         {
             var client = GetClient();
@@ -844,22 +829,18 @@ namespace Okta.Sdk.IntegrationTests
             profile["role"] = "Developer";
             profile["profile"] = "Standard User";
 
-            // TODO: Possible Helper
-            var appUser = new AppUser()
+            var assignUserOptions = new AssignUserToApplicationOptions()
             {
-                Id = createdUser.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
-                    UserName = createdUser.Profile.Email,
-                },
+                UserId = createdUser.Id,
+                Password = "Abcd1234",
+                UserName = createdUser.Profile.Email,
+                ApplicationId = createdApp.Id,
                 Profile = profile,
             };
 
             try
             {
-                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var createdAppUser = await client.Applications.AssignUserToApplicationAsync(assignUserOptions);
 
                 createdAppUser.Scope.Should().Be("USER");
                 createdAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
@@ -904,28 +885,23 @@ namespace Okta.Sdk.IntegrationTests
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-            var appUser = new AppUser()
+            var assignUserOptions = new AssignUserToApplicationOptions()
             {
-                Id = createdUser.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
-                    UserName = createdUser.Profile.Email,
-                },
+                UserId = createdUser.Id,
+                Password = "Abcd1234",
+                UserName = createdUser.Profile.Email,
+                ApplicationId = createdApp.Id,
             };
 
             try
             {
-                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var createdAppUser = await client.Applications.AssignUserToApplicationAsync(assignUserOptions);
                 var retrievedAppUser = await createdApp.GetApplicationUserAsync(createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
                 retrievedAppUser.Scope.Should().Be("USER");
                 retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
-                // docs response has below status
-                //retrievedAppUser.Status.Should().Be("PROVISIONED");
             }
             finally
             {
@@ -978,32 +954,26 @@ namespace Okta.Sdk.IntegrationTests
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-            var appUser1 = new AppUser()
+            var assignUserOptions1 = new AssignUserToApplicationOptions()
             {
-                Id = createdUser1.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
-                    UserName = createdUser1.Profile.Email,
-                },
+                UserId = createdUser1.Id,
+                Password = "Abcd1234",
+                UserName = createdUser1.Profile.Email,
+                ApplicationId = createdApp.Id,
             };
 
-            var appUser2 = new AppUser()
+            var assignUserOptions2 = new AssignUserToApplicationOptions()
             {
-                Id = createdUser2.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd4321" },
-                    UserName = createdUser2.Profile.Email,
-                },
+                UserId = createdUser2.Id,
+                Password = "Abcd4321",
+                UserName = createdUser2.Profile.Email,
+                ApplicationId = createdApp.Id,
             };
 
             try
             {
-                var createdAppUser1 = await createdApp.AssignUserToApplicationAsync(appUser1);
-                var createdAppUser2 = await createdApp.AssignUserToApplicationAsync(appUser2);
+                var createdAppUser1 = await client.Applications.AssignUserToApplicationAsync(assignUserOptions1);
+                var createdAppUser2 = await client.Applications.AssignUserToApplicationAsync(assignUserOptions2);
 
                 var appUserList = await createdApp.ListApplicationUsers().ToList<IAppUser>();
 
@@ -1051,20 +1021,17 @@ namespace Okta.Sdk.IntegrationTests
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-            var appUser = new AppUser()
+            var assignUserOptions = new AssignUserToApplicationOptions()
             {
-                Id = createdUser.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
-                    UserName = createdUser.Profile.Email,
-                },
+                UserId = createdUser.Id,
+                Password = "Abcd1234",
+                UserName = createdUser.Profile.Email,
+                ApplicationId = createdApp.Id,
             };
 
             try
             {
-                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var createdAppUser = await client.Applications.AssignUserToApplicationAsync(assignUserOptions);
                 var retrievedAppUser = await createdApp.GetApplicationUserAsync(createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
@@ -1074,7 +1041,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 createdUser.Profile.Email = "john-sso-updated@example.com";
                 createdUser.Profile.Login = "john-sso-updated@example.com";
-                createdUser.Credentials.Password = new PasswordCredential() { Value = "Abcd12345"};
+                createdUser.Credentials.Password = new PasswordCredential() { Value = "Abcd12345" };
 
                 var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
 
@@ -1124,20 +1091,17 @@ namespace Okta.Sdk.IntegrationTests
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-            var appUser = new AppUser()
+            var assignUserOptions = new AssignUserToApplicationOptions()
             {
-                Id = createdUser.Id,
-                Scope = "USER",
-                Credentials = new AppUserCredentials()
-                {
-                    Password = new AppUserPasswordCredential() { Value = "Abcd1234" },
-                    UserName = createdUser.Profile.Email,
-                },
+                UserId = createdUser.Id,
+                Password = "Abcd1234",
+                UserName = createdUser.Profile.Email,
+                ApplicationId = createdApp.Id,
             };
 
             try
             {
-                var createdAppUser = await createdApp.AssignUserToApplicationAsync(appUser);
+                var createdAppUser = await client.Applications.AssignUserToApplicationAsync(assignUserOptions);
                 var retrievedAppUser = await createdApp.GetApplicationUserAsync(createdUser.Id);
 
                 retrievedAppUser.Should().NotBeNull();
@@ -1161,6 +1125,8 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
+        // Sometimes, when run all tests together it throws:
+        // Message: Okta.Sdk.OktaApiException : API call exceeded rate limit due to too many requests. (429, E0000047)
         [Fact]
         public async Task AssignGroupForApplication()
         {
@@ -1180,13 +1146,14 @@ namespace Okta.Sdk.IntegrationTests
                 });
             try
             {
-                // Helper with Priority, AppId, GroupId ?
-                var appGroup = new ApplicationGroupAssignment()
+                var groupAssignmentOptions = new CreateApplicationGroupAssignmentOptions()
                 {
                     Priority = 0,
+                    ApplicationId = createdApp.Id,
+                    GroupId = createdGroup.Id,
                 };
 
-                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup.Id);
+                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions);
                 var retrievedAppGroup = await client.Applications.GetApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
 
                 retrievedAppGroup.Should().NotBeNull();
@@ -1222,14 +1189,13 @@ namespace Okta.Sdk.IntegrationTests
                 });
             try
             {
-                // Helper with Priority, AppId, GroupId ?
-                var appGroup = new ApplicationGroupAssignment()
+                var groupAssignmentOptions = new CreateApplicationGroupAssignmentOptions()
                 {
                     Priority = 0,
+                    ApplicationId = createdApp.Id,
+                    GroupId = createdGroup.Id,
                 };
-
-                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup.Id);
-
+                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions);
                 var retrievedAssignmentGroup = await createdApp.GetApplicationGroupAssignmentAsync(createdGroup.Id);
 
                 retrievedAssignmentGroup.Should().NotBeNull();
@@ -1270,14 +1236,22 @@ namespace Okta.Sdk.IntegrationTests
                 });
             try
             {
-                // Helper with Priority, AppId, GroupId ?
-                var appGroup = new ApplicationGroupAssignment()
+                var groupAssignmentOptions1 = new CreateApplicationGroupAssignmentOptions()
                 {
                     Priority = 0,
+                    ApplicationId = createdApp.Id,
+                    GroupId = createdGroup1.Id,
                 };
 
-                var createdAppGroup1 = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup1.Id);
-                var createdAppGroup2 = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup2.Id);
+                var groupAssignmentOptions2 = new CreateApplicationGroupAssignmentOptions()
+                {
+                    Priority = 0,
+                    ApplicationId = createdApp.Id,
+                    GroupId = createdGroup2.Id,
+                };
+
+                var createdAppGroup1 = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions1);
+                var createdAppGroup2 = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions2);
 
                 var groupAssignmentList = await createdApp.ListGroupAssignments().ToList<IApplicationGroupAssignment>();
 
@@ -1316,13 +1290,14 @@ namespace Okta.Sdk.IntegrationTests
                 });
             try
             {
-                // Helper with Priority, AppId, GroupId ?
-                var appGroup = new ApplicationGroupAssignment()
+                var groupAssignmentOptions = new CreateApplicationGroupAssignmentOptions()
                 {
                     Priority = 0,
+                    ApplicationId = createdApp.Id,
+                    GroupId = createdGroup.Id,
                 };
 
-                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(appGroup, createdApp.Id, createdGroup.Id);
+                var createdAppGroup = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions);
 
                 var retrievedAssignmentGroup = await createdApp.GetApplicationGroupAssignmentAsync(createdGroup.Id);
                 retrievedAssignmentGroup.Should().NotBeNull();
@@ -1405,7 +1380,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 var appKeys = await createdApp.ListKeys().ToList();
-                // One key is created by default
+                // A key is created by default
                 appKeys.Should().NotBeNull();
                 appKeys.Should().HaveCount(1);
 
@@ -1458,7 +1433,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
 
-        [Fact(Skip = "Need to add Profile")]
+        [Fact(Skip = "Must be implemented once create and provisioning got fixed")]
         public async Task UpdateApplicationProfileForAssignedUser()
         {
             throw new NotImplementedException();

@@ -318,5 +318,32 @@ namespace Okta.Sdk
 
             return CreateApplicationAsync(app, openIdApplicationOptions.Activate, cancellationToken);
         }
+
+        public Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(CreateApplicationGroupAssignmentOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var appGroup = new ApplicationGroupAssignment()
+            {
+                Priority = options.Priority,
+            };
+
+            return CreateApplicationGroupAssignmentAsync(appGroup, options.ApplicationId, options.GroupId, cancellationToken);
+        }
+
+        public Task<IAppUser> AssignUserToApplicationAsync(AssignUserToApplicationOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            var appUser = new AppUser()
+            {
+                Id = options.UserId,
+                Scope = options.Scope,
+
+                Credentials = new AppUserCredentials()
+                {
+                    Password = new AppUserPasswordCredential() { Value = options.Password },
+                    UserName = options.UserName,
+                },
+            };
+
+            return AssignUserToApplicationAsync(appUser, options.ApplicationId, cancellationToken);
+        }
     }
 }
