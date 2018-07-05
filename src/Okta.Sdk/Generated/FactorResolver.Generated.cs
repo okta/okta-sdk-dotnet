@@ -19,7 +19,7 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="data">The resource data.</param>
         /// <returns>The resource type.</returns>
-        public override Type GetResolvedTypeInternal(IDictionary<string, object> data)
+        protected override Type GetResolvedTypeInternal(IDictionary<string, object> data)
         {
             var value = data
                 ?.Where(kv => kv.Key.Equals("factorType", StringComparison.OrdinalIgnoreCase))

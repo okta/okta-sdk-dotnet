@@ -64,7 +64,7 @@ namespace Okta.Sdk.Internal
                 throw new InvalidOperationException("Resources must inherit from the Resource class.");
             }
 
-            var typeResolver = ResourceTypeResolverFactory.Create<T>();
+            var typeResolver = ResourceTypeResolverFactory.CreateResolver<T>();
             var resourceType = typeResolver.GetResolvedType(existingDictionary);
 
             var resource = Activator.CreateInstance(resourceType) as Resource;
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Internal
                 throw new InvalidOperationException("Resources must inherit from the Resource class.");
             }
 
-            var typeResolver = ResourceTypeResolverFactory.Create<T>();
+            var typeResolver = ResourceTypeResolverFactory.CreateResolver<T>();
             var resourceType = typeResolver.GetResolvedType(data);
 
             var resource = Activator.CreateInstance(resourceType) as Resource;
