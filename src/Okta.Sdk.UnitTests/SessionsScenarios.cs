@@ -59,13 +59,9 @@ namespace Okta.Sdk.UnitTests
                 SessionToken = "foo",
             };
 
-            var request = new HttpRequest
-            {
-                Uri = "/api/v1/sessions",
-                Payload = createSessionRequest,
-            };
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Sessions.CreateSessionAsync(createSessionRequest);
 
-            await dataStore.PostAsync<Session>(request, new RequestContext(), CancellationToken.None);
             await mockRequestExecutor.Received().PostAsync(
                 "/api/v1/sessions",
                 Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
