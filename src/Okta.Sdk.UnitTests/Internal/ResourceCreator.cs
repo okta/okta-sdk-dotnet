@@ -9,7 +9,7 @@ using System.Linq.Expressions;
 using System.Reflection;
 using Okta.Sdk.Internal;
 
-namespace Okta.Sdk.UnitTests
+namespace Okta.Sdk.UnitTests.Internal
 {
     public class ResourceCreator<T>
         where T : Resource, new()
@@ -45,9 +45,7 @@ namespace Okta.Sdk.UnitTests
         {
             var body = propertyLambda.Body;
 
-#pragma warning disable SA1119 // waiting for StyleCop bugfix
             if (!(body is MemberExpression member))
-#pragma warning restore SA1119 // waiting for StyleCop bugfix
             {
                 throw new ArgumentException($"Expression '{propertyLambda}' does not refer to a property.");
             }

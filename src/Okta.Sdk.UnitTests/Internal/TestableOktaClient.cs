@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging.Abstractions;
 using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
-namespace Okta.Sdk.UnitTests
+namespace Okta.Sdk.UnitTests.Internal
 {
     public class TestableOktaClient : OktaClient
     {
@@ -16,11 +16,6 @@ namespace Okta.Sdk.UnitTests
             OrgUrl = "https://fake.example.com",
             Token = "foobar",
         };
-
-        //public TestableOktaClient(IDataStore dataStore, OktaClientConfiguration configuration = null, RequestContext requestContext = null)
-        //    : base(dataStore, configuration ?? DefaultFakeConfiguration, requestContext ?? new RequestContext())
-        //{
-        //}
 
         public TestableOktaClient(IRequestExecutor requestExecutor)
             : base(
