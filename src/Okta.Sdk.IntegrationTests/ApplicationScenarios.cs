@@ -655,7 +655,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                // Getting by ID should result in 403 Forbidden
+                // Deleting by ID should result in 403 Forbidden
                 await Assert.ThrowsAsync<OktaApiException>(() => client.Applications.DeleteApplicationAsync(createdApp.Id));
             }
             finally
@@ -1039,16 +1039,11 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedAppUser.Scope.Should().Be("USER");
                 retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
 
-                createdUser.Profile.Email = "john-sso-updated@example.com";
-                createdUser.Profile.Login = "john-sso-updated@example.com";
-                createdUser.Credentials.Password = new PasswordCredential() { Value = "Abcd12345" };
-
-                var updatedUser = await client.Users.UpdateUserAsync(createdUser, createdUser.Id);
-
-                retrievedAppUser.Credentials.UserName = updatedUser.Profile.Email;
+                // Update credentials
+                retrievedAppUser.Credentials.UserName = "john-sso-updated@example.com";
                 retrievedAppUser.Credentials.Password = new AppUserPasswordCredential() { Value = "Abcd12345" };
 
-                var updatedAppUser = await client.Applications.UpdateApplicationUserAsync(retrievedAppUser, createdApp.Id, updatedUser.Id);
+                var updatedAppUser = await client.Applications.UpdateApplicationUserAsync(retrievedAppUser, createdApp.Id, createdUser.Id);
 
                 updatedAppUser.Should().NotBeNull();
                 updatedAppUser.Credentials.UserName.Should().Be("john-sso-updated@example.com");
@@ -1125,8 +1120,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        // Sometimes, when run all tests together it throws:
-        // Message: Okta.Sdk.OktaApiException : API call exceeded rate limit due to too many requests. (429, E0000047)
         [Fact]
         public async Task AssignGroupForApplication()
         {

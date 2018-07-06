@@ -31,7 +31,7 @@ namespace Okta.Sdk
 
         public IList<OAuthGrantType> GrantTypes { get; set; }
 
-        public OpenIdConnectApplicationType ApplicationType { get; set; } = OpenIdConnectApplicationType.Native;
+        public OpenIdConnectApplicationType ApplicationType { get; set; }
 
         public string TermsOfServiceUri { get; set; }
 

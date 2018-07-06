@@ -29,12 +29,5 @@ namespace Okta.Sdk
             set => this["priority"] = value;
         }
         
-        /// <inheritdoc/>
-        public AppUserProfile Profile 
-        {
-            get => GetResourceProperty<AppUserProfile>("profile");
-            set => this["profile"] = value;
-        }
-        
     }
 }

@@ -28,10 +28,10 @@ function createContextForEnum(model, errFunc, infoLogger) {
   };
 
   for (let rawEnum of model.enum) {
-    let enumMember = { fullPath : `${model.modelName}.${camelCase(rawEnum)}`, memberName : camelCase(rawEnum) };
+    let enumDefinition = { fullPath : `${model.modelName}.${camelCase(rawEnum)}`, memberName : camelCase(rawEnum) };
 
     context.items.push({
-      memberName: pascalCase(applyEnumErrata(enumMember, infoLogger).memberName),
+      memberName: pascalCase(applyEnumErrata(enumDefinition, infoLogger).memberName),
       value: rawEnum
     })
   }
