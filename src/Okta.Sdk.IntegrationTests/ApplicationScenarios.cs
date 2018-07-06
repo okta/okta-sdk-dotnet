@@ -975,7 +975,7 @@ namespace Okta.Sdk.IntegrationTests
                 var createdAppUser1 = await client.Applications.AssignUserToApplicationAsync(assignUserOptions1);
                 var createdAppUser2 = await client.Applications.AssignUserToApplicationAsync(assignUserOptions2);
 
-                var appUserList = await createdApp.ListApplicationUsers().ToList<IAppUser>();
+                var appUserList = await createdApp.ListApplicationUsers().ToList();
 
                 appUserList.Should().NotBeNullOrEmpty();
                 appUserList.Should().HaveCount(2);
