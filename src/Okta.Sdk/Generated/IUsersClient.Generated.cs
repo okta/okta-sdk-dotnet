@@ -212,14 +212,5 @@ namespace Okta.Sdk
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        /// <summary>
-        /// Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="oauthTokens">Revoke issued OpenID Connect and OAuth refresh and access tokens</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task EndAllUserSessionsAsync(string userId, bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken));
-
     }
 }

@@ -58,10 +58,6 @@ namespace Okta.Sdk
         public UserStatus TransitioningToStatus => GetEnumProperty<UserStatus>("transitioningToStatus");
         
         /// <inheritdoc />
-        public Task EndAllSessionsAsync(bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.EndAllUserSessionsAsync(Id, oauthTokens, cancellationToken);
-        
-        /// <inheritdoc />
         public Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ActivateUserAsync(Id, sendEmail, cancellationToken);
         

@@ -37,8 +37,6 @@ namespace Okta.Sdk
 
         UserStatus TransitioningToStatus { get; }
 
-        Task EndAllSessionsAsync(bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken));
-
         Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));

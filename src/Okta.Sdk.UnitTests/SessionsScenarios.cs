@@ -10,6 +10,7 @@ using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using NSubstitute;
 using Okta.Sdk.Internal;
+using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -21,39 +22,16 @@ namespace Okta.Sdk.UnitTests
     /// </summary>
     public class SessionsScenarios
     {
-        private static (IRequestExecutor MockRequestExecutor, IDataStore DataStore) SetUpMocks()
+        [Fact]
+        public async Task DelegateAValidPostToRequestExecutorGivenACreateSessionRequest()
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
-
-            mockRequestExecutor
-                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
-                .Returns(new HttpResponse<string>() { StatusCode = 200 });
-
             mockRequestExecutor
                 .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
-            mockRequestExecutor
-                .PutAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
-                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
-            mockRequestExecutor
-                .DeleteAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
-                .Returns(new HttpResponse<string>() { StatusCode = 200 });
-
-            var dataStore = new DefaultDataStore(
-                mockRequestExecutor,
-                new DefaultSerializer(),
-                new ResourceFactory(null, null),
-                NullLogger.Instance);
-
-            return (mockRequestExecutor, dataStore);
-        }
-
-        [Fact]
-        public async Task DelegateAValidPostToRequestExecutorGivenACreateSessionRequest()
-        {
-            var (mockRequestExecutor, dataStore) = SetUpMocks();
             var createSessionRequest = new CreateSessionRequest()
             {
                 SessionToken = "foo",
@@ -66,6 +44,64 @@ namespace Okta.Sdk.UnitTests
                 "/api/v1/sessions",
                 Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
                 "{\"sessionToken\":\"foo\"}",
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task DelegateAValidGetToRequestExecutor()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Sessions.GetSessionAsync("foo");
+
+            await mockRequestExecutor.Received().GetAsync(
+                "/api/v1/sessions/foo",
+                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task DelegateAValidPostToRequestExecutorWhenRefreshingSession()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+            .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+            .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Sessions.RefreshSessionAsync("foo");
+
+            await mockRequestExecutor.Received().PostAsync(
+                "/api/v1/sessions/foo/lifecycle/refresh",
+                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
+                null,
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task DelegateAValidDeleteToRequestExecutorWhenEndingSession()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+               .DeleteAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+               .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Sessions.EndSessionAsync("foo");
+
+            await mockRequestExecutor.Received().DeleteAsync(
+                "/api/v1/sessions/foo",
+                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
                 CancellationToken.None);
         }
 
