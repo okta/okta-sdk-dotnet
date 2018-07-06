@@ -13,6 +13,8 @@ function getType(specType) {
     case 'boolean': return 'bool?';
     case 'integer': return 'int?';
     case 'dateTime': return 'DateTimeOffset?';
+    case 'double': return 'double?';
+    case 'password': return 'string';
     default: return specType;
   }
 };
@@ -51,6 +53,7 @@ function getterName(prop) {
     case 'int?': return 'GetIntegerProperty';
     case 'DateTimeOffset?': return 'GetDateTimeProperty';
     case 'string': return 'GetStringProperty';
+    case 'double?': return 'GetDoubleProperty';
     default: return `GetResourceProperty<${clrType}>`;
   }
 }
