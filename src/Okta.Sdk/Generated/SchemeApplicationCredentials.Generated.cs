@@ -1,0 +1,55 @@
+// <copyright file="SchemeApplicationCredentials.Generated.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+// This file was automatically generated. Don't modify it directly.
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Okta.Sdk.Internal;
+
+namespace Okta.Sdk
+{
+    /// <inheritdoc/>
+    public sealed partial class SchemeApplicationCredentials : ApplicationCredentials, ISchemeApplicationCredentials
+    {
+        /// <inheritdoc/>
+        public IPasswordCredential Password 
+        {
+            get => GetResourceProperty<PasswordCredential>("password");
+            set => this["password"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public bool? RevealPassword 
+        {
+            get => GetBooleanProperty("revealPassword");
+            set => this["revealPassword"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public ApplicationCredentialsScheme Scheme 
+        {
+            get => GetEnumProperty<ApplicationCredentialsScheme>("scheme");
+            set => this["scheme"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IApplicationCredentialsSigning Signing 
+        {
+            get => GetResourceProperty<ApplicationCredentialsSigning>("signing");
+            set => this["signing"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string UserName 
+        {
+            get => GetStringProperty("userName");
+            set => this["userName"] = value;
+        }
+        
+    }
+}
