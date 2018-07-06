@@ -40,6 +40,7 @@ namespace Okta.Sdk.UnitTests
                 new RequestContext());
 
             var count = await collection.Count();
+            count.Should().Be(5);
         }
 
         [Fact]

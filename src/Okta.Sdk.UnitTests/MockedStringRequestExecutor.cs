@@ -20,7 +20,7 @@ namespace Okta.Sdk.UnitTests
 
         public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
         {
-            _returnThis = returnThis ?? throw new ArgumentNullException(nameof(returnThis));
+            _returnThis = returnThis;
             _statusCode = statusCode;
         }
 
