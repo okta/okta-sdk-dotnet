@@ -104,12 +104,16 @@ namespace Okta.Sdk
             => string.Compare(Value, ((StringEnum)other).Value, StringComparison.OrdinalIgnoreCase);
 
         /// <summary>
-        /// Creates a new <see cref="StringEnum"/> from an existing dictionary.
+        /// Creates a new <see cref="StringEnum"/> with the specified value.
         /// </summary>
         /// <typeparam name="T">The <see cref="StringEnum"/> type.</typeparam>
-        /// <param name="item">The existing dictionary.</param>
+        /// <param name="item">The enum value.</param>
         /// <returns>The created <see cref="StringEnum"/>.</returns>
-        public static T CreateFromExistingData<T>(string item)
+        /// <remarks>
+        /// Equivalent to calling <c>new MyEnum(value)</c> if <c>MyEnum</c> inherits from <see cref="StringEnum"/>.
+        /// Use <c>new</c> unless you don't know the exact enum type at compile time.
+        /// </remarks>
+        public static T Create<T>(string item)
         {
             if (!TypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
             {

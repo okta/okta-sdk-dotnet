@@ -13,6 +13,8 @@ namespace Okta.Sdk.Internal
 {
     internal static class ResourceTypeResolverFactory
     {
+        private static readonly Type DefaultResolverType = typeof(DefaultResourceTypeResolver<>);
+
         private static readonly (Type Resolver, Type For)[] CachedResolvers =
             typeof(Resource).GetTypeInfo().Assembly.DefinedTypes
             .Where(typeInfo =>
@@ -31,24 +33,27 @@ namespace Okta.Sdk.Internal
             .Select(typeInfo => (typeInfo.AsType(), typeInfo.BaseType.GenericTypeArguments[0]))
             .ToArray();
 
-        public static Type GetResolver(Type resourceType)
-            => CachedResolvers.FirstOrDefault(x => x.For == resourceType).Resolver;
+        public static bool RequiresResolution(Type resourceType)
+            => GetResolver(resourceType) != null;
 
-        public static AbstractResourceTypeResolver<T> Create<T>()
+        public static IResourceTypeResolver CreateResolver<T>()
+            => CreateResolver(forType: typeof(T));
+
+        public static IResourceTypeResolver CreateResolver(Type forType)
         {
-            var resolverType = GetResolver(typeof(T));
+            var resolverType = GetResolver(forType);
 
             if (resolverType == null)
             {
-                return new DefaultResourceTypeResolver<T>();
+                // equivalent to: new DefaultResourceTypeResolver<T>();
+                var defaultResolverOfT = DefaultResolverType.MakeGenericType(forType);
+                return (IResourceTypeResolver)Activator.CreateInstance(defaultResolverOfT);
             }
 
-            return (AbstractResourceTypeResolver<T>)Activator.CreateInstance(resolverType);
+            return (IResourceTypeResolver)Activator.CreateInstance(resolverType);
         }
 
-        public static IResourceTypeResolver Create(Type resourceType)
-        {
-            return (IResourceTypeResolver)Activator.CreateInstance(resourceType);
-        }
+        private static Type GetResolver(Type resourceType)
+            => CachedResolvers.FirstOrDefault(x => x.For == resourceType).Resolver;
     }
 }

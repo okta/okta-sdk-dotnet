@@ -21,7 +21,5 @@ namespace Okta.Sdk
 
         int? Priority { get; set; }
 
-        AppUserProfile Profile { get; set; }
-
     }
 }

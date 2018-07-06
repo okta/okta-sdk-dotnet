@@ -23,17 +23,22 @@ namespace Okta.Sdk.Internal
         {
             var resourceType = GetResolvedTypeInternal(data);
 
-            // If there is a more specific resolver available, resolve again recursively
-            if (ResourceTypeResolverFactory.GetResolver(resourceType) == null)
+            if (!ResourceTypeResolverFactory.RequiresResolution(resourceType))
             {
                 return resourceType;
             }
 
-            var resolverType = ResourceTypeResolverFactory.GetResolver(resourceType);
-
-            return ResourceTypeResolverFactory.Create(resolverType).GetResolvedType(data);
+            // If there is a more specific resolver available, resolve again recursively
+            var moreSpecificResolver = ResourceTypeResolverFactory.CreateResolver(forType: resourceType);
+            return moreSpecificResolver.GetResolvedType(data);
         }
 
-        public abstract Type GetResolvedTypeInternal(IDictionary<string, object> data);
+        /// <summary>
+        /// Gets the type depending on the resource's data.
+        /// </summary>
+        /// <param name="data">The resource data.</param>
+        /// <returns>The resource type.</returns>
+        /// <remarks>Implemented by specific resolvers in order to control how certain resources are resolved to their types.</remarks>
+        protected abstract Type GetResolvedTypeInternal(IDictionary<string, object> data);
     }
 }

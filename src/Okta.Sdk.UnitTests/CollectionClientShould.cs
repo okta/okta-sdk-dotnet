@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using Okta.Sdk.Internal;
+using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -40,6 +41,7 @@ namespace Okta.Sdk.UnitTests
                 new RequestContext());
 
             var count = await collection.Count();
+            count.Should().Be(5);
         }
 
         [Fact]

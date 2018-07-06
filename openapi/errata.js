@@ -2,8 +2,8 @@ const propertyErrata = [
   { path: 'FactorDevice.links', skip: true, skipReason: 'Not currently supported' },
   { path: 'Link.hints', skip: true, skipReason: 'Not currently supported' },
   
-  { path: '*._embedded', skip: true, skipReason: 'Not currently supported', apply: 'All' },
-  { path: '*._links', skip: true, skipReason: 'Not currently supported', apply: 'All' },
+  { path: '*._embedded', skip: true, skipReason: 'Not currently supported'},
+  { path: '*._links', skip: true, skipReason: 'Not currently supported'},
 
   { path: 'ActivationToken.activationToken', rename: 'token', renameReason: '.NET type name and member name cannot be identical' },
   { path: 'TempPassword.tempPassword', rename: 'password', renameReason: '.NET type name and member name cannot be identical' },
@@ -84,12 +84,7 @@ const propertyErrata = [
     typeReason: 'A wrapper is defined type for this property'
    },
 
-   {
-    path: 'ApplicationGroupAssignment.profile',
-    type: 'AppUserProfile',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
+   { path: 'ApplicationGroupAssignment.profile', skip: true, skipReason: 'Not currently supported' },
 
 ];
 
@@ -117,7 +112,7 @@ function applyPropertyErrata(existingProperty, infoLogger) {
   let exists = existingProperty && existingProperty.fullPath;
   if (!exists) return existingProperty;
 
-  let errata = propertyErrata.find(x => x.path === existingProperty.fullPath || (x.path === `*.${existingProperty.propertyName}` && x.apply === 'All'));
+  let errata = propertyErrata.find(x => x.path === existingProperty.fullPath || (x.path === `*.${existingProperty.propertyName}`));
   if (!errata) return existingProperty;
 
   if (errata.rename) {

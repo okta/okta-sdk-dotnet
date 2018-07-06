@@ -32,30 +32,8 @@ namespace Okta.Sdk.Internal
         {
             _targetTypeInfo = typeof(T).GetTypeInfo();
             _resourceFactory = resourceFactory;
-            _genericList = EnsureGenericListItemsType(genericList);
+            _genericList = genericList;
             _logger = logger;
-        }
-
-        /// <summary>
-        /// Ensure that genericList items are cast to type T
-        /// </summary>
-        /// <param name="genericList">The generic list of items</param>
-        /// <returns>The genericList correctly cast</returns>
-        private IList<object> EnsureGenericListItemsType(IList<object> genericList)
-        {
-            if (StringEnum.TypeInfo.IsAssignableFrom(_targetTypeInfo))
-            {
-                IList<object> typedGenericList = new List<object>();
-
-                foreach (var item in genericList)
-                {
-                    typedGenericList.Add(Cast(item));
-                }
-
-                return typedGenericList;
-            }
-
-            return genericList;
         }
 
         private T Cast(object item)
@@ -70,7 +48,7 @@ namespace Okta.Sdk.Internal
             var isStringEnum = StringEnum.TypeInfo.IsAssignableFrom(_targetTypeInfo);
             if (isStringEnum)
             {
-                return StringEnum.CreateFromExistingData<T>(item?.ToString());
+                return StringEnum.Create<T>(item?.ToString());
             }
 
             // Fall back to primitive conversion
@@ -105,7 +83,13 @@ namespace Okta.Sdk.Internal
         public void Clear() => _genericList.Clear();
 
         /// <inheritdoc />
-        public bool Contains(T item) => _genericList.Contains(item);
+        public bool Contains(T item)
+        {
+            var casted = _genericList
+                .Select(Cast)
+                .ToArray();
+            return casted.Contains(item);
+        }
 
         /// <inheritdoc />
         public void CopyTo(T[] array, int arrayIndex)
