@@ -48,7 +48,7 @@ namespace Okta.Sdk.Internal
             var isStringEnum = StringEnum.TypeInfo.IsAssignableFrom(_targetTypeInfo);
             if (isStringEnum)
             {
-                return StringEnum.CreateFromExistingData<T>(item?.ToString());
+                return StringEnum.Create<T>(item?.ToString());
             }
 
             // Fall back to primitive conversion
