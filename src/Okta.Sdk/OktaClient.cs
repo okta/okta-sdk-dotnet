@@ -154,6 +154,12 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IGroupsClient Groups => new GroupsClient(_dataStore, Configuration, _requestContext);
 
+        /// <inheritdoc/>
+        public IApplicationsClient Applications => new ApplicationsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public ISessionsClient Sessions => new SessionsClient(_dataStore, Configuration, _requestContext);
+
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
         /// </summary>

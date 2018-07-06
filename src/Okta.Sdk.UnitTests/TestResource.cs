@@ -7,6 +7,9 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.UnitTests
 {
+    /// <summary>
+    /// Dummy resource that is used for unit tests that involve serialization/deserialization.
+    /// </summary>
     public class TestResource : Resource
     {
         public TestResource()
