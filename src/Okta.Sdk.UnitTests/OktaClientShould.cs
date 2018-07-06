@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -107,7 +108,6 @@ namespace Okta.Sdk.UnitTests
                 causes.Should().HaveCount(2);
                 causes.First().ErrorSummary.Should().Be("Password requirements were not met.");
                 causes.Last().ErrorSummary.Should().Be("Another bad thing that happened");
-
             }
         }
 
