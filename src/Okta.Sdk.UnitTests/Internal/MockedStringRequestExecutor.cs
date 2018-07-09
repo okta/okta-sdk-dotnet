@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Internal;
 
-namespace Okta.Sdk.UnitTests
+namespace Okta.Sdk.UnitTests.Internal
 {
     public class MockedStringRequestExecutor : IRequestExecutor
     {
@@ -20,7 +20,7 @@ namespace Okta.Sdk.UnitTests
 
         public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
         {
-            _returnThis = returnThis ?? throw new ArgumentNullException(nameof(returnThis));
+            _returnThis = returnThis;
             _statusCode = statusCode;
         }
 

@@ -46,6 +46,13 @@ namespace Okta.Sdk
         public DateTimeOffset? PasswordChanged => GetDateTimeProperty("passwordChanged");
         
         /// <inheritdoc/>
+        public AppUserProfile Profile 
+        {
+            get => GetResourceProperty<AppUserProfile>("profile");
+            set => this["profile"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string Scope 
         {
             get => GetStringProperty("scope");

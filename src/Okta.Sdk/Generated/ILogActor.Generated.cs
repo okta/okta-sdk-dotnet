@@ -17,6 +17,8 @@ namespace Okta.Sdk
     {
         string AlternateId { get; }
 
+        LogDetail Detail { get; set; }
+
         string DisplayName { get; }
 
         string Id { get; }

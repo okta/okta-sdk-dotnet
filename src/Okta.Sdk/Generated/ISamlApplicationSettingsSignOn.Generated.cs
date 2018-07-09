@@ -23,7 +23,7 @@ namespace Okta.Sdk
 
         string AudienceOverride { get; set; }
 
-        string AuthnContextClassRef { get; set; }
+        string AuthenticationContextClassName { get; set; }
 
         string DefaultRelayState { get; set; }
 
@@ -33,7 +33,7 @@ namespace Okta.Sdk
 
         string DigestAlgorithm { get; set; }
 
-        bool? HonorForceAuthn { get; set; }
+        bool? HonorForceAuthentication { get; set; }
 
         string IdpIssuer { get; set; }
 

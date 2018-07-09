@@ -31,10 +31,10 @@ namespace Okta.Sdk
         public static ApplicationSignOnMode WsFederation = new ApplicationSignOnMode("WS_FEDERATION");
 
         /// <summary>The SAML_2_0 ApplicationSignOnMode.</summary>
-        public static ApplicationSignOnMode Saml20 = new ApplicationSignOnMode("SAML_2_0");
+        public static ApplicationSignOnMode Saml2 = new ApplicationSignOnMode("SAML_2_0");
 
         /// <summary>The OPENID_CONNECT ApplicationSignOnMode.</summary>
-        public static ApplicationSignOnMode OpenidConnect = new ApplicationSignOnMode("OPENID_CONNECT");
+        public static ApplicationSignOnMode OpenIdConnect = new ApplicationSignOnMode("OPENID_CONNECT");
 
         /// <summary>
         /// Creates a new <see cref="ApplicationSignOnMode"/> instance.

@@ -16,7 +16,6 @@ namespace Okta.Sdk
     public class Resource : IResource
     {
         internal static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
-        internal static readonly TypeInfo StringEnumTypeInfo = typeof(StringEnum).GetTypeInfo();
 
         private readonly ResourceBehavior _dictionaryType;
         private IOktaClient _client;
@@ -98,7 +97,7 @@ namespace Okta.Sdk
                 return GetResourcePropertyInternal<T>(name);
             }
 
-            if (StringEnumTypeInfo.IsAssignableFrom(typeInfo))
+            if (StringEnum.TypeInfo.IsAssignableFrom(typeInfo))
             {
                 return GetEnumPropertyInternal<T>(name);
             }

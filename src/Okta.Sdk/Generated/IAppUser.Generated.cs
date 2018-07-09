@@ -29,6 +29,8 @@ namespace Okta.Sdk
 
         DateTimeOffset? PasswordChanged { get; }
 
+        AppUserProfile Profile { get; set; }
+
         string Scope { get; set; }
 
         string Status { get; }

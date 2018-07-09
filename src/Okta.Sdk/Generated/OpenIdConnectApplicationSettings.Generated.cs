@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class OpenIdConnectApplicationSettings : ApplicationSettings, IOpenIdConnectApplicationSettings
     {
         /// <inheritdoc/>
-        public IOpenIdConnectApplicationSettingsClient OauthClient 
+        public IOpenIdConnectApplicationSettingsClient OAuthClient 
         {
             get => GetResourceProperty<OpenIdConnectApplicationSettingsClient>("oauthClient");
             set => this["oauthClient"] = value;

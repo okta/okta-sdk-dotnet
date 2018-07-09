@@ -96,5 +96,35 @@ namespace Okta.Sdk.UnitTests
 
             json.Should().Be("{\"foo\":\"bar\"}");
         }
+
+        [Fact]
+        public void SerializeEnum()
+        {
+            var serializer = new DefaultSerializer();
+
+            var json = serializer.Serialize(new { test = FactorStatus.Active });
+
+            json.Should().Be("{\"test\":\"ACTIVE\"}");
+        }
+
+        [Fact]
+        public void SerializeEmptyEnum()
+        {
+            var serializer = new DefaultSerializer();
+
+            var json = serializer.Serialize(new { test = new FactorStatus(string.Empty) });
+
+            json.Should().Be("{\"test\":\"\"}");
+        }
+
+        [Fact]
+        public void SerializeNullEnum()
+        {
+            var serializer = new DefaultSerializer();
+
+            var json = serializer.Serialize(new { test = new FactorStatus(null) });
+
+            json.Should().Be("{\"test\":\"\"}");
+        }
     }
 }

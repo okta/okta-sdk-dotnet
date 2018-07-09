@@ -16,5 +16,12 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public sealed partial class LogDebugContext : Resource, ILogDebugContext
     {
+        /// <inheritdoc/>
+        public LogDetail DebugData 
+        {
+            get => GetResourceProperty<LogDetail>("debugData");
+            set => this["debugData"] = value;
+        }
+        
     }
 }

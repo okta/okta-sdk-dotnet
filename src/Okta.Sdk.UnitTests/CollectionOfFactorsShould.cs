@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using Okta.Sdk.Internal;
+using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests

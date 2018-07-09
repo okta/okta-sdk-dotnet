@@ -15,5 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a LogDebugContext resource in the Okta API.</summary>
     public partial interface ILogDebugContext : IResource
     {
+        LogDetail DebugData { get; set; }
+
     }
 }

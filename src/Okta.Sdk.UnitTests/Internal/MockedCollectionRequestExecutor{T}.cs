@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Okta.Sdk.Internal;
 
-namespace Okta.Sdk.UnitTests
+namespace Okta.Sdk.UnitTests.Internal
 {
     public class MockedCollectionRequestExecutor<T> : IRequestExecutor
     {

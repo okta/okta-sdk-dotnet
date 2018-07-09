@@ -10,7 +10,7 @@ namespace Okta.Sdk.Internal
 {
     internal sealed class DefaultResourceTypeResolver<T> : AbstractResourceTypeResolver<T>
     {
-        public override Type GetResolvedType(IDictionary<string, object> data)
+        protected override Type GetResolvedTypeInternal(IDictionary<string, object> data)
             => typeof(T);
     }
 }

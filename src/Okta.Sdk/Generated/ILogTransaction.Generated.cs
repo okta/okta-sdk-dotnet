@@ -15,6 +15,8 @@ namespace Okta.Sdk
     /// <summary>Represents a LogTransaction resource in the Okta API.</summary>
     public partial interface ILogTransaction : IResource
     {
+        LogDetail Detail { get; set; }
+
         string Id { get; }
 
         string Type { get; }

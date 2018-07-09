@@ -20,6 +20,13 @@ namespace Okta.Sdk
         public string AlternateId => GetStringProperty("alternateId");
         
         /// <inheritdoc/>
+        public LogDetail DetailEntry 
+        {
+            get => GetResourceProperty<LogDetail>("detailEntry");
+            set => this["detailEntry"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string DisplayName => GetStringProperty("displayName");
         
         /// <inheritdoc/>
