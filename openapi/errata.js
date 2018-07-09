@@ -1,11 +1,10 @@
 const propertyErrata = [
   { path: 'FactorDevice.links', skip: true, skipReason: 'Not currently supported' },
   { path: 'Link.hints', skip: true, skipReason: 'Not currently supported' },
-  { path: 'User._links', skip: true, skipReason: 'Not currently supported' },
-  { path: 'UserGroup._embedded', skip: true, skipReason: 'Not currently supported' },
-  { path: 'UserGroup._links', skip: true, skipReason: 'Not currently supported' },
-  { path: 'UserGroupStats._links', skip: true, skipReason: 'Not currently supported' },
   
+  { path: '*._embedded', skip: true, skipReason: 'Not currently supported'},
+  { path: '*._links', skip: true, skipReason: 'Not currently supported'},
+
   { path: 'ActivationToken.activationToken', rename: 'token', renameReason: '.NET type name and member name cannot be identical' },
   { path: 'TempPassword.tempPassword', rename: 'password', renameReason: '.NET type name and member name cannot be identical' },
 
@@ -18,20 +17,112 @@ const propertyErrata = [
   { path: 'TokenFactor.profile', hidesBaseMember: true },
   { path: 'TotpFactor.profile', hidesBaseMember: true },
   { path: 'WebFactor.profile', hidesBaseMember: true },
+
+  { path: 'BasicAuthApplication.credentials', hidesBaseMember: true },
+  {
+    path: 'BasicAuthApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+   { path: 'BasicAuthApplication.settings', hidesBaseMember: true },
+
+   {
+    path: 'BookmarkApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'OpenIdConnectApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'SecurePasswordStoreApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'SwaApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'SwaThreeFieldApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   {
+    path: 'WsFederationApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
+
+   { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },
+   { path: 'OpenIdConnectApplicationSettingsClient.tos_uri', rename: 'termsOfServiceUri', renameReason: 'Legibility' },
+   { path: 'OpenIdConnectApplicationSettings.oauthClient', rename: 'oAuthClient', renameReason: 'Legibility' },
+   { path: 'SamlApplicationSettingsSignOn.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
+   { path: 'WsFederationApplicationSettingsApplication.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
+   { path: 'SamlApplicationSettingsSignOn.honorForceAuthn', rename: 'honorForceAuthentication', renameReason: 'Legibility' },
+   { path: 'SwaThreeFieldApplicationSettingsApplication.targetUrl', binding: 'targetURL', renameReason: 'Matching the API' },
+
+   {
+    path: 'AppUser.profile',
+    type: 'AppUserProfile',
+    readOnly: false,
+    typeReason: 'A wrapper is defined type for this property'
+   },
+
+   { path: 'ApplicationGroupAssignment.profile', skip: true, skipReason: 'Not currently supported' },
+
 ];
 
-function applyPropertyErrata(existingProperty) {
+const enumErrata = [
+  { path: 'ApplicationSignOnMode.openidConnect', rename: 'openIdConnect', renameReason: 'Convention' },
+  { path: 'ApplicationSignOnMode.saml20', rename: 'saml2', renameReason: 'Legibility' },
+];
+
+function applyEnumErrata(existingMember, infoLogger) {
+  let exists = existingMember && existingMember.fullPath;
+  if (!exists) return existingMember;
+
+  let errata = enumErrata.find(x => x.path === existingMember.fullPath);
+  if(!errata) return existingMember;
+
+  if (errata.rename) {
+    existingMember.memberName = errata.rename;
+    infoLogger(`Errata: Renaming property ${existingMember.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  return existingMember;
+}
+
+function applyPropertyErrata(existingProperty, infoLogger) {
   let exists = existingProperty && existingProperty.fullPath;
   if (!exists) return existingProperty;
 
-  let errataDescriptions = {};
-  let errata = propertyErrata.find(x => x.path === existingProperty.fullPath);
+  let errata = propertyErrata.find(x => x.path === existingProperty.fullPath || (x.path === `*.${existingProperty.propertyName}`));
   if (!errata) return existingProperty;
 
   if (errata.rename) {
-    existingProperty.wasRenamed = true;
     existingProperty.displayName = errata.rename;
-    errataDescriptions.renameReason = errata.renameReason;
+    infoLogger(`Errata: Renaming property ${existingProperty.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  if(errata.binding) {
+    existingProperty.propertyName = errata.binding;
+    infoLogger(`Errata: Renaming binding of property ${existingProperty.fullPath} to ${errata.binding}`, `(Reason: ${errata.renameReason})`);
   }
 
   if (errata.hidesBaseMember) {
@@ -40,20 +131,23 @@ function applyPropertyErrata(existingProperty) {
 
   if (errata.skip) {
     existingProperty.hidden = true;
-    errataDescriptions.skipReason = errata.skipReason;
+    infoLogger(`Errata: Hiding property ${existingProperty.fullPath}`, `Reason: ${errata.skipReason}`)
   }
 
-  existingProperty.errataDescriptions = errataDescriptions;
+  if (errata.type) {
+    existingProperty.commonType = errata.type;
+    infoLogger(`Errata: Explicitly setting type of ${existingProperty.fullPath} to '${errata.type}'`, `(Reason: ${errata.typeReason})`)
+  }
+
+  if(errata.readOnly != null) {
+    existingProperty.readOnly = errata.readOnly;
+    infoLogger(`Errata: ReadOnly changed for property ${existingProperty.fullPath}`)
+  }
+
   return existingProperty;
 }
 
 function isPropertyUnsupported(property) {
-  if (property.model && property.model === 'object') {
-    return {
-      reason: 'object properties are not supported'
-    };
-  }
-
   if (typeof property.commonType === 'undefined') {
     return {
       reason: 'properties without commonType are not supported'
@@ -103,6 +197,7 @@ function shouldSkipOperation(operationId) {
 }
 
 module.exports.applyPropertyErrata = applyPropertyErrata;
+module.exports.applyEnumErrata = applyEnumErrata;
 module.exports.isPropertyUnsupported = isPropertyUnsupported;
 module.exports.shouldSkipModelMethod = shouldSkipModelMethod;
 module.exports.shouldSkipOperation = shouldSkipOperation;

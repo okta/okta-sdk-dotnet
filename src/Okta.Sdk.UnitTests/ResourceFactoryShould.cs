@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using FluentAssertions;
 using Okta.Sdk.Internal;
 using Xunit;
 
@@ -35,6 +36,80 @@ namespace Okta.Sdk.UnitTests
 
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<string>(fakeData));
             Assert.Throws<InvalidOperationException>(() => factory.CreateFromExistingData<SomeClass>(fakeData));
+        }
+
+        /// <summary>
+        /// Tests whether resource types that do not require resolution are instantiated correctly.
+        /// </summary>
+        [Fact]
+        public void CreateUserFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("id", "foobar");
+
+            var user = factory.CreateFromExistingData<User>(fakeData);
+
+            user.Should().NotBeNull();
+            user.Should().BeOfType<User>();
+            user.Id.Should().Be("foobar");
+        }
+
+        /// <summary>
+        /// Tests whether resource types that require resolution are instantiated correctly.
+        /// </summary>
+        [Fact]
+        public void CreateSwaApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
+            fakeData.Add("name", "template_swa");
+
+            var app = factory.CreateFromExistingData<Application>(fakeData);
+
+            app.Should().NotBeNull();
+            app.Should().BeOfType<SwaApplication>();
+        }
+
+        [Fact]
+        public void CreateSwaThreeFieldApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
+            fakeData.Add("name", "template_swa3field");
+
+            var app = factory.CreateFromExistingData<Application>(fakeData);
+
+            app.Should().NotBeNull();
+            app.Should().BeOfType<SwaThreeFieldApplication>();
+        }
+
+        [Fact]
+        public void CreateBookmarkApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.Bookmark);
+
+            var app = factory.CreateFromExistingData<Application>(fakeData);
+
+            app.Should().NotBeNull();
+            app.Should().BeOfType<BookmarkApplication>();
+        }
+
+        [Fact]
+        public void CreateBasicApplicationFromExistingData()
+        {
+            var factory = new ResourceFactory(null, null);
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("signOnMode", ApplicationSignOnMode.BasicAuth);
+
+            var app = factory.CreateFromExistingData<Application>(fakeData);
+
+            app.Should().NotBeNull();
+            app.Should().BeOfType<BasicAuthApplication>();
         }
     }
 }

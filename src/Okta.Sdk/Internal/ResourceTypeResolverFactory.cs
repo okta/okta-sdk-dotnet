@@ -11,8 +11,10 @@ using System.Text;
 
 namespace Okta.Sdk.Internal
 {
-    internal static class ResourceTypeResolver
+    internal static class ResourceTypeResolverFactory
     {
+        private static readonly Type DefaultResolverType = typeof(DefaultResourceTypeResolver<>);
+
         private static readonly (Type Resolver, Type For)[] CachedResolvers =
             typeof(Resource).GetTypeInfo().Assembly.DefinedTypes
             .Where(typeInfo =>
@@ -31,16 +33,27 @@ namespace Okta.Sdk.Internal
             .Select(typeInfo => (typeInfo.AsType(), typeInfo.BaseType.GenericTypeArguments[0]))
             .ToArray();
 
-        public static AbstractResourceTypeResolver<T> Create<T>()
-        {
-            var resolver = CachedResolvers.FirstOrDefault(x => x.For == typeof(T)).Resolver;
+        public static bool RequiresResolution(Type resourceType)
+            => GetResolver(resourceType) != null;
 
-            if (resolver == null)
+        public static IResourceTypeResolver CreateResolver<T>()
+            => CreateResolver(forType: typeof(T));
+
+        public static IResourceTypeResolver CreateResolver(Type forType)
+        {
+            var resolverType = GetResolver(forType);
+
+            if (resolverType == null)
             {
-                return new DefaultResourceTypeResolver<T>();
+                // equivalent to: new DefaultResourceTypeResolver<T>();
+                var defaultResolverOfT = DefaultResolverType.MakeGenericType(forType);
+                return (IResourceTypeResolver)Activator.CreateInstance(defaultResolverOfT);
             }
 
-            return (AbstractResourceTypeResolver<T>)Activator.CreateInstance(resolver);
+            return (IResourceTypeResolver)Activator.CreateInstance(resolverType);
         }
+
+        private static Type GetResolver(Type resourceType)
+            => CachedResolvers.FirstOrDefault(x => x.For == resourceType).Resolver;
     }
 }
