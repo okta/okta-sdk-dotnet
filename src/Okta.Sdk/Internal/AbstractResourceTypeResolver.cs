@@ -5,7 +5,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Okta.Sdk.Internal
 {
@@ -13,13 +12,33 @@ namespace Okta.Sdk.Internal
     /// Resolves a resource type based on the resource data. Base class for all resource type resolvers.
     /// </summary>
     /// <typeparam name="T">The base type of resource to resolve.</typeparam>
-    public abstract class AbstractResourceTypeResolver<T>
+    public abstract class AbstractResourceTypeResolver<T> : IResourceTypeResolver
     {
         /// <summary>
         /// Get the resolved resource type given its <paramref name="data"/>.
         /// </summary>
         /// <param name="data">The resource data.</param>
         /// <returns>The resource type.</returns>
-        public abstract Type GetResolvedType(IDictionary<string, object> data);
+        public Type GetResolvedType(IDictionary<string, object> data)
+        {
+            var resourceType = GetResolvedTypeInternal(data);
+
+            if (!ResourceTypeResolverFactory.RequiresResolution(resourceType))
+            {
+                return resourceType;
+            }
+
+            // If there is a more specific resolver available, resolve again recursively
+            var moreSpecificResolver = ResourceTypeResolverFactory.CreateResolver(forType: resourceType);
+            return moreSpecificResolver.GetResolvedType(data);
+        }
+
+        /// <summary>
+        /// Gets the type depending on the resource's data.
+        /// </summary>
+        /// <param name="data">The resource data.</param>
+        /// <returns>The resource type.</returns>
+        /// <remarks>Implemented by specific resolvers in order to control how certain resources are resolved to their types.</remarks>
+        protected abstract Type GetResolvedTypeInternal(IDictionary<string, object> data);
     }
 }

@@ -30,9 +30,9 @@ namespace Okta.Sdk.Internal
         /// <param name="logger">The logging interface.</param>
         public CastingListAdapter(IList<object> genericList, ResourceFactory resourceFactory, ILogger logger)
         {
-            _genericList = genericList;
-            _resourceFactory = resourceFactory;
             _targetTypeInfo = typeof(T).GetTypeInfo();
+            _resourceFactory = resourceFactory;
+            _genericList = genericList;
             _logger = logger;
         }
 
@@ -43,6 +43,12 @@ namespace Okta.Sdk.Internal
             {
                 var nestedData = item as IDictionary<string, object>;
                 return _resourceFactory.CreateFromExistingData<T>(nestedData);
+            }
+
+            var isStringEnum = StringEnum.TypeInfo.IsAssignableFrom(_targetTypeInfo);
+            if (isStringEnum)
+            {
+                return StringEnum.Create<T>(item?.ToString());
             }
 
             // Fall back to primitive conversion
@@ -77,7 +83,13 @@ namespace Okta.Sdk.Internal
         public void Clear() => _genericList.Clear();
 
         /// <inheritdoc />
-        public bool Contains(T item) => _genericList.Contains(item);
+        public bool Contains(T item)
+        {
+            var casted = _genericList
+                .Select(Cast)
+                .ToArray();
+            return casted.Contains(item);
+        }
 
         /// <inheritdoc />
         public void CopyTo(T[] array, int arrayIndex)

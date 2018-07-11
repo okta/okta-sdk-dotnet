@@ -10,10 +10,15 @@ Creates the context that the handlebars template is bound to:
 */
 
 const { 
-  pascalCase
+  pascalCase,
+  camelCase
  } = require('./utils');
  
-function createContextForEnum(model, errFunc) {
+ const {
+   applyEnumErrata
+ } = require('./errata');
+
+function createContextForEnum(model, errFunc, infoLogger) {
   let memberName = model.modelName || '';
   if (!memberName.length) errFunc("modelName is zero-length", model);
 
@@ -23,8 +28,10 @@ function createContextForEnum(model, errFunc) {
   };
 
   for (let rawEnum of model.enum) {
+    let enumDefinition = { fullPath : `${model.modelName}.${camelCase(rawEnum)}`, memberName : camelCase(rawEnum) };
+
     context.items.push({
-      memberName: pascalCase(rawEnum),
+      memberName: pascalCase(applyEnumErrata(enumDefinition, infoLogger).memberName),
       value: rawEnum
     })
   }

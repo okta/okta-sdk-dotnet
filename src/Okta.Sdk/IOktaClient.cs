@@ -34,6 +34,14 @@ namespace Okta.Sdk
         IUsersClient Users { get; }
 
         /// <summary>
+        /// Gets a <see cref="IApplicationsClient">ApplicationsClient</see> that interacts with the Okta Applications API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IApplicationsClient">ApplicationsClient</see> that interacts with the Okta Applications API.
+        /// </value>
+        IApplicationsClient Applications { get; }
+
+        /// <summary>
         /// Gets a <see cref="IUserFactorsClient">UserFactorsClient</see> that interacts with the Okta Factors API.
         /// </summary>
         /// <value>

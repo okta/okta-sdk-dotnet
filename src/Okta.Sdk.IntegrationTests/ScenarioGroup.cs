@@ -10,7 +10,7 @@ namespace Okta.Sdk.IntegrationTests
     /// </summary>
     public abstract class ScenarioGroup
     {
-        protected IOktaClient GetClient(string scenarioName)
+        protected IOktaClient GetClient(string scenarioName = null)
         {
             // scenarioName is reserved for future use, if we add
             // mocked server responses to our testing strategy.
