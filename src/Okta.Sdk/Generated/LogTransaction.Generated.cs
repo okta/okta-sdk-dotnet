@@ -17,11 +17,7 @@ namespace Okta.Sdk
     public sealed partial class LogTransaction : Resource, ILogTransaction
     {
         /// <inheritdoc/>
-        public LogDetail Detail 
-        {
-            get => GetResourceProperty<LogDetail>("detail");
-            set => this["detail"] = value;
-        }
+        public Resource Detail => GetResourceProperty<Resource>("detail");
         
         /// <inheritdoc/>
         public string Id => GetStringProperty("id");

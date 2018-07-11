@@ -83,30 +83,6 @@ const propertyErrata = [
     typeReason: 'A wrapper is defined type for this property'
    },
    { path: 'ApplicationGroupAssignment.profile', skip: true, skipReason: 'Not currently supported' },
-   {
-    path: 'LogTarget.detailEntry',
-    type: 'LogDetail',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
-   {
-    path: 'LogTransaction.detail',
-    type: 'LogDetail',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
-   {
-    path: 'LogDebugContext.debugData',
-    type: 'LogDetail',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
-   {
-    path: 'LogActor.detail',
-    type: 'LogDetail',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
 ];
 
 const enumErrata = [

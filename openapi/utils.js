@@ -32,7 +32,7 @@ function propToCLRType(prop, isInterface) {
     case 'array': return `IList<${getType(prop.model)}>`;
     case 'object': return isInterface ? `I${prop.model}` : prop.model;
     case 'enum': return prop.model;
-    case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
+    case 'hash': return `Resource`;
     default: return getType(prop.commonType);
   }
 }
