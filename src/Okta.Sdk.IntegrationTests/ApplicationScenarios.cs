@@ -824,7 +824,7 @@ namespace Okta.Sdk.IntegrationTests
                     AuthUrl = "https://example.com/auth.html",
                 });
 
-            var profile = new AppUserProfile();
+            var profile = new Resource();
             profile["salesforceGroups"] = new List<string> { "Employee" };
             profile["role"] = "Developer";
             profile["profile"] = "Standard User";
@@ -1310,6 +1310,65 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Applications.DeleteApplicationAsync(createdApp.Id);
             }
         }
+
+        [Fact]
+        public async Task ListApplicationKeyCredentials()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var appKeys = await createdApp.ListKeys().ToList();
+                // A key is created by default
+                appKeys.Should().NotBeNull();
+                appKeys.Should().HaveCount(1);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetApplicationKeyCredentials()
+        {
+            var client = GetClient();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var defaultAppKey = await createdApp.ListKeys().FirstOrDefault();
+                var retrievedAppKey = await createdApp.GetApplicationKeyAsync(defaultAppKey.Kid);
+
+                retrievedAppKey.Should().NotBeNull();
+                retrievedAppKey.Kid.Should().Be(defaultAppKey.Kid);
+                retrievedAppKey.Created.Should().Be(defaultAppKey.Created);
+                retrievedAppKey.ExpiresAt.Should().Be(defaultAppKey.ExpiresAt);
+                retrievedAppKey.X5C.Should().BeEquivalentTo(defaultAppKey.X5C);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
 
         [Fact(Skip = "Must be implemented once create and provisioning got fixed")]
         public async Task UpdateApplicationProfileForAssignedUser()

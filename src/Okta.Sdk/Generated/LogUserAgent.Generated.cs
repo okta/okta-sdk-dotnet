@@ -20,7 +20,7 @@ namespace Okta.Sdk
         public string Browser => GetStringProperty("browser");
         
         /// <inheritdoc/>
-        public string Os => GetStringProperty("os");
+        public string OperatingSystem => GetStringProperty("os");
         
         /// <inheritdoc/>
         public string RawUserAgent => GetStringProperty("rawUserAgent");

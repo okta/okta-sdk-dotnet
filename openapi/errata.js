@@ -76,18 +76,28 @@ const propertyErrata = [
    { path: 'WsFederationApplicationSettingsApplication.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
    { path: 'SamlApplicationSettingsSignOn.honorForceAuthn', rename: 'honorForceAuthentication', renameReason: 'Legibility' },
    { path: 'SwaThreeFieldApplicationSettingsApplication.targetUrl', binding: 'targetURL', renameReason: 'Matching the API' },
-   {
-    path: 'AppUser.profile',
-    type: 'AppUserProfile',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
    { path: 'ApplicationGroupAssignment.profile', skip: true, skipReason: 'Not currently supported' },
+   { path: 'LogGeolocation.lat', rename: 'latitude', renameReason: 'Legibility' },
+   { path: 'LogGeolocation.lon', rename: 'longitude', renameReason: 'Legibility' },
+   { path: 'LogUserAgent.os', rename: 'operatingSystem', renameReason: 'Legibility' },
+   { path: 'Session.amr', rename: 'authenticationMethodReference', renameReason: 'Legibility' },
+   
 ];
 
 const enumErrata = [
   { path: 'ApplicationSignOnMode.openidConnect', rename: 'openIdConnect', renameReason: 'Convention' },
   { path: 'ApplicationSignOnMode.saml20', rename: 'saml2', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.pwd', rename: 'password', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.swk', rename: 'softwareKey', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.hwk', rename: 'hardwareKey', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.otp', rename: 'oneTimePassword', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.tel', rename: 'telephone', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.geo', rename: 'geolocation', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.ftp', rename: 'fingerprint', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.kba', rename: 'knowledgeBased', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
+  { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
+  
 ];
 
 function applyEnumErrata(existingMember, infoLogger) {

@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a LogGeolocation resource in the Okta API.</summary>
     public partial interface ILogGeolocation : IResource
     {
-        double? Lat { get; }
+        double? Latitude { get; }
 
-        double? Lon { get; }
+        double? Longitude { get; }
 
     }
 }

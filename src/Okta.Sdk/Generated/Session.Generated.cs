@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class Session : Resource, ISession
     {
         /// <inheritdoc/>
-        public IList<SessionAuthenticationMethod> Amr => GetArrayProperty<SessionAuthenticationMethod>("amr");
+        public IList<SessionAuthenticationMethod> AuthenticationMethodReference => GetArrayProperty<SessionAuthenticationMethod>("amr");
         
         /// <inheritdoc/>
         public DateTimeOffset? CreatedAt => GetDateTimeProperty("createdAt");

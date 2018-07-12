@@ -13,34 +13,34 @@ namespace Okta.Sdk
     public sealed class SessionAuthenticationMethod : StringEnum
     {
         /// <summary>The pwd SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Pwd = new SessionAuthenticationMethod("pwd");
+        public static SessionAuthenticationMethod Password = new SessionAuthenticationMethod("pwd");
 
         /// <summary>The swk SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Swk = new SessionAuthenticationMethod("swk");
+        public static SessionAuthenticationMethod SoftwareKey = new SessionAuthenticationMethod("swk");
 
         /// <summary>The hwk SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Hwk = new SessionAuthenticationMethod("hwk");
+        public static SessionAuthenticationMethod HardwareKey = new SessionAuthenticationMethod("hwk");
 
         /// <summary>The otp SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Otp = new SessionAuthenticationMethod("otp");
+        public static SessionAuthenticationMethod OneTimePassword = new SessionAuthenticationMethod("otp");
 
         /// <summary>The sms SessionAuthenticationMethod.</summary>
         public static SessionAuthenticationMethod Sms = new SessionAuthenticationMethod("sms");
 
         /// <summary>The tel SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Tel = new SessionAuthenticationMethod("tel");
+        public static SessionAuthenticationMethod Telephone = new SessionAuthenticationMethod("tel");
 
         /// <summary>The geo SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Geo = new SessionAuthenticationMethod("geo");
+        public static SessionAuthenticationMethod Geolocation = new SessionAuthenticationMethod("geo");
 
         /// <summary>The fpt SessionAuthenticationMethod.</summary>
         public static SessionAuthenticationMethod Fpt = new SessionAuthenticationMethod("fpt");
 
         /// <summary>The kba SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Kba = new SessionAuthenticationMethod("kba");
+        public static SessionAuthenticationMethod KnowledgeBased = new SessionAuthenticationMethod("kba");
 
         /// <summary>The mfa SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Mfa = new SessionAuthenticationMethod("mfa");
+        public static SessionAuthenticationMethod Multifactor = new SessionAuthenticationMethod("mfa");
 
         /// <summary>
         /// Creates a new <see cref="SessionAuthenticationMethod"/> instance.

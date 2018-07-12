@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a Session resource in the Okta API.</summary>
     public partial interface ISession : IResource
     {
-        IList<SessionAuthenticationMethod> Amr { get; }
+        IList<SessionAuthenticationMethod> AuthenticationMethodReference { get; }
 
         DateTimeOffset? CreatedAt { get; }
 

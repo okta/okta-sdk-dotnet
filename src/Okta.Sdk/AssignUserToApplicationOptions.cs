@@ -21,6 +21,6 @@ namespace Okta.Sdk
 
         public string ApplicationId { get; set; }
 
-        public AppUserProfile Profile { get; set; }
+        public Resource Profile { get; set; }
     }
 }

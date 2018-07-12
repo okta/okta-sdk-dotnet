@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         string Browser { get; }
 
-        string Os { get; }
+        string OperatingSystem { get; }
 
         string RawUserAgent { get; }
 

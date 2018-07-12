@@ -17,10 +17,10 @@ namespace Okta.Sdk
     public sealed partial class LogGeolocation : Resource, ILogGeolocation
     {
         /// <inheritdoc/>
-        public double? Lat => GetDoubleProperty("lat");
+        public double? Latitude => GetDoubleProperty("lat");
         
         /// <inheritdoc/>
-        public double? Lon => GetDoubleProperty("lon");
+        public double? Longitude => GetDoubleProperty("lon");
         
     }
 }

@@ -13,7 +13,7 @@ namespace Okta.Sdk
     public sealed class LogCredentialProvider : StringEnum
     {
         /// <summary>The OKTA_AUTHENTICATION_PROVIDER LogCredentialProvider.</summary>
-        public static LogCredentialProvider OktaAuthenticationProvider = new LogCredentialProvider("OKTA_AUTHENTICATION_PROVIDER");
+        public static LogCredentialProvider Okta = new LogCredentialProvider("OKTA_AUTHENTICATION_PROVIDER");
 
         /// <summary>The RSA LogCredentialProvider.</summary>
         public static LogCredentialProvider Rsa = new LogCredentialProvider("RSA");

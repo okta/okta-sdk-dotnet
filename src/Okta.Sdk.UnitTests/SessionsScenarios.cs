@@ -104,35 +104,5 @@ namespace Okta.Sdk.UnitTests
                 Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
                 CancellationToken.None);
         }
-
-        [Fact]
-        public async Task ThrowApiExceptionFor401()
-        {
-            var rawErrorResponse = @"
-            {
-            ""errorCode"": ""E0000004"",
-            ""errorSummary"": ""Authentication failed"",
-            ""errorLink"": ""E0000004"",
-            ""errorId"": ""oaePeqyp7cuRaKQ6B95RY6Oyg"",
-            ""errorCauses"": []
-            }";
-
-            var mockRequestExecutor = new MockedStringRequestExecutor(rawErrorResponse, 401);
-            var client = new TestableOktaClient(mockRequestExecutor);
-
-            try
-            {
-                await client.Sessions.GetSessionAsync("12345");
-            }
-            catch (OktaApiException apiException)
-            {
-                apiException.Message.Should().Be("Authentication failed (401, E0000004)");
-                apiException.ErrorCode.Should().Be("E0000004");
-                apiException.ErrorSummary.Should().Be("Authentication failed");
-                apiException.ErrorLink.Should().Be("E0000004");
-                apiException.ErrorId.Should().Be("oaePeqyp7cuRaKQ6B95RY6Oyg");
-                apiException.Error.Should().NotBeNull();
-            }
-        }
     }
 }
