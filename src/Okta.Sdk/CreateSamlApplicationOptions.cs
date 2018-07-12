@@ -53,7 +53,7 @@ namespace Okta.Sdk
 
         public bool RequestCompressed { get; set; }
 
-        public IList<SamlAttributeStatement> AttributeStatements { get; set; }
+        public IList<ISamlAttributeStatement> AttributeStatements { get; set; }
 
         public bool Activate { get; set; } = true;
     }

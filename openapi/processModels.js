@@ -26,6 +26,9 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     .filter(model => model.extends)
     .map(model => model.extends));
 
+  // strictModelList are types that will be generated as pure classes (i.e StringEnum is not part of this list)
+  let strictModelList = new Set(models.filter(model => model.enum == null).map(model => model.modelName));
+
   // Preprocess all the models, apply errata, and enrich with extra data
   // This is only step 1; the next step is createContextForModel() below
   models = models.map(model => {
@@ -100,13 +103,13 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     modelTemplates.push({
       src: 'templates/IModel.cs.hbs',
       dest: `Generated/I${model.modelName}.Generated.cs`,
-      context: createContextForModel(model, errorLogger)
+      context: createContextForModel(model, strictModelList, errorLogger)
     });
 
     modelTemplates.push({
       src: 'templates/Model.cs.hbs',
       dest: `Generated/${model.modelName}.Generated.cs`,
-      context: createContextForModel(model, errorLogger)
+      context: createContextForModel(model, strictModelList, errorLogger)
     });
   }
 
@@ -141,7 +144,12 @@ Creates the context that the handlebars template is bound to:
   ]
 }
 */
-function createContextForModel(model, errFunc) {
+
+function isModelInterface(property, strictModelList) {
+  return (property.model != null && strictModelList.has(property.model) );
+}
+
+function createContextForModel(model, strictModelList, errFunc) {
   let context = {
     memberName: model.modelName,
     baseClass: model.extends || 'Resource',
@@ -153,11 +161,12 @@ function createContextForModel(model, errFunc) {
   for (let property of model.properties) {
     if (property.hidden) continue;
 
-    let type = propToCLRType(property, true);
+    let isInterface = isModelInterface(property, strictModelList);
+    let type = propToCLRType(property, isInterface);
 
     let memberName = pascalCase(property.displayName || property.propertyName);
 
-    let getterLiteral = `${getterName(property)}("${property.propertyName}")`;
+    let getterLiteral = `${getterName(property, isInterface)}("${property.propertyName}")`;
 
     context.properties.push({
       type, memberName, getterLiteral,
@@ -215,3 +224,4 @@ function createContextForModel(model, errFunc) {
 }
 
 module.exports.getTemplatesforModels = getTemplatesforModels;
+

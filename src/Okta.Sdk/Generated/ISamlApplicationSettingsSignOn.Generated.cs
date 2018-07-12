@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         bool? AssertionSigned { get; set; }
 
-        IList<SamlAttributeStatement> AttributeStatements { get; set; }
+        IList<ISamlAttributeStatement> AttributeStatements { get; set; }
 
         string Audience { get; set; }
 

@@ -251,7 +251,7 @@ namespace Okta.Sdk.IntegrationTests
                 AuthenticationContextClassName = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
                 SpIssuer = null,
                 RequestCompressed = false,
-                AttributeStatements = new List<SamlAttributeStatement>
+                AttributeStatements = new List<ISamlAttributeStatement>
                 {
                     new SamlAttributeStatement()
                         {

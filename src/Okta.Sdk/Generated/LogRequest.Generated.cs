@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class LogRequest : Resource, ILogRequest
     {
         /// <inheritdoc/>
-        public IList<LogIpAddress> IpChain => GetArrayProperty<LogIpAddress>("ipChain");
+        public IList<ILogIpAddress> IpChain => GetArrayProperty<ILogIpAddress>("ipChain");
         
     }
 }
