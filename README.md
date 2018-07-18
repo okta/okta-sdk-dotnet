@@ -202,6 +202,75 @@ var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "laura
 var groups = await user.Groups.ToList();
 ```
 
+### Add SWA Application
+
+``` csharp
+var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
+{ 
+    Label = "Sample Plugin App",
+    ButtonField = "btn-login",
+    PasswordField = "txtbox-password",
+    UsernameField = "txtbox-username",
+    Url = "https://example.com/login.html",
+    LoginUrlRegex = "^https://example.com/login.html",
+});
+
+```
+
+### Add WS Federation Application
+
+``` csharp
+var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new CreateWsFederationApplicationOptions
+    {
+        Label = "Sample WS-Fed App",
+        AudienceRestriction = "urn:example:app",
+        GroupName = null,
+        GroupValueFormat = "windowsDomainQualifiedName",
+        Realm = "urn:example:app",
+        WReplyUrl = "https://example.com/",
+        AttributeStatements = null,
+        NameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        AuthenticationContextClassName = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
+        SiteUrl = "https://example.com",
+        WReplyOverride = false,
+        GroupFilter = null,
+        UsernameAttribute = "username",
+    });
+```
+
+### Add OpenID Application
+
+``` csharp
+var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+{
+    Label = "Sample Client",
+    ClientId = "0oae8mnt9tZcGcMXG0h3",
+    TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+    AutoKeyRotation = true,
+    ClientUri = "https://example.com/client",
+    LogoUri = "https://example.com/assets/images/logo-new.png",
+    ResponseTypes = new List<OAuthResponseType>
+    {
+        OAuthResponseType.Token,
+        OAuthResponseType.IdToken,
+        OAuthResponseType.Code,
+    },
+    RedirectUris = new List<string>
+    {
+            "https://example.com/oauth2/callback",
+            "myapp://callback",
+    },
+    GrantTypes = new List<OAuthGrantType>
+    {
+        OAuthGrantType.Implicit,
+        OAuthGrantType.AuthorizationCode,
+    },
+    ApplicationType = OpenIdConnectApplicationType.Native,
+    TermsOfServiceUri = "https://example.com/client/tos",
+    PolicyUri = "https://example.com/client/policy",
+});
+```
+
 ## Call other API endpoints
 
 The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods. You can take a look at [GitHub](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/OktaClient.cs) to see the different overloadings.
