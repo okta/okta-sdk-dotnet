@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 
 namespace Okta.Sdk.Internal
 {
@@ -15,8 +14,9 @@ namespace Okta.Sdk.Internal
     {
         private static readonly Type DefaultResolverType = typeof(DefaultResourceTypeResolver<>);
 
-        private static readonly (Type Resolver, Type For)[] CachedResolvers =
-            typeof(Resource).GetTypeInfo().Assembly.DefinedTypes
+        private static readonly IEnumerable<TypeInfo> AllTypes = typeof(Resource).GetTypeInfo().Assembly.DefinedTypes.ToArray();
+
+        private static readonly IEnumerable<(Type Resolver, Type For)> AllResolvers = AllTypes
             .Where(typeInfo =>
             {
                 if (typeInfo?.BaseType == null)
@@ -41,19 +41,32 @@ namespace Okta.Sdk.Internal
 
         public static IResourceTypeResolver CreateResolver(Type forType)
         {
-            var resolverType = GetResolver(forType);
+            var concreteType = GetConcreteForInterface(forType);
+            var resolverType = GetResolver(concreteType);
 
             if (resolverType == null)
             {
                 // equivalent to: new DefaultResourceTypeResolver<T>();
-                var defaultResolverOfT = DefaultResolverType.MakeGenericType(forType);
+                var defaultResolverOfT = DefaultResolverType.MakeGenericType(concreteType);
                 return (IResourceTypeResolver)Activator.CreateInstance(defaultResolverOfT);
             }
 
             return (IResourceTypeResolver)Activator.CreateInstance(resolverType);
         }
 
+        private static Type GetConcreteForInterface(Type possiblyInterface)
+        {
+            var typeInfo = possiblyInterface.GetTypeInfo();
+            if (!typeInfo.IsInterface)
+            {
+                return possiblyInterface;
+            }
+
+            var foundConcrete = AllTypes.FirstOrDefault(x => x.IsClass == true && typeInfo.IsAssignableFrom(x));
+            return foundConcrete?.AsType() ?? possiblyInterface;
+        }
+
         private static Type GetResolver(Type resourceType)
-            => CachedResolvers.FirstOrDefault(x => x.For == resourceType).Resolver;
+            => AllResolvers.FirstOrDefault(x => x.For == resourceType).Resolver;
     }
 }
