@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a LogRequest resource in the Okta API.</summary>
     public partial interface ILogRequest : IResource
     {
-        IList<LogIpAddress> IpChain { get; }
+        IList<ILogIpAddress> IpChain { get; }
 
     }
 }
