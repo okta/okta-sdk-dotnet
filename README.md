@@ -3,7 +3,7 @@
 [![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
 [![API Reference](https://img.shields.io/badge/docs-reference-lightgrey.svg)][dotnetdocs]
 
-# Okta .NET Management SDK
+# Okta .NET management SDK
 
 > :warning: Beta alert! This library is in beta. See [release status](#release-status) for more information.
 
@@ -25,7 +25,7 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage sessions with the [Sessions API](https://developer.okta.com/docs/api/resources/sessions)
 * Much more!
  
-We also publish these libraries for .NET:
+We also publish these other libraries for .NET:
  
 * [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet)
  
@@ -39,8 +39,8 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 1.x | :warning: Beta/Under active development |
 | 0.x   | :heavy_check_mark: Stable |
+| 1.x | :warning: Beta/Under active development |
  
 The latest release can always be found on the [releases page][github-releases].
 
@@ -54,10 +54,7 @@ If you run into problems using the SDK, you can
 
 ## Getting Started
 
-The SDK is compatible with:
-* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 1.4
-* .NET Framework 4.6.1
-* Mono
+The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 1.3 and .NET Framework 4.6.1 or higher.
 
 ### Install using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
@@ -78,110 +75,123 @@ You'll also need:
 Construct a client instance by passing it your Okta domain name and API token:
  
 ``` csharp
-var client = new OktaClient(
-    new OktaClientConfiguration
-    {
-        OrgUrl = "https://dev-<your id>.oktapreview.com",
-        Token = "<Your API Token>"
-    });
+var client = new OktaClient(new OktaClientConfiguration
+{
+    OrgUrl = "https://{{yourOktaDomain}}",
+    Token = "{{yourApiToken}"
+});
 ```
- 
+
 Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
  
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
 
-Once you initialize a `Client`, you can call methods to make requests to the Okta API.
+Once you initialize an `OktaClient`, you can call methods to make requests to the Okta API.
 
 ### Authenticate a User
 
-This library should be used with the Okta management API. For authentication, we recommend using an OAuth 2.0 or OpenID Connect library such as [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet). For [Okta Authentcation API] refers to (https://developer.okta.com/docs/api/resources/authn).
+This library should be used with the Okta management API. For authentication, we recommend using an OAuth 2.0 or OpenID Connect library such as [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet).
+
+### Get a User
+``` csharp
+// Get the user with a user ID or login
+var vader = await client.Users.GetUserAsync("<Some user ID or login>");
+```
+
+The string argument for `GetUserAsync` can be the user's ID or the user's login (usually their email).
+
+### List all Users
+
+The SDK will automatically [paginate](https://developer.okta.com/docs/api/getting_started/design_principles#pagination) Okta collections for you:
+
+```
+// These different styles all perform the same action:
+var allUsers = await client.Users.ToArray();
+var allUsers = await client.Users.ToList();
+var allUsers = await client.Users.ListUsers().ToArray();
+```
+
+### Filter or search for Users
+TODO
 
 ### Create a User
 
 ``` csharp
-var vader = await client.Users.CreateUserAsync(
-    // User with password
-    new CreateUserWithPasswordOptions
+// Create a user with the specified password
+var vader = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+{
+    // User profile object
+    Profile = new UserProfile
     {
-        // User profile object
-        Profile = new UserProfile
-        {
-            FirstName = "Anakin",
-            LastName = "Skywalker",
-            Email = "darth.father@imperial-senate.gov",
-            Login = "darth.father@imperial-senate.gov",
-        },
-        Password = "D1sturB1ng!",
-        Activate = false,
-    });
+        FirstName = "Anakin",
+        LastName = "Skywalker",
+        Email = "darth.vader@imperial-senate.gov",
+        Login = "darth.vader@imperial-senate.gov",
+    },
+    Password = "D1sturB1ng!",
+    Activate = false,
+});
 ```
-
-This will create an inactive user for the client application.
 
 ### Activate a User
 
 ``` csharp
-// having a user, just call
+// With an existing user, call
 await vader.ActivateAsync();
 ```
 
-### Get a User
-``` csharp
-// have some user's ID, or login
-var someUserId = "<Some User ID String or Login>";
-
-// get the user with the ID or login
-var vader = await client.Users.GetUserAsync(someUserId);
-```
-
-The string argument for `GetUserAsync` can be the user's ID or the user's login (email).
-
 ### Update a User
 ``` csharp
-// set the nickname in the user's profile
+// Set the nickname in the user's profile
 vader.Profile["nickName"] = "Lord Vader";
 
-// then, update the user
+// Then, save the user
 await vader.UpdateAsync();
 ```
 
-### Get and Set Custom Attributes
+### Get and set custom attributes
 
-You can't create attributes via code right now, but you can get/set them. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code below:
+You can't create attributes via code right now, but you can get and set their values. To create them you have to use the Profile Editor in the Developer Console web UI. Once you have created them, you can use the code below:
 
 ```csharp
 vader.Profile["homeworld"] = "Tattooine";
-
 await vader.UpdateAsync();
 ```
 
 ### Remove a User
 ``` csharp
-// first, deactivate the user
-await newVader.DeactivateAsync();
+// First, deactivate the user
+await vader.DeactivateAsync();
 
-// then delete the user
-await newVader.DeactivateOrDeleteAsync();
+// Then delete the user
+await vader.DeactivateOrDeleteAsync();
+```
+
+### List a User's Groups
+
+``` csharp
+// find the desired user
+var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "laura.rodriguez@okta.com");
+
+// get the user's groups
+var groups = await user.Groups.ToList();
 ```
 
 ### Create a Group
 ``` csharp
-await _oktaClient.Groups.CreateGroupAsync
-(
-    new CreateGroupOptions()
-    {
-        Name = "Stormtroopers",
-        Description = "Some description here..."
-    }
-);
+await client.Groups.CreateGroupAsync(new CreateGroupOptions()
+{
+    Name = "Stormtroopers",
+    Description = "The 501st"
+});
 ```
 
 ### Add a User to a Group
 ``` csharp
-// find the desired user
-var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "darth.father@imperial-senate.gov");
+// Find the desired user
+var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // find the desired group
 var group = await _oktaClient.Groups.FirstOrDefault(x => x.Profile.Name == "Stormtroopers");
@@ -193,19 +203,30 @@ if (group != null && user != null)
 }
 ```
 
-### Retrieve a User's Groups
+### List a User's enrolled Factors
+
+TODO
+
+### Enroll a User in a new Factor
+
+TODO - show enrolling in Okta SMS factor
+
+### Activate a Factor
+
+TODO - show enrolling in Okta SMS factor
+
+### Verify a Factor
+
+TODO - show prompting and verifying Okta SMS factor
+
+### List all Applications
+
+### Get an Application
+
+### Create a SWA Application
+
 ``` csharp
-// find the desired user
-var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "laura.rodriguez@okta.com");
-
-// get the user's groups
-var groups = await user.Groups.ToList();
-```
-
-### Add SWA Application
-
-``` csharp
-var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
+var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
 { 
     Label = "Sample Plugin App",
     ButtonField = "btn-login",
@@ -217,34 +238,13 @@ var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new Creat
 
 ```
 
-### Add WS Federation Application
+### Create an OpenID Application
 
 ``` csharp
-var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new CreateWsFederationApplicationOptions
-    {
-        Label = "Sample WS-Fed App",
-        AudienceRestriction = "urn:example:app",
-        GroupName = null,
-        GroupValueFormat = "windowsDomainQualifiedName",
-        Realm = "urn:example:app",
-        WReplyUrl = "https://example.com/",
-        AttributeStatements = null,
-        NameIdFormat = "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
-        AuthenticationContextClassName = "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
-        SiteUrl = "https://example.com",
-        WReplyOverride = false,
-        GroupFilter = null,
-        UsernameAttribute = "username",
-    });
-```
-
-### Add OpenID Application
-
-``` csharp
-var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
 {
     Label = "Sample Client",
-    ClientId = "0oae8mnt9tZcGcMXG0h3",
+    ClientId = "0oae8mnt9tZexampl3",
     TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
     AutoKeyRotation = true,
     ClientUri = "https://example.com/client",
@@ -273,44 +273,27 @@ var createdApp = await _oktaClient.Applications.CreateApplicationAsync(new Creat
 
 ## Call other API endpoints
 
-The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods. You can take a look at [GitHub](https://github.com/okta/okta-sdk-dotnet/blob/master/src/Okta.Sdk/OktaClient.cs) to see the different overloadings.
+The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods.
 
-### Activate a User via `PostAsync`
-
-```csharp
-var userId = "<Some User ID String or Login>";
-
-await _oktaClient.PostAsync(
-    new Okta.Sdk.Internal.HttpRequest
-    {
-        Uri = "/api/v1/users/{userId}/lifecycle/activate",
-            
-        PathParameters = new Dictionary<string, object>()
-        {
-            ["userId"] = userId,
-        },
-        QueryParameters = new Dictionary<string, object>()
-        {
-            ["sendEmail"] = true,
-        }
-    });
-```
-
-### Delete a User via `DeleteAsync`
+For example, to activate a user using the `PostAsync` method (instead of `user.ActivateAsync`):
 
 ```csharp
-var userId = "<Some User ID String or Login>";
-
-await _oktaClient.DeleteAsync(new Okta.Sdk.Internal.HttpRequest
+await client.PostAsync(new Okta.Sdk.Internal.HttpRequest
 {
-    Uri = "/api/v1/users/{userId}",
-    
+    Uri = $"/api/v1/users/{userId}/lifecycle/activate",
     PathParameters = new Dictionary<string, object>()
     {
         ["userId"] = userId,
     },
-}
+    QueryParameters = new Dictionary<string, object>()
+    {
+        ["sendEmail"] = true,
+    }
+});
 ```
+
+In this case, there is no benefit to using `PostAsync` instead of `user.ActivateAsync`. However, this approach can be used to call any endpoints that are not represented by methods in the SDK.
+
 ## Configuration reference
   
 This library looks for configuration in the following sources:
