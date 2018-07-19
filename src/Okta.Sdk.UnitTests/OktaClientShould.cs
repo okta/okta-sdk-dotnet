@@ -44,6 +44,40 @@ namespace Okta.Sdk.UnitTests
             items.ElementAt(2).Bar.Should().Be(false);
         }
 
+        /// <summary>
+        /// Ensures that methods that accept either an interface or class type constraint can work with both.
+        /// </summary>
+        /// <returns>The asynchronous test.</returns>
+        [Fact]
+        public async Task GetResouceAsConcrete()
+        {
+            var json = @"{
+  ""id"": ""foobar123""
+}";
+            var mockRequestExecutor = new MockedStringRequestExecutor(json);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var app = await client.Applications.GetApplicationAsync<Application>("apps/foobar123");
+            app.Id.Should().Be("foobar123");
+        }
+
+        /// <summary>
+        /// Ensures that methods that accept either an interface or class type constraint can work with both.
+        /// </summary>
+        /// <returns>The asynchronous test.</returns>
+        [Fact]
+        public async Task GetResouceAsInterface()
+        {
+            var json = @"{
+  ""id"": ""foobar123""
+}";
+            var mockRequestExecutor = new MockedStringRequestExecutor(json);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var app = await client.Applications.GetApplicationAsync<IApplication>("apps/foobar123");
+            app.Id.Should().Be("foobar123");
+        }
+
         [Fact]
         public async Task ThrowApiExceptionFor4xx()
         {
