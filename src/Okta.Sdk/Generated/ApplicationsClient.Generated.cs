@@ -110,22 +110,6 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IJsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<JsonWebKey>(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/credentials/keys/generate",
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["validityYears"] = validityYears,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IJsonWebKey> GetApplicationKeyAsync(string appId, string keyId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<JsonWebKey>(new HttpRequest
             {
@@ -317,5 +301,23 @@ namespace Okta.Sdk
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
+        /// <inheritdoc />
+        public IAsyncEnumerable<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
+            => GetCollectionClient<LogEvent>(new HttpRequest
+            {
+                Uri = "/api/v1/logs",
+                
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["until"] = until,
+                    ["since"] = since,
+                    ["filter"] = filter,
+                    ["q"] = q,
+                    ["limit"] = limit,
+                    ["sortOrder"] = sortOrder,
+                    ["after"] = after,
+                },
+            });
+                    
     }
 }

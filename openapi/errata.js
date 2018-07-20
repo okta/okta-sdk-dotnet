@@ -76,21 +76,32 @@ const propertyErrata = [
    { path: 'WsFederationApplicationSettingsApplication.authnContextClassRef', rename: 'authenticationContextClassName', renameReason: 'Legibility' },
    { path: 'SamlApplicationSettingsSignOn.honorForceAuthn', rename: 'honorForceAuthentication', renameReason: 'Legibility' },
    { path: 'SwaThreeFieldApplicationSettingsApplication.targetUrl', binding: 'targetURL', renameReason: 'Matching the API' },
-
-   {
-    path: 'AppUser.profile',
-    type: 'AppUserProfile',
-    readOnly: false,
-    typeReason: 'A wrapper is defined type for this property'
-   },
-
    { path: 'ApplicationGroupAssignment.profile', skip: true, skipReason: 'Not currently supported' },
-
+   { path: 'LogGeolocation.lat', rename: 'latitude', renameReason: 'Legibility' },
+   { path: 'LogGeolocation.lon', rename: 'longitude', renameReason: 'Legibility' },
+   { path: 'LogUserAgent.os', rename: 'operatingSystem', renameReason: 'Legibility' },
+   { path: 'LogEvent.client', rename: 'clientInfo', renameReason: 'Convention' },
+   { path: 'Session.amr', rename: 'authenticationMethodReference', renameReason: 'Legibility' },
 ];
 
 const enumErrata = [
   { path: 'ApplicationSignOnMode.openidConnect', rename: 'openIdConnect', renameReason: 'Convention' },
   { path: 'ApplicationSignOnMode.saml20', rename: 'saml2', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.pwd', rename: 'password', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.swk', rename: 'softwareKey', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.hwk', rename: 'hardwareKey', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.otp', rename: 'oneTimePassword', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.tel', rename: 'telephone', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.geo', rename: 'geolocation', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.fpt', rename: 'fingerprint', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.kba', rename: 'knowledgeBased', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
+  { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
+  
+];
+
+const modelErrata = [
+  { path: 'LogClient', rename: 'LogClientInfo', renameReason: 'Legibility' },
 ];
 
 function applyEnumErrata(existingMember, infoLogger) {
@@ -157,6 +168,18 @@ function isPropertyUnsupported(property) {
   return false;
 }
 
+function applyModelErrata(existingModel, infoLogger) {
+  let errata = modelErrata.find(x => x.path === existingModel.modelName);
+  if (!errata) return existingModel;
+
+  if (errata.rename) {
+    existingModel.modelName = errata.rename;
+    infoLogger(`Errata: Renaming model ${existingModel.path} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  return existingModel;
+}
+
 const modelMethodSkipList = [
   { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
   { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
@@ -171,6 +194,7 @@ const modelMethodSkipList = [
   { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
   { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
+  { path: 'Application.generateApplicationKey', reason: 'Operation is not defined' },
 ];
 
 function shouldSkipModelMethod(fullPath) {
@@ -198,6 +222,7 @@ function shouldSkipOperation(operationId) {
 
 module.exports.applyPropertyErrata = applyPropertyErrata;
 module.exports.applyEnumErrata = applyEnumErrata;
+module.exports.applyModelErrata = applyModelErrata;
 module.exports.isPropertyUnsupported = isPropertyUnsupported;
 module.exports.shouldSkipModelMethod = shouldSkipModelMethod;
 module.exports.shouldSkipOperation = shouldSkipOperation;

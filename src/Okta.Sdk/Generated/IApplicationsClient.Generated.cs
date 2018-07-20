@@ -69,15 +69,6 @@ namespace Okta.Sdk
         IAsyncEnumerable<IJsonWebKey> ListApplicationKeys(string appId);
 
         /// <summary>
-        /// Generates a new X.509 certificate for an application key credential
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="validityYears">expiry of the Application Key Credential</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets a specific [application key credential](#application-key-credential-model) by &#x60;kid&#x60;
         /// </summary>
         /// <param name="appId"></param>
@@ -202,6 +193,19 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAppUser"/> response.</returns>
         Task<IAppUser> UpdateApplicationUserAsync(IAppUser appUser, string appId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+        /// </summary>
+        /// <param name="until"></param>
+        /// <param name="since"></param>
+        /// <param name="filter"></param>
+        /// <param name="q"></param>
+        /// <param name="limit"></param>
+        /// <param name="sortOrder"></param>
+        /// <param name="after"></param>
+        /// <returns>A collection of <see cref="ILogEvent"/> that can be enumerated asynchronously.</returns>
+        IAsyncEnumerable<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null);
 
     }
 }

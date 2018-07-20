@@ -9,10 +9,13 @@ function camelCase(str) {
 }
 
 function getType(specType) {
+  
   switch(specType) {
     case 'boolean': return 'bool?';
     case 'integer': return 'int?';
     case 'dateTime': return 'DateTimeOffset?';
+    case 'double': return 'double?';
+    case 'password': return 'string';
     default: return specType;
   }
 };
@@ -27,17 +30,17 @@ function paramToCLRType(param) {
 
 function propToCLRType(prop, isInterface) {
   switch (prop.commonType) {
-    case 'array': return `IList<${getType(prop.model)}>`;
+    case 'array': return `IList<${isInterface ? `I${prop.model}` : getType(prop.model)}>`;
     case 'object': return isInterface ? `I${prop.model}` : prop.model;
     case 'enum': return prop.model;
-    case 'hash': return `IDictionary<string, ${getType(prop.model)}>`;
+    case 'hash': return `Resource`;
     default: return getType(prop.commonType);
   }
 }
 
-function getterName(prop) {
+function getterName(prop, isInterface) {
   if (prop.commonType === 'array') {
-    return `GetArrayProperty<${getType(prop.model)}>`;
+    return `GetArrayProperty<${isInterface ? `I${prop.model}` : getType(prop.model)}>`;
   }
 
   if (prop.commonType === 'enum') {
@@ -51,6 +54,7 @@ function getterName(prop) {
     case 'int?': return 'GetIntegerProperty';
     case 'DateTimeOffset?': return 'GetDateTimeProperty';
     case 'string': return 'GetStringProperty';
+    case 'double?': return 'GetDoubleProperty';
     default: return `GetResourceProperty<${clrType}>`;
   }
 }

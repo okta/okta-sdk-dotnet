@@ -16,8 +16,6 @@ namespace Okta.Sdk.Internal
     /// </summary>
     public sealed class ResourceFactory
     {
-        private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
-
         private readonly IOktaClient _client;
         private readonly ILogger _logger;
 
@@ -59,7 +57,7 @@ namespace Okta.Sdk.Internal
         /// <returns>The created <see cref="Resource"/>.</returns>
         public T CreateFromExistingData<T>(IDictionary<string, object> existingDictionary)
         {
-            if (!ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
+            if (!Resource.ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
             {
                 throw new InvalidOperationException("Resources must inherit from the Resource class.");
             }
@@ -81,7 +79,7 @@ namespace Okta.Sdk.Internal
         /// <returns>The created <see cref="Resource"/>.</returns>
         public T CreateNew<T>(IDictionary<string, object> data)
         {
-            if (!ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
+            if (!Resource.ResourceTypeInfo.IsAssignableFrom(typeof(T).GetTypeInfo()))
             {
                 throw new InvalidOperationException("Resources must inherit from the Resource class.");
             }

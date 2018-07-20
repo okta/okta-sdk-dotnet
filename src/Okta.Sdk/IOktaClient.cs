@@ -42,6 +42,22 @@ namespace Okta.Sdk
         IApplicationsClient Applications { get; }
 
         /// <summary>
+        /// Gets a <see cref="ISessionsClient">SessionsClient</see> that interacts with the Okta Sessions API.
+        /// </summary>i
+        /// <value>
+        /// A <see cref="ISessionsClient">SessionsClient</see> that interacts with the Okta Sessions API.
+        /// </value>
+        ISessionsClient Sessions { get; }
+
+        /// <summary>
+        /// Gets a <see cref="ILogsClient">LogsClient</see> that interacts with the Okta Logs API.
+        /// </summary>i
+        /// <value>
+        /// A <see cref="ILogsClient">LogsClient</see> that interacts with the Okta Logs API.
+        /// </value>
+        ILogsClient Logs { get; }
+
+        /// <summary>
         /// Gets a <see cref="IUserFactorsClient">UserFactorsClient</see> that interacts with the Okta Factors API.
         /// </summary>
         /// <value>

@@ -116,10 +116,6 @@ namespace Okta.Sdk
             => GetClient().Applications.GetApplicationGroupAssignmentAsync(Id, groupId, expand, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> GenerateApplicationKeyAsync(int? validityYears, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.GenerateApplicationKeyAsync(Id, validityYears, cancellationToken);
-        
-        /// <inheritdoc />
         public Task<IJsonWebKey> CloneApplicationKeyAsync(string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.CloneApplicationKeyAsync(Id, keyId, targetAid, cancellationToken);
         
