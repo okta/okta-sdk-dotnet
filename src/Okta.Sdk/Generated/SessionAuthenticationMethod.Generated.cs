@@ -34,7 +34,7 @@ namespace Okta.Sdk
         public static SessionAuthenticationMethod Geolocation = new SessionAuthenticationMethod("geo");
 
         /// <summary>The fpt SessionAuthenticationMethod.</summary>
-        public static SessionAuthenticationMethod Fpt = new SessionAuthenticationMethod("fpt");
+        public static SessionAuthenticationMethod Fingerprint = new SessionAuthenticationMethod("fpt");
 
         /// <summary>The kba SessionAuthenticationMethod.</summary>
         public static SessionAuthenticationMethod KnowledgeBased = new SessionAuthenticationMethod("kba");

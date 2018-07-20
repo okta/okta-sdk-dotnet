@@ -13,6 +13,7 @@ const {
 const {
   isPropertyUnsupported,
   applyPropertyErrata,
+  applyModelErrata,
   shouldSkipModelMethod
 } = require('./errata');
 
@@ -35,7 +36,7 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     if (baseModelsList.has(model.modelName)) {
       model.isBaseModel = true;
     }
-
+    model = applyModelErrata(model, infoLogger);
     model.properties = model.properties || [];
     model.properties = model.properties.map(property =>
     {

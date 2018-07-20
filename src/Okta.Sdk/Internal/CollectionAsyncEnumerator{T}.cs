@@ -86,11 +86,15 @@ namespace Okta.Sdk.Internal
                 .Where(kvp => kvp.Key.Equals("Link", StringComparison.OrdinalIgnoreCase))
                 .Select(kvp => kvp.Value);
 
-            var nextUri = (linkHeaders != null) ? LinkHeaderParser
+            var nextUri = string.Empty;
+            if (linkHeaders != null)
+            {
+                nextUri = LinkHeaderParser
                 .Parse(linkHeaders.SelectMany(x => x))
                 .Where(x => x.Relation == "next")
                 .SingleOrDefault()
-                .Target : null;
+                .Target;
+            }
 
             return string.IsNullOrEmpty(nextUri)
                 ? null

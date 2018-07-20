@@ -6,7 +6,7 @@ using Xunit;
 
 namespace Okta.Sdk.UnitTests
 {
-    public class LogShould
+    public class LogsClientShould
     {
         [Fact]
         public async Task DeserializeGetLogsJsonResponse()
@@ -27,24 +27,24 @@ namespace Okta.Sdk.UnitTests
             log.Actor.Detail.GetData().Should().BeEmpty();
 
             // Client
-            log.Client.Should().BeOfType<LogClient>();
-            log.Client.UserAgent.Should().BeOfType<LogUserAgent>();
-            log.Client.UserAgent.RawUserAgent.Should().Be("okta-sdk-dotnet / 1.0.0 runtime /.NET Core 4.6.x os / Microsoft Windows 10.x");
-            log.Client.UserAgent.OperatingSystem.Should().Be("Windows");
-            log.Client.UserAgent.Browser.Should().Be("UNKNOWN");
+            log.ClientInfo.Should().BeOfType<LogClient>();
+            log.ClientInfo.UserAgent.Should().BeOfType<LogUserAgent>();
+            log.ClientInfo.UserAgent.RawUserAgent.Should().Be("okta-sdk-dotnet / 1.0.0 runtime /.NET Core 4.6.x os / Microsoft Windows 10.x");
+            log.ClientInfo.UserAgent.OperatingSystem.Should().Be("Windows");
+            log.ClientInfo.UserAgent.Browser.Should().Be("UNKNOWN");
 
-            log.Client.Zone.Should().BeNullOrEmpty();
-            log.Client.Device.Should().Be("Computer");
-            log.Client.IpAddress.Should().Be("127.0.0.1");
+            log.ClientInfo.Zone.Should().BeNullOrEmpty();
+            log.ClientInfo.Device.Should().Be("Computer");
+            log.ClientInfo.IpAddress.Should().Be("127.0.0.1");
 
-            log.Client.GeographicalContext.Should().BeOfType<LogGeographicalContext>();
-            log.Client.GeographicalContext.City.Should().Be("Toronto");
-            log.Client.GeographicalContext.State.Should().Be("Ontario");
-            log.Client.GeographicalContext.Country.Should().Be("Canada");
-            log.Client.GeographicalContext.PostalCode.Should().Be("M6G");
-            log.Client.GeographicalContext.Geolocation.Should().BeOfType<LogGeolocation>();
-            log.Client.GeographicalContext.Geolocation.Latitude.Should().Be(43.6655);
-            log.Client.GeographicalContext.Geolocation.Longitude.Should().Be(-79.4204);
+            log.ClientInfo.GeographicalContext.Should().BeOfType<LogGeographicalContext>();
+            log.ClientInfo.GeographicalContext.City.Should().Be("Toronto");
+            log.ClientInfo.GeographicalContext.State.Should().Be("Ontario");
+            log.ClientInfo.GeographicalContext.Country.Should().Be("Canada");
+            log.ClientInfo.GeographicalContext.PostalCode.Should().Be("M6G");
+            log.ClientInfo.GeographicalContext.Geolocation.Should().BeOfType<LogGeolocation>();
+            log.ClientInfo.GeographicalContext.Geolocation.Latitude.Should().Be(43.6655);
+            log.ClientInfo.GeographicalContext.Geolocation.Longitude.Should().Be(-79.4204);
 
             log.AuthenticationContext.Should().BeOfType<LogAuthenticationContext>();
             log.AuthenticationContext.AuthenticationProvider.Should().BeNull();

@@ -80,8 +80,8 @@ const propertyErrata = [
    { path: 'LogGeolocation.lat', rename: 'latitude', renameReason: 'Legibility' },
    { path: 'LogGeolocation.lon', rename: 'longitude', renameReason: 'Legibility' },
    { path: 'LogUserAgent.os', rename: 'operatingSystem', renameReason: 'Legibility' },
+   { path: 'LogEvent.client', rename: 'clientInfo', renameReason: 'Convention' },
    { path: 'Session.amr', rename: 'authenticationMethodReference', renameReason: 'Legibility' },
-   
 ];
 
 const enumErrata = [
@@ -93,11 +93,15 @@ const enumErrata = [
   { path: 'SessionAuthenticationMethod.otp', rename: 'oneTimePassword', renameReason: 'Legibility' },
   { path: 'SessionAuthenticationMethod.tel', rename: 'telephone', renameReason: 'Legibility' },
   { path: 'SessionAuthenticationMethod.geo', rename: 'geolocation', renameReason: 'Legibility' },
-  { path: 'SessionAuthenticationMethod.ftp', rename: 'fingerprint', renameReason: 'Legibility' },
+  { path: 'SessionAuthenticationMethod.fpt', rename: 'fingerprint', renameReason: 'Legibility' },
   { path: 'SessionAuthenticationMethod.kba', rename: 'knowledgeBased', renameReason: 'Legibility' },
   { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
   { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
   
+];
+
+const modelErrata = [
+  { path: 'LogClient', rename: 'LogClientInfo', renameReason: 'Legibility' },
 ];
 
 function applyEnumErrata(existingMember, infoLogger) {
@@ -164,6 +168,18 @@ function isPropertyUnsupported(property) {
   return false;
 }
 
+function applyModelErrata(existingModel, infoLogger) {
+  let errata = modelErrata.find(x => x.path === existingModel.modelName);
+  if (!errata) return existingModel;
+
+  if (errata.rename) {
+    existingModel.modelName = errata.rename;
+    infoLogger(`Errata: Renaming model ${existingModel.path} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  return existingModel;
+}
+
 const modelMethodSkipList = [
   { path: 'User.changePassword', reason: 'Implemented as ChangePasswordAsync(options)' },
   { path: 'User.changeRecoveryQuestion', reason: 'Implemented as ChangeRecoveryQuestionAsync(options)'},
@@ -206,6 +222,7 @@ function shouldSkipOperation(operationId) {
 
 module.exports.applyPropertyErrata = applyPropertyErrata;
 module.exports.applyEnumErrata = applyEnumErrata;
+module.exports.applyModelErrata = applyModelErrata;
 module.exports.isPropertyUnsupported = isPropertyUnsupported;
 module.exports.shouldSkipModelMethod = shouldSkipModelMethod;
 module.exports.shouldSkipOperation = shouldSkipOperation;

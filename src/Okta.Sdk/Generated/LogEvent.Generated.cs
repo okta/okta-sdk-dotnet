@@ -23,7 +23,7 @@ namespace Okta.Sdk
         public ILogAuthenticationContext AuthenticationContext => GetResourceProperty<LogAuthenticationContext>("authenticationContext");
         
         /// <inheritdoc/>
-        public ILogClient Client => GetResourceProperty<LogClient>("client");
+        public ILogClient ClientInfo => GetResourceProperty<LogClient>("client");
         
         /// <inheritdoc/>
         public ILogDebugContext DebugContext => GetResourceProperty<LogDebugContext>("debugContext");
