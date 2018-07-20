@@ -54,6 +54,8 @@ namespace Okta.Sdk.Internal
             // Fall back to primitive conversion
             try
             {
+                if (!(item is IConvertible)) { return (T)item; }
+
                 return (T)Convert.ChangeType(item, typeof(T));
             }
             catch (InvalidCastException ice)

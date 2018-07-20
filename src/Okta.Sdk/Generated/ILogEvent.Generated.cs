@@ -39,7 +39,7 @@ namespace Okta.Sdk
 
         LogSeverity Severity { get; }
 
-        IList<LogTarget> Target { get; }
+        IList<ILogTarget> Target { get; }
 
         ILogTransaction Transaction { get; }
 

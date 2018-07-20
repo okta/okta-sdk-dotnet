@@ -24,9 +24,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IList<SamlAttributeStatement> AttributeStatements 
+        public IList<ISamlAttributeStatement> AttributeStatements 
         {
-            get => GetArrayProperty<SamlAttributeStatement>("attributeStatements");
+            get => GetArrayProperty<ISamlAttributeStatement>("attributeStatements");
             set => this["attributeStatements"] = value;
         }
         

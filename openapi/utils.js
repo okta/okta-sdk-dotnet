@@ -9,6 +9,7 @@ function camelCase(str) {
 }
 
 function getType(specType) {
+  
   switch(specType) {
     case 'boolean': return 'bool?';
     case 'integer': return 'int?';
@@ -29,7 +30,7 @@ function paramToCLRType(param) {
 
 function propToCLRType(prop, isInterface) {
   switch (prop.commonType) {
-    case 'array': return `IList<${getType(prop.model)}>`;
+    case 'array': return `IList<${isInterface ? `I${prop.model}` : getType(prop.model)}>`;
     case 'object': return isInterface ? `I${prop.model}` : prop.model;
     case 'enum': return prop.model;
     case 'hash': return `Resource`;
@@ -37,9 +38,9 @@ function propToCLRType(prop, isInterface) {
   }
 }
 
-function getterName(prop) {
+function getterName(prop, isInterface) {
   if (prop.commonType === 'array') {
-    return `GetArrayProperty<${getType(prop.model)}>`;
+    return `GetArrayProperty<${isInterface ? `I${prop.model}` : getType(prop.model)}>`;
   }
 
   if (prop.commonType === 'enum') {

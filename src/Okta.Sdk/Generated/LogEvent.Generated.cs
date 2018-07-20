@@ -53,7 +53,7 @@ namespace Okta.Sdk
         public LogSeverity Severity => GetEnumProperty<LogSeverity>("severity");
         
         /// <inheritdoc/>
-        public IList<LogTarget> Target => GetArrayProperty<LogTarget>("target");
+        public IList<ILogTarget> Target => GetArrayProperty<ILogTarget>("target");
         
         /// <inheritdoc/>
         public ILogTransaction Transaction => GetResourceProperty<LogTransaction>("transaction");

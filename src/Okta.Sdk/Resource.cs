@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public class Resource : IResource
     {
-        internal static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
+        internal static readonly TypeInfo ResourceTypeInfo = typeof(IResource).GetTypeInfo();
 
         private readonly ResourceBehavior _dictionaryType;
         private IOktaClient _client;
