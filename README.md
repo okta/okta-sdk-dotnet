@@ -78,7 +78,7 @@ Construct a client instance by passing it your Okta domain name and API token:
 var client = new OktaClient(new OktaClientConfiguration
 {
     OrgUrl = "https://{{yourOktaDomain}}",
-    Token = "{{yourApiToken}"
+    Token = "{{yourApiToken}}"
 });
 ```
 
@@ -114,7 +114,11 @@ var allUsers = await client.Users.ListUsers().ToArray();
 ```
 
 ### Filter or search for Users
-TODO
+``` csharp
+var foundUsers = await client.Users
+                        .ListUsers(search: $"profile.nickName eq \"Skywalker\"")
+                        .ToArray();
+```
 
 ### Create a User
 
@@ -205,23 +209,69 @@ if (group != null && user != null)
 
 ### List a User's enrolled Factors
 
-TODO
+``` csharp
+// Find the desired user
+var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+
+// Get user factors
+var factors = await user.Factors.ToArray();
+```
 
 ### Enroll a User in a new Factor
+``` csharp
+// Find the desired user
+var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
-TODO - show enrolling in Okta SMS factor
-
+// Enroll in Okta SMS factor
+await user.AddFactorAsync(new AddSmsFactorOptions
+                {
+                    PhoneNumber = "+99999999999",
+                });
+```
 ### Activate a Factor
+``` csharp
+// Find the desired user
+var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
-TODO - show enrolling in Okta SMS factor
+// Find the desired factor
+var smsFactor = await user.Factors.FirstOrDefault(x => x.FactorType == FactorType.Sms);
+
+// Activate sms facotr
+await client.UserFactors.ActivateFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
+```
 
 ### Verify a Factor
+``` csharp
+// Find the desired user
+var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
-TODO - show prompting and verifying Okta SMS factor
+// Find the desired factor
+var smsFactor = await user.Factors.FirstOrDefault(x => x.FactorType == FactorType.Sms);
+
+// Verify sms factor
+var response = await client.UserFactors.VerifyFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
+```
 
 ### List all Applications
+``` csharp
+// List all applications
+var appList = await client.Applications.ListApplications().ToArray();
+
+// List all applications of a specific type
+var bookmarkAppList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArray();
+```
 
 ### Get an Application
+``` csharp
+var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
+                {
+                    Label = "Sample Basic Auth App",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+var retrievedById = await client.Applications.GetApplicationAsync(createdApp.Id);
+```
 
 ### Create a SWA Application
 
@@ -341,5 +391,5 @@ We're happy to accept contributions and PRs! Please see the [contribution guide]
 [devforum]: https://devforum.okta.com/
 [dotnetdocs]: https://developer.okta.com/okta-sdk-dotnet/latest/
 [lang-landing]: https://developer.okta.com/code/dotnet/
-[github-issues]: /issues
-[github-releases]: /releases
+[github-issues]: https://developer.okta.com/okta-sdk-dotnet/issues
+[github-releases]: https://developer.okta.com/okta-sdk-dotnet/releases
