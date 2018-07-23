@@ -55,8 +55,6 @@ namespace Okta.Sdk
 
         Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> GenerateApplicationKeyAsync(int? validityYears, CancellationToken cancellationToken = default(CancellationToken));
-
         Task<IJsonWebKey> CloneApplicationKeyAsync(string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IJsonWebKey> GetApplicationKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken));

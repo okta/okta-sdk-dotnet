@@ -82,15 +82,19 @@ namespace Okta.Sdk.Internal
         private static HttpRequest GetNextLink(HttpResponse response)
         {
             var linkHeaders = response
-                .Headers
+                .Headers?
                 .Where(kvp => kvp.Key.Equals("Link", StringComparison.OrdinalIgnoreCase))
                 .Select(kvp => kvp.Value);
 
-            var nextUri = LinkHeaderParser
+            var nextUri = string.Empty;
+            if (linkHeaders != null)
+            {
+                nextUri = LinkHeaderParser
                 .Parse(linkHeaders.SelectMany(x => x))
                 .Where(x => x.Relation == "next")
                 .SingleOrDefault()
                 .Target;
+            }
 
             return string.IsNullOrEmpty(nextUri)
                 ? null

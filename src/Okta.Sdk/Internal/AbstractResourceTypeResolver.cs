@@ -30,6 +30,12 @@ namespace Okta.Sdk.Internal
 
             // If there is a more specific resolver available, resolve again recursively
             var moreSpecificResolver = ResourceTypeResolverFactory.CreateResolver(forType: resourceType);
+            var foundMyself = moreSpecificResolver.GetType() == this.GetType();
+            if (foundMyself)
+            {
+                return resourceType;
+            }
+
             return moreSpecificResolver.GetResolvedType(data);
         }
 
