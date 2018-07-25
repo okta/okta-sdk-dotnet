@@ -255,7 +255,7 @@ var response = await client.UserFactors.VerifyFactorAsync(verifyFactorRequest, u
 ### List all Applications
 ``` csharp
 // List all applications
-var appList = await client.Applications.ListApplications().ToArray();
+var appList = await client.Applications.Applications().ToArray();
 
 // List all applications of a specific type
 var bookmarkAppList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArray();
