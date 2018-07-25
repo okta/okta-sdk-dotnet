@@ -176,8 +176,8 @@ await vader.DeactivateOrDeleteAsync();
 ### List a User's Groups
 
 ``` csharp
-// find the desired user
-var user = await _oktaClient.Users.FirstOrDefault(x => x.Profile.Email == "laura.rodriguez@okta.com");
+// Find the desired user
+var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // get the user's groups
 var groups = await user.Groups.ToList();
@@ -198,12 +198,12 @@ await client.Groups.CreateGroupAsync(new CreateGroupOptions()
 var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // find the desired group
-var group = await _oktaClient.Groups.FirstOrDefault(x => x.Profile.Name == "Stormtroopers");
+var group = await client.Groups.FirstOrDefault(x => x.Profile.Name == "Stormtroopers");
 
 // add the user to the group by using their id's
 if (group != null && user != null)
 {
-    await _oktaClient.Groups.AddUserToGroupAsync(group.Id, user.Id);
+    await client.Groups.AddUserToGroupAsync(group.Id, user.Id);
 }
 ```
 
@@ -224,17 +224,17 @@ var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vade
 
 // Enroll in Okta SMS factor
 await user.AddFactorAsync(new AddSmsFactorOptions
-                {
-                    PhoneNumber = "+99999999999",
-                });
+{
+    PhoneNumber = "+99999999999",
+});
 ```
 ### Activate a Factor
 ``` csharp
 // Find the desired user
-var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.First(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Find the desired factor
-var smsFactor = await user.Factors.FirstOrDefault(x => x.FactorType == FactorType.Sms);
+var smsFactor = await user.Factors.First(x => x.FactorType == FactorType.Sms);
 
 // Activate sms facotr
 await client.UserFactors.ActivateFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
