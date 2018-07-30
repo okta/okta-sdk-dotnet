@@ -14,27 +14,27 @@ namespace Okta.Sdk.IntegrationTests
     public class OktaClientShould
     {
         [Fact]
-        public void ThrowForNullOrgUrl()
+        public void ThrowForNullOktaDomain()
         {
             Assert.Throws<ArgumentNullException>(() =>
             {
                 var client = new OktaClient(new OktaClientConfiguration
                 {
-                    OrgUrl = string.Empty,
+                    OktaDomain = string.Empty,
                     Token = "foobar",
                 });
             });
         }
 
         [Fact]
-        public void ThrowForInvalidOrgUrl()
+        public void ThrowForInvalidOktaDomain()
         {
             Assert.Throws<ArgumentException>(() =>
             {
                 var client = new OktaClient(new OktaClientConfiguration
                 {
                     // Must start with https://
-                    OrgUrl = "http://insecure.dev",
+                    OktaDomain = "http://insecure.dev",
                     Token = "foobar",
                 });
             });
@@ -47,7 +47,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var client = new OktaClient(new OktaClientConfiguration
                 {
-                    OrgUrl = "https://dev-12345.oktapreview.com",
+                    OktaDomain = "https://dev-12345.oktapreview.com",
                     Token = string.Empty,
                 });
             });

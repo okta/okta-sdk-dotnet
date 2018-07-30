@@ -21,7 +21,7 @@ namespace Okta.Sdk.UnitTests.Internal
 
         private int _currentPage = 0;
 
-        public string OrgUrl => BaseUrl;
+        public string OktaDomain => BaseUrl;
 
         public MockedCollectionRequestExecutor(int pageSize, IEnumerable<T> items)
         {

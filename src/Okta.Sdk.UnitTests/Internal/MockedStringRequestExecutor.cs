@@ -16,7 +16,7 @@ namespace Okta.Sdk.UnitTests.Internal
         private readonly string _returnThis;
         private readonly int _statusCode;
 
-        public string OrgUrl => throw new NotImplementedException();
+        public string OktaDomain => throw new NotImplementedException();
 
         public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
         {

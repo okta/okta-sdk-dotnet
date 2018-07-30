@@ -22,7 +22,7 @@ namespace Okta.Sdk.Internal
     {
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
 
-        private readonly string _orgUrl;
+        private readonly string _oktaDomain;
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
 
@@ -44,36 +44,36 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException(nameof(configuration.Token));
             }
 
-            _orgUrl = EnsureCorrectOrgUrl(configuration.OrgUrl);
+            _oktaDomain = EnsureCorrectOktaDomain(configuration.OktaDomain);
             _logger = logger;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
 
-            ApplyDefaultClientSettings(_httpClient, _orgUrl, configuration);
+            ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
 
-        private static string EnsureCorrectOrgUrl(string orgUrl)
+        private static string EnsureCorrectOktaDomain(string oktaDomain)
         {
-            if (string.IsNullOrEmpty(orgUrl))
+            if (string.IsNullOrEmpty(oktaDomain))
             {
-                throw new ArgumentNullException(nameof(orgUrl));
+                throw new ArgumentNullException(nameof(oktaDomain));
             }
 
-            if (!orgUrl.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            if (!oktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
-                throw new ArgumentException("Org URL must start with https://");
+                throw new ArgumentException("OktaDomain must start with https://");
             }
 
-            if (!orgUrl.EndsWith("/"))
+            if (!oktaDomain.EndsWith("/"))
             {
-                orgUrl += "/";
+                oktaDomain += "/";
             }
 
-            return orgUrl;
+            return oktaDomain;
         }
 
-        private static void ApplyDefaultClientSettings(HttpClient client, string orgUrl, OktaClientConfiguration configuration)
+        private static void ApplyDefaultClientSettings(HttpClient client, string oktaDomain, OktaClientConfiguration configuration)
         {
-            client.BaseAddress = new Uri(orgUrl, UriKind.Absolute);
+            client.BaseAddress = new Uri(oktaDomain, UriKind.Absolute);
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", configuration.Token);
         }
 
@@ -84,14 +84,14 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentException("The request URI was empty.");
             }
 
-            if (uri.StartsWith(_orgUrl))
+            if (uri.StartsWith(_oktaDomain))
             {
-                return uri.Replace(_orgUrl, string.Empty);
+                return uri.Replace(_oktaDomain, string.Empty);
             }
 
             if (uri.Contains("://"))
             {
-                throw new InvalidOperationException($"The client is configured to connect to {_orgUrl}, but this request URI does not match: ${uri}");
+                throw new InvalidOperationException($"The client is configured to connect to {_oktaDomain}, but this request URI does not match: ${uri}");
             }
 
             return uri.TrimStart('/');
