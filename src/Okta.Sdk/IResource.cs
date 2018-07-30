@@ -44,6 +44,13 @@ namespace Okta.Sdk
         IDictionary<string, object> GetModifiedData();
 
         /// <summary>
+        /// Sets a resource property by name
+        /// </summary>
+        /// <param name="name"> The property name</param>
+        /// <param name="value"> The property value</param>
+        void SetProperty(string name, object value);
+
+        /// <summary>
         /// Gets a resource property by name.
         /// </summary>
         /// <remarks>In derived classes, use the more specific methods such as <see cref="Resource.GetStringProperty(string)"/> and <see cref="Resource.GetIntegerProperty(string)"/> instead.</remarks>
