@@ -119,10 +119,224 @@ namespace Okta.Sdk.IntegrationTests
                 () => client.Groups.GetGroupAsync(createdGroup.Id));
         }
 
-        [Fact(Skip = "TODO")]
-        public async Task GroupUserOperations()
+        [Fact]
+        public async Task AddUserToGroup()
         {
-            throw new NotImplementedException();
+            var client = GetClient();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "New Users Test Group",
+            });
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Get-User",
+                    Email = "john-get-user@example.com",
+                    Login = "john-get-user@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
+            try
+            {
+                var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+                retrievedGroup.Should().NotBeNull();
+                var groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList.Should().HaveCount(1);
+
+                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                retrievedUser.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                await createdGroup.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task RemoveUserFromGroup()
+        {
+            var client = GetClient();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "New Users Test Group",
+            });
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Get-User",
+                    Email = "john-get-user@example.com",
+                    Login = "john-get-user@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
+            try
+            {
+                var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+                retrievedGroup.Should().NotBeNull();
+                var groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList.Should().HaveCount(1);
+
+                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                retrievedUser.Should().NotBeNull();
+
+                await retrievedGroup.RemoveUserAsync(retrievedUser.Id);
+                retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+                groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList.Should().HaveCount(0);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                await createdGroup.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task RemoveDeletedUserFromGroup()
+        {
+            var client = GetClient();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "New Users Test Group",
+            });
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Get-User",
+                    Email = "john-get-user@example.com",
+                    Login = "john-get-user@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
+            try
+            {
+                var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+                retrievedGroup.Should().NotBeNull();
+                var groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList.Should().HaveCount(1);
+
+                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                retrievedUser.Should().NotBeNull();
+
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+
+                retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+                groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList.Should().HaveCount(0);
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task RemoveGroup()
+        {
+            var client = GetClient();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "New Users Test Group",
+            });
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "Get-User",
+                    Email = "john-get-user@example.com",
+                    Login = "john-get-user@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
+            try
+            {
+                var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+                retrievedGroup.Should().NotBeNull();
+                var groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList.Should().HaveCount(1);
+
+                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                retrievedUser.Should().NotBeNull();
+
+                await client.Groups.DeleteGroupAsync(createdGroup.Id);
+                var retrievedGroupsList = await client.Groups.ToList();
+                retrievedGroupsList.FirstOrDefault(x => x.Id == createdGroup.Id).Should().BeNull();
+
+                retrievedUser = await client.Users.GetUserAsync(createdUser.Id);
+                retrievedUser.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task CreateGroup()
+        {
+            var client = GetClient();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = "New Test Group",
+            });
+
+            try
+            {
+                var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
+
+                retrievedGroup.Should().NotBeNull();
+                retrievedGroup.Profile.Name.Should().Be("New Test Group");
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
         }
 
         [Fact(Skip = "TODO")]
