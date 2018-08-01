@@ -39,6 +39,18 @@ namespace Okta.Sdk
         /// <summary>The email FactorType.</summary>
         public static FactorType Email = new FactorType("email");
 
+        /// <summary>The u2f FactorType.</summary>
+        public static FactorType U2F = new FactorType("u2f");
+
+        /// <summary>The webauthn FactorType.</summary>
+        public static FactorType Webauthn = new FactorType("webauthn");
+
+        /// <summary>The token:software FactorType.</summary>
+        public static FactorType TokenSoftware = new FactorType("token:software");
+
+        /// <summary>The custom FactorType.</summary>
+        public static FactorType Custom = new FactorType("custom");
+
         /// <summary>
         /// Creates a new <see cref="FactorType"/> instance.
         /// </summary>
