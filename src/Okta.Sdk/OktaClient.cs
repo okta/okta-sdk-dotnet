@@ -136,7 +136,7 @@ namespace Okta.Sdk
         {
             if (string.IsNullOrEmpty(configuration.OktaDomain))
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "You must supply an OktaDomain URL, like https://dev-12345.oktapreview.com");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), "You must supply an Okta domain URL, like https://example.okta.com");
             }
 
             if (string.IsNullOrEmpty(configuration.Token))
