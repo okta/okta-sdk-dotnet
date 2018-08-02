@@ -137,17 +137,17 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-get-user@example.com",
-                    Login = "john-get-user@example.com",
+                    Email = "john-add-group@example.com",
+                    Login = "john-add-group@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
             });
 
-            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
-
             try
             {
+                await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
                 var groupUsersList = await retrievedGroup.Users.ToList();
@@ -182,17 +182,17 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-get-user@example.com",
-                    Login = "john-get-user@example.com",
+                    Email = "john-remove-from-group@example.com",
+                    Login = "john-remove-from-group@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
             });
 
-            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
-
             try
             {
+                await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
                 var groupUsersList = await retrievedGroup.Users.ToList();
@@ -232,17 +232,17 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-get-user@example.com",
-                    Login = "john-get-user@example.com",
+                    Email = "john-delete-user@example.com",
+                    Login = "john-delete-user@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
             });
 
-            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
-
             try
             {
+                await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
                 var groupUsersList = await retrievedGroup.Users.ToList();
@@ -282,17 +282,17 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-get-user@example.com",
-                    Login = "john-get-user@example.com",
+                    Email = "john-remove-group@example.com",
+                    Login = "john-remove-group@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
             });
 
-            await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
-
             try
             {
+                await client.Groups.AddUserToGroupAsync(createdGroup.Id, createdUser.Id);
+
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
                 var groupUsersList = await retrievedGroup.Users.ToList();
