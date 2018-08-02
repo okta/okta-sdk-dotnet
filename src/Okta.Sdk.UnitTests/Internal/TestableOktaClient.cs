@@ -13,7 +13,7 @@ namespace Okta.Sdk.UnitTests.Internal
     {
         public static readonly OktaClientConfiguration DefaultFakeConfiguration = new OktaClientConfiguration
         {
-            OrgUrl = "https://fake.example.com",
+            OktaDomain = "https://fake.example.com",
             Token = "foobar",
         };
 

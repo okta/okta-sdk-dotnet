@@ -157,7 +157,8 @@ namespace Okta.Sdk
             return value;
         }
 
-        internal void SetProperty(string name, object value)
+        /// <inheritdoc/>
+        public void SetProperty(string name, object value)
         {
             switch (value)
             {
