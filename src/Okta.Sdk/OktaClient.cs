@@ -134,9 +134,9 @@ namespace Okta.Sdk
 
         private static void ThrowIfInvalidConfiguration(OktaClientConfiguration configuration)
         {
-            if (string.IsNullOrEmpty(configuration.OrgUrl))
+            if (string.IsNullOrEmpty(configuration.OktaDomain))
             {
-                throw new ArgumentNullException(nameof(configuration.OrgUrl), "You must supply an Okta Org URL, like https://dev-12345.oktapreview.com");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), "You must supply an OktaDomain URL, like https://dev-12345.oktapreview.com");
             }
 
             if (string.IsNullOrEmpty(configuration.Token))
