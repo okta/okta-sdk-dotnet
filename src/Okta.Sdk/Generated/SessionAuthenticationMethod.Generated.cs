@@ -43,6 +43,12 @@ namespace Okta.Sdk
         public static SessionAuthenticationMethod Multifactor = new SessionAuthenticationMethod("mfa");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="SessionAuthenticationMethod"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator SessionAuthenticationMethod(string value) => new SessionAuthenticationMethod(value);
+
+        /// <summary>
         /// Creates a new <see cref="SessionAuthenticationMethod"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -50,5 +56,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

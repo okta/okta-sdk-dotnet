@@ -40,6 +40,12 @@ namespace Okta.Sdk
         public static FactorResultType Error = new FactorResultType("ERROR");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorResultType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator FactorResultType(string value) => new FactorResultType(value);
+
+        /// <summary>
         /// Creates a new <see cref="FactorResultType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -47,5 +53,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

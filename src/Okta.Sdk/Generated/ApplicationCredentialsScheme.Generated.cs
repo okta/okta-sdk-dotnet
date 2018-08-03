@@ -28,6 +28,12 @@ namespace Okta.Sdk
         public static ApplicationCredentialsScheme AdminSetsCredentials = new ApplicationCredentialsScheme("ADMIN_SETS_CREDENTIALS");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationCredentialsScheme"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator ApplicationCredentialsScheme(string value) => new ApplicationCredentialsScheme(value);
+
+        /// <summary>
         /// Creates a new <see cref="ApplicationCredentialsScheme"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -35,5 +41,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

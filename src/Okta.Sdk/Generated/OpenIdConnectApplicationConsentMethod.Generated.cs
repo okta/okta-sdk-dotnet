@@ -19,6 +19,12 @@ namespace Okta.Sdk
         public static OpenIdConnectApplicationConsentMethod Trusted = new OpenIdConnectApplicationConsentMethod("TRUSTED");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OpenIdConnectApplicationConsentMethod"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator OpenIdConnectApplicationConsentMethod(string value) => new OpenIdConnectApplicationConsentMethod(value);
+
+        /// <summary>
         /// Creates a new <see cref="OpenIdConnectApplicationConsentMethod"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -26,5 +32,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

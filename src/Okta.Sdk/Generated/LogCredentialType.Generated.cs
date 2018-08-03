@@ -37,6 +37,12 @@ namespace Okta.Sdk
         public static LogCredentialType Jwt = new LogCredentialType("JWT");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LogCredentialType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator LogCredentialType(string value) => new LogCredentialType(value);
+
+        /// <summary>
         /// Creates a new <see cref="LogCredentialType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -44,5 +50,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

@@ -22,6 +22,12 @@ namespace Okta.Sdk
         public static OAuthResponseType IdToken = new OAuthResponseType("id_token");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuthResponseType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator OAuthResponseType(string value) => new OAuthResponseType(value);
+
+        /// <summary>
         /// Creates a new <see cref="OAuthResponseType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -29,5 +35,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

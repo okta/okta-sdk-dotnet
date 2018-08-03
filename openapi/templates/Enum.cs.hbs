@@ -18,6 +18,12 @@ namespace Okta.Sdk
 
         {{/each}}
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="{{memberName}}"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator {{memberName}}(string value) => new {{memberName}}(value);
+
+        /// <summary>
         /// Creates a new <see cref="{{memberName}}"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -25,5 +31,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

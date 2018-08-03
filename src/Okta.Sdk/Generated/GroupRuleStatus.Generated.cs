@@ -22,6 +22,12 @@ namespace Okta.Sdk
         public static GroupRuleStatus Invalid = new GroupRuleStatus("INVALID");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="GroupRuleStatus"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator GroupRuleStatus(string value) => new GroupRuleStatus(value);
+
+        /// <summary>
         /// Creates a new <see cref="GroupRuleStatus"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -29,5 +35,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

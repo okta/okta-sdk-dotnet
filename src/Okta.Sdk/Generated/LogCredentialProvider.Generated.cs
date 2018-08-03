@@ -31,6 +31,12 @@ namespace Okta.Sdk
         public static LogCredentialProvider Yubikey = new LogCredentialProvider("YUBIKEY");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LogCredentialProvider"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator LogCredentialProvider(string value) => new LogCredentialProvider(value);
+
+        /// <summary>
         /// Creates a new <see cref="LogCredentialProvider"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -38,5 +44,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

@@ -19,6 +19,12 @@ namespace Okta.Sdk
         public static RoleStatus Inactive = new RoleStatus("INACTIVE");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="RoleStatus"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator RoleStatus(string value) => new RoleStatus(value);
+
+        /// <summary>
         /// Creates a new <see cref="RoleStatus"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -26,5 +32,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }
