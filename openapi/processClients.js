@@ -6,7 +6,8 @@ const {
 } = require('./utils');
 
 const {
-  shouldSkipOperation
+  shouldSkipOperation,
+  applyOperationErrata
 } = require('./errata');
 
 function getTemplatesForClients(operations, infoLogger, errorLogger) {
@@ -34,7 +35,8 @@ function getTemplatesForClients(operations, infoLogger, errorLogger) {
     if (operation.tags.length > 1) {
       infoLogger(`Warning: more than one tag on ${operation.operationId}`);
     }
-
+    
+    operation = applyOperationErrata(operation.tags[0], operation, infoLogger);
     let clientName = operation.tags[0];
     clients[clientName] = clients[clientName] || [];
     clients[clientName].push(operation);

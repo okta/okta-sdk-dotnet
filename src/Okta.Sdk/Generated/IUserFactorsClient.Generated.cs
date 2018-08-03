@@ -28,9 +28,11 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="updatePhone"></param>
         /// <param name="templateId">id of SMS template (only for SMS factor)</param>
+        /// <param name="tokenLifetimeSeconds"></param>
+        /// <param name="activate"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IFactor"/> response.</returns>
-        Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates all the [supported factors](#supported-factors-for-providers) that can be enrolled for the specified user
@@ -81,9 +83,10 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
         /// <param name="templateId"></param>
+        /// <param name="tokenLifetimeSeconds"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IVerifyFactorResponse"/> response.</returns>
-        Task<IVerifyFactorResponse> VerifyFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, string templateId = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IVerifyFactorResponse> VerifyFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -109,7 +109,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateUserAsync(user, options.Activate, true, cancellationToken);
+            return CreateUserAsync(user, options.Activate, true, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc/>

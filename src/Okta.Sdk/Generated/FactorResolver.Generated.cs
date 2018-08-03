@@ -70,6 +70,11 @@ namespace Okta.Sdk.Internal
                 return typeof(TotpFactor);
             }
             
+            if (value.Equals("u2f"))
+            {
+                return typeof(U2fFactor);
+            }
+            
             if (value.Equals("web"))
             {
                 return typeof(WebFactor);

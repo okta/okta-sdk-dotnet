@@ -17,6 +17,8 @@ namespace Okta.Sdk
     {
         IGroupRuleAction Actions { get; set; }
 
+        bool? AllGroupsValid { get; set; }
+
         IGroupRuleConditions Conditions { get; set; }
 
         DateTimeOffset? Created { get; }

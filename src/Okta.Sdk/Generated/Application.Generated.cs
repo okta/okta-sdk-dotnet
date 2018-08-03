@@ -64,6 +64,13 @@ namespace Okta.Sdk
         public string Name => GetStringProperty("name");
         
         /// <inheritdoc/>
+        public Resource Profile 
+        {
+            get => GetResourceProperty<Resource>("profile");
+            set => this["profile"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IApplicationSettings Settings 
         {
             get => GetResourceProperty<ApplicationSettings>("settings");

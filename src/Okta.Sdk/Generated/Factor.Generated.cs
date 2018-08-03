@@ -75,6 +75,13 @@ namespace Okta.Sdk
         public FactorStatus Status => GetEnumProperty<FactorStatus>("status");
         
         /// <inheritdoc/>
+        public int? TokenLifetimeSeconds 
+        {
+            get => GetIntegerProperty("tokenLifetimeSeconds");
+            set => this["tokenLifetimeSeconds"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string UserId 
         {
             get => GetStringProperty("userId");
@@ -93,8 +100,8 @@ namespace Okta.Sdk
             => GetClient().UserFactors.ActivateFactorAsync(verifyFactorRequest, userId, Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IVerifyFactorResponse> VerifyAsync(VerifyFactorRequest verifyFactorRequest, string userId, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.VerifyFactorAsync(verifyFactorRequest, userId, Id, templateId, cancellationToken);
+        public Task<IVerifyFactorResponse> VerifyAsync(VerifyFactorRequest verifyFactorRequest, string userId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserFactors.VerifyFactorAsync(verifyFactorRequest, userId, Id, templateId, tokenLifetimeSeconds, cancellationToken);
         
     }
 }

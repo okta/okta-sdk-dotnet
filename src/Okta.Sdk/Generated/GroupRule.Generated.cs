@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public bool? AllGroupsValid 
+        {
+            get => GetBooleanProperty("allGroupsValid");
+            set => this["allGroupsValid"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IGroupRuleConditions Conditions 
         {
             get => GetResourceProperty<GroupRuleConditions>("conditions");

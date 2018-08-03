@@ -55,7 +55,7 @@ namespace Okta.Sdk
 
         Task AddToGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
 
         IAsyncEnumerable<IFactor> ListSupportedFactors();
 

@@ -33,6 +33,8 @@ namespace Okta.Sdk
 
         string Name { get; }
 
+        Resource Profile { get; set; }
+
         IApplicationSettings Settings { get; set; }
 
         ApplicationSignOnMode SignOnMode { get; set; }

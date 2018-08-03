@@ -38,8 +38,9 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="limit">Specifies the number of rule results in a page</param>
         /// <param name="after">Specifies the pagination cursor for the next page of rules</param>
+        /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IGroupRule"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null);
+        IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null, string expand = "");
 
         /// <summary>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
@@ -56,15 +57,16 @@ namespace Okta.Sdk
         /// <param name="removeUsers"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeleteRuleAsync(string ruleId, bool? removeUsers = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
+        /// <param name="expand"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IGroupRule"/> response.</returns>
-        Task<IGroupRule> GetRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IGroupRule> GetRuleAsync(string ruleId, string expand = "", CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -123,8 +125,9 @@ namespace Okta.Sdk
         /// <param name="groupId"></param>
         /// <param name="after">Specifies the pagination cursor for the next page of users</param>
         /// <param name="limit">Specifies the number of user results in a page</param>
+        /// <param name="managedBy"></param>
         /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1);
+        IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1, string managedBy = "all");
 
         /// <summary>
         /// Removes a [user](users.html#user-model) from a group with &#x60;OKTA_GROUP&#x60; type.

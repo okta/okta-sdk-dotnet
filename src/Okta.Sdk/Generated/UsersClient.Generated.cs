@@ -47,7 +47,7 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<User>(new HttpRequest
             {
                 Uri = "/api/v1/users",
@@ -56,6 +56,7 @@ namespace Okta.Sdk
                 {
                     ["activate"] = activate,
                     ["provider"] = provider,
+                    ["nextLogin"] = nextLogin,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         

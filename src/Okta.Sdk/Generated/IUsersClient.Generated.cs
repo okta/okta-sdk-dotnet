@@ -33,9 +33,10 @@ namespace Okta.Sdk
         /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="activate">Executes activation lifecycle operation when creating the user</param>
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider</param>
+        /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to &quot;changePassword&quot; to have the password be EXPIRED, so user must change it the next time they log in.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUser"/> response.</returns>
-        Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> CreateUserAsync(IUser user, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deletes a user permanently.  This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**

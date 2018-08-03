@@ -94,8 +94,8 @@ namespace Okta.Sdk
             => GetClient().Groups.AddUserToGroupAsync(groupId, Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.AddFactorAsync(factor, Id, updatePhone, templateId, cancellationToken);
+        public Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserFactors.AddFactorAsync(factor, Id, updatePhone, templateId, tokenLifetimeSeconds, activate, cancellationToken);
         
         /// <inheritdoc />
         public IAsyncEnumerable<IFactor> ListSupportedFactors()
