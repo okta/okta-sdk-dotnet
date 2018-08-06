@@ -43,7 +43,7 @@ namespace Okta.Sdk
         public static FactorType U2F = new FactorType("u2f");
 
         /// <summary>The webauthn FactorType.</summary>
-        public static FactorType Webauthn = new FactorType("webauthn");
+        public static FactorType WebAuthentication = new FactorType("webauthn");
 
         /// <summary>The token:software FactorType.</summary>
         public static FactorType TokenSoftware = new FactorType("token:software");
