@@ -19,6 +19,12 @@ namespace Okta.Sdk
         public static EmailStatus Unverified = new EmailStatus("UNVERIFIED");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EmailStatus"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator EmailStatus(string value) => new EmailStatus(value);
+
+        /// <summary>
         /// Creates a new <see cref="EmailStatus"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -26,5 +32,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

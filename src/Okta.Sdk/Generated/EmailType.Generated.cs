@@ -19,6 +19,12 @@ namespace Okta.Sdk
         public static EmailType Secondary = new EmailType("SECONDARY");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="EmailType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator EmailType(string value) => new EmailType(value);
+
+        /// <summary>
         /// Creates a new <see cref="EmailType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -26,5 +32,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }
