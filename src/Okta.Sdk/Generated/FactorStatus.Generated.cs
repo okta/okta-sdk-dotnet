@@ -34,6 +34,12 @@ namespace Okta.Sdk
         public static FactorStatus Expired = new FactorStatus("EXPIRED");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorStatus"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator FactorStatus(string value) => new FactorStatus(value);
+
+        /// <summary>
         /// Creates a new <see cref="FactorStatus"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -41,5 +47,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

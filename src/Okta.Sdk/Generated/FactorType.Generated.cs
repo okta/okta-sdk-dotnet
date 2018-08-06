@@ -40,6 +40,12 @@ namespace Okta.Sdk
         public static FactorType Email = new FactorType("email");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator FactorType(string value) => new FactorType(value);
+
+        /// <summary>
         /// Creates a new <see cref="FactorType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -47,5 +53,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

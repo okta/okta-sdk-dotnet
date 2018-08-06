@@ -37,6 +37,12 @@ namespace Okta.Sdk
         public static UserStatus Suspended = new UserStatus("SUSPENDED");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="UserStatus"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator UserStatus(string value) => new UserStatus(value);
+
+        /// <summary>
         /// Creates a new <see cref="UserStatus"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -44,5 +50,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

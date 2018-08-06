@@ -25,6 +25,12 @@ namespace Okta.Sdk
         public static LogSeverity Error = new LogSeverity("ERROR");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LogSeverity"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator LogSeverity(string value) => new LogSeverity(value);
+
+        /// <summary>
         /// Creates a new <see cref="LogSeverity"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -32,5 +38,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

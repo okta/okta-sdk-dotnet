@@ -28,6 +28,12 @@ namespace Okta.Sdk
         public static SessionIdentityProviderType Social = new SessionIdentityProviderType("SOCIAL");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="SessionIdentityProviderType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator SessionIdentityProviderType(string value) => new SessionIdentityProviderType(value);
+
+        /// <summary>
         /// Creates a new <see cref="SessionIdentityProviderType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -35,5 +41,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

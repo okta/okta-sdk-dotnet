@@ -31,6 +31,12 @@ namespace Okta.Sdk
         public static LogAuthenticationProvider FactorProvider = new LogAuthenticationProvider("FACTOR_PROVIDER");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="LogAuthenticationProvider"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator LogAuthenticationProvider(string value) => new LogAuthenticationProvider(value);
+
+        /// <summary>
         /// Creates a new <see cref="LogAuthenticationProvider"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -38,5 +44,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

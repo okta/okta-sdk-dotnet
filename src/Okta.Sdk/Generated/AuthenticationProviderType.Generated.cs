@@ -31,6 +31,12 @@ namespace Okta.Sdk
         public static AuthenticationProviderType Import = new AuthenticationProviderType("IMPORT");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthenticationProviderType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator AuthenticationProviderType(string value) => new AuthenticationProviderType(value);
+
+        /// <summary>
         /// Creates a new <see cref="AuthenticationProviderType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -38,5 +44,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

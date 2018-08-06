@@ -25,6 +25,12 @@ namespace Okta.Sdk
         public static OpenIdConnectApplicationType Service = new OpenIdConnectApplicationType("service");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="OpenIdConnectApplicationType"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator OpenIdConnectApplicationType(string value) => new OpenIdConnectApplicationType(value);
+
+        /// <summary>
         /// Creates a new <see cref="OpenIdConnectApplicationType"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -32,5 +38,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

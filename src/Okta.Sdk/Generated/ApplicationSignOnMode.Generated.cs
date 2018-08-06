@@ -37,6 +37,12 @@ namespace Okta.Sdk
         public static ApplicationSignOnMode OpenIdConnect = new ApplicationSignOnMode("OPENID_CONNECT");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationSignOnMode"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator ApplicationSignOnMode(string value) => new ApplicationSignOnMode(value);
+
+        /// <summary>
         /// Creates a new <see cref="ApplicationSignOnMode"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -44,5 +50,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }

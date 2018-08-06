@@ -34,6 +34,12 @@ namespace Okta.Sdk
         public static FactorProvider Fido = new FactorProvider("FIDO");
 
         /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorProvider"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator FactorProvider(string value) => new FactorProvider(value);
+
+        /// <summary>
         /// Creates a new <see cref="FactorProvider"/> instance.
         /// </summary>
         /// <param name="value">The value to use.</param>
@@ -41,5 +47,6 @@ namespace Okta.Sdk
             : base(value)
         {
         }
+
     }
 }
