@@ -35,13 +35,15 @@ namespace Okta.Sdk
 
         FactorStatus Status { get; }
 
+        int? TokenLifetimeSeconds { get; set; }
+
         string UserId { get; set; }
 
         IVerifyFactorRequest Verify { get; set; }
 
         Task<IFactor> ActivateAsync(VerifyFactorRequest verifyFactorRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IVerifyFactorResponse> VerifyAsync(VerifyFactorRequest verifyFactorRequest, string userId, string templateId = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IVerifyFactorResponse> VerifyAsync(VerifyFactorRequest verifyFactorRequest, string userId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -1370,7 +1370,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
 
-        [Fact(Skip = "Must be implemented once create and provisioning got fixed")]
+        [Fact(Skip = "https://github.com/okta/okta.github.io/issues/2167")]
         public async Task UpdateApplicationProfileForAssignedUser()
         {
             throw new NotImplementedException();

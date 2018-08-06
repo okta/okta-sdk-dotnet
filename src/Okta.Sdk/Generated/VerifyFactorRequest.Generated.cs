@@ -44,5 +44,12 @@ namespace Okta.Sdk
             set => this["passCode"] = value;
         }
         
+        /// <inheritdoc/>
+        public int? TokenLifetimeSeconds 
+        {
+            get => GetIntegerProperty("tokenLifetimeSeconds");
+            set => this["tokenLifetimeSeconds"] = value;
+        }
+        
     }
 }

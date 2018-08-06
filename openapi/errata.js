@@ -97,12 +97,40 @@ const enumErrata = [
   { path: 'SessionAuthenticationMethod.kba', rename: 'knowledgeBased', renameReason: 'Legibility' },
   { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
   { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
-  
+  { path: 'FactorType.webauthn', rename: 'webAuthentication', renameReason: 'Legibility' }
 ];
 
 const modelErrata = [
   { path: 'LogClient', rename: 'LogClientInfo', renameReason: 'Legibility' },
 ];
+
+const operationErrata = [
+  { tag: 'User', operationId: 'createUser', queryParamName: 'nextLogin', type: 'object', typeReason: 'StringEnum\'s must be object',  default: 'null', defaultReason: 'Implicit string operator cannot be used as default parameter'}
+];
+
+function applyOperationErrata(tag, existingOperation, infoLogger) {
+  let errata = operationErrata.find(x => x.tag === tag && x.operationId == existingOperation.operationId);
+
+  if(!errata) return existingOperation;
+
+  if(errata.queryParamName) {
+    let queryParam = existingOperation.queryParams.find(x => x.name == errata.queryParamName);
+
+    if(!queryParam) return existingOperation;
+
+    if(errata.default) {
+      queryParam.default = errata.default;
+      infoLogger(`Errata: Changing default for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.default}`, `(Reason: ${errata.defaultReason})`);
+    }
+
+    if(errata.type) {
+      queryParam.type = errata.type;
+      infoLogger(`Errata: Changing type for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.type}`, `(Reason: ${errata.typeReason})`);
+    }
+  }
+
+  return existingOperation;
+}
 
 function applyEnumErrata(existingMember, infoLogger) {
   let exists = existingMember && existingMember.fullPath;
@@ -226,3 +254,4 @@ module.exports.applyModelErrata = applyModelErrata;
 module.exports.isPropertyUnsupported = isPropertyUnsupported;
 module.exports.shouldSkipModelMethod = shouldSkipModelMethod;
 module.exports.shouldSkipOperation = shouldSkipOperation;
+module.exports.applyOperationErrata = applyOperationErrata;

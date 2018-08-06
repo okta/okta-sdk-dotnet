@@ -23,5 +23,7 @@ namespace Okta.Sdk
 
         string PassCode { get; set; }
 
+        int? TokenLifetimeSeconds { get; set; }
+
     }
 }

@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public bool? ImplicitAssignment 
+        {
+            get => GetBooleanProperty("implicitAssignment");
+            set => this["implicitAssignment"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IApplicationSettingsNotifications Notifications 
         {
             get => GetResourceProperty<ApplicationSettingsNotifications>("notifications");

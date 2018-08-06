@@ -370,7 +370,7 @@ namespace Okta.Sdk.IntegrationTests
             throw new NotImplementedException();
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/88")]
         public async Task UserGroupTargetRole()
         {
             throw new NotImplementedException();

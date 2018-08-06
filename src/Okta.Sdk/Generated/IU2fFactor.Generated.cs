@@ -1,4 +1,4 @@
-// <copyright file="IApplicationSettings.Generated.cs" company="Okta, Inc">
+// <copyright file="IU2fFactor.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,14 +12,10 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a ApplicationSettings resource in the Okta API.</summary>
-    public partial interface IApplicationSettings : IResource
+    /// <summary>Represents a U2fFactor resource in the Okta API.</summary>
+    public partial interface IU2fFactor : IFactor
     {
-        IApplicationSettingsApplication App { get; set; }
-
-        bool? ImplicitAssignment { get; set; }
-
-        IApplicationSettingsNotifications Notifications { get; set; }
+        IU2fFactorProfile Profile { get; set; }
 
     }
 }

@@ -339,7 +339,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "TODO")]
+        [Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/94")]
         public async Task GroupRuleOperations()
         {
             throw new NotImplementedException();

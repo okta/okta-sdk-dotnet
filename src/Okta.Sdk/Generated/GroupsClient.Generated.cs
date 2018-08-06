@@ -53,7 +53,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null)
+        public IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null, string expand = "")
             => GetCollectionClient<GroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules",
@@ -62,6 +62,7 @@ namespace Okta.Sdk
                 {
                     ["limit"] = limit,
                     ["after"] = after,
+                    ["expand"] = expand,
                 },
             });
                     
@@ -74,7 +75,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task DeleteRuleAsync(string ruleId, bool? removeUsers = false, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}",
@@ -90,7 +91,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IGroupRule> GetRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IGroupRule> GetRuleAsync(string ruleId, string expand = "", CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<GroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}",
@@ -98,6 +99,10 @@ namespace Okta.Sdk
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["ruleId"] = ruleId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["expand"] = expand,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -178,7 +183,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1)
+        public IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1, string managedBy = "all")
             => GetCollectionClient<User>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/users",
@@ -191,6 +196,7 @@ namespace Okta.Sdk
                 {
                     ["after"] = after,
                     ["limit"] = limit,
+                    ["managedBy"] = managedBy,
                 },
             });
                     
