@@ -43,7 +43,9 @@ namespace Okta.Sdk.UnitTests.Internal
             // Increment page
             _currentPage++;
 
-            return Task.FromResult(JsonConvert.SerializeObject(itemData));
+            var serializer = new DefaultSerializer();
+
+            return Task.FromResult(serializer.Serialize(itemData));
         }
 
         public async Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
