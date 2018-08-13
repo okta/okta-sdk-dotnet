@@ -27,7 +27,7 @@ namespace Okta.Sdk.UnitTests
             log.Actor.Detail.GetData().Should().BeEmpty();
 
             // Client
-            log.ClientInfo.Should().BeOfType<LogClient>();
+            log.ClientInfo.Should().BeOfType<LogClientInfo>();
             log.ClientInfo.UserAgent.Should().BeOfType<LogUserAgent>();
             log.ClientInfo.UserAgent.RawUserAgent.Should().Be("okta-sdk-dotnet / 1.0.0 runtime /.NET Core 4.6.x os / Microsoft Windows 10.x");
             log.ClientInfo.UserAgent.OperatingSystem.Should().Be("Windows");

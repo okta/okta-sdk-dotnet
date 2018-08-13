@@ -36,7 +36,7 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
     if (baseModelsList.has(model.modelName)) {
       model.isBaseModel = true;
     }
-    model = applyModelErrata(model, infoLogger);
+    model = applyModelErrata(model, strictModelList, infoLogger);
     model.properties = model.properties || [];
     model.properties = model.properties.map(property =>
     {
