@@ -3,10 +3,8 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
@@ -18,12 +16,17 @@ namespace Okta.Sdk.UnitTests
 {
     public class CollectionOfFactorsShould
     {
-        private static readonly List<Factor> AllFactors = new List<Factor>()
+        private static readonly List<IFactor> AllFactors = new List<IFactor>()
         {
-            new ResourceCreator<Factor>().With(
-                (f => f.FactorType, FactorType.Question.ToString()), // todo removing ToString breaks the mocked RequestExecutor
-                (f => f.Provider, "OKTA"),
-                (f => f.Profile, new SecurityQuestionFactorProfile { Question = "disliked_food" })),
+            TestResourceCreator.NewFactor(
+                factorType: FactorType.Question,
+                provider: "OTKA",
+                profile: new SecurityQuestionFactorProfile { Question = "disliked_food" }),
+
+            TestResourceCreator.NewFactor(
+                factorType: FactorType.Sms,
+                provider: "OTKA",
+                profile: new SmsFactorProfile() { PhoneNumber = "+15556667899" }),
         };
 
         [Fact]
