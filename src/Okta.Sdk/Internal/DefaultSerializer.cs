@@ -29,7 +29,7 @@ namespace Okta.Sdk.Internal
             {
                 NullValueHandling = NullValueHandling.Ignore,
                 DefaultValueHandling = DefaultValueHandling.Ignore,
-                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                ContractResolver = new DefaultContractResolver(),
             };
 
             _serializer.Converters.Add(new RecursiveDictionaryConverter());

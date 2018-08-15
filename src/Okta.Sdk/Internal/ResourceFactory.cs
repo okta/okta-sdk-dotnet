@@ -42,8 +42,8 @@ namespace Okta.Sdk.Internal
 
             switch (behaviorType)
             {
-                case ResourceBehavior.Default: return new Dictionary<string, object>(initialData, StringComparer.OrdinalIgnoreCase);
-                case ResourceBehavior.ChangeTracking: return new DefaultChangeTrackingDictionary(initialData, StringComparer.OrdinalIgnoreCase);
+                case ResourceBehavior.Default: return new Dictionary<string, object>(initialData, StringComparer.Ordinal);
+                case ResourceBehavior.ChangeTracking: return new DefaultChangeTrackingDictionary(initialData, StringComparer.Ordinal);
             }
 
             throw new ArgumentException($"Unknown resource dictionary type {behaviorType}");

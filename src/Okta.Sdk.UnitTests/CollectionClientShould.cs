@@ -16,19 +16,19 @@ namespace Okta.Sdk.UnitTests
 {
     public class CollectionClientShould
     {
-        private static readonly List<User> TestUsers = new List<User>()
+        private static readonly List<IUser> TestUsers = new List<IUser>()
         {
-            new ResourceCreator<User>().With((u => u.Id, "123"), (u => u.Status, "ACTIVE")),
-            new ResourceCreator<User>().With((u => u.Id, "456"), (u => u.Status, UserStatus.Deprovisioned.ToString())),
-            new ResourceCreator<User>().With((u => u.Id, "abc"), (u => u.Status, UserStatus.Active.ToString())),
-            new ResourceCreator<User>().With((u => u.Id, "xyz"), (u => u.Status, "UNKNOWN")),
-            new ResourceCreator<User>().With((u => u.Id, "999"), (u => u.Status, "UNKNOWN")),
+            TestResourceCreator.NewUser(id: "123", status: "ACTIVE"),
+            TestResourceCreator.NewUser(id: "456", status: UserStatus.Deprovisioned),
+            TestResourceCreator.NewUser(id: "abc", status: UserStatus.Active),
+            TestResourceCreator.NewUser(id: "xyz", status: "UNKNOWN"),
+            TestResourceCreator.NewUser(id: "999", status: "UNKNOWN"),
         };
 
         [Fact]
         public async Task CountCollectionAsynchronously()
         {
-            var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(pageSize: 2, items: TestUsers);
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
@@ -47,7 +47,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public async Task FilterCollectionAsynchronously()
         {
-            var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(pageSize: 2, items: TestUsers);
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
