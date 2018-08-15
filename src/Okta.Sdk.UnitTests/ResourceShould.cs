@@ -255,7 +255,7 @@ namespace Okta.Sdk.UnitTests
             var factory = new ResourceFactory(null, null);
             var resource = factory.CreateNew<Resource>(null);
 
-            resource.GetArrayProperty<string>("foo").Should().BeNull();
+            resource.GetArrayProperty<string>("foo").Should().BeEmpty();
 
             var things = new[] { "favorite", "strings" }.AsEnumerable();
 

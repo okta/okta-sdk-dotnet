@@ -157,6 +157,18 @@ namespace Okta.Sdk
             return value;
         }
 
+        private object GetPropertyOrEmptyCollection(string key)
+        {
+            _data.TryGetValue(key, out var value);
+
+            if (value == null)
+            {
+                _data[key] = new List<object>();
+            }
+
+            return _data[key];
+        }
+
         /// <inheritdoc/>
         public void SetProperty(string name, object value)
         {
@@ -279,11 +291,7 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IList<T> GetArrayProperty<T>(string name)
         {
-            var genericList = GetPropertyOrNull(name) as IList<object>;
-            if (genericList == null)
-            {
-                return null;
-            }
+            var genericList = GetPropertyOrEmptyCollection(name) as IList<object>;
 
             return new CastingListAdapter<T>(genericList, _resourceFactory, _logger);
         }
