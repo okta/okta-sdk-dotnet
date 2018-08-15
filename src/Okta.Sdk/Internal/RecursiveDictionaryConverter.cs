@@ -18,7 +18,7 @@ namespace Okta.Sdk.Internal
     {
         /// <inheritdoc/>
         public override IDictionary<string, object> Create(Type objectType)
-            => new Dictionary<string, object>(StringComparer.OrdinalIgnoreCase);
+            => new Dictionary<string, object>(StringComparer.Ordinal);
 
         /// <inheritdoc/>
         public override bool CanConvert(Type objectType)

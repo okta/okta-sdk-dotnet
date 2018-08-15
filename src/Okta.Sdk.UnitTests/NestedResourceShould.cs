@@ -30,7 +30,7 @@ namespace Okta.Sdk.UnitTests
                 ["nested"] = new Dictionary<string, object>()
                 {
                     ["foo"] = "nested is neet!",
-                    ["Bar"] = false,
+                    ["bar"] = false,
                 },
             };
 
