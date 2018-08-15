@@ -10,7 +10,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void NotReturnNullWhenFeaturesHasNoData()
         {
-            var mockRequestExecutor = new MockedStringRequestExecutor(GetBookmarkApplicationStubResponse());
+            var mockRequestExecutor = new MockedStringRequestExecutor(GetBookmarkApplicationStubResponse(features: "[]"));
             var client = new TestableOktaClient(mockRequestExecutor);
 
             var app = client.Applications.GetApplicationAsync<IBookmarkApplication>("foo").Result;
