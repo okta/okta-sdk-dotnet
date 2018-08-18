@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
@@ -13,6 +14,30 @@ namespace Okta.Sdk.UnitTests
 {
     public class LinkHeaderParserShould
     {
+        [Fact]
+        public void ParseEmptyArray()
+        {
+            var links = LinkHeaderParser.Parse(new string[0]);
+
+            links.Count().Should().Be(0);
+        }
+
+        [Fact]
+        public void ParseEmptyString()
+        {
+            var links = LinkHeaderParser.Parse(string.Empty);
+
+            links.Count().Should().Be(0);
+        }
+
+        [Fact]
+        public void ParseNull()
+        {
+            var links = LinkHeaderParser.Parse((IEnumerable<string>)null);
+
+            links.Count().Should().Be(0);
+        }
+
         [Fact]
         public void ParseLink()
         {

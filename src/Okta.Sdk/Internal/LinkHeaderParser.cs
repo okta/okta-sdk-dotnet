@@ -78,8 +78,10 @@ namespace Okta.Sdk.Internal
         /// Parses a set of header values to <see cref="WebLink"/>s.
         /// </summary>
         /// <param name="headerValues">The HTTP header values to parse.</param>
-        /// <returns>Any Web Links found in the headers.</returns>
+        /// <returns>
+        /// Any Web Links found in the headers. If <paramref name="headerValues"/> is null, an empty enumerable is returned.
+        /// </returns>
         public static IEnumerable<WebLink> Parse(IEnumerable<string> headerValues)
-            => Parse(headerValues.ToArray());
+            => Parse(headerValues?.ToArray() ?? new string[0]);
     }
 }
