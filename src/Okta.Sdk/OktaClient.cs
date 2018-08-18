@@ -187,7 +187,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public IAsyncEnumerable<T> GetCollection<T>(string href)
+        public CollectionClient<T> GetCollection<T>(string href)
             where T : Resource, new()
             => GetCollection<T>(new HttpRequest
             {
@@ -195,7 +195,7 @@ namespace Okta.Sdk
             });
 
         /// <inheritdoc/>
-        public IAsyncEnumerable<T> GetCollection<T>(HttpRequest request)
+        public CollectionClient<T> GetCollection<T>(HttpRequest request)
             where T : Resource, new()
             => GetCollectionClient<T>(request);
 
