@@ -364,6 +364,45 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
+        [Fact]
+        public async Task CreateUserWithProvider()
+        {
+            var client = GetClient();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithProviderOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "Joanna",
+                    LastName = "CreatedWithProvider",
+                    Email = "joanna-create-with-provider@example.com",
+                    Login = "joanna-create-with-provider@example.com",
+                },
+                ProviderType = AuthenticationProviderType.Federation,
+                ProviderName = "FEDERATION",
+            });
+
+            try
+            {
+                // Retrieve by ID
+                var retrievedById = await client.Users.GetUserAsync(createdUser.Id);
+                retrievedById.Profile.LastName.Should().Be("CreatedWithProvider");
+                retrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.Federation);
+                retrievedById.Credentials.Provider.Name.Should().Be("FEDERATION");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Users.GetUserAsync(createdUser.Id));
+        }
+
         [Fact(Skip = "TODO")]
         public async Task AssignUserRole()
         {
