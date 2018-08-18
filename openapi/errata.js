@@ -80,7 +80,7 @@ const propertyErrata = [
    { path: 'LogGeolocation.lat', rename: 'latitude', renameReason: 'Legibility' },
    { path: 'LogGeolocation.lon', rename: 'longitude', renameReason: 'Legibility' },
    { path: 'LogUserAgent.os', rename: 'operatingSystem', renameReason: 'Legibility' },
-   { path: 'LogEvent.client', rename: 'clientInfo', renameReason: 'Convention' },
+   { path: 'LogEvent.client', rename: 'clientInfo', renameReason: 'Convention', model: 'LogClientInfo', modelReason: 'Convention' },
    { path: 'Session.amr', rename: 'authenticationMethodReference', renameReason: 'Legibility' },
 ];
 
@@ -97,7 +97,7 @@ const enumErrata = [
   { path: 'SessionAuthenticationMethod.kba', rename: 'knowledgeBased', renameReason: 'Legibility' },
   { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
   { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
-  { path: 'FactorType.webauthn', rename: 'webAuthentication', renameReason: 'Legibility' }
+  { path: 'FactorType.webauthn', rename: 'webAuthentication', renameReason: 'Legibility' },
 ];
 
 const modelErrata = [
@@ -183,6 +183,11 @@ function applyPropertyErrata(existingProperty, infoLogger) {
     infoLogger(`Errata: ReadOnly changed for property ${existingProperty.fullPath}`)
   }
 
+  if(errata.model) {
+    existingProperty.model = errata.model;
+    infoLogger(`Errata: Explicitly setting model type for property ${existingProperty.fullPath}`)
+  }
+
   return existingProperty;
 }
 
@@ -196,11 +201,15 @@ function isPropertyUnsupported(property) {
   return false;
 }
 
-function applyModelErrata(existingModel, infoLogger) {
+function applyModelErrata(existingModel, strictModelList, infoLogger) {
   let errata = modelErrata.find(x => x.path === existingModel.modelName);
   if (!errata) return existingModel;
 
   if (errata.rename) {
+    // Updating model name in the model list
+    strictModelList.add(errata.rename);
+    strictModelList.delete(existingModel.modelName);
+
     existingModel.modelName = errata.rename;
     infoLogger(`Errata: Renaming model ${existingModel.path} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
   }

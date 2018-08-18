@@ -19,7 +19,7 @@ namespace Okta.Sdk
 
         ILogAuthenticationContext AuthenticationContext { get; }
 
-        ILogClient ClientInfo { get; }
+        ILogClientInfo ClientInfo { get; }
 
         ILogDebugContext DebugContext { get; }
 
