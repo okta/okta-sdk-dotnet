@@ -46,6 +46,8 @@ namespace Okta.Sdk.IntegrationTests
                 AuthUrl = "https://example.com/auth.html",
             });
 
+            await Task.Delay(2000);
+
             try
             {
                 var query = "App creation to be logged";
