@@ -48,8 +48,8 @@ namespace Okta.Sdk.UnitTests
 
             log.AuthenticationContext.Should().BeOfType<LogAuthenticationContext>();
             log.AuthenticationContext.AuthenticationProvider.Should().BeNull();
-            log.AuthenticationContext.CredentialProvider.Should().BeNull();
-            log.AuthenticationContext.CredentialType.Should().BeNull();
+            log.AuthenticationContext.CredentialProvider.Should().BeEmpty();
+            log.AuthenticationContext.CredentialType.Should().BeEmpty();
             // This line should be like this:  log.AuthenticationContext.Issuer.Should().BeNull();
             log.AuthenticationContext.Issuer.GetData().Should().BeEmpty();
             log.AuthenticationContext.Interface.Should().BeNull();
