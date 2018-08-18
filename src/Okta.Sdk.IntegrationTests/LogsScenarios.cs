@@ -1,20 +1,25 @@
-﻿using FluentAssertions;
+﻿// <copyright file="LogsScenarios.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    [Collection(nameof(ScenariosCollection))]
-    public class LogsScenarios : ScenarioGroup
+    [Collection(nameof(LogsScenarios))]
+    public class LogsScenarios
     {
         [Fact]
         public async Task GetLogs()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
+
+            // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
                 Label = "App creation to be logged",
@@ -38,7 +43,9 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetLogsByQueryString()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
+
+            // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
                 Label = "App creation to be logged",
@@ -65,7 +72,9 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetLogsByEventType()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
+
+            // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
                 Label = "App creation to be logged",
@@ -90,7 +99,9 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetLogsBySinceDate()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
+
+            // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
                 Label = "App creation to be logged",
