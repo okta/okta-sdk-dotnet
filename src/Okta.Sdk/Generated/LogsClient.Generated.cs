@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
+        public CollectionClient<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
             => GetCollectionClient<LogEvent>(new HttpRequest
             {
                 Uri = "/api/v1/logs",

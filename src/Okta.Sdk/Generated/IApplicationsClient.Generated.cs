@@ -24,7 +24,7 @@ namespace Okta.Sdk
         /// <param name="expand">Traverses users link relationship and optionally embeds Application User resource</param>
         /// <param name="includeNonDeleted"></param>
         /// <returns>A collection of <see cref="IApplication"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<IApplication> ListApplications(string q = null, string after = null, int? limit = -1, string filter = null, string expand = null, bool? includeNonDeleted = false);
+        CollectionClient<IApplication> ListApplications(string q = null, string after = null, int? limit = -1, string filter = null, string expand = null, bool? includeNonDeleted = false);
 
         /// <summary>
         /// Adds a new application to your Okta organization.
@@ -66,7 +66,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="appId"></param>
         /// <returns>A collection of <see cref="IJsonWebKey"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<IJsonWebKey> ListApplicationKeys(string appId);
+        CollectionClient<IJsonWebKey> ListApplicationKeys(string appId);
 
         /// <summary>
         /// Gets a specific [application key credential](#application-key-credential-model) by &#x60;kid&#x60;
@@ -96,7 +96,7 @@ namespace Okta.Sdk
         /// <param name="limit">Specifies the number of results for a page</param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IApplicationGroupAssignment"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<IApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = -1, string expand = null);
+        CollectionClient<IApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = -1, string expand = null);
 
         /// <summary>
         /// Removes a group assignment from an application.
@@ -154,7 +154,7 @@ namespace Okta.Sdk
         /// <param name="filter"></param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IAppUser"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<IAppUser> ListApplicationUsers(string appId, string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null);
+        CollectionClient<IAppUser> ListApplicationUsers(string appId, string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null);
 
         /// <summary>
         /// Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.

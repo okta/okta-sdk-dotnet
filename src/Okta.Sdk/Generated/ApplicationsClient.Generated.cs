@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IApplication> ListApplications(string q = null, string after = null, int? limit = -1, string filter = null, string expand = null, bool? includeNonDeleted = false)
+        public CollectionClient<IApplication> ListApplications(string q = null, string after = null, int? limit = -1, string filter = null, string expand = null, bool? includeNonDeleted = false)
             => GetCollectionClient<Application>(new HttpRequest
             {
                 Uri = "/api/v1/apps",
@@ -98,7 +98,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IJsonWebKey> ListApplicationKeys(string appId)
+        public CollectionClient<IJsonWebKey> ListApplicationKeys(string appId)
             => GetCollectionClient<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/credentials/keys",
@@ -140,7 +140,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = -1, string expand = null)
+        public CollectionClient<IApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = -1, string expand = null)
             => GetCollectionClient<ApplicationGroupAssignment>(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/groups",
@@ -226,7 +226,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IAppUser> ListApplicationUsers(string appId, string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
+        public CollectionClient<IAppUser> ListApplicationUsers(string appId, string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
             => GetCollectionClient<AppUser>(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/users",

@@ -103,7 +103,7 @@ namespace Okta.Sdk
             => GetClient().Applications.DeactivateApplicationAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IAppUser> ListApplicationUsers(string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
+        public CollectionClient<IAppUser> ListApplicationUsers(string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
             => GetClient().Applications.ListApplicationUsers(Id, q, query_scope, after, limit, filter, expand);
         
         /// <inheritdoc />
@@ -131,11 +131,11 @@ namespace Okta.Sdk
             => GetClient().Applications.GetApplicationKeyAsync(Id, keyId, cancellationToken);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IApplicationGroupAssignment> ListGroupAssignments(string q = null, string after = null, int? limit = -1, string expand = null)
+        public CollectionClient<IApplicationGroupAssignment> ListGroupAssignments(string q = null, string after = null, int? limit = -1, string expand = null)
             => GetClient().Applications.ListApplicationGroupAssignments(Id, q, after, limit, expand);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IJsonWebKey> ListKeys()
+        public CollectionClient<IJsonWebKey> ListKeys()
             => GetClient().Applications.ListApplicationKeys(Id);
         
     }

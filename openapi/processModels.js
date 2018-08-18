@@ -192,7 +192,7 @@ function createContextForModel(model, strictModelList, errFunc) {
     }
     
     if (method.operation.isArray) {
-      methodContext.returnTypeLiteral = `IAsyncEnumerable<I${method.operation.responseModel}>`;
+      methodContext.returnTypeLiteral = `CollectionClient<I${method.operation.responseModel}>`;
     } else if (method.operation.responseModel) {
       methodContext.returnTypeLiteral = `Task<I${method.operation.responseModel}>`;
     } else {

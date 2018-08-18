@@ -98,15 +98,15 @@ namespace Okta.Sdk
             => GetClient().UserFactors.AddFactorAsync(factor, Id, updatePhone, templateId, tokenLifetimeSeconds, activate, cancellationToken);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IFactor> ListSupportedFactors()
+        public CollectionClient<IFactor> ListSupportedFactors()
             => GetClient().UserFactors.ListSupportedFactors(Id);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IFactor> ListFactors()
+        public CollectionClient<IFactor> ListFactors()
             => GetClient().UserFactors.ListFactors(Id);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<ISecurityQuestion> ListSupportedSecurityQuestions()
+        public CollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions()
             => GetClient().UserFactors.ListSupportedSecurityQuestions(Id);
         
         /// <inheritdoc />

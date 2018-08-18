@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IFactor> ListFactors(string userId)
+        public CollectionClient<IFactor> ListFactors(string userId)
             => GetCollectionClient<Factor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors",
@@ -60,7 +60,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IFactor> ListSupportedFactors(string userId)
+        public CollectionClient<IFactor> ListSupportedFactors(string userId)
             => GetCollectionClient<Factor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/catalog",
@@ -72,7 +72,7 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public IAsyncEnumerable<ISecurityQuestion> ListSupportedSecurityQuestions(string userId)
+        public CollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId)
             => GetCollectionClient<SecurityQuestion>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/questions",

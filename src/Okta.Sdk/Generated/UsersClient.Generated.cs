@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
+        public CollectionClient<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
             => GetCollectionClient<User>(new HttpRequest
             {
                 Uri = "/api/v1/users",
@@ -97,7 +97,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IAppLink> ListAppLinks(string userId, bool? showAll = false)
+        public CollectionClient<IAppLink> ListAppLinks(string userId, bool? showAll = false)
             => GetCollectionClient<AppLink>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/appLinks",
@@ -137,7 +137,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1)
+        public CollectionClient<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1)
             => GetCollectionClient<Group>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/groups",
@@ -263,7 +263,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IRole> ListAssignedRoles(string userId, string expand = null)
+        public CollectionClient<IRole> ListAssignedRoles(string userId, string expand = null)
             => GetCollectionClient<Role>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles",
@@ -292,7 +292,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
+        public CollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
             => GetCollectionClient<Group>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups",

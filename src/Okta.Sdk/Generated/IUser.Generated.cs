@@ -57,11 +57,11 @@ namespace Okta.Sdk
 
         Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<IFactor> ListSupportedFactors();
+        CollectionClient<IFactor> ListSupportedFactors();
 
-        IAsyncEnumerable<IFactor> ListFactors();
+        CollectionClient<IFactor> ListFactors();
 
-        IAsyncEnumerable<ISecurityQuestion> ListSupportedSecurityQuestions();
+        CollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions();
 
         Task<IFactor> GetFactorAsync(string factorId, CancellationToken cancellationToken = default(CancellationToken));
 
