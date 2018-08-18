@@ -26,6 +26,25 @@ namespace Okta.Sdk.UnitTests
         };
 
         [Fact]
+        public async Task GetAllItems()
+        {
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<User>(pageSize: 2, items: TestUsers);
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, null),
+                NullLogger.Instance);
+
+            var collection = new CollectionClient<User>(
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
+
+            var all = await collection.ToArrayAsync();
+            all.Count.Should().Be(5);
+        }
+
+        [Fact]
         public async Task CountCollectionAsynchronously()
         {
             var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(pageSize: 2, items: TestUsers);
