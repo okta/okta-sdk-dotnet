@@ -6,7 +6,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Okta.Sdk.Internal
+namespace Okta.Sdk
 {
     /// <summary>
     /// Represents an HTTP request with a URI and optional payload and parameters.
