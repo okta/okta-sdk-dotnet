@@ -170,7 +170,7 @@ namespace Okta.Sdk
         /// <param name="initialRequest">The initial HTTP request.</param>
         /// <returns>The collection client.</returns>
         protected CollectionClient<T> GetCollectionClient<T>(HttpRequest initialRequest)
-            where T : Resource, new()
+            where T : IResource
             => new CollectionClient<T>(_dataStore, initialRequest, _requestContext);
 
         /// <inheritdoc/>

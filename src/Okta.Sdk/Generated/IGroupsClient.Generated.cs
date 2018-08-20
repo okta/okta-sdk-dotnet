@@ -23,7 +23,7 @@ namespace Okta.Sdk
         /// <param name="limit">Specifies the number of group results in a page</param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null);
+        ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null);
 
         /// <summary>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
@@ -40,7 +40,7 @@ namespace Okta.Sdk
         /// <param name="after">Specifies the pagination cursor for the next page of rules</param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IGroupRule"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IGroupRule> ListRules(int? limit = -1, string after = null, string expand = "");
+        ICollectionClient<IGroupRule> ListRules(int? limit = -1, string after = null, string expand = "");
 
         /// <summary>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
@@ -127,7 +127,7 @@ namespace Okta.Sdk
         /// <param name="limit">Specifies the number of user results in a page</param>
         /// <param name="managedBy"></param>
         /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1, string managedBy = "all");
+        ICollectionClient<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1, string managedBy = "all");
 
         /// <summary>
         /// Removes a [user](users.html#user-model) from a group with &#x60;OKTA_GROUP&#x60; type.

@@ -75,7 +75,7 @@ Creates the context that the handlebars template is bound to:
       isCollection: true,
       returnType = {
         memberName: 'IUser,
-        literal = 'CollectionClient<IUser>',
+        literal = 'ICollectionClient<IUser>',
         documentationLiteral = 'A collection of <see cref="IUser"/> that can be enumerated asynchronously.'
       },
       methodSignatureLiteral: 'string q = null, string after = null, int? limit = -1',
@@ -138,7 +138,7 @@ function createContextForClient(tag, operations) {
     };
 
     if (operation.isArray) {
-      operationContext.returnType.literal = `CollectionClient<I${operationContext.returnType.memberName}>`;
+      operationContext.returnType.literal = `ICollectionClient<I${operationContext.returnType.memberName}>`;
       operationContext.returnType.documentationLiteral = `A collection of <see cref="I${operationContext.returnType.memberName}"/> that can be enumerated asynchronously.`;
     } else if (operation.responseModel) {
       operationContext.returnType.literal = `Task<I${operationContext.returnType.memberName}>`;

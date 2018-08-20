@@ -29,8 +29,8 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public CollectionClient<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
-            => GetCollectionClient<User>(new HttpRequest
+        public ICollectionClient<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
+            => GetCollectionClient<IUser>(new HttpRequest
             {
                 Uri = "/api/v1/users",
                 
@@ -97,8 +97,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public CollectionClient<IAppLink> ListAppLinks(string userId, bool? showAll = false)
-            => GetCollectionClient<AppLink>(new HttpRequest
+        public ICollectionClient<IAppLink> ListAppLinks(string userId, bool? showAll = false)
+            => GetCollectionClient<IAppLink>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/appLinks",
                 
@@ -137,8 +137,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public CollectionClient<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1)
-            => GetCollectionClient<Group>(new HttpRequest
+        public ICollectionClient<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1)
+            => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/groups",
                 
@@ -263,8 +263,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public CollectionClient<IRole> ListAssignedRoles(string userId, string expand = null)
-            => GetCollectionClient<Role>(new HttpRequest
+        public ICollectionClient<IRole> ListAssignedRoles(string userId, string expand = null)
+            => GetCollectionClient<IRole>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles",
                 
@@ -292,8 +292,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public CollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
-            => GetCollectionClient<Group>(new HttpRequest
+        public ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1)
+            => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups",
                 

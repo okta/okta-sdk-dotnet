@@ -29,8 +29,8 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public CollectionClient<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
-            => GetCollectionClient<LogEvent>(new HttpRequest
+        public ICollectionClient<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
+            => GetCollectionClient<ILogEvent>(new HttpRequest
             {
                 Uri = "/api/v1/logs",
                 

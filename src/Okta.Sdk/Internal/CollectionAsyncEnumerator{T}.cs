@@ -18,7 +18,7 @@ namespace Okta.Sdk.Internal
     /// <remarks>See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.</remarks>
     /// <typeparam name="T">The type of items in the collection.</typeparam>
     public sealed class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
-        where T : Resource, new()
+        where T : IResource
     {
         private readonly PagedCollectionEnumerator<T> _pagedEnumerator;
 

@@ -19,7 +19,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <returns>A collection of <see cref="IFactor"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IFactor> ListFactors(string userId);
+        ICollectionClient<IFactor> ListFactors(string userId);
 
         /// <summary>
         /// Enrolls a user with a supported [factor](#list-factors-to-enroll)
@@ -39,14 +39,14 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId"></param>
         /// <returns>A collection of <see cref="IFactor"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IFactor> ListSupportedFactors(string userId);
+        ICollectionClient<IFactor> ListSupportedFactors(string userId);
 
         /// <summary>
         /// Enumerates all available security questions for a user&#x27;s &#x60;question&#x60; factor
         /// </summary>
         /// <param name="userId"></param>
         /// <returns>A collection of <see cref="ISecurityQuestion"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId);
+        ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId);
 
         /// <summary>
         /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.

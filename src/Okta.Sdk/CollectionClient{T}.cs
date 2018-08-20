@@ -9,16 +9,9 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>
-    /// A collection of <see cref="Resource">Resources</see> that can be enumerated asynchronously.
-    /// </summary>
-    /// <remarks>
-    /// Using this object with LINQ will automatically enumerate a paginated Okta collection.
-    /// See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.
-    /// </remarks>
-    /// <typeparam name="T">The <see cref="Resource"/> type in the collection.</typeparam>
-    public sealed class CollectionClient<T> : IAsyncEnumerable<T>
-        where T : Resource, new()
+    /// <inheritdoc/>
+    public sealed class CollectionClient<T> : ICollectionClient<T>
+        where T : IResource
     {
         private readonly IDataStore _dataStore;
         private readonly HttpRequest _initialRequest;
@@ -44,15 +37,8 @@ namespace Okta.Sdk
         public IAsyncEnumerator<T> GetEnumerator()
             => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
 
-        /// <summary>
-        /// Returns an enumerator that can be used to retrieve items from an Okta collection page-by-page.
-        /// Use this only if you need to enumerate collections manually; otherwise, use LINQ.
-        /// </summary>
-        /// <remarks>
-        /// /// See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.
-        /// </remarks>
-        /// <returns>An enumerator that retrieves items from an Okta collection page-by-page.</returns>
-        public PagedCollectionEnumerator<T> GetPagedEnumerator()
+        /// <inheritdoc/>
+        public IPagedCollectionEnumerator<T> GetPagedEnumerator()
             => new PagedCollectionEnumerator<T>(_dataStore, _initialRequest, _requestContext);
     }
 }

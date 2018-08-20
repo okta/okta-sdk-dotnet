@@ -25,7 +25,7 @@ namespace Okta.Sdk
         /// <param name="search">Searches for users with a supported filtering  expression for most properties</param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IUser"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null);
+        ICollectionClient<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null);
 
         /// <summary>
         /// Creates a new user in your Okta organization with or without credentials.
@@ -69,7 +69,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="showAll"></param>
         /// <returns>A collection of <see cref="IAppLink"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IAppLink> ListAppLinks(string userId, bool? showAll = false);
+        ICollectionClient<IAppLink> ListAppLinks(string userId, bool? showAll = false);
 
         /// <summary>
         /// Changes a user&#x27;s password by validating the user&#x27;s current password.  This operation can only be performed on users in &#x60;STAGED&#x60;, &#x60;ACTIVE&#x60;, &#x60;PASSWORD_EXPIRED&#x60;, or &#x60;RECOVERY&#x60; status that have a valid [password credential](#password-object)
@@ -96,7 +96,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1);
+        ICollectionClient<IGroup> ListUserGroups(string userId, string after = null, int? limit = -1);
 
         /// <summary>
         /// Activates a user.  This operation can only be performed on users with a &#x60;STAGED&#x60; status.  Activation of a user is an asynchronous operation.  The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;ACTIVE&#x60; during activation to indicate that the user hasn&#x27;t completed the asynchronous operation.  The user will have a status of &#x60;ACTIVE&#x60; when the activation process is complete.
@@ -172,7 +172,7 @@ namespace Okta.Sdk
         /// <param name="userId"></param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IRole"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IRole> ListAssignedRoles(string userId, string expand = null);
+        ICollectionClient<IRole> ListAssignedRoles(string userId, string expand = null);
 
         /// <summary>
         /// Unassigns a role from a user.
@@ -191,7 +191,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        CollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
+        ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
 
         /// <summary>
         /// 
