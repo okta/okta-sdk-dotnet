@@ -3,10 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
 
 namespace Okta.Sdk
@@ -96,7 +93,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public override int GetHashCode() => _value.GetHashCode();
+        public override int GetHashCode() => _value.ToLowerInvariant().GetHashCode();
 
         /// <inheritdoc/>
         /// <param name="other">The object to compare to.</param>
