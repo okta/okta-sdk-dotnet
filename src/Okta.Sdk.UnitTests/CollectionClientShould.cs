@@ -85,10 +85,7 @@ namespace Okta.Sdk.UnitTests
             var enumerator = collection.GetPagedEnumerator();
             while (await enumerator.MoveNextAsync())
             {
-                for (var i = 0; i < enumerator.CurrentPage.Items.Length; i++)
-                {
-                    items.Add(enumerator.CurrentPage.Items[i]);
-                }
+                items.AddRange(enumerator.CurrentPage.Items);
             }
 
             items.Count.Should().Be(5);

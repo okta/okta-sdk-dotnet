@@ -20,7 +20,7 @@ namespace Okta.Sdk
         /// <value>
         /// The items in this page.
         /// </value>
-        public T[] Items { get; set; }
+        public IEnumerable<T> Items { get; set; }
 
         /// <summary>
         /// Gets or sets the HTTP response returned from the Okta API when fetching this page.
