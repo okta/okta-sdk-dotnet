@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -186,7 +187,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task UpdateUserProfileWithDynamicObject()
         {
-            var client = GetClient("user-proflie-update");
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
