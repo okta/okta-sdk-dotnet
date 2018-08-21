@@ -12,13 +12,13 @@ using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    [Collection(nameof(ScenariosCollection))]
-    public class ApplicationScenarios : ScenarioGroup
+    [Collection(nameof(ApplicationScenarios))]
+    public class ApplicationScenarios
     {
         [Fact]
         public async Task AddBookmarkApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBookmarkApplicationOptions()
             {
@@ -47,7 +47,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddBasicAuthenticationApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
@@ -76,7 +76,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddSwaApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
@@ -110,7 +110,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddSwaThreeFieldApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaThreeFieldApplicationOptions
             {
@@ -149,7 +149,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddSwaNoPluginApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaNoPluginApplicationOptions
             {
@@ -191,7 +191,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddSwaCustomApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaCustomApplicationOptions
             {
@@ -226,7 +226,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddSamlCustomApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSamlApplicationOptions
             {
@@ -305,7 +305,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddWsFederationApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateWsFederationApplicationOptions
             {
@@ -353,7 +353,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddOpenIdConnectApp()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
@@ -420,7 +420,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
@@ -444,7 +444,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListApplications()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
@@ -468,7 +468,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListApplicationsOfType ()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdBasicApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
@@ -505,7 +505,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task UpdateSWAApplicationAdminSetUsernameAndPassword()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
@@ -557,7 +557,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task UpdateSWAApplicationSetUserEditablePassword()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
@@ -598,7 +598,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task UpdateSWAApplicationSetSharedCredentials()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
@@ -644,7 +644,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task NotDeleteActiveApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
@@ -668,7 +668,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task DeleteDeactivatedApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
@@ -689,7 +689,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ActivateApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
@@ -719,7 +719,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task CreateActiveApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
@@ -744,7 +744,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task CreateAssignUserForSSOApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -800,7 +800,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact(Skip = "https://github.com/okta/okta.github.io/issues/2167")]
         public async Task CreateAssignUserForSSOApplicationAndProvisioning()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -861,7 +861,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetAssignedUsersForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -917,7 +917,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListUsersForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser1 = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -997,7 +997,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task UpdateApplicationCredentialsForAssignedUser()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -1062,7 +1062,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task RemoveUserForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -1123,7 +1123,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AssignGroupForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -1166,7 +1166,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetAssignmentGroupForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -1208,7 +1208,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListAssignmentGroupsForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdGroup1 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -1267,7 +1267,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task RemoveGroupForApplication()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -1314,7 +1314,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListApplicationKeyCredentials()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
@@ -1341,7 +1341,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task GetApplicationKeyCredentials()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()

@@ -11,13 +11,13 @@ using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    [Collection(nameof(ScenariosCollection))]
-    public class GroupScenarios : ScenarioGroup
+    [Collection(nameof(GroupScenarios))]
+    public class GroupScenarios
     {
         [Fact]
         public async Task GetGroup()
         {
-            var client = GetClient("group-get");
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -42,7 +42,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListGroups()
         {
-            var client = GetClient("group-list");
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -67,7 +67,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task SearchGroups()
         {
-            var client = GetClient("group-search");
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -94,7 +94,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task UpdateGroup()
         {
-            var client = GetClient("group-update");
+            var client = TestClient.Create();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
@@ -122,7 +122,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task AddUserToGroup()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
@@ -167,7 +167,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task RemoveUserFromGroup()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
@@ -217,7 +217,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task RemoveDeletedUserFromGroup()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
@@ -267,7 +267,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task RemoveGroup()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
@@ -281,7 +281,7 @@ namespace Okta.Sdk.IntegrationTests
                 Profile = new UserProfile
                 {
                     FirstName = "John",
-                    LastName = "Get-User",
+                    LastName = "Remove-Group",
                     Email = "john-remove-group@example.com",
                     Login = "john-remove-group@example.com",
                 },
@@ -318,7 +318,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task CreateGroup()
         {
-            var client = GetClient();
+            var client = TestClient.Create();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions

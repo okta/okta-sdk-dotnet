@@ -3,23 +3,20 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    [Collection(nameof(ScenariosCollection))]
-    public class FactorScenarios : ScenarioGroup
+    [Collection(nameof(FactorScenarios))]
+    public class FactorScenarios
     {
         [Fact]
         public async Task CreateSecurityQuestionFactor()
         {
-            var client = GetClient("factor-securityquestion-create");
+            var client = TestClient.Create();
 
             var profile = new UserProfile
             {
@@ -62,7 +59,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListFactorsForNewUser()
         {
-            var client = GetClient("list-factors");
+            var client = TestClient.Create();
 
             var profile = new UserProfile
             {
