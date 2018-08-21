@@ -359,18 +359,18 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void TrackInstanceModifications()
         {
-            var resource = new TestResource() // has DictionaryType.ChangeTracking
+            var resource = new TestResource()
             {
                 Foo = "xyz",
             };
 
-            resource.GetModifiedData().Keys.Should().BeEquivalentTo("foo");
+            resource.GetData().Keys.Should().BeEquivalentTo("foo");
 
             resource.Bar = true;
 
-            resource.GetModifiedData().Count.Should().Be(2);
-            resource.GetModifiedData().Should().Contain(new KeyValuePair<string, object>("foo", "xyz"));
-            resource.GetModifiedData().Should().Contain(new KeyValuePair<string, object>("bar", true));
+            resource.GetData().Count.Should().Be(2);
+            resource.GetData().Should().Contain(new KeyValuePair<string, object>("foo", "xyz"));
+            resource.GetData().Should().Contain(new KeyValuePair<string, object>("bar", true));
         }
     }
 }

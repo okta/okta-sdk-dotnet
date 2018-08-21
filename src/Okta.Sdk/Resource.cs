@@ -17,7 +17,6 @@ namespace Okta.Sdk
     {
         internal static readonly TypeInfo ResourceTypeInfo = typeof(IResource).GetTypeInfo();
 
-        private readonly ResourceBehavior _dictionaryType;
         private IOktaClient _client;
         private ResourceFactory _resourceFactory;
         private ILogger _logger;
@@ -26,23 +25,10 @@ namespace Okta.Sdk
         /// <summary>
         /// Initializes a new instance of the <see cref="Resource"/> class.
         /// </summary>
-        /// <remarks>Uses the default dictionary type (non-change tracking).</remarks>
         public Resource()
-            : this(ResourceBehavior.Default)
         {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Resource"/> class.
-        /// </summary>
-        /// <param name="dictionaryType">The dictionary type to use.</param>
-        public Resource(ResourceBehavior dictionaryType)
-        {
-            _dictionaryType = dictionaryType;
             Initialize(null, null, null, null);
         }
-
-        internal ResourceBehavior DictionaryType => _dictionaryType;
 
         internal void Initialize(
             IOktaClient client,
@@ -52,7 +38,7 @@ namespace Okta.Sdk
         {
             _client = client;
             _resourceFactory = resourceFactory ?? new ResourceFactory(client, logger);
-            _data = data ?? _resourceFactory.NewDictionary(_dictionaryType, null);
+            _data = data ?? _resourceFactory.NewDictionary(null);
             _logger = logger ?? NullLogger.Instance;
         }
 
@@ -67,18 +53,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IDictionary<string, object> GetData()
-            => _resourceFactory.NewDictionary(_dictionaryType, _data);
-
-        /// <inheritdoc/>
-        public IDictionary<string, object> GetModifiedData()
-        {
-            if (_data is DefaultChangeTrackingDictionary changeTrackingDictionary)
-            {
-                return (IDictionary<string, object>)changeTrackingDictionary.Difference;
-            }
-
-            return GetData();
-        }
+            => _resourceFactory.NewDictionary(_data);
 
         /// <inheritdoc/>
         public object this[string name]

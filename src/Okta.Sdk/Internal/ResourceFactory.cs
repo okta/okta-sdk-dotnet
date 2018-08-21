@@ -36,17 +36,11 @@ namespace Okta.Sdk.Internal
         /// <param name="behaviorType">The resource behavior type.</param>
         /// <param name="existingData">The initial dictionary data.</param>
         /// <returns>A new dictionary with the specified behavior.</returns>
-        public IDictionary<string, object> NewDictionary(ResourceBehavior behaviorType, IDictionary<string, object> existingData)
+        public IDictionary<string, object> NewDictionary(IDictionary<string, object> existingData)
         {
             var initialData = existingData ?? new Dictionary<string, object>();
 
-            switch (behaviorType)
-            {
-                case ResourceBehavior.Default: return new Dictionary<string, object>(initialData, StringComparer.Ordinal);
-                case ResourceBehavior.ChangeTracking: return new DefaultChangeTrackingDictionary(initialData, StringComparer.Ordinal);
-            }
-
-            throw new ArgumentException($"Unknown resource dictionary type {behaviorType}");
+            return new Dictionary<string, object>(initialData, StringComparer.Ordinal);
         }
 
         /// <summary>
@@ -89,7 +83,7 @@ namespace Okta.Sdk.Internal
 
             var resource = Activator.CreateInstance(resourceType) as Resource;
 
-            var dictionary = NewDictionary(resource.DictionaryType, data);
+            var dictionary = NewDictionary(data);
             resource.Initialize(_client, this, dictionary, _logger);
             return (T)(object)resource;
         }
