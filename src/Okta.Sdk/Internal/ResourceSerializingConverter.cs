@@ -36,7 +36,7 @@ namespace Okta.Sdk.Internal
                 return;
             }
 
-            var token = JToken.FromObject(resource.GetModifiedData(), serializer);
+            var token = JToken.FromObject(resource.GetData(), serializer);
             token = RemoveEmptyChildren(token);
             token.WriteTo(writer);
         }

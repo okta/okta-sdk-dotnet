@@ -59,15 +59,11 @@ namespace Okta.Sdk.UnitTests
                     ["Bar"] = false,
                 },
             };
-
             var factory = new ResourceFactory(null, null);
             var resource = factory.CreateNew<TestNestedResource>(data);
 
-            resource.GetModifiedData().Count.Should().Be(0);
-
             resource.Nested.Bar = true;
-            resource.GetModifiedData().Keys.Should().BeEquivalentTo("nested");
-            resource.Nested.GetModifiedData().Should().Contain(new KeyValuePair<string, object>("bar", true));
+            resource.Nested.GetData().Should().Contain(new KeyValuePair<string, object>("bar", true));
         }
 
         [Fact]
@@ -81,10 +77,8 @@ namespace Okta.Sdk.UnitTests
                 },
             };
 
-            resource.GetModifiedData().Keys.Should().BeEquivalentTo("nested");
-            resource.Nested.GetModifiedData().Keys.Should().BeEquivalentTo("foo");
+            resource.GetData().Keys.Should().BeEquivalentTo("nested");
+            resource.Nested.GetData().Keys.Should().BeEquivalentTo("foo");
         }
-
-        // TODO what about taking some nested resource and copying or assigning it to another parent?
     }
 }

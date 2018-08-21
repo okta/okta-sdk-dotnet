@@ -13,7 +13,7 @@ namespace Okta.Sdk
     public interface IResource
     {
         /// <summary>
-        /// Gets or sets a resource proprety by name.
+        /// Gets or sets a resource property by name.
         /// </summary>
         /// <param name="name">The property name.</param>
         /// <returns>The property value, or<c>null</c>.</returns>
@@ -31,17 +31,7 @@ namespace Okta.Sdk
         /// Gets the underlying data backing this resource.
         /// </summary>
         /// <returns>The data backing this resource.</returns>
-        /// <remarks>
-        /// If the resource is initialized with dictionary type <see cref="Internal.ResourceBehavior.ChangeTracking"/>, this returns any updates merged with the original data.
-        /// </remarks>
         IDictionary<string, object> GetData();
-
-        /// <summary>
-        /// Gets any data that has been modified since the resource was retrieved.
-        /// </summary>
-        /// <remarks>This has no effect (behaves the same as <see cref="GetData"/>) unless the resource was initialized with dictionary type <see cref="Internal.ResourceBehavior.ChangeTracking"/>.</remarks>
-        /// <returns>The modified resource data.</returns>
-        IDictionary<string, object> GetModifiedData();
 
         /// <summary>
         /// Sets a resource property by name
