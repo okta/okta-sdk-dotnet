@@ -359,7 +359,7 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void TrackInstanceModifications()
         {
-            var resource = new TestResource() // has DictionaryType.ChangeTracking
+            var resource = new TestResource()
             {
                 Foo = "xyz",
             };
