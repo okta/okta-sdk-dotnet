@@ -112,7 +112,7 @@ namespace Okta.Sdk
         /// <param name="href">The collection URL.</param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>
         CollectionClient<T> GetCollection<T>(string href)
-            where T : Resource, new();
+            where T : IResource;
 
         /// <summary>
         /// Gets a collection of resources from the Okta API by URL.
@@ -121,7 +121,7 @@ namespace Okta.Sdk
         /// <param name="request">The request options.</param>
         /// <returns>A collection that can be enumerated asynchronously.</returns>
         CollectionClient<T> GetCollection<T>(HttpRequest request)
-            where T : Resource, new();
+            where T : IResource;
 
         /// <summary>
         /// Posts data to an endpoint by URL.

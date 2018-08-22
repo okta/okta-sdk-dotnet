@@ -188,7 +188,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public CollectionClient<T> GetCollection<T>(string href)
-            where T : Resource, new()
+            where T : IResource
             => GetCollection<T>(new HttpRequest
             {
                 Uri = href,
@@ -196,7 +196,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public CollectionClient<T> GetCollection<T>(HttpRequest request)
-            where T : Resource, new()
+            where T : IResource
             => GetCollectionClient<T>(request);
 
         /// <inheritdoc/>

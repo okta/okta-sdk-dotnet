@@ -26,6 +26,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task EnumerateCollectionWithLinq()
         {
+            var successful = true;
             var client = TestClient.Create();
             var createdUsers = new ConcurrentBag<IUser>();
 
@@ -48,6 +49,7 @@ namespace Okta.Sdk.IntegrationTests
             catch (Exception e)
             {
                 _logger.LogMessage($"Exception while running test: {e.Message}");
+                successful = false;
             }
             finally
             {
@@ -56,6 +58,121 @@ namespace Okta.Sdk.IntegrationTests
 
                 await Task.WhenAll(tasks);
             }
+
+            successful.Should().BeTrue();
+        }
+
+        /// <summary>
+        /// Tests that a developer can use the PagedCollectionEnumerator to enumerate a collection.
+        /// In most cases it is easier to use LINQ, but this approach is available if you access to each page.
+        /// </summary>
+        /// <returns>The asynchronous test.</returns>
+        [Fact]
+        public async Task EnumerateCollectionManually()
+        {
+            var successful = true;
+            var client = TestClient.Create();
+            var createdUsers = new ConcurrentBag<IUser>();
+
+            try
+            {
+                // Create 10 users (in parallel)
+                var tasks = new List<Task>();
+                for (var i = 0; i < 10; i++)
+                {
+                    tasks.Add(CreateRandomUser(client, createdUsers));
+                }
+
+                await Task.WhenAll(tasks);
+
+                // Alright, all set up. Try enumerating users by pages of 2:
+                var retrievedUsers = new List<IUser>();
+                var users = client.Users.ListUsers(limit: 2, filter: "profile.lastName eq \"CollectionEnumeration\"");
+                var enumerator = users.GetPagedEnumerator();
+
+                while (await enumerator.MoveNextAsync())
+                {
+                    retrievedUsers.AddRange(enumerator.CurrentPage.Items);
+                }
+
+                retrievedUsers.Count.Should().Be(10);
+            }
+            catch (Exception e)
+            {
+                _logger.LogMessage($"Exception while running test: {e.Message}");
+                successful = false;
+            }
+            finally
+            {
+                // Remove the users
+                var tasks = createdUsers.Select(x => DeleteUser(x));
+
+                await Task.WhenAll(tasks);
+            }
+
+            successful.Should().BeTrue();
+        }
+
+        /// <summary>
+        /// Tests that a developer can use the PagedCollectionEnumerator to retrieve a page
+        /// and manually set up another PagedCollectionEnumerator to resume enumeration with the NextLink.
+        /// In most cases it is easier to use LINQ, but this approach is available if you need to manually resume.
+        /// </summary>
+        /// <returns>The asynchronous test.</returns>
+        [Fact]
+        public async Task EnumerateCollectionManuallyAndResume()
+        {
+            var successful = true;
+            var client = TestClient.Create();
+            var createdUsers = new ConcurrentBag<IUser>();
+
+            try
+            {
+                // Create 10 users (in parallel)
+                var tasks = new List<Task>();
+                for (var i = 0; i < 10; i++)
+                {
+                    tasks.Add(CreateRandomUser(client, createdUsers));
+                }
+
+                await Task.WhenAll(tasks);
+
+                // Alright, all set up. Try enumerating users by pages of 2:
+                var retrievedUsers = new List<IUser>();
+                var users = client.Users.ListUsers(limit: 2, filter: "profile.lastName eq \"CollectionEnumeration\"");
+                var enumerator = users.GetPagedEnumerator();
+
+                while (await enumerator.MoveNextAsync())
+                {
+                    retrievedUsers.AddRange(enumerator.CurrentPage.Items);
+
+                    var nextPageHref = enumerator.CurrentPage.NextLink?.Target;
+
+                    if (string.IsNullOrEmpty(nextPageHref))
+                    {
+                        break;
+                    }
+
+                    users = client.GetCollection<IUser>(nextPageHref);
+                    enumerator = users.GetPagedEnumerator();
+                }
+
+                retrievedUsers.Count.Should().Be(10);
+            }
+            catch (Exception e)
+            {
+                _logger.LogMessage($"Exception while running test: {e.Message}");
+                successful = false;
+            }
+            finally
+            {
+                // Remove the users
+                var tasks = createdUsers.Select(x => DeleteUser(x));
+
+                await Task.WhenAll(tasks);
+            }
+
+            successful.Should().BeTrue();
         }
 
         private async Task CreateRandomUser(IOktaClient client, ConcurrentBag<IUser> createdUsers)
