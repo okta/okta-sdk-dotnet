@@ -27,7 +27,6 @@ namespace Okta.Sdk.IntegrationTests
         public async Task EnumerateCollectionWithLinq()
         {
             var client = TestClient.Create();
-
             var createdUsers = new ConcurrentBag<IUser>();
 
             try
@@ -36,33 +35,15 @@ namespace Okta.Sdk.IntegrationTests
                 var tasks = new List<Task>();
                 for (var i = 0; i < 10; i++)
                 {
-                    tasks.Add(CreateRandomUser());
-                }
-
-                async Task CreateRandomUser()
-                {
-                    var randomGuid = Guid.NewGuid();
-
-                    var user = await client.Users.CreateUserAsync(new CreateUserWithoutCredentialsOptions
-                    {
-                        Profile = new UserProfile
-                        {
-                            FirstName = $"Jack-{randomGuid}",
-                            LastName = "CollectionEnumeration",
-                            Email = $"collection-enumeration-{randomGuid}@example.com",
-                            Login = $"collection-enumeration-{randomGuid}@example.com",
-                        },
-                        Activate = false,
-                    });
-
-                    createdUsers.Add(user);
+                    tasks.Add(CreateRandomUser(client, createdUsers));
                 }
 
                 await Task.WhenAll(tasks);
 
                 // Alright, all set up. Try enumerating users by pages of 2:
-                var users = client.Users.ListUsers(limit: 2);
-                (await users.Count()).Should().BeGreaterOrEqualTo(10); // Because of parallelization, it might be >10
+                var users = client.Users.ListUsers(limit: 2, filter: "profile.lastName eq \"CollectionEnumeration\"");
+                var count = await users.Count();
+                count.Should().Be(10);
             }
             catch (Exception e)
             {
@@ -74,19 +55,38 @@ namespace Okta.Sdk.IntegrationTests
                 var tasks = createdUsers.Select(x => DeleteUser(x));
 
                 await Task.WhenAll(tasks);
+            }
+        }
 
-                async Task DeleteUser(IUser user)
+        private async Task CreateRandomUser(IOktaClient client, ConcurrentBag<IUser> createdUsers)
+        {
+            var randomGuid = Guid.NewGuid();
+
+            var user = await client.Users.CreateUserAsync(new CreateUserWithoutCredentialsOptions
+            {
+                Profile = new UserProfile
                 {
-                    try
-                    {
-                        await user.DeactivateAsync();
-                        await user.DeactivateOrDeleteAsync();
-                    }
-                    catch (Exception e)
-                    {
-                        _logger.LogMessage($"Exception while cleaning up test: {e.Message}");
-                    }
-                }
+                    FirstName = $"Jack-{randomGuid}",
+                    LastName = "CollectionEnumeration",
+                    Email = $"collection-enumeration-{randomGuid}@example.com",
+                    Login = $"collection-enumeration-{randomGuid}@example.com",
+                },
+                Activate = false,
+            });
+
+            createdUsers.Add(user);
+        }
+
+        private async Task DeleteUser(IUser user)
+        {
+            try
+            {
+                await user.DeactivateAsync();
+                await user.DeactivateOrDeleteAsync();
+            }
+            catch (Exception e)
+            {
+                _logger.LogMessage($"Exception while cleaning up test: {e.Message}");
             }
         }
     }
