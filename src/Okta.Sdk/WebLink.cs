@@ -36,5 +36,8 @@ namespace Okta.Sdk
         /// The link relation.
         /// </value>
         public string Relation { get; }
+
+        /// <inheritdoc/>
+        public override string ToString() => Target;
     }
 }
