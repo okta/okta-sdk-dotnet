@@ -106,10 +106,23 @@ namespace Okta.Sdk.UnitTests
             var fakeData = new Dictionary<string, object>();
             fakeData.Add("signOnMode", ApplicationSignOnMode.BasicAuth);
 
-            var app = factory.CreateFromExistingData<Application>(fakeData);
+            var app = factory.CreateFromExistingData<IApplication>(fakeData);
 
             app.Should().NotBeNull();
             app.Should().BeOfType<BasicAuthApplication>();
+        }
+
+        [Fact]
+        public void CreateSecurityQuestionFactor()
+        {
+            var factory = new ResourceFactory(null, null);
+            var fakeData = new Dictionary<string, object>();
+            fakeData.Add("factorType", FactorType.Question);
+
+            var app = factory.CreateFromExistingData<IFactor>(fakeData);
+
+            app.Should().NotBeNull();
+            app.Should().BeOfType<SecurityQuestionFactor>();
         }
     }
 }
