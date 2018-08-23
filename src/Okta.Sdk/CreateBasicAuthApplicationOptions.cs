@@ -5,14 +5,29 @@
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Helper class for basic authentication application settings
+    /// </summary>
     public sealed class CreateBasicAuthApplicationOptions
     {
+        /// <summary>
+        /// Gets or sets a label
+        /// </summary>
         public string Label { get; set; }
 
+        /// <summary>
+        /// Gets or sets an url
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// Gets or sets an Auth url
+        /// </summary>
         public string AuthUrl { get; set; }
 
+        /// <summary>
+        /// Gets or sets an Activate flag value
+        /// </summary>
         public bool Activate { get; set; } = true;
     }
 }

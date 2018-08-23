@@ -1,4 +1,9 @@
-﻿using System.Linq;
+﻿// <copyright file="LogsClientShould.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Okta.Sdk.UnitTests.Internal;
@@ -96,11 +101,11 @@ namespace Okta.Sdk.UnitTests
             log.Target.First().AlternateId.Should().Be("john-okta@example.com");
             log.Target.First().DisplayName.Should().Be("John Okta");
             log.Target.First().DetailEntry.GetData().Should().BeEmpty();
-
         }
 
         private string GetLogsStubResponse()
         {
+#pragma warning disable SA1123 // Do not place regions within elements
             #region GetLogs Stub
             var rawResponse = @"[
             {
@@ -196,7 +201,9 @@ namespace Okta.Sdk.UnitTests
                 ""displayName"": ""John Okta"",
                 ""detailEntry"": null
             }
-        ]}]";
+        ]}]"
+#pragma warning restore SA1123 // Do not place regions within elements
+;
             #endregion
             return rawResponse;
         }

@@ -27,6 +27,7 @@ namespace Okta.Sdk.Internal
         /// Initializes a new instance of the <see cref="CastingListAdapter{T}"/> class.
         /// </summary>
         /// <param name="genericList">The generic list to wrap.</param>
+        /// <param name="resourceFactory">The resource factory</param>
         /// <param name="logger">The logging interface.</param>
         public CastingListAdapter(IList<object> genericList, ResourceFactory resourceFactory, ILogger logger)
         {
@@ -54,7 +55,10 @@ namespace Okta.Sdk.Internal
             // Fall back to primitive conversion
             try
             {
-                if (!(item is IConvertible)) { return (T)item; }
+                if (!(item is IConvertible))
+                {
+                    return (T)item;
+                }
 
                 return (T)Convert.ChangeType(item, typeof(T));
             }

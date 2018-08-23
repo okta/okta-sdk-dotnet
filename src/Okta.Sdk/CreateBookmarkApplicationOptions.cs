@@ -5,14 +5,29 @@
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Helper class for bookmark application settings
+    /// </summary>
     public sealed class CreateBookmarkApplicationOptions
     {
+        /// <summary>
+        /// Gets or sets the label
+        /// </summary>
         public string Label { get; set; }
 
+        /// <summary>
+        /// Gets or sets the request integration flag value
+        /// </summary>
         public bool RequestIntegration { get; set; } = false;
 
+        /// <summary>
+        /// Gets or sets the url
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// Gets or sets the Activate flag value
+        /// </summary>
         public bool Activate { get; set; } = true;
     }
 }

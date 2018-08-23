@@ -9,10 +9,19 @@ using System.Text;
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Helper class for security question factor settings
+    /// </summary>
     public sealed class AddSecurityQuestionFactorOptions
     {
+        /// <summary>
+        /// Gets or sets the question
+        /// </summary>
         public string Question { get; set; }
 
+        /// <summary>
+        /// Gets or sets the answer
+        /// </summary>
         public string Answer { get; set; }
     }
 }

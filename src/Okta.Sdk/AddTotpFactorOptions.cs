@@ -3,14 +3,16 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
-using System.Collections.Generic;
-using System.Text;
-
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Helper class for token:software:totp factor
+    /// </summary>
     public sealed class AddTotpFactorOptions
     {
+        /// <summary>
+        /// Gets or sets the factor provider
+        /// </summary>
         public FactorProvider Provider { get; set; }
     }
 }

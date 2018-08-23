@@ -454,13 +454,17 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact(Skip = "TODO")]
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task AssignUserRole()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             throw new NotImplementedException();
         }
 
         [Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/88")]
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task UserGroupTargetRole()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             throw new NotImplementedException();
         }
