@@ -5,6 +5,9 @@
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Helper class for push factor settings
+    /// </summary>
     public sealed class AddPushFactorOptions
     {
     }
