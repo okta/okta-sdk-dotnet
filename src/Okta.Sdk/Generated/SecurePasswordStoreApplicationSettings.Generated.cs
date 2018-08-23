@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class SecurePasswordStoreApplicationSettings : ApplicationSettings, ISecurePasswordStoreApplicationSettings
     {
         /// <inheritdoc/>
-        public ISecurePasswordStoreApplicationSettingsApplication App 
+        public new ISecurePasswordStoreApplicationSettingsApplication App 
         {
             get => GetResourceProperty<SecurePasswordStoreApplicationSettingsApplication>("app");
             set => this["app"] = value;

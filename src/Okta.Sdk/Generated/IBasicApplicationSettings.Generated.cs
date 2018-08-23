@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a BasicApplicationSettings resource in the Okta API.</summary>
     public partial interface IBasicApplicationSettings : IApplicationSettings
     {
-        IBasicApplicationSettingsApplication App { get; set; }
+        new IBasicApplicationSettingsApplication App { get; set; }
 
     }
 }

@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         new string Name { get; set; }
 
-        ISwaApplicationSettings Settings { get; set; }
+        new ISwaApplicationSettings Settings { get; set; }
 
     }
 }

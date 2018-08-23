@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a SwaThreeFieldApplicationSettings resource in the Okta API.</summary>
     public partial interface ISwaThreeFieldApplicationSettings : IApplicationSettings
     {
-        ISwaThreeFieldApplicationSettingsApplication App { get; set; }
+        new ISwaThreeFieldApplicationSettingsApplication App { get; set; }
 
     }
 }

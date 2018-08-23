@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a BrowserPluginApplication resource in the Okta API.</summary>
     public partial interface IBrowserPluginApplication : IApplication
     {
-        ISchemeApplicationCredentials Credentials { get; set; }
+        new ISchemeApplicationCredentials Credentials { get; set; }
 
     }
 }

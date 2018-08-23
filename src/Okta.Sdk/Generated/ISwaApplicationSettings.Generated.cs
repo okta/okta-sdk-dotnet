@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a SwaApplicationSettings resource in the Okta API.</summary>
     public partial interface ISwaApplicationSettings : IApplicationSettings
     {
-        ISwaApplicationSettingsApplication App { get; set; }
+        new ISwaApplicationSettingsApplication App { get; set; }
 
     }
 }
