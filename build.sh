@@ -22,8 +22,15 @@ else
     MD5_EXE="md5sum"
 fi
 
-# Define default arguments.
-SCRIPT="build.cake"
+# Define default arguments
+SCRIPT=
+# Don't run ITs for push requests
+if [[ $TRAVIS_EVENT_TYPE != 'push' ]]; then
+    SCRIPT=buildIT.cake
+else
+    SCRIPT=build.cake
+fi
+
 TARGET="Default"
 CONFIGURATION="Release"
 VERBOSITY="verbose"
