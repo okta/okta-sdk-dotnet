@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class SwaApplicationSettings : ApplicationSettings, ISwaApplicationSettings
     {
         /// <inheritdoc/>
-        public ISwaApplicationSettingsApplication App 
+        public new ISwaApplicationSettingsApplication App 
         {
             get => GetResourceProperty<SwaApplicationSettingsApplication>("app");
             set => this["app"] = value;

@@ -21,7 +21,7 @@ namespace Okta.Sdk
 
         ApplicationCredentialsScheme Scheme { get; set; }
 
-        IApplicationCredentialsSigning Signing { get; set; }
+        new IApplicationCredentialsSigning Signing { get; set; }
 
         string UserName { get; set; }
 

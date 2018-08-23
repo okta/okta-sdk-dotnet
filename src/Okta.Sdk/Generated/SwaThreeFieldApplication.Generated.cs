@@ -24,7 +24,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public ISwaThreeFieldApplicationSettings Settings 
+        public new ISwaThreeFieldApplicationSettings Settings 
         {
             get => GetResourceProperty<SwaThreeFieldApplicationSettings>("settings");
             set => this["settings"] = value;

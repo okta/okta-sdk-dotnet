@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class U2fFactor : Factor, IU2fFactor
     {
         /// <inheritdoc/>
-        public IU2fFactorProfile Profile 
+        public new IU2fFactorProfile Profile 
         {
             get => GetResourceProperty<U2fFactorProfile>("profile");
             set => this["profile"] = value;
