@@ -17,16 +17,21 @@ namespace Okta.Sdk.Internal
     {
         private static readonly TypeInfo ResourceTypeInfo = typeof(Resource).GetTypeInfo();
 
+        /// <inheritdoc/>
         public override bool CanRead => false;
 
+        /// <inheritdoc/>
         public override bool CanWrite => true;
 
+        /// <inheritdoc/>
         public override bool CanConvert(Type objectType)
             => ResourceTypeInfo.IsAssignableFrom(objectType.GetTypeInfo());
 
+        /// <inheritdoc/>
         public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
             => throw new NotImplementedException();
 
+        /// <inheritdoc/>
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
             var resource = value as Resource;

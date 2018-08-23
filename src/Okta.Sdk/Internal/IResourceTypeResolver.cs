@@ -8,8 +8,14 @@ using System.Collections.Generic;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>A type resolver that works with Okta resources.</summary>
     public interface IResourceTypeResolver
     {
+        /// <summary>
+        /// Gets the resolved type based on the data
+        /// </summary>
+        /// <param name="data">The data</param>
+        /// <returns>The resource type</returns>
         Type GetResolvedType(IDictionary<string, object> data);
     }
 }

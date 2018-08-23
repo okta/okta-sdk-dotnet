@@ -10,19 +10,28 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <inheritdoc/>
     public sealed partial class ApplicationsClient : OktaClient, IApplicationsClient, IAsyncEnumerable<IApplication>
     {
         /// <inheritdoc/>
         public IAsyncEnumerator<IApplication> GetEnumerator() => ListApplications().GetEnumerator();
 
+        /// <inheritdoc/>
         public async Task<T> GetApplicationAsync<T>(string appId, CancellationToken cancellationToken = default(CancellationToken))
             where T : class, IApplication
             => await GetApplicationAsync(appId, null, cancellationToken).ConfigureAwait(false) as T;
 
+        /// <inheritdoc/>
         public async Task<T> UpdateApplicationAsync<T>(IApplication application, string appId, CancellationToken cancellationToken = default(CancellationToken))
             where T : class, IApplication
             => await UpdateApplicationAsync(application, appId, cancellationToken).ConfigureAwait(false) as T;
 
+        /// <summary>
+        /// Adds a basic authentication application
+        /// </summary>
+        /// <param name="basicAuthApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateBasicAuthApplicationOptions basicAuthApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (basicAuthApplicationOptions == null)
@@ -48,6 +57,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, basicAuthApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a bookmark application
+        /// </summary>
+        /// <param name="bookmarkApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateBookmarkApplicationOptions bookmarkApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (bookmarkApplicationOptions == null)
@@ -73,6 +88,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, bookmarkApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a SWA application
+        /// </summary>
+        /// <param name="swaApplicationOptions">The app</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateSwaApplicationOptions swaApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaApplicationOptions == null)
@@ -101,6 +122,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, swaApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a SWA no-plugin application
+        /// </summary>
+        /// <param name="swaNoPluginApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateSwaNoPluginApplicationOptions swaNoPluginApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaNoPluginApplicationOptions == null)
@@ -126,7 +153,6 @@ namespace Okta.Sdk
                         OptionalField2Value = swaNoPluginApplicationOptions.OptionalField2Value,
                         OptionalField3 = swaNoPluginApplicationOptions.OptionalField3,
                         OptionalField3Value = swaNoPluginApplicationOptions.OptionalField3Value,
-
                     },
                 },
             };
@@ -134,6 +160,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, swaNoPluginApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a SWA 3 field application
+        /// </summary>
+        /// <param name="swaThreeFieldApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateSwaThreeFieldApplicationOptions swaThreeFieldApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaThreeFieldApplicationOptions == null)
@@ -164,6 +196,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, swaThreeFieldApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a SWA custom application
+        /// </summary>
+        /// <param name="swaCustomApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateSwaCustomApplicationOptions swaCustomApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (swaCustomApplicationOptions == null)
@@ -198,6 +236,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, swaCustomApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a SAML application
+        /// </summary>
+        /// <param name="samlApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateSamlApplicationOptions samlApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (samlApplicationOptions == null)
@@ -247,6 +291,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, samlApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds a WS federation application
+        /// </summary>
+        /// <param name="wsFederationApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateWsFederationApplicationOptions wsFederationApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (wsFederationApplicationOptions == null)
@@ -282,6 +332,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, wsFederationApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Adds an OpenID Connect application
+        /// </summary>
+        /// <param name="openIdApplicationOptions">The application options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplication> CreateApplicationAsync(CreateOpenIdConnectApplication openIdApplicationOptions, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (openIdApplicationOptions == null)
@@ -324,6 +380,12 @@ namespace Okta.Sdk
             return CreateApplicationAsync(app, openIdApplicationOptions.Activate, cancellationToken);
         }
 
+        /// <summary>
+        /// Assigns a group to an application
+        /// </summary>
+        /// <param name="options">The assignment options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(CreateApplicationGroupAssignmentOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             var appGroup = new ApplicationGroupAssignment()
@@ -334,6 +396,12 @@ namespace Okta.Sdk
             return CreateApplicationGroupAssignmentAsync(appGroup, options.ApplicationId, options.GroupId, cancellationToken);
         }
 
+        /// <summary>
+        /// Assigns a user to an application
+        /// </summary>
+        /// <param name="options">The assignment options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IApplication"/> response.</returns>
         public Task<IAppUser> AssignUserToApplicationAsync(AssignUserToApplicationOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             var appUser = new AppUser()

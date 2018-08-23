@@ -49,7 +49,7 @@ namespace Okta.Sdk
             var profile = new CallFactorProfile
             {
                 PhoneExtension = callFactorOptions.PhoneExtension,
-                PhoneNumber = callFactorOptions.PhoneNumber
+                PhoneNumber = callFactorOptions.PhoneNumber,
             };
 
             var factor = new CallFactor
@@ -72,7 +72,7 @@ namespace Okta.Sdk
 
             var profile = new EmailFactorProfile
             {
-                Email = emailFactorOptions.Email
+                Email = emailFactorOptions.Email,
             };
 
             var factor = new EmailFactor
@@ -100,14 +100,14 @@ namespace Okta.Sdk
 
             var verify = new VerifyFactorRequest
             {
-                PassCode = hardwareFactorOptions.PassCode
+                PassCode = hardwareFactorOptions.PassCode,
             };
 
             var factor = new HardwareFactor
             {
                 FactorType = FactorType.TokenHardware,
                 Provider = hardwareFactorOptions.Provider,
-                Verify = verify
+                Verify = verify,
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
@@ -124,7 +124,7 @@ namespace Okta.Sdk
             var factor = new PushFactor
             {
                 FactorType = FactorType.Push,
-                Provider = FactorProvider.Okta
+                Provider = FactorProvider.Okta,
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
@@ -140,7 +140,7 @@ namespace Okta.Sdk
 
             var profile = new SmsFactorProfile
             {
-                PhoneNumber = smsFactorOptions.PhoneNumber
+                PhoneNumber = smsFactorOptions.PhoneNumber,
             };
 
             var factor = new SmsFactor
@@ -168,13 +168,13 @@ namespace Okta.Sdk
 
             var profile = new TokenFactorProfile
             {
-                CredentialId = tokenFactorOptions.CredentialId
+                CredentialId = tokenFactorOptions.CredentialId,
             };
 
             var verify = new VerifyFactorRequest
             {
                 PassCode = tokenFactorOptions.PassCode,
-                NextPassCode = tokenFactorOptions.NextPassCode
+                NextPassCode = tokenFactorOptions.NextPassCode,
             };
 
             var factor = new TokenFactor
@@ -182,7 +182,7 @@ namespace Okta.Sdk
                 FactorType = FactorType.Token,
                 Provider = tokenFactorOptions.Provider,
                 Profile = profile,
-                Verify = verify
+                Verify = verify,
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
@@ -204,7 +204,7 @@ namespace Okta.Sdk
             var factor = new TotpFactor
             {
                 FactorType = FactorType.TokenSoftwareTotp,
-                Provider = totpFactorOptions.Provider
+                Provider = totpFactorOptions.Provider,
             };
 
             return AddFactorAsync(factor, userId, cancellationToken: cancellationToken);
