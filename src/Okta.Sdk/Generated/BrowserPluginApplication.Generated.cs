@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public partial class BrowserPluginApplication : Application, IBrowserPluginApplication
     {
         /// <inheritdoc/>
-        public ISchemeApplicationCredentials Credentials 
+        public new ISchemeApplicationCredentials Credentials 
         {
             get => GetResourceProperty<SchemeApplicationCredentials>("credentials");
             set => this["credentials"] = value;

@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class SamlApplication : Application, ISamlApplication
     {
         /// <inheritdoc/>
-        public ISamlApplicationSettings Settings 
+        public new ISamlApplicationSettings Settings 
         {
             get => GetResourceProperty<SamlApplicationSettings>("settings");
             set => this["settings"] = value;

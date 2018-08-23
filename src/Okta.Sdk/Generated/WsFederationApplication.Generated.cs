@@ -24,7 +24,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IWsFederationApplicationSettings Settings 
+        public new IWsFederationApplicationSettings Settings 
         {
             get => GetResourceProperty<WsFederationApplicationSettings>("settings");
             set => this["settings"] = value;

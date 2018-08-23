@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class OpenIdConnectApplication : Application, IOpenIdConnectApplication
     {
         /// <inheritdoc/>
-        public IOAuthApplicationCredentials Credentials 
+        public new IOAuthApplicationCredentials Credentials 
         {
             get => GetResourceProperty<OAuthApplicationCredentials>("credentials");
             set => this["credentials"] = value;
@@ -31,7 +31,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IOpenIdConnectApplicationSettings Settings 
+        public new IOpenIdConnectApplicationSettings Settings 
         {
             get => GetResourceProperty<OpenIdConnectApplicationSettings>("settings");
             set => this["settings"] = value;

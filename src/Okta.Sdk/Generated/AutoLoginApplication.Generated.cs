@@ -17,14 +17,14 @@ namespace Okta.Sdk
     public sealed partial class AutoLoginApplication : Application, IAutoLoginApplication
     {
         /// <inheritdoc/>
-        public ISchemeApplicationCredentials Credentials 
+        public new ISchemeApplicationCredentials Credentials 
         {
             get => GetResourceProperty<SchemeApplicationCredentials>("credentials");
             set => this["credentials"] = value;
         }
         
         /// <inheritdoc/>
-        public IAutoLoginApplicationSettings Settings 
+        public new IAutoLoginApplicationSettings Settings 
         {
             get => GetResourceProperty<AutoLoginApplicationSettings>("settings");
             set => this["settings"] = value;

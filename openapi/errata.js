@@ -18,6 +18,9 @@ const propertyErrata = [
   { path: 'TotpFactor.profile', hidesBaseMember: true },
   { path: 'WebFactor.profile', hidesBaseMember: true },
 
+  { path: 'AutoLoginApplication.credentials', hidesBaseMember: true },
+  { path: 'AutoLoginApplication.settings', hidesBaseMember: true },
+
   { path: 'BasicAuthApplication.credentials', hidesBaseMember: true },
   {
     path: 'BasicAuthApplication.name',
@@ -26,6 +29,7 @@ const propertyErrata = [
     typeReason: 'Spec does not define type for this property'
    },
    { path: 'BasicAuthApplication.settings', hidesBaseMember: true },
+   { path: 'BasicApplicationSettings.app', hidesBaseMember: true },
 
    {
     path: 'BookmarkApplication.name',
@@ -33,6 +37,10 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   { path: 'BookmarkApplication.settings', hidesBaseMember: true },
+   { path: 'BookmarkApplicationSettings.app', hidesBaseMember: true },
+
+   { path: 'BrowserPluginApplication.credentials', hidesBaseMember: true },
 
    {
     path: 'OpenIdConnectApplication.name',
@@ -40,6 +48,10 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   { path: 'OpenIdConnectApplication.credentials', hidesBaseMember: true },
+   { path: 'OpenIdConnectApplication.settings', hidesBaseMember: true },
+
+   { path: 'SamlApplication.settings', hidesBaseMember: true },
 
    {
     path: 'SecurePasswordStoreApplication.name',
@@ -47,6 +59,7 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   { path: 'SecurePasswordStoreApplicationSettings.app', hidesBaseMember: true },
 
    {
     path: 'SwaApplication.name',
@@ -54,6 +67,8 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   { path: 'SwaApplication.settings', hidesBaseMember: true },
+   { path: 'SwaApplicationSettings.app', hidesBaseMember: true },
 
    {
     path: 'SwaThreeFieldApplication.name',
@@ -61,6 +76,14 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   { path: 'SwaThreeFieldApplication.settings', hidesBaseMember: true },
+
+   { path: 'SwaThreeFieldApplicationSettings.app', hidesBaseMember: true },
+
+   { path: 'SecurePasswordStoreApplication.credentials', hidesBaseMember: true },
+   { path: 'SecurePasswordStoreApplication.settings', hidesBaseMember: true },
+
+   { path: 'SchemeApplicationCredentials.signing', hidesBaseMember: true },
 
    {
     path: 'WsFederationApplication.name',
@@ -68,6 +91,10 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   { path: 'WsFederationApplication.settings', hidesBaseMember: true },
+   { path: 'WsFederationApplicationSettings.app', hidesBaseMember: true },
+
+   { path: 'U2fFactor.profile', hidesBaseMember: true },
 
    { path: 'ApplicationVisibility.appLinks', skip: true, skipReason: 'Not currently supported' },
    { path: 'OpenIdConnectApplicationSettingsClient.tos_uri', rename: 'termsOfServiceUri', renameReason: 'Legibility' },

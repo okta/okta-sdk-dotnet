@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a SecurePasswordStoreApplicationSettings resource in the Okta API.</summary>
     public partial interface ISecurePasswordStoreApplicationSettings : IApplicationSettings
     {
-        ISecurePasswordStoreApplicationSettingsApplication App { get; set; }
+        new ISecurePasswordStoreApplicationSettingsApplication App { get; set; }
 
     }
 }

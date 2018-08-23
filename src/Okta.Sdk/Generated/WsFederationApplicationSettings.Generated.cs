@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class WsFederationApplicationSettings : ApplicationSettings, IWsFederationApplicationSettings
     {
         /// <inheritdoc/>
-        public IWsFederationApplicationSettingsApplication App 
+        public new IWsFederationApplicationSettingsApplication App 
         {
             get => GetResourceProperty<WsFederationApplicationSettingsApplication>("app");
             set => this["app"] = value;

@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a U2fFactor resource in the Okta API.</summary>
     public partial interface IU2fFactor : IFactor
     {
-        IU2fFactorProfile Profile { get; set; }
+        new IU2fFactorProfile Profile { get; set; }
 
     }
 }

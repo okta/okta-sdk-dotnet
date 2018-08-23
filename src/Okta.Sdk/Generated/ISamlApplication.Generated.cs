@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a SamlApplication resource in the Okta API.</summary>
     public partial interface ISamlApplication : IApplication
     {
-        ISamlApplicationSettings Settings { get; set; }
+        new ISamlApplicationSettings Settings { get; set; }
 
     }
 }
