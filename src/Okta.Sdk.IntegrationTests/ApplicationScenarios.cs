@@ -806,8 +806,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Okta",
-                    Email = "john-sso@example.com",
-                    Login = "john-sso@example.com",
+                    Email = "john-sso-provisioning@example.com",
+                    Login = "john-sso-provisioning@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -840,7 +840,7 @@ namespace Okta.Sdk.IntegrationTests
                 var createdAppUser = await client.Applications.AssignUserToApplicationAsync(assignUserOptions);
 
                 createdAppUser.Scope.Should().Be("USER");
-                createdAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                createdAppUser.Credentials.UserName.Should().Be("john-sso-provisioning@example.com");
                 createdAppUser.Status.Should().Be("PROVISIONED");
                 createdAppUser.SyncState.Should().Be("DISABLED");
             }
@@ -867,8 +867,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Okta",
-                    Email = "john-sso@example.com",
-                    Login = "john-sso@example.com",
+                    Email = "john-assigned-user@example.com",
+                    Login = "john-assigned-user@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -898,7 +898,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
                 retrievedAppUser.Scope.Should().Be("USER");
-                retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                retrievedAppUser.Credentials.UserName.Should().Be("john-assigned-user@example.com");
             }
             finally
             {
@@ -923,8 +923,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Okta",
-                    Email = "john-sso@example.com",
-                    Login = "john-sso@example.com",
+                    Email = "john-list-users@example.com",
+                    Login = "john-list-users@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -936,8 +936,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "Bob",
                     LastName = "Okta",
-                    Email = "bob-sso@example.com",
-                    Login = "bob-sso@example.com",
+                    Email = "bob-list-users@example.com",
+                    Login = "bob-list-users@example.com",
                 },
                 Password = "Abcd4321",
                 Activate = true,
@@ -1003,8 +1003,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Okta",
-                    Email = "john-sso@example.com",
-                    Login = "john-sso@example.com",
+                    Email = "john-update-credentials@example.com",
+                    Login = "john-update-credentials@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -1034,16 +1034,16 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
                 retrievedAppUser.Scope.Should().Be("USER");
-                retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                retrievedAppUser.Credentials.UserName.Should().Be("john-update-credentials@example.com");
 
                 // Update credentials
-                retrievedAppUser.Credentials.UserName = "john-sso-updated@example.com";
+                retrievedAppUser.Credentials.UserName = "john-updated-credentials-updated@example.com";
                 retrievedAppUser.Credentials.Password = new AppUserPasswordCredential() { Value = "Abcd12345" };
 
                 var updatedAppUser = await client.Applications.UpdateApplicationUserAsync(retrievedAppUser, createdApp.Id, createdUser.Id);
 
                 updatedAppUser.Should().NotBeNull();
-                updatedAppUser.Credentials.UserName.Should().Be("john-sso-updated@example.com");
+                updatedAppUser.Credentials.UserName.Should().Be("john-updated-credentials-updated@example.com");
             }
             finally
             {
@@ -1068,8 +1068,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Okta",
-                    Email = "john-sso@example.com",
-                    Login = "john-sso@example.com",
+                    Email = "john-remove-user@example.com",
+                    Login = "john-remove-user@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -1099,7 +1099,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedAppUser.Should().NotBeNull();
                 retrievedAppUser.Id.Should().Be(createdAppUser.Id);
                 retrievedAppUser.Scope.Should().Be("USER");
-                retrievedAppUser.Credentials.UserName.Should().Be("john-sso@example.com");
+                retrievedAppUser.Credentials.UserName.Should().Be("john-remove-user@example.com");
 
                 await client.Applications.DeleteApplicationUserAsync(createdApp.Id, createdUser.Id);
 
