@@ -185,7 +185,7 @@ namespace Okta.Sdk.Internal
 
         /// <inheritdoc/>
         public async Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
-            where T : Resource, new()
+            where T : IResource
         {
             PrepareRequest(request, requestContext);
 

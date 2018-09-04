@@ -158,7 +158,7 @@ namespace Okta.Sdk
         /// <param name="initialRequest">The initial HTTP request.</param>
         /// <returns>The collection client.</returns>
         protected CollectionClient<T> GetCollectionClient<T>(HttpRequest initialRequest)
-            where T : Resource, new()
+            where T : IResource
             => new CollectionClient<T>(_dataStore, initialRequest, _requestContext);
 
         /// <inheritdoc/>
@@ -175,16 +175,16 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public IAsyncEnumerable<T> GetCollection<T>(string href)
-            where T : Resource, new()
+        public CollectionClient<T> GetCollection<T>(string href)
+            where T : IResource
             => GetCollection<T>(new HttpRequest
             {
                 Uri = href,
             });
 
         /// <inheritdoc/>
-        public IAsyncEnumerable<T> GetCollection<T>(HttpRequest request)
-            where T : Resource, new()
+        public CollectionClient<T> GetCollection<T>(HttpRequest request)
+            where T : IResource
             => GetCollectionClient<T>(request);
 
         /// <inheritdoc/>

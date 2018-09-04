@@ -33,7 +33,7 @@ namespace Okta.Sdk
         public {{#unless isCollection}}async {{/unless}}{{{returnType.literal}}} {{memberName}}(
             {{~#if bodyModel}}I{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
             {{~nbsp 0}}{{{methodSignatureLiteral}}})
-            {{#if isCollection}}=> GetCollectionClient<{{returnType.memberName}}>(new HttpRequest
+            {{#if isCollection}}=> GetCollectionClient<I{{returnType.memberName}}>(new HttpRequest
             {
                 Uri = "{{path}}",
                 {{#if bodyModel}}Payload = {{bodyModel.parameterName}},{{/if}}

@@ -29,8 +29,8 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null)
-            => GetCollectionClient<Group>(new HttpRequest
+        public ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = -1, string expand = null)
+            => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/groups",
                 
@@ -53,8 +53,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IGroupRule> ListRules(int? limit = -1, string after = null, string expand = "")
-            => GetCollectionClient<GroupRule>(new HttpRequest
+        public ICollectionClient<IGroupRule> ListRules(int? limit = -1, string after = null, string expand = "")
+            => GetCollectionClient<IGroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules",
                 
@@ -183,8 +183,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public IAsyncEnumerable<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1, string managedBy = "all")
-            => GetCollectionClient<User>(new HttpRequest
+        public ICollectionClient<IUser> ListGroupUsers(string groupId, string after = null, int? limit = -1, string managedBy = "all")
+            => GetCollectionClient<IUser>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/users",
                 

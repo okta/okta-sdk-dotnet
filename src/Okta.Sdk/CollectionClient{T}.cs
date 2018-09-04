@@ -9,12 +9,9 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>
-    /// A remote collection of <see cref="Resource">Resources</see> that can be enumerated asynchronously.
-    /// </summary>
-    /// <typeparam name="T">The <see cref="Resource"/> type in the collection.</typeparam>
-    public sealed class CollectionClient<T> : IAsyncEnumerable<T>
-        where T : Resource, new()
+    /// <inheritdoc/>
+    public sealed class CollectionClient<T> : ICollectionClient<T>
+        where T : IResource
     {
         private readonly IDataStore _dataStore;
         private readonly HttpRequest _initialRequest;
@@ -39,5 +36,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IAsyncEnumerator<T> GetEnumerator()
             => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
+
+        /// <inheritdoc/>
+        public IPagedCollectionEnumerator<T> GetPagedEnumerator()
+            => new PagedCollectionEnumerator<T>(_dataStore, _initialRequest, _requestContext);
     }
 }

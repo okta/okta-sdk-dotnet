@@ -26,6 +26,72 @@ namespace Okta.Sdk.UnitTests
         };
 
         [Fact]
+        public async Task EnumerateEmptyCollection()
+        {
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(
+                pageSize: 2,
+                items: Enumerable.Empty<IUser>());
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, null),
+                NullLogger.Instance);
+
+            var collection = new CollectionClient<User>(
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
+
+            var all = await collection.ToArray();
+            all.Length.Should().Be(0);
+        }
+
+        [Fact]
+        public async Task GetAllItems()
+        {
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(pageSize: 2, items: TestUsers);
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, null),
+                NullLogger.Instance);
+
+            var collection = new CollectionClient<User>(
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
+
+            var all = await collection.ToArray();
+            all.Length.Should().Be(5);
+        }
+
+        [Fact]
+        public async Task GetAllItemsWithManualEnumeration()
+        {
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(pageSize: 2, items: TestUsers);
+            var dataStore = new DefaultDataStore(
+                mockRequestExecutor,
+                new DefaultSerializer(),
+                new ResourceFactory(null, null),
+                NullLogger.Instance);
+
+            var collection = new CollectionClient<User>(
+                dataStore,
+                new HttpRequest { Uri = "http://mock-collection.dev" },
+                new RequestContext());
+
+            var items = new List<IUser>();
+
+            var enumerator = collection.GetPagedEnumerator();
+            while (await enumerator.MoveNextAsync())
+            {
+                items.AddRange(enumerator.CurrentPage.Items);
+            }
+
+            items.Count.Should().Be(5);
+        }
+
+        [Fact]
         public async Task CountCollectionAsynchronously()
         {
             var mockRequestExecutor = new MockedCollectionRequestExecutor<IUser>(pageSize: 2, items: TestUsers);

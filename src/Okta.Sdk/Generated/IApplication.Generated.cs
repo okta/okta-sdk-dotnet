@@ -47,7 +47,7 @@ namespace Okta.Sdk
 
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<IAppUser> ListApplicationUsers(string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null);
+        ICollectionClient<IAppUser> ListApplicationUsers(string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null);
 
         Task<IAppUser> AssignUserToApplicationAsync(AppUser appUser, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -61,9 +61,9 @@ namespace Okta.Sdk
 
         Task<IJsonWebKey> GetApplicationKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken));
 
-        IAsyncEnumerable<IApplicationGroupAssignment> ListGroupAssignments(string q = null, string after = null, int? limit = -1, string expand = null);
+        ICollectionClient<IApplicationGroupAssignment> ListGroupAssignments(string q = null, string after = null, int? limit = -1, string expand = null);
 
-        IAsyncEnumerable<IJsonWebKey> ListKeys();
+        ICollectionClient<IJsonWebKey> ListKeys();
 
     }
 }

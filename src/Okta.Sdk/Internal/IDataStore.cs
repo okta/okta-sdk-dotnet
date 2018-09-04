@@ -52,7 +52,7 @@ namespace Okta.Sdk.Internal
         /// <returns>An array of deserialized resources and <see cref="HttpResponse"/> data.</returns>
         /// <exception cref="OktaApiException">An API error occurred.</exception>
         Task<HttpResponse<IEnumerable<T>>> GetArrayAsync<T>(HttpRequest request, RequestContext requestContext, CancellationToken cancellationToken)
-            where T : Resource, new();
+            where T : IResource;
 
         /// <summary>
         /// Posts data to an endpoint and deserializes the response to a <see cref="Resource"/> type.

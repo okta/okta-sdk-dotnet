@@ -25,7 +25,7 @@ namespace Okta.Sdk
         /// <param name="sortOrder"></param>
         /// <param name="after"></param>
         /// <returns>A collection of <see cref="ILogEvent"/> that can be enumerated asynchronously.</returns>
-        IAsyncEnumerable<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null);
+        ICollectionClient<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null);
 
     }
 }

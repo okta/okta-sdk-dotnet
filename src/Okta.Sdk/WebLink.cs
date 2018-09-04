@@ -3,15 +3,15 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-namespace Okta.Sdk.Internal
+namespace Okta.Sdk
 {
     /// <summary>
     /// Represents an <a href="https://tools.ietf.org/html/rfc5988">RFC 5988</a> Web Link.
     /// </summary>
-    public struct WebLink
+    public class WebLink
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="WebLink"/> struct.
+        /// Initializes a new instance of the <see cref="WebLink"/> class.
         /// </summary>
         /// <param name="target">The link target.</param>
         /// <param name="relation">The link relation.</param>
@@ -36,5 +36,8 @@ namespace Okta.Sdk.Internal
         /// The link relation.
         /// </value>
         public string Relation { get; }
+
+        /// <inheritdoc/>
+        public override string ToString() => Target;
     }
 }
