@@ -39,36 +39,11 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException(nameof(configuration));
             }
 
-            if (string.IsNullOrEmpty(configuration.Token))
-            {
-                throw new ArgumentNullException(nameof(configuration.Token));
-            }
-
-            _oktaDomain = EnsureCorrectOktaDomain(configuration.OktaDomain);
+            _oktaDomain = configuration.OktaDomain;
             _logger = logger;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
 
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
-        }
-
-        private static string EnsureCorrectOktaDomain(string oktaDomain)
-        {
-            if (string.IsNullOrEmpty(oktaDomain))
-            {
-                throw new ArgumentNullException(nameof(oktaDomain));
-            }
-
-            if (!oktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
-            {
-                throw new ArgumentException("OktaDomain must start with https://");
-            }
-
-            if (!oktaDomain.EndsWith("/"))
-            {
-                oktaDomain += "/";
-            }
-
-            return oktaDomain;
         }
 
         private static void ApplyDefaultClientSettings(HttpClient client, string oktaDomain, OktaClientConfiguration configuration)

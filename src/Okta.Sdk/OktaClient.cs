@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using FlexibleConfiguration;
@@ -46,7 +47,7 @@ namespace Okta.Sdk
         public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
-            ThrowIfInvalidConfiguration(Configuration);
+            OktaClientConfigurationValidator.Validate(Configuration);
 
             logger = logger ?? NullLogger.Instance;
 
@@ -76,7 +77,7 @@ namespace Okta.Sdk
         public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
-            ThrowIfInvalidConfiguration(Configuration);
+            OktaClientConfigurationValidator.Validate(Configuration);
 
             logger = logger ?? NullLogger.Instance;
 
@@ -131,19 +132,6 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IOktaClient CreatedScoped(RequestContext requestContext)
             => new OktaClient(_dataStore, Configuration, requestContext);
-
-        private static void ThrowIfInvalidConfiguration(OktaClientConfiguration configuration)
-        {
-            if (string.IsNullOrEmpty(configuration.OktaDomain))
-            {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "You must supply an Okta domain URL, like https://example.okta.com");
-            }
-
-            if (string.IsNullOrEmpty(configuration.Token))
-            {
-                throw new ArgumentNullException(nameof(configuration.Token), "You must supply an Okta API token. You can create one in the Okta developer dashboard.");
-            }
-        }
 
         /// <inheritdoc/>
         public IUsersClient Users => new UsersClient(_dataStore, Configuration, _requestContext);
