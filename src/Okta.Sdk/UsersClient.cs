@@ -8,6 +8,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
+using Newtonsoft.Json;
+
+using Okta.Sdk.Internal;
+
 namespace Okta.Sdk
 {
     /// <summary>
@@ -159,5 +163,62 @@ namespace Okta.Sdk
             bool? sendEmail = true,
             CancellationToken cancellationToken = default(CancellationToken))
             => ResetPasswordAsync(userId, null, sendEmail, cancellationToken);
+
+        /// <summary>
+        /// Lists the users asynchronous.
+        /// </summary>
+        /// <param name="q">The q.</param>
+        /// <param name="after">The after.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="filter">The filter.</param>
+        /// <param name="format">The format.</param>
+        /// <param name="search">The search.</param>
+        /// <param name="expand">The expand.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// page of users.
+        /// </returns>
+        public async Task<PageOfResults<User>> ListUsersAsync(
+            string q = null,
+            string after = null,
+            int? limit = -1,
+            string filter = null,
+            string format = null,
+            string search = null,
+            string expand = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await GetPageOfResultsAsync<User>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/users",
+
+                    QueryParameters = new Dictionary<string, object>()
+                    {
+                        ["q"] = q,
+                        ["after"] = after,
+                        ["limit"] = limit,
+                        ["filter"] = filter,
+                        ["format"] = format,
+                        ["search"] = search,
+                        ["expand"] = expand,
+                    },
+                },
+                cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Lists the users asynchronous.
+        /// </summary>
+        /// <param name="serializedNextRequest">The serialized next request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// page of users.
+        /// </returns>
+        public async Task<PageOfResults<User>> ListUsersContinuationAsync(string serializedNextRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            HttpRequest req = JsonConvert.DeserializeObject<HttpRequest>(serializedNextRequest);
+            return await GetPageOfResultsAsync<User>(req, cancellationToken).ConfigureAwait(false);
+        }
     }
 }

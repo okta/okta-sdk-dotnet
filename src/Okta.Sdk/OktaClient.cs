@@ -161,6 +161,21 @@ namespace Okta.Sdk
             where T : IResource
             => new CollectionClient<T>(_dataStore, initialRequest, _requestContext);
 
+        /// <summary>
+        /// Gets the paged collection client.
+        /// </summary>
+        /// <typeparam name="T">the collection client item type.</typeparam>
+        /// <param name="initialRequest">The initial request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// The paged collection client.
+        /// </returns>
+        protected async Task<PageOfResults<T>> GetPageOfResultsAsync<T>(HttpRequest initialRequest, CancellationToken cancellationToken = default(CancellationToken))
+            where T : Resource, new()
+        {
+            return await PagedCollectionActionManager.GetPageOfResultsAsync<T>(_dataStore, initialRequest, _requestContext, cancellationToken).ConfigureAwait(false);
+        }
+
         /// <inheritdoc/>
         public Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
             where T : Resource, new()

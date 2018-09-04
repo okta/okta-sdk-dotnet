@@ -7,6 +7,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
+using Newtonsoft.Json;
+
+using Okta.Sdk.Internal;
+
 namespace Okta.Sdk
 {
     /// <summary>
@@ -31,5 +35,59 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IAsyncEnumerator<IGroup> GetEnumerator() => ListGroups().GetEnumerator();
+
+        /// <summary>
+        /// Lists the groups asynchronous.
+        /// </summary>
+        /// <param name="q">The q.</param>
+        /// <param name="after">The after.</param>
+        /// <param name="limit">The limit.</param>
+        /// <param name="filter">The filter.</param>
+        /// <param name="format">The format.</param>
+        /// <param name="search">The search.</param>
+        /// <param name="expand">The expand.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// page of groups.
+        /// </returns>
+        public async Task<PageOfResults<Group>> ListGroupsAsync(
+            string q = null,
+            string after = null,
+            int? limit = -1,
+            string filter = null,
+            string format = null,
+            string search = null,
+            string expand = null,
+            CancellationToken cancellationToken = default(CancellationToken))
+        {
+            return await GetPageOfResultsAsync<Group>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/groups",
+                    QueryParameters = new Dictionary<string, object>()
+                    {
+                        ["q"] = q,
+                        ["filter"] = filter,
+                        ["after"] = after,
+                        ["limit"] = limit,
+                        ["expand"] = expand,
+                    },
+                },
+                cancellationToken).ConfigureAwait(false);
+        }
+
+        /// <summary>
+        /// Lists the groups asynchronous.
+        /// </summary>
+        /// <param name="serializedNextRequest">The serialized next request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>
+        /// page of groups.
+        /// </returns>
+        public async Task<PageOfResults<Group>> ListGroupsContinuationAsync(string serializedNextRequest, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            HttpRequest req = JsonConvert.DeserializeObject<HttpRequest>(serializedNextRequest);
+            return await GetPageOfResultsAsync<Group>(req, cancellationToken).ConfigureAwait(false);
+        }
     }
 }
