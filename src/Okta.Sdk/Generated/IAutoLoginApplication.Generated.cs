@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a AutoLoginApplication resource in the Okta API.</summary>
     public partial interface IAutoLoginApplication : IApplication
     {
-        ISchemeApplicationCredentials Credentials { get; set; }
+        new ISchemeApplicationCredentials Credentials { get; set; }
 
-        IAutoLoginApplicationSettings Settings { get; set; }
+        new IAutoLoginApplicationSettings Settings { get; set; }
 
     }
 }

@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         new string Name { get; set; }
 
-        IWsFederationApplicationSettings Settings { get; set; }
+        new IWsFederationApplicationSettings Settings { get; set; }
 
     }
 }

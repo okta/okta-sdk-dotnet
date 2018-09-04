@@ -33,7 +33,6 @@ namespace Okta.Sdk.Internal
         /// <summary>
         /// Creates a new dictionary with the specified behavior.
         /// </summary>
-        /// <param name="behaviorType">The resource behavior type.</param>
         /// <param name="existingData">The initial dictionary data.</param>
         /// <returns>A new dictionary with the specified behavior.</returns>
         public IDictionary<string, object> NewDictionary(IDictionary<string, object> existingData)

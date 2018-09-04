@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class BookmarkApplicationSettings : ApplicationSettings, IBookmarkApplicationSettings
     {
         /// <inheritdoc/>
-        public IBookmarkApplicationSettingsApplication App 
+        public new IBookmarkApplicationSettingsApplication App 
         {
             get => GetResourceProperty<BookmarkApplicationSettingsApplication>("app");
             set => this["app"] = value;

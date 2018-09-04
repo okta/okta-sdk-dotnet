@@ -17,7 +17,7 @@ namespace Okta.Sdk
     public sealed partial class BasicApplicationSettings : ApplicationSettings, IBasicApplicationSettings
     {
         /// <inheritdoc/>
-        public IBasicApplicationSettingsApplication App 
+        public new IBasicApplicationSettingsApplication App 
         {
             get => GetResourceProperty<BasicApplicationSettingsApplication>("app");
             set => this["app"] = value;

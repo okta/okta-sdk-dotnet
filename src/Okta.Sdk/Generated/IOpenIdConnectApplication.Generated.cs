@@ -15,11 +15,11 @@ namespace Okta.Sdk
     /// <summary>Represents a OpenIdConnectApplication resource in the Okta API.</summary>
     public partial interface IOpenIdConnectApplication : IApplication
     {
-        IOAuthApplicationCredentials Credentials { get; set; }
+        new IOAuthApplicationCredentials Credentials { get; set; }
 
         new string Name { get; set; }
 
-        IOpenIdConnectApplicationSettings Settings { get; set; }
+        new IOpenIdConnectApplicationSettings Settings { get; set; }
 
     }
 }

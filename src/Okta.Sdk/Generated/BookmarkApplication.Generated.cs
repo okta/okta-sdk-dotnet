@@ -24,7 +24,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IBookmarkApplicationSettings Settings 
+        public new IBookmarkApplicationSettings Settings 
         {
             get => GetResourceProperty<BookmarkApplicationSettings>("settings");
             set => this["settings"] = value;

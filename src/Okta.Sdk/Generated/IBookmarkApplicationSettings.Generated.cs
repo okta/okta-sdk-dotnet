@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a BookmarkApplicationSettings resource in the Okta API.</summary>
     public partial interface IBookmarkApplicationSettings : IApplicationSettings
     {
-        IBookmarkApplicationSettingsApplication App { get; set; }
+        new IBookmarkApplicationSettingsApplication App { get; set; }
 
     }
 }

@@ -137,7 +137,6 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Settings.App.LoginUrlRegex.Should().Be("^https://example.com/login.html");
                 retrieved.Settings.App.ExtraFieldSelector.Should().Be(".login");
                 retrieved.Settings.App.ExtraFieldValue.Should().Be("SOMEVALUE");
-
             }
             finally
             {
@@ -517,7 +516,6 @@ namespace Okta.Sdk.IntegrationTests
                 LoginUrlRegex = "^https://example.com/login.html",
             });
 
-
             try
             {
                 var retrieved = await client.Applications.GetApplicationAsync<ISwaApplication>(createdApp.Id);
@@ -795,7 +793,6 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Applications.DeleteApplicationAsync(createdApp.Id);
             }
         }
-
 
         [Fact(Skip = "https://github.com/okta/okta.github.io/issues/2167")]
         public async Task CreateAssignUserForSSOApplicationAndProvisioning()
@@ -1369,9 +1366,10 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-
         [Fact(Skip = "https://github.com/okta/okta.github.io/issues/2167")]
+#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
         public async Task UpdateApplicationProfileForAssignedUser()
+#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a WsFederationApplicationSettings resource in the Okta API.</summary>
     public partial interface IWsFederationApplicationSettings : IApplicationSettings
     {
-        IWsFederationApplicationSettingsApplication App { get; set; }
+        new IWsFederationApplicationSettingsApplication App { get; set; }
 
     }
 }

@@ -45,8 +45,10 @@ namespace Okta.Sdk.UnitTests
         public void CreateUserFromExistingData()
         {
             var factory = new ResourceFactory(null, null);
-            var fakeData = new Dictionary<string, object>();
-            fakeData.Add("id", "foobar");
+            var fakeData = new Dictionary<string, object>
+            {
+                { "id", "foobar" },
+            };
 
             var user = factory.CreateFromExistingData<User>(fakeData);
 
@@ -62,9 +64,11 @@ namespace Okta.Sdk.UnitTests
         public void CreateSwaApplicationFromExistingData()
         {
             var factory = new ResourceFactory(null, null);
-            var fakeData = new Dictionary<string, object>();
-            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
-            fakeData.Add("name", "template_swa");
+            var fakeData = new Dictionary<string, object>
+            {
+                { "signOnMode", ApplicationSignOnMode.BrowserPlugin },
+                { "name", "template_swa" },
+            };
 
             var app = factory.CreateFromExistingData<Application>(fakeData);
 
@@ -76,9 +80,11 @@ namespace Okta.Sdk.UnitTests
         public void CreateSwaThreeFieldApplicationFromExistingData()
         {
             var factory = new ResourceFactory(null, null);
-            var fakeData = new Dictionary<string, object>();
-            fakeData.Add("signOnMode", ApplicationSignOnMode.BrowserPlugin);
-            fakeData.Add("name", "template_swa3field");
+            var fakeData = new Dictionary<string, object>
+            {
+                { "signOnMode", ApplicationSignOnMode.BrowserPlugin },
+                { "name", "template_swa3field" },
+            };
 
             var app = factory.CreateFromExistingData<Application>(fakeData);
 
@@ -90,8 +96,10 @@ namespace Okta.Sdk.UnitTests
         public void CreateBookmarkApplicationFromExistingData()
         {
             var factory = new ResourceFactory(null, null);
-            var fakeData = new Dictionary<string, object>();
-            fakeData.Add("signOnMode", ApplicationSignOnMode.Bookmark);
+            var fakeData = new Dictionary<string, object>
+            {
+                { "signOnMode", ApplicationSignOnMode.Bookmark },
+            };
 
             var app = factory.CreateFromExistingData<Application>(fakeData);
 
@@ -103,8 +111,10 @@ namespace Okta.Sdk.UnitTests
         public void CreateBasicApplicationFromExistingData()
         {
             var factory = new ResourceFactory(null, null);
-            var fakeData = new Dictionary<string, object>();
-            fakeData.Add("signOnMode", ApplicationSignOnMode.BasicAuth);
+            var fakeData = new Dictionary<string, object>
+            {
+                { "signOnMode", ApplicationSignOnMode.BasicAuth },
+            };
 
             var app = factory.CreateFromExistingData<IApplication>(fakeData);
 

@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         new string Name { get; set; }
 
-        IBookmarkApplicationSettings Settings { get; set; }
+        new IBookmarkApplicationSettings Settings { get; set; }
 
     }
 }

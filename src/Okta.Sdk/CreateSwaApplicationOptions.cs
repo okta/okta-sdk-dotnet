@@ -5,20 +5,44 @@
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// Helper class for a SWA application settings
+    /// </summary>
     public sealed class CreateSwaApplicationOptions
     {
+        /// <summary>
+        /// Gets or sets a label
+        /// </summary>
         public string Label { get; set; }
 
+        /// <summary>
+        /// Gets or sets a button field
+        /// </summary>
         public string ButtonField { get; set; }
 
+        /// <summary>
+        /// Gets or sets a password field
+        /// </summary>
         public string PasswordField { get; set; }
 
+        /// <summary>
+        /// Gets or sets a username field
+        /// </summary>
         public string UsernameField { get; set; }
 
+        /// <summary>
+        /// Gets or sets an url
+        /// </summary>
         public string Url { get; set; }
 
+        /// <summary>
+        /// Gets or sets a login url regex
+        /// </summary>
         public string LoginUrlRegex { get; set; }
 
+        /// <summary>
+        /// Gets or sets an activate flag value
+        /// </summary>
         public bool Activate { get; set; } = true;
     }
 }

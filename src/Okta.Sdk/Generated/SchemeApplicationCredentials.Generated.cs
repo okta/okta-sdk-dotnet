@@ -38,7 +38,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IApplicationCredentialsSigning Signing 
+        public new IApplicationCredentialsSigning Signing 
         {
             get => GetResourceProperty<ApplicationCredentialsSigning>("signing");
             set => this["signing"] = value;

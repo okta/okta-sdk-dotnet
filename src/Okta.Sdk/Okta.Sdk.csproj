@@ -34,4 +34,9 @@
     <PackageTags>okta api authentication identity management</PackageTags>
     <PackageIconUrl>https://raw.githubusercontent.com/okta/okta-sdk-dotnet/master/icon.png</PackageIconUrl>
   </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>1701;1702;1705;1591</NoWarn>
+  </PropertyGroup>
 </Project>
