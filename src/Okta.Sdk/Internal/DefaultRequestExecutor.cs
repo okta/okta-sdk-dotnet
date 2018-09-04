@@ -58,10 +58,13 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException(nameof(oktaDomain));
             }
 
-            if (!oktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            string disableSSLCheck = Environment.GetEnvironmentVariable("DISABLE_SSL_CHECK");
+
+            if (disableSSLCheck != "true" && !oktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
                 throw new ArgumentException("OktaDomain must start with https://");
             }
+
 
             if (!oktaDomain.EndsWith("/"))
             {
