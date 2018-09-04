@@ -41,7 +41,7 @@ namespace Okta.Sdk.Internal
                 configuration.OktaDomain.IndexOf("-admin.oktapreview.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
                 configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta domain should not contain -admin. Your domain is: {valueWithoutAdmin}. You can copy your domain from the Okta Developer Console.");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta domain should not contain -admin. You can copy your domain from the Okta Developer Console.");
             }
 
             if (configuration.OktaDomain.IndexOf(".com.com", StringComparison.OrdinalIgnoreCase) >= 0)
