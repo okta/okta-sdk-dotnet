@@ -23,15 +23,20 @@ else
 fi
 
 # Define default arguments
-SCRIPT=
+TARGET=
 # Don't run ITs for push requests
 if [[ $TRAVIS_EVENT_TYPE != 'push' ]]; then
-    SCRIPT=buildIT.cake
+    TARGET="DefaultIT"
 else
-    SCRIPT=build.cake
+    TARGET="Default"
 fi
 
-TARGET="Default"
+echo "------------------------"
+echo $TRAVIS_EVENT_TYPE
+echo "------------------------"
+echo $TARGET
+echo "------------------------"
+
 CONFIGURATION="Release"
 VERBOSITY="verbose"
 DRYRUN=

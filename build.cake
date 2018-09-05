@@ -64,6 +64,20 @@ Task("Test")
     }
 });
 
+Task("IntegrationTest")
+.IsDependentOn("Restore")
+.IsDependentOn("Build")
+.Does(() =>
+{
+    var testProjects = new[] { "Okta.Sdk.IntegrationTests" };
+    // Run integration tests in nightly travis cron job
+
+    foreach (var name in testProjects)
+    {
+        DotNetCoreTest(string.Format("./src/{0}/{0}.csproj", name));
+    }
+});
+
 // Define top-level tasks
 
 Task("Default")
@@ -71,6 +85,13 @@ Task("Default")
     .IsDependentOn("Restore")
     .IsDependentOn("Build")
     .IsDependentOn("Test")
+    .IsDependentOn("Pack");
+
+Task("DefaultIT")
+    .IsDependentOn("Clean")
+    .IsDependentOn("Restore")
+    .IsDependentOn("Build")
+    .IsDependentOn("IntegrationTest")
     .IsDependentOn("Pack");
 
 // Default task

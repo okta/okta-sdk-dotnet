@@ -72,6 +72,7 @@ namespace Okta.Sdk.IntegrationTests
             var client = TestClient.Create(new OktaClientConfiguration
             {
                 Token = "abcd1234",
+		        DisableHttpsCheck = true,
             });
 
             try
