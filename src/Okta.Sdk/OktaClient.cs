@@ -120,7 +120,8 @@ namespace Okta.Sdk
                 .AddEnvironmentVariables("okta", "_", root: "okta")
                 .AddEnvironmentVariables("okta_testing", "_", root: "okta")
                 .AddObject(apiClientConfiguration, root: "okta:client")
-                .AddObject(apiClientConfiguration, root: "okta:testing");
+                .AddObject(apiClientConfiguration, root: "okta:testing")
+                .AddObject(apiClientConfiguration);
 
             var compiledConfig = new OktaClientConfiguration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
