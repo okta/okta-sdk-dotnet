@@ -20,6 +20,12 @@
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.TraceSource">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.0.0\ref\netcoreapp2.0\System.Diagnostics.TraceSource.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <PropertyGroup>
     <CodeAnalysisRuleSet>..\OktaSdk.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>

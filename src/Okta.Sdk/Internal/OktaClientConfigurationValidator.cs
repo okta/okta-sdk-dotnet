@@ -27,7 +27,7 @@ namespace Okta.Sdk.Internal
 
             configuration.OktaDomain = EnsureTrailingSlash(configuration.OktaDomain);
 
-            if (!configuration.OktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            if (!configuration.DisableHttpsCheck && !configuration.OktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta URL must start with https. You can copy your domain from the Okta Developer Console.");
             }
