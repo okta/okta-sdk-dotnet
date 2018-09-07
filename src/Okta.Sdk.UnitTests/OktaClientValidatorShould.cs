@@ -89,9 +89,24 @@ namespace Okta.Sdk.UnitTests
             var configuration = new OktaClientConfiguration();
             configuration.OktaDomain = oktaDomain;
             configuration.Token = "foo";
+            configuration.DisableHttpsCheck = false;
 
             Action action = () => OktaClientConfigurationValidator.Validate(configuration);
             action.Should().Throw<ArgumentException>().Where(e => e.ParamName == nameof(configuration.OktaDomain));
+        }
+
+        [Theory]
+        [InlineData("http://myOktaDomain.oktapreview.com")]
+        [InlineData("https://myOktaDomain.oktapreview.com")]
+        public void NotFailIfOktaDomainIsNotStartingWithHttpsAndDisableHttpsCheckIsTrue(string oktaDomain)
+        {
+            var configuration = new OktaClientConfiguration();
+            configuration.OktaDomain = oktaDomain;
+            configuration.Token = "foo";
+            configuration.DisableHttpsCheck = true;
+
+            Action action = () => OktaClientConfigurationValidator.Validate(configuration);
+            action.Should().NotThrow<ArgumentException>();
         }
     }
 }

@@ -118,10 +118,14 @@ namespace Okta.Sdk
                 .AddJsonFile(applicationAppSettingsLocation, optional: true)
                 .AddYamlFile(applicationOktaYamlLocation, optional: true)
                 .AddEnvironmentVariables("okta", "_", root: "okta")
-                .AddObject(apiClientConfiguration, root: "okta:client");
+                .AddEnvironmentVariables("okta_testing", "_", root: "okta")
+                .AddObject(apiClientConfiguration, root: "okta:client")
+                .AddObject(apiClientConfiguration, root: "okta:testing")
+                .AddObject(apiClientConfiguration);
 
             var compiledConfig = new OktaClientConfiguration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
+            configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
 
             return compiledConfig;
         }
