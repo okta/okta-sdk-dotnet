@@ -10,6 +10,7 @@
     <PackageReference Include="FlexibleConfiguration" Version="1.2.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Diagnostics.TraceSource" Version="4.3.0" />
     <PackageReference Include="System.Interactive.Async" Version="3.1.1" />
     <AdditionalFiles Include="..\stylecop.json" />
   </ItemGroup>
@@ -18,12 +19,6 @@
     <PackageReference Include="AsyncUsageAnalyzers" Version="1.0.0-alpha003" PrivateAssets="All" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta004" PrivateAssets="All" />
     <PackageReference Include="System.ValueTuple" Version="4.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="System.Diagnostics.TraceSource">
-      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.netcore.app\2.0.0\ref\netcoreapp2.0\System.Diagnostics.TraceSource.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
   <PropertyGroup>
