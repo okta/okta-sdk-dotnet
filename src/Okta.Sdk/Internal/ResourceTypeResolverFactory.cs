@@ -62,7 +62,7 @@ namespace Okta.Sdk.Internal
                 return possiblyInterface;
             }
 
-            var foundConcrete = AllTypes.FirstOrDefault(x => 
+            var foundConcrete = AllTypes.FirstOrDefault(x =>
                 x.IsClass == true
                 && typeInfo.IsAssignableFrom(x)
                 && x.BaseType == typeof(Resource));

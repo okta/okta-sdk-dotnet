@@ -36,6 +36,7 @@ namespace Okta.Sdk.IntegrationTests
                     // Must start with https://
                     OktaDomain = "http://insecure.dev",
                     Token = "foobar",
+                    DisableHttpsCheck = false,
                 });
             });
         }

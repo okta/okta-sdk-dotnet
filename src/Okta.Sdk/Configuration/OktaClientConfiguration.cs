@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Diagnostics;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.Configuration
@@ -13,6 +14,8 @@ namespace Okta.Sdk.Configuration
     /// </summary>
     public sealed class OktaClientConfiguration : IDeepCloneable<OktaClientConfiguration>
     {
+        private bool _disableHttpsCheck = false;
+
         /// <summary>
         /// The default HTTP connection timeout in seconds.
         /// </summary>
@@ -54,6 +57,28 @@ namespace Okta.Sdk.Configuration
         /// <remarks>An API token can be generated from the Okta developer dashboard.</remarks>
         public string Token { get; set; }
 
+        /// <summary>
+        /// Gets or sets the flag to disable https check.
+        /// This allows for insecure configurations and is NOT recommended for production use.
+        /// </summary>
+        public bool DisableHttpsCheck
+        {
+            get
+            {
+                return _disableHttpsCheck;
+            }
+
+            set
+            {
+                if (value)
+                {
+                    Trace.TraceWarning("Warning: HTTPS check is disabled. This allows for insecure configurations and is NOT recommended for production use.");
+                }
+
+                _disableHttpsCheck = value;
+            }
+        }
+
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
@@ -62,6 +87,7 @@ namespace Okta.Sdk.Configuration
                 OktaDomain = this.OktaDomain,
                 Token = this.Token,
                 Proxy = this.Proxy?.DeepClone(),
+                DisableHttpsCheck = this.DisableHttpsCheck,
             };
     }
 }
