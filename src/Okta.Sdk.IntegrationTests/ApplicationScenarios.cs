@@ -302,6 +302,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        [Trait("Category", "NoCI")] // Tests that don't run on internal CI pipeline
         public async Task AddWsFederationApp()
         {
             var client = TestClient.Create();
