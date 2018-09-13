@@ -71,6 +71,7 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = TestClient.Create(new OktaClientConfiguration
             {
+                OktaDomain = "https://dev-12345.oktapreview.com",
                 Token = "abcd1234",
             });
 
