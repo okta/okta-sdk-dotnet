@@ -15,6 +15,7 @@ namespace Okta.Sdk.IntegrationTests
     public class LogsScenarios
     {
         [Fact]
+        [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task GetLogs()
         {
             var client = TestClient.Create();
@@ -41,6 +42,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task GetLogsByQueryString()
         {
             var client = TestClient.Create();
@@ -70,6 +72,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task GetLogsByEventType()
         {
             var client = TestClient.Create();
@@ -97,6 +100,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task GetLogsBySinceDate()
         {
             var client = TestClient.Create();
