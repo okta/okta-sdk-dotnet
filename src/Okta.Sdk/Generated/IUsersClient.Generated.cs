@@ -42,9 +42,10 @@ namespace Okta.Sdk
         /// Deletes a user permanently.  This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**
         /// </summary>
         /// <param name="userId"></param>
+        /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches a user from your Okta organization.
@@ -111,9 +112,10 @@ namespace Okta.Sdk
         /// Deactivates a user.  This operation can only be performed on users that do not have a &#x60;DEPROVISIONED&#x60; status.  Deactivation of a user is an asynchronous operation.  The user will have the &#x60;transitioningToStatus&#x60; property with a value of &#x60;DEPROVISIONED&#x60; during deactivation to indicate that the user hasn&#x27;t completed the asynchronous operation.  The user will have a status of &#x60;DEPROVISIONED&#x60; when the deactivation process is complete.
         /// </summary>
         /// <param name="userId"></param>
+        /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeactivateUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// This operation transitions the user to the status of &#x60;PASSWORD_EXPIRED&#x60; so that the user is required to change their password at their next login.

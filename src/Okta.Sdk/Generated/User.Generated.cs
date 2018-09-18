@@ -66,8 +66,8 @@ namespace Okta.Sdk
             => GetClient().Users.ActivateUserAsync(Id, sendEmail, cancellationToken);
         
         /// <inheritdoc />
-        public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.DeactivateUserAsync(Id, cancellationToken);
+        public Task DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.DeactivateUserAsync(Id, sendEmail, cancellationToken);
         
         /// <inheritdoc />
         public Task SuspendAsync(CancellationToken cancellationToken = default(CancellationToken))

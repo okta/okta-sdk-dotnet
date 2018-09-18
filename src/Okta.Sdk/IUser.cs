@@ -51,9 +51,10 @@ namespace Okta.Sdk
         /// <summary>
         /// Deletes a deactivated user
         /// </summary>
+        /// <param name="sendEmail">The send email flag</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The asynchronous task</returns>
-        Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Changes the user recovery question

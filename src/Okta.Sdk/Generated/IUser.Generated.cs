@@ -41,7 +41,7 @@ namespace Okta.Sdk
 
         Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         Task SuspendAsync(CancellationToken cancellationToken = default(CancellationToken));
 
