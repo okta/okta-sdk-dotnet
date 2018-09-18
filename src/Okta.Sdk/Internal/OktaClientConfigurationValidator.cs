@@ -22,14 +22,14 @@ namespace Okta.Sdk.Internal
         {
             if (string.IsNullOrEmpty(configuration.OktaDomain))
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta URL is missing. Okta URLs should look like: https://{yourOktaDomain}. You can copy your domain from the Okta Developer Console.");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta URL is missing. You can copy your domain from the Okta Developer Console.");
             }
 
             configuration.OktaDomain = EnsureTrailingSlash(configuration.OktaDomain);
 
             if (!configuration.DisableHttpsCheck && !configuration.OktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
             {
-                throw new ArgumentException("Your Okta URL must start with https. You can copy your domain from the Okta Developer Console.", nameof(configuration.OktaDomain));
+                throw new ArgumentException($"Your Okta URL must start with https. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console.", nameof(configuration.OktaDomain));
             }
 
             if (configuration.OktaDomain.IndexOf("{yourOktaDomain}", StringComparison.OrdinalIgnoreCase) >= 0)
@@ -41,22 +41,27 @@ namespace Okta.Sdk.Internal
                 configuration.OktaDomain.IndexOf("-admin.oktapreview.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
                 configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta domain should not contain -admin. You can copy your domain from the Okta Developer Console.");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"Your Okta domain should not contain -admin. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console.");
             }
 
             if (configuration.OktaDomain.IndexOf(".com.com", StringComparison.OrdinalIgnoreCase) >= 0)
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "It looks like there's a typo in your Okta domain. You can copy your domain from the Okta Developer Console.");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console.");
             }
 
             if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
             {
-                throw new ArgumentNullException(nameof(configuration.OktaDomain), "It looks like there's a typo in your Okta domain. You can copy your domain from the Okta Developer Console.");
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console.");
             }
 
             if (string.IsNullOrEmpty(configuration.Token))
             {
-                throw new ArgumentNullException(nameof(configuration.Token), "You must supply an Okta API token. You can create one in the Okta developer dashboard.");
+                throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console.");
+            }
+
+            if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console.", nameof(configuration.Token));
             }
         }
 
