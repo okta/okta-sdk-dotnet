@@ -22,7 +22,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBookmarkApplicationOptions()
             {
-                Label = "Sample Bookmark App",
+                Label = "Add - Sample Bookmark App",
                 RequestIntegration = false,
                 Url = "https://example.com/bookmark.htm",
             });
@@ -31,7 +31,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<IBookmarkApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("bookmark");
-                retrieved.Label.Should().Be("Sample Bookmark App");
+                retrieved.Label.Should().Be("Add - Sample Bookmark App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.Bookmark);
 
                 retrieved.Settings.App.RequestIntegration.Should().Be(false);
@@ -51,7 +51,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "Sample Basic Auth App",
+                Label = "Add - Sample Basic Auth App",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -60,7 +60,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<IBasicAuthApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("template_basic_auth");
-                retrieved.Label.Should().Be("Sample Basic Auth App");
+                retrieved.Label.Should().Be("Add - Sample Basic Auth App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.BasicAuth);
 
                 retrieved.Settings.App.AuthUrl.Should().Be("https://example.com/auth.html");
@@ -80,7 +80,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
-                Label = "Sample Plugin App",
+                Label = "Add - Sample Plugin App",
                 ButtonField = "btn-login",
                 PasswordField = "txtbox-password",
                 UsernameField = "txtbox-username",
@@ -92,7 +92,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<ISwaApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("template_swa");
-                retrieved.Label.Should().Be("Sample Plugin App");
+                retrieved.Label.Should().Be("Add - Sample Plugin App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.BrowserPlugin);
                 retrieved.Settings.App.ButtonField.Should().Be("btn-login");
                 retrieved.Settings.App.PasswordField.Should().Be("txtbox-password");
@@ -114,7 +114,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaThreeFieldApplicationOptions
             {
-                Label = "Sample Plugin App",
+                Label = "Add - Sample Plugin App",
                 ButtonSelector = "#btn-login",
                 PasswordSelector = "#txtbox-password",
                 UserNameSelector = "#txtbox-username",
@@ -128,7 +128,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<ISwaThreeFieldApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("template_swa3field");
-                retrieved.Label.Should().Be("Sample Plugin App");
+                retrieved.Label.Should().Be("Add - Sample Plugin App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.BrowserPlugin);
                 retrieved.Settings.App.ButtonSelector.Should().Be("#btn-login");
                 retrieved.Settings.App.PasswordSelector.Should().Be("#txtbox-password");
@@ -152,7 +152,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaNoPluginApplicationOptions
             {
-                Label = "Sample Plugin App",
+                Label = "Add - Sample Plugin App",
                 Url = "https://example.com/login.html",
                 PasswordField = "#txtbox-password",
                 UsernameField = "#txtbox-username",
@@ -168,7 +168,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<ISecurePasswordStoreApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("template_sps");
-                retrieved.Label.Should().Be("Sample Plugin App");
+                retrieved.Label.Should().Be("Add - Sample Plugin App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.SecurePasswordStore);
                 retrieved.Settings.App.PasswordField.Should().Be("#txtbox-password");
                 retrieved.Settings.App.UsernameField.Should().Be("#txtbox-username");
@@ -194,7 +194,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaCustomApplicationOptions
             {
-                Label = "Sample SWA Custom App",
+                Label = "Add - Sample SWA Custom App",
                 Features = new List<string>(),
                 AutoSubmitToolbar = false,
                 HideIOs = false,
@@ -206,7 +206,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 var retrieved = await client.Applications.GetApplicationAsync<IAutoLoginApplication>(createdApp.Id);
-                retrieved.Label.Should().Be("Sample SWA Custom App");
+                retrieved.Label.Should().Be("Add - Sample SWA Custom App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.AutoLogin);
                 retrieved.Features.Should().BeEmpty();
                 retrieved.Visibility.AutoSubmitToolbar.Should().BeFalse();
@@ -229,7 +229,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSamlApplicationOptions
             {
-                Label = "Sample SAML Custom App",
+                Label = "Add - Sample SAML Custom App",
                 Features = new List<string>(),
                 AutoSubmitToolbar = false,
                 HideIOs = false,
@@ -265,7 +265,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 var retrieved = await client.Applications.GetApplicationAsync<ISamlApplication>(createdApp.Id);
-                retrieved.Label.Should().Be("Sample SAML Custom App");
+                retrieved.Label.Should().Be("Add - Sample SAML Custom App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.Saml2);
                 retrieved.Features.Should().BeEmpty();
                 retrieved.Visibility.AutoSubmitToolbar.Should().BeFalse();
@@ -302,13 +302,14 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task AddWsFederationApp()
         {
             var client = TestClient.Create();
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateWsFederationApplicationOptions
             {
-                Label = "Sample WS-Fed App",
+                Label = "Add - Sample WS-Fed App",
                 AudienceRestriction = "urn:example:app",
                 GroupName = null,
                 GroupValueFormat = "windowsDomainQualifiedName",
@@ -327,7 +328,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<IWsFederationApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("template_wsfed");
-                retrieved.Label.Should().Be("Sample WS-Fed App");
+                retrieved.Label.Should().Be("Add - Sample WS-Fed App");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.WsFederation);
                 retrieved.Settings.App.AudienceRestriction.Should().Be("urn:example:app");
                 retrieved.Settings.App.GroupName.Should().NotBeNullOrEmpty();
@@ -356,7 +357,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
-                Label = "Sample Client",
+                Label = "Add - Sample OpenId",
                 ClientId = "0oae8mnt9tZcGcMXG0h3",
                 TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
                 AutoKeyRotation = true,
@@ -387,7 +388,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var retrieved = await client.Applications.GetApplicationAsync<IOpenIdConnectApplication>(createdApp.Id);
                 retrieved.Name.Should().Be("oidc_client");
-                retrieved.Label.Should().Be("Sample Client");
+                retrieved.Label.Should().Be("Add - Sample OpenId");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.OpenIdConnect);
                 retrieved.Credentials.OauthClient.ClientId.Should().Be("0oae8mnt9tZcGcMXG0h3");
                 retrieved.Credentials.OauthClient.AutoKeyRotation.Should().BeTrue();
@@ -423,7 +424,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "Sample Basic Auth App",
+                Label = "Get - Sample Basic Auth App",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -447,7 +448,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "Sample Basic Auth App",
+                Label = "List - Sample Basic Auth App",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -471,14 +472,14 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdBasicApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "Sample Basic Auth App",
+                Label = "List of Type - Sample Basic Auth App",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
 
             var createdBookmarkApp = await client.Applications.CreateApplicationAsync(new CreateBookmarkApplicationOptions()
             {
-                Label = "Sample Bookmark App",
+                Label = "List of Type - Sample Bookmark App",
                 RequestIntegration = false,
                 Url = "https://example.com/bookmark.htm",
             });
@@ -508,7 +509,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
-                Label = "Sample Plugin App",
+                Label = "Update SWA User & Pass - Sample Plugin App",
                 ButtonField = "btn-login",
                 PasswordField = "txtbox-password",
                 UsernameField = "txtbox-username",
@@ -559,7 +560,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
-                Label = "Sample Plugin App",
+                Label = "Update Set Editable Pass - Sample Plugin App",
                 ButtonField = "btn-login",
                 PasswordField = "txtbox-password",
                 UsernameField = "txtbox-username",
@@ -600,7 +601,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateSwaApplicationOptions
             {
-                Label = "Sample Plugin App",
+                Label = "Update Set Shared Credentials - Sample Plugin App",
                 ButtonField = "btn-login",
                 PasswordField = "txtbox-password",
                 UsernameField = "txtbox-username",
@@ -646,7 +647,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "Sample Basic Auth App",
+                Label = "Not Delete Active App - Sample Basic Auth App",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -670,7 +671,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "Sample Basic Auth App",
+                Label = "Delete Deactivated - Sample Basic Auth App",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -692,7 +693,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Activate - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                     Activate = false,
@@ -722,7 +723,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Create Active - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -761,7 +762,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Assign user for SSO - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -816,7 +817,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Assign user for SSO and Provisioning - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -877,7 +878,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Get Assigned users - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -946,7 +947,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "List Users - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1013,7 +1014,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Update App Credentials - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1078,7 +1079,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Remove User - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1124,13 +1125,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Test Group",
+                Name = "Assign Group for App - Test Group",
             });
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Assign Group for App - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1167,13 +1168,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Test Group",
+                Name = "GetAssignmentGroup For App - Test Group",
             });
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Get Assignment Group - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1209,18 +1210,18 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup1 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Test Group 1",
+                Name = "ListAssignmentGroups - Test Group 1",
             });
 
             var createdGroup2 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Test Group 2",
+                Name = "ListAssignmentGroups - Test Group 2",
             });
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "List Assignment Groups - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1268,13 +1269,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Test Group",
+                Name = "Remove Group For App - Test Group",
             });
 
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Remove Group for App - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1316,7 +1317,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "List Key credentials - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
@@ -1343,7 +1344,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdApp = await client.Applications.CreateApplicationAsync(
                 new CreateBasicAuthApplicationOptions()
                 {
-                    Label = "Sample Basic Auth App",
+                    Label = "Get Key Credentials - Sample Basic Auth App",
                     Url = "https://example.com/login.html",
                     AuthUrl = "https://example.com/auth.html",
                 });
