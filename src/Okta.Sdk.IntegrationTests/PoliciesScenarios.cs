@@ -299,7 +299,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "Possible error in the API")]
+        [Fact]
         public async Task ActivatePolicy()
         {
             var client = TestClient.Create();
@@ -309,7 +309,6 @@ namespace Okta.Sdk.IntegrationTests
                 // Name has a maximum of 50 chars
                 Name = $"Sign On policy {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
-                Status = "INACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
 
@@ -317,14 +316,111 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                createdPolicy.Status.Should().Be("INACTIVE");
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                var retrievedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
+
+                retrievedPolicy.Status.Should().Be("INACTIVE");
                 await createdPolicy.ActivateAsync();
 
-                var retrievedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
+                retrievedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
                 retrievedPolicy.Status.Should().Be("ACTIVE");
             }
             finally
             {
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreatePolicyRules()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            var policyRule = new OktaSignOnPolicyRule()
+            {
+                Type = PolicyType.OktaSignOn,
+                Actions = new OktaSignOnPolicyRuleActions()
+                {
+                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    {
+                        Access = "DENY",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("DENY");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be(PolicyType.OktaSignOn);
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetPolicyRules()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"Group Policy People {guid}",
+            });
+
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            IOktaSignOnPolicyConditions policyConditions = new OktaSignOnPolicyConditions()
+            {
+                People = new PolicyPeopleCondition()
+                {
+                    Groups = new GroupCondition()
+                    {
+                        Include = new List<string>() { createdGroup.Id },
+                    },
+                },
+            };
+
+            policy.Conditions = policyConditions;
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            try
+            {
+                var policyRules = await createdPolicy.ListPolicyRules().ToList();
+
+                policyRules.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
                 await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
