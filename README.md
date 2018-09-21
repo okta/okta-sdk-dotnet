@@ -5,8 +5,6 @@
 
 # Okta .NET management SDK
 
-> :warning: Beta alert! This library is in beta. See [release status](#release-status) for more information.
-
 * [Release status](#release-status)
 * [Need help?](#need-help)
 * [Getting started](#getting-started)
@@ -35,12 +33,12 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 0.x
+:heavy_check_mark: The current stable major version series is: 1.x
 
 | Version | Status                    |
 | ------- | ------------------------- |
 | 0.x   | :heavy_check_mark: Stable |
-| 1.x | :warning: Beta/Under active development |
+| 1.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md)) |
  
 The latest release can always be found on the [releases page][github-releases].
 
