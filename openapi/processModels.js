@@ -7,7 +7,8 @@ const {
   getterName,
   isNullOrUndefined,
   createMethodSignatureLiteral,
-  createParametersLiteral
+  createParametersLiteral,
+  getPluralName
 } = require('./utils');
 
 const {
@@ -204,7 +205,7 @@ function createContextForModel(model, strictModelList, errFunc) {
       methodContext.memberName += 'Async';
 
     methodContext.client = {};
-    methodContext.client.memberName = `${method.operation.tags[0]}s`;
+    methodContext.client.memberName = getPluralName(method.operation.tags[0]);
 
     methodContext.methodOperation = {};
     methodContext.methodOperation.memberName = pascalCase(method.operation.operationId);

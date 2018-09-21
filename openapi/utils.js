@@ -129,6 +129,19 @@ function createParametersLiteral(operation, args) {
   return parameters.join(', ');
 }
 
+function getPluralName(name) {
+  let pluralName = `${name}s`;
+  let lastChar = name.charAt(name.length - 1);
+  
+  if(lastChar == 'y') {
+    // Remove y
+    let auxName = name.slice(0, name.length - 1);
+    pluralName = `${auxName}ies`;
+  }
+
+  return pluralName;
+}
+
 module.exports.pascalCase = pascalCase;
 module.exports.camelCase = camelCase;
 module.exports.paramToCLRType = paramToCLRType;
@@ -138,3 +151,4 @@ module.exports.getMappedArgName = getMappedArgName;
 module.exports.isNullOrUndefined = isNullOrUndefined;
 module.exports.createMethodSignatureLiteral = createMethodSignatureLiteral;
 module.exports.createParametersLiteral = createParametersLiteral;
+module.exports.getPluralName = getPluralName;

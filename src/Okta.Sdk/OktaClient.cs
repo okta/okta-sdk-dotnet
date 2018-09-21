@@ -155,6 +155,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public ILogsClient Logs => new LogsClient(_dataStore, Configuration, _requestContext);
 
+        /// <inheritdoc/>
+        public IPoliciesClient Policies => new PoliciesClient(_dataStore, Configuration, _requestContext);
+
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
         /// </summary>
