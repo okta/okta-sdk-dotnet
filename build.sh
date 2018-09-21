@@ -24,14 +24,7 @@ fi
 
 # Define default arguments
 SCRIPT="build.cake"
-TARGET=
-# Don't run ITs for push requests
-if [[ $TRAVIS_EVENT_TYPE != 'push' ]]; then
-    TARGET="DefaultIT"
-else
-    TARGET="Default"
-fi
-
+TARGET="Default"
 CONFIGURATION="Release"
 VERBOSITY="verbose"
 DRYRUN=
