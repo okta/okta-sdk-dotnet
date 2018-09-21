@@ -99,17 +99,10 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+	[Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/271")]	
         [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
-        public async Task GetLogsBySinceDate()
+	public async Task GetLogsBySinceDate()
         {
-            // Don't run test on travis - https://github.com/okta/okta-sdk-dotnet/issues/271
-            string travis = System.Environment.GetEnvironmentVariable("TRAVIS");
-            if (travis != null)
-            {
-                return;
-            } 
-
             var client = TestClient.Create();
 
             // Create an Application so there is something in the logs
