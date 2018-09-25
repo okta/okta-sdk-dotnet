@@ -19,5 +19,7 @@ namespace Okta.Sdk
 
         IOktaSignOnPolicyRuleConditions Conditions { get; set; }
 
+        string Name { get; set; }
+
     }
 }

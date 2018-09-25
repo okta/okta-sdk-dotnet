@@ -333,7 +333,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task CreatePasswordPolicyRules()
+        public async Task CreatePasswordPolicyRule()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
@@ -407,56 +407,382 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        //[Fact]
-        //public async Task CreateOktaSignOnPolicyRules()
-        //{
-        //    var client = TestClient.Create();
-        //    var guid = Guid.NewGuid();
+        [Fact]
+        public async Task CreateOktaSignOnOnPremPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
-        //    var policy = new OktaSignOnPolicy()
-        //    {
-        //        // Name has a maximum of 50 chars
-        //        Name = $"Sign On policy {guid}".Substring(0, 50),
-        //        Type = PolicyType.OktaSignOn,
-        //        Description = "The default policy applies in all situations if no other policy applies.",
-        //    };
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
 
-        //    var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
-        //    IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
-        //    {
-        //        Type = PolicyType.OktaSignOn,
-        //        Actions = new OktaSignOnPolicyRuleActions()
-        //        {
-        //            Signon = new OktaSignOnPolicyRuleSignonActions()
-        //            {
-        //                Access = "ALLOW",
-        //            },
-        //        },
-        //        Conditions = new OktaSignOnPolicyRuleConditions()
-        //        {
-        //            Network = new PolicyNetworkCondition()
-        //            {
-        //                Connection = "ANYWHERE",
-        //            },
-        //        },
-        //    };
+            IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
+            {
+                Name = $"Skip Factor Challenge when On-Prem {guid}".Substring(0, 50),
+                Type = "SIGN_ON",
+                Actions = new OktaSignOnPolicyRuleActions()
+                {
+                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    {
+                        Access = "ALLOW",
+                        RequireFactor = false,
+                        RememberDeviceByDefault = false,
+                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
+                        {
+                            UsePersistentCookie = false,
+                            MaxSessionIdleMinutes = 720,
+                            MaxSessionLifetimeMinutes = 0,
+                        },
+                    },
+                },
+                Conditions = new OktaSignOnPolicyRuleConditions()
+                {
+                    AuthContext = new PolicyRuleAuthContextCondition()
+                    {
+                        AuthType = "ANY",
+                    },
+                },
+            };
 
-        //    var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
 
-        //    try
-        //    {
-        //        createdPolicyRule.Should().NotBeNull();
-        //        ((IOktaSignOnPolicyRule)createdPolicy).Type.Should().Be(PolicyType.OktaSignOn);
-        //        ((IOktaSignOnPolicyRule)createdPolicy).Actions.Signon.Access.Should().Be("ALLOW");
-        //        ((IOktaSignOnPolicyRule)createdPolicy).Conditions.Network.Connection.Should().Be("ANYWHERE");
-        //    }
-        //    finally
-        //    {
-        //        await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
-        //        await client.Policies.DeletePolicyAsync(createdPolicy.Id);
-        //    }
-        //}
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be("SIGN_ON");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("ALLOW");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RequireFactor.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RememberDeviceByDefault.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateOktaSignOnRadiusPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
+            {
+                Name = $"Challenge VPN Users {guid}".Substring(0, 50),
+                Type = "SIGN_ON",
+                Actions = new OktaSignOnPolicyRuleActions()
+                {
+                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    {
+                        Access = "ALLOW",
+                        RequireFactor = true,
+                        FactorPromptMode = "ALWAYS",
+                        RememberDeviceByDefault = false,
+                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
+                        {
+                            UsePersistentCookie = false,
+                            MaxSessionIdleMinutes = 720,
+                            MaxSessionLifetimeMinutes = 0,
+                        },
+                    },
+                },
+                Conditions = new OktaSignOnPolicyRuleConditions()
+                {
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                    AuthContext = new PolicyRuleAuthContextCondition()
+                    {
+                        AuthType = "RADIUS",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be("SIGN_ON");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("ALLOW");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RequireFactor.Should().Be(true);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.FactorPromptMode.Should().Be("ALWAYS");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RememberDeviceByDefault.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.AuthContext.AuthType.Should().Be("RADIUS");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateOktaSignOnCloudPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
+            {
+                Name = $"Challenge Cloud Users {guid}".Substring(0, 50),
+                Type = "SIGN_ON",
+                Actions = new OktaSignOnPolicyRuleActions()
+                {
+                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    {
+                        Access = "ALLOW",
+                        RequireFactor = true,
+                        FactorPromptMode = "ALWAYS",
+                        RememberDeviceByDefault = false,
+                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
+                        {
+                            UsePersistentCookie = false,
+                            MaxSessionIdleMinutes = 720,
+                            MaxSessionLifetimeMinutes = 0,
+                        },
+                    },
+                },
+                Conditions = new OktaSignOnPolicyRuleConditions()
+                {
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                    AuthContext = new PolicyRuleAuthContextCondition()
+                    {
+                        AuthType = "ANY",
+                    },
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Include = new List<string>(),
+                            Exclude = new List<string>(),
+                        },
+                        Groups = new GroupCondition()
+                        {
+                            Include = new List<string>(),
+                            Exclude = new List<string>(),
+                        },
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be("SIGN_ON");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("ALLOW");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RequireFactor.Should().Be(true);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.FactorPromptMode.Should().Be("ALWAYS");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RememberDeviceByDefault.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.People.Users.Include.Should().BeNullOrEmpty();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.People.Groups.Include.Should().BeNullOrEmpty();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.People.Groups.Exclude.Should().BeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateOktaSignOnDenyPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
+            {
+                Name = $"Deny policy rule {guid}".Substring(0, 50),
+                Type = "SIGN_ON",
+                Actions = new OktaSignOnPolicyRuleActions()
+                {
+                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    {
+                        Access = "DENY",
+                        RequireFactor = false,
+                    },
+                },
+                Conditions = new OktaSignOnPolicyRuleConditions()
+                {
+                    AuthContext = new PolicyRuleAuthContextCondition()
+                    {
+                        AuthType = "ANY",
+                    },
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be("SIGN_ON");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("DENY");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RequireFactor.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateOktaSignOnPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new OktaSignOnPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Type = PolicyType.OktaSignOn,
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
+            {
+                Name = $"Challenge Cloud Users {guid}".Substring(0, 50),
+                Type = "SIGN_ON",
+                Actions = new OktaSignOnPolicyRuleActions()
+                {
+                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    {
+                        Access = "ALLOW",
+                        RequireFactor = true,
+                        FactorPromptMode = "ALWAYS",
+                        RememberDeviceByDefault = false,
+                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
+                        {
+                            UsePersistentCookie = false,
+                            MaxSessionIdleMinutes = 720,
+                            MaxSessionLifetimeMinutes = 0,
+                        },
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be("SIGN_ON");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("ALLOW");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RequireFactor.Should().Be(true);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.FactorPromptMode.Should().Be("ALWAYS");
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.RememberDeviceByDefault.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
+
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name = $"Updated {((IOktaSignOnPolicyRule)createdPolicyRule).Name}".Substring(0, 50);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.Network = new PolicyNetworkCondition() { Connection = "ANYWHERE" };
+
+                var updatedPolicyRule = await client.Policies.UpdatePolicyRuleAsync(createdPolicyRule, createdPolicy.Id, createdPolicyRule.Id);
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Name.Should().StartWith("Updated");
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Type.Should().Be("SIGN_ON");
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.Access.Should().Be("ALLOW");
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.RequireFactor.Should().Be(true);
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.FactorPromptMode.Should().Be("ALWAYS");
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.RememberDeviceByDefault.Should().Be(false);
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.Session.UsePersistentCookie.Should().Be(false);
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.Session.MaxSessionIdleMinutes.Should().Be(720);
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
 
         [Fact]
         public async Task GetPolicyRules()
@@ -657,7 +983,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task UpdatePolicyRule()
+        public async Task UpdatePasswordPolicyRule()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
