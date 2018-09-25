@@ -17,10 +17,25 @@ namespace Okta.Sdk
     public sealed partial class PasswordPolicyRule : PolicyRule, IPasswordPolicyRule
     {
         /// <inheritdoc/>
-        public IPasswordPolicyRuleActions Actions => GetResourceProperty<PasswordPolicyRuleActions>("actions");
+        public IPasswordPolicyRuleActions Actions 
+        {
+            get => GetResourceProperty<PasswordPolicyRuleActions>("actions");
+            set => this["actions"] = value;
+        }
         
         /// <inheritdoc/>
-        public IPasswordPolicyRuleConditions Conditions => GetResourceProperty<PasswordPolicyRuleConditions>("conditions");
+        public IPasswordPolicyRuleConditions Conditions 
+        {
+            get => GetResourceProperty<PasswordPolicyRuleConditions>("conditions");
+            set => this["conditions"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string Name 
+        {
+            get => GetStringProperty("name");
+            set => this["name"] = value;
+        }
         
     }
 }

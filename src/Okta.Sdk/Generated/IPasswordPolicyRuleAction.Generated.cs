@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a PasswordPolicyRuleAction resource in the Okta API.</summary>
     public partial interface IPasswordPolicyRuleAction : IResource
     {
-        string Access { get; }
+        string Access { get; set; }
 
     }
 }

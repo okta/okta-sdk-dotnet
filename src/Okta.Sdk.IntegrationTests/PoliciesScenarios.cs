@@ -333,28 +333,51 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task CreatePolicyRules()
+        public async Task CreatePasswordPolicyRules()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
 
-            var policy = new OktaSignOnPolicy()
+            var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"Default policy {guid}".Substring(0, 50),
-                Type = PolicyType.OktaSignOn,
+                Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
-            var policyRule = new OktaSignOnPolicyRule()
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Type = PolicyType.OktaSignOn,
-                Actions = new OktaSignOnPolicyRuleActions()
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
                 {
-                    Signon = new OktaSignOnPolicyRuleSignonActions()
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                    SelfServicePasswordReset = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                    SelfServiceUnlock = new PasswordPolicyRuleAction()
                     {
                         Access = "DENY",
                     },
@@ -366,9 +389,204 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Should().NotBeNull();
-                ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Access.Should().Be("DENY");
-                ((IOktaSignOnPolicyRule)createdPolicyRule).Type.Should().Be(PolicyType.OktaSignOn);
+                ((IPasswordPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IPasswordPolicyRule)createdPolicyRule).Actions.Should().NotBeNull();
+                ((IPasswordPolicyRule)createdPolicyRule).Actions.PasswordChange.Access.Should().Be("ALLOW");
+                ((IPasswordPolicyRule)createdPolicyRule).Actions.SelfServicePasswordReset.Access.Should().Be("ALLOW");
+                ((IPasswordPolicyRule)createdPolicyRule).Actions.SelfServiceUnlock.Access.Should().Be("DENY");
+                ((IPasswordPolicyRule)createdPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IPasswordPolicyRule)createdPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IPasswordPolicyRule)createdPolicyRule).Type.Should().Be(PolicyType.Password);
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        //[Fact]
+        //public async Task CreateOktaSignOnPolicyRules()
+        //{
+        //    var client = TestClient.Create();
+        //    var guid = Guid.NewGuid();
+
+        //    var policy = new OktaSignOnPolicy()
+        //    {
+        //        // Name has a maximum of 50 chars
+        //        Name = $"Sign On policy {guid}".Substring(0, 50),
+        //        Type = PolicyType.OktaSignOn,
+        //        Description = "The default policy applies in all situations if no other policy applies.",
+        //    };
+
+        //    var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+        //    IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
+        //    {
+        //        Type = PolicyType.OktaSignOn,
+        //        Actions = new OktaSignOnPolicyRuleActions()
+        //        {
+        //            Signon = new OktaSignOnPolicyRuleSignonActions()
+        //            {
+        //                Access = "ALLOW",
+        //            },
+        //        },
+        //        Conditions = new OktaSignOnPolicyRuleConditions()
+        //        {
+        //            Network = new PolicyNetworkCondition()
+        //            {
+        //                Connection = "ANYWHERE",
+        //            },
+        //        },
+        //    };
+
+        //    var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+        //    try
+        //    {
+        //        createdPolicyRule.Should().NotBeNull();
+        //        ((IOktaSignOnPolicyRule)createdPolicy).Type.Should().Be(PolicyType.OktaSignOn);
+        //        ((IOktaSignOnPolicyRule)createdPolicy).Actions.Signon.Access.Should().Be("ALLOW");
+        //        ((IOktaSignOnPolicyRule)createdPolicy).Conditions.Network.Connection.Should().Be("ANYWHERE");
+        //    }
+        //    finally
+        //    {
+        //        await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+        //        await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+        //    }
+        //}
+
+        [Fact]
+        public async Task GetPolicyRules()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
+            {
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                    SelfServicePasswordReset = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                    SelfServiceUnlock = new PasswordPolicyRuleAction()
+                    {
+                        Access = "DENY",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                var policyRules = await createdPolicy.ListPolicyRules().ToList();
+
+                policyRules.Should().NotBeNullOrEmpty();
+                policyRules.Should().HaveCount(1);
+                ((IPasswordPolicyRule)policyRules.First()).Name.Should().Be(policyRule.Name);
+                ((IPasswordPolicyRule)policyRules.First()).Type.Should().Be(PolicyType.Password);
+                ((IPasswordPolicyRule)policyRules.First()).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IPasswordPolicyRule)policyRules.First()).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IPasswordPolicyRule)policyRules.First()).Actions.PasswordChange.Access.Should().Be("ALLOW");
+                ((IPasswordPolicyRule)policyRules.First()).Actions.SelfServicePasswordReset.Access.Should().Be("ALLOW");
+                ((IPasswordPolicyRule)policyRules.First()).Actions.SelfServiceUnlock.Access.Should().Be("DENY");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task DeletePolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
+            {
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                var retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Should().NotBeNull();
+
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+
+                Func<Task> act = async () => await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                act.Should().Throw<OktaApiException>();
             }
             finally
             {
@@ -378,55 +596,265 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task GetPolicyRules()
+        public async Task GetPolicyRule()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
 
-            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
-            {
-                Name = $"Group Policy People {guid}",
-            });
-
-            var policy = new OktaSignOnPolicy()
+            var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
                 Name = $"Default policy {guid}".Substring(0, 50),
-                Type = PolicyType.OktaSignOn,
+                Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
 
-            IOktaSignOnPolicyConditions policyConditions = new OktaSignOnPolicyConditions()
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                People = new PolicyPeopleCondition()
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
                 {
-                    Groups = new GroupCondition()
+                    People = new PolicyPeopleCondition()
                     {
-                        Include = new List<string>() { createdGroup.Id },
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
                     },
                 },
             };
 
-            policy.Conditions = policyConditions;
-
-            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
             {
-                var policyRules = await createdPolicy.ListPolicyRules().ToList();
-
-                policyRules.Should().NotBeNullOrEmpty();
+                var retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Should().NotBeNull();
+                retrievedPolicyRule.Id.Should().Be(createdPolicyRule.Id);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Type.Should().Be(PolicyType.Password);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IPasswordPolicyRule)retrievedPolicyRule).Actions.PasswordChange.Access.Should().Be("ALLOW");
             }
             finally
             {
-                await createdGroup.DeleteAsync();
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
 
-        // TODO
-        //public async Task GetPolicyWithRules() { }
+        [Fact]
+        public async Task UpdatePolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
+            {
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                var retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Should().NotBeNull();
+                retrievedPolicyRule.Id.Should().Be(createdPolicyRule.Id);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Type.Should().Be(PolicyType.Password);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IPasswordPolicyRule)retrievedPolicyRule).Actions.PasswordChange.Access.Should().Be("ALLOW");
+
+                // Update values
+                ((IPasswordPolicyRule)retrievedPolicyRule).Actions.PasswordChange.Access = "DENY";
+                ((IPasswordPolicyRule)retrievedPolicyRule).Actions.SelfServicePasswordReset.Access = "DENY";
+                ((IPasswordPolicyRule)retrievedPolicyRule).Name = $"Updated {policyRule.Name}".Substring(0, 50);
+
+                var updatedPolicyRule = await client.Policies.UpdatePolicyRuleAsync(retrievedPolicyRule, createdPolicy.Id, retrievedPolicyRule.Id);
+                ((IPasswordPolicyRule)updatedPolicyRule).Actions.PasswordChange.Access.Should().Be("DENY");
+                ((IPasswordPolicyRule)updatedPolicyRule).Actions.SelfServicePasswordReset.Access.Should().Be("DENY");
+                ((IPasswordPolicyRule)updatedPolicyRule).Name.Should().StartWith("Updated");
+                ((IPasswordPolicyRule)updatedPolicyRule).Type.Should().Be(PolicyType.Password);
+                ((IPasswordPolicyRule)updatedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task DeactivatePolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
+            {
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                var retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Should().NotBeNull();
+                // Default status
+                retrievedPolicyRule.Status.Should().Be("ACTIVE");
+
+                await retrievedPolicyRule.DeactivateAsync(createdPolicy.Id);
+                retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Status.Should().Be("INACTIVE");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task ActivatePolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IPasswordPolicyRule policyRule = new PasswordPolicyRule()
+            {
+                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                var retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Should().NotBeNull();
+                // Default status
+                retrievedPolicyRule.Status.Should().Be("ACTIVE");
+
+                await retrievedPolicyRule.DeactivateAsync(createdPolicy.Id);
+                retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Status.Should().Be("INACTIVE");
+
+                await retrievedPolicyRule.ActivateAsync(createdPolicy.Id);
+                retrievedPolicyRule = await client.Policies.GetPolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                retrievedPolicyRule.Status.Should().Be("ACTIVE");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
     }
 }

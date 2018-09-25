@@ -17,7 +17,11 @@ namespace Okta.Sdk
     public sealed partial class PasswordPolicyRuleAction : Resource, IPasswordPolicyRuleAction
     {
         /// <inheritdoc/>
-        public string Access => GetStringProperty("access");
+        public string Access 
+        {
+            get => GetStringProperty("access");
+            set => this["access"] = value;
+        }
         
     }
 }
