@@ -16,7 +16,7 @@ namespace Okta.Sdk.IntegrationTests
     public class PoliciesScenarios
     {
         [Fact]
-        public async Task CreatePolicy()
+        public async Task CreateSignOnPolicy()
         {
             var client = TestClient.Create();
 
@@ -324,6 +324,37 @@ namespace Okta.Sdk.IntegrationTests
 
                 retrievedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
                 retrievedPolicy.Status.Should().Be("ACTIVE");
+            }
+            finally
+            {
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreatePasswordPolicy()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"Default policy {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            try
+            {
+                createdPolicy.Should().NotBeNull();
+                createdPolicy.Type.Should().Be(PolicyType.Password);
+                createdPolicy.Status.Should().Be("ACTIVE");
+                createdPolicy.Description.Should().Be(policy.Description);
             }
             finally
             {
@@ -1176,6 +1207,270 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateMFAPolicy()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"Group MFA {guid}",
+            });
+
+            IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
+            {
+                Type = PolicyType.MfaEnroll,
+                Name = $"Test MFA Policy {guid}".Substring(0, 50),
+                Conditions = new MfaEnrollmentPolicyConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Groups = new GroupCondition()
+                        {
+                            Include = new List<string>() { createdGroup.Id },
+                        },
+                    },
+                },
+                Settings = new MfaEnrollmentPolicySettings()
+                {
+                    Factors = new MfaEnrollmentPolicyFactors()
+                    {
+                      OktaSms = new MfaEnrollmentPolicyFactor()
+                      {
+                          Enroll = new MfaEnrollmentPolicyFactorRequirements()
+                          {
+                              Self = MfaEnrollmentPolicyFactorRequirement.Optional,
+                          },
+                          Consent = new MfaEnrollmentPolicyFactorConsent()
+                          {
+                              Type = "NONE",
+                          },
+                      },
+                    },
+                },
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            try
+            {
+                createdPolicy.Should().NotBeNull();
+                createdPolicy.Name.Should().Be(policy.Name);
+                createdPolicy.Type.Should().Be(PolicyType.MfaEnroll);
+                ((IMfaEnrollmentPolicy)createdPolicy).Conditions.People.Groups.Include.Should().Contain(createdGroup.Id);
+                ((IMfaEnrollmentPolicy)createdPolicy).Settings.Factors.OktaSms.Enroll.Self.Should().Be(MfaEnrollmentPolicyFactorRequirement.Optional);
+                ((IMfaEnrollmentPolicy)createdPolicy).Settings.Factors.OktaSms.Consent.Type.Should().Be("NONE");
+            }
+            finally
+            {
+                await client.Groups.DeleteGroupAsync(createdGroup.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateMFAPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"Group MFA {guid}",
+            });
+
+            IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
+            {
+                Type = PolicyType.MfaEnroll,
+                Name = $"Test MFA Policy {guid}".Substring(0, 50),
+                Conditions = new MfaEnrollmentPolicyConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Groups = new GroupCondition()
+                        {
+                            Include = new List<string>() { createdGroup.Id },
+                        },
+                    },
+                },
+                Settings = new MfaEnrollmentPolicySettings()
+                {
+                    Factors = new MfaEnrollmentPolicyFactors()
+                    {
+                        OktaSms = new MfaEnrollmentPolicyFactor()
+                        {
+                            Enroll = new MfaEnrollmentPolicyFactorRequirements()
+                            {
+                                Self = MfaEnrollmentPolicyFactorRequirement.Optional,
+                            },
+                            Consent = new MfaEnrollmentPolicyFactorConsent()
+                            {
+                                Type = "NONE",
+                            },
+                        },
+                    },
+                },
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IMfaEnrollmentPolicyRule policyRule = new MfaEnrollmentPolicyRule()
+            {
+                Type = "MFA_ENROLL",
+                Name = $"Challenge Rule {guid}".Substring(0, 50),
+                Conditions = new MfaEnrollmentPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                },
+                Actions = new MfaEnrollmentPolicyRuleActions()
+                {
+                    Enroll = new MfaEnrollmentPolicyRuleEnrollActions()
+                    {
+                        Self = "CHALLENGE",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Type.Should().Be(PolicyType.MfaEnroll);
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Actions.Enroll.Self.Should().Be("CHALLENGE");
+
+                // Update Rule
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Name = $"Updated {policyRule.Name}".Substring(0, 50);
+
+                var updatedPolicyRule = await client.Policies.UpdatePolicyRuleAsync(createdPolicyRule, createdPolicy.Id, createdPolicyRule.Id);
+
+                updatedPolicyRule.Should().NotBeNull();
+                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Name.Should().StartWith("Updated");
+                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Type.Should().Be(PolicyType.MfaEnroll);
+                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Actions.Enroll.Self.Should().Be("CHALLENGE");
+
+            }
+            finally
+            {
+                await client.Groups.DeleteGroupAsync(createdGroup.Id);
+                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
+                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateMFAPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"Group MFA {guid}",
+            });
+
+            IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
+            {
+                Type = PolicyType.MfaEnroll,
+                Name = $"Test MFA Policy {guid}".Substring(0, 50),
+                Conditions = new MfaEnrollmentPolicyConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Groups = new GroupCondition()
+                        {
+                            Include = new List<string>() { createdGroup.Id },
+                        },
+                    },
+                },
+                Settings = new MfaEnrollmentPolicySettings()
+                {
+                    Factors = new MfaEnrollmentPolicyFactors()
+                    {
+                        OktaSms = new MfaEnrollmentPolicyFactor()
+                        {
+                            Enroll = new MfaEnrollmentPolicyFactorRequirements()
+                            {
+                                Self = MfaEnrollmentPolicyFactorRequirement.Optional,
+                            },
+                            Consent = new MfaEnrollmentPolicyFactorConsent()
+                            {
+                                Type = "NONE",
+                            },
+                        },
+                    },
+                },
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            IMfaEnrollmentPolicyRule policyRule = new MfaEnrollmentPolicyRule()
+            {
+                Type = "MFA_ENROLL",
+                Name = $"Challenge Rule {guid}".Substring(0, 50),
+                Conditions = new MfaEnrollmentPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                },
+                Actions = new MfaEnrollmentPolicyRuleActions()
+                {
+                    Enroll = new MfaEnrollmentPolicyRuleEnrollActions()
+                    {
+                        Self = "CHALLENGE",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Name.Should().Be(policyRule.Name);
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Type.Should().Be(PolicyType.MfaEnroll);
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Actions.Enroll.Self.Should().Be("CHALLENGE");
+            }
+            finally
+            {
+                await client.Groups.DeleteGroupAsync(createdGroup.Id);
                 await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);

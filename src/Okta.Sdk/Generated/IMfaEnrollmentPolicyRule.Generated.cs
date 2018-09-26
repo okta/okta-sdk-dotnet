@@ -19,5 +19,7 @@ namespace Okta.Sdk
 
         IMfaEnrollmentPolicyRuleConditions Conditions { get; set; }
 
+        string Name { get; set; }
+
     }
 }

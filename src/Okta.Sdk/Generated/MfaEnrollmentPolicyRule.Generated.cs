@@ -30,5 +30,12 @@ namespace Okta.Sdk
             set => this["conditions"] = value;
         }
         
+        /// <inheritdoc/>
+        public string Name 
+        {
+            get => GetStringProperty("name");
+            set => this["name"] = value;
+        }
+        
     }
 }
