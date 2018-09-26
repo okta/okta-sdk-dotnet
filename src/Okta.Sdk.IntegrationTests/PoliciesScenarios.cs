@@ -804,7 +804,6 @@ namespace Okta.Sdk.IntegrationTests
                 ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
                 ((IOktaSignOnPolicyRule)updatedPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
                 ((IOktaSignOnPolicyRule)updatedPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
-
             }
             finally
             {
@@ -1372,7 +1371,6 @@ namespace Okta.Sdk.IntegrationTests
                 ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
                 ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
                 ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Actions.Enroll.Self.Should().Be("CHALLENGE");
-
             }
             finally
             {
