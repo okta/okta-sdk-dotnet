@@ -280,7 +280,7 @@ namespace Okta.Sdk.IntegrationTests
 
             createdPolicy.Name = $"Updated Sign On policy {Guid.NewGuid()}".Substring(0, 50);
             createdPolicy.Description = "This description was updated";
-            // TODO: Create Helper
+            // NIT: it would be nicer to do this intead: client.Policies.UpdatePolicyAsync(createdPolicy);
             await client.Policies.UpdatePolicyAsync(createdPolicy, createdPolicy.Id);
 
             var updatedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
@@ -378,6 +378,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
 
+            // NIT: Create an AddPasswordPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addPasswordPolicyRuleOptions);
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
@@ -454,6 +455,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
+            // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
                 Name = $"Skip Factor Challenge when On-Prem {guid}".Substring(0, 50),
@@ -521,7 +523,7 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-
+            // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
                 Name = $"Challenge VPN Users {guid}".Substring(0, 50),
@@ -596,7 +598,7 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-
+            // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
                 Name = $"Challenge Cloud Users {guid}".Substring(0, 50),
@@ -688,7 +690,7 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-
+            // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
                 Name = $"Deny policy rule {guid}".Substring(0, 50),
@@ -773,6 +775,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
+            // NIT: use this instead: client.Policies.AddPolicyRuleAsync(policyRule);
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
@@ -830,7 +833,7 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-
+            // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
                 Name = $"Password Policy Rule {guid}".Substring(0, 50),
@@ -1286,7 +1289,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 Name = $"Group MFA {guid}",
             });
-
+            // NIT: Create an AddMFAPolicyOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.CreatePolicyAsync(addMFAPolicyOptions);
             IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
             {
                 Type = PolicyType.MfaEnroll,
@@ -1321,7 +1324,7 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-
+            // NIT: Create an AddMFAPolicyRulesOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addMFAPolicyRulesOptions)
             IMfaEnrollmentPolicyRule policyRule = new MfaEnrollmentPolicyRule()
             {
                 Type = "MFA_ENROLL",
