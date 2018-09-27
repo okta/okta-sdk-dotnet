@@ -23,7 +23,7 @@ namespace Okta.Sdk.IntegrationTests
             IPolicy policy = new Policy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateSignOnPolicy {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -47,14 +47,14 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task GetAPolicy()
+        public async Task GetPolicy()
         {
             var client = TestClient.Create();
 
             IPolicy policy = new Policy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: GetPolicy {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -80,37 +80,19 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task GetAPolicyOfType()
+        public async Task GetPolicyOfType()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
 
-            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
-            {
-                Name = $"Group Policy People {guid}",
-            });
-
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: GetPolicyOfType {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
-
-            IOktaSignOnPolicyConditions policyConditions = new OktaSignOnPolicyConditions()
-            {
-                People = new PolicyPeopleCondition()
-                {
-                    Groups = new GroupCondition()
-                    {
-                        Include = new List<string>() { createdGroup.Id },
-                    },
-                },
-            };
-
-            policy.Conditions = policyConditions;
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
@@ -119,18 +101,14 @@ namespace Okta.Sdk.IntegrationTests
                 var retrievedPolicy = await client.Policies.GetPolicyAsync<IOktaSignOnPolicy>(createdPolicy.Id);
 
                 retrievedPolicy.Should().NotBeNull();
+                retrievedPolicy.Should().BeAssignableTo<IOktaSignOnPolicy>();
                 retrievedPolicy.Name.Should().Be(policy.Name);
                 retrievedPolicy.Type.Should().Be(PolicyType.OktaSignOn);
                 retrievedPolicy.Status.Should().Be("ACTIVE");
                 retrievedPolicy.Description.Should().Be(policy.Description);
-                retrievedPolicy.Conditions.Should().NotBeNull();
-                retrievedPolicy.Conditions.People.Groups.Should().NotBeNull();
-                retrievedPolicy.Conditions.People.Groups.Include.Should().HaveCount(1);
-                retrievedPolicy.Conditions.People.Groups.Include.First().Should().Be(createdGroup.Id);
             }
             finally
             {
-                await createdGroup.DeleteAsync();
                 await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
@@ -144,13 +122,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = $"Group Policy People {guid}",
+                Name = $"dotnet-sdk: CreateSignOnPolicyWithGroupConditions {guid}",
             });
 
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateSignOnPolicyWithGroupConditions {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -199,7 +177,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy1 = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: Sign On GetAllPoliciesByType {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -207,7 +185,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var policy2 = new PasswordPolicy()
             {
-                Name = $"Password policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: Password GetAllPoliciesByType {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -245,7 +223,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: DeletePolicy {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -270,7 +248,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdatePolicy {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -278,7 +256,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
-            createdPolicy.Name = $"Updated Sign On policy {Guid.NewGuid()}".Substring(0, 50);
+            createdPolicy.Name = $"dotnet-sdk: Updated UpdatePolicy {Guid.NewGuid()}".Substring(0, 50);
             createdPolicy.Description = "This description was updated";
             // NIT: it would be nicer to do this intead: client.Policies.UpdatePolicyAsync(createdPolicy);
             await client.Policies.UpdatePolicyAsync(createdPolicy, createdPolicy.Id);
@@ -289,7 +267,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 updatedPolicy.Id.Should().Be(createdPolicy.Id);
                 updatedPolicy.Type.Should().Be(createdPolicy.Type);
-                updatedPolicy.Name.Should().StartWith("Updated");
+                updatedPolicy.Name.Should().StartWith("dotnet-sdk: Updated");
                 updatedPolicy.Description.Should().Be("This description was updated");
             }
             finally
@@ -300,14 +278,14 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task ActivatePolicy()
+        public async Task ActivateAnInactivePolicy()
         {
             var client = TestClient.Create();
 
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {Guid.NewGuid()}".Substring(0, 50),
+                Name = $"dotnet-sdk: ActivatePolicy {Guid.NewGuid()}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
@@ -316,7 +294,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await createdPolicy.DeactivateAsync();
                 var retrievedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
 
                 retrievedPolicy.Status.Should().Be("INACTIVE");
@@ -341,7 +319,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreatePasswordPolicy {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -372,7 +350,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreatePasswordPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -383,7 +361,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreatePasswordPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -448,7 +426,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnOnPremPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
@@ -458,7 +436,7 @@ namespace Okta.Sdk.IntegrationTests
             // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
-                Name = $"Skip Factor Challenge when On-Prem {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnOnPremPolicyRule {guid}".Substring(0, 50),
                 Type = "SIGN_ON",
                 Actions = new OktaSignOnPolicyRuleActions()
                 {
@@ -517,7 +495,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnRadiusPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
@@ -526,7 +504,7 @@ namespace Okta.Sdk.IntegrationTests
             // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
-                Name = $"Challenge VPN Users {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnRadiusPolicyRule {guid}".Substring(0, 50),
                 Type = "SIGN_ON",
                 Actions = new OktaSignOnPolicyRuleActions()
                 {
@@ -592,7 +570,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnCloudPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
@@ -601,7 +579,7 @@ namespace Okta.Sdk.IntegrationTests
             // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
-                Name = $"Challenge Cloud Users {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnCloudPolicyRule {guid}".Substring(0, 50),
                 Type = "SIGN_ON",
                 Actions = new OktaSignOnPolicyRuleActions()
                 {
@@ -684,7 +662,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnDenyPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
@@ -693,7 +671,7 @@ namespace Okta.Sdk.IntegrationTests
             // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
-                Name = $"Deny policy rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateOktaSignOnDenyPolicyRule {guid}".Substring(0, 50),
                 Type = "SIGN_ON",
                 Actions = new OktaSignOnPolicyRuleActions()
                 {
@@ -746,7 +724,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new OktaSignOnPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Sign On policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.OktaSignOn,
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
@@ -755,7 +733,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IOktaSignOnPolicyRule policyRule = new OktaSignOnPolicyRule()
             {
-                Name = $"Challenge Cloud Users {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
                 Type = "SIGN_ON",
                 Actions = new OktaSignOnPolicyRuleActions()
                 {
@@ -792,11 +770,11 @@ namespace Okta.Sdk.IntegrationTests
                 ((IOktaSignOnPolicyRule)createdPolicyRule).Actions.Signon.Session.MaxSessionLifetimeMinutes.Should().Be(0);
                 ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.AuthContext.AuthType.Should().Be("ANY");
 
-                ((IOktaSignOnPolicyRule)createdPolicyRule).Name = $"Updated {((IOktaSignOnPolicyRule)createdPolicyRule).Name}".Substring(0, 50);
+                ((IOktaSignOnPolicyRule)createdPolicyRule).Name = $"dotnet-sdk: Updated {((IOktaSignOnPolicyRule)createdPolicyRule).Name}".Substring(0, 50);
                 ((IOktaSignOnPolicyRule)createdPolicyRule).Conditions.Network = new PolicyNetworkCondition() { Connection = "ANYWHERE" };
 
                 var updatedPolicyRule = await client.Policies.UpdatePolicyRuleAsync(createdPolicyRule, createdPolicy.Id, createdPolicyRule.Id);
-                ((IOktaSignOnPolicyRule)updatedPolicyRule).Name.Should().StartWith("Updated");
+                ((IOktaSignOnPolicyRule)updatedPolicyRule).Name.Should().StartWith("dotnet-sdk: Updated");
                 ((IOktaSignOnPolicyRule)updatedPolicyRule).Type.Should().Be("SIGN_ON");
                 ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.Access.Should().Be("ALLOW");
                 ((IOktaSignOnPolicyRule)updatedPolicyRule).Actions.Signon.RequireFactor.Should().Be(true);
@@ -826,7 +804,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: GetPolicyRules {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -836,7 +814,7 @@ namespace Okta.Sdk.IntegrationTests
             // NIT: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: GetPolicyRules {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -903,7 +881,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: DeletePolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -913,7 +891,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: DeletePolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -963,7 +941,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: GetPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -973,7 +951,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: GetPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -1024,7 +1002,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdatePasswordPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -1034,7 +1012,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdatePasswordPolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -1070,12 +1048,12 @@ namespace Okta.Sdk.IntegrationTests
                 // Update values
                 ((IPasswordPolicyRule)retrievedPolicyRule).Actions.PasswordChange.Access = "DENY";
                 ((IPasswordPolicyRule)retrievedPolicyRule).Actions.SelfServicePasswordReset.Access = "DENY";
-                ((IPasswordPolicyRule)retrievedPolicyRule).Name = $"Updated {policyRule.Name}".Substring(0, 50);
+                ((IPasswordPolicyRule)retrievedPolicyRule).Name = $"dotnet-sdk: Updated {policyRule.Name}".Substring(0, 50);
 
                 var updatedPolicyRule = await client.Policies.UpdatePolicyRuleAsync(retrievedPolicyRule, createdPolicy.Id, retrievedPolicyRule.Id);
                 ((IPasswordPolicyRule)updatedPolicyRule).Actions.PasswordChange.Access.Should().Be("DENY");
                 ((IPasswordPolicyRule)updatedPolicyRule).Actions.SelfServicePasswordReset.Access.Should().Be("DENY");
-                ((IPasswordPolicyRule)updatedPolicyRule).Name.Should().StartWith("Updated");
+                ((IPasswordPolicyRule)updatedPolicyRule).Name.Should().StartWith("dotnet-sdk: Updated");
                 ((IPasswordPolicyRule)updatedPolicyRule).Type.Should().Be(PolicyType.Password);
                 ((IPasswordPolicyRule)updatedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
             }
@@ -1097,7 +1075,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: DeactivatePolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -1107,7 +1085,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: DeactivatePolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -1151,7 +1129,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task ActivatePolicyRule()
+        public async Task ActivateAnInactivePolicyRule()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
@@ -1159,7 +1137,7 @@ namespace Okta.Sdk.IntegrationTests
             var policy = new PasswordPolicy()
             {
                 // Name has a maximum of 50 chars
-                Name = $"Default policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: ActivatePolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Status = "ACTIVE",
                 Description = "The default policy applies in all situations if no other policy applies.",
@@ -1169,7 +1147,7 @@ namespace Okta.Sdk.IntegrationTests
 
             IPasswordPolicyRule policyRule = new PasswordPolicyRule()
             {
-                Name = $"Password Policy Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: ActivatePolicyRule {guid}".Substring(0, 50),
                 Type = PolicyType.Password,
                 Conditions = new PasswordPolicyRuleConditions()
                 {
@@ -1224,13 +1202,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = $"Group MFA {guid}",
+                Name = $"dotnet-sdk: CreateMFAPolicy {guid}",
             });
 
             IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
             {
                 Type = PolicyType.MfaEnroll,
-                Name = $"Test MFA Policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateMFAPolicy {guid}".Substring(0, 50),
                 Conditions = new MfaEnrollmentPolicyConditions()
                 {
                     People = new PolicyPeopleCondition()
@@ -1287,13 +1265,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = $"Group MFA {guid}",
+                Name = $"dotnet-sdk: UpdateMFAPolicyRule {guid}",
             });
             // NIT: Create an AddMFAPolicyOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.CreatePolicyAsync(addMFAPolicyOptions);
             IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
             {
                 Type = PolicyType.MfaEnroll,
-                Name = $"Test MFA Policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdateMFAPolicyRule {guid}".Substring(0, 50),
                 Conditions = new MfaEnrollmentPolicyConditions()
                 {
                     People = new PolicyPeopleCondition()
@@ -1328,7 +1306,7 @@ namespace Okta.Sdk.IntegrationTests
             IMfaEnrollmentPolicyRule policyRule = new MfaEnrollmentPolicyRule()
             {
                 Type = "MFA_ENROLL",
-                Name = $"Challenge Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: UpdateMFAPolicyRule {guid}".Substring(0, 50),
                 Conditions = new MfaEnrollmentPolicyRuleConditions()
                 {
                     People = new PolicyPeopleCondition()
@@ -1364,12 +1342,12 @@ namespace Okta.Sdk.IntegrationTests
                 ((IMfaEnrollmentPolicyRule)createdPolicyRule).Actions.Enroll.Self.Should().Be("CHALLENGE");
 
                 // Update Rule
-                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Name = $"Updated {policyRule.Name}".Substring(0, 50);
+                ((IMfaEnrollmentPolicyRule)createdPolicyRule).Name = $"dotnet-sdk: Updated {policyRule.Name}".Substring(0, 50);
 
                 var updatedPolicyRule = await client.Policies.UpdatePolicyRuleAsync(createdPolicyRule, createdPolicy.Id, createdPolicyRule.Id);
 
                 updatedPolicyRule.Should().NotBeNull();
-                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Name.Should().StartWith("Updated");
+                ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Name.Should().StartWith("dotnet-sdk: Updated");
                 ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Type.Should().Be(PolicyType.MfaEnroll);
                 ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
                 ((IMfaEnrollmentPolicyRule)updatedPolicyRule).Conditions.Network.Connection.Should().Be("ANYWHERE");
@@ -1393,13 +1371,13 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = $"Group MFA {guid}",
+                Name = $"CreateMFAPolicyRule {guid}",
             });
 
             IMfaEnrollmentPolicy policy = new MfaEnrollmentPolicy()
             {
                 Type = PolicyType.MfaEnroll,
-                Name = $"Test MFA Policy {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateMFAPolicyRule {guid}".Substring(0, 50),
                 Conditions = new MfaEnrollmentPolicyConditions()
                 {
                     People = new PolicyPeopleCondition()
@@ -1434,7 +1412,7 @@ namespace Okta.Sdk.IntegrationTests
             IMfaEnrollmentPolicyRule policyRule = new MfaEnrollmentPolicyRule()
             {
                 Type = "MFA_ENROLL",
-                Name = $"Challenge Rule {guid}".Substring(0, 50),
+                Name = $"dotnet-sdk: CreateMFAPolicyRule {guid}".Substring(0, 50),
                 Conditions = new MfaEnrollmentPolicyRuleConditions()
                 {
                     People = new PolicyPeopleCondition()
