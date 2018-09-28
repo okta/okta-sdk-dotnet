@@ -3,7 +3,11 @@ dotnet: 2.1.3 # .NET Core
 mono: latest
 dist: trusty
 script:
-  - ./build.sh
+  - if [[ $TRAVIS_EVENT_TYPE != 'push' ]]; then
+        ./build.sh --target DefaultIT;
+    else
+        ./build.sh;
+    fi
 env:
   global:
     secure: Nn2fgkaM5WjJiGtjAqPnFH2ULzef+lxemF8TgVaWysshgYWx3G8p70a1sm7tAzw15WQAeg7kGszSdpQqaVOd1fS7Hu7DoGexQcOJmHpoRZn6a50cxIc/2AFAcbW1Ar051Cl3KnNc+9b6L8KcOjAmDs4CMXHrg7BTsiqKbDoCuns=

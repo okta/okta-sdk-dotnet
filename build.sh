@@ -22,7 +22,7 @@ else
     MD5_EXE="md5sum"
 fi
 
-# Define default arguments.
+# Define default arguments
 SCRIPT="build.cake"
 TARGET="Default"
 CONFIGURATION="Release"

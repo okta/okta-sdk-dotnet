@@ -81,6 +81,19 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Theory]
+        [InlineData("{apiToken}")]
+        [InlineData("{APIToken}")]
+        public void FailIfTokenIsNotDefined(string token)
+        {
+            var configuration = new OktaClientConfiguration();
+            configuration.OktaDomain = "https://foo.oktapreview.com";
+            configuration.Token = token;
+
+            Action action = () => OktaClientConfigurationValidator.Validate(configuration);
+            action.Should().Throw<ArgumentException>().Where(e => e.ParamName == nameof(configuration.Token));
+        }
+
+        [Theory]
         [InlineData("http://myOktaDomain.oktapreview.com")]
         [InlineData("httsp://myOktaDomain.oktapreview.com")]
         [InlineData("invalidOktaDomain")]
