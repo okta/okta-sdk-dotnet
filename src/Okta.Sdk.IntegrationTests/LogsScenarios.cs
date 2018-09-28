@@ -55,11 +55,11 @@ namespace Okta.Sdk.IntegrationTests
                 AuthUrl = "https://example.com/auth.html",
             });
 
-            await Task.Delay(2000);
+            await Task.Delay(5000);
 
             try
             {
-                var query = $"dotnet-sdk: GetLogsByQueryString {guid}";
+                var query = $"dotnet-sdk: GetLogsByQueryString";
                 var logs = await client.Logs.GetLogs(null, null, null, query).ToList();
 
                 logs.Should().NotBeNullOrEmpty();
