@@ -18,10 +18,11 @@ namespace Okta.Sdk.IntegrationTests
         public async Task GetGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Get Test Group",
+                Name = $"dotnet-sdk: Get Test Group {guid}",
             });
 
             try
@@ -43,10 +44,11 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ListGroups()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "List Test Group",
+                Name = $"dotnet-sdk: List Test Group {guid}",
             });
 
             try
@@ -68,10 +70,11 @@ namespace Okta.Sdk.IntegrationTests
         public async Task SearchGroups()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Search Test Group",
+                Name = $"dotnet-sdk: Search Test Group {guid}",
             });
 
             try
@@ -95,10 +98,11 @@ namespace Okta.Sdk.IntegrationTests
         public async Task UpdateGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "Update Test Group",
+                Name = $"dotnet-sdk: Update Test Group {guid}",
             });
 
             await Task.Delay(1000);
@@ -123,11 +127,12 @@ namespace Okta.Sdk.IntegrationTests
         public async Task AddUserToGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "New Users Test Group",
+                Name = $"dotnet-sdk: New Users Test Group {guid}",
             });
 
             // Create a user
@@ -137,8 +142,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-add-group@example.com",
-                    Login = "john-add-group@example.com",
+                    Email = $"john-add-group-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-add-group-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -168,11 +173,12 @@ namespace Okta.Sdk.IntegrationTests
         public async Task RemoveUserFromGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "New Users Test Group",
+                Name = $"dotnet-sdk: New Users Test Group {guid}",
             });
 
             // Create a user
@@ -182,8 +188,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-remove-from-group@example.com",
-                    Login = "john-remove-from-group@example.com",
+                    Email = $"john-remove-from-group-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-remove-from-group-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -218,11 +224,12 @@ namespace Okta.Sdk.IntegrationTests
         public async Task RemoveDeletedUserFromGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "New Users Test Group",
+                Name = $"dotnet-sdk: New Users Test Group {guid}",
             });
 
             // Create a user
@@ -232,8 +239,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-delete-user@example.com",
-                    Login = "john-delete-user@example.com",
+                    Email = $"john-delete-user-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-delete-user-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -268,11 +275,12 @@ namespace Okta.Sdk.IntegrationTests
         public async Task RemoveGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "New Users Test Group",
+                Name = $"dotnet-sdk: New Users Test Group {guid}",
             });
 
             // Create a user
@@ -282,8 +290,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Remove-Group",
-                    Email = "john-remove-group@example.com",
-                    Login = "john-remove-group@example.com",
+                    Email = $"john-remove-group-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-remove-group-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -319,11 +327,12 @@ namespace Okta.Sdk.IntegrationTests
         public async Task CreateGroup()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create group
             var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
             {
-                Name = "New Test Group",
+                Name = $"dotnet-sdk: New Test Group {guid}",
             });
 
             try
@@ -331,7 +340,7 @@ namespace Okta.Sdk.IntegrationTests
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
 
                 retrievedGroup.Should().NotBeNull();
-                retrievedGroup.Profile.Name.Should().Be("New Test Group");
+                retrievedGroup.Profile.Name.Should().Be($"dotnet-sdk: New Test Group {guid}");
             }
             finally
             {

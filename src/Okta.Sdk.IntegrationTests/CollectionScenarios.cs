@@ -185,8 +185,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = $"Jack-{randomGuid}",
                     LastName = "CollectionEnumeration",
-                    Email = $"collection-enumeration-{randomGuid}@example.com",
-                    Login = $"collection-enumeration-{randomGuid}@example.com",
+                    Email = $"collection-enumeration-dotnet-sdk-{randomGuid}@example.com",
+                    Login = $"collection-enumeration-dotnet-sdk-{randomGuid}@example.com",
                 },
                 Activate = false,
             });

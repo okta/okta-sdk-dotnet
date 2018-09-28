@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -17,13 +18,14 @@ namespace Okta.Sdk.IntegrationTests
         public async Task CreateSecurityQuestionFactor()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var profile = new UserProfile
             {
                 FirstName = "Jill",
                 LastName = "Factor-SecurityQuestion",
-                Email = "jill-factor-securityquestion@example.com",
-                Login = "jill-factor-securityquestion@example.com",
+                Email = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+                Login = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
             };
             profile["nickName"] = "jill-factor-securityquestion";
 
@@ -60,13 +62,14 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ListFactorsForNewUser()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var profile = new UserProfile
             {
                 FirstName = "Jack",
                 LastName = "List-Factors",
-                Email = "jack-list-factors@example.com",
-                Login = "jack-list-factors@example.com",
+                Email = $"jack-list-factors-dotnet-sdk-{guid}@example.com",
+                Login = $"jack-list-factors-dotnet-sdk-{guid}@example.com",
             };
             profile["nickName"] = "jack-list-users";
 
