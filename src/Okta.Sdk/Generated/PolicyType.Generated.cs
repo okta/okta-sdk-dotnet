@@ -12,9 +12,6 @@ namespace Okta.Sdk
     /// </summary>
     public sealed class PolicyType : StringEnum
     {
-        /// <summary>The MFA_ENROLL PolicyType.</summary>
-        public static PolicyType MfaEnroll = new PolicyType("MFA_ENROLL");
-
         /// <summary>The OAUTH_AUTHORIZATION_POLICY PolicyType.</summary>
         public static PolicyType OauthAuthorizationPolicy = new PolicyType("OAUTH_AUTHORIZATION_POLICY");
 

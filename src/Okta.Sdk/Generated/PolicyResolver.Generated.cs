@@ -30,11 +30,6 @@ namespace Okta.Sdk.Internal
                 return typeof(Policy);
             }
             
-            if (value.Equals("MFA_ENROLL"))
-            {
-                return typeof(MfaEnrollmentPolicy);
-            }
-            
             if (value.Equals("OKTA_SIGN_ON"))
             {
                 return typeof(OktaSignOnPolicy);
