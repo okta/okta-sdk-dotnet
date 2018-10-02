@@ -23,7 +23,7 @@ namespace Okta.Sdk.IntegrationTests
             // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "App creation to be logged",
+                Label = $"dotnet-sdk: GetLogs {Guid.NewGuid()}",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -46,20 +46,20 @@ namespace Okta.Sdk.IntegrationTests
         public async Task GetLogsByQueryString()
         {
             var client = TestClient.Create();
-
+            var guid = Guid.NewGuid();
             // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "App creation to be logged",
+                Label = $"dotnet-sdk: GetLogsByQueryString {guid}",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
 
-            await Task.Delay(2000);
+            await Task.Delay(5000);
 
             try
             {
-                var query = "App creation to be logged";
+                var query = $"dotnet-sdk: GetLogsByQueryString";
                 var logs = await client.Logs.GetLogs(null, null, null, query).ToList();
 
                 logs.Should().NotBeNullOrEmpty();
@@ -80,7 +80,7 @@ namespace Okta.Sdk.IntegrationTests
             // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "App creation to be logged",
+                Label = $"dotnet-sdk: GetLogsByEventType {Guid.NewGuid()}",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
@@ -99,16 +99,16 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-	[Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/271")]	
+        [Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/271")]
         [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
-	public async Task GetLogsBySinceDate()
+        public async Task GetLogsBySinceDate()
         {
             var client = TestClient.Create();
 
             // Create an Application so there is something in the logs
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateBasicAuthApplicationOptions()
             {
-                Label = "App creation to be logged",
+                Label = $"dotnet-sdk: GetLogsBySinceDate {Guid.NewGuid()}",
                 Url = "https://example.com/login.html",
                 AuthUrl = "https://example.com/auth.html",
             });
