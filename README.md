@@ -75,7 +75,7 @@ Construct a client instance by passing it your Okta domain name and API token:
 ``` csharp
 var client = new OktaClient(new OktaClientConfiguration
 {
-    OrgUrl = "https://{{yourOktaDomain}}",
+    OktaDomain = "https://{{yourOktaDomain}}",
     Token = "{{yourApiToken}}"
 });
 ```
