@@ -39,5 +39,9 @@ namespace Okta.Sdk
 
         ICollectionClient<IPolicyRule> ListPolicyRules();
 
+        Task<IPolicyRule> CreateRuleAsync(PolicyRule policyRule, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IPolicyRule> GetPolicyRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

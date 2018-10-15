@@ -20,5 +20,62 @@ namespace Okta.Sdk
         /// <returns>The <see cref="IPolicy"/> response.</returns>
         Task<T> GetPolicyAsync<T>(string policyId, CancellationToken cancellationToken = default(CancellationToken))
             where T : class, IPolicy;
+
+        /// <summary>
+        /// Creates a policy
+        /// </summary>
+        /// <typeparam name="T">The policy type</typeparam>
+        /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
+        /// <param name="activate">The activate flag</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPolicy"/> response.</returns>
+        Task<T> CreatePolicyAsync<T>(IPolicy policy, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IPolicy;
+
+        /// <summary>
+        /// Updates a policy
+        /// </summary>
+        /// <typeparam name="T">The policy type</typeparam>
+        /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
+        /// <param name="policyId">The policy ID</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPolicy"/> response.</returns>
+        Task<T> UpdatePolicyAsync<T>(IPolicy policy, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IPolicy;
+
+        /// <summary>
+        /// Creates a policy rule
+        /// </summary>
+        /// <typeparam name="T">The policy Rule type</typeparam>
+        /// <param name="policyRule">The <see cref="IPolicyRule"/> resource.</param>
+        /// <param name="policyId">The policy ID</param>
+        /// <param name="activate">The activate flag</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPolicyRule"/> response.</returns>
+        Task<T> AddPolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IPolicyRule;
+
+        /// <summary>
+        /// Updates a policy rule
+        /// </summary>
+        /// <typeparam name="T">The policy Rule type</typeparam>
+        /// <param name="policyRule">The <see cref="IPolicyRule"/> resource.</param>
+        /// <param name="policyId">The policy ID</param>
+        /// <param name="ruleId">The rule ID</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPolicyRule"/> response.</returns>
+        Task<T> UpdatePolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IPolicyRule;
+
+        /// <summary>
+        /// Gets a Policy Rule
+        /// </summary>
+        /// <typeparam name="T">The policy Rule type</typeparam>
+        /// <param name="policyId">The policy ID</param>
+        /// <param name="ruleId">The rule ID</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPolicyRule"/> response.</returns>
+        Task<T> GetPolicyRuleAsync<T>(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            where T : class, IPolicyRule;
     }
 }

@@ -79,5 +79,13 @@ namespace Okta.Sdk
         public ICollectionClient<IPolicyRule> ListPolicyRules()
             => GetClient().Policies.ListPolicyRules(Id);
         
+        /// <inheritdoc />
+        public Task<IPolicyRule> CreateRuleAsync(PolicyRule policyRule, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Policies.AddPolicyRuleAsync(policyRule, Id, activate, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IPolicyRule> GetPolicyRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Policies.GetPolicyRuleAsync(Id, ruleId, cancellationToken);
+        
     }
 }
