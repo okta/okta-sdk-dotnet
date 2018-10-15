@@ -22,13 +22,14 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ListUsers()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var profile = new UserProfile
             {
                 FirstName = "John",
                 LastName = "List-Users",
-                Email = "john-list-users@example.com",
-                Login = "john-list-users@example.com",
+                Email = $"john-list-users-dotnet-sdk-{guid}@example.com",
+                Login = $"john-list-users-dotnet-sdk-{guid}@example.com",
             };
             profile["nickName"] = "johny-list-users";
 
@@ -71,6 +72,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task GetUser()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -79,8 +81,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-User",
-                    Email = "john-get-user@example.com",
-                    Login = "john-get-user@example.com",
+                    Email = $"john-get-user-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-get-user-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = false,
@@ -114,6 +116,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ActivateUser()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -122,8 +125,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Activate",
-                    Email = "john-activate@example.com",
-                    Login = "john-activate@example.com",
+                    Email = $"john-activate-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-activate-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = false,
@@ -150,6 +153,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task UpdateUserProfile()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -158,8 +162,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Profile-Update",
-                    Email = "john-profile-update@example.com",
-                    Login = "john-profile-update@example.com",
+                    Email = $"john-profile-update-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-profile-update-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = false,
@@ -188,6 +192,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task UpdateUserProfileWithDynamicObject()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -196,8 +201,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Dynamic Profile",
-                    Email = "john-dynamic-profile@example.com",
-                    Login = "john-dynamic-profile@example.com",
+                    Email = $"john-dynamic-profile-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-dynamic-profile-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = false,
@@ -237,6 +242,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task GetResetPasswordUrl()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
@@ -244,8 +250,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Get-Reset-Password-URL",
-                    Email = "john-get-reset-password-url@example.com",
-                    Login = "john-get-reset-password-url@example.com",
+                    Email = $"john-get-reset-password-url-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-get-reset-password-url-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -268,6 +274,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task SuspendUser()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -276,8 +283,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Suspend",
-                    Email = "john-suspend@example.com",
-                    Login = "john-suspend@example.com",
+                    Email = $"john-suspend-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-suspend-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -306,6 +313,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ChangeUserPassword()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
@@ -313,8 +321,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Change-User-Password",
-                    Email = "john-change-user-password@example.com",
-                    Login = "john-change-user-password@example.com",
+                    Email = $"john-change-user-password-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-change-user-password-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -347,6 +355,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ExpireUserPassword()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -355,8 +364,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Expire-Password",
-                    Email = "john-expire-password@example.com",
-                    Login = "john-expire-password@example.com",
+                    Email = $"john-expire-password-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-expire-password-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -381,6 +390,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ChangeUserRecoveryQuestion()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
@@ -389,8 +399,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "John",
                     LastName = "Change-Recovery-Question",
-                    Email = "john-change-recover-question@example.com",
-                    Login = "john-change-recover-question@example.com",
+                    Email = $"john-change-recover-question-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-change-recover-question-dotnet-sdk-{guid}@example.com",
                 },
                 Password = "Abcd1234",
                 Activate = true,
@@ -418,6 +428,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task CreateUserWithProvider()
         {
             var client = TestClient.Create();
+            var guid = Guid.NewGuid();
 
             // Create a user
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithProviderOptions
@@ -426,8 +437,8 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     FirstName = "Joanna",
                     LastName = "CreatedWithProvider",
-                    Email = "joanna-create-with-provider@example.com",
-                    Login = "joanna-create-with-provider@example.com",
+                    Email = $"joanna-create-with-provider-dotnet-sdk-{guid}@example.com",
+                    Login = $"joanna-create-with-provider-dotnet-sdk-{guid}@example.com",
                 },
                 ProviderType = AuthenticationProviderType.Federation,
                 ProviderName = "FEDERATION",
