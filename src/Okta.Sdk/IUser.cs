@@ -154,10 +154,9 @@ namespace Okta.Sdk
         Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deactivates a user
+        /// Deactivates a user. Explicit overload to support backward compatibility.
         /// </summary>
         /// <returns>The asynchronous task</returns>
-        [Obsolete("This method is deprecated, use DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
         Task DeactivateAsync();
     }
 }
