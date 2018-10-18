@@ -418,5 +418,15 @@ namespace Okta.Sdk
 
             return AssignUserToApplicationAsync(appUser, options.ApplicationId, cancellationToken);
         }
+
+        /// <inheritdoc />
+        [Obsolete("This method is deprecated, use DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
+        public async Task DeleteApplicationUserAsync(string appId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteApplicationUserAsync(appId, userId, false, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        [Obsolete("This method is deprecated, use DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
+        public async Task DeleteApplicationUserAsync(string appId, string userId)
+            => await DeleteApplicationUserAsync(appId, userId, false, default(CancellationToken)).ConfigureAwait(false);
     }
 }

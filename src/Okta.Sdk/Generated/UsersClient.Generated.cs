@@ -27,7 +27,7 @@ namespace Okta.Sdk
             : base(dataStore, configuration, requestContext)
         {
         }
-        
+
         /// <inheritdoc />
         public ICollectionClient<IUser> ListUsers(string q = null, string after = null, int? limit = -1, string filter = null, string format = null, string search = null, string expand = null)
             => GetCollectionClient<IUser>(new HttpRequest
@@ -360,6 +360,15 @@ namespace Okta.Sdk
                     ["oauthTokens"] = oauthTokens,
                 },
                 }, cancellationToken).ConfigureAwait(false);
-        
+
+        /// <inheritdoc />
+        [Obsolete("This method is deprecated, use DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead", false)]
+        public Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => DeactivateOrDeleteUserAsync(userId, false, cancellationToken);
+
+        /// <inheritdoc />
+        [Obsolete("This method is deprecated, use DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead", false)]
+        public Task DeactivateOrDeleteUserAsync(string userId)
+            => DeactivateOrDeleteUserAsync(userId, false, default(CancellationToken));
     }
 }

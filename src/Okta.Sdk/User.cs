@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -85,5 +86,15 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task<IFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, totpFactorOptions, cancellationToken);
+
+        /// <inheritdoc />
+        [Obsolete("This method is deprecated, use DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
+        public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+            => DeactivateAsync(false, cancellationToken);
+
+        /// <inheritdoc />
+        [Obsolete("This method is deprecated, use DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
+        public Task DeactivateAsync()
+            => DeactivateAsync(false, default(CancellationToken));
     }
 }
