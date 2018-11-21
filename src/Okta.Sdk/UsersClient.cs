@@ -159,5 +159,13 @@ namespace Okta.Sdk
             bool? sendEmail = true,
             CancellationToken cancellationToken = default(CancellationToken))
             => ResetPasswordAsync(userId, null, sendEmail, cancellationToken);
+
+        /// <inheritdoc />
+        public Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => DeactivateOrDeleteUserAsync(userId, false, cancellationToken);
+
+        /// <inheritdoc />
+        public Task DeactivateOrDeleteUserAsync(string userId)
+            => DeactivateOrDeleteUserAsync(userId, false, default(CancellationToken));
     }
 }

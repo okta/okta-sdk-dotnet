@@ -41,7 +41,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -74,7 +73,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -109,7 +107,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -164,7 +161,6 @@ namespace Okta.Sdk.IntegrationTests
             finally
             {
                 await createdGroup.DeleteAsync();
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -208,9 +204,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy1.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy1.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy2.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy2.Id);
             }
         }
@@ -272,7 +266,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -308,22 +301,20 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            var createdPolicyRule = await createdPolicy.CreateRuleAsync(policyRule);
+            var createdPolicyRule = await createdPolicy.CreateRuleAsync<IOktaSignOnPolicyRule>(policyRule);
 
             try
             {
                 createdPolicyRule.Should().NotBeNull();
                 createdPolicyRule.Id.Should().NotBeNullOrEmpty();
-                ((IOktaSignOnPolicyRule)createdPolicyRule).Name.Should().Be($"dotnet-sdk: CreatePolicyRuleViaCrudMethod {guid}".Substring(0, 50));
+                createdPolicyRule.Name.Should().Be($"dotnet-sdk: CreatePolicyRuleViaCrudMethod {guid}".Substring(0, 50));
 
                 var retrievedRule = await client.Policies.GetPolicyRuleAsync<IOktaSignOnPolicyRule>(createdPolicy.Id, createdPolicyRule.Id);
                 retrievedRule.Should().NotBeNull();
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -356,7 +347,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -387,7 +377,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -461,9 +450,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -530,9 +517,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -605,9 +590,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -697,9 +680,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -759,9 +740,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -839,9 +818,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -916,9 +893,82 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetPolicyRulesOfType()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var policy = new PasswordPolicy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"dotnet-sdk: GetPolicyRulesOfType {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            var policyRule = new PasswordPolicyRule()
+            {
+                Name = $"dotnet-sdk: GetPolicyRules {guid}".Substring(0, 50),
+                Type = PolicyType.Password,
+                Conditions = new PasswordPolicyRuleConditions()
+                {
+                    People = new PolicyPeopleCondition()
+                    {
+                        Users = new UserCondition()
+                        {
+                            Exclude = new List<string>(),
+                        },
+                    },
+                    Network = new PolicyNetworkCondition()
+                    {
+                        Connection = "ANYWHERE",
+                    },
+                },
+                Actions = new PasswordPolicyRuleActions()
+                {
+                    PasswordChange = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                    SelfServicePasswordReset = new PasswordPolicyRuleAction()
+                    {
+                        Access = "ALLOW",
+                    },
+                    SelfServiceUnlock = new PasswordPolicyRuleAction()
+                    {
+                        Access = "DENY",
+                    },
+                },
+            };
+
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IPasswordPolicyRule>(policyRule, createdPolicy.Id);
+
+            try
+            {
+                var policyRules = await createdPolicy.ListPolicyRules().OfType<IPasswordPolicyRule>().ToList();
+
+                policyRules.Should().NotBeNullOrEmpty();
+                policyRules.Should().HaveCount(1);
+                ((IPasswordPolicyRule)policyRules.First()).Name.Should().Be(policyRule.Name);
+                ((IPasswordPolicyRule)policyRules.First()).Type.Should().Be(PolicyType.Password);
+                ((IPasswordPolicyRule)policyRules.First()).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
+                ((IPasswordPolicyRule)policyRules.First()).Conditions.Network.Connection.Should().Be("ANYWHERE");
+                ((IPasswordPolicyRule)policyRules.First()).Actions.PasswordChange.Access.Should().Be("ALLOW");
+                ((IPasswordPolicyRule)policyRules.First()).Actions.SelfServicePasswordReset.Access.Should().Be("ALLOW");
+                ((IPasswordPolicyRule)policyRules.First()).Actions.SelfServiceUnlock.Access.Should().Be("DENY");
+            }
+            finally
+            {
+                await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -978,7 +1028,6 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -1037,9 +1086,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -1079,15 +1126,13 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var retrievedRule = await createdPolicy.GetPolicyRuleAsync(createdPolicyRule.Id);
+                var retrievedRule = await createdPolicy.GetPolicyRuleAsync<IOktaSignOnPolicyRule>(createdPolicyRule.Id);
                 retrievedRule.Should().NotBeNull();
-                ((IOktaSignOnPolicyRule)retrievedRule).Name.Should().Be($"dotnet-sdk: GetPolicyRuleViaCrudMethod {guid}".Substring(0, 50));
+                retrievedRule.Name.Should().Be($"dotnet-sdk: GetPolicyRuleViaCrudMethod {guid}".Substring(0, 50));
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -1158,9 +1203,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -1220,9 +1263,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
@@ -1286,9 +1327,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await client.Policies.DeactivatePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
                 await client.Policies.DeletePolicyRuleAsync(createdPolicy.Id, createdPolicyRule.Id);
-                await client.Policies.DeactivatePolicyAsync(createdPolicy.Id);
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }

@@ -129,15 +129,16 @@ namespace Okta.Sdk
         /// <param name="userId">The user ID</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        [Obsolete("This method is deprecated, use DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task DeleteApplicationUserAsync(string appId, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes an assignment for a user from an application. Explicit overload to support backward compatibility.
+        /// Removes an assignment for a user from an application.
         /// </summary>
         /// <param name="appId">The application ID</param>
         /// <param name="userId">The user ID</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task DeleteApplicationUserAsync(string appId, string userId);
     }
 }

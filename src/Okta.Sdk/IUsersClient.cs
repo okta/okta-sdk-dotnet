@@ -84,7 +84,7 @@ namespace Okta.Sdk
         /// <param name="userId">The User ID</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        [Obsolete("This method is deprecated, use DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead", false)]
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="userId">The User ID</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        [Obsolete("This method is deprecated, use DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead", false)]
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task DeactivateOrDeleteUserAsync(string userId);
     }
 }

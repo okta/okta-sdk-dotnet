@@ -88,7 +88,6 @@ namespace Okta.Sdk
             => GetClient().UserFactors.AddFactorAsync(Id, totpFactorOptions, cancellationToken);
 
         /// <inheritdoc />
-        [Obsolete("This method is deprecated, use DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken)) instead.", false)]
         public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
             => DeactivateAsync(false, cancellationToken);
 
