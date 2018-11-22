@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -39,8 +40,8 @@ namespace Okta.Sdk
             => GetClient().Users.ResetPasswordAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc/>
-        public Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.DeactivateOrDeleteUserAsync(Id, cancellationToken);
+        public Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.DeactivateOrDeleteUserAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc/>
         public Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
@@ -85,5 +86,13 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task<IFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, totpFactorOptions, cancellationToken);
+
+        /// <inheritdoc />
+        public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+            => DeactivateAsync(false, cancellationToken);
+
+        /// <inheritdoc />
+        public Task DeactivateAsync()
+            => DeactivateAsync(false, default(CancellationToken));
     }
 }

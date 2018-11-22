@@ -418,5 +418,13 @@ namespace Okta.Sdk
 
             return AssignUserToApplicationAsync(appUser, options.ApplicationId, cancellationToken);
         }
+
+        /// <inheritdoc />
+        public async Task DeleteApplicationUserAsync(string appId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteApplicationUserAsync(appId, userId, false, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task DeleteApplicationUserAsync(string appId, string userId)
+            => await DeleteApplicationUserAsync(appId, userId, false, default(CancellationToken)).ConfigureAwait(false);
     }
 }

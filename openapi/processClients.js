@@ -2,7 +2,8 @@ const {
   camelCase,
   pascalCase,
   createMethodSignatureLiteral,
-  createParametersLiteral
+  createParametersLiteral,
+  getPluralName
 } = require('./utils');
 
 const {
@@ -45,15 +46,16 @@ function getTemplatesForClients(operations, infoLogger, errorLogger) {
   // Assign handlebars templates to each client
   let clientTemplates = [];
   for (let clientName of Object.keys(clients)) {
+    let pluralClientName = getPluralName(clientName);
     clientTemplates.push({
       src: 'templates/IClient.cs.hbs',
-      dest: `Generated/I${clientName}sClient.Generated.cs`,
+      dest: `Generated/I${pluralClientName}Client.Generated.cs`,
       context: createContextForClient(clientName, clients[clientName])
     });
 
     clientTemplates.push({
       src: 'templates/Client.cs.hbs',
-      dest: `Generated/${clientName}sClient.Generated.cs`,
+      dest: `Generated/${pluralClientName}Client.Generated.cs`,
       context: createContextForClient(clientName, clients[clientName])
     });
   }
@@ -101,7 +103,7 @@ Creates the context that the handlebars template is bound to:
 */
 function createContextForClient(tag, operations) {
   let context = {
-    memberName: `${tag}s`,
+    memberName: getPluralName(tag),
     resourceName: tag,
     operations: []
   };

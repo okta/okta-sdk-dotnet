@@ -259,7 +259,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteApplicationUserAsync(string appId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/users/{userId}",
@@ -268,6 +268,10 @@ namespace Okta.Sdk
                 {
                     ["appId"] = appId,
                     ["userId"] = userId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["sendEmail"] = sendEmail,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         

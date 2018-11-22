@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -51,9 +52,10 @@ namespace Okta.Sdk
         /// <summary>
         /// Deletes a deactivated user
         /// </summary>
+        /// <param name="sendEmail">The send email flag</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The asynchronous task</returns>
-        Task DeactivateOrDeleteAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Changes the user recovery question
@@ -142,5 +144,20 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IFactor"/> response</returns>
         Task<IFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deactivates a user
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The asynchronous task</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deactivates a user.
+        /// </summary>
+        /// <returns>The asynchronous task</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task DeactivateAsync();
     }
 }

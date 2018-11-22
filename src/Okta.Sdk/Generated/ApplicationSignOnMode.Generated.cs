@@ -36,6 +36,9 @@ namespace Okta.Sdk
         /// <summary>The OPENID_CONNECT ApplicationSignOnMode.</summary>
         public static ApplicationSignOnMode OpenIdConnect = new ApplicationSignOnMode("OPENID_CONNECT");
 
+        /// <summary>The SAML_1_1 ApplicationSignOnMode.</summary>
+        public static ApplicationSignOnMode Saml11 = new ApplicationSignOnMode("SAML_1_1");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="ApplicationSignOnMode"/>
         /// </summary>

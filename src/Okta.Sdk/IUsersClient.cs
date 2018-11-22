@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -76,5 +77,22 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IResetPasswordToken"/> response.</returns>
         Task<IResetPasswordToken> ResetPasswordAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deletes a user permanently. This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**
+        /// </summary>
+        /// <param name="userId">The User ID</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deletes a user permanently. This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**
+        /// </summary>
+        /// <param name="userId">The User ID</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task DeactivateOrDeleteUserAsync(string userId);
     }
 }

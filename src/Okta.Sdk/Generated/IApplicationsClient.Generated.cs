@@ -170,9 +170,10 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="appId"></param>
         /// <param name="userId"></param>
+        /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteApplicationUserAsync(string appId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches a specific user assignment for application by &#x60;id&#x60;.

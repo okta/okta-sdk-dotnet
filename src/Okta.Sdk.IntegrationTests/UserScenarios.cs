@@ -55,7 +55,7 @@ namespace Okta.Sdk.IntegrationTests
                 // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
                 // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
 
-                var policy = Policy
+                var policy = Polly.Policy
                     .Handle<Exception>()
                     .WaitAndRetryAsync(3, attemptNumber => TimeSpan.FromSeconds(Math.Pow(2, attemptNumber - 1)));
 

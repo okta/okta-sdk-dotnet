@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -120,5 +121,24 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IAppUser"/> response.</returns>
         Task<IAppUser> AssignUserToApplicationAsync(AssignUserToApplicationOptions options, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes an assignment for a user from an application.
+        /// </summary>
+        /// <param name="appId">The application ID</param>
+        /// <param name="userId">The user ID</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task DeleteApplicationUserAsync(string appId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes an assignment for a user from an application.
+        /// </summary>
+        /// <param name="appId">The application ID</param>
+        /// <param name="userId">The user ID</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task DeleteApplicationUserAsync(string appId, string userId);
     }
 }
