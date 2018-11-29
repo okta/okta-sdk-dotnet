@@ -42,19 +42,21 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public T Current => _pagedEnumerator.CurrentPage.Items.ElementAt(_localPageIndex++);
+        public T Current => _pagedEnumerator.CurrentPage.Items.ElementAt(_localPageIndex);
 
 #pragma warning disable UseAsyncSuffix // Must match interface
         /// <inheritdoc/>
         public async Task<bool> MoveNext(CancellationToken cancellationToken)
 #pragma warning restore UseAsyncSuffix // Must match interface
         {
+
             var hasMoreLocalItems = _initialized
                 && _pagedEnumerator.CurrentPage.Items.Any()
-                && _localPageIndex < _pagedEnumerator.CurrentPage.Items.Count();
+                && (_localPageIndex + 1) < _pagedEnumerator.CurrentPage.Items.Count();
 
             if (hasMoreLocalItems)
             {
+                _localPageIndex++;
                 return true;
             }
 
