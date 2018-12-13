@@ -54,9 +54,9 @@ namespace Okta.Sdk.IntegrationTests
             finally
             {
                 // Remove the users
-                var tasks = createdUsers.Select(x => DeleteUser(x));
+                //var tasks = createdUsers.Select(x => DeleteUser(x));
 
-                await Task.WhenAll(tasks);
+                //await Task.WhenAll(tasks);
             }
 
             successful.Should().BeTrue();
