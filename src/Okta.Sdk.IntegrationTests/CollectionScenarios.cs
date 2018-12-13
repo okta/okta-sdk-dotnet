@@ -46,11 +46,11 @@ namespace Okta.Sdk.IntegrationTests
                 var count = await users.Count();
                 count.Should().Be(10);
             }
-            catch (Exception e)
-            {
-                _logger.LogMessage($"Exception while running test: {e.Message}");
-                successful = false;
-            }
+            //catch (Exception e)
+            //{
+            //    _logger.LogMessage($"Exception while running test: {e.Message}");
+            //    successful = false;
+            //}
             finally
             {
                 // Remove the users
