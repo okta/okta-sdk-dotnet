@@ -74,14 +74,15 @@ namespace Okta.Sdk
         /// </param>
         /// <param name="httpClient">The HTTP client to use for requests to the Okta API.</param>
         /// <param name="logger">The logging interface to use, if any.</param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null)
+        /// <param name="retryStrategy">The retry strategy interface to use, if any.</param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
             OktaClientConfigurationValidator.Validate(Configuration);
 
             logger = logger ?? NullLogger.Instance;
 
-            var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger);
+            var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger, retryStrategy);
             var resourceFactory = new ResourceFactory(this, logger);
             _dataStore = new DefaultDataStore(
                 requestExecutor,

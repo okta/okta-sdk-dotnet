@@ -22,12 +22,38 @@ namespace Okta.Sdk.Configuration
         public const int DefaultConnectionTimeout = 30; // Seconds
 
         /// <summary>
+        /// The default number of times to retry
+        /// </summary>
+        public static readonly int DefaultMaxRetries = 2;
+
+        /// <summary>
+        /// The default request timeout in seconds
+        /// </summary>
+        public static readonly int DefaultRequestTimeOut = 0;
+
+        /// <summary>
         /// Gets or sets the HTTP connection timeout in seconds. If <c>null</c>, the default timeout is used.
         /// </summary>
         /// <value>
         /// The HTTP connection timeout in seconds.
         /// </value>
         public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
+
+        /// <summary>
+        /// Gets or sets the time to wait for resolved client request (includes retries), less or equal than 0 means "no timeout"
+        /// </summary>
+        /// <value>
+        /// The request timeout in seconds.
+        /// </value>
+        public int? RequestTimeout { get; set; } = DefaultRequestTimeOut;
+
+        /// <summary>
+        /// Gets or sets the number of times to retry
+        /// </summary>
+        /// <value>
+        /// The number of times to retry
+        /// </value>
+        public int? MaxRetries { get; set; } = DefaultMaxRetries;
 
         /// <summary>
         /// Gets or sets the Okta Organization URL to use.
