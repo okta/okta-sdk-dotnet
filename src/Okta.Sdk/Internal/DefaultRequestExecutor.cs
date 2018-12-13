@@ -80,9 +80,9 @@ namespace Okta.Sdk.Internal
         {
             _logger.LogTrace($"{request.Method} {request.RequestUri}");
 
-            Func<HttpRequestMessage, Task<HttpResponseMessage>> operation = async (x) => await _httpClient.SendAsync(x, cancellationToken).ConfigureAwait(false);
+           // Func<HttpRequestMessage, Task<HttpResponseMessage>> operation = async (x) => await _httpClient.SendAsync(x, cancellationToken).ConfigureAwait(false);
 
-            using (var response = await _retryStrategy.WaitAndRetryAsync(request, operation).ConfigureAwait(false))
+            using (var response = await _httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false))
             {
                 _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
 
