@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NSubstitute;
@@ -139,7 +140,11 @@ namespace Okta.Sdk.UnitTests
             request.RequestUri = new Uri("https://foo.dev");
 
             var operation = Substitute.For<Func<HttpRequestMessage, Task<HttpResponseMessage>>>();
-            operation(request).Returns(response);
+            operation(request).Returns(x =>
+            {
+                Thread.Sleep(2000);
+                return response;
+            });
 
             var retryStrategy = new DefaultRetryStrategy();
             retryStrategy.MaxRetries = 10;
@@ -149,7 +154,7 @@ namespace Okta.Sdk.UnitTests
             retryResponse.StatusCode.Should().Be((HttpStatusCode)429);
 
             var receivedCalls = operation.ReceivedCalls();
-            receivedCalls.Count().Should().BeLessThan(10);
+            receivedCalls.Count().Should().Be(1);
         }
     }
 }
