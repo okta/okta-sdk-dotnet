@@ -5,6 +5,7 @@
 
 using System;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Okta.Sdk
@@ -15,21 +16,12 @@ namespace Okta.Sdk
     public interface IRetryStrategy
     {
         /// <summary>
-        /// Gets or sets the number of times to retry
-        /// </summary>
-        int MaxRetries { get; set; }
-
-        /// <summary>
-        /// Gets or sets the request timeout in seconds
-        /// </summary>
-        int RequestTimeOut { get; set; }
-
-        /// <summary>
         /// Retries an operation
         /// </summary>
         /// <param name="request">The request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
         /// <param name="operation">The operation to retry</param>
         /// <returns>The response</returns>
-        Task<HttpResponseMessage> WaitAndRetryAsync(HttpRequestMessage request, Func<HttpRequestMessage, Task<HttpResponseMessage>> operation);
+        Task<HttpResponseMessage> WaitAndRetryAsync(HttpRequestMessage request, CancellationToken cancellationToken, Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation);
     }
 }

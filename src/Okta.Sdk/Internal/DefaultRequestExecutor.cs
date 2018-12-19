@@ -44,7 +44,11 @@ namespace Okta.Sdk.Internal
             _oktaDomain = configuration.OktaDomain;
             _logger = logger;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _retryStrategy = retryStrategy ?? new DefaultRetryStrategy();
+
+            var maxRetries = configuration.MaxRetries ?? OktaClientConfiguration.DefaultMaxRetries;
+            var requestTimeout = configuration.RequestTimeout ?? OktaClientConfiguration.DefaultRequestTimeout;
+            _retryStrategy = retryStrategy ?? new DefaultRetryStrategy(maxRetries, requestTimeout);
+
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
 
@@ -80,9 +84,9 @@ namespace Okta.Sdk.Internal
         {
             _logger.LogTrace($"{request.Method} {request.RequestUri}");
 
-            Func<HttpRequestMessage, Task<HttpResponseMessage>> operation = async (x) => await _httpClient.SendAsync(x, cancellationToken).ConfigureAwait(false);
+            Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) => await _httpClient.SendAsync(x, y).ConfigureAwait(false);
 
-            using (var response = await _retryStrategy.WaitAndRetryAsync(request, operation).ConfigureAwait(false))
+            using (var response = await _retryStrategy.WaitAndRetryAsync(request, cancellationToken, operation).ConfigureAwait(false))
             {
                 _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
 

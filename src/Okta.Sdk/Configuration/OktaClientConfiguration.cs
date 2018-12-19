@@ -24,12 +24,12 @@ namespace Okta.Sdk.Configuration
         /// <summary>
         /// The default number of times to retry
         /// </summary>
-        public static readonly int DefaultMaxRetries = 2;
+        public const int DefaultMaxRetries = 2;
 
         /// <summary>
         /// The default request timeout in seconds
         /// </summary>
-        public static readonly int DefaultRequestTimeOut = 0;
+        public const int DefaultRequestTimeout = 0;
 
         /// <summary>
         /// Gets or sets the HTTP connection timeout in seconds. If <c>null</c>, the default timeout is used.
@@ -40,12 +40,12 @@ namespace Okta.Sdk.Configuration
         public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
 
         /// <summary>
-        /// Gets or sets the time to wait for resolved client request (includes retries), less or equal than 0 means "no timeout"
+        /// Gets or sets the time to wait for resolved client request (includes retries), less than or equal to 0 means "no timeout"
         /// </summary>
         /// <value>
         /// The request timeout in seconds.
         /// </value>
-        public int? RequestTimeout { get; set; } = DefaultRequestTimeOut;
+        public int? RequestTimeout { get; set; } = DefaultRequestTimeout;
 
         /// <summary>
         /// Gets or sets the number of times to retry
@@ -109,11 +109,13 @@ namespace Okta.Sdk.Configuration
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
             {
-                ConnectionTimeout = ConnectionTimeout.HasValue ? this.ConnectionTimeout.Value : (int?)null,
+                ConnectionTimeout = ConnectionTimeout,
                 OktaDomain = this.OktaDomain,
                 Token = this.Token,
                 Proxy = this.Proxy?.DeepClone(),
                 DisableHttpsCheck = this.DisableHttpsCheck,
+                MaxRetries = this.MaxRetries,
+                RequestTimeout = this.RequestTimeout,
             };
     }
 }

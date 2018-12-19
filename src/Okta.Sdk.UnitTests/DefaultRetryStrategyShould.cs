@@ -33,15 +33,15 @@ namespace Okta.Sdk.UnitTests
             var request = Substitute.For<HttpRequestMessage>();
             request.RequestUri = new Uri("https://foo.dev");
 
-            var operation = Substitute.For<Func<HttpRequestMessage, Task<HttpResponseMessage>>>();
-            operation(request).Returns(response);
+            var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
+            operation(request, default(CancellationToken)).Returns(response);
 
-            operation(request).Result.StatusCode.Should().Be(429);
+            operation(request, default(CancellationToken)).Result.StatusCode.Should().Be(429);
             operation.ClearReceivedCalls();
 
             var retryStrategy = new DefaultRetryStrategy(1, 0);
 
-            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, operation);
+            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, default(CancellationToken), operation);
             operation.ReceivedCalls().Count().Should().Be(2);
             retryResponse.StatusCode.Should().Be((HttpStatusCode)429);
         }
@@ -64,12 +64,12 @@ namespace Okta.Sdk.UnitTests
             var request = Substitute.For<HttpRequestMessage>();
             request.RequestUri = new Uri("https://foo.dev");
 
-            var operation = Substitute.For<Func<HttpRequestMessage, Task<HttpResponseMessage>>>();
-            operation(request).Returns(x => response, x => successResponse);
+            var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
+            operation(request, default(CancellationToken)).Returns(x => response, x => successResponse);
 
             var retryStrategy = new DefaultRetryStrategy(5, 0);
 
-            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, operation);
+            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, default(CancellationToken), operation);
             operation.ReceivedCalls().Count().Should().Be(2);
             retryResponse.StatusCode.Should().Be(HttpStatusCode.OK);
         }
@@ -91,9 +91,9 @@ namespace Okta.Sdk.UnitTests
 
             var requestHeadersDictionary = new Dictionary<int, List<KeyValuePair<string, IEnumerable<string>>>>();
             var numberOfExecutions = 0;
-            var operation = Substitute.For<Func<HttpRequestMessage, Task<HttpResponseMessage>>>();
+            var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
 
-            operation(request).Returns(
+            operation(request, default(CancellationToken)).Returns(
                 x =>
                 {
                     requestHeadersDictionary.Add(numberOfExecutions, request.Headers.ToList());
@@ -104,7 +104,7 @@ namespace Okta.Sdk.UnitTests
 
             var retryStrategy = new DefaultRetryStrategy(1, 0);
 
-            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, operation);
+            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, default(CancellationToken), operation);
             numberOfExecutions.Should().Be(2);
             retryResponse.StatusCode.Should().Be((HttpStatusCode)429);
 
@@ -139,22 +139,56 @@ namespace Okta.Sdk.UnitTests
             var request = Substitute.For<HttpRequestMessage>();
             request.RequestUri = new Uri("https://foo.dev");
 
-            var operation = Substitute.For<Func<HttpRequestMessage, Task<HttpResponseMessage>>>();
-            operation(request).Returns(x =>
+            var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
+            operation(request, default(CancellationToken)).Returns(x =>
             {
                 Thread.Sleep(2000);
                 return response;
             });
 
-            var retryStrategy = new DefaultRetryStrategy();
-            retryStrategy.MaxRetries = 10;
-            retryStrategy.RequestTimeOut = 1;
-
-            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, operation);
+            var retryStrategy = new DefaultRetryStrategy(10, 1);
+            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, default(CancellationToken), operation);
             retryResponse.StatusCode.Should().Be((HttpStatusCode)429);
 
             var receivedCalls = operation.ReceivedCalls();
             receivedCalls.Count().Should().Be(1);
+        }
+
+        [Fact]
+        public async Task ReturnIfBackoffExceedsRequestTimeout()
+        {
+            var dateHeader = DateTime.Now;
+            var resetTime = new DateTimeOffset(dateHeader).AddSeconds(5).ToUnixTimeSeconds();
+
+            var response = Substitute.For<HttpResponseMessage>();
+            response.StatusCode = (HttpStatusCode)429;
+            response.Headers.Add("X-Rate-Limit-Reset", resetTime.ToString());
+            response.Headers.Add("Date", dateHeader.ToUniversalTime().ToString("ddd, dd MMM yyyy HH:mm:ss 'GMT'"));
+            response.Headers.Add("X-Okta-Request-Id", "foo");
+
+            var request = Substitute.For<HttpRequestMessage>();
+            request.RequestUri = new Uri("https://foo.dev");
+
+            var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
+            operation(request, default(CancellationToken)).Returns(x =>
+            {
+                return response;
+            });
+
+            var retryStrategy = new DefaultRetryStrategy(10, 2);
+            var retryResponse = await retryStrategy.WaitAndRetryAsync(request, default(CancellationToken), operation);
+            retryResponse.StatusCode.Should().Be((HttpStatusCode)429);
+
+            var receivedCalls = operation.ReceivedCalls();
+            receivedCalls.Count().Should().Be(1);
+        }
+
+        [Fact]
+        public void ThrowIfBackoffDeltaExceedsRequesTimeout()
+        {
+            Action constructor = () => new DefaultRetryStrategy(10, 1, 5);
+
+            constructor.Should().Throw<ArgumentException>();
         }
     }
 }
