@@ -49,7 +49,6 @@ namespace Okta.Sdk.Internal
         public async Task<bool> MoveNext(CancellationToken cancellationToken)
 #pragma warning restore UseAsyncSuffix // Must match interface
         {
-
             var hasMoreLocalItems = _initialized
                 && _pagedEnumerator.CurrentPage.Items.Any()
                 && (_localPageIndex + 1) < _pagedEnumerator.CurrentPage.Items.Count();

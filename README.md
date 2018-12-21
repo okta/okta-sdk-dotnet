@@ -342,6 +342,27 @@ await client.PostAsync(new Okta.Sdk.Internal.HttpRequest
 
 In this case, there is no benefit to using `PostAsync` instead of `user.ActivateAsync`. However, this approach can be used to call any endpoints that are not represented by methods in the SDK.
 
+## Rate Limiting
+
+The Okta API will return 429 responses if too many requests are made within a given time. Please see [Rate Limiting at Okta] for a complete list of which endpoints are rate limited.  When a 429 error is received, the `X-Rate-Limit-Reset` header will tell you the time at which you can retry. This section discusses  methods for handling rate limiting with this SDK.
+
+### Built-In Retry
+
+You can configure your client to use the default retry strategy if you wish to automatically retry on 429 errors:
+
+```
+var maxRetries = configuration.MaxRetries ?? OktaClientConfiguration.DefaultMaxRetries;
+var requestTimeout = configuration.RequestTimeout ?? OktaClientConfiguration.DefaultRequestTimeout;
+
+var client = new OktaClient(apiClientConfiguration: configuration, httpClient: httpClient, retryStrategy: new DefaultRetryStrategy(maxRetries, requestTimeout));
+```
+> Note: Now, the client is using a `NoRetryStrategy` but in the next major version the default retry strategy will be automatically added to the client.
+
+### Custom Retry
+
+You can build your own retry strategy by implementing the `IRetryStrategy` interface and pass it to the `OktaClient`.
+You will have to read the `X-Rate-Limit-Reset` header on the 429 response.  This will tell you the time at which you can retry.  Because this is an absolute time value, we recommend calculating the wait time by using the `Date` header on the response, as it is in sync with the API servers, whereas your local clock may not be.  We also recommend adding 1 second to ensure that you will be retrying after the window has expired (there may be a sub-second relative time skew between the `X-Rate-Limit-Reset` and `Date` headers).
+
 ## Configuration reference
   
 This library looks for configuration in the following sources:
@@ -368,6 +389,9 @@ okta:
       username: null
       password: null
     token: {apiToken}
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
 ```
  
 ### Environment variables
@@ -391,3 +415,4 @@ We're happy to accept contributions and PRs! Please see the [contribution guide]
 [lang-landing]: https://developer.okta.com/code/dotnet/
 [github-issues]: https://developer.okta.com/okta-sdk-dotnet/issues
 [github-releases]: https://developer.okta.com/okta-sdk-dotnet/releases
+[Rate Limiting at Okta]: https://developer.okta.com/docs/api/getting_started/rate-limits

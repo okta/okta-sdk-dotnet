@@ -25,6 +25,7 @@ namespace Okta.Sdk.Internal
         private readonly string _oktaDomain;
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
+        private readonly IRetryStrategy _retryStrategy;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -32,7 +33,8 @@ namespace Okta.Sdk.Internal
         /// <param name="configuration">The client configuration.</param>
         /// <param name="httpClient">The HTTP client to use, if any.</param>
         /// <param name="logger">The logging interface.</param>
-        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger)
+        /// <param name="retryStrategy">The retry strategy interface.</param>
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null)
         {
             if (configuration == null)
             {
@@ -42,6 +44,7 @@ namespace Okta.Sdk.Internal
             _oktaDomain = configuration.OktaDomain;
             _logger = logger;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _retryStrategy = retryStrategy ?? new NoRetryStrategy();
 
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
@@ -78,7 +81,9 @@ namespace Okta.Sdk.Internal
         {
             _logger.LogTrace($"{request.Method} {request.RequestUri}");
 
-            using (var response = await _httpClient.SendAsync(request, cancellationToken).ConfigureAwait(false))
+            Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) => await _httpClient.SendAsync(x, y).ConfigureAwait(false);
+
+            using (var response = await _retryStrategy.WaitAndRetryAsync(request, cancellationToken, operation).ConfigureAwait(false))
             {
                 _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
 

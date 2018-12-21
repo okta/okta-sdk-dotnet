@@ -175,6 +175,7 @@ namespace Okta.Sdk.Internal
             PrepareRequest(request, requestContext);
 
             var response = await _requestExecutor.GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));
