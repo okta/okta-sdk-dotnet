@@ -22,7 +22,7 @@ namespace Okta.Sdk
         /// <summary>
         /// The default delta used in the back-off formula to account for some clock skew in our service
         /// </summary>
-        public const int DefaultBackOffSecondsDelta = 1;
+        public const int DefaultBackoffSecondsDelta = 1;
 
         private readonly int _maxRetries;
         private readonly int _requestTimeout;
@@ -37,7 +37,7 @@ namespace Okta.Sdk
         /// <param name="maxRetries">the number of times to retry</param>
         /// <param name="requestTimeout">The request timeout in seconds</param>
         /// <param name="backoffSecondsDelta">The delta of seconds included the back-off calculation</param>
-        public DefaultRetryStrategy(int maxRetries, int requestTimeout, int backoffSecondsDelta = DefaultBackOffSecondsDelta)
+        public DefaultRetryStrategy(int maxRetries, int requestTimeout, int backoffSecondsDelta = DefaultBackoffSecondsDelta)
         {
             if (requestTimeout > 0 && backoffSecondsDelta > requestTimeout)
             {
@@ -70,13 +70,14 @@ namespace Okta.Sdk
             {
                 var response = await operation(request, cancellationToken).ConfigureAwait(false);
 
-                try
+                if (IsRetryable(response) && numberOfRetries < _maxRetries &&
+                    (_requestTimeout <= 0 || stopwatch.Elapsed.Seconds < _requestTimeout))
                 {
-                    if (IsRetryable(response) && numberOfRetries < _maxRetries &&
-                        (_requestTimeout <= 0 || stopwatch.Elapsed.Seconds < _requestTimeout))
+                    numberOfRetries++;
+                    var delayTimeSpan = CalculateDelay(response);
+                    if (delayTimeSpan > TimeSpan.Zero)
                     {
-                        numberOfRetries++;
-                        await CreateDelayAsync(response, cancellationToken).ConfigureAwait(false);
+                        await Task.Delay(delayTimeSpan, cancellationToken).ConfigureAwait(false);
                         response.Headers.TryGetValues("X-Okta-Request-Id", out var requestId);
                         AddRetryOktaHeaders(request, requestId.FirstOrDefault(), numberOfRetries);
                     }
@@ -85,7 +86,7 @@ namespace Okta.Sdk
                         return response;
                     }
                 }
-                catch (InvalidOperationException)
+                else
                 {
                     return response;
                 }
@@ -98,17 +99,8 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="response">The http response message</param>
         /// <returns>True if the value is must be retried, otherwise false.</returns>
-        public virtual bool IsRetryable(HttpResponseMessage response)
-        {
-            var isRetryable = false;
-
-            if (response != null && _retryableStatusCodes.Contains(response.StatusCode))
-            {
-                isRetryable = true;
-            }
-
-            return isRetryable;
-        }
+        public bool IsRetryable(HttpResponseMessage response)
+            => response != null && _retryableStatusCodes.Contains(response.StatusCode);
 
         private void AddRetryOktaHeaders(HttpRequestMessage request, string requestId, int numberOfRetries)
         {
@@ -125,34 +117,34 @@ namespace Okta.Sdk
             request.Headers.Add("X-Okta-Retry-Count", numberOfRetries.ToString());
         }
 
-        private Task CreateDelayAsync(HttpResponseMessage response, CancellationToken cancellationToken)
+        private TimeSpan CalculateDelay(HttpResponseMessage response)
         {
-            var requestTime = DateTimeOffset.UtcNow;
-            var retryDate = DateTimeOffset.UtcNow;
+            DateTime? requestTime = null;
+            DateTime? retryDate = null;
+            TimeSpan backoffSeconds = TimeSpan.Zero;
 
-            if (response.Headers.TryGetValues("Date", out var dates))
+            if (response.Headers.TryGetValues("Date", out var dates) && dates != null)
             {
                 requestTime = DateTimeOffset.Parse(dates.First()).UtcDateTime;
             }
 
-            if (response.Headers.TryGetValues("x-rate-limit-reset", out var rateLimits))
+            if (response.Headers.TryGetValues("x-rate-limit-reset", out var rateLimits) && rateLimits != null)
             {
-                if (rateLimits == null || rateLimits.Count() > 1)
+                // If there are multiple headers, choose the smallest one
+                retryDate = DateTimeOffset.FromUnixTimeSeconds(rateLimits.Min(x => long.Parse(x))).UtcDateTime;
+            }
+
+            if (requestTime.HasValue && retryDate.HasValue)
+            {
+                var backoffSecondsAux = retryDate.Value.Subtract(requestTime.Value).Add(new TimeSpan(0, 0, _backoffSecondsDelta));
+                // _requestTimeout <= 0 means no timeout
+                if (_requestTimeout <= 0 || (_requestTimeout > 0 && backoffSecondsAux.Seconds <= _requestTimeout))
                 {
-                    throw new InvalidOperationException("Multiple x-rate-limit-reset headers in the response");
+                    backoffSeconds = backoffSecondsAux;
                 }
-
-                retryDate = DateTimeOffset.FromUnixTimeSeconds(long.Parse(rateLimits.First())).UtcDateTime;
             }
 
-            var backoffSeconds = retryDate.Subtract(requestTime).Add(new TimeSpan(0, 0, _backoffSecondsDelta)).Seconds;
-
-            if (_requestTimeout > 0 && backoffSeconds > _requestTimeout)
-            {
-                throw new InvalidOperationException("The waiting time for a retry must be less than the request timeout");
-            }
-
-            return Task.Delay(new TimeSpan(0, 0, backoffSeconds), cancellationToken);
+            return backoffSeconds;
         }
     }
 }

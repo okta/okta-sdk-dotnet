@@ -47,7 +47,7 @@ namespace Okta.Sdk.Internal
 
             var maxRetries = configuration.MaxRetries ?? OktaClientConfiguration.DefaultMaxRetries;
             var requestTimeout = configuration.RequestTimeout ?? OktaClientConfiguration.DefaultRequestTimeout;
-            _retryStrategy = retryStrategy ?? new DefaultRetryStrategy(maxRetries, requestTimeout);
+            _retryStrategy = retryStrategy ?? new NoRetryStrategy();
 
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
