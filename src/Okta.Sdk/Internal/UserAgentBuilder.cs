@@ -43,26 +43,43 @@ namespace Okta.Sdk.Internal
 
         private string Generate()
         {
+            string sdkToken = string.Empty;
+            string runtimeToken = string.Empty;
+            string operatingSystemToken = string.Empty;
+
             try
             {
-                var sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
-
-                var runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
-
-                var operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
-
-                return string.Join(
-                    " ",
-                    sdkToken,
-                    runtimeToken,
-                    operatingSystemToken)
-                .Trim();
+                sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
             }
             catch (Exception ex)
             {
-                _logger.LogDebug($"An exception was thrown while generating the user agent string.  Exception: {ex.Message}");
-                return string.Empty;
+                _logger.LogDebug($"An error occurred generating the {nameof(sdkToken)} portion of the user-agent string.  Exception: {ex.Message}");
             }
+
+            try
+            {
+                runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug($"An error occurred generating the {nameof(runtimeToken)} portion of the user-agent string.  Exception: {ex.Message}");
+            }
+
+            try
+            {
+                operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug($"An error occurred generating the {nameof(operatingSystemToken)} portion of the user-agent string.  Exception: {ex.Message}");
+            }
+
+            return string.Join(
+                " ",
+                sdkToken,
+                runtimeToken,
+                operatingSystemToken)
+            .Trim();
         }
 
         private static string GetSdkVersion()
