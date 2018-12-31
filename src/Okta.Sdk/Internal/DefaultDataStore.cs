@@ -40,7 +40,7 @@ namespace Okta.Sdk.Internal
             _serializer = serializer ?? throw new ArgumentNullException(nameof(serializer));
             _resourceFactory = resourceFactory ?? throw new ArgumentNullException(nameof(resourceFactory));
             _logger = logger;
-            _userAgentBuilder = new UserAgentBuilder();
+            _userAgentBuilder = new UserAgentBuilder(_logger);
         }
 
         /// <inheritdoc/>
