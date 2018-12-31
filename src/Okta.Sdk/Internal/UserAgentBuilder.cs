@@ -7,6 +7,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using Microsoft.Extensions.Logging;
 
 namespace Okta.Sdk.Internal
 {
@@ -22,12 +23,15 @@ namespace Okta.Sdk.Internal
 
         // Lazy ensures this only runs once and is cached.
         private readonly Lazy<string> _cachedUserAgent;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserAgentBuilder"/> class.
         /// </summary>
-        public UserAgentBuilder()
+        /// <param name="logger">An optional logging interface</param>
+        public UserAgentBuilder(ILogger logger = null)
         {
+            _logger = logger;
             _cachedUserAgent = new Lazy<string>(Generate);
         }
 
@@ -39,18 +43,26 @@ namespace Okta.Sdk.Internal
 
         private string Generate()
         {
-            var sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
+            try
+            {
+                var sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
 
-            var runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
+                var runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
 
-            var operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
+                var operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
 
-            return string.Join(
-                " ",
-                sdkToken,
-                runtimeToken,
-                operatingSystemToken)
-            .Trim();
+                return string.Join(
+                    " ",
+                    sdkToken,
+                    runtimeToken,
+                    operatingSystemToken)
+                .Trim();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogDebug($"An exception was thrown while generating the user agent string.  Exception: {ex.Message}");
+                return string.Empty;
+            }
         }
 
         private static string GetSdkVersion()
