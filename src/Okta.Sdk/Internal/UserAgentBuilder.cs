@@ -7,6 +7,8 @@ using System;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Okta.Sdk.Internal
 {
@@ -22,12 +24,15 @@ namespace Okta.Sdk.Internal
 
         // Lazy ensures this only runs once and is cached.
         private readonly Lazy<string> _cachedUserAgent;
+        private readonly ILogger _logger;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UserAgentBuilder"/> class.
         /// </summary>
-        public UserAgentBuilder()
+        /// <param name="logger">An optional logging interface</param>
+        public UserAgentBuilder(ILogger logger = null)
         {
+            _logger = logger ?? NullLogger.Instance;
             _cachedUserAgent = new Lazy<string>(Generate);
         }
 
@@ -39,11 +44,36 @@ namespace Okta.Sdk.Internal
 
         private string Generate()
         {
-            var sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
+            string sdkToken = string.Empty;
+            string runtimeToken = string.Empty;
+            string operatingSystemToken = string.Empty;
 
-            var runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
+            try
+            {
+                sdkToken = $"{OktaSdkUserAgentName}/{GetSdkVersion()}";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred generating the {nameof(sdkToken)} portion of the user-agent string.  Exception: {ex.Message}");
+            }
 
-            var operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
+            try
+            {
+                runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred generating the {nameof(runtimeToken)} portion of the user-agent string.  Exception: {ex.Message}");
+            }
+
+            try
+            {
+                operatingSystemToken = $"os/{Sanitize(RuntimeInformation.OSDescription)}";
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"An error occurred generating the {nameof(operatingSystemToken)} portion of the user-agent string.  Exception: {ex.Message}");
+            }
 
             return string.Join(
                 " ",
