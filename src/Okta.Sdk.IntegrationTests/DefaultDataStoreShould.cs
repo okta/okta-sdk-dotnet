@@ -34,7 +34,7 @@ namespace Okta.Sdk.IntegrationTests
             }, null, default(CancellationToken));
 
             var connectionHeader = response.Headers.FirstOrDefault(x => x.Key.Equals("connection", StringComparison.OrdinalIgnoreCase));
-            connectionHeader.Value.Any(s => s.Equals("close", StringComparison.OrdinalIgnoreCase)).Should().BeFalse();
+            connectionHeader.Value?.Any(s => s.Equals("close", StringComparison.OrdinalIgnoreCase)).Should().BeFalse();
         }
     }
 }
