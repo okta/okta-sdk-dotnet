@@ -372,7 +372,7 @@ This library looks for configuration in the following sources:
 3. Environment variables
 4. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
  
-Higher numbers win. In other words, configuration passed via the constructor will override configuration found in environment variables, which will override configuration in `okta.yaml` (if any), and so on.
+Highest number wins. In other words, configuration passed via the constructor will override configuration found in environment variables, which will override configuration in `okta.yaml` (if any), and so on.
  
 ### YAML configuration
  
