@@ -6,6 +6,7 @@
 using System;
 using System.Net.Http;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
@@ -27,6 +28,8 @@ namespace Okta.Sdk.Internal
             ProxyConfiguration proxyConfiguration,
             ILogger logger)
         {
+            logger = logger ?? NullLogger.Instance;
+
             var handler = new HttpClientHandler
             {
                 AllowAutoRedirect = false,
@@ -42,10 +45,8 @@ namespace Okta.Sdk.Internal
             {
                 Timeout = TimeSpan.FromSeconds(connectionTimeout ?? OktaClientConfiguration.DefaultConnectionTimeout),
             };
-            logger.LogTrace($"Using timeout of {client.Timeout} second(s) from configuration");
 
-            // Workaround for https://github.com/dotnet/corefx/issues/11224
-            client.DefaultRequestHeaders.Add("Connection", "close");
+            logger.LogTrace($"Using timeout of {client.Timeout} second(s) from configuration");
 
             return client;
         }
