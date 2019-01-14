@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
+﻿// <copyright file="DefaultHttpClientShould.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
-using NSubstitute;
-using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 using Xunit;
 
@@ -15,7 +13,7 @@ namespace Okta.Sdk.UnitTests
     public class DefaultHttpClientShould
     {
         [Fact]
-        public async Task NotHaveCloseConnectionAsDefaultHeader()
+        public void NotHaveCloseConnectionAsDefaultHeader()
         {
             var client = DefaultHttpClient.Create(30, null, NullLogger.Instance);
 
