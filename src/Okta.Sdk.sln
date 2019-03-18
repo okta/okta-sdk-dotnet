@@ -18,6 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{895108CB-957
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B2EDE3FF-F072-47EF-B6D6-8B503B6653EE}"
 	ProjectSection(SolutionItems) = preProject
+		..\MIGRATING.md = ..\MIGRATING.md
 		..\package.json = ..\package.json
 		..\README.md = ..\README.md
 	EndProjectSection
