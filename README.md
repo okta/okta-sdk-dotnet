@@ -37,7 +37,7 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 0.x   | :heavy_check_mark: Stable |
+| 0.3.3   | :warning: Retiring  |
 | 1.x | :heavy_check_mark: Stable ([migration guide](MIGRATING.md)) |
  
 The latest release can always be found on the [releases page][github-releases].
@@ -61,9 +61,7 @@ The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotn
 ### Install using The Package Manager Console
 Simply run `install-package Okta.Sdk`. Done!
 
-To install 1.x version through NuGet, you will need to enable the "Include Prereleases" option when you search for the `Okta.Sdk` package.
-
-The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).
+The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is retiring and will not be supported past December 11, 2019.  It will likely remain working after that date but you should make a plan to migrate to the new 1.x version.
 
 You'll also need:
 
