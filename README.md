@@ -26,6 +26,7 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 We also publish these other libraries for .NET:
  
 * [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet)
+* [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet)
  
 You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
@@ -411,6 +412,6 @@ We're happy to accept contributions and PRs! Please see the [contribution guide]
 [devforum]: https://devforum.okta.com/
 [dotnetdocs]: https://developer.okta.com/okta-sdk-dotnet/latest/
 [lang-landing]: https://developer.okta.com/code/dotnet/
-[github-issues]: https://developer.okta.com/okta-sdk-dotnet/issues
-[github-releases]: https://developer.okta.com/okta-sdk-dotnet/releases
+[github-issues]: https://github.com/okta/okta-sdk-dotnet/issues
+[github-releases]: https://github.com/okta/okta-sdk-dotnet/releases
 [Rate Limiting at Okta]: https://developer.okta.com/docs/api/getting_started/rate-limits
