@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk", "Okta.Sdk\Okta.Sdk.csproj", "{1D2F3372-9E31-4F64-BBA1-EA085510512A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "Okta.Sdk\Okta.Sdk.csproj", "{1D2F3372-9E31-4F64-BBA1-EA085510512A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.UnitTests", "Okta.Sdk.UnitTests\Okta.Sdk.UnitTests.csproj", "{1A2B4479-780D-493B-ADA0-CA73664B1A42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTests", "Okta.Sdk.UnitTests\Okta.Sdk.UnitTests.csproj", "{1A2B4479-780D-493B-ADA0-CA73664B1A42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Okta.Sdk.IntegrationTests", "Okta.Sdk.IntegrationTests\Okta.Sdk.IntegrationTests.csproj", "{2E975563-034E-4147-876C-77D88C59D2A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.IntegrationTests", "Okta.Sdk.IntegrationTests\Okta.Sdk.IntegrationTests.csproj", "{2E975563-034E-4147-876C-77D88C59D2A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{895108CB-957C-460F-8FA8-1ADEF96E4B08}"
 	ProjectSection(SolutionItems) = preProject
@@ -18,7 +18,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{895108CB-957
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B2EDE3FF-F072-47EF-B6D6-8B503B6653EE}"
 	ProjectSection(SolutionItems) = preProject
+		..\MIGRATING.md = ..\MIGRATING.md
 		..\package.json = ..\package.json
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Global
@@ -42,5 +44,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98006630-8334-4573-A9C9-62F012214F20}
 	EndGlobalSection
 EndGlobal

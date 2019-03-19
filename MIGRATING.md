@@ -44,15 +44,13 @@ The [readme](https://github.com/okta/okta-sdk-dotnet#usage-guide) in this reposi
 
 In version 1.0 and above, every method that makes a network call is Task-returning and awaitable. Use `await` when calling these methods, and avoid using `.Result` or `.Wait()` unless absolutely necessary.
 
-### No Authentication API support
+### Authentication API support moved
 
-In version 0.3.3, the `AuthClient` class provided the ability to call the [Authentication API](https://developer.okta.com/docs/api/resources/authn) to log a user in with a username and password, or perform other tasks like enrolling and challenging factors during authentication.
+In version 0.3.3, the `AuthClient` class provided the ability to call the [Authentication API](https://developer.okta.com/docs/api/resources/authn) to log a user in with a username and password, or perform other tasks like enrolling and challenging factors during authentication.  The object and security model of the Authentication API compared the rest of the management APIs (Users, Factors, Groups, etc.) is different enough that it made sense to split it into two libraries.
 
-Starting with version 1.0, this library no longer supports calling the Authentication API, and the `AuthClient` class is not included. We are currently building a separate library to make calling the Authentication API from .NET code simple. The object and security model of the Authentication API compared the rest of the management APIs (Users, Factors, Groups, etc.) is different enough that it made sense to split it into two libraries.
+Starting with version 1.0, Authentication has been broken out into a separate library, the [Okta .NET Authentication SDK](https://github.com/okta/okta-auth-dotnet).
 
-Many applications can use our [ASP.NET and ASP.NET Core middleware](https://github.com/okta/okta-aspnet) to log users in without needing to call the Authentication API directly.
-
-If you need to call the Authentication API today, we recommend using `System.Net.HttpClient` and deserializing the responses yourself. Let us know via our [Developer Forum](https://devforum.okta.com) if this is you!
+Many applications can use our [ASP.NET and ASP.NET Core middleware](https://github.com/okta/okta-aspnet) to log users in without needing to call the Authentication API directly, and we recommend only using the Authentication SDK in complex scenarios that can't be handled with the middleware or widget.
 
 ## Getting help
 
