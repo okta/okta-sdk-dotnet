@@ -325,7 +325,7 @@ The SDK client object can be used to make calls to any Okta API (not just the en
 For example, to activate a user using the `PostAsync` method (instead of `user.ActivateAsync`):
 
 ```csharp
-await client.PostAsync(new Okta.Sdk.Internal.HttpRequest
+await client.PostAsync(new Okta.Sdk.HttpRequest
 {
     Uri = $"/api/v1/users/{userId}/lifecycle/activate",
     PathParameters = new Dictionary<string, object>()
