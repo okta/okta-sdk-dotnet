@@ -3,15 +3,19 @@
   <metadata>
     <title>Okta C# SDK</title>
     <id>Okta.Core.Client</id>
-    <version>0.3.3.0</version>
+    <version>0.3.3.1</version>
     <authors>Okta, Inc</authors>
     <owners>Okta</owners>
     <projectUrl>http://developer.okta.com/docs/sdk/core/api.html</projectUrl>
-    <iconUrl>https://www.okta.com/sites/all/themes/Okta/images/logo.png</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/okta/okta-sdk-dotnet/master/icon.png</iconUrl>
     <licenseUrl>https://github.com/okta/oktasdk-csharp/blob/master/LICENSE.md</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <summary>Official .NET SDK for Okta</summary>
+    <summary>[Deprecated] Use Okta.Sdk instead</summary>
     <description>
+      This package is retiring and will not be supported after 2019-12-11. Please use the "Okta.Sdk" package instead. For more information, see https://github.com/okta/okta-sdk-dotnet/blob/master/README.md#release-status.
+
+      ----------
+
       This package allows you to build on Okta's identity platform using .NET
 
       Supported Platforms:
@@ -23,28 +27,9 @@
 
       Update Log
       ----------
-      - We've moved this changelog to Github: https://github.com/okta/oktasdk-csharp/releases
-      - v0.3.2.0: Added Delete User method (see http://developer.okta.com/docs/api/resources/users.html#delete-user)
-      - v0.3.1.0: Fixed SetCredentials method in UsersClient and added test method in UsersClientTests
-      - v0.3.0.2: Fixed GetFactor method in OrgFactorsClient (was always returning null before)
-      - v0.3.0.1: Bug fix to enforce proper dependency versions for Newtonsoft.Json and Microsoft.Net.Http
-      - v0.3.0.0: Enriched object model based on existing and new JSON values (AuthResponse, Embedded, MFA Factor) + upgraded to Newtonsoft.Json v9.0.1 (in NuGet)
-      - v0.2.9.0: Added support for suspend and unsuspend endpoints
-      - v0.2.8.0: Bug fix (AuthResponse.FactorResult)
-      - v0.2.7.0:
-      Added support for MFA verification (OTP, Okta Verify and SMS only) at authentication time
-      - v0.2.6.0:
-      Added support for the automation of the creation of WS-Fed application (+AppsClient test class)
-      Added ability to retrieve a user factor based on its id
-      - v0.2.5.0:
-      Added support for Password Expiration Warning and Multi Optional MFA Enroll
-      Added ChangePassword and Skip methods in AuthClient (Password Warn flow)
-      Enhanced Session object (added previously unexposed properties, such as ExpiresAt)
-      Added GetRefreshUri method on ApiClient
-      Fixed Extend endpoint for Session objects (SessionsClient)
-      - v0.2.4.0: Added Advanced Search support
+      - We've moved this changelog to Github: https://github.com/okta/okta-sdk-dotnet/releases
     </description>
-    <releaseNotes>EA release - This can be used in production with support from Okta.</releaseNotes>
+    <releaseNotes>This package is retiring and will not be supported after 2019-12-11. Please use the "Okta.Sdk" package instead. For more information, see https://github.com/okta/okta-sdk-dotnet/blob/master/README.md#release-status.</releaseNotes>
     <copyright>Okta, Inc. All rights reserved.</copyright>
     <tags>okta sdk api authentication identity management</tags>
     <dependencies>
