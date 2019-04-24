@@ -39,6 +39,9 @@ namespace Okta.Sdk.IntegrationTests
                 Password = "Abcd1234",
             });
 
+            // this delay and the below retry policy are to handle:
+            // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
+            // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
             await Task.Delay(10000);
 
             try
@@ -52,10 +55,6 @@ namespace Okta.Sdk.IntegrationTests
                     foundUsers.Length.Should().Be(1);
                     foundUsers.Single().Id.Should().Be(createdUser.Id);
                 }
-
-                // this delay is to handle:
-                // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
-                // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
 
                 var policy = Polly.Policy
                     .Handle<Exception>()
