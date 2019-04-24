@@ -39,6 +39,8 @@ namespace Okta.Sdk.IntegrationTests
                 Password = "Abcd1234",
             });
 
+            await Task.Delay(10000);
+
             try
             {
                 async Task UserShouldExist()
