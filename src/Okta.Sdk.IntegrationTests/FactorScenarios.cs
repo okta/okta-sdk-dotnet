@@ -83,7 +83,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 await createdUser.AddFactorAsync(new AddSmsFactorOptions()
                 {
-                    PhoneNumber = "+15554151337",
+                    PhoneNumber = "+16284001133‬",
                 });
 
                 var factors = await createdUser.ListFactors().ToArray();
@@ -91,7 +91,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 var smsFactor = await createdUser.ListFactors().OfType<ISmsFactor>().FirstOrDefault();
                 smsFactor.Should().NotBeNull();
-                smsFactor.Profile.PhoneNumber.Should().Be("+15554151337");
+                smsFactor.FactorType.Should().Be(FactorType.Sms);
             }
             finally
             {
