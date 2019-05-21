@@ -15,7 +15,7 @@ namespace Okta.Sdk.IntegrationTests
     public class FactorScenarios
     {
         [Fact]
-        public async Task CreateSecurityQuestionFactor()
+        public async Task EnrollSecurityQuestionFactor()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
@@ -50,6 +50,48 @@ namespace Okta.Sdk.IntegrationTests
                 securityQuestionFactor.Should().NotBeNull();
                 securityQuestionFactor.Profile.Question.Should().Be("disliked_food");
                 securityQuestionFactor.Profile.QuestionText.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task EnrollSmsFactor()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var profile = new UserProfile
+            {
+                FirstName = "Jill",
+                LastName = "Factor-Sms",
+                Email = $"jill-factor-sms-dotnet-sdk-{guid}@example.com",
+                Login = $"jill-factor-sms-dotnet-sdk-{guid}@example.com",
+            };
+            profile["nickName"] = "jill-factor-sms";
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = profile,
+                Password = "Abcd1234",
+            });
+
+            try
+            {
+                await createdUser.AddFactorAsync(new AddSmsFactorOptions()
+                {
+                    PhoneNumber = "+16284001133‬",
+                });
+
+                var factors = await createdUser.ListFactors().ToArray();
+                factors.Count().Should().Be(1);
+
+                var smsFactor = await createdUser.ListFactors().OfType<ISmsFactor>().FirstOrDefault();
+                smsFactor.Should().NotBeNull();
+                smsFactor.FactorType.Should().Be(FactorType.Sms);
             }
             finally
             {
