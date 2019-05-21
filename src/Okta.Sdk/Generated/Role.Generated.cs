@@ -39,7 +39,11 @@ namespace Okta.Sdk
         public RoleStatus Status => GetEnumProperty<RoleStatus>("status");
         
         /// <inheritdoc/>
-        public string Type => GetStringProperty("type");
+        public string Type 
+        {
+            get => GetStringProperty("type");
+            set => this["type"] = value;
+        }
         
     }
 }

@@ -27,7 +27,7 @@ namespace Okta.Sdk
 
         RoleStatus Status { get; }
 
-        string Type { get; }
+        string Type { get; set; }
 
     }
 }
