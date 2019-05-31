@@ -4,7 +4,7 @@ Contributing to Okta Open Source Repos
 Sign the CLA
 ------------
 
-you _may_ need to [sign the CLA](https://developer.okta.com/cla/), read it before getting started. Common questions/answers are also listed on the CLA page.
+You _may_ need to [sign the CLA](https://developer.okta.com/cla/), read it before getting started. Common questions/answers are also listed on the CLA page.
 
 Summary
 -------
