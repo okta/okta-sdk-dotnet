@@ -150,8 +150,10 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
-        public async Task UpdateUserProfile()
+        [Theory]
+        [InlineData("Batman")]
+        [InlineData("")]
+        public async Task UpdateUserProfile(string nickName)
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
@@ -173,13 +175,13 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 // Update profile
-                createdUser.Profile["nickName"] = "Batman";
+                createdUser.Profile["nickName"] = nickName;
 
                 var updatedUser = await createdUser.UpdateAsync();
                 var retrievedUpdatedUser = await client.Users.GetUserAsync(createdUser.Id);
 
-                updatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
-                retrievedUpdatedUser.Profile.GetProperty<string>("nickName").Should().Be("Batman");
+                updatedUser.Profile.GetProperty<string>("nickName").Should().Be(nickName);
+                retrievedUpdatedUser.Profile.GetProperty<string>("nickName").Should().Be(nickName);
             }
             finally
             {

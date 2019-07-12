@@ -60,7 +60,7 @@ namespace Okta.Sdk.Internal
                         child = RemoveEmptyChildren(child);
                     }
 
-                    if (!IsEmpty(child))
+                    if (!IsNull(child))
                     {
                         copy.Add(prop.Name, child);
                     }
@@ -73,9 +73,8 @@ namespace Okta.Sdk.Internal
         }
 
 #pragma warning disable SA1503 // Braces must not be omitted
-        private static bool IsEmpty(JToken token)
+        private static bool IsNull(JToken token)
         {
-            if (token.Type == JTokenType.Array) return !token.HasValues;
             if (token.Type == JTokenType.Object) return !token.HasValues;
             if (token.Type == JTokenType.Null) return true;
 
