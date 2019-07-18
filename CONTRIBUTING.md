@@ -16,7 +16,7 @@ _Lets get started!!!_
 Fork the code
 -------------
 
-In your browser, navigate to: [https://github.com/okta/okta-sdk-dotnett](https://github.com/okta/okta-sdk-dotnet)
+In your browser, navigate to: [https://github.com/okta/okta-sdk-dotnet](https://github.com/okta/okta-sdk-dotnet)
 
 Fork the repository by clicking on the 'Fork' button on the top right hand side.  The fork will happen and you will be taken to your own fork of the repository.  Copy the Git repository URL by clicking on the clipboard next to the URL on the right hand side of the page under '**HTTPS** clone URL'.  You will paste this URL when doing the following `git clone` command.
 
