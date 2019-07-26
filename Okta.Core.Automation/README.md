@@ -1,3 +1,14 @@
+
+## Release status
+
+This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
+
+| Version | Status                    |
+| ------- | ------------------------- |
+| 1.0.1   | :warning: Retiring on 2020-04-26  |
+
+See the [changelog](changelog.md) for a release history.
+
 ## System Requirements
 
 In order to install the official Okta PowerShell module, you must either:
@@ -24,9 +35,6 @@ To uninstall the Okta PowerShell Module open a PowerShell prompt as an administr
 
 `Get-InstalledModule -Name Okta.Core.Automation | Uninstall-Module`
 
-## Changelog
-
-See the [changelog](changelog.md) for a release history.
 
 ## Usage
 
