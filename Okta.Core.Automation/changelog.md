@@ -1,5 +1,7 @@
 # Changelog
 
+:warning: This package is retiring and will not be supported after 2020-04-26.
+
 ## Version 1.0.1
 
 * Added support for TLS 1.2.
