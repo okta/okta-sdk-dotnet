@@ -1,5 +1,7 @@
 
-## Release status
+## Deprecated
+
+### Release status
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
