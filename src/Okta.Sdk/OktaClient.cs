@@ -44,12 +44,14 @@ namespace Okta.Sdk
         /// configuration from an <c>okta.yaml</c> file or environment variables.
         /// </param>
         /// <param name="logger">The logging interface to use, if any.</param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null)
+        /// <param name="serializer">The JSON serializer to use, if any.</param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null, ISerializer serializer = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
             OktaClientConfigurationValidator.Validate(Configuration);
 
             logger = logger ?? NullLogger.Instance;
+            serializer = serializer ?? new DefaultSerializer();
 
             var defaultClient = DefaultHttpClient.Create(
                 Configuration.ConnectionTimeout,
@@ -60,7 +62,7 @@ namespace Okta.Sdk
             var resourceFactory = new ResourceFactory(this, logger);
             _dataStore = new DefaultDataStore(
                 requestExecutor,
-                new DefaultSerializer(),
+                serializer,
                 resourceFactory,
                 logger);
         }
@@ -75,18 +77,20 @@ namespace Okta.Sdk
         /// <param name="httpClient">The HTTP client to use for requests to the Okta API.</param>
         /// <param name="logger">The logging interface to use, if any.</param>
         /// <param name="retryStrategy">The retry strategy interface to use, if any.</param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null)
+        /// <param name="serializer">The JSON serializer to use, if any.</param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null, ISerializer serializer = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
             OktaClientConfigurationValidator.Validate(Configuration);
 
             logger = logger ?? NullLogger.Instance;
+            serializer = serializer ?? new DefaultSerializer();
 
             var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger, retryStrategy);
             var resourceFactory = new ResourceFactory(this, logger);
             _dataStore = new DefaultDataStore(
                 requestExecutor,
-                new DefaultSerializer(),
+                serializer,
                 resourceFactory,
                 logger);
         }

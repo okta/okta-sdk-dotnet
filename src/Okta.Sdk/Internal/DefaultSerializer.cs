@@ -23,14 +23,22 @@ namespace Okta.Sdk.Internal
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultSerializer"/> class.
         /// </summary>
-        public DefaultSerializer()
+        /// <param name="settings">settings to customize how JSON is serialized.</param>
+        public DefaultSerializer(JsonSerializerSettings settings = null)
         {
-            _serializer = new JsonSerializer
+            if (settings != null)
             {
-                NullValueHandling = NullValueHandling.Ignore,
-                DefaultValueHandling = DefaultValueHandling.Ignore,
-                ContractResolver = new DefaultContractResolver(),
-            };
+                _serializer = JsonSerializer.Create(settings);
+            }
+            else
+            {
+                _serializer = new JsonSerializer
+                {
+                    NullValueHandling = NullValueHandling.Ignore,
+                    DefaultValueHandling = DefaultValueHandling.Ignore,
+                    ContractResolver = new DefaultContractResolver(),
+                };
+            }
 
             _serializer.Converters.Add(new RecursiveDictionaryConverter());
             _serializer.Converters.Add(new ResourceSerializingConverter());
