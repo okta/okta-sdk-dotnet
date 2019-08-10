@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -79,7 +80,7 @@ namespace Okta.Sdk
                     {
                         await Task.Delay(delayTimeSpan, cancellationToken).ConfigureAwait(false);
                         response.Headers.TryGetValues("X-Okta-Request-Id", out var requestId);
-                        AddRetryOktaHeaders(request, requestId.FirstOrDefault(), numberOfRetries);
+                        request = AddRetryOktaHeaders(request, requestId.FirstOrDefault(), numberOfRetries);
                     }
                     else
                     {
@@ -102,7 +103,7 @@ namespace Okta.Sdk
         public bool IsRetryable(HttpResponseMessage response)
             => response != null && _retryableStatusCodes.Contains(response.StatusCode);
 
-        private void AddRetryOktaHeaders(HttpRequestMessage request, string requestId, int numberOfRetries)
+        private HttpRequestMessage AddRetryOktaHeaders(HttpRequestMessage request, string requestId, int numberOfRetries)
         {
             if (!request.Headers.Contains("X-Okta-Retry-For"))
             {
@@ -115,6 +116,8 @@ namespace Okta.Sdk
             }
 
             request.Headers.Add("X-Okta-Retry-Count", numberOfRetries.ToString());
+
+            return CloneHttpRequestMessageAsync(request).Result;
         }
 
         private TimeSpan CalculateDelay(HttpResponseMessage response)
@@ -145,6 +148,44 @@ namespace Okta.Sdk
             }
 
             return backoffSeconds;
+        }
+
+        private static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage req)
+        {
+            HttpRequestMessage clone = new HttpRequestMessage(req.Method, req.RequestUri);
+
+            // Copy the request's content (via a MemoryStream) into the cloned object
+            var ms = new MemoryStream();
+            if (req.Content != null)
+            {
+                await req.Content.CopyToAsync(ms).ConfigureAwait(false);
+                ms.Position = 0;
+                clone.Content = new StreamContent(ms);
+
+                // Copy the content headers
+                if (req.Content.Headers != null)
+                {
+                    foreach (var h in req.Content.Headers)
+                    {
+                        clone.Content.Headers.Add(h.Key, h.Value);
+                    }
+                }
+            }
+
+
+            clone.Version = req.Version;
+
+            foreach (KeyValuePair<string, object> prop in req.Properties)
+            {
+                clone.Properties.Add(prop);
+            }
+
+            foreach (KeyValuePair<string, IEnumerable<string>> header in req.Headers)
+            {
+                clone.Headers.TryAddWithoutValidation(header.Key, header.Value);
+            }
+
+            return clone;
         }
     }
 }
