@@ -362,6 +362,30 @@ var client = new OktaClient(apiClientConfiguration: configuration, httpClient: h
 You can build your own retry strategy by implementing the `IRetryStrategy` interface and pass it to the `OktaClient`.
 You will have to read the `X-Rate-Limit-Reset` header on the 429 response.  This will tell you the time at which you can retry.  Because this is an absolute time value, we recommend calculating the wait time by using the `Date` header on the response, as it is in sync with the API servers, whereas your local clock may not be.  We also recommend adding 1 second to ensure that you will be retrying after the window has expired (there may be a sub-second relative time skew between the `X-Rate-Limit-Reset` and `Date` headers).
 
+## JSON Serialization
+
+This SDK provides a `DefaultSerializer` which has all the logic needed by this SDK to work properly. While the `OktaClient` constructor allows a custom `ISerializer` to be set, we highly recommend using the `DefaultSerializer`, otherwise it is the developer's responsibility to add all the logic required by this SDK to continue working properly. This change was added to support edge cases with custom attributes, but will be removed in the next major release, where the default behavior will be to treat all the custom attributes as strings or arrays when applicable.
+
+### Default Serializer Settings
+
+If you have date formatted strings among your Okta custom attributes and you want them not to be parsed to a date type and read them as strings, use the following code:
+
+```
+var serializer = new DefaultSerializer(new JsonSerializerSettings()
+{
+    DateParseHandling = DateParseHandling.None,
+});
+
+var client = new Okta.Sdk.OktaClient(new Okta.Sdk.Configuration.OktaClientConfiguration
+{
+    OktaDomain = "https://{yourOktaDomain}",
+    Token = "{APIToken}"
+}, serializer: serializer);
+
+var user = await client.Users.GetUserAsync("user@test.com");
+var stringDate = user.Profile["myCustomDate"];
+```
+
 ## Configuration reference
   
 This library looks for configuration in the following sources:
