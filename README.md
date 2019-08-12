@@ -379,7 +379,7 @@ var serializer = new DefaultSerializer(new JsonSerializerSettings()
 var client = new Okta.Sdk.OktaClient(new Okta.Sdk.Configuration.OktaClientConfiguration
 {
     OktaDomain = "https://{yourOktaDomain}",
-    Token = "{APIToken}"
+    Token = "{apiToken}"
 }, serializer: serializer);
 
 var user = await client.Users.GetUserAsync("user@test.com");
