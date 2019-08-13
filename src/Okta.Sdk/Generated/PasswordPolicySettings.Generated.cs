@@ -17,13 +17,25 @@ namespace Okta.Sdk
     public sealed partial class PasswordPolicySettings : Resource, IPasswordPolicySettings
     {
         /// <inheritdoc/>
-        public IPasswordPolicyDelegationSettings Delegation => GetResourceProperty<PasswordPolicyDelegationSettings>("delegation");
+        public IPasswordPolicyDelegationSettings Delegation 
+        {
+            get => GetResourceProperty<PasswordPolicyDelegationSettings>("delegation");
+            set => this["delegation"] = value;
+        }
         
         /// <inheritdoc/>
-        public IPasswordPolicyPasswordSettings Password => GetResourceProperty<PasswordPolicyPasswordSettings>("password");
+        public IPasswordPolicyPasswordSettings Password 
+        {
+            get => GetResourceProperty<PasswordPolicyPasswordSettings>("password");
+            set => this["password"] = value;
+        }
         
         /// <inheritdoc/>
-        public IPasswordPolicyRecoverySettings Recovery => GetResourceProperty<PasswordPolicyRecoverySettings>("recovery");
+        public IPasswordPolicyRecoverySettings Recovery 
+        {
+            get => GetResourceProperty<PasswordPolicyRecoverySettings>("recovery");
+            set => this["recovery"] = value;
+        }
         
     }
 }

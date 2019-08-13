@@ -60,9 +60,10 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="userId"></param>
+        /// <param name="strict"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUser"/> response.</returns>
-        Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> UpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches appLinks for all direct or indirect (via group membership) assigned applications.
@@ -77,9 +78,10 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="changePasswordRequest">The <see cref="IChangePasswordRequest"/> resource.</param>
         /// <param name="userId"></param>
+        /// <param name="strict"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUserCredentials"/> response.</returns>
-        Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Changes a user&#x27;s recovery question &amp; answer credential by validating the user&#x27;s current password.  This operation can only be performed on users in **STAGED**, **ACTIVE** or **RECOVERY** &#x60;status&#x60; that have a valid [password credential](#password-object)
@@ -186,7 +188,7 @@ namespace Okta.Sdk
         Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Success
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>
@@ -196,7 +198,7 @@ namespace Okta.Sdk
         ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
 
         /// <summary>
-        /// 
+        /// Success
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>
@@ -206,7 +208,7 @@ namespace Okta.Sdk
         Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Success
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>

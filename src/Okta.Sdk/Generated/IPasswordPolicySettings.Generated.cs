@@ -15,11 +15,11 @@ namespace Okta.Sdk
     /// <summary>Represents a PasswordPolicySettings resource in the Okta API.</summary>
     public partial interface IPasswordPolicySettings : IResource
     {
-        IPasswordPolicyDelegationSettings Delegation { get; }
+        IPasswordPolicyDelegationSettings Delegation { get; set; }
 
-        IPasswordPolicyPasswordSettings Password { get; }
+        IPasswordPolicyPasswordSettings Password { get; set; }
 
-        IPasswordPolicyRecoverySettings Recovery { get; }
+        IPasswordPolicyRecoverySettings Recovery { get; set; }
 
     }
 }

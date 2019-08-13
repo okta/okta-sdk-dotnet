@@ -27,6 +27,8 @@ namespace Okta.Sdk
 
         string PolicyUri { get; set; }
 
+        IList<string> PostLogoutRedirectUris { get; set; }
+
         IList<string> RedirectUris { get; set; }
 
         IList<OAuthResponseType> ResponseTypes { get; set; }

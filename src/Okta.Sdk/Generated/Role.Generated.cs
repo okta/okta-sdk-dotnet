@@ -17,6 +17,13 @@ namespace Okta.Sdk
     public sealed partial class Role : Resource, IRole
     {
         /// <inheritdoc/>
+        public string AssignmentType 
+        {
+            get => GetStringProperty("assignmentType");
+            set => this["assignmentType"] = value;
+        }
+        
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
