@@ -42,7 +42,7 @@ namespace Okta.Sdk.IntegrationTests
             // this delay and the below retry policy are to handle:
             // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
             // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
-            await Task.Delay(50000);
+            await Task.Delay(10000);
 
             try
             {
@@ -58,7 +58,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 var policy = Polly.Policy
                     .Handle<Exception>()
-                    .WaitAndRetryAsync(3, attemptNumber => TimeSpan.FromSeconds(Math.Pow(5, attemptNumber - 1)));
+                    .WaitAndRetryAsync(6, attemptNumber => TimeSpan.FromSeconds(Math.Pow(5, attemptNumber - 1)));
 
                 await policy.ExecuteAsync(UserShouldExist);
             }
