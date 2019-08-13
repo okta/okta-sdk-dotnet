@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
+using Newtonsoft.Json;
 using NSubstitute;
 using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
@@ -116,6 +117,51 @@ namespace Okta.Sdk.UnitTests
                 Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
                 "{}",
                 CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task DeserializeObjectUsingCustomSettings()
+        {
+            var mockResponse = @"{  
+               ""id"":""foo"",
+               ""status"":""ACTIVE"",
+               ""created"":""2019-05-09T15:37:44.000Z"",
+               ""activated"":""2019-05-09T15:37:44.000Z"",
+               ""statusChanged"":""2019-05-09T18:29:29.000Z"",
+               ""lastLogin"":""2019-08-09T07:49:51.000Z"",
+               ""lastUpdated"":""2019-08-09T17:20:28.000Z"",
+               ""passwordChanged"":""2019-05-09T18:29:29.000Z"",
+               ""profile"":{  
+                  ""firstName"":""John"",
+                  ""lastName"":""Coder"",
+                  ""mobilePhone"":null,
+                  ""userType"":""test"",
+                  ""login"":""john.coder@dotnettest.com"",
+                  ""startDate"":""2016-06-07T00:00:00.000"",
+                  ""email"":""john.coder@test.com"",
+                  ""employeeNumber"":""000012345"",
+                  ""type"":""null"",
+               },
+            }";
+
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200, Payload = mockResponse });
+
+            // DateParseHandling.None: Date formatted strings are not parsed to a date type and are read as strings.
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(new JsonSerializerSettings() { DateParseHandling = DateParseHandling.None }), new ResourceFactory(null, null), NullLogger.Instance);
+            var request = new HttpRequest { Uri = "https://foo.dev", Payload = new { } };
+            var response = await dataStore.GetAsync<User>(request, new RequestContext(), CancellationToken.None);
+            response.Payload.Profile["startDate"].GetType().Should().Be(typeof(string));
+            response.Payload.Profile["startDate"].Should().Be("2016-06-07T00:00:00.000");
+
+            // DateParseHandling.DateTimeOffset: Date formatted strings, e.g. "\/Date(1198908717056)\/" and "2012-03-21T05:40Z", are parsed to DateTimeOffset.
+            dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(new JsonSerializerSettings() { DateParseHandling = DateParseHandling.DateTimeOffset }), new ResourceFactory(null, null), NullLogger.Instance);
+            response = await dataStore.GetAsync<User>(request, new RequestContext(), CancellationToken.None);
+            response.Payload.Profile["startDate"].GetType().Should().Be(typeof(DateTimeOffset));
+            var dateTimeOffset = DateTimeOffset.Parse("2016-06-07T00:00:00.000");
+            response.Payload.Profile["startDate"].Should().Be(dateTimeOffset);
         }
 
         [Fact]

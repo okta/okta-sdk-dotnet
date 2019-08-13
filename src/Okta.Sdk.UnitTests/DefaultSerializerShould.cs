@@ -3,9 +3,11 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
+using Newtonsoft.Json;
 using Okta.Sdk.Internal;
 using Xunit;
 
@@ -17,10 +19,10 @@ namespace Okta.Sdk.UnitTests
         public void DeserializeDictionaries()
         {
             var json = @"
-{
-  ""foo"": ""bar"",
-  ""baz"": 123
-}";
+            {
+              ""foo"": ""bar"",
+              ""baz"": 123
+            }";
 
             var serializer = new DefaultSerializer();
             var dict = serializer.Deserialize(json);
@@ -33,12 +35,12 @@ namespace Okta.Sdk.UnitTests
         public void DeserializeNestedDictionaries()
         {
             var json = @"
-{
-  ""foo"": ""bar"",
-  ""baz"": {
-    ""qux"": 123
-  }
-}";
+            {
+              ""foo"": ""bar"",
+              ""baz"": {
+                ""qux"": 123
+              }
+            }";
 
             var serializer = new DefaultSerializer();
             var dict = serializer.Deserialize(json);
@@ -72,11 +74,11 @@ namespace Okta.Sdk.UnitTests
         public void DeserializeArraysAsLists()
         {
             var json = @"
-{
-  ""things"": [
-    ""foo"", ""bar"", ""baz""
-  ]
-}";
+            {
+              ""things"": [
+                ""foo"", ""bar"", ""baz""
+              ]
+            }";
 
             var serializer = new DefaultSerializer();
             var dict = serializer.Deserialize(json);
