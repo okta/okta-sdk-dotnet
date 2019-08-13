@@ -369,6 +369,7 @@ namespace Okta.Sdk
                         LogoUri = openIdApplicationOptions.LogoUri,
                         ResponseTypes = openIdApplicationOptions.ResponseTypes,
                         RedirectUris = openIdApplicationOptions.RedirectUris,
+                        PostLogoutRedirectUris = openIdApplicationOptions.PostLogoutRedirectUris,
                         GrantTypes = openIdApplicationOptions.GrantTypes,
                         ApplicationType = openIdApplicationOptions.ApplicationType,
                         TermsOfServiceUri = openIdApplicationOptions.TermsOfServiceUri,
