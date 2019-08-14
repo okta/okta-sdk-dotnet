@@ -188,7 +188,7 @@ namespace Okta.Sdk
         Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Success
+        /// List all group targets given a role id.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>
@@ -198,7 +198,7 @@ namespace Okta.Sdk
         ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
 
         /// <summary>
-        /// Success
+        /// Removes a group target from a role assigned to a user.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>
@@ -208,7 +208,7 @@ namespace Okta.Sdk
         Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Success
+        /// Adds a group target for a role assigned to a user.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="roleId"></param>

@@ -69,7 +69,7 @@ namespace Okta.Sdk
         Task<IGroupRule> GetRuleAsync(string ruleId, string expand = "", CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Success
+        /// Updates a rule.
         /// </summary>
         /// <param name="groupRule">The <see cref="IGroupRule"/> resource.</param>
         /// <param name="ruleId"></param>
