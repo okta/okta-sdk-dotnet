@@ -58,7 +58,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 var policy = Polly.Policy
                     .Handle<Exception>()
-                    .WaitAndRetryAsync(6, attemptNumber => TimeSpan.FromSeconds(Math.Pow(5, attemptNumber - 1)));
+                    .WaitAndRetryAsync(4, attemptNumber => TimeSpan.FromSeconds(Math.Pow(5, attemptNumber - 1)));
 
                 await policy.ExecuteAsync(UserShouldExist);
             }
