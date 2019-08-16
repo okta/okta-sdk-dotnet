@@ -132,7 +132,12 @@ const modelErrata = [
 ];
 
 const operationErrata = [
-  { tag: 'User', operationId: 'createUser', queryParamName: 'nextLogin', type: 'object', typeReason: 'StringEnum\'s must be object',  default: 'null', defaultReason: 'Implicit string operator cannot be used as default parameter'}
+  { tag: 'User', operationId: 'createUser', queryParamName: 'nextLogin', type: 'object', typeReason: 'StringEnum\'s must be object',  default: 'null', defaultReason: 'Implicit string operator cannot be used as default parameter'},
+  /* Description errata must be removed when the https://github.com/okta/openapi/issues/180 is fixed */
+  { tag: 'User', operationId: 'listGroupTargetsForRole', descriptionReason: 'Wrong description',  description: 'List all group targets given a role id.'},
+  { tag: 'User', operationId: 'removeGroupTargetFromRole', descriptionReason: 'Wrong description',  description: 'Removes a group target from a role assigned to a user.'},
+  { tag: 'User', operationId: 'addGroupTargetToRole', descriptionReason: 'Wrong description',  description: 'Adds a group target for a role assigned to a user.'},
+  { tag: 'Group', operationId: 'updateRule', descriptionReason: 'Wrong description',  description: 'Updates a rule.'},
 ];
 
 function applyOperationErrata(tag, existingOperation, infoLogger) {
@@ -154,6 +159,11 @@ function applyOperationErrata(tag, existingOperation, infoLogger) {
       queryParam.type = errata.type;
       infoLogger(`Errata: Changing type for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.type}`, `(Reason: ${errata.typeReason})`);
     }
+  }
+
+  if(errata.description){
+        existingOperation.description = errata.description;
+        infoLogger(`Errata: Changing description for operation ${existingOperation.operationId} to ${errata.description}`, `(Reason: ${errata.descriptionReason})`);
   }
 
   return existingOperation;

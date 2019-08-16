@@ -31,6 +31,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string InlineHookId 
+        {
+            get => GetStringProperty("inlineHookId");
+            set => this["inlineHookId"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IApplicationSettingsNotifications Notifications 
         {
             get => GetResourceProperty<ApplicationSettingsNotifications>("notifications");

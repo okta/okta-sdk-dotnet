@@ -89,7 +89,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUser> UpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync<User>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}",
@@ -97,6 +97,10 @@ namespace Okta.Sdk
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["strict"] = strict,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -117,7 +121,7 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserCredentials>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/credentials/change_password",
@@ -125,6 +129,10 @@ namespace Okta.Sdk
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["strict"] = strict,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         

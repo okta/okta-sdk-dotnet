@@ -59,6 +59,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IList<string> PostLogoutRedirectUris 
+        {
+            get => GetArrayProperty<string>("post_logout_redirect_uris");
+            set => this["post_logout_redirect_uris"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IList<string> RedirectUris 
         {
             get => GetArrayProperty<string>("redirect_uris");

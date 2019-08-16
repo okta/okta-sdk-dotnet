@@ -383,6 +383,11 @@ namespace Okta.Sdk.IntegrationTests
                         "https://example.com/oauth2/callback",
                         "myapp://callback",
                 },
+                PostLogoutRedirectUris = new List<string>
+                {
+                    "https://example.com/postlogout",
+                    "myapp://postlogoutcallback",
+                },
                 GrantTypes = new List<OAuthGrantType>
                 {
                     OAuthGrantType.Implicit,
@@ -408,6 +413,9 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Settings.OAuthClient.RedirectUris.Should().HaveCount(2);
                 retrieved.Settings.OAuthClient.RedirectUris.First().Should().Be("https://example.com/oauth2/callback");
                 retrieved.Settings.OAuthClient.RedirectUris.Last().Should().Be("myapp://callback");
+                retrieved.Settings.OAuthClient.PostLogoutRedirectUris.Should().HaveCount(2);
+                retrieved.Settings.OAuthClient.PostLogoutRedirectUris.First().Should().Be("https://example.com/postlogout");
+                retrieved.Settings.OAuthClient.PostLogoutRedirectUris.Last().Should().Be("myapp://postlogoutcallback");
 
                 retrieved.Settings.OAuthClient.ResponseTypes.Should().HaveCount(3);
                 retrieved.Settings.OAuthClient.ResponseTypes.First().Should().Be(OAuthResponseType.Token);
