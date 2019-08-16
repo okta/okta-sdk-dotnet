@@ -138,8 +138,6 @@ const operationErrata = [
   { tag: 'User', operationId: 'removeGroupTargetFromRole', descriptionReason: 'Wrong description',  description: 'Removes a group target from a role assigned to a user.'},
   { tag: 'User', operationId: 'addGroupTargetToRole', descriptionReason: 'Wrong description',  description: 'Adds a group target for a role assigned to a user.'},
   { tag: 'Group', operationId: 'updateRule', descriptionReason: 'Wrong description',  description: 'Updates a rule.'},
-  
-  
 ];
 
 function applyOperationErrata(tag, existingOperation, infoLogger) {
