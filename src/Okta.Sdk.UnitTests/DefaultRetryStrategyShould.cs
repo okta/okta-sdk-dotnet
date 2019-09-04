@@ -34,7 +34,7 @@ namespace Okta.Sdk.UnitTests
             request.RequestUri = new Uri("https://foo.dev");
 
             var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
-            operation(request, default(CancellationToken)).Returns(response);
+            operation(default, default(CancellationToken)).ReturnsForAnyArgs(response);
 
             operation(request, default(CancellationToken)).Result.StatusCode.Should().Be(429);
             operation.ClearReceivedCalls();
@@ -65,7 +65,7 @@ namespace Okta.Sdk.UnitTests
             request.RequestUri = new Uri("https://foo.dev");
 
             var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
-            operation(request, default(CancellationToken)).Returns(x => response, x => successResponse);
+            operation(default, default(CancellationToken)).ReturnsForAnyArgs(x => response, x => successResponse);
 
             var retryStrategy = new DefaultRetryStrategy(5, 0);
 
@@ -93,7 +93,7 @@ namespace Okta.Sdk.UnitTests
             var numberOfExecutions = 0;
             var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
 
-            operation(request, default(CancellationToken)).Returns(
+            operation(default, default(CancellationToken)).ReturnsForAnyArgs(
                 x =>
                 {
                     requestHeadersDictionary.Add(numberOfExecutions, request.Headers.ToList());
