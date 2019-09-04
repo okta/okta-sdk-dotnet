@@ -50,7 +50,7 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         foreach (var ex in e.Flatten().InnerExceptions)
                         {
-                            Assert.False(ex.Message.Contains("The request message was already sent"), "The request shouldn't be reused.");
+                            Assert.False(ex.GetType() == typeof(InvalidOperationException) && ex.Message.Contains("The request message was already sent"), "The request shouldn't be reused.");
                         }
                     }
                 });
