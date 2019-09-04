@@ -80,7 +80,7 @@ namespace Okta.Sdk
                     {
                         await Task.Delay(delayTimeSpan, cancellationToken).ConfigureAwait(false);
                         response.Headers.TryGetValues("X-Okta-Request-Id", out var requestId);
-                        request = AddRetryOktaHeaders(request, requestId.FirstOrDefault(), numberOfRetries);
+                        request = await AddRetryOktaHeadersAsync(request, requestId.FirstOrDefault(), numberOfRetries).ConfigureAwait(false);
                     }
                     else
                     {
@@ -103,21 +103,23 @@ namespace Okta.Sdk
         public bool IsRetryable(HttpResponseMessage response)
             => response != null && _retryableStatusCodes.Contains(response.StatusCode);
 
-        private HttpRequestMessage AddRetryOktaHeaders(HttpRequestMessage request, string requestId, int numberOfRetries)
+        private async Task<HttpRequestMessage> AddRetryOktaHeadersAsync(HttpRequestMessage request, string requestId, int numberOfRetries)
         {
-            if (!request.Headers.Contains("X-Okta-Retry-For"))
+            var clonedRequest = await CloneHttpRequestMessageAsync(request).ConfigureAwait(false);
+
+            if (!clonedRequest.Headers.Contains("X-Okta-Retry-For"))
             {
-                request.Headers.Add("X-Okta-Retry-For", requestId);
+                clonedRequest.Headers.Add("X-Okta-Retry-For", requestId);
             }
 
-            if (request.Headers.Contains("X-Okta-Retry-Count"))
+            if (clonedRequest.Headers.Contains("X-Okta-Retry-Count"))
             {
-                request.Headers.Remove("X-Okta-Retry-Count");
+                clonedRequest.Headers.Remove("X-Okta-Retry-Count");
             }
 
-            request.Headers.Add("X-Okta-Retry-Count", numberOfRetries.ToString());
+            clonedRequest.Headers.Add("X-Okta-Retry-Count", numberOfRetries.ToString());
 
-            return CloneHttpRequestMessageAsync(request).Result;
+            return clonedRequest;
         }
 
         private TimeSpan CalculateDelay(HttpResponseMessage response)
@@ -150,42 +152,41 @@ namespace Okta.Sdk
             return backoffSeconds;
         }
 
-        private static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage req)
+        private static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage request)
         {
-            HttpRequestMessage clone = new HttpRequestMessage(req.Method, req.RequestUri);
+            HttpRequestMessage clonedRequest = new HttpRequestMessage(request.Method, request.RequestUri);
 
-            // Copy the request's content (via a MemoryStream) into the cloned object
-            var ms = new MemoryStream();
-            if (req.Content != null)
+            if (request.Content != null)
             {
-                await req.Content.CopyToAsync(ms).ConfigureAwait(false);
-                ms.Position = 0;
-                clone.Content = new StreamContent(ms);
+                // Copy the request's content (via a MemoryStream) into the cloned object
+                var memoryStream = new MemoryStream();
+                await request.Content.CopyToAsync(memoryStream).ConfigureAwait(false);
+                memoryStream.Position = 0;
+                clonedRequest.Content = new StreamContent(memoryStream);
 
                 // Copy the content headers
-                if (req.Content.Headers != null)
+                if (request.Content.Headers != null)
                 {
-                    foreach (var h in req.Content.Headers)
+                    foreach (var header in request.Content.Headers)
                     {
-                        clone.Content.Headers.Add(h.Key, h.Value);
+                        clonedRequest.Content.Headers.Add(header.Key, header.Value);
                     }
                 }
             }
 
+            clonedRequest.Version = request.Version;
 
-            clone.Version = req.Version;
-
-            foreach (KeyValuePair<string, object> prop in req.Properties)
+            foreach (KeyValuePair<string, object> property in request.Properties)
             {
-                clone.Properties.Add(prop);
+                clonedRequest.Properties.Add(property);
             }
 
-            foreach (KeyValuePair<string, IEnumerable<string>> header in req.Headers)
+            foreach (KeyValuePair<string, IEnumerable<string>> header in request.Headers)
             {
-                clone.Headers.TryAddWithoutValidation(header.Key, header.Value);
+                clonedRequest.Headers.TryAddWithoutValidation(header.Key, header.Value);
             }
 
-            return clone;
+            return clonedRequest;
         }
     }
 }

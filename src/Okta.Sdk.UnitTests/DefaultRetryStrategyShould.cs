@@ -34,7 +34,7 @@ namespace Okta.Sdk.UnitTests
             request.RequestUri = new Uri("https://foo.dev");
 
             var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
-            operation(default, default(CancellationToken)).ReturnsForAnyArgs(response);
+            operation(request, default(CancellationToken)).ReturnsForAnyArgs(response);
 
             operation(request, default(CancellationToken)).Result.StatusCode.Should().Be(429);
             operation.ClearReceivedCalls();
@@ -65,7 +65,7 @@ namespace Okta.Sdk.UnitTests
             request.RequestUri = new Uri("https://foo.dev");
 
             var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
-            operation(default, default(CancellationToken)).ReturnsForAnyArgs(x => response, x => successResponse);
+            operation(request, default(CancellationToken)).ReturnsForAnyArgs(x => response, x => successResponse);
 
             var retryStrategy = new DefaultRetryStrategy(5, 0);
 
@@ -93,10 +93,11 @@ namespace Okta.Sdk.UnitTests
             var numberOfExecutions = 0;
             var operation = Substitute.For<Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>>>();
 
-            operation(default, default(CancellationToken)).ReturnsForAnyArgs(
+            operation(request, default(CancellationToken)).ReturnsForAnyArgs(
                 x =>
                 {
-                    requestHeadersDictionary.Add(numberOfExecutions, request.Headers.ToList());
+                    var receivedRequest = (HttpRequestMessage)x.Args().GetValue(0);
+                    requestHeadersDictionary.Add(numberOfExecutions, receivedRequest.Headers.ToList());
                     numberOfExecutions++;
 
                     return response;
@@ -105,6 +106,7 @@ namespace Okta.Sdk.UnitTests
             var retryStrategy = new DefaultRetryStrategy(1, 0);
 
             var retryResponse = await retryStrategy.WaitAndRetryAsync(request, default(CancellationToken), operation);
+
             numberOfExecutions.Should().Be(2);
             retryResponse.StatusCode.Should().Be((HttpStatusCode)429);
 
