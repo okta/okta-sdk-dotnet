@@ -19,6 +19,8 @@ namespace Okta.Sdk
 
         bool? ImplicitAssignment { get; set; }
 
+        string InlineHookId { get; set; }
+
         IApplicationSettingsNotifications Notifications { get; set; }
 
     }

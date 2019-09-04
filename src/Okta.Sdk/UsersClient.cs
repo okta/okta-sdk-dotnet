@@ -133,6 +133,10 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
+        public Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default)
+            => ChangePasswordAsync(changePasswordRequest, userId, null, cancellationToken);
+
+        /// <inheritdoc/>
         public Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (options == null)
@@ -167,5 +171,9 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public Task DeactivateOrDeleteUserAsync(string userId)
             => DeactivateOrDeleteUserAsync(userId, false, default(CancellationToken));
+
+        /// <inheritdoc />
+        public Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default)
+            => UpdateUserAsync(user, userId, null, cancellationToken);
     }
 }

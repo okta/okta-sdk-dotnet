@@ -58,6 +58,11 @@ namespace Okta.Sdk
         public IList<string> RedirectUris { get; set; }
 
         /// <summary>
+        /// Gets or sets a post-logout redirect uri list
+        /// </summary>
+        public IList<string> PostLogoutRedirectUris { get; set; }
+
+        /// <summary>
         /// Gets or sets a grant type list
         /// </summary>
         public IList<OAuthGrantType> GrantTypes { get; set; }

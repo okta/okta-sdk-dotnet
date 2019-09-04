@@ -61,6 +61,16 @@ namespace Okta.Sdk
         Task<IUserCredentials> ChangePasswordAsync(string userId, ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Changes a user's password by validating the user&#x27;s current password.  This operation can only be performed on users in &#x60;STAGED&#x60;, &#x60;ACTIVE&#x60;, &#x60;PASSWORD_EXPIRED&#x60;, or &#x60;RECOVERY&#x60; status that have a valid [password credential](#password-object)
+        /// </summary>
+        /// <param name="changePasswordRequest">The <see cref="IChangePasswordRequest"/> resource.</param>
+        /// <param name="userId">The user ID.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IUserCredentials"/> response.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task<IUserCredentials> ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Changes a user's recovery question.
         /// </summary>
         /// <param name="userId">The user ID.</param>
@@ -85,7 +95,7 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
         /// <remarks>Explicit overload to support backward compatibility.</remarks>
-        Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deletes a user permanently. This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**
@@ -94,5 +104,15 @@ namespace Okta.Sdk
         /// <returns>A Task that represents the asynchronous operation.</returns>
         /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task DeactivateOrDeleteUserAsync(string userId);
+
+        /// <summary>
+        /// Update a user's profile and/or credentials using strict-update semantics.
+        /// </summary>
+        /// <param name="user">The <see cref="IUser"/> resource.</param>
+        /// <param name="userId">The user ID.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IUser"/> response.</returns>
+        /// <remarks>Explicit overload to support backward compatibility.</remarks>
+        Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
