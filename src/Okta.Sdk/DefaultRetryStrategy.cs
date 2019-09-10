@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -79,7 +80,7 @@ namespace Okta.Sdk
                     {
                         await Task.Delay(delayTimeSpan, cancellationToken).ConfigureAwait(false);
                         response.Headers.TryGetValues("X-Okta-Request-Id", out var requestId);
-                        AddRetryOktaHeaders(request, requestId.FirstOrDefault(), numberOfRetries);
+                        request = await AddRetryOktaHeadersAsync(request, requestId.FirstOrDefault(), numberOfRetries).ConfigureAwait(false);
                     }
                     else
                     {
@@ -102,19 +103,23 @@ namespace Okta.Sdk
         public bool IsRetryable(HttpResponseMessage response)
             => response != null && _retryableStatusCodes.Contains(response.StatusCode);
 
-        private void AddRetryOktaHeaders(HttpRequestMessage request, string requestId, int numberOfRetries)
+        private async Task<HttpRequestMessage> AddRetryOktaHeadersAsync(HttpRequestMessage request, string requestId, int numberOfRetries)
         {
-            if (!request.Headers.Contains("X-Okta-Retry-For"))
+            var clonedRequest = await CloneHttpRequestMessageAsync(request).ConfigureAwait(false);
+
+            if (!clonedRequest.Headers.Contains("X-Okta-Retry-For"))
             {
-                request.Headers.Add("X-Okta-Retry-For", requestId);
+                clonedRequest.Headers.Add("X-Okta-Retry-For", requestId);
             }
 
-            if (request.Headers.Contains("X-Okta-Retry-Count"))
+            if (clonedRequest.Headers.Contains("X-Okta-Retry-Count"))
             {
-                request.Headers.Remove("X-Okta-Retry-Count");
+                clonedRequest.Headers.Remove("X-Okta-Retry-Count");
             }
 
-            request.Headers.Add("X-Okta-Retry-Count", numberOfRetries.ToString());
+            clonedRequest.Headers.Add("X-Okta-Retry-Count", numberOfRetries.ToString());
+
+            return clonedRequest;
         }
 
         private TimeSpan CalculateDelay(HttpResponseMessage response)
@@ -145,6 +150,43 @@ namespace Okta.Sdk
             }
 
             return backoffSeconds;
+        }
+
+        private static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage request)
+        {
+            HttpRequestMessage clonedRequest = new HttpRequestMessage(request.Method, request.RequestUri);
+
+            if (request.Content != null)
+            {
+                // Copy the request's content (via a MemoryStream) into the cloned object
+                var memoryStream = new MemoryStream();
+                await request.Content.CopyToAsync(memoryStream).ConfigureAwait(false);
+                memoryStream.Position = 0;
+                clonedRequest.Content = new StreamContent(memoryStream);
+
+                // Copy the content headers
+                if (request.Content.Headers != null)
+                {
+                    foreach (var header in request.Content.Headers)
+                    {
+                        clonedRequest.Content.Headers.Add(header.Key, header.Value);
+                    }
+                }
+            }
+
+            clonedRequest.Version = request.Version;
+
+            foreach (KeyValuePair<string, object> property in request.Properties)
+            {
+                clonedRequest.Properties.Add(property);
+            }
+
+            foreach (KeyValuePair<string, IEnumerable<string>> header in request.Headers)
+            {
+                clonedRequest.Headers.TryAddWithoutValidation(header.Key, header.Value);
+            }
+
+            return clonedRequest;
         }
     }
 }
