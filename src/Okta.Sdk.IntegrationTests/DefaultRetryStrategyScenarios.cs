@@ -32,6 +32,7 @@ namespace Okta.Sdk.IntegrationTests
                     OktaClientConfiguration.DefaultMaxRetries,
                     OktaClientConfiguration.DefaultRequestTimeout));
 
+            // Forcing several parallel requests to trigger rate limiting
             guidList
                 .AsParallel()
                 .ForAll(t =>
