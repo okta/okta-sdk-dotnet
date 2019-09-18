@@ -116,7 +116,16 @@ namespace Okta.Sdk.Internal
         }
 
         private static IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(HttpResponseMessage response)
-            => response.Headers.Concat(response.Content.Headers);
+        {
+            var responseContentHeaders = response.Content?.Headers;
+
+            if (responseContentHeaders == null)
+            {
+                return response.Headers;
+            }
+
+            return response.Headers?.Concat(responseContentHeaders);
+        }
 
         /// <inheritdoc/>
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
