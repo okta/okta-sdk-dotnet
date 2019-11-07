@@ -84,6 +84,15 @@ namespace Okta.Sdk.Configuration
         public string Token { get; set; }
 
         /// <summary>
+        /// Get or sets Rate Limit preservation percent
+        /// </summary>
+        /// <value>
+        /// Int value representing percent to preserve for other clients (0 - 100)
+        /// </value>
+        /// <remarks>This value preserves percent of an endpoint for other concurrent clients to not cause rate limit violations</remarks>
+        public int? RateLimitPreservationPercent { get; set; } = 10;
+
+        /// <summary>
         /// Gets or sets the flag to disable https check.
         /// This allows for insecure configurations and is NOT recommended for production use.
         /// </summary>
@@ -116,6 +125,7 @@ namespace Okta.Sdk.Configuration
                 DisableHttpsCheck = this.DisableHttpsCheck,
                 MaxRetries = this.MaxRetries,
                 RequestTimeout = this.RequestTimeout,
+                RateLimitPreservationPercent = this.RateLimitPreservationPercent,
             };
     }
 }
