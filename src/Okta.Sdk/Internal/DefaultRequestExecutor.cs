@@ -38,8 +38,7 @@ namespace Okta.Sdk.Internal
         /// <param name="httpClient">The HTTP client to use, if any.</param>
         /// <param name="logger">The logging interface.</param>
         /// <param name="retryStrategy">The retry strategy interface.</param>
-        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger,
-            IRetryStrategy retryStrategy = null)
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null)
         {
             if (configuration == null)
             {
@@ -55,12 +54,10 @@ namespace Okta.Sdk.Internal
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
 
-        private static void ApplyDefaultClientSettings(HttpClient client, string oktaDomain,
-            OktaClientConfiguration configuration)
+        private static void ApplyDefaultClientSettings(HttpClient client, string oktaDomain, OktaClientConfiguration configuration)
         {
             client.BaseAddress = new Uri(oktaDomain, UriKind.Absolute);
-            client.DefaultRequestHeaders.Authorization =
-                new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", configuration.Token);
+            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", configuration.Token);
         }
 
         private string EnsureRelativeUrl(string uri)
@@ -77,8 +74,7 @@ namespace Okta.Sdk.Internal
 
             if (uri.Contains("://"))
             {
-                throw new InvalidOperationException(
-                    $"The client is configured to connect to {_oktaDomain}, but this request URI does not match: ${uri}");
+                throw new InvalidOperationException($"The client is configured to connect to {_oktaDomain}, but this request URI does not match: ${uri}");
             }
 
             return uri.TrimStart('/');
@@ -90,13 +86,11 @@ namespace Okta.Sdk.Internal
         {
             _logger.LogTrace($"{request.Method} {request.RequestUri}");
 
-            Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) =>
-                await _httpClient.SendAsync(x, y).ConfigureAwait(false);
+            Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) => await _httpClient.SendAsync(x, y).ConfigureAwait(false);
 
-            using (var response = await _retryStrategy.WaitAndRetryAsync(request, cancellationToken, operation)
-                .ConfigureAwait(false))
+            using (var response = await _retryStrategy.WaitAndRetryAsync(request, cancellationToken, operation).ConfigureAwait(false))
             {
-                _logger.LogTrace($"{(int) response.StatusCode} {request.RequestUri.PathAndQuery}");
+                _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
 
                 string stringContent = null;
                 if (response.Content != null)
@@ -129,8 +123,7 @@ namespace Okta.Sdk.Internal
             }
         }
 
-        private static void ApplyHeadersToRequest(HttpRequestMessage request,
-            IEnumerable<KeyValuePair<string, string>> headers)
+        private static void ApplyHeadersToRequest(HttpRequestMessage request, IEnumerable<KeyValuePair<string, string>> headers)
         {
             if (headers == null || !headers.Any())
             {
@@ -143,13 +136,10 @@ namespace Okta.Sdk.Internal
             }
         }
 
-        private static IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders(
-            HttpResponseMessage response)
-            => response.Headers.Concat(response.Content.Headers);
+        private static IEnumerable<KeyValuePair<string, IEnumerable<string>>> ExtractHeaders( HttpResponseMessage response) => response.Headers.Concat(response.Content.Headers);
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers,
-            CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -160,8 +150,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers,
-            string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -176,8 +165,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers,
-            string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -192,8 +180,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers,
-            CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -209,9 +196,9 @@ namespace Okta.Sdk.Internal
 
             // default values for the case if no headers detected
             // in this case waiting for 60 seconds, for next rateLimit cycle to establish
-            int rateLimitLimit = 0,
-                rateLimitRemaining = 0,
-                rateLimitReset = Convert.ToInt32((DateTime.Now.AddSeconds(60) - UnixEpoch).TotalSeconds);
+            int rateLimitLimit,
+                rateLimitRemaining,
+                rateLimitReset;
 
             try
             {
