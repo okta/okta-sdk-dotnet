@@ -79,6 +79,19 @@ var client = new OktaClient(new OktaClientConfiguration
 });
 ```
 
+If you are using dependency injection in .NET Core 2.1 or later, add the `IOktaClient` service by creating an [IHttpClientFactory typed client](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/http-requests), which acts as a transient service:
+
+``` csharp
+// Startup.cs
+// Add http client services at ConfigureServices(IServiceCollection services)
+services.AddHttpClient<IOktaClient, OktaClient>();
+services.AddSingleton(new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    Token = "{{yourApiToken}}"
+});
+```
+
 Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
  
 ## Usage guide
