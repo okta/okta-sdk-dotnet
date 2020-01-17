@@ -1,5 +1,5 @@
 language: csharp
-mono: latest
+mono: 6.6.0 # Use specific mono version due to a cake failure: https://github.com/cake-build/cake/issues/2695
 sudo: required
 dist: xenial
 dotnet: 2.2
