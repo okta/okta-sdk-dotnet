@@ -14,7 +14,7 @@ namespace Okta.Sdk
     public sealed partial class ApplicationsClient : OktaClient, IApplicationsClient, IAsyncEnumerable<IApplication>
     {
         /// <inheritdoc/>
-        public IAsyncEnumerator<IApplication> GetEnumerator() => ListApplications().GetEnumerator();
+       // public IAsyncEnumerator<IApplication> GetEnumerator() => ListApplications().GetEnumerator();
 
         /// <inheritdoc/>
         public async Task<T> GetApplicationAsync<T>(string appId, CancellationToken cancellationToken = default(CancellationToken))
@@ -427,5 +427,10 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public async Task DeleteApplicationUserAsync(string appId, string userId)
             => await DeleteApplicationUserAsync(appId, userId, false, default(CancellationToken)).ConfigureAwait(false);
+
+        public IAsyncEnumerator<IApplication> GetAsyncEnumerator(CancellationToken cancellationToken = default)
+        {
+            return ListApplications().GetAsyncEnumerator();
+        }
     }
 }

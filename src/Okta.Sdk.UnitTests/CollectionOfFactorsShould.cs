@@ -44,7 +44,7 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var retrievedItems = await collection.ToArray();
+            var retrievedItems = await collection.ToArrayAsync();
             var securityQuestionFactor = retrievedItems.OfType<SecurityQuestionFactor>().FirstOrDefault();
             securityQuestionFactor.Should().NotBeNull();
         }
@@ -64,7 +64,7 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var retrievedItems = await collection.ToArray();
+            var retrievedItems = await collection.ToArrayAsync();
             var securityQuestionFactor = retrievedItems.OfType<ISecurityQuestionFactor>().FirstOrDefault();
             securityQuestionFactor.Should().NotBeNull();
         }

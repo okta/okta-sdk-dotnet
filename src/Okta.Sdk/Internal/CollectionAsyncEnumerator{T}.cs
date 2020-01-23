@@ -85,10 +85,48 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public void Dispose()
+        //public void Dispose()
+        //{
+        //    // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //    Dispose(true);
+        //}        //public void Dispose()
+        //{
+        //    // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
+        //    Dispose(true);
+        //}
+
+        /// <inheritdoc/>
+        public async ValueTask<bool> MoveNextAsync()
+        {
+            var hasMoreLocalItems = _initialized
+                && _pagedEnumerator.CurrentPage.Items.Any()
+                && (_localPageIndex + 1) < _pagedEnumerator.CurrentPage.Items.Count();
+
+            if (hasMoreLocalItems)
+            {
+                _localPageIndex++;
+                return true;
+            }
+
+            var movedNext = await _pagedEnumerator.MoveNextAsync().ConfigureAwait(false);
+            if (!movedNext)
+            {
+                return false;
+            }
+
+            _initialized = true;
+            _localPageIndex = 0;
+
+            return _pagedEnumerator.CurrentPage.Items.Any();
+        }
+
+        /// <inheritdoc/>
+        public ValueTask DisposeAsync()
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);
+
+            return default(ValueTask);
         }
     }
 }

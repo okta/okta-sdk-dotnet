@@ -18,7 +18,7 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = new MockedStringRequestExecutor(GetLogsStubResponse());
             var client = new TestableOktaClient(mockRequestExecutor);
-            var logs = await client.Logs.GetLogs().ToList();
+            var logs = await client.Logs.GetLogs().ToListAsync();
             logs.Should().HaveCount(1);
 
             var log = logs.First();

@@ -42,7 +42,7 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var all = await collection.ToArray();
+            var all = await collection.ToArrayAsync();
             all.Length.Should().Be(0);
         }
 
@@ -61,7 +61,7 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var all = await collection.ToArray();
+            var all = await collection.ToArrayAsync();
             all.Length.Should().Be(5);
         }
 
@@ -106,7 +106,7 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var count = await collection.Count();
+            var count = await collection.CountAsync();
             count.Should().Be(5);
         }
 
@@ -125,7 +125,7 @@ namespace Okta.Sdk.UnitTests
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
-            var activeUsers = await collection.Where(x => x.Status == "ACTIVE").ToList();
+            var activeUsers = await collection.Where(x => x.Status == "ACTIVE").ToListAsync();
             activeUsers.Count.Should().Be(2);
         }
     }

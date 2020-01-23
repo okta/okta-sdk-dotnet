@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
@@ -33,9 +34,8 @@ namespace Okta.Sdk
             _requestContext = requestContext;
         }
 
-        /// <inheritdoc/>
-        public IAsyncEnumerator<T> GetEnumerator()
-            => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
+        public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default)
+        => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
 
         /// <inheritdoc/>
         public IPagedCollectionEnumerator<T> GetPagedEnumerator()

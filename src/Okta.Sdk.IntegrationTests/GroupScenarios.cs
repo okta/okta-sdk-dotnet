@@ -53,7 +53,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var groupList = await client.Groups.ListGroups().ToArray();
+                var groupList = await client.Groups.ListGroups().ToArrayAsync();
                 groupList.SingleOrDefault(g => g.Id == createdGroup.Id).Should().NotBeNull();
             }
             finally
@@ -81,7 +81,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var groupList = await client.Groups
                     .ListGroups(createdGroup.Profile.GetProperty<string>("name"))
-                    .ToArray();
+                    .ToArrayAsync();
                 groupList.SingleOrDefault(g => g.Id == createdGroup.Id).Should().NotBeNull();
             }
             finally
@@ -155,10 +155,10 @@ namespace Okta.Sdk.IntegrationTests
 
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
-                var groupUsersList = await retrievedGroup.Users.ToList();
+                var groupUsersList = await retrievedGroup.Users.ToListAsync();
                 groupUsersList.Should().HaveCount(1);
 
-                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                var retrievedUser = await retrievedGroup.Users.FirstAsync(x => x.Id == createdUser.Id);
                 retrievedUser.Should().NotBeNull();
             }
             finally
@@ -201,15 +201,15 @@ namespace Okta.Sdk.IntegrationTests
 
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
-                var groupUsersList = await retrievedGroup.Users.ToList();
+                var groupUsersList = await retrievedGroup.Users.ToListAsync();
                 groupUsersList.Should().HaveCount(1);
 
-                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                var retrievedUser = await retrievedGroup.Users.FirstAsync(x => x.Id == createdUser.Id);
                 retrievedUser.Should().NotBeNull();
 
                 await retrievedGroup.RemoveUserAsync(retrievedUser.Id);
                 retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
-                groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList = await retrievedGroup.Users.ToListAsync();
                 groupUsersList.Should().HaveCount(0);
             }
             finally
@@ -252,17 +252,17 @@ namespace Okta.Sdk.IntegrationTests
 
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
-                var groupUsersList = await retrievedGroup.Users.ToList();
+                var groupUsersList = await retrievedGroup.Users.ToListAsync();
                 groupUsersList.Should().HaveCount(1);
 
-                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                var retrievedUser = await retrievedGroup.Users.FirstAsync(x => x.Id == createdUser.Id);
                 retrievedUser.Should().NotBeNull();
 
                 await createdUser.DeactivateAsync();
                 await createdUser.DeactivateOrDeleteAsync();
 
                 retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
-                groupUsersList = await retrievedGroup.Users.ToList();
+                groupUsersList = await retrievedGroup.Users.ToListAsync();
                 groupUsersList.Should().HaveCount(0);
             }
             finally
@@ -303,14 +303,14 @@ namespace Okta.Sdk.IntegrationTests
 
                 var retrievedGroup = await client.Groups.GetGroupAsync(createdGroup.Id);
                 retrievedGroup.Should().NotBeNull();
-                var groupUsersList = await retrievedGroup.Users.ToList();
+                var groupUsersList = await retrievedGroup.Users.ToListAsync();
                 groupUsersList.Should().HaveCount(1);
 
-                var retrievedUser = await retrievedGroup.Users.First(x => x.Id == createdUser.Id);
+                var retrievedUser = await retrievedGroup.Users.FirstAsync(x => x.Id == createdUser.Id);
                 retrievedUser.Should().NotBeNull();
 
                 await client.Groups.DeleteGroupAsync(createdGroup.Id);
-                var retrievedGroupsList = await client.Groups.ToList();
+                var retrievedGroupsList = await client.Groups.ToListAsync();
                 retrievedGroupsList.FirstOrDefault(x => x.Id == createdGroup.Id).Should().BeNull();
 
                 retrievedUser = await client.Users.GetUserAsync(createdUser.Id);

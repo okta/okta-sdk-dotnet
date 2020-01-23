@@ -472,7 +472,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var appList = await client.Applications.ToArray();
+                var appList = await client.Applications.ToArrayAsync();
                 appList.SingleOrDefault(a => a.Id == createdApp.Id).Should().NotBeNull();
             }
             finally
@@ -504,10 +504,10 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var appList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArray();
+                var appList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArrayAsync();
                 appList.Should().HaveCount(1);
 
-                var bookmarkApp = await client.Applications.ListApplications().OfType<IBookmarkApplication>().FirstOrDefault();
+                var bookmarkApp = await client.Applications.ListApplications().OfType<IBookmarkApplication>().FirstOrDefaultAsync();
                 bookmarkApp.Should().NotBeNull();
                 bookmarkApp.SignOnMode.Should().Be(ApplicationSignOnMode.Bookmark);
             }
@@ -995,7 +995,7 @@ namespace Okta.Sdk.IntegrationTests
                 var createdAppUser1 = await client.Applications.AssignUserToApplicationAsync(assignUserOptions1);
                 var createdAppUser2 = await client.Applications.AssignUserToApplicationAsync(assignUserOptions2);
 
-                var appUserList = await createdApp.ListApplicationUsers().ToList();
+                var appUserList = await createdApp.ListApplicationUsers().ToListAsync();
 
                 appUserList.Should().NotBeNullOrEmpty();
                 appUserList.Should().HaveCount(2);
@@ -1128,7 +1128,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 await client.Applications.DeleteApplicationUserAsync(createdApp.Id, createdUser.Id);
 
-                var appUserList = await createdApp.ListApplicationUsers().ToList<IAppUser>();
+                var appUserList = await createdApp.ListApplicationUsers().ToListAsync<IAppUser>();
                 appUserList.Should().BeNullOrEmpty();
             }
             finally
@@ -1271,7 +1271,7 @@ namespace Okta.Sdk.IntegrationTests
                 var createdAppGroup1 = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions1);
                 var createdAppGroup2 = await client.Applications.CreateApplicationGroupAssignmentAsync(groupAssignmentOptions2);
 
-                var groupAssignmentList = await createdApp.ListGroupAssignments().ToList<IApplicationGroupAssignment>();
+                var groupAssignmentList = await createdApp.ListGroupAssignments().ToListAsync<IApplicationGroupAssignment>();
 
                 groupAssignmentList.Should().NotBeNullOrEmpty();
                 groupAssignmentList.Should().HaveCount(2);
@@ -1324,7 +1324,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 await client.Applications.DeleteApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
 
-                var appGroupAssignmentList = await createdApp.ListGroupAssignments().ToList<IApplicationGroupAssignment>();
+                var appGroupAssignmentList = await createdApp.ListGroupAssignments().ToListAsync<IApplicationGroupAssignment>();
                 appGroupAssignmentList.Should().BeNullOrEmpty();
             }
             finally
@@ -1353,7 +1353,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var appKeys = await createdApp.ListKeys().ToList();
+                var appKeys = await createdApp.ListKeys().ToListAsync();
                 // A key is created by default
                 appKeys.Should().NotBeNull();
                 appKeys.Should().HaveCount(1);
@@ -1381,7 +1381,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var defaultAppKey = await createdApp.ListKeys().FirstOrDefault();
+                var defaultAppKey = await createdApp.ListKeys().FirstOrDefaultAsync();
                 var retrievedAppKey = await createdApp.GetApplicationKeyAsync(defaultAppKey.Kid);
 
                 retrievedAppKey.Should().NotBeNull();
