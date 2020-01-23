@@ -34,6 +34,7 @@ namespace Okta.Sdk
             _requestContext = requestContext;
         }
 
+        /// <inheritdoc/>
         public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default)
         => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
 

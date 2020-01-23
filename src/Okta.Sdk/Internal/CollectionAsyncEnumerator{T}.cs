@@ -3,10 +3,8 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace Okta.Sdk.Internal
@@ -44,33 +42,6 @@ namespace Okta.Sdk.Internal
         /// <inheritdoc/>
         public T Current => _pagedEnumerator.CurrentPage.Items.ElementAt(_localPageIndex);
 
-#pragma warning disable UseAsyncSuffix // Must match interface
-        /// <inheritdoc/>
-        public async Task<bool> MoveNext(CancellationToken cancellationToken)
-#pragma warning restore UseAsyncSuffix // Must match interface
-        {
-            var hasMoreLocalItems = _initialized
-                && _pagedEnumerator.CurrentPage.Items.Any()
-                && (_localPageIndex + 1) < _pagedEnumerator.CurrentPage.Items.Count();
-
-            if (hasMoreLocalItems)
-            {
-                _localPageIndex++;
-                return true;
-            }
-
-            var movedNext = await _pagedEnumerator.MoveNextAsync(cancellationToken).ConfigureAwait(false);
-            if (!movedNext)
-            {
-                return false;
-            }
-
-            _initialized = true;
-            _localPageIndex = 0;
-
-            return _pagedEnumerator.CurrentPage.Items.Any();
-        }
-
         private void Dispose(bool disposing)
         {
             if (!_disposedValue)
@@ -83,17 +54,6 @@ namespace Okta.Sdk.Internal
                 _disposedValue = true;
             }
         }
-
-        /// <inheritdoc/>
-        //public void Dispose()
-        //{
-        //    // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //    Dispose(true);
-        //}        //public void Dispose()
-        //{
-        //    // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
-        //    Dispose(true);
-        //}
 
         /// <inheritdoc/>
         public async ValueTask<bool> MoveNextAsync()
