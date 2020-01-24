@@ -119,5 +119,6 @@
     <Rule Id="SA1636" Action="Error" />
     <Rule Id="SA1642" Action="Error" />
     <Rule Id="SA1643" Action="Error" />
+	<Rule Id="SA1629" Action="None" /> <!-- Not relevant -->
   </Rules>
 </RuleSet>

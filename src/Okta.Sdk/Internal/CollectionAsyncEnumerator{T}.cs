@@ -81,7 +81,9 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
+#pragma warning disable AvoidAsyncSuffix // Avoid Async suffix
         public ValueTask DisposeAsync()
+#pragma warning restore AvoidAsyncSuffix // Avoid Async suffix
         {
             // Do not change this code. Put cleanup code in Dispose(bool disposing) above.
             Dispose(true);

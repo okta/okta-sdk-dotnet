@@ -29,12 +29,7 @@ namespace Okta.Sdk
             return CreateGroupAsync(newGroup, cancellationToken);
         }
 
-        public IAsyncEnumerator<IGroup> GetAsyncEnumerator(CancellationToken cancellationToken = default)
-        {
-            return ListGroups().GetAsyncEnumerator();
-        }
-
         /// <inheritdoc/>
-        //public IAsyncEnumerator<IGroup> GetEnumerator() => ListGroups().GetEnumerator();
+        public IAsyncEnumerator<IGroup> GetAsyncEnumerator(CancellationToken cancellationToken = default) => ListGroups().GetAsyncEnumerator(cancellationToken);
     }
 }
