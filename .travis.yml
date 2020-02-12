@@ -2,7 +2,9 @@ language: csharp
 mono: 6.6.0 # Use specific mono version due to a cake failure: https://github.com/cake-build/cake/issues/2695
 sudo: required
 dist: xenial
-dotnet: 3.1
+dotnet: 
+  - 2.2
+  - 3.1
 
 script:
   - if [[ $TRAVIS_EVENT_TYPE = 'push' ]]; then
