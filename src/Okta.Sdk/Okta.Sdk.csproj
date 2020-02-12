@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1</TargetFrameworks>
     <Version>1.4.1</Version>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
@@ -27,7 +27,7 @@
 
   <PropertyGroup>
     <Description>Official .NET SDK for the Okta API.</Description>
-    <DocumentationFile>bin\Debug\netstandard1.3\Okta.Sdk.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.1\Okta.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet</RepositoryUrl>
     <PackageProjectUrl>https://github.com/okta/okta-sdk-dotnet</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/okta/okta-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>
