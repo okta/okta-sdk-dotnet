@@ -54,14 +54,44 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
             }
 
-            if (string.IsNullOrEmpty(configuration.Token))
+            if (configuration.AuthorizationMode == AuthorizationMode.SSWS)
             {
-                throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+
+                if (string.IsNullOrEmpty(configuration.Token))
+                {
+                    throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+                }
+
+                if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
+                }
             }
 
-            if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
+            if (configuration.AuthorizationMode == AuthorizationMode.PrivateKey)
             {
-                throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
+
+                if (string.IsNullOrEmpty(configuration.ClientId))
+                {
+                    throw new ArgumentNullException(nameof(configuration.ClientId), "Your client ID is missing. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");
+                }
+
+                if (configuration.ClientId.IndexOf("{ClientId}", StringComparison.OrdinalIgnoreCase) >= 0)
+                {
+                    throw new ArgumentNullException(
+                        nameof(configuration.ClientId),
+                        "Replace {clientId} with the client ID of your Application. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");
+                }
+
+                if (configuration.PrivateKey == null)
+                {
+                    throw new ArgumentNullException(nameof(configuration.PrivateKey), "Your private key is missing.");
+                }
+
+                if (configuration.Scopes == null || configuration.Scopes.Count == 0)
+                {
+                    throw new ArgumentNullException(nameof(configuration.Scopes), "Scopes cannot be null or empty.");
+                }
             }
         }
 
