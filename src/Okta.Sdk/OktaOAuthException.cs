@@ -5,10 +5,18 @@
 
 namespace Okta.Sdk
 {
+    /// <summary>
+    /// An exception wrapping an error returned by the Okta OAuth API.
+    /// </summary>
     public class OktaOAuthException : OktaException
     {
         private readonly IOAuthApiError _error;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaOAuthException"/> class.
+        /// </summary>
+        /// <param name="statusCode">The status code.</param>
+        /// <param name="error">the error.</param>
         public OktaOAuthException(int statusCode, IOAuthApiError error)
             : base(message: $"{error.Error} ({statusCode}, {error.ErrorDescription})")
         {

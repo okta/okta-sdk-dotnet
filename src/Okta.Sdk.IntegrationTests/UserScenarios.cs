@@ -18,23 +18,6 @@ namespace Okta.Sdk.IntegrationTests
     [Collection(nameof(UserScenarios))]
     public class UserScenarios
     {
-
-        //[Fact]
-        //public async Task CleanTest()
-        //{
-        //    var client = TestClient.Create();
-        //    var foundUsers = await client.Users
-        //                    .ListUsers(search: $"profile.firstName eq \"John\"")
-        //                    .ToArrayAsync();
-
-        //    foreach (var createdUser in foundUsers)
-        //    {
-
-        //        createdUser.DeactivateAsync();
-        //        await createdUser.DeactivateOrDeleteAsync();
-        //    }
-        //}
-
         [Fact]
         public async Task ListUsers()
         {

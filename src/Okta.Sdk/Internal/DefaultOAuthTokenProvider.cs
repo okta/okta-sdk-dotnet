@@ -1,4 +1,9 @@
-﻿using System;
+﻿// <copyright file="DefaultOAuthTokenProvider.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -9,6 +14,9 @@ using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Default OAuth token provider.
+    /// </summary>
     public class DefaultOAuthTokenProvider : IOAuthTokenProvider
     {
         private OktaClientConfiguration Configuration { get; }
@@ -23,19 +31,24 @@ namespace Okta.Sdk.Internal
 
         private IJwtGenerator _jwtGenerator;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultOAuthTokenProvider"/> class.
+        /// </summary>
+        /// <param name="configuration">The Okta configuration.</param>
+        /// <param name="resourceFactory">The resource factory.</param>
+        /// <param name="httpClient">The http client.</param>
+        /// <param name="jwtGenerator">The JWT generator.</param>
+        /// <param name="logger">The logger.</param>
         public DefaultOAuthTokenProvider(OktaClientConfiguration configuration, ResourceFactory resourceFactory, HttpClient httpClient = null, IJwtGenerator jwtGenerator = null, ILogger logger = null)
         {
             Configuration = configuration;
             _resourceFactory = resourceFactory;
             _logger = logger ?? NullLogger.Instance;
             _httpClient = httpClient ?? new HttpClient();
-            _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator();
+            _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator(configuration);
         }
 
-        /// <summary>
-        /// Gets an access token.
-        /// </summary>
-        /// <returns>The access token.</returns>
+        /// <inheritdoc/>
         public async Task<string> GetAccessTokenAsync(bool forceRenew = false)
         {
             if (string.IsNullOrEmpty(_accessToken) || forceRenew)
@@ -55,7 +68,7 @@ namespace Okta.Sdk.Internal
             _httpClient.BaseAddress = new Uri(Configuration.OktaDomain);
             _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-            var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT(Configuration);
+            var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
 
             var accessTokenUri = $@"oauth2/v1/token?grant_type=client_credentials&scope={string.Join("+", Configuration.Scopes)}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
 

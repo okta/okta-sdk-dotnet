@@ -126,7 +126,6 @@ namespace Okta.Sdk.Configuration
         /// </summary>
         public List<string> Scopes { get; set; }
 
-
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
@@ -140,6 +139,8 @@ namespace Okta.Sdk.Configuration
                 RequestTimeout = this.RequestTimeout,
                 AuthorizationMode = this.AuthorizationMode,
                 PrivateKey = this.PrivateKey,
+                ClientId = this.ClientId,
+                Scopes = this.Scopes,
             };
     }
 }

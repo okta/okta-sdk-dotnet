@@ -35,6 +35,7 @@ namespace Okta.Sdk.Internal
         /// <param name="httpClient">The HTTP client to use, if any.</param>
         /// <param name="logger">The logging interface.</param>
         /// <param name="retryStrategy">The retry strategy interface.</param>
+        /// <param name="oAuthTokenProvider">The OAuth token provider interface.</param>
         public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             if (configuration == null)
@@ -103,7 +104,6 @@ namespace Okta.Sdk.Internal
             };
         }
 
-
         private async Task<HttpResponse<string>> SendAsync(
             HttpRequestMessage request,
             CancellationToken cancellationToken)
@@ -139,8 +139,6 @@ namespace Okta.Sdk.Internal
                 return await ProcessResponseAsync(response).ConfigureAwait(false);
             }
         }
-
-        private void CloneRequest() { }
 
         private static void ApplyHeadersToRequest(HttpRequestMessage request, IEnumerable<KeyValuePair<string, string>> headers)
         {

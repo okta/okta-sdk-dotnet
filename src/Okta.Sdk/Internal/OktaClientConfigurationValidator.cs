@@ -56,7 +56,6 @@ namespace Okta.Sdk.Internal
 
             if (configuration.AuthorizationMode == AuthorizationMode.SSWS)
             {
-
                 if (string.IsNullOrEmpty(configuration.Token))
                 {
                     throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
@@ -70,7 +69,6 @@ namespace Okta.Sdk.Internal
 
             if (configuration.AuthorizationMode == AuthorizationMode.PrivateKey)
             {
-
                 if (string.IsNullOrEmpty(configuration.ClientId))
                 {
                     throw new ArgumentNullException(nameof(configuration.ClientId), "Your client ID is missing. You can copy it from the Okta Developer Console in the details for the Application you created. Follow these instructions to find it: https://bit.ly/finding-okta-app-credentials");

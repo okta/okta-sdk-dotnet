@@ -61,7 +61,7 @@ namespace Okta.Sdk
                 logger);
 
             var resourceFactory = new ResourceFactory(this, logger);
-            var oAuthTokenProvider = new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger);
+            IOAuthTokenProvider oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
             var requestExecutor = new DefaultRequestExecutor(Configuration, defaultClient, logger, oAuthTokenProvider: oAuthTokenProvider);
 
             _dataStore = new DefaultDataStore(
@@ -93,7 +93,7 @@ namespace Okta.Sdk
             serializer = serializer ?? new DefaultSerializer();
 
             var resourceFactory = new ResourceFactory(this, logger);
-            var oAuthTokenProvider = new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger);
+            IOAuthTokenProvider oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
             var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger, retryStrategy, oAuthTokenProvider);
 
             _dataStore = new DefaultDataStore(
@@ -139,7 +139,7 @@ namespace Okta.Sdk
             var compiledConfig = new OktaClientConfiguration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
             configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
-            configBuilder.Build().Bind<JsonWebKeyConfiguration>(apiClientConfiguration.PrivateKey);
+            configBuilder.Build().Bind(compiledConfig);
 
             return compiledConfig;
         }

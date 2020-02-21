@@ -91,9 +91,17 @@ namespace Okta.Sdk.Configuration
         [JsonProperty("y")]
         public string Y { get; set; }
 
-        public JsonWebKeyConfiguration() 
-        { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JsonWebKeyConfiguration"/> class.
+        /// </summary>
+        public JsonWebKeyConfiguration()
+        {
+        }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="JsonWebKeyConfiguration"/> class.
+        /// </summary>
+        /// <param name="json">The private key in json format.</param>
         public JsonWebKeyConfiguration(string json)
         {
             if (string.IsNullOrEmpty(json))

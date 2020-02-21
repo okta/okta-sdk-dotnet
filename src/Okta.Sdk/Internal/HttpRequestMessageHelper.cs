@@ -1,12 +1,25 @@
-﻿using System.Collections.Generic;
+﻿// <copyright file="HttpRequestMessageHelper.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Okta.Sdk.Internal
 {
+    /// <summary>
+    /// Http request helper.
+    /// </summary>
     public class HttpRequestMessageHelper
     {
+        /// <summary>
+        /// Clones the passed request.
+        /// </summary>
+        /// <param name="request">The request to clone.</param>
+        /// <returns>The cloned request.</returns>
         public static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage request)
         {
             HttpRequestMessage clonedRequest = new HttpRequestMessage(request.Method, request.RequestUri);

@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// <copyright file="MockHttpMessageHandler.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
 using System.Net;
 using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -10,16 +12,16 @@ namespace Okta.Sdk.UnitTests.Internal
 {
     public class MockHttpMessageHandler : HttpMessageHandler
     {
-        private readonly string _response;
+        private readonly string _returnThis;
         private readonly HttpStatusCode _statusCode;
 
         public string Input { get; private set; }
 
         public int NumberOfCalls { get; private set; }
 
-        public MockHttpMessageHandler(string response, HttpStatusCode statusCode)
+        public MockHttpMessageHandler(string returnThis, HttpStatusCode statusCode)
         {
-            _response = response;
+            _returnThis = returnThis;
             _statusCode = statusCode;
         }
 
@@ -30,7 +32,7 @@ namespace Okta.Sdk.UnitTests.Internal
             return new HttpResponseMessage
             {
                 StatusCode = _statusCode,
-                Content = new StringContent(_response),
+                Content = new StringContent(_returnThis),
             };
         }
     }
