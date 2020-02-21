@@ -17,30 +17,32 @@ namespace Okta.Sdk
     {
         private readonly IDataStore _dataStore;
         private readonly RequestContext _requestContext;
-
         private HttpRequest _nextRequest;
-
+        private CancellationToken _cancellationToken;
         /// <summary>
         /// Initializes a new instance of the <see cref="PagedCollectionEnumerator{T}"/> class.
         /// </summary>
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
         /// <param name="initialRequest">The initial HTTP request options.</param>
         /// <param name="requestContext">The request context.</param>
+        /// <param name="cancellationToken">The rcancellation token.</param>
         public PagedCollectionEnumerator(
             IDataStore dataStore,
             HttpRequest initialRequest,
-            RequestContext requestContext)
+            RequestContext requestContext,
+            CancellationToken cancellationToken)
         {
             _dataStore = dataStore ?? throw new ArgumentNullException(nameof(dataStore));
             _requestContext = requestContext;
             _nextRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
+            _cancellationToken = cancellationToken;
         }
 
         /// <inheritdoc/>
         public CollectionPage<T> CurrentPage { get; private set; }
 
         /// <inheritdoc/>
-        public async Task<bool> MoveNextAsync(CancellationToken cancellationToken = default)
+        public async Task<bool> MoveNextAsync()
         {
             if (_nextRequest == null)
             {
@@ -50,7 +52,7 @@ namespace Okta.Sdk
             var response = await _dataStore.GetArrayAsync<T>(
                 _nextRequest,
                 _requestContext,
-                cancellationToken).ConfigureAwait(false);
+                _cancellationToken).ConfigureAwait(false);
 
             var items = response?.Payload?.ToArray() ?? new T[0];
 

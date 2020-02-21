@@ -36,10 +36,10 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IAsyncEnumerator<T> GetAsyncEnumerator(CancellationToken cancellationToken = default)
-        => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext);
+        => new CollectionAsyncEnumerator<T>(_dataStore, _initialRequest, _requestContext, cancellationToken);
 
         /// <inheritdoc/>
-        public IPagedCollectionEnumerator<T> GetPagedEnumerator()
-            => new PagedCollectionEnumerator<T>(_dataStore, _initialRequest, _requestContext);
+        public IPagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default)
+            => new PagedCollectionEnumerator<T>(_dataStore, _initialRequest, _requestContext, cancellationToken);
     }
 }

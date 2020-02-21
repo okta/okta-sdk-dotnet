@@ -5,6 +5,7 @@
 
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Okta.Sdk.Internal
@@ -31,12 +32,14 @@ namespace Okta.Sdk.Internal
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
         /// <param name="initialRequest">The initial HTTP request options.</param>
         /// <param name="requestContext">The request context.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
         public CollectionAsyncEnumerator(
             IDataStore dataStore,
             HttpRequest initialRequest,
-            RequestContext requestContext)
+            RequestContext requestContext,
+            CancellationToken cancellationToken)
         {
-            _pagedEnumerator = new PagedCollectionEnumerator<T>(dataStore, initialRequest, requestContext);
+            _pagedEnumerator = new PagedCollectionEnumerator<T>(dataStore, initialRequest, requestContext, cancellationToken);
         }
 
         /// <inheritdoc/>
