@@ -1,24 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;netcoreapp3.1</TargetFrameworks>
     <Version>1.4.1</Version>
     <LangVersion>7.1</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="FlexibleConfiguration" Version="1.2.1" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="1.1.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="System.Diagnostics.TraceSource" Version="4.3.0" />
-    <PackageReference Include="System.Interactive.Async" Version="3.1.1" />
+    <PackageReference Include="System.Interactive.Async" Version="4.0.0" />
     <AdditionalFiles Include="..\stylecop.json" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="AsyncUsageAnalyzers" Version="1.0.0-alpha003" PrivateAssets="All" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.0-beta004" PrivateAssets="All" />
-    <PackageReference Include="System.ValueTuple" Version="4.4.0" />
+    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118" PrivateAssets="All" />
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
   <PropertyGroup>
@@ -27,7 +27,7 @@
 
   <PropertyGroup>
     <Description>Official .NET SDK for the Okta API.</Description>
-    <DocumentationFile>bin\Debug\netstandard1.3\Okta.Sdk.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.1\Okta.Sdk.xml</DocumentationFile>
     <RepositoryUrl>https://github.com/okta/okta-sdk-dotnet</RepositoryUrl>
     <PackageProjectUrl>https://github.com/okta/okta-sdk-dotnet</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/okta/okta-sdk-dotnet/blob/master/LICENSE</PackageLicenseUrl>

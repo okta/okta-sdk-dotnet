@@ -14,7 +14,7 @@ namespace Okta.Sdk
     public sealed partial class ApplicationsClient : OktaClient, IApplicationsClient, IAsyncEnumerable<IApplication>
     {
         /// <inheritdoc/>
-        public IAsyncEnumerator<IApplication> GetEnumerator() => ListApplications().GetEnumerator();
+        public IAsyncEnumerator<IApplication> GetAsyncEnumerator(CancellationToken cancellationToken = default) => ListApplications().GetAsyncEnumerator(cancellationToken);
 
         /// <inheritdoc/>
         public async Task<T> GetApplicationAsync<T>(string appId, CancellationToken cancellationToken = default(CancellationToken))

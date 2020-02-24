@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace Okta.Sdk
 {
@@ -27,7 +28,8 @@ namespace Okta.Sdk
         /// <remarks>
         /// /// See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.
         /// </remarks>
+        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>An enumerator that retrieves items from an Okta collection page-by-page.</returns>
-        IPagedCollectionEnumerator<T> GetPagedEnumerator();
+        IPagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default);
     }
 }

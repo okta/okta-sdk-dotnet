@@ -43,7 +43,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 // Alright, all set up. Try enumerating users by pages of 2:
                 var users = client.Users.ListUsers(limit: 2, filter: "profile.lastName eq \"CollectionEnumeration\"");
-                var count = await users.Count();
+                var count = await users.CountAsync();
                 count.Should().Be(10);
             }
             catch (Exception e)

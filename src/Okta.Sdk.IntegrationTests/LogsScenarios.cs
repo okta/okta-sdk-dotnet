@@ -30,7 +30,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var logs = await client.Logs.GetLogs().ToList();
+                var logs = await client.Logs.GetLogs().ToListAsync();
 
                 logs.Should().NotBeNullOrEmpty();
             }
@@ -60,7 +60,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 var query = $"dotnet-sdk: GetLogsByQueryString";
-                var logs = await client.Logs.GetLogs(null, null, null, query).ToList();
+                var logs = await client.Logs.GetLogs(null, null, null, query).ToListAsync();
 
                 logs.Should().NotBeNullOrEmpty();
             }
@@ -88,7 +88,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 var filter = "eventType eq \"directory.app_user_profile.bootstrap\"";
-                var logs = await client.Logs.GetLogs(null, null, filter).ToList();
+                var logs = await client.Logs.GetLogs(null, null, filter).ToListAsync();
 
                 logs.Should().NotBeNullOrEmpty();
             }
@@ -117,7 +117,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var until = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
                 var since = DateTime.UtcNow.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ssZ");
-                var logs = await client.Logs.GetLogs(until, since).ToList();
+                var logs = await client.Logs.GetLogs(until, since).ToListAsync();
 
                 logs.Should().NotBeNullOrEmpty();
             }

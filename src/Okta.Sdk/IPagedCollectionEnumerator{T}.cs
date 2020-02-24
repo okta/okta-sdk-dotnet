@@ -17,7 +17,7 @@ namespace Okta.Sdk
         where T : IResource
     {
         /// <summary>
-        /// Gets the current page of items, or <c>null</c> if <see cref="MoveNextAsync(CancellationToken)"/> has not yet been called.
+        /// Gets the current page of items, or <c>null</c> if <see cref="MoveNextAsync()"/> has not yet been called.
         /// </summary>
         /// <value>
         /// The current page of items, if any.
@@ -27,10 +27,9 @@ namespace Okta.Sdk
         /// <summary>
         /// Asynchronously retrieves the next page of results and updates <see cref="CurrentPage"/>. If there are no more pages, this method returns <see langword="false"/>.
         /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>
         /// <see langword="true"/> if <see cref="CurrentPage"/> has been updated with new items, <see langword="false"/> if the collection has been exhausted.
         /// </returns>
-        Task<bool> MoveNextAsync(CancellationToken cancellationToken = default);
+        Task<bool> MoveNextAsync();
     }
 }
