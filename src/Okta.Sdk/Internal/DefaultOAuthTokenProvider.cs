@@ -44,7 +44,11 @@ namespace Okta.Sdk.Internal
             Configuration = configuration;
             _resourceFactory = resourceFactory;
             _logger = logger ?? NullLogger.Instance;
+
             _httpClient = httpClient ?? new HttpClient();
+            _httpClient.BaseAddress = new Uri(Configuration.OktaDomain);
+            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
             _jwtGenerator = jwtGenerator ?? new DefaultJwtGenerator(configuration);
         }
 
@@ -65,12 +69,13 @@ namespace Okta.Sdk.Internal
         /// <returns>The access token.</returns>
         private async Task<string> RequestAccessTokenAsync()
         {
-            _httpClient.BaseAddress = new Uri(Configuration.OktaDomain);
-            _httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            _logger.LogTrace("Generate a signed JWT.");
 
             var jwtSecurityToken = _jwtGenerator.GenerateSignedJWT();
 
             var accessTokenUri = $@"oauth2/v1/token?grant_type=client_credentials&scope={string.Join("+", Configuration.Scopes)}&client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer&client_assertion={jwtSecurityToken.ToString()}";
+
+            _logger.LogTrace("Request an access token.");
 
             var request = new HttpRequestMessage(HttpMethod.Post, accessTokenUri) { Content = new FormUrlEncodedContent(new Dictionary<string, string>()) };
             using (var response = await _httpClient.SendAsync(request).ConfigureAwait(false))

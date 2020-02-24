@@ -15,8 +15,6 @@ namespace Okta.Sdk.UnitTests.Internal
         private readonly string _returnThis;
         private readonly HttpStatusCode _statusCode;
 
-        public string Input { get; private set; }
-
         public int NumberOfCalls { get; private set; }
 
         public MockHttpMessageHandler(string returnThis, HttpStatusCode statusCode)
@@ -28,7 +26,7 @@ namespace Okta.Sdk.UnitTests.Internal
         protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
             NumberOfCalls++;
-            Input = await request.Content.ReadAsStringAsync();
+
             return new HttpResponseMessage
             {
                 StatusCode = _statusCode,

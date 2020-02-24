@@ -44,11 +44,13 @@ namespace Okta.Sdk.UnitTests
             function.Should().Throw<OktaOAuthException>();
         }
 
-        [Fact]
-        public async Task FailIfStatusCodeIs4xx()
+        [Theory]
+        [InlineData(HttpStatusCode.BadRequest)]
+        [InlineData(HttpStatusCode.Unauthorized)]
+        public async Task FailIfStatusCodeIs4xx(HttpStatusCode statusCode)
         {
             var response = @"{""error"":""invalid_client"",""error_description"":""The audience claim for client_assertion must be the endpoint invoked for the request.""}";
-            var messageHandler = new MockHttpMessageHandler(response, HttpStatusCode.Unauthorized);
+            var messageHandler = new MockHttpMessageHandler(response, statusCode);
             var httpClient = new HttpClient(messageHandler);
 
             var configuration = new OktaClientConfiguration();
@@ -66,7 +68,7 @@ namespace Okta.Sdk.UnitTests
 
             Func<Task<string>> function = async () => await tokenProvider.GetAccessTokenAsync();
 
-            function.Should().Throw<OktaOAuthException>().Where(x => x.StatusCode == (int)HttpStatusCode.Unauthorized && x.Error == "invalid_client" && x.ErrorDescription == "The audience claim for client_assertion must be the endpoint invoked for the request.");
+            function.Should().Throw<OktaOAuthException>().Where(x => x.StatusCode == (int)statusCode && x.Error == "invalid_client" && x.ErrorDescription == "The audience claim for client_assertion must be the endpoint invoked for the request.");
         }
 
         [Fact]
