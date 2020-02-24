@@ -17,8 +17,9 @@ namespace Okta.Sdk
     {
         private readonly IDataStore _dataStore;
         private readonly RequestContext _requestContext;
+        private readonly CancellationToken _cancellationToken;
         private HttpRequest _nextRequest;
-        private CancellationToken _cancellationToken;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PagedCollectionEnumerator{T}"/> class.
         /// </summary>
