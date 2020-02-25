@@ -65,7 +65,6 @@ namespace Okta.Sdk.IntegrationTests
                 Password = "Abcd1234",
             });
 
-
             try
             {
                 // Remove '/' at the end since endpoint fails otherwise
