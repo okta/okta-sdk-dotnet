@@ -69,6 +69,7 @@ You'll also need:
 * An Okta account, called an _organization_ (sign up for a free [developer organization](https://developer.okta.com/signup) if you need one)
 * An [API token](https://developer.okta.com/docs/api/getting_started/getting_a_token)
  
+### Initialize a client 
 Construct a client instance by passing it your Okta domain name and API token:
  
 ``` csharp
@@ -80,7 +81,26 @@ var client = new OktaClient(new OktaClientConfiguration
 ```
 
 Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
- 
+
+### OAuth 2.0
+
+Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. 
+
+This SDK supports this feature only for service-to-service applications. Check out [our guides](https://developer.okta.com/docs/guides/implement-oauth-for-okta/overview/) to learn more about how to register a new service application using a private and public key pair.
+
+When using this approach you won't need an API Token because the SDK will request an access token for you. In order to use OAuth 2.0, construct a client instance by passing the following parameters:
+
+``` csharp
+var client = new OktaClient(new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey =  new JsonWebKeyConfiguration(jsonString)
+});
+```
+
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
@@ -399,13 +419,13 @@ Higher numbers win. In other words, configuration passed via the constructor wil
  
 ### YAML configuration
  
-The full YAML configuration looks like:
+When you use an API Token instead of OAuth 2.0 the full YAML configuration looks like:
  
 ```yaml
 okta:
   client:
     connectionTimeout: 30 # seconds
-    orgUrl: "https://{yourOktaDomain}"
+    oktaDomain: "https://{yourOktaDomain}"
     proxy:
       port: null
       host: null
@@ -417,6 +437,33 @@ okta:
       maxRetries: 4
 ```
  
+When you use OAuth 2.0 the full YAML configuration looks like:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: # This SDK supports both RSA and EC keys.
+        kty: "EC"
+        crv: "P-256"
+        x: "{x}"
+        y: "{y}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
 ### Environment variables
  
 Each one of the configuration values above can be turned into an environment variable name with the `_` (underscore) character:
