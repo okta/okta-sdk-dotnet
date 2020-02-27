@@ -42,7 +42,8 @@ namespace Okta.Sdk.UnitTests
             var mockPrivateKeyConfiguration = TestCryptoKeys.GetMockRSAPrivateKeyConfiguration();
             mockPrivateKeyConfiguration.P = "foo";
             mockPrivateKeyConfiguration.Qi = "bar";
-            mockPrivateKeyConfiguration.N = string.Empty;
+            mockPrivateKeyConfiguration.N = null;
+            mockPrivateKeyConfiguration.Q = null;
 
             var configuration = new OktaClientConfiguration();
             configuration.OktaDomain = "https://myOktaDomain.oktapreview.com";
