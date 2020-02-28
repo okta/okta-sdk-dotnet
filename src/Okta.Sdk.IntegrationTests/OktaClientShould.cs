@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Okta.Sdk.Configuration;
@@ -42,7 +43,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public void ThrowForNullToken()
+        public void ThrowForNullTokenWhenAuthorizationModeIsSSWS()
         {
             Assert.Throws<ArgumentNullException>(() =>
             {
@@ -67,7 +68,7 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task ThrowApiExceptionForInvalidToken()
+        public async Task ThrowApiExceptionForInvalidTokenWhenAuthorizationModeIsSSWS()
         {
             var client = TestClient.Create(new OktaClientConfiguration
             {

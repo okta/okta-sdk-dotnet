@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
-using System.Security.Authentication;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
@@ -26,6 +25,8 @@ namespace Okta.Sdk.Internal
         private readonly HttpClient _httpClient;
         private readonly ILogger _logger;
         private readonly IRetryStrategy _retryStrategy;
+        private readonly IOAuthTokenProvider _oAuthTokenProvider;
+        private readonly OktaClientConfiguration _oktaConfiguration;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -34,7 +35,8 @@ namespace Okta.Sdk.Internal
         /// <param name="httpClient">The HTTP client to use, if any.</param>
         /// <param name="logger">The logging interface.</param>
         /// <param name="retryStrategy">The retry strategy interface.</param>
-        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null)
+        /// <param name="oAuthTokenProvider">The OAuth token provider interface.</param>
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
         {
             if (configuration == null)
             {
@@ -45,14 +47,25 @@ namespace Okta.Sdk.Internal
             _logger = logger;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _retryStrategy = retryStrategy ?? new NoRetryStrategy();
-
+            _oAuthTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
+            _oktaConfiguration = configuration;
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
 
         private static void ApplyDefaultClientSettings(HttpClient client, string oktaDomain, OktaClientConfiguration configuration)
         {
             client.BaseAddress = new Uri(oktaDomain, UriKind.Absolute);
-            client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", configuration.Token);
+
+            if (configuration.AuthorizationMode == AuthorizationMode.SSWS)
+            {
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("SSWS", configuration.Token);
+            }
+        }
+
+        private async Task ApplyOAuthHeaderAsync(bool forceTokenRenew = false)
+        {
+            var token = await _oAuthTokenProvider.GetAccessTokenAsync(forceTokenRenew).ConfigureAwait(false);
+            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
         }
 
         private string EnsureRelativeUrl(string uri)
@@ -75,30 +88,55 @@ namespace Okta.Sdk.Internal
             return uri.TrimStart('/');
         }
 
+        private async Task<HttpResponse<string>> ProcessResponseAsync(HttpResponseMessage response)
+        {
+            string stringContent = null;
+            if (response.Content != null)
+            {
+                stringContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+            }
+
+            return new HttpResponse<string>
+            {
+                Headers = ExtractHeaders(response),
+                StatusCode = (int)response.StatusCode,
+                Payload = stringContent,
+            };
+        }
+
         private async Task<HttpResponse<string>> SendAsync(
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
             _logger.LogTrace($"{request.Method} {request.RequestUri}");
 
-            Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) => await _httpClient.SendAsync(x, y).ConfigureAwait(false);
+            if (_oktaConfiguration.AuthorizationMode == AuthorizationMode.PrivateKey)
+            {
+                await ApplyOAuthHeaderAsync().ConfigureAwait(false);
+            }
 
-            using (var response = await _retryStrategy.WaitAndRetryAsync(request, cancellationToken, operation).ConfigureAwait(false))
+            Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) => await _httpClient.SendAsync(x, y).ConfigureAwait(false);
+            HttpResponseMessage response = null;
+
+            using (response = await _retryStrategy.WaitAndRetryAsync(request, cancellationToken, operation).ConfigureAwait(false))
             {
                 _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
 
-                string stringContent = null;
-                if (response.Content != null)
+                // If OAuth token expired, get a new token and retry
+                if ((int)response.StatusCode == 401 && _oktaConfiguration.AuthorizationMode == AuthorizationMode.PrivateKey)
                 {
-                    stringContent = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
+                    await ApplyOAuthHeaderAsync(true).ConfigureAwait(false);
+
+                    // Sending same request twice cause failures
+                    var clonedRequest = await HttpRequestMessageHelper.CloneHttpRequestMessageAsync(request).ConfigureAwait(false);
+
+                    using (response = await _retryStrategy.WaitAndRetryAsync(clonedRequest, cancellationToken, operation).ConfigureAwait(false))
+                    {
+                        return await ProcessResponseAsync(response).ConfigureAwait(false);
+                    }
                 }
 
-                return new HttpResponse<string>
-                {
-                    Headers = ExtractHeaders(response),
-                    StatusCode = (int)response.StatusCode,
-                    Payload = stringContent,
-                };
+                return await ProcessResponseAsync(response).ConfigureAwait(false);
             }
         }
 
