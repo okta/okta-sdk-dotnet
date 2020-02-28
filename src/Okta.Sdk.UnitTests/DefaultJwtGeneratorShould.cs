@@ -39,17 +39,11 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public void FailForInvalidPrivateKey()
         {
-            var mockPrivateKeyConfiguration = TestCryptoKeys.GetMockRSAPrivateKeyConfiguration();
-            mockPrivateKeyConfiguration.P = "foo";
-            mockPrivateKeyConfiguration.Qi = "bar";
-            mockPrivateKeyConfiguration.N = null;
-            mockPrivateKeyConfiguration.Q = null;
-
             var configuration = new OktaClientConfiguration();
             configuration.OktaDomain = "https://myOktaDomain.oktapreview.com";
             configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
             configuration.ClientId = "foo";
-            configuration.PrivateKey = mockPrivateKeyConfiguration;
+            configuration.PrivateKey = new JsonWebKeyConfiguration() { Kty = "RSA" };
             configuration.Scopes = new List<string> { "foo" };
 
             Action action = () => new DefaultJwtGenerator(configuration).GenerateSignedJWT();
