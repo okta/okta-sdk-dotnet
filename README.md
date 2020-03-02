@@ -388,7 +388,9 @@ This SDK provides a `DefaultSerializer` which has all the logic needed by this S
 
 ### Default Serializer Settings
 
-If you have date formatted strings among your Okta custom attributes and you want them not to be parsed to a date type and read them as strings, use the following code:
+In 2.x series all custom attributes are deserialized as strings by default. This was not true in previous versions where date formatted strings were deserialized as `DateTimeOffset`.
+
+If you are using an older version and you have date formatted strings among your Okta custom attributes and you don't want them to be parsed to a date type and read them as strings instead, use the following code:
 
 ```
 var serializer = new DefaultSerializer(new JsonSerializerSettings()
