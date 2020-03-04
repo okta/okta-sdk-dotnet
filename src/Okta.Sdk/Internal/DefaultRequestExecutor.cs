@@ -46,7 +46,7 @@ namespace Okta.Sdk.Internal
             _oktaDomain = configuration.OktaDomain;
             _logger = logger;
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
-            _retryStrategy = retryStrategy ?? new NoRetryStrategy();
+            _retryStrategy = retryStrategy ?? new DefaultRetryStrategy(configuration.MaxRetries.Value, configuration.RequestTimeout.Value);
             _oAuthTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
             _oktaConfiguration = configuration;
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
