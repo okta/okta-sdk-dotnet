@@ -367,15 +367,18 @@ The Okta API will return 429 responses if too many requests are made within a gi
 
 ### Built-In Retry
 
-You can configure your client to use the default retry strategy if you wish to automatically retry on 429 errors:
+This SDK uses the built-in retry strategy to automatically retry on 429 errors. You can use the default configuration options for the built-in retry strategy, or provide your desired values via client configuration.
 
-```
-var maxRetries = configuration.MaxRetries ?? OktaClientConfiguration.DefaultMaxRetries;
-var requestTimeout = configuration.RequestTimeout ?? OktaClientConfiguration.DefaultRequestTimeout;
+You can configure the following options when using the built-in retry strategy:
 
-var client = new OktaClient(apiClientConfiguration: configuration, httpClient: httpClient, retryStrategy: new DefaultRetryStrategy(maxRetries, requestTimeout));
-```
-> Note: Now, the client is using a `NoRetryStrategy` but in the next major version the default retry strategy will be automatically added to the client.
+| Configuration Option | Description |
+| ---------------------- | -------------- |
+| RequestTimeout         | The waiting time in seconds for a request to be resolved by the client. Less than or equal to 0 means "no timeout". The default value is `0` (None). |
+| MaxRetries             | The number of times to retry. |
+
+Check out the [Configuration Reference section](#configuration-reference) for more details about how to set these values via configuration.
+
+> Note: The default retry strategy will be automatically added to the client for 2.x series.
 
 ### Custom Retry
 
