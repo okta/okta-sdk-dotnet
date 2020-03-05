@@ -41,7 +41,7 @@ namespace Okta.Sdk.Configuration
         public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
 
         /// <summary>
-        /// Gets or sets the time to wait for resolved client request (includes retries), less than or equal to 0 means "no timeout"
+        /// Gets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means "no timeout".
         /// </summary>
         /// <value>
         /// The request timeout in seconds.
