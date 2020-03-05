@@ -36,6 +36,7 @@ namespace Okta.Sdk.Internal
                 {
                     NullValueHandling = NullValueHandling.Ignore,
                     DefaultValueHandling = DefaultValueHandling.Ignore,
+                    DateParseHandling = DateParseHandling.None,
                     ContractResolver = new DefaultContractResolver(),
                 };
             }

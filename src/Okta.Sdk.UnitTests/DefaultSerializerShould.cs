@@ -51,6 +51,23 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void DeserializeDateAsString()
+        {
+            var date = DateTimeOffset.UtcNow;
+
+            var json = $@"
+            {{
+              ""foo"": ""{date}"",
+            }}";
+
+            var serializer = new DefaultSerializer();
+            var dict = serializer.Deserialize(json);
+
+            dict["foo"].Should().Be(date.ToString());
+            dict["foo"].GetType().Should().Be(typeof(string));
+        }
+
+        [Fact]
         public void DeserializeNullInput()
         {
             var serializer = new DefaultSerializer();
