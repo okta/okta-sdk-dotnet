@@ -14,7 +14,7 @@ namespace Okta.Sdk.IntegrationTests
     [Collection(nameof(LogsScenarios))]
     public class LogsScenarios
     {
-        [Fact]
+        [Fact(Skip = "Skip due to rate limit.")]
         [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task GetLogs()
         {
@@ -41,7 +41,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Skip due to rate limit.")]
         [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task GetLogsByQueryString()
         {
