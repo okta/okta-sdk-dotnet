@@ -98,7 +98,7 @@ namespace Okta.Sdk.Internal
                     var runtimeAssemblyLocation = runtimeAssembly.CodeBase.Split(new[] { '/', '\\' }, StringSplitOptions.RemoveEmptyEntries);
                     int dotnetCoreAppIndex = Array.IndexOf(runtimeAssemblyLocation, "Microsoft.NETCore.App");
 
-                    if (dotnetCoreAppIndex > 0 && dotnetCoreAppIndex < runtimeAssemblyLocation.Length - 2)
+                    if (dotnetCoreAppIndex >= 0 && dotnetCoreAppIndex < runtimeAssemblyLocation.Length - 2)
                     {
                         frameworkDescription = $".NET Core {runtimeAssemblyLocation[dotnetCoreAppIndex + 1]}";
                     }
