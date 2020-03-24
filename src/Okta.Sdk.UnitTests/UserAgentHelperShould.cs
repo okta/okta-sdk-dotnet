@@ -51,5 +51,15 @@ namespace Okta.Sdk.UnitTests
 
             frameworkInfo.Should().Be(".NET Core foo");
         }
+
+        [Fact]
+        public void ReturnPassedFrameworkDescriptionWhenAssemblyCodeBaseContainsKeywordButNotVersion()
+        {
+            // Keyword for runtimeDescription = ".NET Core"
+            // Keyword for codeBase = "Microsoft.NETCore.App"
+            var frameworkInfo = UserAgentHelper.GetFrameworkDescription(".NET Core foo", "foo/Microsoft.NETCore.App");
+
+            frameworkInfo.Should().Be(".NET Core foo");
+        }
     }
 }
