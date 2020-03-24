@@ -59,7 +59,7 @@ namespace Okta.Sdk.Internal
 
             try
             {
-                runtimeToken = $"runtime/{Sanitize(GetFrameworkDescription())}";
+                runtimeToken = $"runtime/{Sanitize(UserAgentHelper.GetFrameworkDescription())}";
             }
             catch (Exception ex)
             {
@@ -81,31 +81,6 @@ namespace Okta.Sdk.Internal
                 runtimeToken,
                 operatingSystemToken)
             .Trim();
-        }
-
-        private static string GetFrameworkDescription()
-        {
-            var frameworkDescription = RuntimeInformation.FrameworkDescription;
-
-            // RuntimeInformation.FrameworkDescription only returns the CLI version for .NET Core.
-            // We need this workaround to get the product version and have a useful report.
-            if (RuntimeInformation.FrameworkDescription.StartsWith(".NET Core", StringComparison.OrdinalIgnoreCase))
-            {
-                var runtimeAssembly = typeof(System.Runtime.GCSettings).GetTypeInfo().Assembly;
-
-                if (runtimeAssembly != null)
-                {
-                    var runtimeAssemblyLocation = runtimeAssembly.CodeBase.Split(new[] { '/', '\\' }, StringSplitOptions.RemoveEmptyEntries);
-                    int dotnetCoreAppIndex = Array.IndexOf(runtimeAssemblyLocation, "Microsoft.NETCore.App");
-
-                    if (dotnetCoreAppIndex >= 0 && dotnetCoreAppIndex < runtimeAssemblyLocation.Length - 2)
-                    {
-                        frameworkDescription = $".NET Core {runtimeAssemblyLocation[dotnetCoreAppIndex + 1]}";
-                    }
-                }
-            }
-
-            return frameworkDescription;
         }
 
         private static string GetSdkVersion()
