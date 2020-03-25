@@ -59,7 +59,7 @@ namespace Okta.Sdk.Internal
 
             try
             {
-                runtimeToken = $"runtime/{Sanitize(RuntimeInformation.FrameworkDescription)}";
+                runtimeToken = $"runtime/{Sanitize(UserAgentHelper.GetFrameworkDescription())}";
             }
             catch (Exception ex)
             {
