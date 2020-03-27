@@ -34,12 +34,14 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 1.x
+:heavy_check_mark: The current stable major version series is: 2.x
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 0.3.3   | :warning: Retiring on 2019-12-11 ([migration guide](MIGRATING.md))  |
-| 1.x | :heavy_check_mark: Stable |
+| 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
+| 1.x | :warning: Retiring on 2020-12-27 |
+| 2.x | :heavy_check_mark: Stable |
+
  
 The latest release can always be found on the [releases page][github-releases].
 
@@ -53,7 +55,7 @@ If you run into problems using the SDK, you can
 
 ## Getting Started
 
-The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 1.3 and .NET Framework 4.6.1 or higher.
+The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1, .NET Core 3.0 or higher and .NET Framework 4.6.1 or higher.
 
 ### Install using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
@@ -62,7 +64,9 @@ The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotn
 ### Install using The Package Manager Console
 Simply run `install-package Okta.Sdk`. Done!
 
-The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is retiring and will not be supported past December 11, 2019.  It will likely remain working after that date but you should make a plan to migrate to the new 1.x version.
+The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is *retired* and is no longer supported. 
+
+The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 2.x version.
 
 You'll also need:
 
