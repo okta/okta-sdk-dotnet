@@ -192,12 +192,12 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var signOnPolicies = await client.Policies.ListPolicies(PolicyType.OktaSignOn).ToList();
+                var signOnPolicies = await client.Policies.ListPolicies(PolicyType.OktaSignOn).ToListAsync();
                 signOnPolicies.Should().NotBeNullOrEmpty();
                 signOnPolicies.First(x => x.Id == createdPolicy1.Id).Should().NotBeNull();
                 signOnPolicies.FirstOrDefault(x => x.Id == createdPolicy2.Id).Should().BeNull();
 
-                var passwordPolicies = await client.Policies.ListPolicies(PolicyType.Password).ToList();
+                var passwordPolicies = await client.Policies.ListPolicies(PolicyType.Password).ToListAsync();
                 passwordPolicies.Should().NotBeNullOrEmpty();
                 passwordPolicies.First(x => x.Id == createdPolicy2.Id).Should().NotBeNull();
                 passwordPolicies.FirstOrDefault(x => x.Id == createdPolicy1.Id).Should().BeNull();
@@ -879,7 +879,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var policyRules = await createdPolicy.ListPolicyRules().ToList();
+                var policyRules = await createdPolicy.ListPolicyRules().ToListAsync();
 
                 policyRules.Should().NotBeNullOrEmpty();
                 policyRules.Should().HaveCount(1);
@@ -954,7 +954,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var policyRules = await createdPolicy.ListPolicyRules().OfType<IPasswordPolicyRule>().ToList();
+                var policyRules = await createdPolicy.ListPolicyRules().OfType<IPasswordPolicyRule>().ToListAsync();
 
                 policyRules.Should().NotBeNullOrEmpty();
                 policyRules.Should().HaveCount(1);

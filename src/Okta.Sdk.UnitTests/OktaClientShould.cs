@@ -30,7 +30,7 @@ namespace Okta.Sdk.UnitTests
             var client = new TestableOktaClient(mockRequestExecutor);
 
             // Act
-            var items = await client.GetCollection<TestResource>("https://stuff").ToArray();
+            var items = await client.GetCollection<TestResource>("https://stuff").ToArrayAsync();
 
             // Assert
             items.Count().Should().Be(3);

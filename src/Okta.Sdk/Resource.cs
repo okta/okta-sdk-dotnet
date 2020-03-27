@@ -255,7 +255,8 @@ namespace Okta.Sdk
         protected DateTimeOffset? GetDateTimeProperty(string name)
         {
             var raw = GetStringProperty(name);
-            if (raw == null)
+
+            if (string.IsNullOrEmpty(raw))
             {
                 return null;
             }

@@ -30,6 +30,6 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public IAsyncEnumerator<IGroup> GetEnumerator() => ListGroups().GetEnumerator();
+        public IAsyncEnumerator<IGroup> GetAsyncEnumerator(CancellationToken cancellationToken = default) => ListGroups().GetAsyncEnumerator(cancellationToken);
     }
 }

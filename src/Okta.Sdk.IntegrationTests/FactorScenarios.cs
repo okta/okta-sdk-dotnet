@@ -43,10 +43,10 @@ namespace Okta.Sdk.IntegrationTests
                     Answer = "mayonnaise",
                 });
 
-                var factors = await createdUser.ListFactors().ToArray();
+                var factors = await createdUser.ListFactors().ToArrayAsync();
                 factors.Count().Should().Be(1);
 
-                var securityQuestionFactor = await createdUser.ListFactors().OfType<ISecurityQuestionFactor>().FirstOrDefault();
+                var securityQuestionFactor = await createdUser.ListFactors().OfType<ISecurityQuestionFactor>().FirstOrDefaultAsync();
                 securityQuestionFactor.Should().NotBeNull();
                 securityQuestionFactor.Profile.Question.Should().Be("disliked_food");
                 securityQuestionFactor.Profile.QuestionText.Should().NotBeNullOrEmpty();
@@ -86,10 +86,10 @@ namespace Okta.Sdk.IntegrationTests
                     PhoneNumber = "+16284001133‬",
                 });
 
-                var factors = await createdUser.ListFactors().ToArray();
+                var factors = await createdUser.ListFactors().ToArrayAsync();
                 factors.Count().Should().Be(1);
 
-                var smsFactor = await createdUser.ListFactors().OfType<ISmsFactor>().FirstOrDefault();
+                var smsFactor = await createdUser.ListFactors().OfType<ISmsFactor>().FirstOrDefaultAsync();
                 smsFactor.Should().NotBeNull();
                 smsFactor.FactorType.Should().Be(FactorType.Sms);
             }
@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var factors = await createdUser.Factors.ToArray();
+                var factors = await createdUser.Factors.ToArrayAsync();
                 factors.Count().Should().Be(0);
             }
             finally

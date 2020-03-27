@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using Okta.Sdk.Internal;
 
@@ -40,7 +41,7 @@ namespace Okta.Sdk.Configuration
         public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
 
         /// <summary>
-        /// Gets or sets the time to wait for resolved client request (includes retries), less than or equal to 0 means "no timeout"
+        /// Gets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means "no timeout".
         /// </summary>
         /// <value>
         /// The request timeout in seconds.
@@ -105,6 +106,26 @@ namespace Okta.Sdk.Configuration
             }
         }
 
+        /// <summary>
+        /// Gets or sets the authorization mode.
+        /// </summary>
+        public AuthorizationMode AuthorizationMode { get; set; } = AuthorizationMode.SSWS;
+
+        /// <summary>
+        /// Gets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        public JsonWebKeyConfiguration PrivateKey { get; set; }
+
+        /// <summary>
+        /// Gets or sets the client id. Required when AuthorizationMode is equal to PrivateKey.
+        /// </summary>
+        public string ClientId { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Okta scopes
+        /// </summary>
+        public List<string> Scopes { get; set; }
+
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
@@ -116,6 +137,10 @@ namespace Okta.Sdk.Configuration
                 DisableHttpsCheck = this.DisableHttpsCheck,
                 MaxRetries = this.MaxRetries,
                 RequestTimeout = this.RequestTimeout,
+                AuthorizationMode = this.AuthorizationMode,
+                PrivateKey = this.PrivateKey,
+                ClientId = this.ClientId,
+                Scopes = this.Scopes,
             };
     }
 }

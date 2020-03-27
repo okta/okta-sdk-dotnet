@@ -34,12 +34,14 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 1.x
+:heavy_check_mark: The current stable major version series is: 2.x
 
 | Version | Status                    |
 | ------- | ------------------------- |
-| 0.3.3   | :warning: Retiring on 2019-12-11 ([migration guide](MIGRATING.md))  |
-| 1.x | :heavy_check_mark: Stable |
+| 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
+| 1.x | :warning: Retiring on 2020-12-27 |
+| 2.x | :heavy_check_mark: Stable |
+
  
 The latest release can always be found on the [releases page][github-releases].
 
@@ -53,7 +55,11 @@ If you run into problems using the SDK, you can
 
 ## Getting Started
 
-The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 1.3 and .NET Framework 4.6.1 or higher.
+The SDK is compatible with:
+
+* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1
+* .NET Framework 4.6.1 or higher
+* .NET Core 3.0 or higher
 
 ### Install using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
@@ -62,13 +68,16 @@ The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotn
 ### Install using The Package Manager Console
 Simply run `install-package Okta.Sdk`. Done!
 
-The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is retiring and will not be supported past December 11, 2019.  It will likely remain working after that date but you should make a plan to migrate to the new 1.x version.
+The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is *retired* and is no longer supported. 
+
+The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 2.x version.
 
 You'll also need:
 
 * An Okta account, called an _organization_ (sign up for a free [developer organization](https://developer.okta.com/signup) if you need one)
 * An [API token](https://developer.okta.com/docs/api/getting_started/getting_a_token)
  
+### Initialize a client 
 Construct a client instance by passing it your Okta domain name and API token:
  
 ``` csharp
@@ -80,7 +89,26 @@ var client = new OktaClient(new OktaClientConfiguration
 ```
 
 Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
- 
+
+### OAuth 2.0
+
+Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. 
+
+This SDK supports this feature only for service-to-service applications. Check out [our guides](https://developer.okta.com/docs/guides/implement-oauth-for-okta/overview/) to learn more about how to register a new service application using a private and public key pair.
+
+When using this approach you won't need an API Token because the SDK will request an access token for you. In order to use OAuth 2.0, construct a client instance by passing the following parameters:
+
+``` csharp
+var client = new OktaClient(new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey =  new JsonWebKeyConfiguration(jsonString)
+});
+```
+
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
@@ -347,15 +375,18 @@ The Okta API will return 429 responses if too many requests are made within a gi
 
 ### Built-In Retry
 
-You can configure your client to use the default retry strategy if you wish to automatically retry on 429 errors:
+This SDK uses the built-in retry strategy to automatically retry on 429 errors. You can use the default configuration options for the built-in retry strategy, or provide your desired values via client configuration.
 
-```
-var maxRetries = configuration.MaxRetries ?? OktaClientConfiguration.DefaultMaxRetries;
-var requestTimeout = configuration.RequestTimeout ?? OktaClientConfiguration.DefaultRequestTimeout;
+You can configure the following options when using the built-in retry strategy:
 
-var client = new OktaClient(apiClientConfiguration: configuration, httpClient: httpClient, retryStrategy: new DefaultRetryStrategy(maxRetries, requestTimeout));
-```
-> Note: Now, the client is using a `NoRetryStrategy` but in the next major version the default retry strategy will be automatically added to the client.
+| Configuration Option | Description |
+| ---------------------- | -------------- |
+| RequestTimeout         | The waiting time in seconds for a request to be resolved by the client. Less than or equal to 0 means "no timeout". The default value is `0` (None). |
+| MaxRetries             | The number of times to retry. |
+
+Check out the [Configuration Reference section](#configuration-reference) for more details about how to set these values via configuration.
+
+> Note: The default retry strategy will be automatically added to the client for 2.x series.
 
 ### Custom Retry
 
@@ -368,7 +399,9 @@ This SDK provides a `DefaultSerializer` which has all the logic needed by this S
 
 ### Default Serializer Settings
 
-If you have date formatted strings among your Okta custom attributes and you want them not to be parsed to a date type and read them as strings, use the following code:
+In 2.x series all custom attributes are deserialized as strings by default. This was not true in previous versions where date formatted strings were deserialized as `DateTimeOffset`.
+
+If you are using an older version and you have date formatted strings among your Okta custom attributes and you don't want them to be parsed to a date type and read them as strings instead, use the following code:
 
 ```
 var serializer = new DefaultSerializer(new JsonSerializerSettings()
@@ -399,13 +432,13 @@ Higher numbers win. In other words, configuration passed via the constructor wil
  
 ### YAML configuration
  
-The full YAML configuration looks like:
+When you use an API Token instead of OAuth 2.0 the full YAML configuration looks like:
  
 ```yaml
 okta:
   client:
     connectionTimeout: 30 # seconds
-    orgUrl: "https://{yourOktaDomain}"
+    oktaDomain: "https://{yourOktaDomain}"
     proxy:
       port: null
       host: null
@@ -417,6 +450,33 @@ okta:
       maxRetries: 4
 ```
  
+When you use OAuth 2.0 the full YAML configuration looks like:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: # This SDK supports both RSA and EC keys.
+        kty: "EC"
+        crv: "P-256"
+        x: "{x}"
+        y: "{y}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
 ### Environment variables
  
 Each one of the configuration values above can be turned into an environment variable name with the `_` (underscore) character:

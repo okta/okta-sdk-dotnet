@@ -4,6 +4,7 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Okta.Sdk
 {
@@ -11,9 +12,10 @@ namespace Okta.Sdk
     public sealed partial class LogsClient : OktaClient, ILogsClient, IAsyncEnumerable<ILogEvent>
     {
         /// <summary>
-        /// Gets the LogsClient enumerator
+        /// Gets the LogsClient enumerator.
         /// </summary>
-        /// <returns>A collection of <see cref="ILogEvent"/> that can be enumerated asynchronously</returns>
-        public IAsyncEnumerator<ILogEvent> GetEnumerator() => GetLogs().GetEnumerator();
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A collection of <see cref="ILogEvent"/> that can be enumerated asynchronously.</returns>
+        public IAsyncEnumerator<ILogEvent> GetAsyncEnumerator(CancellationToken cancellationToken = default) => GetLogs().GetAsyncEnumerator(cancellationToken);
     }
 }

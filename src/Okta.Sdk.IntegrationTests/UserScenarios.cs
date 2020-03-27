@@ -50,7 +50,7 @@ namespace Okta.Sdk.IntegrationTests
                 {
                     var foundUsers = await client.Users
                         .ListUsers(search: $"profile.nickName eq \"{createdUser.Profile.GetProperty<string>("nickName")}\"")
-                        .ToArray();
+                        .ToArrayAsync();
 
                     foundUsers.Length.Should().Be(1);
                     foundUsers.Single().Id.Should().Be(createdUser.Id);
@@ -139,7 +139,7 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.ActivateAsync(sendEmail: false);
 
                 // Verify user exists in list of active users
-                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArray();
+                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArrayAsync();
                 activeUsers.Should().Contain(u => u.Id == createdUser.Id);
             }
             finally
@@ -297,12 +297,12 @@ namespace Okta.Sdk.IntegrationTests
             {
                 await createdUser.SuspendAsync();
 
-                var suspendedUsers = await client.Users.ListUsers(filter: "status eq \"SUSPENDED\"").ToArray();
+                var suspendedUsers = await client.Users.ListUsers(filter: "status eq \"SUSPENDED\"").ToArrayAsync();
                 suspendedUsers.Should().Contain(u => u.Id == createdUser.Id);
 
                 await createdUser.UnsuspendAsync();
 
-                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArray();
+                var activeUsers = await client.Users.ListUsers(filter: "status eq \"ACTIVE\"").ToArrayAsync();
                 activeUsers.Should().Contain(u => u.Id == createdUser.Id);
             }
             finally

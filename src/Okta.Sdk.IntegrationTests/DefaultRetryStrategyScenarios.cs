@@ -42,7 +42,7 @@ namespace Okta.Sdk.IntegrationTests
                             q: $"eventType eq \"user.lifecycle.create\" and target.id eq \"{t.Trim()}\"",
                             since: DateTime.Now.Add(TimeSpan.FromDays(-180d)).ToString("yyyy-MM-dd"))
                         .Select(ev => ev.Actor.AlternateId)
-                        .FirstOrDefault();
+                        .FirstOrDefaultAsync();
                     try
                     {
                         Assert.True(log.Result == null, "not found");

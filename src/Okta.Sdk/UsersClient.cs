@@ -16,7 +16,7 @@ namespace Okta.Sdk
     public sealed partial class UsersClient : OktaClient, IUsersClient, IAsyncEnumerable<IUser>
     {
         /// <inheritdoc/>
-        public IAsyncEnumerator<IUser> GetEnumerator() => ListUsers().GetEnumerator();
+        public IAsyncEnumerator<IUser> GetAsyncEnumerator(CancellationToken cancellationToken = default) => ListUsers().GetAsyncEnumerator(cancellationToken);
 
         /// <inheritdoc/>
         public Task<IUser> CreateUserAsync(CreateUserWithoutCredentialsOptions options, CancellationToken cancellationToken = default(CancellationToken))
