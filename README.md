@@ -55,7 +55,11 @@ If you run into problems using the SDK, you can
 
 ## Getting Started
 
-The SDK is compatible with [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1, .NET Core 3.0 or higher and .NET Framework 4.6.1 or higher.
+The SDK is compatible with:
+
+* [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1
+* .NET Framework 4.6.1 or higher
+* .NET Core 3.0 or higher
 
 ### Install using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
