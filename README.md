@@ -399,11 +399,11 @@ This SDK provides a `DefaultSerializer` which has all the logic needed by this S
 
 ### Default Serializer Settings
 
-In 2.x series all custom attributes are deserialized as strings by default. This was not true in previous versions where date formatted strings were deserialized as `DateTimeOffset`.
+In 2.x series all date formatted strings attributes are deserialized as strings by default. This was not true in previous versions where date-formatted strings were deserialized as `DateTime`. The default configuration for date parsing is now [`DateParseHandling.None`](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_DateParseHandling.htm).
 
-If you are using an older version and you have date formatted strings among your Okta custom attributes and you don't want them to be parsed to a date type and read them as strings instead, use the following code:
+If you are using an older version of the SDK and you have date-formatted strings among your Okta custom attributes and you don't want them to be parsed to a date type and read them as strings instead, use the following code:
 
-```
+```csharp
 var serializer = new DefaultSerializer(new JsonSerializerSettings()
 {
     DateParseHandling = DateParseHandling.None,
@@ -418,6 +418,15 @@ var client = new Okta.Sdk.OktaClient(new Okta.Sdk.Configuration.OktaClientConfig
 var user = await client.Users.GetUserAsync("user@test.com");
 var stringDate = user.Profile["myCustomDate"];
 ```
+
+You can still use the `GetProperty<T>` method to return a `DateTimeOffset?`:
+
+```csharp
+DateTimeOffset? myCustomDateTimeOffset = user.Profile.GetProperty<DateTimeOffset?>("myCustomDate");
+```
+
+Since the `DefaultSerializer` is used to parse other `DateTime` fields across the SDK, such as `User.LastLogin`,
+keep in mind that this configuration will also affect how all other date-formatted strings are parsed. For example, if you choose `DateParseHandling.DateTime` your original timezone could be ignored. For more details check out [DateParseHandling](https://www.newtonsoft.com/json/help/html/T_Newtonsoft_Json_DateParseHandling.htm).
 
 ## Configuration reference
   
