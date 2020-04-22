@@ -17,6 +17,7 @@ namespace Okta.Sdk.IntegrationTests
     public class OAuthScenarios
     {
         [Fact]
+        [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task ListUsers()
         {
             var client = TestClient.Create();
