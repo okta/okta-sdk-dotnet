@@ -129,10 +129,10 @@ namespace Okta.Sdk.UnitTests
             var fakeData = new Dictionary<string, object>();
             fakeData.Add("factorType", FactorType.Question);
 
-            var app = factory.CreateFromExistingData<IFactor>(fakeData);
+            var app = factory.CreateFromExistingData<IUserFactor>(fakeData);
 
             app.Should().NotBeNull();
-            app.Should().BeOfType<SecurityQuestionFactor>();
+            app.Should().BeOfType<SecurityQuestionUserFactor>();
         }
     }
 }

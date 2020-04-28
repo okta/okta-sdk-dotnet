@@ -180,9 +180,10 @@ function createContextForModel(model, strictModelList, errFunc) {
 
   for (let method of model.methods) {
     if (method.hidden) continue;
-
     let methodContext = {};
-
+    if(method.operation === undefined) {
+      console.log(method)
+      }
     if (method.operation.bodyModel) {
       methodContext.bodyModel = {
         type: { 
@@ -215,9 +216,16 @@ function createContextForModel(model, strictModelList, errFunc) {
       method.operation,
       method.arguments);
 
-    methodContext.parametersLiteral = createParametersLiteral(
+    if(methodContext.methodSignatureLiteral != ''){
+      methodContext.hasMoreParams = true;
+    }
+
+    let parametersInfo = createParametersLiteral(
       method.operation,
       method.arguments);
+
+    methodContext.parametersLiteral = parametersInfo.parametersLiteral;
+    methodContext.parametersCount = parametersInfo.parametersCount;
 
     context.methods.push(methodContext);
   }

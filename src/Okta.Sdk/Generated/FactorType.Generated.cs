@@ -12,44 +12,41 @@ namespace Okta.Sdk
     /// </summary>
     public sealed class FactorType : StringEnum
     {
-        /// <summary>The push FactorType.</summary>
-        public static FactorType Push = new FactorType("push");
-
-        /// <summary>The sms FactorType.</summary>
-        public static FactorType Sms = new FactorType("sms");
-
         /// <summary>The call FactorType.</summary>
         public static FactorType Call = new FactorType("call");
-
-        /// <summary>The token FactorType.</summary>
-        public static FactorType Token = new FactorType("token");
-
-        /// <summary>The token:software:totp FactorType.</summary>
-        public static FactorType TokenSoftwareTotp = new FactorType("token:software:totp");
-
-        /// <summary>The token:hardware FactorType.</summary>
-        public static FactorType TokenHardware = new FactorType("token:hardware");
-
-        /// <summary>The question FactorType.</summary>
-        public static FactorType Question = new FactorType("question");
-
-        /// <summary>The web FactorType.</summary>
-        public static FactorType Web = new FactorType("web");
 
         /// <summary>The email FactorType.</summary>
         public static FactorType Email = new FactorType("email");
 
+        /// <summary>The push FactorType.</summary>
+        public static FactorType Push = new FactorType("push");
+
+        /// <summary>The question FactorType.</summary>
+        public static FactorType Question = new FactorType("question");
+
+        /// <summary>The sms FactorType.</summary>
+        public static FactorType Sms = new FactorType("sms");
+
+        /// <summary>The token:hardware FactorType.</summary>
+        public static FactorType TokenHardware = new FactorType("token:hardware");
+
+        /// <summary>The token:hotp FactorType.</summary>
+        public static FactorType TokenHotp = new FactorType("token:hotp");
+
+        /// <summary>The token:software:totp FactorType.</summary>
+        public static FactorType TokenSoftwareTotp = new FactorType("token:software:totp");
+
+        /// <summary>The token FactorType.</summary>
+        public static FactorType Token = new FactorType("token");
+
         /// <summary>The u2f FactorType.</summary>
         public static FactorType U2F = new FactorType("u2f");
 
+        /// <summary>The web FactorType.</summary>
+        public static FactorType Web = new FactorType("web");
+
         /// <summary>The webauthn FactorType.</summary>
         public static FactorType WebAuthentication = new FactorType("webauthn");
-
-        /// <summary>The token:software FactorType.</summary>
-        public static FactorType TokenSoftware = new FactorType("token:software");
-
-        /// <summary>The custom FactorType.</summary>
-        public static FactorType Custom = new FactorType("custom");
 
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorType"/>

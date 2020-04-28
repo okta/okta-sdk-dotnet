@@ -30,9 +30,6 @@ namespace Okta.Sdk
         /// <summary>The YUBICO FactorProvider.</summary>
         public static FactorProvider Yubico = new FactorProvider("YUBICO");
 
-        /// <summary>The FIDO FactorProvider.</summary>
-        public static FactorProvider Fido = new FactorProvider("FIDO");
-
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorProvider"/>
         /// </summary>

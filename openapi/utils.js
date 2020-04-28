@@ -105,6 +105,7 @@ function createMethodSignatureLiteral(operation, args) {
 }
 
 function createParametersLiteral(operation, args) {
+  let parametersInfo = {};
   let parameters = [];
 
   let hasBodyArgument = !!operation.bodyModel;
@@ -126,7 +127,10 @@ function createParametersLiteral(operation, args) {
     parameters.push('cancellationToken');
   }
 
-  return parameters.join(', ');
+  parametersInfo.parametersLiteral = parameters.join(', ');
+  parametersInfo.parametersCount = (parameters.length > 1) ? true : false;
+
+  return parametersInfo;
 }
 
 function getPluralName(name) {

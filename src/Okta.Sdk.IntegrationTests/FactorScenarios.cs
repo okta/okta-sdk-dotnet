@@ -46,7 +46,7 @@ namespace Okta.Sdk.IntegrationTests
                 var factors = await createdUser.ListFactors().ToArrayAsync();
                 factors.Count().Should().Be(1);
 
-                var securityQuestionFactor = await createdUser.ListFactors().OfType<ISecurityQuestionFactor>().FirstOrDefaultAsync();
+                var securityQuestionFactor = await createdUser.ListFactors().OfType<ISecurityQuestionUserFactor>().FirstOrDefaultAsync();
                 securityQuestionFactor.Should().NotBeNull();
                 securityQuestionFactor.Profile.Question.Should().Be("disliked_food");
                 securityQuestionFactor.Profile.QuestionText.Should().NotBeNullOrEmpty();
@@ -89,7 +89,7 @@ namespace Okta.Sdk.IntegrationTests
                 var factors = await createdUser.ListFactors().ToArrayAsync();
                 factors.Count().Should().Be(1);
 
-                var smsFactor = await createdUser.ListFactors().OfType<ISmsFactor>().FirstOrDefaultAsync();
+                var smsFactor = await createdUser.ListFactors().OfType<ISmsUserFactor>().FirstOrDefaultAsync();
                 smsFactor.Should().NotBeNull();
                 smsFactor.FactorType.Should().Be(FactorType.Sms);
             }
@@ -125,6 +125,181 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var factors = await createdUser.Factors.ToArrayAsync();
                 factors.Count().Should().Be(0);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task GetFactor()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var profile = new UserProfile
+            {
+                FirstName = "Jill",
+                LastName = "GetFactor-SecurityQuestion",
+                Email = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+                Login = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+            };
+            profile["nickName"] = "jill-factor-securityquestion";
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = profile,
+                Password = "Abcd1234",
+            });
+
+            try
+            {
+                var createdUserFactor = await createdUser.AddFactorAsync(new AddSecurityQuestionFactorOptions
+                {
+                    Question = "disliked_food",
+                    Answer = "mayonnaise",
+                });
+
+                var retrievedUserFactor = await createdUser.GetFactorAsync(createdUserFactor.Id);
+
+                retrievedUserFactor.Should().NotBeNull();
+                ((SecurityQuestionUserFactor)retrievedUserFactor).Profile.Question.Should().Be("disliked_food");
+                ((SecurityQuestionUserFactor)retrievedUserFactor).Profile.QuestionText.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task DeleteFactor()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var profile = new UserProfile
+            {
+                FirstName = "Jill",
+                LastName = "DeleteFactor-SecurityQuestion",
+                Email = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+                Login = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+            };
+            profile["nickName"] = "jill-factor-securityquestion";
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = profile,
+                Password = "Abcd1234",
+            });
+
+            try
+            {
+                var createdUserFactor = await createdUser.AddFactorAsync(new AddSecurityQuestionFactorOptions
+                {
+                    Question = "disliked_food",
+                    Answer = "mayonnaise",
+                });
+
+                var retrievedUserFactor = await createdUser.GetFactorAsync(createdUserFactor.Id);
+
+                retrievedUserFactor.Should().NotBeNull();
+
+                await createdUser.DeleteFactorAsync(retrievedUserFactor.Id);
+
+                var factors = await createdUser.ListFactors().ToArrayAsync();
+                factors.Count().Should().Be(0);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ResetFactors()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var profile = new UserProfile
+            {
+                FirstName = "Jill",
+                LastName = "ResetFactors-SecurityQuestion",
+                Email = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+                Login = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+            };
+            profile["nickName"] = "jill-factor-securityquestion";
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = profile,
+                Password = "Abcd1234",
+            });
+
+            try
+            {
+                var createdUserFactor = await createdUser.AddFactorAsync(new AddSecurityQuestionFactorOptions
+                {
+                    Question = "disliked_food",
+                    Answer = "mayonnaise",
+                });
+
+                var retrievedUserFactor = await createdUser.GetFactorAsync(createdUserFactor.Id);
+
+                retrievedUserFactor.Should().NotBeNull();
+
+                await createdUser.ResetFactorsAsync();
+
+                var factors = await createdUser.ListFactors().ToArrayAsync();
+                factors.Count().Should().Be(0);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ListSupportedSecurityQuestions()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var profile = new UserProfile
+            {
+                FirstName = "Jill",
+                LastName = "ListSupported-SecurityQuestion",
+                Email = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+                Login = $"jill-factor-securityquestion-dotnet-sdk-{guid}@example.com",
+            };
+            profile["nickName"] = "jill-factor-securityquestion";
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = profile,
+                Password = "Abcd1234",
+            });
+
+            try
+            {
+                var createdUserFactor = await createdUser.AddFactorAsync(new AddSecurityQuestionFactorOptions
+                {
+                    Question = "disliked_food",
+                    Answer = "mayonnaise",
+                });
+
+                var retrievedQuestionsList = await createdUser.ListSupportedSecurityQuestions().ToArrayAsync();
+
+                retrievedQuestionsList.Where(x => x.Question == "disliked_food")
+                                    .FirstOrDefault()
+                                    .Should()
+                                    .NotBeNull();
             }
             finally
             {

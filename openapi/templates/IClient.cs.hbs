@@ -19,7 +19,7 @@ namespace Okta.Sdk
         /// {{description}}
         /// </summary>
         {{#if bodyModel}}
-        /// <param name="{{bodyModel.parameterName}}">The <see cref="I{{bodyModel.type.memberName}}"/> resource.</param>
+        /// <param name="{{bodyModel.parameterName}}">The <see cref="{{bodyModel.type.memberName}}"/> resource.</param>
         {{/if}}
         {{#each pathParameters}}
         /// <param name="{{name}}">{{description}}</param>
@@ -32,7 +32,7 @@ namespace Okta.Sdk
         {{/if}}
         /// <returns>{{{returnType.documentationLiteral}}}</returns>
         {{{returnType.literal}}} {{memberName}}(
-            {{~#if bodyModel}}I{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
+            {{~#if bodyModel}}{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
             {{~nbsp 0}}{{{methodSignatureLiteral}}});
 
         {{/each}}

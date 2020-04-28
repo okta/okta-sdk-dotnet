@@ -167,10 +167,28 @@ namespace Okta.Sdk
         public ISessionsClient Sessions => new SessionsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public IAuthorizationServersClient AuthorizationServers => new AuthorizationServersClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public ILogsClient Logs => new LogsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
         public IPoliciesClient Policies => new PoliciesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IEventHooksClient EventHooks => new EventHooksClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IInlineHooksClient InlineHooks => new InlineHooksClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IFeaturesClient Features => new FeaturesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public ITemplatesClient Templates => new TemplatesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IIdentityProvidersClient IdentityProviders => new IdentityProvidersClient(_dataStore, Configuration, _requestContext);
 
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
