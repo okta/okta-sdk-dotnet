@@ -29,7 +29,7 @@ namespace Okta.Sdk
 
         SmsTemplateType Type { get; set; }
 
-        Task<ISmsTemplate> PartialUpdateAsync(SmsTemplate smsTemplate, 
+        Task<ISmsTemplate> PartialUpdateAsync(ISmsTemplate smsTemplate, 
             CancellationToken cancellationToken = default(CancellationToken));
 
     }

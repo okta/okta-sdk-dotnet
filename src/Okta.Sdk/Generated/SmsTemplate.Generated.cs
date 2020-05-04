@@ -54,7 +54,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task<ISmsTemplate> PartialUpdateAsync(SmsTemplate smsTemplate, 
+        public Task<ISmsTemplate> PartialUpdateAsync(ISmsTemplate smsTemplate, 
             CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Templates.PartialUpdateSmsTemplateAsync(smsTemplate, Id, cancellationToken);
         

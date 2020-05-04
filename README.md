@@ -21,6 +21,7 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage applications with the [Apps API](https://developer.okta.com/docs/api/resources/apps)
 * Manage logs with the [Logs API](https://developer.okta.com/docs/api/resources/system_log)
 * Manage sessions with the [Sessions API](https://developer.okta.com/docs/api/resources/sessions)
+* Manage templates with the [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/)
 * Much more!
  
 We also publish these other libraries for .NET:
