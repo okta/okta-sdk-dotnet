@@ -284,6 +284,50 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public async Task AddContextAcceptToRequests()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext { Accept = "application/pkcs10" };
+
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "Accept" && kvp.Value == "application/pkcs10")),
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task AddContextContentTransferEncodingToRequests()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext { ContentTransferEncoding = "base64" };
+
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "Content-Transfer-Encoding" && kvp.Value == "base64")),
+                CancellationToken.None);
+        }
+
+        [Fact]
         public async Task AddContextAcceptLanguageToRequests()
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();

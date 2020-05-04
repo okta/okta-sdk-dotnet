@@ -267,6 +267,8 @@ namespace Okta.Sdk
                 {
                     SignOn = new SamlApplicationSettingsSignOn()
                     {
+                        AudienceOverride = samlApplicationOptions.AudienceOverride,
+                        DestinationOverride = samlApplicationOptions.DestinationOverride,
                         DefaultRelayState = samlApplicationOptions.DefaultRelayState,
                         SsoAcsUrl = samlApplicationOptions.SsoAcsUrl,
                         IdpIssuer = samlApplicationOptions.IdpIssuer,
@@ -284,6 +286,8 @@ namespace Okta.Sdk
                         SpIssuer = samlApplicationOptions.SpIssuer,
                         RequestCompressed = samlApplicationOptions.RequestCompressed,
                         AttributeStatements = samlApplicationOptions.AttributeStatements,
+                        RecipientOverride = samlApplicationOptions.RecipientOverride,
+                        SsoAcsUrlOverride = samlApplicationOptions.SsoAcsUrlOverride,
                     },
                 },
             };
@@ -374,6 +378,9 @@ namespace Okta.Sdk
                         ApplicationType = openIdApplicationOptions.ApplicationType,
                         TermsOfServiceUri = openIdApplicationOptions.TermsOfServiceUri,
                         PolicyUri = openIdApplicationOptions.PolicyUri,
+                        ConsentMethod = openIdApplicationOptions.ConsentMethod,
+                        IssuerMode = openIdApplicationOptions.IssuerMode,
+                        InitiateLoginUri = openIdApplicationOptions.InitiateLoginUri,
                     },
                 },
             };

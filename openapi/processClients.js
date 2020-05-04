@@ -3,7 +3,8 @@ const {
   pascalCase,
   createMethodSignatureLiteral,
   createParametersLiteral,
-  getPluralName
+  getPluralName,
+  getTypeForMember
 } = require('./utils');
 
 const {
@@ -136,7 +137,7 @@ function createContextForClient(tag, operations) {
 
       operationContext.bodyModel = {
         type: { 
-          memberName: getTypeForMember(operation.bodyModel)
+          memberName: getTypeForMember(operation.bodyModel, operation.bodyFormat)
         },
         parameterName: camelCase(bodyModelParamName)
       };
@@ -169,13 +170,4 @@ function createContextForClient(tag, operations) {
   return context;
 }
 
-function getTypeForMember(memberType){
-  if(memberType == "string"){
-    return memberType;
-  }
-
-  return `I${memberType}`;
-}
-
-//module.exports.getTypeForMember = getTypeForMember;
 module.exports.getTemplatesForClients = getTemplatesForClients;

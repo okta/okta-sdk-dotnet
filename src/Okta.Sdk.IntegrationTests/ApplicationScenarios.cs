@@ -8,6 +8,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
+using Org.BouncyCastle.Asn1.X509;
+using Org.BouncyCastle.Crypto;
+using Org.BouncyCastle.Crypto.Generators;
+using Org.BouncyCastle.Crypto.Prng;
+using Org.BouncyCastle.Math;
+using Org.BouncyCastle.Security;
+using Org.BouncyCastle.Utilities;
+using Org.BouncyCastle.X509;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
@@ -15,6 +23,7 @@ namespace Okta.Sdk.IntegrationTests
     [Collection(nameof(ApplicationScenarios))]
     public class ApplicationScenarios
     {
+     
         [Fact]
         public async Task AddBookmarkApp()
         {
@@ -1397,12 +1406,484 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "https://github.com/okta/okta.github.io/issues/2167")]
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-        public async Task UpdateApplicationProfileForAssignedUser()
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        [Fact]
+        public async Task GenerateApplicationKey()
         {
-            throw new NotImplementedException();
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: GenerateApplicationKeyCredentials {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var generatedKey = await createdApp.GenerateKeyAsync(2);
+
+                var retrievedAppKey = await createdApp.GetApplicationKeyAsync(generatedKey.Kid);
+
+                retrievedAppKey.Should().NotBeNull();
+                retrievedAppKey.Created.Should().Be(generatedKey.Created);
+                retrievedAppKey.ExpiresAt.Should().Be(generatedKey.ExpiresAt);
+                retrievedAppKey.X5C.Should().BeEquivalentTo(generatedKey.X5C);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CloneApplicationKey()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp1 = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: CloneApplicationKeyCredentials1 {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            var createdApp2 = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: CloneApplicationKeyCredentials2 {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var generatedKey1 = await createdApp1.GenerateKeyAsync(2);
+
+                var clonedKey2 = await createdApp1.CloneApplicationKeyAsync(generatedKey1.Kid, createdApp2.Id);
+
+                clonedKey2.Should().NotBeNull();
+                clonedKey2.Kid.Should().Be(generatedKey1.Kid);
+                clonedKey2.ExpiresAt.Should().Be(generatedKey1.ExpiresAt);
+                clonedKey2.X5C.Should().BeEquivalentTo(generatedKey1.X5C);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp1.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp1.Id);
+                await client.Applications.DeactivateApplicationAsync(createdApp2.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp2.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GenerateCsr()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: GenerateCsr {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var csrMetadata = new CsrMetadata()
+                {
+                    Subject = new CsrMetadataSubject()
+                    {
+                        CountryName = "US",
+                        StateOrProvinceName = "California",
+                        LocalityName = "San Francisco",
+                        OrganizationName = "Okta, Inc.",
+                        OrganizationalUnitName = "Dev",
+                        CommonName = "SP Issuer",
+                    },
+                    SubjectAltNames = new CsrMetadataSubjectAltNames()
+                    {
+                        DnsNames = new List<string>() { "dev.okta.com" },
+                    },
+                };
+
+                var generatedCsr = await createdApp.GenerateCsrAsync(csrMetadata);
+
+                generatedCsr.Should().NotBeNull();
+                generatedCsr.Kty.Should().Be("RSA");
+                generatedCsr.CsrValue.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetCsr()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: GetCsr {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var csrMetadata = new CsrMetadata()
+                {
+                    Subject = new CsrMetadataSubject()
+                    {
+                        CountryName = "US",
+                        StateOrProvinceName = "California",
+                        LocalityName = "San Francisco",
+                        OrganizationName = "Okta, Inc.",
+                        OrganizationalUnitName = "Dev",
+                        CommonName = "SP Issuer",
+                    },
+                    SubjectAltNames = new CsrMetadataSubjectAltNames()
+                    {
+                        DnsNames = new List<string>() { "dev.okta.com" },
+                    },
+                };
+
+                var generatedCsr = await createdApp.GenerateCsrAsync(csrMetadata);
+
+                var retrievedCsr = await createdApp.GetCsrAsync(generatedCsr.Id);
+                retrievedCsr.Should().NotBeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task RevokeCsr()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: RevokeCsr {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var csrMetadata = new CsrMetadata()
+                {
+                    Subject = new CsrMetadataSubject()
+                    {
+                        CountryName = "US",
+                        StateOrProvinceName = "California",
+                        LocalityName = "San Francisco",
+                        OrganizationName = "Okta, Inc.",
+                        OrganizationalUnitName = "Dev",
+                        CommonName = "SP Issuer",
+                    },
+                    SubjectAltNames = new CsrMetadataSubjectAltNames()
+                    {
+                        DnsNames = new List<string>() { "dev.okta.com" },
+                    },
+                };
+
+                var generatedCsr = await createdApp.GenerateCsrAsync(csrMetadata);
+
+                var retrievedCsr = await createdApp.ListCsrs().Where(x => x.Id == generatedCsr.Id).FirstOrDefaultAsync();
+                retrievedCsr.Should().NotBeNull();
+
+                await createdApp.RevokeCsrAsync(generatedCsr.Id);
+
+                retrievedCsr = await createdApp.ListCsrs().Where(x => x.Id == generatedCsr.Id).FirstOrDefaultAsync();
+                retrievedCsr.Should().BeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GrantConsentToScope()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: GrantConsentToScope {guid}",
+                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                AutoKeyRotation = true,
+                ClientUri = "https://example.com/client",
+                LogoUri = "https://example.com/assets/images/logo-new.png",
+                ResponseTypes = new List<OAuthResponseType>
+                {
+                    OAuthResponseType.Token,
+                    OAuthResponseType.IdToken,
+                    OAuthResponseType.Code,
+                },
+                RedirectUris = new List<string>
+                {
+                        "https://example.com/oauth2/callback",
+                        "myapp://callback",
+                },
+                PostLogoutRedirectUris = new List<string>
+                {
+                    "https://example.com/postlogout",
+                    "myapp://postlogoutcallback",
+                },
+                GrantTypes = new List<OAuthGrantType>
+                {
+                    OAuthGrantType.Implicit,
+                    OAuthGrantType.AuthorizationCode,
+                },
+                ApplicationType = OpenIdConnectApplicationType.Native,
+                TermsOfServiceUri = "https://example.com/client/tos",
+                PolicyUri = "https://example.com/client/policy",
+            });
+            try
+            {
+                var issuer = client.Configuration.OktaDomain.EndsWith("/") ?
+                             client.Configuration.OktaDomain.Remove(client.Configuration.OktaDomain.Length - 1) : client.Configuration.OktaDomain;
+
+                await createdApp.GrantConsentToScopeAsync(new OAuth2ScopeConsentGrant()
+                {
+                    Issuer = issuer,
+                    ScopeId = "okta.users.read",
+                });
+
+                var appConsentGrants = await createdApp.ListScopeConsentGrants().ToListAsync();
+                appConsentGrants.Should().NotBeNull();
+
+                var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
+                retrievedConsent.Should().NotBeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetConsentGrant()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: GetConsentGrant {guid}",
+                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                AutoKeyRotation = true,
+                ClientUri = "https://example.com/client",
+                LogoUri = "https://example.com/assets/images/logo-new.png",
+                ResponseTypes = new List<OAuthResponseType>
+                {
+                    OAuthResponseType.Token,
+                    OAuthResponseType.IdToken,
+                    OAuthResponseType.Code,
+                },
+                RedirectUris = new List<string>
+                {
+                        "https://example.com/oauth2/callback",
+                        "myapp://callback",
+                },
+                PostLogoutRedirectUris = new List<string>
+                {
+                    "https://example.com/postlogout",
+                    "myapp://postlogoutcallback",
+                },
+                GrantTypes = new List<OAuthGrantType>
+                {
+                    OAuthGrantType.Implicit,
+                    OAuthGrantType.AuthorizationCode,
+                },
+                ApplicationType = OpenIdConnectApplicationType.Native,
+                TermsOfServiceUri = "https://example.com/client/tos",
+                PolicyUri = "https://example.com/client/policy",
+            });
+            try
+            {
+                var issuer = client.Configuration.OktaDomain.EndsWith("/") ?
+                             client.Configuration.OktaDomain.Remove(client.Configuration.OktaDomain.Length - 1) : client.Configuration.OktaDomain;
+
+                await createdApp.GrantConsentToScopeAsync(new OAuth2ScopeConsentGrant()
+                {
+                    Issuer = issuer,
+                    ScopeId = "okta.users.read",
+                });
+
+                var retrievedConsentGrantFromList = await createdApp.ListScopeConsentGrants().FirstOrDefaultAsync(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
+                var retrievedConsentGrantFromGet = await createdApp.GetScopeConsentGrantAsync(retrievedConsentGrantFromList.Id);
+
+                retrievedConsentGrantFromGet.Should().NotBeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task RevokeConsentGrant()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: RevokeConsentGrant {guid}",
+                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
+                AutoKeyRotation = true,
+                ClientUri = "https://example.com/client",
+                LogoUri = "https://example.com/assets/images/logo-new.png",
+                ResponseTypes = new List<OAuthResponseType>
+                {
+                    OAuthResponseType.Token,
+                    OAuthResponseType.IdToken,
+                    OAuthResponseType.Code,
+                },
+                RedirectUris = new List<string>
+                {
+                        "https://example.com/oauth2/callback",
+                        "myapp://callback",
+                },
+                PostLogoutRedirectUris = new List<string>
+                {
+                    "https://example.com/postlogout",
+                    "myapp://postlogoutcallback",
+                },
+                GrantTypes = new List<OAuthGrantType>
+                {
+                    OAuthGrantType.Implicit,
+                    OAuthGrantType.AuthorizationCode,
+                },
+                ApplicationType = OpenIdConnectApplicationType.Native,
+                TermsOfServiceUri = "https://example.com/client/tos",
+                PolicyUri = "https://example.com/client/policy",
+            });
+            try
+            {
+                var issuer = client.Configuration.OktaDomain.EndsWith("/") ?
+                             client.Configuration.OktaDomain.Remove(client.Configuration.OktaDomain.Length - 1) : client.Configuration.OktaDomain;
+
+                await createdApp.GrantConsentToScopeAsync(new OAuth2ScopeConsentGrant()
+                {
+                    Issuer = issuer,
+                    ScopeId = "okta.users.read",
+                });
+
+                var retrievedConsentGrant = await createdApp.ListScopeConsentGrants().FirstOrDefaultAsync(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
+                retrievedConsentGrant.Should().NotBeNull();
+
+                await createdApp.RevokeScopeConsentGrantAsync(retrievedConsentGrant.Id);
+
+                retrievedConsentGrant = await createdApp.ListScopeConsentGrants().FirstOrDefaultAsync(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
+                retrievedConsentGrant.Should().BeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact(Skip = "Depends on OKTA-295020")]
+        public async Task PublishCsr()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(
+                new CreateBasicAuthApplicationOptions()
+                {
+                    Label = $"dotnet-sdk: PublishCsr {guid}",
+                    Url = "https://example.com/login.html",
+                    AuthUrl = "https://example.com/auth.html",
+                });
+
+            try
+            {
+                var csrMetadata = new CsrMetadata()
+                {
+                    Subject = new CsrMetadataSubject()
+                    {
+                        CountryName = "US",
+                        StateOrProvinceName = "California",
+                        LocalityName = "San Francisco",
+                        OrganizationName = "Okta, Inc.",
+                        OrganizationalUnitName = "Dev",
+                        CommonName = "SP Issuer",
+                    },
+                    SubjectAltNames = new CsrMetadataSubjectAltNames()
+                    {
+                        DnsNames = new List<string>() { "dev.okta.com" },
+                    },
+                };
+
+                var generatedCsr = await createdApp.GenerateCsrAsync(csrMetadata);
+
+                var certificate = GenerateTestCertificate();
+                var scopedClient = client.CreatedScoped(new RequestContext() { ContentTransferEncoding = "base64", ContentType = "application/pkix-cert" });
+
+                var key = await scopedClient.Applications.PublishBinaryCerCertAsync(certificate.GetEncoded(), createdApp.Id, generatedCsr.Id);
+
+                key.Should().NotBeNull();
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        private X509Certificate GenerateTestCertificate()
+        {
+            // Keypair Generator
+            RsaKeyPairGenerator kpGenerator = new RsaKeyPairGenerator();
+            kpGenerator.Init(new KeyGenerationParameters(new SecureRandom(), 2048));
+            // Create a keypair
+            AsymmetricCipherKeyPair kp = kpGenerator.GenerateKeyPair();
+
+            var randomGenerator = new CryptoApiRandomGenerator();
+            var random = new SecureRandom(randomGenerator);
+            var serialNumber = BigIntegers.CreateRandomInRange(BigInteger.One, BigInteger.ValueOf(long.MaxValue), random);
+
+            // Certificate Generator
+            X509V3CertificateGenerator certificateGenerator = new X509V3CertificateGenerator();
+            certificateGenerator.SetSerialNumber(serialNumber);
+            certificateGenerator.SetSubjectDN(new X509Name("CN=SP Issuer"));
+            certificateGenerator.SetIssuerDN(new X509Name("CN=SP Issuer"));
+            certificateGenerator.SetNotBefore(DateTime.Now);
+            certificateGenerator.SetNotAfter(DateTime.Now.Add(new TimeSpan(365, 0, 0, 0)));
+            certificateGenerator.SetSignatureAlgorithm("SHA256WithRSA");
+            certificateGenerator.SetPublicKey(kp.Public);
+            X509Certificate cert = certificateGenerator.Generate(kp.Private);
+
+            return cert;
         }
     }
 }

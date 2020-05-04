@@ -45,6 +45,20 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string InitiateLoginUri 
+        {
+            get => GetStringProperty("initiate_login_uri");
+            set => this["initiate_login_uri"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public OpenIdConnectApplicationIssuerMode IssuerMode 
+        {
+            get => GetEnumProperty<OpenIdConnectApplicationIssuerMode>("issuer_mode");
+            set => this["issuer_mode"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string LogoUri 
         {
             get => GetStringProperty("logo_uri");

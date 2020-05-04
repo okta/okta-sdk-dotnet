@@ -110,7 +110,14 @@ function createParametersLiteral(operation, args) {
 
   let hasBodyArgument = !!operation.bodyModel;
   if (hasBodyArgument) {
-    let parameterName = camelCase(operation.bodyModel);
+      // grab param name from parameter list
+      let bodyModelParams = operation.parameters.filter(x => x.in == 'body');
+      if(bodyModelParams != null){
+        let bodyModelParam = bodyModelParams[0];
+        bodyModelParamName = bodyModelParam.name;
+      }
+
+    let parameterName = bodyModelParamName;
     parameters.push(parameterName);
   }
 
@@ -146,6 +153,19 @@ function getPluralName(name) {
   return pluralName;
 }
 
+function getTypeForMember(memberType, memberTypeFormat){
+  if(memberType == "string" ) {
+
+    if (memberTypeFormat && memberTypeFormat == 'binary') {
+      return 'byte[]';
+    }
+    
+    return memberType;
+  }
+
+  return `I${memberType}`;
+}
+
 module.exports.pascalCase = pascalCase;
 module.exports.camelCase = camelCase;
 module.exports.paramToCLRType = paramToCLRType;
@@ -156,3 +176,4 @@ module.exports.isNullOrUndefined = isNullOrUndefined;
 module.exports.createMethodSignatureLiteral = createMethodSignatureLiteral;
 module.exports.createParametersLiteral = createParametersLiteral;
 module.exports.getPluralName = getPluralName;
+module.exports.getTypeForMember = getTypeForMember;

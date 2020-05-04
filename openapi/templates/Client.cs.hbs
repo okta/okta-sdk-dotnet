@@ -56,7 +56,7 @@ namespace Okta.Sdk
             });
             {{else}}=> await {{httpMethod.memberName}}{{#if returnType.memberName}}<{{returnType.memberName}}>{{/if}}(new HttpRequest
             {
-                Uri = "{{path}}",
+                Uri = "{{{path}}}",
                 {{#if bodyModel}}Payload = {{bodyModel.parameterName}},{{/if}}
                 {{#if pathParameters}}
                 PathParameters = new Dictionary<string, object>()

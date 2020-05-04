@@ -95,48 +95,149 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Task ActivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.ActivateApplicationAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Task DeactivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.DeactivateApplicationAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public ICollectionClient<IAppUser> ListApplicationUsers(string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
+        public ICollectionClient<IAppUser> ListApplicationUsers(
+            string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
             => GetClient().Applications.ListApplicationUsers(Id, q, query_scope, after, limit, filter, expand);
         
         /// <inheritdoc />
-        public Task<IAppUser> AssignUserToApplicationAsync(AppUser appUser, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IAppUser> AssignUserToApplicationAsync(IAppUser appUser, 
+            CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.AssignUserToApplicationAsync(appUser, Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IAppUser> GetApplicationUserAsync(string userId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IAppUser> GetApplicationUserAsync(
+            string userId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.GetApplicationUserAsync(Id, userId, expand, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(ApplicationGroupAssignment applicationGroupAssignment, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(IApplicationGroupAssignment applicationGroupAssignment, 
+            string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.CreateApplicationGroupAssignmentAsync(applicationGroupAssignment, Id, groupId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(
+            string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.GetApplicationGroupAssignmentAsync(Id, groupId, expand, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> CloneApplicationKeyAsync(string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IJsonWebKey> CloneApplicationKeyAsync(
+            string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.CloneApplicationKeyAsync(Id, keyId, targetAid, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> GetApplicationKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IJsonWebKey> GetApplicationKeyAsync(
+            string keyId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.GetApplicationKeyAsync(Id, keyId, cancellationToken);
         
         /// <inheritdoc />
-        public ICollectionClient<IApplicationGroupAssignment> ListGroupAssignments(string q = null, string after = null, int? limit = -1, string expand = null)
+        public ICollectionClient<IApplicationGroupAssignment> ListGroupAssignments(
+            string q = null, string after = null, int? limit = -1, string expand = null)
             => GetClient().Applications.ListApplicationGroupAssignments(Id, q, after, limit, expand);
         
         /// <inheritdoc />
-        public ICollectionClient<IJsonWebKey> ListKeys()
+        public ICollectionClient<IJsonWebKey> ListKeys(
+            )
             => GetClient().Applications.ListApplicationKeys(Id);
+        
+        /// <inheritdoc />
+        public Task<IJsonWebKey> GenerateKeyAsync(
+            int? validityYears = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GenerateApplicationKeyAsync(Id, validityYears, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<ICsr> GenerateCsrAsync(ICsrMetadata metadata, 
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GenerateCsrForApplicationAsync(metadata, Id, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<ICsr> GetCsrAsync(
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GetCsrForApplicationAsync(Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task RevokeCsrAsync(
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.RevokeCsrFromApplicationAsync(Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public ICollectionClient<ICsr> ListCsrs(
+            )
+            => GetClient().Applications.ListCsrsForApplication(Id);
+        
+        /// <inheritdoc />
+        public Task<IJsonWebKey> PublishCerCertAsync(string certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.PublishCerCertAsync(certificate, Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.PublishBinaryCerCertAsync(certificate, Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IJsonWebKey> PublishDerCertAsync(string certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.PublishDerCertAsync(certificate, Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.PublishBinaryDerCertAsync(certificate, Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.PublishBinaryPemCertAsync(certificate, Id, csrId, cancellationToken);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IOAuth2Token> ListOAuth2Tokens(
+            string expand = null, string after = null, int? limit = 20)
+            => GetClient().Applications.ListOAuth2TokensForApplication(Id, expand, after, limit);
+        
+        /// <inheritdoc />
+        public Task RevokeOAuth2TokenForApplicationAsync(
+            string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.RevokeOAuth2TokenForApplicationAsync(Id, tokenId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOAuth2Token> GetOAuth2TokenAsync(
+            string tokenId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GetOAuth2TokenForApplicationAsync(Id, tokenId, expand, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task RevokeOAuth2TokensAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.RevokeOAuth2TokensForApplicationAsync(Id, cancellationToken);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IOAuth2ScopeConsentGrant> ListScopeConsentGrants(
+            string expand = null)
+            => GetClient().Applications.ListScopeConsentGrants(Id, expand);
+        
+        /// <inheritdoc />
+        public Task<IOAuth2ScopeConsentGrant> GrantConsentToScopeAsync(IOAuth2ScopeConsentGrant oAuth2ScopeConsentGrant, 
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GrantConsentToScopeAsync(oAuth2ScopeConsentGrant, Id, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task RevokeScopeConsentGrantAsync(
+            string grantId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.RevokeScopeConsentGrantAsync(Id, grantId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(
+            string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GetScopeConsentGrantAsync(Id, grantId, expand, cancellationToken);
         
     }
 }

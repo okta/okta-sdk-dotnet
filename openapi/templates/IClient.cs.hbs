@@ -5,6 +5,7 @@
 
 // This file was automatically generated. Don't modify it directly.
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Okta.Sdk
     {
         {{#each operations}}
         /// <summary>
-        /// {{description}}
+        /// {{{description}}}
         /// </summary>
         {{#if bodyModel}}
         /// <param name="{{bodyModel.parameterName}}">The <see cref="{{bodyModel.type.memberName}}"/> resource.</param>

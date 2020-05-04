@@ -23,5 +23,7 @@ namespace Okta.Sdk
 
         string RotationMode { get; set; }
 
+        ApplicationCredentialsSigningUse Use { get; set; }
+
     }
 }
