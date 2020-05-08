@@ -1598,6 +1598,7 @@ namespace Okta.Sdk.IntegrationTests
                         {
                             Template = "idpuser.email",
                         },
+                        MatchType = "USERNAME",
                         Filter = null,
                     },
                 },
