@@ -117,7 +117,7 @@
     <Rule Id="SA1603" Action="Error" />
     <Rule Id="SA1609" Action="Warning" />
     <Rule Id="SA1633" Action="Warning" /> <!-- Back to Error after MSBuild bug fix (.NET Core 2.0) -->
-    <Rule Id="SA1636" Action="Error" />
+    <Rule Id="SA1636" Action="None" /><!-- Year can change in copyright. -->
     <Rule Id="SA1642" Action="Error" />
     <Rule Id="SA1643" Action="Error" />
   </Rules>

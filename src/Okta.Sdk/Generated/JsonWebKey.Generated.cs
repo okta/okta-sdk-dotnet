@@ -26,7 +26,11 @@ namespace Okta.Sdk
         public string E => GetStringProperty("e");
         
         /// <inheritdoc/>
-        public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
+        public string ExpiresAt 
+        {
+            get => GetStringProperty("expiresAt");
+            set => this["expiresAt"] = value;
+        }
         
         /// <inheritdoc/>
         public IList<string> KeyOps => GetArrayProperty<string>("key_ops");
@@ -50,7 +54,11 @@ namespace Okta.Sdk
         public string Use => GetStringProperty("use");
         
         /// <inheritdoc/>
-        public IList<string> X5C => GetArrayProperty<string>("x5c");
+        public IList<string> X5C 
+        {
+            get => GetArrayProperty<string>("x5c");
+            set => this["x5c"] = value;
+        }
         
         /// <inheritdoc/>
         public string X5T => GetStringProperty("x5t");
