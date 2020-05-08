@@ -1013,7 +1013,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.CreatePolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
             {
@@ -1072,7 +1072,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.CreatePolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
             {
@@ -1177,7 +1177,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.CreatePolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
             {
@@ -1248,7 +1248,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.CreatePolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
             {
@@ -1308,7 +1308,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.CreatePolicyRuleAsync(policyRule, createdPolicy.Id);
 
             try
             {

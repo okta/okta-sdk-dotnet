@@ -5,6 +5,7 @@
 
 // This file was automatically generated. Don't modify it directly.
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -42,7 +43,7 @@ namespace Okta.Sdk
         ICollectionClient<IUserFactor> ListSupportedFactors(string userId);
 
         /// <summary>
-        /// Enumerates all available security questions for a user&#x27;s &#x60;question&#x60; factor
+        /// Enumerates all available security questions for a user's `question` factor
         /// </summary>
         /// <param name="userId"></param>
         /// <returns>A collection of <see cref="ISecurityQuestion"/> that can be enumerated asynchronously.</returns>
@@ -67,7 +68,7 @@ namespace Okta.Sdk
         Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
+        /// The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
         /// </summary>
         /// <param name="body">The <see cref="IActivateFactorRequest"/> resource.</param>
         /// <param name="userId"></param>
@@ -87,7 +88,7 @@ namespace Okta.Sdk
         Task<IVerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
+        /// Verifies an OTP for a `token` or `token:hardware` factor
         /// </summary>
         /// <param name="body">The <see cref="IVerifyFactorRequest"/> resource.</param>
         /// <param name="userId"></param>

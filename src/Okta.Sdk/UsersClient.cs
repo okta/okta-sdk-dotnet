@@ -26,7 +26,7 @@ namespace Okta.Sdk
                 throw new ArgumentNullException(nameof(options));
             }
 
-            var user = new User
+            var user = new CreateUserRequest
             {
                 Profile = options.Profile,
             };
@@ -42,7 +42,7 @@ namespace Okta.Sdk
                 throw new ArgumentNullException(nameof(options));
             }
 
-            var user = new User
+            var user = new CreateUserRequest
             {
                 Profile = options.Profile,
                 Credentials = new UserCredentials
@@ -66,7 +66,7 @@ namespace Okta.Sdk
                 throw new ArgumentNullException(nameof(options));
             }
 
-            var user = new User
+            var user = new CreateUserRequest
             {
                 Profile = options.Profile,
                 Credentials = new UserCredentials
@@ -96,7 +96,7 @@ namespace Okta.Sdk
                 throw new ArgumentNullException(nameof(options));
             }
 
-            var user = new User
+            var user = new CreateUserRequest
             {
                 Profile = options.Profile,
                 Credentials = new UserCredentials
@@ -156,13 +156,6 @@ namespace Okta.Sdk
 
             return ChangeRecoveryQuestionAsync(newCredentials, userId, cancellationToken);
         }
-
-        /// <inheritdoc/>
-        public Task<IResetPasswordToken> ResetPasswordAsync(
-            string userId,
-            bool? sendEmail = true,
-            CancellationToken cancellationToken = default(CancellationToken))
-            => ResetPasswordAsync(userId, null, sendEmail, cancellationToken);
 
         /// <inheritdoc />
         public Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))

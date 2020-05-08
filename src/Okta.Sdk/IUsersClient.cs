@@ -80,15 +80,6 @@ namespace Okta.Sdk
         Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Resets a user's password.
-        /// </summary>
-        /// <param name="userId">The user ID.</param>
-        /// <param name="sendEmail">Sends reset password email to the user if <c>true</c>.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IResetPasswordToken"/> response.</returns>
-        Task<IResetPasswordToken> ResetPasswordAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Deletes a user permanently. This operation can only be performed on users that have a &#x60;DEPROVISIONED&#x60; status.  **This action cannot be recovered!**
         /// </summary>
         /// <param name="userId">The User ID</param>

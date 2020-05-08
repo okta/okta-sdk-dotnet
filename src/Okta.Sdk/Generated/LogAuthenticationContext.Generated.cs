@@ -23,10 +23,18 @@ namespace Okta.Sdk
         public int? AuthenticationStep => GetIntegerProperty("authenticationStep");
         
         /// <inheritdoc/>
-        public IList<LogCredentialProvider> CredentialProvider => GetArrayProperty<LogCredentialProvider>("credentialProvider");
+        public LogCredentialProvider CredentialProvider 
+        {
+            get => GetEnumProperty<LogCredentialProvider>("credentialProvider");
+            set => this["credentialProvider"] = value;
+        }
         
         /// <inheritdoc/>
-        public IList<LogCredentialType> CredentialType => GetArrayProperty<LogCredentialType>("credentialType");
+        public LogCredentialType CredentialType 
+        {
+            get => GetEnumProperty<LogCredentialType>("credentialType");
+            set => this["credentialType"] = value;
+        }
         
         /// <inheritdoc/>
         public string ExternalSessionId => GetStringProperty("externalSessionId");

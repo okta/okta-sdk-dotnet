@@ -29,10 +29,10 @@ namespace Okta.Sdk
 
         IVerifyFactorRequest Verify { get; set; }
 
-        Task<IUserFactor> ActivateAsync(ActivateFactorRequest activateFactorRequest, 
+        Task<IUserFactor> ActivateAsync(IActivateFactorRequest body, 
             string userId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IVerifyUserFactorResponse> VerifyAsync(VerifyFactorRequest verifyFactorRequest, 
+        Task<IVerifyUserFactorResponse> VerifyAsync(IVerifyFactorRequest body, 
             string userId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
 
     }

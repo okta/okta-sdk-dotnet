@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IPolicy> ListPolicies(string type, string status = null, string after = null, int? limit = -1, string expand = "")
+        public ICollectionClient<IPolicy> ListPolicies(string type, string status = null, string expand = "")
             => GetCollectionClient<IPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/policies",
@@ -38,8 +38,6 @@ namespace Okta.Sdk
                 {
                     ["type"] = type,
                     ["status"] = status,
-                    ["after"] = after,
-                    ["limit"] = limit,
                     ["expand"] = expand,
                 },
             });
@@ -133,7 +131,7 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IPolicyRule> AddPolicyRuleAsync(IPolicyRule policyRule, string policyId, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IPolicyRule> CreatePolicyRuleAsync(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<PolicyRule>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules",
@@ -141,10 +139,6 @@ namespace Okta.Sdk
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["policyId"] = policyId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["activate"] = activate,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         

@@ -25,10 +25,9 @@ namespace Okta.Sdk
         /// </summary>
         /// <typeparam name="T">The type of policy rule</typeparam>
         /// <param name="policyRule">The policy rule</param>
-        /// <param name="activate">The activate flag</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The created policy rule</returns>
-        Task<T> CreateRuleAsync<T>(PolicyRule policyRule, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> CreateRuleAsync<T>(PolicyRule policyRule, CancellationToken cancellationToken = default(CancellationToken))
             where T : class, IPolicyRule;
     }
 }

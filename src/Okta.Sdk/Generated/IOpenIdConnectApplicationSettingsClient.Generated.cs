@@ -23,6 +23,10 @@ namespace Okta.Sdk
 
         IList<OAuthGrantType> GrantTypes { get; set; }
 
+        string InitiateLoginUri { get; set; }
+
+        OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
+
         string LogoUri { get; set; }
 
         string PolicyUri { get; set; }

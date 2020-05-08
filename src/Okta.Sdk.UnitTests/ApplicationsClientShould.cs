@@ -92,7 +92,7 @@ namespace Okta.Sdk.UnitTests
             var client = new TestableOktaClient(mockRequestExecutor);
 
             var token = await client.Applications.GetOAuth2TokenForApplicationAsync("foo", "oar579Mcp7OUsNTlo0g3");
-            
+
             mockRequestExecutor.ReceivedHref.Should().StartWith("/api/v1/apps/foo/tokens/oar579Mcp7OUsNTlo0g3");
 
             token.Should().NotBeNull();

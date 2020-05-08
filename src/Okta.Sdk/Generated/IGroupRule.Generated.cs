@@ -17,8 +17,6 @@ namespace Okta.Sdk
     {
         IGroupRuleAction Actions { get; set; }
 
-        bool? AllGroupsValid { get; set; }
-
         IGroupRuleConditions Conditions { get; set; }
 
         DateTimeOffset? Created { get; }
@@ -33,9 +31,11 @@ namespace Okta.Sdk
 
         string Type { get; set; }
 
-        Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task ActivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -15,6 +15,8 @@ namespace Okta.Sdk
     /// <summary>Represents a Policy resource in the Okta API.</summary>
     public partial interface IPolicy : IResource
     {
+        IPolicyRuleConditions Conditions { get; set; }
+
         DateTimeOffset? Created { get; }
 
         string Description { get; set; }
@@ -33,15 +35,20 @@ namespace Okta.Sdk
 
         PolicyType Type { get; set; }
 
-        Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task ActivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<IPolicyRule> ListPolicyRules();
+        ICollectionClient<IPolicyRule> ListPolicyRules(
+            );
 
-        Task<IPolicyRule> CreateRuleAsync(PolicyRule policyRule, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IPolicyRule> CreateRuleAsync(IPolicyRule policyRule, 
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IPolicyRule> GetPolicyRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IPolicyRule> GetPolicyRuleAsync(
+            string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

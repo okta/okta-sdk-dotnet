@@ -47,7 +47,8 @@ namespace Okta.Sdk
         public string UserId => GetStringProperty("userId");
         
         /// <inheritdoc />
-        public Task<ISession> RefreshAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Task<ISession> RefreshAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Sessions.RefreshSessionAsync(Id, cancellationToken);
         
     }
