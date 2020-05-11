@@ -30,8 +30,8 @@ namespace Okta.Sdk
         {{#each methods}}
         /// <inheritdoc />
         public {{{returnTypeLiteral}}} {{memberName}}(
-            {{~#if bodyModel}}{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
-            {{~nbsp 0}}{{{methodSignatureLiteral}}})
+            {{~#if bodyModel}}{{bodyModel.type.memberName}} {{bodyModel.parameterName}}{{~#if hasMoreParams}},{{~nbsp 0}}{{/if}} {{/if}}
+            {{{methodSignatureLiteral}}})
             => GetClient().{{client.memberName}}.{{methodOperation.memberName}}({{{parametersLiteral}}});
         
         {{/each}}

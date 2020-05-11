@@ -19,11 +19,17 @@ namespace Okta.Sdk
 
         string Answer { get; set; }
 
+        string Attestation { get; set; }
+
+        string ClientData { get; set; }
+
         string NextPassCode { get; set; }
 
         string PassCode { get; set; }
 
-        int? TokenLifetimeSeconds { get; set; }
+        string RegistrationData { get; set; }
+
+        string StateToken { get; set; }
 
     }
 }

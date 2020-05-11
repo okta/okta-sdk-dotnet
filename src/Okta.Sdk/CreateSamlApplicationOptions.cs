@@ -50,6 +50,11 @@ namespace Okta.Sdk
         public string SsoAcsUrl { get; set; }
 
         /// <summary>
+        /// Gets or sets an SSO override-url
+        /// </summary>
+        public string SsoAcsUrlOverride { get; set; }
+
+        /// <summary>
         /// Gets or sets an IDP issuer
         /// </summary>
         public string IdpIssuer { get; set; }
@@ -128,5 +133,20 @@ namespace Okta.Sdk
         /// Gets or sets an activate flag value
         /// </summary>
         public bool Activate { get; set; } = true;
+
+        /// <summary>
+        /// Gets or sets the destination-override value
+        /// </summary>
+        public string DestinationOverride { get; set; }
+
+        /// <summary>
+        /// Gets or sets the audience-override value
+        /// </summary>
+        public string AudienceOverride { get; set; }
+
+        /// <summary>
+        /// Gets or sets the recipient-override value
+        /// </summary>
+        public string RecipientOverride { get; set; }
     }
 }

@@ -125,6 +125,21 @@ namespace Okta.Sdk.Internal
             {
                 request.Headers["X-Forwarded-Proto"] = context.XForwardedProto;
             }
+
+            if (!string.IsNullOrEmpty(context.AcceptLanguage))
+            {
+                request.Headers["Accept-Language"] = context.AcceptLanguage;
+            }
+
+            if (!string.IsNullOrEmpty(context.Accept))
+            {
+                request.Headers["Accept"] = context.Accept;
+            }
+
+            if (!string.IsNullOrEmpty(context.ContentTransferEncoding))
+            {
+                request.Headers["Content-Transfer-Encoding"] = context.ContentTransferEncoding;
+            }
         }
 
         private void EnsureResponseSuccess(HttpResponse<string> response)

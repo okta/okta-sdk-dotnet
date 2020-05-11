@@ -21,7 +21,7 @@ namespace Okta.Sdk
 
         string E { get; }
 
-        DateTimeOffset? ExpiresAt { get; }
+        string ExpiresAt { get; set; }
 
         IList<string> KeyOps { get; }
 
@@ -37,7 +37,7 @@ namespace Okta.Sdk
 
         string Use { get; }
 
-        IList<string> X5C { get; }
+        IList<string> X5C { get; set; }
 
         string X5T { get; }
 

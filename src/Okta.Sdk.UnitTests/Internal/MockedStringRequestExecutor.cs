@@ -16,6 +16,10 @@ namespace Okta.Sdk.UnitTests.Internal
         private readonly string _returnThis;
         private readonly int _statusCode;
 
+        public string ReceivedHref { get; set; }
+
+        public IEnumerable<KeyValuePair<string, string>> ReceivedHeaders { get; set; }
+
         public string OktaDomain => throw new NotImplementedException();
 
         public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
@@ -25,15 +29,27 @@ namespace Okta.Sdk.UnitTests.Internal
         }
 
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
-            => Task.FromResult(new HttpResponse<string>
+        {
+            ReceivedHref = href;
+            ReceivedHeaders = headers;
+
+            return Task.FromResult(new HttpResponse<string>
             {
                 StatusCode = _statusCode,
                 Payload = _returnThis,
             });
+        }
 
         public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            ReceivedHref = href;
+            ReceivedHeaders = headers;
+
+            return Task.FromResult(new HttpResponse<string>
+            {
+                StatusCode = _statusCode,
+                Payload = _returnThis,
+            });
         }
 
         public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
@@ -43,7 +59,15 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+
+            ReceivedHref = href;
+            ReceivedHeaders = headers;
+
+            return Task.FromResult(new HttpResponse<string>
+            {
+                Payload = _returnThis,
+                StatusCode = _statusCode,
+            });
         }
     }
 }

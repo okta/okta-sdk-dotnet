@@ -17,13 +17,6 @@ namespace Okta.Sdk
     public sealed partial class UserCredentials : Resource, IUserCredentials
     {
         /// <inheritdoc/>
-        public IList<IEmailAddress> Emails 
-        {
-            get => GetArrayProperty<IEmailAddress>("emails");
-            set => this["emails"] = value;
-        }
-        
-        /// <inheritdoc/>
         public IPasswordCredential Password 
         {
             get => GetResourceProperty<PasswordCredential>("password");

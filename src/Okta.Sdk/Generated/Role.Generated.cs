@@ -17,9 +17,9 @@ namespace Okta.Sdk
     public sealed partial class Role : Resource, IRole
     {
         /// <inheritdoc/>
-        public string AssignmentType 
+        public RoleAssignmentType AssignmentType 
         {
-            get => GetStringProperty("assignmentType");
+            get => GetEnumProperty<RoleAssignmentType>("assignmentType");
             set => this["assignmentType"] = value;
         }
         
@@ -46,9 +46,9 @@ namespace Okta.Sdk
         public RoleStatus Status => GetEnumProperty<RoleStatus>("status");
         
         /// <inheritdoc/>
-        public string Type 
+        public RoleType Type 
         {
-            get => GetStringProperty("type");
+            get => GetEnumProperty<RoleType>("type");
             set => this["type"] = value;
         }
         

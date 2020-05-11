@@ -21,6 +21,8 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage applications with the [Apps API](https://developer.okta.com/docs/api/resources/apps)
 * Manage logs with the [Logs API](https://developer.okta.com/docs/api/resources/system_log)
 * Manage sessions with the [Sessions API](https://developer.okta.com/docs/api/resources/sessions)
+* Manage templates with the [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/)
+* Manage identity providers with the [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/)
 * Much more!
  
 We also publish these other libraries for .NET:
@@ -239,7 +241,7 @@ if (group != null && user != null)
 var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Get user factors
-var factors = await user.Factors.ToArray();
+var factors = await user.ListFactors().ToListAsync();
 ```
 
 ### Enroll a User in a new Factor
@@ -261,8 +263,13 @@ var user = await client.Users.First(x => x.Profile.Email == "darth.vader@imperia
 // Find the desired factor
 var smsFactor = await user.Factors.First(x => x.FactorType == FactorType.Sms);
 
-// Activate sms facotr
-await client.UserFactors.ActivateFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
+// Activate sms factor
+var activateFactorRequest = new ActivateFactorRequest()
+{
+    PassCode = "foo",
+};
+
+await client.UserFactors.ActivateFactorAsync(activateFactorRequest, user.Id, smsFactor.Id);
 ```
 
 ### Verify a Factor
@@ -274,7 +281,25 @@ var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vade
 var smsFactor = await user.Factors.FirstOrDefault(x => x.FactorType == FactorType.Sms);
 
 // Verify sms factor
+var verifyFactorRequest = new VerifyFactorRequest()
+{
+    PassCode = "foo",
+};
+
 var response = await client.UserFactors.VerifyFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
+```
+
+### Issuing an SMS Factor Challenge Using a Custom Template
+
+You can customize and optionally localize the SMS message sent to the user on verification. For more information about this feature and the underlying API call, see the related [developer documentation](https://developer.okta.com/docs/reference/api/factors/#issuing-an-sms-factor-challenge-using-a-custom-template).
+
+If you need to send additional information via the `AcceptLanguage` header, use an scoped client and pass a `RequestContext` object with your desired headers:
+
+```csharp
+// Create scoped client with specific headers
+var scopedClient = client.CreatedScoped(new RequestContext() { AcceptLanguage = "de" });
+
+await scopedClient.UserFactors.VerifyFactorAsync(userId, factorId, templateId);
 ```
 
 ### List all Applications

@@ -16,8 +16,8 @@ namespace Okta.Sdk
             => await GetClient().Policies.GetPolicyRuleAsync(Id, ruleId, cancellationToken).ConfigureAwait(false) as T;
 
         /// <inheritdoc/>
-        public async Task<T> CreateRuleAsync<T>(PolicyRule policyRule, bool? activate, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<T> CreateRuleAsync<T>(PolicyRule policyRule, CancellationToken cancellationToken = default(CancellationToken))
             where T : class, IPolicyRule
-            => await GetClient().Policies.AddPolicyRuleAsync(policyRule, Id, activate, cancellationToken).ConfigureAwait(false) as T;
+            => await GetClient().Policies.CreatePolicyRuleAsync(policyRule, Id, cancellationToken).ConfigureAwait(false) as T;
     }
 }

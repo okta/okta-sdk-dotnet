@@ -31,6 +31,20 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string Attestation 
+        {
+            get => GetStringProperty("attestation");
+            set => this["attestation"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string ClientData 
+        {
+            get => GetStringProperty("clientData");
+            set => this["clientData"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string NextPassCode 
         {
             get => GetStringProperty("nextPassCode");
@@ -45,10 +59,17 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public int? TokenLifetimeSeconds 
+        public string RegistrationData 
         {
-            get => GetIntegerProperty("tokenLifetimeSeconds");
-            set => this["tokenLifetimeSeconds"] = value;
+            get => GetStringProperty("registrationData");
+            set => this["registrationData"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string StateToken 
+        {
+            get => GetStringProperty("stateToken");
+            set => this["stateToken"] = value;
         }
         
     }

@@ -35,7 +35,8 @@ namespace Okta.Sdk
 
         string UserId { get; }
 
-        Task<ISession> RefreshAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<ISession> RefreshAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

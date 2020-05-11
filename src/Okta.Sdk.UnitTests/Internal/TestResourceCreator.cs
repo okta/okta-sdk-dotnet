@@ -22,7 +22,7 @@ namespace Okta.Sdk.UnitTests.Internal
             return Create<User>(data);
         }
 
-        public static IFactor NewFactor(FactorType factorType, string provider, IFactorProfile profile)
+        public static IUserFactor NewFactor(FactorType factorType, string provider, Resource profile)
         {
             var data = new Dictionary<string, object>(StringComparer.Ordinal)
             {
@@ -31,7 +31,7 @@ namespace Okta.Sdk.UnitTests.Internal
                 ["profile"] = profile,
             };
 
-            return Create<Factor>(data);
+            return Create<UserFactor>(data);
         }
 
         private static T Create<T>(Dictionary<string, object> data)

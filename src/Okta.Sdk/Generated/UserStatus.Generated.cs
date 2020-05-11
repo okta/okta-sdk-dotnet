@@ -12,26 +12,26 @@ namespace Okta.Sdk
     /// </summary>
     public sealed class UserStatus : StringEnum
     {
-        /// <summary>The STAGED UserStatus.</summary>
-        public static UserStatus Staged = new UserStatus("STAGED");
-
-        /// <summary>The PROVISIONED UserStatus.</summary>
-        public static UserStatus Provisioned = new UserStatus("PROVISIONED");
-
         /// <summary>The ACTIVE UserStatus.</summary>
         public static UserStatus Active = new UserStatus("ACTIVE");
 
-        /// <summary>The RECOVERY UserStatus.</summary>
-        public static UserStatus Recovery = new UserStatus("RECOVERY");
-
-        /// <summary>The PASSWORD_EXPIRED UserStatus.</summary>
-        public static UserStatus PasswordExpired = new UserStatus("PASSWORD_EXPIRED");
+        /// <summary>The DEPROVISIONED UserStatus.</summary>
+        public static UserStatus Deprovisioned = new UserStatus("DEPROVISIONED");
 
         /// <summary>The LOCKED_OUT UserStatus.</summary>
         public static UserStatus LockedOut = new UserStatus("LOCKED_OUT");
 
-        /// <summary>The DEPROVISIONED UserStatus.</summary>
-        public static UserStatus Deprovisioned = new UserStatus("DEPROVISIONED");
+        /// <summary>The PASSWORD_EXPIRED UserStatus.</summary>
+        public static UserStatus PasswordExpired = new UserStatus("PASSWORD_EXPIRED");
+
+        /// <summary>The PROVISIONED UserStatus.</summary>
+        public static UserStatus Provisioned = new UserStatus("PROVISIONED");
+
+        /// <summary>The RECOVERY UserStatus.</summary>
+        public static UserStatus Recovery = new UserStatus("RECOVERY");
+
+        /// <summary>The STAGED UserStatus.</summary>
+        public static UserStatus Staged = new UserStatus("STAGED");
 
         /// <summary>The SUSPENDED UserStatus.</summary>
         public static UserStatus Suspended = new UserStatus("SUSPENDED");

@@ -45,5 +45,31 @@ namespace Okta.Sdk
         /// The X-Forwarded-Port value.
         /// </value>
         public string XForwardedPort { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Accept-Language value that should be sent to the Okta API.
+        /// </summary>
+        /// <value>
+        /// The Accept-Language value.
+        /// </value>
+        public string AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Accept value that should be sent to the Okta API.
+        /// </summary>
+        /// <value>
+        /// The Accept value.
+        /// </value>
+        public string Accept { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Content-Transfer-Encoding value that should be sent to the Okta API.
+        /// </summary>
+        /// <value>
+        /// The Content-Transfer-Encoding value.
+        /// </value>
+        public string ContentTransferEncoding { get; set; }
+
+        public string ContentType { get; set; }
     }
 }

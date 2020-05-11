@@ -21,6 +21,9 @@ namespace Okta.Sdk
         /// <summary>The PASSWORD PolicyType.</summary>
         public static PolicyType Password = new PolicyType("PASSWORD");
 
+        /// <summary>The IDP_DISCOVERY PolicyType.</summary>
+        public static PolicyType IdpDiscovery = new PolicyType("IDP_DISCOVERY");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyType"/>
         /// </summary>

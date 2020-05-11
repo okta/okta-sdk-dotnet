@@ -30,6 +30,16 @@ namespace Okta.Sdk.Internal
                 return typeof(Policy);
             }
             
+            if (value.Equals("IDP_DISCOVERY"))
+            {
+                return typeof(IdentityProviderPolicy);
+            }
+            
+            if (value.Equals("OAUTH_AUTHORIZATION_POLICY"))
+            {
+                return typeof(OAuthAuthorizationPolicy);
+            }
+            
             if (value.Equals("OKTA_SIGN_ON"))
             {
                 return typeof(OktaSignOnPolicy);

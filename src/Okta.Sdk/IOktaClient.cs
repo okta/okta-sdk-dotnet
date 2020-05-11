@@ -82,6 +82,54 @@ namespace Okta.Sdk
         IGroupsClient Groups { get; }
 
         /// <summary>
+        /// Gets an <see cref="IAuthorizationServersClient">AuthorizationServersClient</see> that interacts with the Okta Authorization Servers API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IAuthorizationServersClient">AuthorizationServersClient</see> that interacts with the Okta Authorization Servers API.
+        /// </value>
+        IAuthorizationServersClient AuthorizationServers { get; }
+
+        /// <summary>
+        /// Gets an <see cref="IEventHooksClient">EventHooksClient</see> that interacts with the Okta Event Hooks API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IEventHooksClient">EventHooksClient</see> that interacts with the Okta Event Hooks API.
+        /// </value>
+        IEventHooksClient EventHooks { get; }
+
+        /// <summary>
+        /// Gets an <see cref="IInlineHooksClient">InlineHooksClient</see> that interacts with the Okta Inline Hooks API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IInlineHooksClient">InlineHooksClient</see> that interacts with the Okta Inline Hooks API.
+        /// </value>
+        IInlineHooksClient InlineHooks { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IFeaturesClient">FeaturesClient</see> that interacts with the Okta Features API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IFeaturesClient">FeaturesClient</see> that interacts with the Okta Features API.
+        /// </value>
+        IFeaturesClient Features { get; }
+
+        /// <summary>
+        /// Gets an <see cref="IIdentityProvidersClient">IdentityProvidersClient</see> that interacts with the Okta Identity Providers API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IIdentityProvidersClient">IdentityProvidersClient</see> that interacts with the Okta Identity Providers API.
+        /// </value>
+        IIdentityProvidersClient IdentityProviders { get; }
+
+        /// <summary>
+        /// Gets a <see cref="ITemplatesClient">TemplatesClient</see> that interacts with the Okta Templates API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="ITemplatesClient">TemplatesClient</see> that interacts with the Okta Templates API.
+        /// </value>
+        ITemplatesClient Templates { get; }
+
+        /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
         /// </summary>
         /// <param name="requestContext">The request context</param>

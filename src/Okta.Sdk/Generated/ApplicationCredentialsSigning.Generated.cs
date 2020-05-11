@@ -36,5 +36,12 @@ namespace Okta.Sdk
             set => this["rotationMode"] = value;
         }
         
+        /// <inheritdoc/>
+        public ApplicationCredentialsSigningUse Use 
+        {
+            get => GetEnumProperty<ApplicationCredentialsSigningUse>("use");
+            set => this["use"] = value;
+        }
+        
     }
 }

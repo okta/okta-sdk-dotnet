@@ -39,6 +39,9 @@ namespace Okta.Sdk
         /// <summary>The ERROR FactorResultType.</summary>
         public static FactorResultType Error = new FactorResultType("ERROR");
 
+        /// <summary>The CANCELLED FactorResultType.</summary>
+        public static FactorResultType Cancelled = new FactorResultType("CANCELLED");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorResultType"/>
         /// </summary>

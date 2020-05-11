@@ -21,14 +21,14 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IAsyncEnumerable<IRole> Roles
-            => GetClient().Users.ListAssignedRoles(Id);
+            => GetClient().Users.ListAssignedRolesForUser(Id);
 
         /// <inheritdoc/>
         public IAsyncEnumerable<IGroup> Groups
             => GetClient().Users.ListUserGroups(Id);
 
         /// <inheritdoc/>
-        public IAsyncEnumerable<IFactor> Factors
+        public IAsyncEnumerable<IUserFactor> Factors
             => GetClient().UserFactors.ListFactors(Id);
 
         /// <inheritdoc/>
@@ -49,42 +49,42 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Groups.RemoveGroupUserAsync(groupId, Id, cancellationToken);
+            => GetClient().Groups.RemoveUserFromGroupAsync(groupId, Id, cancellationToken);
 
         /// <inheritdoc/>
         public Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.UpdateUserAsync(this, Id, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, securityQuestionFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, callFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, emailFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, hardwareFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, pushFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, smsFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, tokenFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().UserFactors.AddFactorAsync(Id, totpFactorOptions, cancellationToken);
 
         /// <inheritdoc />

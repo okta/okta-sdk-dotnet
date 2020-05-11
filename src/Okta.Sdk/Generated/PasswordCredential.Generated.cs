@@ -17,6 +17,20 @@ namespace Okta.Sdk
     public sealed partial class PasswordCredential : Resource, IPasswordCredential
     {
         /// <inheritdoc/>
+        public IPasswordCredentialHash Hash 
+        {
+            get => GetResourceProperty<PasswordCredentialHash>("hash");
+            set => this["hash"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IPasswordCredentialHook Hook 
+        {
+            get => GetResourceProperty<PasswordCredentialHook>("hook");
+            set => this["hook"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string Value 
         {
             get => GetStringProperty("value");

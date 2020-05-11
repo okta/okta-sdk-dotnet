@@ -27,9 +27,9 @@ namespace Okta.Sdk
             => await UpdatePolicyAsync(policy, policyId, cancellationToken).ConfigureAwait(false) as T;
 
         /// <inheritdoc/>
-        public async Task<T> AddPolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, bool? activate, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<T> AddPolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default(CancellationToken))
             where T : class, IPolicyRule
-            => await AddPolicyRuleAsync(policyRule, policyId, activate, cancellationToken).ConfigureAwait(false) as T;
+            => await CreatePolicyRuleAsync(policyRule, policyId, cancellationToken).ConfigureAwait(false) as T;
 
         /// <inheritdoc/>
         public async Task<T> UpdatePolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
