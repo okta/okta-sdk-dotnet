@@ -40,14 +40,6 @@ namespace Okta.Sdk
         Task<IUser> CreateUserAsync(ICreateUserRequest body, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Clears Okta sessions for the currently logged in user. By default, the current session remains active. Use this method in a browser-based application.
-        /// </summary>
-        /// <param name="keepCurrent"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task ClearCurrentUserSessionsAsync(bool? keepCurrent = true, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// 
         /// </summary>
         /// <param name="associatedUserId"></param>
