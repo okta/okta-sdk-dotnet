@@ -18,6 +18,7 @@ env:
     secure: Nn2fgkaM5WjJiGtjAqPnFH2ULzef+lxemF8TgVaWysshgYWx3G8p70a1sm7tAzw15WQAeg7kGszSdpQqaVOd1fS7Hu7DoGexQcOJmHpoRZn6a50cxIc/2AFAcbW1Ar051Cl3KnNc+9b6L8KcOjAmDs4CMXHrg7BTsiqKbDoCuns=
 notifications:
   slack:
+    if: type = cron
     secure: cLvrcIznO1QFFVe4lIav+4rVqB2nlpHswKDYplOGlDJ1s1KXYDwoqigFMN+mWmOkCcDUI1Bls/R1zfNWCAupIVRbj4eMREoQkwpVi+wVv5xQ/T5bYqVQMKqL6BGoodjnxkHzz7NbNNejYQbFtNkCvyC1Rl28VbiJIMZkh4wLNbI=
   on_success: never
   on_failure: always
