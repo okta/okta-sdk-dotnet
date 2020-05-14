@@ -372,11 +372,12 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
+            var testClientId = $"{nameof(AddOpenIdConnectApp)}_TestClientId";
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
                 Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
-                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                ClientId = testClientId,
                 TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
                 AutoKeyRotation = true,
                 ClientUri = "https://example.com/client",
@@ -413,7 +414,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Name.Should().Be("oidc_client");
                 retrieved.Label.Should().Be($"dotnet-sdk: AddOpenIdConnectApp {guid}");
                 retrieved.SignOnMode.Should().Be(ApplicationSignOnMode.OpenIdConnect);
-                retrieved.Credentials.OauthClient.ClientId.Should().Be("0oae8mnt9tZcGcMXG0h3");
+                retrieved.Credentials.OauthClient.ClientId.Should().Be(testClientId);
                 retrieved.Credentials.OauthClient.AutoKeyRotation.Should().BeTrue();
                 retrieved.Credentials.OauthClient.TokenEndpointAuthMethod.Should().Be(OAuthEndpointAuthenticationMethod.ClientSecretPost);
 
@@ -1626,11 +1627,12 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
+            var testClientId = $"{nameof(GrantConsentToScope)}_TestClientId";
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
                 Label = $"dotnet-sdk: GrantConsentToScope {guid}",
-                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                ClientId = testClientId,
                 TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
                 AutoKeyRotation = true,
                 ClientUri = "https://example.com/client",
@@ -1689,11 +1691,12 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
+            var testClientId = $"{nameof(GetConsentGrant)}_TestClientId";
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
                 Label = $"dotnet-sdk: GetConsentGrant {guid}",
-                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                ClientId = testClientId,
                 TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
                 AutoKeyRotation = true,
                 ClientUri = "https://example.com/client",
@@ -1751,11 +1754,12 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
+            var testClientId = $"{nameof(RevokeConsentGrant)}_TestClientId";
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
                 Label = $"dotnet-sdk: RevokeConsentGrant {guid}",
-                ClientId = "0oae8mnt9tZcGcMXG0h3",
+                ClientId = testClientId,
                 TokenEndpointAuthMethod = OAuthEndpointAuthenticationMethod.ClientSecretPost,
                 AutoKeyRotation = true,
                 ClientUri = "https://example.com/client",
