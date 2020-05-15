@@ -116,10 +116,10 @@ namespace Okta.Sdk.IntegrationTests
                 updatedUserType.Description.Should().Be(updatedDescription);
                 updatedUserType.DisplayName.Should().Be(updatedDisplayName);
 
-                var retrievedForValidation = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
-                retrievedForValidation.Id.Should().Be(createdUserType.Id);
-                retrievedForValidation.Description.Should().Be(updatedDescription);
-                retrievedForValidation.DisplayName.Should().Be(updatedDisplayName);
+                var retrievedUserTypeForValidation = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
+                retrievedUserTypeForValidation.Id.Should().Be(createdUserType.Id);
+                retrievedUserTypeForValidation.Description.Should().Be(updatedDescription);
+                retrievedUserTypeForValidation.DisplayName.Should().Be(updatedDisplayName);
             }
             finally
             {
@@ -162,10 +162,10 @@ namespace Okta.Sdk.IntegrationTests
                 replacedUserType.DisplayName.Should().Be(replacedDisplayName);
                 replacedUserType.Name.Should().Be(testName);
 
-                var retrievedForValidation = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
-                retrievedForValidation.Id.Should().Be(createdUserType.Id);
-                retrievedForValidation.Description.Should().Be(replacedDescription);
-                retrievedForValidation.DisplayName.Should().Be(replacedDisplayName);
+                var retrievedUserTypeForValidation = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
+                retrievedUserTypeForValidation.Id.Should().Be(createdUserType.Id);
+                retrievedUserTypeForValidation.Description.Should().Be(replacedDescription);
+                retrievedUserTypeForValidation.DisplayName.Should().Be(replacedDisplayName);
             }
             finally
             {
@@ -232,7 +232,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                HashSet<string> allUserTypeIds = new HashSet<string>();
+                var allUserTypeIds = new HashSet<string>();
                 ICollectionClient<IUserType> allUserTypes = testClient.UserTypes.ListUserTypes();
                 int allUserTypesCount = await allUserTypes.CountAsync();
                 allUserTypesCount.Should().BeGreaterThan(0);
