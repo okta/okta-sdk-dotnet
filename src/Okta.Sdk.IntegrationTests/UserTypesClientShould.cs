@@ -233,7 +233,7 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 var allUserTypeIds = new HashSet<string>();
-                ICollectionClient<IUserType> allUserTypes = testClient.UserTypes.ListUserTypes();
+                var allUserTypes = testClient.UserTypes.ListUserTypes();
                 int allUserTypesCount = await allUserTypes.CountAsync();
                 allUserTypesCount.Should().BeGreaterThan(0);
                 allUserTypesCount.Should().Be(existingUserTypeIds.Count + testUserTypeIds.Count);
