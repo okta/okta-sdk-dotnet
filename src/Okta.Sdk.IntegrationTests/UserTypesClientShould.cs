@@ -14,14 +14,21 @@ namespace Okta.Sdk.IntegrationTests
 {
     public class UserTypesClientShould
     {
+        private const string SdkPrefix = "dotnet_sdk";
+
+        public UserTypesClientShould()
+        {
+            DeleteAllUserTypes().Wait();
+        }
+
         [Fact]
         public async Task CreateUserType()
         {
             var testClient = TestClient.Create();
 
-            var testDescription = $"{nameof(CreateUserType)} Test Description";
-            var testDisplayName = $"{nameof(CreateUserType)} Test DisplayName";
-            var testName = $"{nameof(CreateUserType)}_TestUserType";
+            var testDescription = $"{SdkPrefix}:{nameof(CreateUserType)} Test Description";
+            var testDisplayName = $"{SdkPrefix}:{nameof(CreateUserType)} Test DisplayName";
+            var testName = $"{SdkPrefix}_{nameof(CreateUserType)}_TestUserType";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
@@ -48,9 +55,9 @@ namespace Okta.Sdk.IntegrationTests
         {
             var testClient = TestClient.Create();
 
-            var testDescription = $"{nameof(RetrieveUserTypeById)} Test Description";
-            var testDisplayName = $"{nameof(RetrieveUserTypeById)} Test DisplayName";
-            var testName = $"{nameof(RetrieveUserTypeById)}_TestUserType";
+            var testDescription = $"{SdkPrefix}:{nameof(RetrieveUserTypeById)} Test Description";
+            var testDisplayName = $"{SdkPrefix}:{nameof(RetrieveUserTypeById)} Test DisplayName";
+            var testName = $"{SdkPrefix}{nameof(RetrieveUserTypeById)}_TestUserType";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
@@ -80,9 +87,9 @@ namespace Okta.Sdk.IntegrationTests
         {
             var testClient = TestClient.Create();
 
-            var testDescription = $"{nameof(UpdateUserType)} Test Description";
-            var testDisplayName = $"{nameof(UpdateUserType)} Test DisplayName";
-            var testName = $"{nameof(UpdateUserType)}_TestUserType";
+            var testDescription = $"{SdkPrefix}:{nameof(UpdateUserType)} Test Description";
+            var testDisplayName = $"{SdkPrefix}:{nameof(UpdateUserType)} Test DisplayName";
+            var testName = $"{SdkPrefix}_{nameof(UpdateUserType)}_TestUserType";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
@@ -95,8 +102,8 @@ namespace Okta.Sdk.IntegrationTests
             {
                 createdUserType.Id.Should().NotBeNullOrEmpty();
 
-                var updatedDescription = $"{nameof(UpdateUserType)} Test Description Updated";
-                var updatedDisplayName = $"{nameof(UpdateUserType)} Test DisplayName Updated";
+                var updatedDescription = $"{createdUserType.Description} Updated";
+                var updatedDisplayName = $"{createdUserType.Description} Updated";
 
                 var updatesToUserType = new UserType
                 {
@@ -124,9 +131,9 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ReplaceUserType()
         {
             var testClient = TestClient.Create();
-            var testDescription = $"{nameof(ReplaceUserType)} Test Description";
-            var testDisplayName = $"{nameof(ReplaceUserType)} Test DisplayName";
-            var testName = $"{nameof(ReplaceUserType)}_TestUserType";
+            var testDescription = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test Description";
+            var testDisplayName = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test DisplayName";
+            var testName = $"{SdkPrefix}_{nameof(ReplaceUserType)}_TestUserType";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
             {
@@ -139,8 +146,8 @@ namespace Okta.Sdk.IntegrationTests
             {
                 createdUserType.Id.Should().NotBeNullOrEmpty();
 
-                var replacedDescription = $"{nameof(ReplaceUserType)} Test Description Replaced";
-                var replacedDisplayName = $"{nameof(ReplaceUserType)} Test DisplayName Replaced";
+                var replacedDescription = $"{createdUserType.Description} Repl"; // maximum length is 50
+                var replacedDisplayName = $"{createdUserType.DisplayName} Repl";
 
                 var replacedUserType = await testClient.UserTypes.ReplaceUserTypeAsync(
                     new UserType()
@@ -171,9 +178,9 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeleteUserTypeById()
         {
             var testClient = TestClient.Create();
-            var testDescription = $"{nameof(DeleteUserTypeById)} Test Description";
-            var testDisplayName = $"{nameof(DeleteUserTypeById)} Test DisplayName";
-            var testName = $"{nameof(DeleteUserTypeById)}_TestUserType";
+            var testDescription = $"{SdkPrefix}:{nameof(DeleteUserTypeById)} Test Description";
+            var testDisplayName = $"{SdkPrefix}:{nameof(DeleteUserTypeById)} Test DisplayName";
+            var testName = $"{SdkPrefix}_{nameof(DeleteUserTypeById)}_TestUserType";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
