@@ -54,6 +54,9 @@ namespace Okta.Sdk
         Task<IJsonWebKey> GetSigningKeyAsync(
             string keyId, CancellationToken cancellationToken = default(CancellationToken));
 
+        Task DeleteSigningKeyAsync(
+            string keyId, CancellationToken cancellationToken = default(CancellationToken));
+
         Task<IJsonWebKey> CloneKeyAsync(
             string keyId, string targetIdpId, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -70,7 +73,7 @@ namespace Okta.Sdk
             string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IIdentityProviderApplicationUser> GetUserAsync(
-            string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+            string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IIdentityProviderApplicationUser> LinkUserAsync(IUserIdentityProviderLinkRequest userIdentityProviderLinkRequest, 
             string userId, CancellationToken cancellationToken = default(CancellationToken));

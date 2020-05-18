@@ -26,6 +26,14 @@ namespace Okta.Sdk
         OktaClientConfiguration Configuration { get; }
 
         /// <summary>
+        /// Gets a <see cref="IUserTypesClient">UserTypesClient</see> that interacts with the Okta User Types API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IUserTypesClient">UserTypesClient</see> that interacts with the Okta User Types API.
+        /// </value>
+        IUserTypesClient UserTypes { get; }
+
+        /// <summary>
         /// Gets a <see cref="IUsersClient">UsersClient</see> that interacts with the Okta Users API.
         /// </summary>
         /// <value>

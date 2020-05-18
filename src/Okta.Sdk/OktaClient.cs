@@ -152,6 +152,9 @@ namespace Okta.Sdk
             => new OktaClient(_dataStore, Configuration, requestContext);
 
         /// <inheritdoc/>
+        public IUserTypesClient UserTypes => new UserTypesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IUsersClient Users => new UsersClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>

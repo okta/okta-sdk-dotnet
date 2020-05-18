@@ -61,18 +61,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task ClearCurrentUserSessionsAsync(bool? keepCurrent = true, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/me/lifecycle/delete_sessions",
-                
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["keepCurrent"] = keepCurrent,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task SetLinkedObjectForUserAsync(string associatedUserId, string primaryRelationshipName, string primaryUserId, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync(new HttpRequest
             {
