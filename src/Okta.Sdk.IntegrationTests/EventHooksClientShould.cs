@@ -321,7 +321,7 @@ namespace Okta.Sdk.IntegrationTests
                 createdEventHook.Id.Should().NotBeNullOrEmpty();
                 createdEventHook.Status.Should().Be("ACTIVE");
 
-                testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
 
                 var retrievedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 retrievedEventHook.Status.Should().Be("INACTIVE");
@@ -354,7 +354,7 @@ namespace Okta.Sdk.IntegrationTests
                 createdEventHook.Id.Should().NotBeNullOrEmpty();
                 createdEventHook.Status.Should().Be("ACTIVE");
 
-                testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
 
                 var retrievedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 retrievedEventHook.Status.Should().Be("INACTIVE");
