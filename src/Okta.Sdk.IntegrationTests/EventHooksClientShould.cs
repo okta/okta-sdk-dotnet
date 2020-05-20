@@ -73,27 +73,49 @@ namespace Okta.Sdk.IntegrationTests
             },
         };
 
-        public EventHooksClientShould()
-        {
-            DeleteAllEventHooks().Wait();
-        }
-
         [Fact]
         public async Task CreateEventHook()
         {
             var testClient = TestClient.Create();
             var testEventHookName = $"{SdkPrefix}:{nameof(CreateEventHook)} Test Event Hook Name";
 
-            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-            {
-                Name = testEventHookName,
-                Events = new EventSubscriptions
+            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                new EventHook
                 {
-                    Type = EventType,
-                    Items = TestEventItems,
-                },
-                Channel = TestEventHookChannel,
-            });
+                    Name = testEventHookName,
+                    Events = new EventSubscriptions
+                    {
+                        Type = EventType,
+                        Items = new string[]
+                        {
+                            "user.lifecycle.create",
+                            "user.lifecycle.activate",
+                        },
+                    },
+                    Channel = new EventHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new EventHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/eventHooks",
+                            Headers = new List<IEventHookChannelConfigHeader>
+                            {
+                                new EventHookChannelConfigHeader
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new EventHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -108,7 +130,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllEventHooks();
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
             }
         }
 
@@ -118,16 +141,43 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testEventHookName = $"{SdkPrefix}:{nameof(RetrieveEventHook)} Test Event Hook Name";
 
-            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-            {
-                Name = testEventHookName,
-                Events = new EventSubscriptions
+            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                new EventHook
                 {
-                    Type = EventType,
-                    Items = TestEventItems
-                },
-                Channel = TestEventHookChannel
-            });
+                    Name = testEventHookName,
+                    Events = new EventSubscriptions
+                    {
+                        Type = EventType,
+                        Items = new string[]
+                        {
+                            "user.lifecycle.create",
+                            "user.lifecycle.activate",
+                        },
+                    },
+                    Channel = new EventHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new EventHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/eventHooks",
+                            Headers = new List<IEventHookChannelConfigHeader>
+                            {
+                                new EventHookChannelConfigHeader
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new EventHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -145,7 +195,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllEventHooks();
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
             }
         }
 
@@ -154,18 +205,45 @@ namespace Okta.Sdk.IntegrationTests
         {
             var testClient = TestClient.Create();
             var testEventHookName = $"{SdkPrefix}:{nameof(UpdateEventHook)} Test Event Hook Name";
-            var updatedTestEventHookName = $"{SdkPrefix}:{nameof(RetrieveEventHook)} Test Event Hook Name Updated";
+            var updatedTestEventHookName = $"{SdkPrefix}:{nameof(UpdateEventHook)} Test Event Hook Name Updated";
 
-            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-            {
-                Name = testEventHookName,
-                Events = new EventSubscriptions
+            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                new EventHook
                 {
-                    Type = EventType,
-                    Items = TestEventItems
-                },
-                Channel = TestEventHookChannel
-            });
+                    Name = testEventHookName,
+                    Events = new EventSubscriptions
+                    {
+                        Type = EventType,
+                        Items = new string[]
+                        {
+                            "user.lifecycle.create",
+                            "user.lifecycle.activate",
+                        },
+                    },
+                    Channel = new EventHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new EventHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/eventHooks",
+                            Headers = new List<IEventHookChannelConfigHeader>
+                            {
+                                new EventHookChannelConfigHeader
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new EventHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -178,9 +256,36 @@ namespace Okta.Sdk.IntegrationTests
                         Events = new EventSubscriptions
                         {
                             Type = EventType,
-                            Items = UpdatedTestEventItems
+                            Items = new string[]
+                            {
+                                "user.lifecycle.create",
+                                "user.lifecycle.activate",
+                                "user.lifecycle.deactivate",
+                            },
                         },
-                        Channel = UpdatedTestEventHookChannel
+                        Channel = new EventHookChannel
+                        {
+                            Type = "HTTP",
+                            Version = "1.0.0",
+                            Config = new EventHookChannelConfig
+                            {
+                                Uri = "https://www.example.com/eventHooksUpdated",
+                                Headers = new List<IEventHookChannelConfigHeader>
+                                {
+                                    new EventHookChannelConfigHeader
+                                    {
+                                        Key = "X-Test-Header",
+                                        Value = "Test header value updated",
+                                    },
+                                },
+                                AuthScheme = new EventHookChannelConfigAuthScheme
+                                {
+                                    Type = "HEADER",
+                                    Key = "Authorization",
+                                    Value = "Test-Api-Key-Updated",
+                                },
+                            },
+                        },
                     }, createdEventHook.Id);
 
                 updatedEventHook.Id.Should().NotBeNullOrEmpty();
@@ -206,7 +311,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllEventHooks();
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
             }
         }
 
@@ -216,35 +322,55 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testEventHookName = $"{SdkPrefix}:{nameof(DeleteEventHook)} Test Event Hook Name";
 
-            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-            {
-                Name = testEventHookName,
-                Events = new EventSubscriptions
+            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                new EventHook
                 {
-                    Type = EventType,
-                    Items = TestEventItems
-                },
-                Channel = TestEventHookChannel
-            });
+                    Name = testEventHookName,
+                    Events = new EventSubscriptions
+                    {
+                        Type = EventType,
+                        Items = new string[]
+                        {
+                            "user.lifecycle.create",
+                            "user.lifecycle.activate",
+                        },
+                    },
+                    Channel = new EventHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new EventHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/eventHooks",
+                            Headers = new List<IEventHookChannelConfigHeader>
+                            {
+                                new EventHookChannelConfigHeader
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new EventHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
-            try
-            {
-                createdEventHook.Id.Should().NotBeNullOrEmpty();
+            createdEventHook.Id.Should().NotBeNullOrEmpty();
 
-                var retrievedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
-                retrievedEventHook.Id.Should().Be(createdEventHook.Id);
+            var retrievedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
+            retrievedEventHook.Id.Should().Be(createdEventHook.Id);
 
-                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
-                await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
+            await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+            await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
 
-                var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
-                    testClient.EventHooks.GetEventHookAsync(createdEventHook.Id));
-                ex.StatusCode.Should().Be(404);
-            }
-            finally
-            {
-                await DeleteAllEventHooks();
-            }
+            var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
+                testClient.EventHooks.GetEventHookAsync(createdEventHook.Id));
+            ex.StatusCode.Should().Be(404);
         }
 
         [Fact]
@@ -262,16 +388,43 @@ namespace Okta.Sdk.IntegrationTests
             var testEventHookIds = new HashSet<string>();
             for (int i = 0; i < 5; i++)
             {
-                var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-                {
-                    Name = $"{testEventHookName} {i}",
-                    Events = new EventSubscriptions
+                var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                    new EventHook
                     {
-                        Type = EventType,
-                        Items = TestEventItems,
-                    },
-                    Channel = TestEventHookChannel,
-                });
+                        Name = $"{testEventHookName} {i}",
+                        Events = new EventSubscriptions
+                        {
+                            Type = EventType,
+                            Items = new string[]
+                            {
+                                "user.lifecycle.create",
+                                "user.lifecycle.activate",
+                            },
+                        },
+                        Channel = new EventHookChannel
+                        {
+                            Type = "HTTP",
+                            Version = "1.0.0",
+                            Config = new EventHookChannelConfig
+                            {
+                                Uri = "https://www.example.com/eventHooks",
+                                Headers = new List<IEventHookChannelConfigHeader>
+                                {
+                                    new EventHookChannelConfigHeader
+                                    {
+                                        Key = "X-Test-Header",
+                                        Value = "Test header value",
+                                    },
+                                },
+                                AuthScheme = new EventHookChannelConfigAuthScheme
+                                {
+                                    Type = "HEADER",
+                                    Key = "Authorization",
+                                    Value = "Test-Api-Key",
+                                },
+                            },
+                        },
+                    });
                 testEventHookIds.Add(createdEventHook.Id);
             }
 
@@ -279,7 +432,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 var allEventHookIds = new HashSet<string>();
                 var allEventHooks = testClient.EventHooks.ListEventHooks();
-                int allEventHooksCount = await allEventHooks.CountAsync();
+                var allEventHooksCount = await allEventHooks.CountAsync();
                 allEventHooksCount.Should().BeGreaterThan(0);
                 allEventHooksCount.Should().Be(existingEventHookIds.Count + testEventHookIds.Count);
 
@@ -295,7 +448,11 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllEventHooks();
+                foreach (string testEventHookId in testEventHookIds)
+                {
+                    await testClient.EventHooks.DeactivateEventHookAsync(testEventHookId);
+                    await testClient.EventHooks.DeleteEventHookAsync(testEventHookId);
+                }
             }
         }
 
@@ -305,16 +462,43 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testEventHookName = $"{SdkPrefix}:{nameof(DeactivateEventHook)} Test Event Hook Name";
 
-            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-            {
-                Name = testEventHookName,
-                Events = new EventSubscriptions
+            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                new EventHook
                 {
-                    Type = EventType,
-                    Items = TestEventItems
-                },
-                Channel = TestEventHookChannel
-            });
+                    Name = testEventHookName,
+                    Events = new EventSubscriptions
+                    {
+                        Type = EventType,
+                        Items = new string[]
+                        {
+                            "user.lifecycle.create",
+                            "user.lifecycle.activate",
+                        },
+                    },
+                    Channel = new EventHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new EventHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/eventHooks",
+                            Headers = new List<IEventHookChannelConfigHeader>
+                            {
+                                new EventHookChannelConfigHeader
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new EventHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -328,7 +512,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllEventHooks();
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
             }
         }
         
@@ -338,16 +523,43 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testEventHookName = $"{SdkPrefix}:{nameof(ActivateEventHook)} Test Event Hook Name";
 
-            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(new EventHook
-            {
-                Name = testEventHookName,
-                Events = new EventSubscriptions
+            var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
+                new EventHook
                 {
-                    Type = EventType,
-                    Items = TestEventItems
-                },
-                Channel = TestEventHookChannel
-            });
+                    Name = testEventHookName,
+                    Events = new EventSubscriptions
+                    {
+                        Type = EventType,
+                        Items = new string[]
+                        {
+                            "user.lifecycle.create",
+                            "user.lifecycle.activate",
+                        },
+                    },
+                    Channel = new EventHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new EventHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/eventHooks",
+                            Headers = new List<IEventHookChannelConfigHeader>
+                            {
+                                new EventHookChannelConfigHeader
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new EventHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -365,17 +577,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllEventHooks();
-            }
-        }
-        
-        private async Task DeleteAllEventHooks()
-        {
-            var testClient = TestClient.Create();
-            await foreach (IEventHook eventHook in testClient.EventHooks.ListEventHooks())
-            {
-                await testClient.EventHooks.DeactivateEventHookAsync(eventHook.Id);
-                await testClient.EventHooks.DeleteEventHookAsync(eventHook.Id);
+                await testClient.EventHooks.DeactivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.DeleteEventHookAsync(createdEventHook.Id);
             }
         }
     }
