@@ -11,68 +11,7 @@ namespace Okta.Sdk.IntegrationTests
     {
         private const string SdkPrefix = "dotnet_sdk";
         private const string EventType = "EVENT_TYPE";
-
-        private static readonly string[] TestEventItems = new string[]
-        {
-            "user.lifecycle.create",
-            "user.lifecycle.activate",
-        };
-
-        private static readonly string[] UpdatedTestEventItems = new string[]
-        {
-            "user.lifecycle.create",
-            "user.lifecycle.activate",
-            "user.lifecycle.deactivate",
-        };
-
-        private static readonly EventHookChannel TestEventHookChannel = new EventHookChannel
-        {
-            Type = "HTTP",
-            Version = "1.0.0",
-            Config = new EventHookChannelConfig
-            {
-                Uri = "https://www.example.com/eventHooks",
-                Headers = new List<IEventHookChannelConfigHeader>
-                {
-                    new EventHookChannelConfigHeader
-                    {
-                        Key = "X-Test-Header",
-                        Value = "Test header value",
-                    },
-                },
-                AuthScheme = new EventHookChannelConfigAuthScheme
-                {
-                    Type = "HEADER",
-                    Key = "Authorization",
-                    Value = "Test-Api-Key",
-                },
-            },
-        };
-
-        private static readonly EventHookChannel UpdatedTestEventHookChannel = new EventHookChannel
-        {
-            Type = "HTTP",
-            Version = "1.0.0",
-            Config = new EventHookChannelConfig
-            {
-                Uri = "https://www.example.com/eventHooksUpdated",
-                Headers = new List<IEventHookChannelConfigHeader>
-                {
-                    new EventHookChannelConfigHeader
-                    {
-                        Key = "X-Test-Header",
-                        Value = "Test header value updated",
-                    },
-                },
-                AuthScheme = new EventHookChannelConfigAuthScheme
-                {
-                    Type = "HEADER",
-                    Key = "Authorization",
-                    Value = "Test-Api-Key-Updated",
-                },
-            },
-        };
-
+        
         [Fact]
         public async Task CreateEventHook()
         {
@@ -123,10 +62,10 @@ namespace Okta.Sdk.IntegrationTests
                 createdEventHook.Name.Should().Be(testEventHookName);
                 createdEventHook.Events.Should().NotBeNull();
                 createdEventHook.Events.Items.Should().NotBeNull();
-                createdEventHook.Events.Items.Count.Should().Be(TestEventItems.Length);
+                createdEventHook.Events.Items.Count.Should().Be(2);
                 createdEventHook.Channel.Should().NotBeNull();
                 createdEventHook.Channel.Config.Should().NotBeNull();
-                createdEventHook.Channel.Config.Uri.Should().Be(TestEventHookChannel.Config.Uri);
+                createdEventHook.Channel.Config.Uri.Should().Be("https://www.example.com/eventHooks");
             }
             finally
             {
@@ -188,10 +127,10 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedEventHook.Name.Should().Be(testEventHookName);
                 retrievedEventHook.Events.Should().NotBeNull();
                 retrievedEventHook.Events.Items.Should().NotBeNull();
-                retrievedEventHook.Events.Items.Count.Should().Be(TestEventItems.Length);
+                retrievedEventHook.Events.Items.Count.Should().Be(2);
                 retrievedEventHook.Channel.Should().NotBeNull();
                 retrievedEventHook.Channel.Config.Should().NotBeNull();
-                retrievedEventHook.Channel.Config.Uri.Should().Be(TestEventHookChannel.Config.Uri);
+                retrievedEventHook.Channel.Config.Uri.Should().Be("https://www.example.com/eventHooks");
             }
             finally
             {
@@ -293,10 +232,10 @@ namespace Okta.Sdk.IntegrationTests
                 updatedEventHook.Name.Should().Be(updatedTestEventHookName);
                 updatedEventHook.Events.Should().NotBeNull();
                 updatedEventHook.Events.Items.Should().NotBeNull();
-                updatedEventHook.Events.Items.Count.Should().Be(UpdatedTestEventItems.Length);
+                updatedEventHook.Events.Items.Count.Should().Be(3);
                 updatedEventHook.Channel.Should().NotBeNull();
                 updatedEventHook.Channel.Config.Should().NotBeNull();
-                updatedEventHook.Channel.Config.Uri.Should().Be(UpdatedTestEventHookChannel.Config.Uri);
+                updatedEventHook.Channel.Config.Uri.Should().Be("https://www.example.com/eventHooksUpdated");
 
                 var retrievedEventHookForValidation = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 retrievedEventHookForValidation.Id.Should().NotBeNullOrEmpty();
@@ -304,10 +243,10 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedEventHookForValidation.Name.Should().Be(updatedTestEventHookName);
                 retrievedEventHookForValidation.Events.Should().NotBeNull();
                 retrievedEventHookForValidation.Events.Items.Should().NotBeNull();
-                retrievedEventHookForValidation.Events.Items.Count.Should().Be(UpdatedTestEventItems.Length);
+                retrievedEventHookForValidation.Events.Items.Count.Should().Be(3);
                 retrievedEventHookForValidation.Channel.Should().NotBeNull();
                 retrievedEventHookForValidation.Channel.Config.Should().NotBeNull();
-                retrievedEventHookForValidation.Channel.Config.Uri.Should().Be(UpdatedTestEventHookChannel.Config.Uri);
+                retrievedEventHookForValidation.Channel.Config.Uri.Should().Be("https://www.example.com/eventHooksUpdated");
             }
             finally
             {
