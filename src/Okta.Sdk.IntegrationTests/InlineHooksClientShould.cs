@@ -10,30 +10,6 @@ namespace Okta.Sdk.IntegrationTests
     {
         private const string SdkPrefix = "dotnet_sdk";
 
-        private static readonly InlineHookChannel UpdatedTestInlineHookChannel = new InlineHookChannel
-        {
-            Type = "HTTP",
-            Version = "1.0.0",
-            Config = new InlineHookChannelConfig
-            {
-                Uri = "https://www.example.com/inlineHookUpdated",
-                Headers = new List<IInlineHookChannelConfigHeaders>
-                {
-                    new InlineHookChannelConfigHeaders
-                    {
-                        Key = "X-Test-Header",
-                        Value = "Test header value updated",
-                    }
-                },
-                AuthScheme = new InlineHookChannelConfigAuthScheme
-                {
-                    Type = "HEADER",
-                    Key = "Authorization",
-                    Value = "Test-Api-Key-Updated",
-                }
-            }
-        };
-
         [Fact]
         public async Task CreateInlineHook()
         {
