@@ -9,32 +9,6 @@ namespace Okta.Sdk.IntegrationTests
     public class InlineHooksClientShould
     {
         private const string SdkPrefix = "dotnet_sdk";
-        private const string InlineHookVersion = "1.0.0";
-        private const string InlineHookType = "com.okta.oauth2.tokens.transform";
-
-        private static readonly InlineHookChannel TestInlineHookChannel = new InlineHookChannel
-        {
-            Type = "HTTP",
-            Version = "1.0.0",
-            Config = new InlineHookChannelConfig
-            {
-                Uri = "https://www.example.com/inlineHook",
-                Headers = new List<IInlineHookChannelConfigHeaders>
-                {
-                    new InlineHookChannelConfigHeaders
-                    {
-                        Key = "X-Test-Header",
-                        Value = "Test header value",
-                    }
-                },
-                AuthScheme = new InlineHookChannelConfigAuthScheme
-                {
-                    Type = "HEADER",
-                    Key = "Authorization",
-                    Value = "Test-Api-Key",
-                }
-            }
-        };
 
         private static readonly InlineHookChannel UpdatedTestInlineHookChannel = new InlineHookChannel
         {
@@ -59,25 +33,43 @@ namespace Okta.Sdk.IntegrationTests
                 }
             }
         };
-        
-        public InlineHooksClientShould()
-        {
-            DeleteAllInlineHooks().Wait();
-        }
-        
+
         [Fact]
         public async Task CreateInlineHook()
         {
             var testClient = TestClient.Create();
             var testInlineHookName = $"{SdkPrefix}:{nameof(CreateInlineHook)} Test Inline Hook Name";
 
-            var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
-            {
-                Name = testInlineHookName,
-                Version = InlineHookVersion,
-                Type = InlineHookType,
-                Channel = TestInlineHookChannel
-            });
+            var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(
+                new InlineHook
+                {
+                    Name = testInlineHookName,
+                    Version = "1.0.0",
+                    Type = "com.okta.oauth2.tokens.transform",
+                    Channel = new InlineHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new InlineHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/inlineHook",
+                            Headers = new List<IInlineHookChannelConfigHeaders>
+                            {
+                                new InlineHookChannelConfigHeaders
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new InlineHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -85,11 +77,12 @@ namespace Okta.Sdk.IntegrationTests
                 createdInlineHook.Name.Should().Be(testInlineHookName);
                 createdInlineHook.Channel.Should().NotBeNull();
                 createdInlineHook.Channel.Config.Should().NotBeNull();
-                createdInlineHook.Channel.Config.Uri.Should().Be(TestInlineHookChannel.Config.Uri);
+                createdInlineHook.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHook");
             }
             finally
             {
-                await DeleteAllInlineHooks();
+                await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
+                await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
             }
         }
 
@@ -99,13 +92,36 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testInlineHookName = $"{SdkPrefix}:{nameof(RetrieveInlineHook)} Test Inline Hook Name";
 
-            var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
-            {
-                Name = testInlineHookName,
-                Version = InlineHookVersion,
-                Type = InlineHookType,
-                Channel = TestInlineHookChannel,
-            });
+            var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(
+                new InlineHook
+                {
+                    Name = testInlineHookName,
+                    Version = "1.0.0",
+                    Type = "com.okta.oauth2.tokens.transform",
+                    Channel = new InlineHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new InlineHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/inlineHook",
+                            Headers = new List<IInlineHookChannelConfigHeaders>
+                            {
+                                new InlineHookChannelConfigHeaders
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new InlineHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -115,15 +131,16 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedInlineHook.Id.Should().NotBeNullOrEmpty();
                 retrievedInlineHook.Id.Should().Be(createdInlineHook.Id);
                 retrievedInlineHook.Name.Should().Be(testInlineHookName);
-                retrievedInlineHook.Version.Should().Be(InlineHookVersion);
-                retrievedInlineHook.Type.Should().Be(InlineHookType);
+                retrievedInlineHook.Version.Should().Be("1.0.0");
+                retrievedInlineHook.Type.Should().Be("com.okta.oauth2.tokens.transform");
                 retrievedInlineHook.Channel.Should().NotBeNull();
                 retrievedInlineHook.Channel.Config.Should().NotBeNull();
-                retrievedInlineHook.Channel.Config.Uri.Should().Be(TestInlineHookChannel.Config.Uri);
+                retrievedInlineHook.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHook");
             }
             finally
             {
-                await DeleteAllInlineHooks();
+                await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
+                await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
             }
         }
 
@@ -133,14 +150,37 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testInlineHookName = $"{SdkPrefix}:{nameof(UpdateInlineHook)} Test Inline Hook Name";
             var updatedTestInlineHookName = $"{SdkPrefix}:{nameof(UpdateInlineHook)} Test Inline Hook Name Updated";
-            
-            var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
-            {
-                Name = testInlineHookName,
-                Version = InlineHookVersion,
-                Type = InlineHookType,
-                Channel = TestInlineHookChannel,
-            });
+
+            var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(
+                new InlineHook
+                {
+                    Name = testInlineHookName,
+                    Version = "1.0.0",
+                    Type = "com.okta.oauth2.tokens.transform",
+                    Channel = new InlineHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new InlineHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/inlineHook",
+                            Headers = new List<IInlineHookChannelConfigHeaders>
+                            {
+                                new InlineHookChannelConfigHeaders
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new InlineHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
+                });
 
             try
             {
@@ -150,33 +190,56 @@ namespace Okta.Sdk.IntegrationTests
                     new InlineHook
                     {
                         Name = updatedTestInlineHookName,
-                        Version = InlineHookVersion,
-                        Type = InlineHookType,
-                        Channel = UpdatedTestInlineHookChannel
+                        Version = "1.0.0",
+                        Type = "com.okta.oauth2.tokens.transform",
+                        Channel = new InlineHookChannel
+                        {
+                            Type = "HTTP",
+                            Version = "1.0.0",
+                            Config = new InlineHookChannelConfig
+                            {
+                                Uri = "https://www.example.com/inlineHookUpdated",
+                                Headers = new List<IInlineHookChannelConfigHeaders>
+                                {
+                                    new InlineHookChannelConfigHeaders
+                                    {
+                                        Key = "X-Test-Header",
+                                        Value = "Test header value updated",
+                                    },
+                                },
+                                AuthScheme = new InlineHookChannelConfigAuthScheme
+                                {
+                                    Type = "HEADER",
+                                    Key = "Authorization",
+                                    Value = "Test-Api-Key-Updated",
+                                },
+                            },
+                        },
                     }, createdInlineHook.Id);
 
                 updatedInlineHook.Id.Should().NotBeNullOrEmpty();
                 updatedInlineHook.Id.Should().Be(createdInlineHook.Id);
                 updatedInlineHook.Name.Should().Be(updatedTestInlineHookName);
-                updatedInlineHook.Version.Should().Be(InlineHookVersion);
-                updatedInlineHook.Type.Should().Be(InlineHookType);
+                updatedInlineHook.Version.Should().Be("1.0.0");
+                updatedInlineHook.Type.Should().Be("com.okta.oauth2.tokens.transform");
                 updatedInlineHook.Channel.Should().NotBeNull();
                 updatedInlineHook.Channel.Config.Should().NotBeNull();
-                updatedInlineHook.Channel.Config.Uri.Should().Be(UpdatedTestInlineHookChannel.Config.Uri);
+                updatedInlineHook.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHookUpdated");
 
                 var retrievedInlineHookForValidation = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
                 retrievedInlineHookForValidation.Id.Should().NotBeNullOrEmpty();
                 retrievedInlineHookForValidation.Id.Should().Be(createdInlineHook.Id);
                 retrievedInlineHookForValidation.Name.Should().Be(updatedTestInlineHookName);
-                retrievedInlineHookForValidation.Version.Should().Be(InlineHookVersion);
-                retrievedInlineHookForValidation.Type.Should().Be(InlineHookType);
+                retrievedInlineHookForValidation.Version.Should().Be("1.0.0");
+                retrievedInlineHookForValidation.Type.Should().Be("com.okta.oauth2.tokens.transform");
                 retrievedInlineHookForValidation.Channel.Should().NotBeNull();
                 retrievedInlineHookForValidation.Channel.Config.Should().NotBeNull();
-                retrievedInlineHookForValidation.Channel.Config.Uri.Should().Be(UpdatedTestInlineHookChannel.Config.Uri);
+                retrievedInlineHookForValidation.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHookUpdated");
             }
             finally
             {
-                await DeleteAllInlineHooks();
+                await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
+                await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
             }
         }
 
@@ -189,29 +252,44 @@ namespace Okta.Sdk.IntegrationTests
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
             {
                 Name = testInlineHookName,
-                Version = InlineHookVersion,
-                Type = InlineHookType,
-                Channel = TestInlineHookChannel
+                Version = "1.0.0",
+                Type = "com.okta.oauth2.tokens.transform",
+                Channel = new InlineHookChannel
+                {
+                    Type = "HTTP",
+                    Version = "1.0.0",
+                    Config = new InlineHookChannelConfig
+                    {
+                        Uri = "https://www.example.com/inlineHook",
+                        Headers = new List<IInlineHookChannelConfigHeaders>
+                        {
+                            new InlineHookChannelConfigHeaders
+                            {
+                                Key = "X-Test-Header",
+                                Value = "Test header value",
+                            },
+                        },
+                        AuthScheme = new InlineHookChannelConfigAuthScheme
+                        {
+                            Type = "HEADER",
+                            Key = "Authorization",
+                            Value = "Test-Api-Key",
+                        },
+                    },
+                },
             });
 
-            try
-            {
-                createdInlineHook.Id.Should().NotBeNullOrEmpty();
+            createdInlineHook.Id.Should().NotBeNullOrEmpty();
 
-                var retrievedEventHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
-                retrievedEventHook.Id.Should().Be(createdInlineHook.Id);
+            var retrievedEventHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
+            retrievedEventHook.Id.Should().Be(createdInlineHook.Id);
 
-                await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
-                await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
+            await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
+            await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
 
-                var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
-                    testClient.EventHooks.GetEventHookAsync(createdInlineHook.Id));
-                ex.StatusCode.Should().Be(404);
-            }
-            finally
-            {
-                await DeleteAllInlineHooks();
-            }
+            var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
+                testClient.EventHooks.GetEventHookAsync(createdInlineHook.Id));
+            ex.StatusCode.Should().Be(404);
         }
 
         [Fact]
@@ -232,9 +310,31 @@ namespace Okta.Sdk.IntegrationTests
                 var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
                 {
                     Name = $"{testInlineHookName} {i}",
-                    Version = InlineHookVersion,
-                    Type = InlineHookType,
-                    Channel = TestInlineHookChannel
+                    Version = "1.0.0",
+                    Type = "com.okta.oauth2.tokens.transform",
+                    Channel = new InlineHookChannel
+                    {
+                        Type = "HTTP",
+                        Version = "1.0.0",
+                        Config = new InlineHookChannelConfig
+                        {
+                            Uri = "https://www.example.com/inlineHook",
+                            Headers = new List<IInlineHookChannelConfigHeaders>
+                            {
+                                new InlineHookChannelConfigHeaders
+                                {
+                                    Key = "X-Test-Header",
+                                    Value = "Test header value",
+                                },
+                            },
+                            AuthScheme = new InlineHookChannelConfigAuthScheme
+                            {
+                                Type = "HEADER",
+                                Key = "Authorization",
+                                Value = "Test-Api-Key",
+                            },
+                        },
+                    },
                 });
                 testInlineHookIds.Add(createdInlineHook.Id);
             }
@@ -247,19 +347,23 @@ namespace Okta.Sdk.IntegrationTests
                 allInlineHooksCount.Should().BeGreaterThan(0);
                 allInlineHooksCount.Should().Be(existingInlineHookIds.Count + testInlineHookIds.Count);
 
-                await foreach (IInlineHook inlineHook in allInlineHooks)
+                await foreach (var inlineHook in allInlineHooks)
                 {
                     allInlineHookIds.Add(inlineHook.Id);
                 }
 
-                foreach (string testInlineHookId in testInlineHookIds)
+                foreach (var testInlineHookId in testInlineHookIds)
                 {
                     Assert.Contains(testInlineHookId, allInlineHookIds);
                 }
             }
             finally
             {
-                await DeleteInlineHook();
+                foreach (var testInlineHookId in testInlineHookIds)
+                {
+                    await testClient.InlineHooks.DeactivateInlineHookAsync(testInlineHookId);
+                    await testClient.InlineHooks.DeleteInlineHookAsync(testInlineHookId);
+                }
             }
         }
 
@@ -272,9 +376,31 @@ namespace Okta.Sdk.IntegrationTests
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
             {
                 Name = testInlineHookName,
-                Version = InlineHookVersion,
-                Type = InlineHookType,
-                Channel = TestInlineHookChannel
+                Version = "1.0.0",
+                Type = "com.okta.oauth2.tokens.transform",
+                Channel = new InlineHookChannel
+                {
+                    Type = "HTTP",
+                    Version = "1.0.0",
+                    Config = new InlineHookChannelConfig
+                    {
+                        Uri = "https://www.example.com/inlineHook",
+                        Headers = new List<IInlineHookChannelConfigHeaders>
+                        {
+                            new InlineHookChannelConfigHeaders
+                            {
+                                Key = "X-Test-Header",
+                                Value = "Test header value",
+                            },
+                        },
+                        AuthScheme = new InlineHookChannelConfigAuthScheme
+                        {
+                            Type = "HEADER",
+                            Key = "Authorization",
+                            Value = "Test-Api-Key",
+                        },
+                    },
+                },
             });
 
             try
@@ -289,7 +415,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllInlineHooks();
+                await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
+                await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
             }
         }
 
@@ -302,9 +429,31 @@ namespace Okta.Sdk.IntegrationTests
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
             {
                 Name = testInlineHookName,
-                Version = InlineHookVersion,
-                Type = InlineHookType,
-                Channel = TestInlineHookChannel
+                Version = "1.0.0",
+                Type = "com.okta.oauth2.tokens.transform",
+                Channel = new InlineHookChannel
+                {
+                    Type = "HTTP",
+                    Version = "1.0.0",
+                    Config = new InlineHookChannelConfig
+                    {
+                        Uri = "https://www.example.com/inlineHook",
+                        Headers = new List<IInlineHookChannelConfigHeaders>
+                        {
+                            new InlineHookChannelConfigHeaders
+                            {
+                                Key = "X-Test-Header",
+                                Value = "Test header value",
+                            },
+                        },
+                        AuthScheme = new InlineHookChannelConfigAuthScheme
+                        {
+                            Type = "HEADER",
+                            Key = "Authorization",
+                            Value = "Test-Api-Key",
+                        },
+                    },
+                },
             });
 
             try
@@ -323,17 +472,8 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllInlineHooks();
-            }
-        }
-        
-        private async Task DeleteAllInlineHooks()
-        {
-            var testClient = TestClient.Create();
-            await foreach (IInlineHook inlineHook in testClient.InlineHooks.ListInlineHooks())
-            {
-                await testClient.InlineHooks.DeactivateInlineHookAsync(inlineHook.Id);
-                await testClient.InlineHooks.DeleteInlineHookAsync(inlineHook.Id);
+                await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
+                await testClient.InlineHooks.DeleteInlineHookAsync(createdInlineHook.Id);
             }
         }
     }
