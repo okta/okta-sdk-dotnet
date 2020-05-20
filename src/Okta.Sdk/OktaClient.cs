@@ -185,6 +185,9 @@ namespace Okta.Sdk
         public IInlineHooksClient InlineHooks => new InlineHooksClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public ILinkedObjectsClient LinkedObjects => new LinkedObjectsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IFeaturesClient Features => new FeaturesClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
