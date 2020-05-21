@@ -254,7 +254,7 @@ namespace Okta.Sdk
         ICollectionClient<IIdentityProvider> ListUserIdentityProviders(string userId);
 
         /// <summary>
-        /// Activates a user.  This operation can only be performed on users with a `STAGED` status.  Activation of a user is an asynchronous operation.  The user will have the `transitioningToStatus` property with a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.  The user will have a status of `ACTIVE` when the activation process is complete.
+        /// Activates a user.  This operation can only be performed on users with a `STAGED` status.  Activation of a user is an asynchronous operation. The user will have the `transitioningToStatus` property with a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.  The user will have a status of `ACTIVE` when the activation process is complete.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="sendEmail">Sends an activation email to the user if true</param>
@@ -391,7 +391,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IApplication"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = -1);
+        ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
         /// Success
@@ -452,7 +452,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = -1);
+        ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
         /// Removes a group target from a role assigned to a user.

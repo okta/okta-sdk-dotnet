@@ -85,6 +85,26 @@ namespace Okta.Sdk
             => GetClient().Users.AssignRoleToUserAsync(assignRoleRequest, Id, disableNotifications, cancellationToken);
         
         /// <inheritdoc />
+        public Task RemoveRoleAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IGroup> ListGroupTargetsForRole(
+            string roleId, string after = null, int? limit = 20)
+            => GetClient().Users.ListGroupTargetsForRole(Id, roleId, after, limit);
+        
+        /// <inheritdoc />
+        public Task RemoveGroupTargetFromRoleAsync(
+            string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.RemoveGroupTargetFromRoleAsync(Id, roleId, groupId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task AddGroupTargetToRoleAsync(
+            string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
+        
+        /// <inheritdoc />
         public ICollectionClient<IOAuth2ScopeConsentGrant> ListGrants(
             string scopeId = null, string expand = null, string after = null, int? limit = 20)
             => GetClient().Users.ListUserGrants(Id, scopeId, expand, after, limit);

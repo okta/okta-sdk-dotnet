@@ -138,12 +138,12 @@ namespace Okta.Sdk
         /// <summary>
         /// Assigns a Role to a Group
         /// </summary>
-        /// <param name="type">The <see cref="IAssignRoleRequest"/> resource.</param>
+        /// <param name="assignRoleRequest">The <see cref="IAssignRoleRequest"/> resource.</param>
         /// <param name="groupId"></param>
         /// <param name="disableNotifications"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IRole"/> response.</returns>
-        Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest type, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Unassigns a Role from a Group
@@ -171,7 +171,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IApplication"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = null, int? limit = -1);
+        ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
         /// Success
@@ -223,7 +223,7 @@ namespace Okta.Sdk
         /// <param name="after"></param>
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = -1);
+        ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
         /// 

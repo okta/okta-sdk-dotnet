@@ -414,7 +414,7 @@ namespace Okta.Sdk
         {
             var appUser = new AppUser()
             {
-                Id = options.UserId,
+                //Id = options.UserId, TODO: REVIEW
                 Scope = options.Scope,
 
                 Credentials = new AppUserCredentials()

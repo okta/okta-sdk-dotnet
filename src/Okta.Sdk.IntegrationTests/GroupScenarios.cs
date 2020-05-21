@@ -348,12 +348,164 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/94")]
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-        public async Task GroupRuleOperations()
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        [Fact]
+        public async Task ListRolesAssignedToGroup()
         {
-            throw new NotImplementedException();
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk: {nameof(ListRolesAssignedToGroup)} {guid}",
+            });
+
+            try
+            {
+                var role1 = await createdGroup.AssignRoleAsync(new AssignRoleRequest
+                {
+                    Type = RoleType.UserAdmin,
+                });
+
+                var role2 = await createdGroup.AssignRoleAsync(new AssignRoleRequest
+                {
+                    Type = RoleType.AppAdmin,
+                });
+
+                var roles = await client.Groups.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+
+                roles.Should().NotBeNullOrEmpty();
+                roles.Should().Contain(x => x.Id == role1.Id);
+                roles.Should().Contain(x => x.Id == role2.Id);
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task UnassignRoleForGroup()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            // Create group
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk: {nameof(UnassignRoleForGroup)} {guid}",
+            });
+
+            try
+            {
+                var role = await createdGroup.AssignRoleAsync(new AssignRoleRequest
+                {
+                    Type = RoleType.UserAdmin,
+                });
+
+                var roles = await client.Groups.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+
+                roles.Should().NotBeNullOrEmpty();
+                roles.Should().Contain(x => x.Id == role.Id);
+
+                await client.Groups.RemoveRoleFromGroupAsync(createdGroup.Id, role.Id);
+                roles = await client.Groups.ListGroupAssignedRoles(createdGroup.Id).ToListAsync();
+                roles.Should().BeNullOrEmpty();
+            }
+            finally
+            {
+                await createdGroup.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ListGroupTargetsForGroup()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdGroup1 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(ListGroupTargetsForGroup)}1-{guid}",
+                Description = $"dotnet-sdk:{nameof(ListGroupTargetsForGroup)}1-{guid}",
+            });
+
+            var createdGroup2 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(ListGroupTargetsForGroup)}2-{guid}",
+                Description = $"dotnet-sdk:{nameof(ListGroupTargetsForGroup)}2-{guid}",
+            });
+
+            try
+            {
+                var role = await createdGroup1.AssignRoleAsync(new AssignRoleRequest
+                {
+                    Type = RoleType.UserAdmin,
+                });
+
+                await client.Groups.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role.Id, createdGroup2.Id);
+
+                var groups = await client.Groups.ListGroupTargetsForGroupRole(createdGroup1.Id, role.Id).ToListAsync();
+                groups.Should().NotBeNullOrEmpty();
+                groups.Should().Contain(x => x.Id == createdGroup2.Id);
+            }
+            finally
+            {
+                await createdGroup1.DeleteAsync();
+                await createdGroup2.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdGroup1 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup)}1-{guid}",
+                Description = $"dotnet-sdk:{nameof(RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup)}1-{guid}",
+            });
+
+            var createdGroup2 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup)}2-{guid}",
+                Description = $"dotnet-sdk:{nameof(RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup)}2-{guid}",
+            });
+
+            var createdGroup3 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup)}3-{guid}",
+                Description = $"dotnet-sdk:{nameof(RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup)}3-{guid}",
+            });
+
+            try
+            {
+                var role = await createdGroup1.AssignRoleAsync(new AssignRoleRequest
+                {
+                    Type = RoleType.UserAdmin,
+                });
+
+                await client.Groups.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role.Id, createdGroup2.Id);
+                await client.Groups.AddGroupTargetToGroupAdministratorRoleForGroupAsync(createdGroup1.Id, role.Id, createdGroup3.Id);
+
+                var groups = await client.Groups.ListGroupTargetsForGroupRole(createdGroup1.Id, role.Id).ToListAsync();
+                groups.Should().NotBeNullOrEmpty();
+                groups.Should().Contain(x => x.Id == createdGroup2.Id);
+                groups.Should().Contain(x => x.Id == createdGroup3.Id);
+
+                await client.Groups.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(createdGroup1.Id, role.Id, createdGroup2.Id);
+
+                groups = await client.Groups.ListGroupTargetsForGroupRole(createdGroup1.Id, role.Id).ToListAsync();
+                groups.Should().NotContain(x => x.Id == createdGroup2.Id);
+            }
+            finally
+            {
+                await createdGroup1.DeleteAsync();
+                await createdGroup2.DeleteAsync();
+                await createdGroup3.DeleteAsync();
+            }
         }
     }
 }

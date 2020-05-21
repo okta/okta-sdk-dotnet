@@ -52,9 +52,9 @@ namespace Okta.Sdk
             => GetClient().Groups.ListAssignedApplicationsForGroup(Id, after, limit);
         
         /// <inheritdoc />
-        public Task<IRole> AssignRoleAsync(IAssignRoleRequest type, 
+        public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Groups.AssignRoleToGroupAsync(type, Id, disableNotifications, cancellationToken);
+            => GetClient().Groups.AssignRoleToGroupAsync(assignRoleRequest, Id, disableNotifications, cancellationToken);
         
     }
 }

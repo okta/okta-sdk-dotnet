@@ -51,6 +51,18 @@ namespace Okta.Sdk
         Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
+        Task RemoveRoleAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IGroup> ListGroupTargetsForRole(
+            string roleId, string after = null, int? limit = 20);
+
+        Task RemoveGroupTargetFromRoleAsync(
+            string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddGroupTargetToRoleAsync(
+            string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
         ICollectionClient<IOAuth2ScopeConsentGrant> ListGrants(
             string scopeId = null, string expand = null, string after = null, int? limit = 20);
 

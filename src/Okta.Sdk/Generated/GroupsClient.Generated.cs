@@ -208,11 +208,11 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest type, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Role>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles",
-                Payload = type,
+                Payload = assignRoleRequest,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["groupId"] = groupId,
@@ -250,7 +250,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = null, int? limit = -1)
+        public ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = null, int? limit = 20)
             => GetCollectionClient<IApplication>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps",
@@ -326,7 +326,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = -1)
+        public ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = 20)
             => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/groups",

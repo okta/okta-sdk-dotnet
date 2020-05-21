@@ -54,12 +54,18 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
-            throw new NotImplementedException();
+            ReceivedHref = href;
+            ReceivedHeaders = headers;
+
+            return Task.FromResult(new HttpResponse<string>
+            {
+                StatusCode = _statusCode,
+                Payload = _returnThis,
+            });
         }
 
         public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-
             ReceivedHref = href;
             ReceivedHeaders = headers;
 
