@@ -21,7 +21,7 @@ namespace Okta.Sdk
 
         string ExternalId { get; }
 
-        string Id { get; }
+        string Id { get; set; }
 
         DateTimeOffset? LastSync { get; }
 
