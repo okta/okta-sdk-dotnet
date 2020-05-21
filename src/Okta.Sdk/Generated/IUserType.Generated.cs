@@ -25,7 +25,7 @@ namespace Okta.Sdk
 
         string DisplayName { get; set; }
 
-        string Id { get; }
+        string Id { get; set; }
 
         DateTimeOffset? LastUpdated { get; }
 

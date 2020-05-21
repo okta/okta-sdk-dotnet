@@ -1407,7 +1407,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GenerateApplicationKey()
         {
             var client = TestClient.Create();
@@ -1439,7 +1439,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task CloneApplicationKey()
         {
             var client = TestClient.Create();
@@ -1481,7 +1481,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GenerateCsr()
         {
             var client = TestClient.Create();
@@ -1527,7 +1527,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GetCsr()
         {
             var client = TestClient.Create();
@@ -1572,7 +1572,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task RevokeCsr()
         {
             var client = TestClient.Create();
@@ -1627,7 +1627,7 @@ namespace Okta.Sdk.IntegrationTests
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
-            var testClientId = $"{nameof(GrantConsentToScope)}_TestClientId";
+            var testClientId = $"{nameof(GrantConsentToScope)}_TestClientId_{guid}";
 
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
@@ -1749,7 +1749,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task RevokeConsentGrant()
         {
             var client = TestClient.Create();
