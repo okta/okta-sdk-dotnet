@@ -23,7 +23,24 @@ namespace Okta.Sdk.IntegrationTests
     [Collection(nameof(ApplicationScenarios))]
     public class ApplicationScenarios
     {
-     
+        public ApplicationScenarios()
+        {
+            DeleteAllApps().Wait();
+        }
+
+        private async Task DeleteAllApps()
+        {
+            var client = TestClient.Create();
+
+            var apps = await client.Applications.ListApplications().ToListAsync();
+
+            foreach (var app in apps)
+            {
+                await client.Applications.DeactivateApplicationAsync(app.Id);
+                await client.Applications.DeleteApplicationAsync(app.Id);
+            }
+        }
+
         [Fact]
         public async Task AddBookmarkApp()
         {

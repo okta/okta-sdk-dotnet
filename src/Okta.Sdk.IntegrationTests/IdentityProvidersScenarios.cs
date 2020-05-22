@@ -28,19 +28,6 @@ namespace Okta.Sdk.IntegrationTests
             foreach (var idp in idps)
             {
                 await client.IdentityProviders.DeactivateIdentityProviderAsync(idp.Id);
-            }
-
-            var keys = await client.IdentityProviders.ListIdentityProviderKeys().ToListAsync();
-
-            // Remove all keys before deleting idps.
-            foreach (var key in keys)
-            {
-                await client.IdentityProviders.DeleteIdentityProviderKeyAsync(key.Kid);
-            }
-
-            // Delete all idps.
-            foreach (var idp in idps)
-            {
                 await client.IdentityProviders.DeleteIdentityProviderAsync(idp.Id);
             }
         }
@@ -980,10 +967,10 @@ namespace Okta.Sdk.IntegrationTests
             var idpId = createdIdp.Id;
 
             await createdIdp.DeactivateAsync();
-            await client.IdentityProviders.DeleteIdentityProviderAsync(createdIdp.Id);
+            await client.IdentityProviders.DeleteIdentityProviderAsync(idpId);
 
             // Getting by ID should result in 404 Not found
-            await Assert.ThrowsAsync<OktaApiException>(() => client.Applications.GetApplicationAsync(idpId));
+            await Assert.ThrowsAsync<OktaApiException>(() => client.IdentityProviders.GetIdentityProviderAsync(idpId));
         }
 
         [Fact]
