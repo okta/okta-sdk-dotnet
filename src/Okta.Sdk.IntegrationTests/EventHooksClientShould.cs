@@ -510,7 +510,7 @@ namespace Okta.Sdk.IntegrationTests
                 var retrievedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 retrievedEventHook.Status.Should().Be("INACTIVE");
 
-                testClient.EventHooks.ActivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.ActivateEventHookAsync(createdEventHook.Id);
                 var reactivatedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 reactivatedEventHook.Status.Should().Be("ACTIVE");
             }
