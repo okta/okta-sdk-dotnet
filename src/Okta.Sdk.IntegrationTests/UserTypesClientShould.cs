@@ -23,7 +23,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var testDescription = $"{SdkPrefix}:{nameof(CreateUserType)} Test Description";
             var testDisplayName = $"{SdkPrefix}:{nameof(CreateUserType)} Test DisplayName";
-            var testName = $"{SdkPrefix}_{nameof(CreateUserType)}_TestUserType";
+            var testName = $"{SdkPrefix}_{nameof(CreateUserType)}_TestUserType_{TestClient.RandomString(6)}";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
@@ -52,7 +52,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var testDescription = $"{SdkPrefix}:{nameof(RetrieveUserTypeById)} Test Description";
             var testDisplayName = $"{SdkPrefix}:{nameof(RetrieveUserTypeById)} Test DisplayName";
-            var testName = $"{SdkPrefix}{nameof(RetrieveUserTypeById)}_TestUserType";
+            var testName = $"{SdkPrefix}{nameof(RetrieveUserTypeById)}_TestUserType_{TestClient.RandomString(6)}";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
@@ -84,7 +84,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var testDescription = $"{SdkPrefix}:{nameof(UpdateUserType)} Test Description";
             var testDisplayName = $"{SdkPrefix}:{nameof(UpdateUserType)} Test DisplayName";
-            var testName = $"{SdkPrefix}_{nameof(UpdateUserType)}_TestUserType";
+            var testName = $"{SdkPrefix}_{nameof(UpdateUserType)}_TestUserType_{TestClient.RandomString(6)}";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
@@ -128,7 +128,7 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testDescription = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test Description";
             var testDisplayName = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test DisplayName";
-            var testName = $"{SdkPrefix}_{nameof(ReplaceUserType)}_TestUserType";
+            var testName = $"{SdkPrefix}_{nameof(ReplaceUserType)}_TestUserType_{TestClient.RandomString(6)}";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
             {
@@ -175,7 +175,7 @@ namespace Okta.Sdk.IntegrationTests
             var testClient = TestClient.Create();
             var testDescription = $"{SdkPrefix}:{nameof(DeleteUserTypeById)} Test Description";
             var testDisplayName = $"{SdkPrefix}:{nameof(DeleteUserTypeById)} Test DisplayName";
-            var testName = $"{SdkPrefix}_{nameof(DeleteUserTypeById)}_TestUserType";
+            var testName = $"{SdkPrefix}_{nameof(DeleteUserTypeById)}_TestUserType_{TestClient.RandomString(6)}";
 
             var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType
             {
