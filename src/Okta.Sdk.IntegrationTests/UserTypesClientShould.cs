@@ -16,11 +16,6 @@ namespace Okta.Sdk.IntegrationTests
     {
         private const string SdkPrefix = "dotnet_sdk";
 
-        public UserTypesClientShould()
-        {
-            DeleteAllUserTypes().Wait();
-        }
-
         [Fact]
         public async Task CreateUserType()
         {
