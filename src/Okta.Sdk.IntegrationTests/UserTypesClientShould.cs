@@ -236,17 +236,5 @@ namespace Okta.Sdk.IntegrationTests
                 await testClient.UserTypes.DeleteUserTypeAsync(createdUserType2.Id);
             }
         }
-
-        private async Task DeleteAllUserTypes()
-        {
-            var testClient = TestClient.Create();
-            await foreach (IUserType userType in testClient.UserTypes.ListUserTypes())
-            {
-                if (userType.Default != null && !userType.Default.Value)
-                {
-                    await testClient.UserTypes.DeleteUserTypeAsync(userType.Id);
-                }
-            }
-        }
     }
 }
