@@ -219,17 +219,22 @@ namespace Okta.Sdk.IntegrationTests
                 Name = $"{nameof(ListAllUserTypes)}_TestUserType_2_{TestClient.RandomString(6)}",
             });
 
-            var allUserTypes = await testClient.UserTypes.ListUserTypes().ToListAsync();
-            var allUserTypesCount = allUserTypes.Count;
-            allUserTypesCount.Should().BeGreaterThan(0);
-            allUserTypesCount.Should().Be(existingUserTypeIds.Count + 2);
-            var allUserTypeIds = allUserTypes.Select(ut => ut.Id).ToHashSet();
+            try
+            {
+                var allUserTypes = await testClient.UserTypes.ListUserTypes().ToListAsync();
+                var allUserTypesCount = allUserTypes.Count;
+                allUserTypesCount.Should().BeGreaterThan(0);
+                allUserTypesCount.Should().Be(existingUserTypeIds.Count + 2);
+                var allUserTypeIds = allUserTypes.Select(ut => ut.Id).ToHashSet();
 
-            Assert.Contains(createdUserType1.Id, allUserTypeIds);
-            Assert.Contains(createdUserType2.Id, allUserTypeIds);
-
-            await testClient.UserTypes.DeleteUserTypeAsync(createdUserType1.Id);
-            await testClient.UserTypes.DeleteUserTypeAsync(createdUserType2.Id);
+                Assert.Contains(createdUserType1.Id, allUserTypeIds);
+                Assert.Contains(createdUserType2.Id, allUserTypeIds);
+            }
+            finally
+            {
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType1.Id);
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType2.Id);
+            }
         }
 
         private async Task DeleteAllUserTypes()
