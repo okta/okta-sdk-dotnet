@@ -11,12 +11,12 @@ namespace Okta.Sdk.IntegrationTests
     {
         private const string SdkPrefix = "dotnet_sdk";
         private const string EventType = "EVENT_TYPE";
-        
+
         [Fact]
         public async Task CreateEventHook()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(CreateEventHook)} Test Event Hook Name";
+            var testEventHookName = $"{SdkPrefix}:{nameof(CreateEventHook)} Test Event Hook Name ({TestClient.RandomString(6)})";
 
             var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
                 new EventHook
@@ -78,7 +78,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task RetrieveEventHook()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(RetrieveEventHook)} Test Event Hook Name";
+            var testEventHookName = $"{SdkPrefix}:{nameof(RetrieveEventHook)} Test Event Hook Name ({TestClient.RandomString(6)})";
 
             var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
                 new EventHook
@@ -143,8 +143,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task UpdateEventHook()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(UpdateEventHook)} Test Event Hook Name";
-            var updatedTestEventHookName = $"{SdkPrefix}:{nameof(UpdateEventHook)} Test Event Hook Name Updated";
+            var testEventHookName = $"{SdkPrefix}:{nameof(UpdateEventHook)} Test Event Hook Name ({TestClient.RandomString(6)})";
+            var updatedTestEventHookName = $"{testEventHookName} Updated";
 
             var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
                 new EventHook
@@ -259,7 +259,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeleteEventHook()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(DeleteEventHook)} Test Event Hook Name";
+            var testEventHookName = $"{SdkPrefix}:{nameof(DeleteEventHook)} Test Event Hook Name ({TestClient.RandomString(6)})";
 
             var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
                 new EventHook
@@ -316,7 +316,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ListAllEventHooks()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(ListAllEventHooks)} Test Event Hook Name";
+            var testEventHookName = $"{SdkPrefix}:{nameof(ListAllEventHooks)} Test Event Hook Name ({TestClient.RandomString(6)})";
 
             var existingEventHookIds = new HashSet<string>();
             await foreach (IEventHook existingEventHook in testClient.EventHooks.ListEventHooks())
@@ -399,7 +399,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeactivateEventHook()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(DeactivateEventHook)} Test Event Hook Name";
+            var testEventHookName = $"{SdkPrefix}:{nameof(DeactivateEventHook)} Test Event Hook Name ({TestClient.RandomString(6)})";
 
             var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
                 new EventHook
@@ -460,7 +460,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ActivateEventHook()
         {
             var testClient = TestClient.Create();
-            var testEventHookName = $"{SdkPrefix}:{nameof(ActivateEventHook)} Test Event Hook Name";
+            var testEventHookName = $"{SdkPrefix}:{nameof(ActivateEventHook)} Test Event Hook Name ({TestClient.RandomString(6)})";
 
             var createdEventHook = await testClient.EventHooks.CreateEventHookAsync(
                 new EventHook
@@ -510,7 +510,7 @@ namespace Okta.Sdk.IntegrationTests
                 var retrievedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 retrievedEventHook.Status.Should().Be("INACTIVE");
 
-                testClient.EventHooks.ActivateEventHookAsync(createdEventHook.Id);
+                await testClient.EventHooks.ActivateEventHookAsync(createdEventHook.Id);
                 var reactivatedEventHook = await testClient.EventHooks.GetEventHookAsync(createdEventHook.Id);
                 reactivatedEventHook.Status.Should().Be("ACTIVE");
             }

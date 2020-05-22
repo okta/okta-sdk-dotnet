@@ -14,7 +14,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task CreateInlineHook()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(CreateInlineHook)} Test Inline Hook Name";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(CreateInlineHook)} Test Inline Hook Name ({TestClient.RandomString(6)})";
 
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(
                 new InlineHook
@@ -66,7 +66,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task RetrieveInlineHook()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(RetrieveInlineHook)} Test Inline Hook Name";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(RetrieveInlineHook)} Test Inline Hook Name ({TestClient.RandomString(6)})";
 
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(
                 new InlineHook
@@ -124,8 +124,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task UpdateInlineHook()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(UpdateInlineHook)} Test Inline Hook Name";
-            var updatedTestInlineHookName = $"{SdkPrefix}:{nameof(UpdateInlineHook)} Test Inline Hook Name Updated";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(UpdateInlineHook)} Test Inline Hook Name ({TestClient.RandomString(6)})";
+            var updatedTestInlineHookName = $"{testInlineHookName} Updated";
 
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(
                 new InlineHook
@@ -223,7 +223,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeleteInlineHook()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(DeleteInlineHook)} Test Inline Hook Name";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(DeleteInlineHook)} Test Inline Hook Name ({TestClient.RandomString(6)})";
 
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
             {
@@ -272,14 +272,14 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ListAllInlineHooks()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(ListAllInlineHooks)} Test Inline Hook Name";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(ListAllInlineHooks)} Test Inline Hook Name ({TestClient.RandomString(6)})";
 
             var existingInlineHookIds = new HashSet<string>();
             await foreach (IInlineHook existingInlineHook in testClient.InlineHooks.ListInlineHooks())
             {
                 existingInlineHookIds.Add(existingInlineHook.Id);
             }
-            
+
             var testInlineHookIds = new HashSet<string>();
             for (int i = 0; i < 5; i++)
             {
@@ -347,7 +347,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeactivateInlineHook()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(DeactivateInlineHook)} Test Inline Hook Name";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(DeactivateInlineHook)} Test Inline Hook Name ({TestClient.RandomString(6)})";
 
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
             {
@@ -400,7 +400,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ActivateInlineHook()
         {
             var testClient = TestClient.Create();
-            var testInlineHookName = $"{SdkPrefix}:{nameof(ActivateInlineHook)} Test Inline Hook Name";
+            var testInlineHookName = $"{SdkPrefix}:{nameof(ActivateInlineHook)} Test Inline Hook Name ({TestClient.RandomString(6)})";
 
             var createdInlineHook = await testClient.InlineHooks.CreateInlineHookAsync(new InlineHook
             {

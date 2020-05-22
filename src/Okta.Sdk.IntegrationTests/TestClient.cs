@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.IntegrationTests
@@ -14,6 +15,18 @@ namespace Okta.Sdk.IntegrationTests
             // Configuration is expected to be stored in environment variables on the test machine.
             // A few tests pass in a configuration object, but this is just to override and test specific things.
             return new OktaClient(configuration);
+        }
+
+        public static string RandomString(int length)
+        {
+            var random = new Random();
+            var result = string.Empty;
+            for (var i = 0; i < length; i++)
+            {
+                result += Convert.ToChar(random.Next(97, 122)); // ascii codes for printable alphabet
+            }
+
+            return result;
         }
     }
 }
