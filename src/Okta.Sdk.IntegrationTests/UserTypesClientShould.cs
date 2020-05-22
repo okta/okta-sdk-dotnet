@@ -201,38 +201,35 @@ namespace Okta.Sdk.IntegrationTests
         {
             var testClient = TestClient.Create();
             var existingUserTypeIds = new HashSet<string>();
-            await foreach (IUserType existingUserType in testClient.UserTypes.ListUserTypes())
+            foreach (IUserType existingUserType in await testClient.UserTypes.ListUserTypes().ToListAsync())
             {
                 existingUserTypeIds.Add(existingUserType.Id);
             }
 
-            var testUserTypeIds = new HashSet<string>();
-            for (int i = 0; i < 5; i++)
+            var createdUserType1 = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
             {
-                var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
-                {
-                    Description = $"{nameof(ListAllUserTypes)} Test Description ({i})",
-                    DisplayName = $"{nameof(ListAllUserTypes)} Test DisplayName ({i})",
-                    Name = $"{nameof(ListAllUserTypes)}_TestUserType_{i}",
-                });
-                testUserTypeIds.Add(createdUserType.Id);
-            }
+                Description = $"{nameof(ListAllUserTypes)} Test Description (1)",
+                DisplayName = $"{nameof(ListAllUserTypes)} Test DisplayName (1)",
+                Name = $"{nameof(ListAllUserTypes)}_TestUserType_1_{TestClient.RandomString(6)}",
+            });
+            var createdUserType2 = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
+            {
+                Description = $"{nameof(ListAllUserTypes)} Test Description (2)",
+                DisplayName = $"{nameof(ListAllUserTypes)} Test DisplayName (2)",
+                Name = $"{nameof(ListAllUserTypes)}_TestUserType_2_{TestClient.RandomString(6)}",
+            });
 
-            var allUserTypeIds = new HashSet<string>();
-            var allUserTypes = testClient.UserTypes.ListUserTypes();
-            int allUserTypesCount = await allUserTypes.CountAsync();
+            var allUserTypes = await testClient.UserTypes.ListUserTypes().ToListAsync();
+            var allUserTypesCount = allUserTypes.Count;
             allUserTypesCount.Should().BeGreaterThan(0);
-            allUserTypesCount.Should().Be(existingUserTypeIds.Count + testUserTypeIds.Count);
+            allUserTypesCount.Should().Be(existingUserTypeIds.Count + 2);
+            var allUserTypeIds = allUserTypes.Select(ut => ut.Id).ToHashSet();
 
-            await foreach (IUserType userType in allUserTypes)
-            {
-                allUserTypeIds.Add(userType.Id);
-            }
+            Assert.Contains(createdUserType1.Id, allUserTypeIds);
+            Assert.Contains(createdUserType2.Id, allUserTypeIds);
 
-            foreach (string testUserTypeId in testUserTypeIds)
-            {
-                Assert.Contains(testUserTypeId, allUserTypeIds);
-            }
+            await testClient.UserTypes.DeleteUserTypeAsync(createdUserType1.Id);
+            await testClient.UserTypes.DeleteUserTypeAsync(createdUserType2.Id);
         }
 
         private async Task DeleteAllUserTypes()
