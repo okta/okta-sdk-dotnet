@@ -17,15 +17,13 @@ namespace Okta.Sdk.IntegrationTests
             return new OktaClient(configuration);
         }
 
-        private static Random _random;
-
         public static string RandomString(int length)
         {
-            _random ??= new Random();
+            var random = new Random();
             var result = string.Empty;
             for (var i = 0; i < length; i++)
             {
-                result += Convert.ToChar(_random.Next(97, 122)); // ascii codes for printable alphabet
+                result += Convert.ToChar(random.Next(97, 122)); // ascii codes for printable alphabet
             }
 
             return result;
