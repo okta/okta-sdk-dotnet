@@ -485,6 +485,7 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ListApplicationsOfType()
         {
+
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
 
