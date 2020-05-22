@@ -46,7 +46,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllUserTypes();
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
             }
         }
 
@@ -78,7 +78,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllUserTypes();
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
             }
         }
 
@@ -123,7 +123,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllUserTypes();
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
             }
         }
 
@@ -169,7 +169,7 @@ namespace Okta.Sdk.IntegrationTests
             }
             finally
             {
-                await DeleteAllUserTypes();
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
             }
         }
 
@@ -189,23 +189,16 @@ namespace Okta.Sdk.IntegrationTests
                 Name = testName,
             });
 
-            try
-            {
-                createdUserType.Id.Should().NotBeNullOrEmpty();
+            createdUserType.Id.Should().NotBeNullOrEmpty();
 
-                var retrievedUserType = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
-                retrievedUserType.Id.Should().Be(createdUserType.Id);
+            var retrievedUserType = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
+            retrievedUserType.Id.Should().Be(createdUserType.Id);
 
-                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
+            await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
 
-                var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
-                    testClient.UserTypes.GetUserTypeAsync(createdUserType.Id));
-                ex.StatusCode.Should().Be(404);
-            }
-            finally
-            {
-                await DeleteAllUserTypes();
-            }
+            var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
+                testClient.UserTypes.GetUserTypeAsync(createdUserType.Id));
+            ex.StatusCode.Should().Be(404);
         }
 
         [Fact]
@@ -230,27 +223,20 @@ namespace Okta.Sdk.IntegrationTests
                 testUserTypeIds.Add(createdUserType.Id);
             }
 
-            try
+            var allUserTypeIds = new HashSet<string>();
+            var allUserTypes = testClient.UserTypes.ListUserTypes();
+            int allUserTypesCount = await allUserTypes.CountAsync();
+            allUserTypesCount.Should().BeGreaterThan(0);
+            allUserTypesCount.Should().Be(existingUserTypeIds.Count + testUserTypeIds.Count);
+
+            await foreach (IUserType userType in allUserTypes)
             {
-                var allUserTypeIds = new HashSet<string>();
-                var allUserTypes = testClient.UserTypes.ListUserTypes();
-                int allUserTypesCount = await allUserTypes.CountAsync();
-                allUserTypesCount.Should().BeGreaterThan(0);
-                allUserTypesCount.Should().Be(existingUserTypeIds.Count + testUserTypeIds.Count);
-
-                await foreach (IUserType userType in allUserTypes)
-                {
-                    allUserTypeIds.Add(userType.Id);
-                }
-
-                foreach (string testUserTypeId in testUserTypeIds)
-                {
-                    Assert.Contains(testUserTypeId, allUserTypeIds);
-                }
+                allUserTypeIds.Add(userType.Id);
             }
-            finally
+
+            foreach (string testUserTypeId in testUserTypeIds)
             {
-                await DeleteAllUserTypes();
+                Assert.Contains(testUserTypeId, allUserTypeIds);
             }
         }
 
