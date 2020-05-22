@@ -35,7 +35,7 @@ namespace Okta.Sdk
         ICollectionClient<IApplication> ListApplications(
             string after = null, int? limit = 20);
 
-        Task<IRole> AssignRoleAsync(IAssignRoleRequest type, 
+        Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }

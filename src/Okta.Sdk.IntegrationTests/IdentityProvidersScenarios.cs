@@ -1,4 +1,9 @@
-﻿using System;
+﻿// <copyright file="IdentityProvidersScenarios.cs" company="Okta, Inc">
+// Copyright (c) 2020 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,6 +14,24 @@ namespace Okta.Sdk.IntegrationTests
 {
     public class IdentityProvidersScenarios
     {
+        public IdentityProvidersScenarios()
+        {
+            DeleteAllIdps().Wait();
+        }
+
+        private async Task DeleteAllIdps()
+        {
+            var client = TestClient.Create();
+            var idps = await client.IdentityProviders.ListIdentityProviders().ToListAsync();
+
+            // Deactivate idps.
+            foreach (var idp in idps)
+            {
+                await client.IdentityProviders.DeactivateIdentityProviderAsync(idp.Id);
+                await client.IdentityProviders.DeleteIdentityProviderAsync(idp.Id);
+            }
+        }
+
         [Fact]
         public async Task AddGenericOidcIdp()
         {
@@ -944,10 +967,10 @@ namespace Okta.Sdk.IntegrationTests
             var idpId = createdIdp.Id;
 
             await createdIdp.DeactivateAsync();
-            await client.IdentityProviders.DeleteIdentityProviderAsync(createdIdp.Id);
+            await client.IdentityProviders.DeleteIdentityProviderAsync(idpId);
 
             // Getting by ID should result in 404 Not found
-            await Assert.ThrowsAsync<OktaApiException>(() => client.Applications.GetApplicationAsync(idpId));
+            await Assert.ThrowsAsync<OktaApiException>(() => client.IdentityProviders.GetIdentityProviderAsync(idpId));
         }
 
         [Fact]
@@ -1084,7 +1107,7 @@ namespace Okta.Sdk.IntegrationTests
             await Assert.ThrowsAsync<OktaApiException>(() => client.IdentityProviders.GetIdentityProviderKeyAsync(kid));
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GenerateSigningKey()
         {
             var client = TestClient.Create();
@@ -1106,7 +1129,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task ListSigningKeys()
         {
             var client = TestClient.Create();
@@ -1133,7 +1156,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GetSigningKey()
         {
             var client = TestClient.Create();
@@ -1156,7 +1179,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task CloneSigningKey()
         {
             var client = TestClient.Create();
@@ -1185,7 +1208,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GenerateCsr()
         {
             var client = TestClient.Create();
@@ -1226,7 +1249,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task RevokeCsr()
         {
             var client = TestClient.Create();
@@ -1271,7 +1294,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GetCsr()
         {
             var client = TestClient.Create();

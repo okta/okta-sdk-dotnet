@@ -297,13 +297,8 @@ const modelMethodSkipList = [
   { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
   { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
   { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
-  { path: 'User.removeRole', reason: 'Add back in alpha2 (#64)' },
-  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.addGroupTargetToRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
   { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
-  //{ path: 'Application.generateApplicationKey', reason: 'Operation is not defined' },
 ];
 
 function shouldSkipModelMethod(fullPath) {

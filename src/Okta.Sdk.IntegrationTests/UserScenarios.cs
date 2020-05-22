@@ -468,20 +468,257 @@ namespace Okta.Sdk.IntegrationTests
                 () => client.Users.GetUserAsync(createdUser.Id));
         }
 
-        [Fact(Skip = "TODO")]
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-        public async Task AssignUserRole()
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        [Fact]
+        public async Task AssignRoleToUser()
         {
-            throw new NotImplementedException();
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(AssignRoleToUser)}",
+                    Email = $"john-{nameof(AssignRoleToUser)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(AssignRoleToUser)}-dotnet-sdk-{guid}@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest()
+                        {
+                            Type = RoleType.SuperAdmin,
+                        });
+
+                var roles = await createdUser.Roles.ToListAsync();
+                roles.FirstOrDefault(x => x.Type == RoleType.SuperAdmin).Should().NotBeNull();
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
         }
 
-        [Fact(Skip = "https://github.com/okta/okta-sdk-dotnet/issues/88")]
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
-        public async Task UserGroupTargetRole()
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
+        [Fact]
+        public async Task ListRoles()
         {
-            throw new NotImplementedException();
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ListRoles)}",
+                    Email = $"john-{nameof(ListRoles)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(ListRoles)}-dotnet-sdk-{guid}@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest()
+                    {
+                        Type = RoleType.SuperAdmin,
+                    });
+
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest()
+                    {
+                        Type = RoleType.AppAdmin,
+                    });
+
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest()
+                    {
+                        Type = RoleType.OrgAdmin,
+                    });
+
+                var roles = await createdUser.Roles.ToListAsync();
+                roles.Count.Should().Be(3);
+                roles.FirstOrDefault(x => x.Type == RoleType.SuperAdmin).Should().NotBeNull();
+                roles.FirstOrDefault(x => x.Type == RoleType.AppAdmin).Should().NotBeNull();
+                roles.FirstOrDefault(x => x.Type == RoleType.OrgAdmin).Should().NotBeNull();
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task RemoveRole()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(RemoveRole)}",
+                    Email = $"john-{nameof(RemoveRole)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(RemoveRole)}-dotnet-sdk-{guid}@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            try
+            {
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest()
+                    {
+                        Type = RoleType.SuperAdmin,
+                    });
+
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest()
+                    {
+                        Type = RoleType.OrgAdmin,
+                    });
+
+                var roles = await createdUser.Roles.ToListAsync();
+                roles.Count.Should().Be(2);
+
+                var role1 = roles.FirstOrDefault(x => x.Type == RoleType.SuperAdmin);
+                var role2 = roles.FirstOrDefault(x => x.Type == RoleType.OrgAdmin);
+
+                await createdUser.RemoveRoleAsync(role1.Id);
+                await createdUser.RemoveRoleAsync(role2.Id);
+
+                roles = await createdUser.Roles.ToListAsync();
+                roles.Count.Should().Be(0);
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ListGroupTargetsForRole()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ListGroupTargetsForRole)}",
+                    Email = $"john-{nameof(ListGroupTargetsForRole)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(ListGroupTargetsForRole)}-dotnet-sdk-{guid}@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdGroup = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(ListGroupTargetsForRole)}-{guid}",
+                Description = $"dotnet-sdk:{nameof(ListGroupTargetsForRole)}-{guid}",
+            });
+
+            try
+            {
+                var role = await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest
+                    {
+                        Type = RoleType.UserAdmin,
+                    });
+
+                await createdUser.AddGroupTargetToRoleAsync(role.Id, createdGroup.Id);
+
+                var retrievedGroupsForRole = await createdUser.ListGroupTargetsForRole(role.Id).ToListAsync();
+                retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup.Id);
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                await createdGroup.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task RemoveGroupTargetFromRole()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(RemoveGroupTargetFromRole)}",
+                    Email = $"john-{nameof(RemoveGroupTargetFromRole)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-{nameof(RemoveGroupTargetFromRole)}-dotnet-sdk-{guid}@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            var createdGroup1 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(RemoveGroupTargetFromRole)}1-{guid}",
+                Description = $"dotnet-sdk:{nameof(RemoveGroupTargetFromRole)}1-{guid}",
+            });
+
+            var createdGroup2 = await client.Groups.CreateGroupAsync(new CreateGroupOptions
+            {
+                Name = $"dotnet-sdk:{nameof(RemoveGroupTargetFromRole)}2-{guid}",
+                Description = $"dotnet-sdk:{nameof(RemoveGroupTargetFromRole)}2-{guid}",
+            });
+
+            try
+            {
+                var role = await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest
+                    {
+                        Type = RoleType.UserAdmin,
+                    });
+
+                // Need 2 groups, because if you remove the last one it throws an (expected) exception.
+                await createdUser.AddGroupTargetToRoleAsync(role.Id, createdGroup1.Id);
+                await createdUser.AddGroupTargetToRoleAsync(role.Id, createdGroup2.Id);
+
+                var retrievedGroupsForRole = await createdUser.ListGroupTargetsForRole(role.Id).ToListAsync();
+                retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup1.Id);
+                retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup2.Id);
+
+                await createdUser.RemoveGroupTargetFromRoleAsync(role.Id, createdGroup1.Id);
+
+                retrievedGroupsForRole = await createdUser.ListGroupTargetsForRole(role.Id).ToListAsync();
+                retrievedGroupsForRole.Should().NotContain(x => x.Id == createdGroup1.Id);
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+                await createdGroup1.DeleteAsync();
+                await createdGroup2.DeleteAsync();
+            }
         }
     }
 }
