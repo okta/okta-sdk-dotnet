@@ -122,51 +122,51 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        //[Fact]
-        //public async Task ReplaceUserType()
-        //{
-        //    var testClient = TestClient.Create();
-        //    var testDescription = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test Description";
-        //    var testDisplayName = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test DisplayName";
-        //    var testName = $"{SdkPrefix}_{nameof(ReplaceUserType)}_TestUserType_{TestClient.RandomString(6)}";
+        [Fact]
+        public async Task ReplaceUserType()
+        {
+            var testClient = TestClient.Create();
+            var testDescription = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test Description";
+            var testDisplayName = $"{SdkPrefix}:{nameof(ReplaceUserType)} Test DisplayName";
+            var testName = $"{SdkPrefix}_{nameof(ReplaceUserType)}_TestUserType_{TestClient.RandomString(6)}";
 
-        //    var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
-        //    {
-        //        Description = testDescription,
-        //        DisplayName = testDisplayName,
-        //        Name = testName,
-        //    });
+            var createdUserType = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
+            {
+                Description = testDescription,
+                DisplayName = testDisplayName,
+                Name = testName,
+            });
 
-        //    try
-        //    {
-        //        createdUserType.Id.Should().NotBeNullOrEmpty();
+            try
+            {
+                createdUserType.Id.Should().NotBeNullOrEmpty();
 
-        //        var replacedDescription = $"{createdUserType.Description} Repl"; // maximum length is 50
-        //        var replacedDisplayName = $"{createdUserType.DisplayName} Repl";
+                var replacedDescription = $"{createdUserType.Description} Repl"; // maximum length is 50
+                var replacedDisplayName = $"{createdUserType.DisplayName} Repl";
 
-        //        var replacedUserType = await testClient.UserTypes.ReplaceUserTypeAsync(
-        //            new UserType()
-        //            {
-        //                Description = replacedDescription,
-        //                DisplayName = replacedDisplayName,
-        //                Name = testName,
-        //            }, createdUserType.Id);
+                var replacedUserType = await testClient.UserTypes.ReplaceUserTypeAsync(
+                    new UserType()
+                    {
+                        Description = replacedDescription,
+                        DisplayName = replacedDisplayName,
+                        Name = testName,
+                    }, createdUserType.Id);
 
-        //        replacedUserType.Id.Should().Be(createdUserType.Id);
-        //        replacedUserType.Description.Should().Be(replacedDescription);
-        //        replacedUserType.DisplayName.Should().Be(replacedDisplayName);
-        //        replacedUserType.Name.Should().Be(testName);
+                replacedUserType.Id.Should().Be(createdUserType.Id);
+                replacedUserType.Description.Should().Be(replacedDescription);
+                replacedUserType.DisplayName.Should().Be(replacedDisplayName);
+                replacedUserType.Name.Should().Be(testName);
 
-        //        var retrievedUserTypeForValidation = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
-        //        retrievedUserTypeForValidation.Id.Should().Be(createdUserType.Id);
-        //        retrievedUserTypeForValidation.Description.Should().Be(replacedDescription);
-        //        retrievedUserTypeForValidation.DisplayName.Should().Be(replacedDisplayName);
-        //    }
-        //    finally
-        //    {
-        //        await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
-        //    }
-        //}
+                var retrievedUserTypeForValidation = await testClient.UserTypes.GetUserTypeAsync(createdUserType.Id);
+                retrievedUserTypeForValidation.Id.Should().Be(createdUserType.Id);
+                retrievedUserTypeForValidation.Description.Should().Be(replacedDescription);
+                retrievedUserTypeForValidation.DisplayName.Should().Be(replacedDisplayName);
+            }
+            finally
+            {
+                await testClient.UserTypes.DeleteUserTypeAsync(createdUserType.Id);
+            }
+        }
 
 
         [Fact]
