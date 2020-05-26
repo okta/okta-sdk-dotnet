@@ -973,7 +973,7 @@ namespace Okta.Sdk.IntegrationTests
             await Assert.ThrowsAsync<OktaApiException>(() => client.IdentityProviders.GetIdentityProviderAsync(idpId));
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task CreateKey()
         {
             var client = TestClient.Create();
@@ -1007,7 +1007,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task GetKey()
         {
             var client = TestClient.Create();
@@ -1042,8 +1042,8 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
-        public async Task ListKey()
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
+        public async Task ListKeys()
         {
             var client = TestClient.Create();
             var key = @"MIIDnjCCAoagAwIBAgIGAVG3MN+PMA0GCSqGSIb3DQEBBQUAMIGPMQswCQYDVQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5p
@@ -1077,7 +1077,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task DeleteKey()
         {
             var client = TestClient.Create();
@@ -1423,7 +1423,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Prevent Target count limit exceeded issue. See OKTA-157590.")]
         public async Task AddSamlIdp()
         {
             var client = TestClient.Create();
