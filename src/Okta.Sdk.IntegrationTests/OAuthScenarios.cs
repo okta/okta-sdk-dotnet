@@ -16,7 +16,7 @@ namespace Okta.Sdk.IntegrationTests
 {
     public class OAuthScenarios
     {
-        [Fact]
+        [Fact(Skip = "Investigate collateral errors (404 - CVDType) - OKTA-300462")]
         [Trait("Category", "NoBacon")] // Tests that don't run on internal CI pipeline
         public async Task ListUsers()
         {
