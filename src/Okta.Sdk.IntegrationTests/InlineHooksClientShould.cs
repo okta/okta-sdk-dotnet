@@ -1,4 +1,9 @@
-﻿using System.Collections.Generic;
+﻿// <copyright file="InlineHooksClientShould.cs" company="Okta, Inc">
+// Copyright (c) 2020 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -442,7 +447,7 @@ namespace Okta.Sdk.IntegrationTests
                 var retrievedInlineHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
                 retrievedInlineHook.Status.Should().Be("INACTIVE");
 
-                testClient.InlineHooks.ActivateInlineHookAsync(createdInlineHook.Id);
+                await testClient.InlineHooks.ActivateInlineHookAsync(createdInlineHook.Id);
                 var reactivatedInlineHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
                 reactivatedInlineHook.Status.Should().Be("ACTIVE");
             }
