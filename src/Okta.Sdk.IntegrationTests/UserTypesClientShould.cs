@@ -168,7 +168,6 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-
         [Fact]
         public async Task DeleteUserTypeById()
         {
@@ -196,15 +195,11 @@ namespace Okta.Sdk.IntegrationTests
             ex.StatusCode.Should().Be(404);
         }
 
-        [Fact(Skip="Investigate collateral errors (404 - CVDType")]
+        [Fact(Skip="Investigate collateral errors (404 - CVDType) - OKTA-300462")]
         public async Task ListAllUserTypes()
         {
             var testClient = TestClient.Create();
-            var existingUserTypeIds = new HashSet<string>();
-            foreach (IUserType existingUserType in await testClient.UserTypes.ListUserTypes().ToListAsync())
-            {
-                existingUserTypeIds.Add(existingUserType.Id);
-            }
+            var existingUserTypeIds = await testClient.UserTypes.ListUserTypes().Select(ut => ut.Id).ToHashSetAsync();
 
             var createdUserType1 = await testClient.UserTypes.CreateUserTypeAsync(new UserType()
             {

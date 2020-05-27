@@ -103,11 +103,6 @@ namespace Okta.Sdk
             => GetClient().IdentityProviders.GetIdentityProviderSigningKeyAsync(Id, keyId, cancellationToken);
         
         /// <inheritdoc />
-        public Task DeleteSigningKeyAsync(
-            string keyId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().IdentityProviders.DeleteIdentityProviderKeyAsync(keyId, cancellationToken);
-        
-        /// <inheritdoc />
         public Task<IJsonWebKey> CloneKeyAsync(
             string keyId, string targetIdpId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().IdentityProviders.CloneIdentityProviderKeyAsync(Id, keyId, targetIdpId, cancellationToken);
