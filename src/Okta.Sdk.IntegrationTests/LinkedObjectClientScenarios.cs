@@ -215,40 +215,5 @@ namespace Okta.Sdk.IntegrationTests
             await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(
                 createdLinkedObjectDefinition2.Primary.Name);
         }
-
-        [Fact]
-        public async Task DeleteLinkedObjectDefinition()
-        {
-            var testClient = TestClient.Create();
-            var randomString = TestClient.RandomString(6);
-            var testPrimaryName = $"{SdkPrefix}_{nameof(DeleteLinkedObjectDefinition)}_primary_{randomString}";
-            var testAssociatedName = $"{SdkPrefix}_{nameof(DeleteLinkedObjectDefinition)}_associated_{randomString}";
-
-            var createdLinkedObjectDefinition = await testClient.LinkedObjects.AddLinkedObjectDefinitionAsync(
-                new LinkedObject
-                {
-                    Primary = new LinkedObjectDetails
-                    {
-                        Name = testPrimaryName,
-                        Title = "Primary",
-                        Description = "Primary link property",
-                        Type = "USER",
-                    },
-                    Associated = new LinkedObjectDetails
-                    {
-                        Name = testAssociatedName,
-                        Title = "Associated",
-                        Description = "Associated link property",
-                        Type = "USER",
-                    },
-                });
-
-            var retrievedLinkedObjectDefinition = await testClient.LinkedObjects.GetLinkedObjectDefinitionAsync(testAssociatedName);
-            retrievedLinkedObjectDefinition.Should().NotBeNull();
-            await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(testPrimaryName);
-            var ex = await Assert.ThrowsAsync<OktaApiException>(() =>
-                testClient.LinkedObjects.GetLinkedObjectDefinitionAsync(testPrimaryName));
-            ex.StatusCode.Should().Be(404);
-        }
     }
 }
