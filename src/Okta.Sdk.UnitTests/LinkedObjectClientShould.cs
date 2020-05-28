@@ -13,7 +13,7 @@ namespace Okta.Sdk.UnitTests
     public class LinkedObjectClientShould
     {
         private const string SdkPrefix = "dotnet_sdk";
-        
+
         [Fact]
         public async Task CallDeleteEndpoint()
         {
@@ -29,7 +29,7 @@ namespace Okta.Sdk.UnitTests
                 .Returns(Task.FromResult(mockResponse));
 
             await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(testPrimaryName);
-            mockRequestExecutor.Received(1).DeleteAsync(endPoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>());
+            _ = await mockRequestExecutor.Received(1).DeleteAsync(endPoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>());
         }
     }
 }
