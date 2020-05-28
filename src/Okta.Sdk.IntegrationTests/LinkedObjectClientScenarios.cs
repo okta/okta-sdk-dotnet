@@ -61,12 +61,12 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task GetLinkedObjectByPrimaryName()
+        public async Task GetLinkedObjectDefinitionByPrimaryName()
         {
             var testClient = TestClient.Create();
             var randomString = TestClient.RandomString(6);
-            var testPrimaryName = $"{SdkPrefix}_{nameof(GetLinkedObjectByPrimaryName)}_primary_{randomString}";
-            var testAssociatedName = $"{SdkPrefix}_{nameof(GetLinkedObjectByPrimaryName)}_associated_{randomString}";
+            var testPrimaryName = $"{SdkPrefix}_{nameof(GetLinkedObjectDefinitionByPrimaryName)}_primary_{randomString}";
+            var testAssociatedName = $"{SdkPrefix}_{nameof(GetLinkedObjectDefinitionByPrimaryName)}_associated_{randomString}";
 
             var createdLinkedObjectDefinition = await testClient.LinkedObjects.AddLinkedObjectDefinitionAsync(
                 new LinkedObject
@@ -108,12 +108,12 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task GetLinkedObjectByAssociatedName()
+        public async Task GetLinkedObjectDefinitionByAssociatedName()
         {
             var testClient = TestClient.Create();
             var randomString = TestClient.RandomString(6);
-            var testPrimaryName = $"{SdkPrefix}_{nameof(GetLinkedObjectByAssociatedName)}_primary_{randomString}";
-            var testAssociatedName = $"{SdkPrefix}_{nameof(GetLinkedObjectByAssociatedName)}_associated_{randomString}";
+            var testPrimaryName = $"{SdkPrefix}_{nameof(GetLinkedObjectDefinitionByAssociatedName)}_primary_{randomString}";
+            var testAssociatedName = $"{SdkPrefix}_{nameof(GetLinkedObjectDefinitionByAssociatedName)}_associated_{randomString}";
 
             var createdLinkedObjectDefinition = await testClient.LinkedObjects.AddLinkedObjectDefinitionAsync(
                 new LinkedObject
