@@ -199,21 +199,27 @@ namespace Okta.Sdk.IntegrationTests
                     },
                 });
 
-            var allLinkedObjectDefinitions = testClient.LinkedObjects.ListLinkedObjectDefinitions();
-            var allLinkedObjectPrimaryNames =
-                await allLinkedObjectDefinitions.Select(lod => lod.Primary.Name).ToHashSetAsync();
-            var allLinkedObjectAssociatedNames =
-                await allLinkedObjectDefinitions.Select(lod => lod.Associated.Name).ToHashSetAsync();
+            try
+            {
 
-            Assert.Contains(createdLinkedObjectDefinition1.Primary.Name, allLinkedObjectPrimaryNames);
-            Assert.Contains(createdLinkedObjectDefinition2.Primary.Name, allLinkedObjectPrimaryNames);
-            Assert.Contains(createdLinkedObjectDefinition1.Associated.Name, allLinkedObjectAssociatedNames);
-            Assert.Contains(createdLinkedObjectDefinition2.Associated.Name, allLinkedObjectAssociatedNames);
+                var allLinkedObjectDefinitions = testClient.LinkedObjects.ListLinkedObjectDefinitions();
+                var allLinkedObjectPrimaryNames =
+                    await allLinkedObjectDefinitions.Select(lod => lod.Primary.Name).ToHashSetAsync();
+                var allLinkedObjectAssociatedNames =
+                    await allLinkedObjectDefinitions.Select(lod => lod.Associated.Name).ToHashSetAsync();
 
-            await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(
-                createdLinkedObjectDefinition1.Primary.Name);
-            await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(
-                createdLinkedObjectDefinition2.Primary.Name);
+                Assert.Contains(createdLinkedObjectDefinition1.Primary.Name, allLinkedObjectPrimaryNames);
+                Assert.Contains(createdLinkedObjectDefinition2.Primary.Name, allLinkedObjectPrimaryNames);
+                Assert.Contains(createdLinkedObjectDefinition1.Associated.Name, allLinkedObjectAssociatedNames);
+                Assert.Contains(createdLinkedObjectDefinition2.Associated.Name, allLinkedObjectAssociatedNames);
+            }
+            finally
+            {
+                await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(
+                    createdLinkedObjectDefinition1.Primary.Name);
+                await testClient.LinkedObjects.DeleteLinkedObjectDefinitionAsync(
+                    createdLinkedObjectDefinition2.Primary.Name);
+            }
         }
     }
 }
