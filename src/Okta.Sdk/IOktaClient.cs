@@ -114,6 +114,14 @@ namespace Okta.Sdk
         IInlineHooksClient InlineHooks { get; }
 
         /// <summary>
+        /// Gets an <see cref="ILinkedObjectsClient">LinkedObjectsClient</see> that interacts with the Okta Linked Objects API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="ILinkedObjectsClient">LinkedObjectsClient</see> that interacts with the Okta Linked Objects API.
+        /// </value>
+        ILinkedObjectsClient LinkedObjects { get; }
+
+        /// <summary>
         /// Gets a <see cref="IFeaturesClient">FeaturesClient</see> that interacts with the Okta Features API.
         /// </summary>
         /// <value>
