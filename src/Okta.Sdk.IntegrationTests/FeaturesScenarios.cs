@@ -3,7 +3,6 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -34,28 +33,6 @@ namespace Okta.Sdk.IntegrationTests
             retrievedFeature.Id.Should().Be(feature.Id);
             retrievedFeature.Name.Should().Be(feature.Name);
             retrievedFeature.Description.Should().Be(feature.Description);
-        }
-
-        [Fact]
-        public async Task GetDependencies()
-        {
-            var client = TestClient.Create();
-            var knownFeatureId = "ftrygtN0AtAqTxM5B4X9"; // Allow end-users to quickly access everyday apps in the Okta Browser Plugin
-            var dependencies = await client.Features.ListFeatureDependencies(knownFeatureId).ToListAsync();
-
-            dependencies.Should().NotBeNull();
-            dependencies.Count.Should().BeGreaterThan(0);
-        }
-
-        [Fact]
-        public async Task GetDependents()
-        {
-            var client = TestClient.Create();
-            var knownFeatureId = "ftrFDVSQ9wBWPnDqohOS"; // Allow end-users to quickly access everyday apps
-            var dependents = await client.Features.ListFeatureDependents(knownFeatureId).ToListAsync();
-
-            dependents.Should().NotBeNull();
-            dependents.Count.Should().BeGreaterThan(0);
         }
     }
 }
