@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using FluentAssertions;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -43,7 +44,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             var mockResponse = Substitute.For<HttpResponse<string>>();
             mockResponse.Payload =
-                "[{\"Description\":null,\"Id\":null,\"Name\":\"TestFeature\",\"Stage\":{\"State\":null,\"Value\":null},\"Status\":null,\"Type\":null}]";
+                "[{\"Description\":null,\"Id\":null,\"name\":\"TestFeature\",\"Stage\":{\"State\":null,\"Value\":null},\"Status\":null,\"Type\":null}]";
             mockResponse.StatusCode = 200;
             _ = mockRequestExecutor
                 .GetAsync(dependenciesEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>())
@@ -51,7 +52,8 @@ namespace Okta.Sdk.UnitTests
 
             var testClient = new TestableOktaClient(mockRequestExecutor);
 
-            _ = await testClient.Features.ListFeatureDependencies(featureId).ToListAsync();
+            var retrievedDependencies = await testClient.Features.ListFeatureDependencies(featureId).ToListAsync();
+            retrievedDependencies.FirstOrDefault().Name.Should().Be("TestFeature");
             _ = await mockRequestExecutor
                 .Received(1)
                 .GetAsync(dependenciesEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>());
@@ -65,7 +67,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             var mockResponse = Substitute.For<HttpResponse<string>>();
             mockResponse.Payload =
-                "[{\"Description\":null,\"Id\":null,\"Name\":\"TestFeature\",\"Stage\":{\"State\":null,\"Value\":null},\"Status\":null,\"Type\":null}]";
+                "[{\"Description\":null,\"Id\":null,\"name\":\"TestFeature\",\"Stage\":{\"State\":null,\"Value\":null},\"Status\":null,\"Type\":null}]";
             mockResponse.StatusCode = 200;
             _ = mockRequestExecutor
                 .GetAsync(dependentsEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>())
@@ -73,7 +75,8 @@ namespace Okta.Sdk.UnitTests
 
             var testClient = new TestableOktaClient(mockRequestExecutor);
 
-            _ = await testClient.Features.ListFeatureDependents(featureId).ToListAsync();
+            var retrievedDependents = await testClient.Features.ListFeatureDependents(featureId).ToListAsync();
+            retrievedDependents.FirstOrDefault().Name.Should().Be("TestFeature");
             _ = await mockRequestExecutor.Received(1)
                 .GetAsync(dependentsEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>());
         }
