@@ -26,7 +26,7 @@ namespace Okta.Sdk.IntegrationTests
         public async Task GetFeatureById()
         {
             var client = TestClient.Create();
-            var feature = (await client.Features.ListFeatures().ToListAsync()).FirstOrDefault();
+            var feature = await client.Features.ListFeatures().FirstOrDefaultAsync();
             feature.Should().NotBeNull();
 
             var retrievedFeature = await client.Features.GetFeatureAsync(feature.Id);
