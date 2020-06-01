@@ -21,7 +21,7 @@ namespace Okta.Sdk.UnitTests
             mockResponse.StatusCode = 200;
             mockRequestExecutor.PostAsync(verifyEndpoint,
                 Arg.Any<Dictionary<string, string>>(), null, Arg.Any<CancellationToken>()).Returns(Task.FromResult(mockResponse));
-            
+
             var testClient = new TestableOktaClient(mockRequestExecutor);
 
             await testClient.EventHooks.VerifyEventHookAsync(testEventHookId);
