@@ -11,7 +11,7 @@ using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    public class InlineHooksClientShould
+    public class InlineHooksClientScenarios
     {
         private const string SdkPrefix = "dotnet_sdk";
 

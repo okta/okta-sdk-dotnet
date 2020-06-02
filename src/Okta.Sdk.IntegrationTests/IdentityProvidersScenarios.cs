@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
@@ -899,6 +900,8 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdIdp = await client.IdentityProviders.CreateIdentityProviderAsync(idp);
             createdIdp.Name = $"dotnet-sdk:UpdateIdp{randomSuffix}-upd";
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
 
             try
             {

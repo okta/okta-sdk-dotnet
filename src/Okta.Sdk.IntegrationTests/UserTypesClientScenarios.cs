@@ -6,13 +6,14 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    public class UserTypesClientShould
+    public class UserTypesClientScenarios
     {
         private const string SdkPrefix = "dotnet_sdk";
 
@@ -195,7 +196,7 @@ namespace Okta.Sdk.IntegrationTests
             ex.StatusCode.Should().Be(404);
         }
 
-        [Fact(Skip="Investigate collateral errors (404 - CVDType) - OKTA-300462")]
+        [Fact]
         public async Task ListAllUserTypes()
         {
             var testClient = TestClient.Create();
@@ -213,6 +214,8 @@ namespace Okta.Sdk.IntegrationTests
                 DisplayName = $"{nameof(ListAllUserTypes)} Test DisplayName (2)",
                 Name = $"{nameof(ListAllUserTypes)}_TestUserType_2_{TestClient.RandomString(6)}",
             });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
 
             try
             {

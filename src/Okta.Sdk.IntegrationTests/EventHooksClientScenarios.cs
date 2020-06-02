@@ -12,7 +12,7 @@ using Xunit.Sdk;
 
 namespace Okta.Sdk.IntegrationTests
 {
-    public class EventHooksClientShould
+    public class EventHooksClientScenarios
     {
         private const string SdkPrefix = "dotnet_sdk";
         private const string EventType = "EVENT_TYPE";
