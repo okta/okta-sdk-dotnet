@@ -91,7 +91,7 @@ namespace Okta.Sdk
         Task<IIdentityProvider> UpdateIdentityProviderAsync(IIdentityProvider identityProvider, string idpId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Enumerates signing CSRs for an IdP
+        /// Enumerates Certificate Signing Requests for an IdP
         /// </summary>
         /// <param name="idpId"></param>
         /// <returns>A collection of <see cref="ICsr"/> that can be enumerated asynchronously.</returns>
@@ -107,7 +107,7 @@ namespace Okta.Sdk
         Task<ICsr> GenerateCsrForIdentityProviderAsync(ICsrMetadata metadata, string idpId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Revoke a CSR and delete the key pair from the IdP
+        /// Revoke a Certificate Signing Request and delete the key pair from the IdP
         /// </summary>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
@@ -116,7 +116,7 @@ namespace Okta.Sdk
         Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Gets a specific CSR model by id
+        /// Gets a specific Certificate Signing Request model by id
         /// </summary>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
@@ -125,7 +125,7 @@ namespace Okta.Sdk
         Task<ICsr> GetCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Update the CSR with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <param name="certificate">The <see cref="string"/> resource.</param>
         /// <param name="idpId"></param>
@@ -135,7 +135,7 @@ namespace Okta.Sdk
         Task<IJsonWebKey> PublishCerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Update the CSR with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
         /// <param name="idpId"></param>
@@ -145,7 +145,7 @@ namespace Okta.Sdk
         Task<IJsonWebKey> PublishBinaryCerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Update the CSR with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <param name="certificate">The <see cref="string"/> resource.</param>
         /// <param name="idpId"></param>
@@ -155,7 +155,7 @@ namespace Okta.Sdk
         Task<IJsonWebKey> PublishDerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Update the CSR with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
         /// <param name="idpId"></param>
@@ -165,7 +165,7 @@ namespace Okta.Sdk
         Task<IJsonWebKey> PublishBinaryDerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Update the CSR with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
         /// <param name="idpId"></param>
