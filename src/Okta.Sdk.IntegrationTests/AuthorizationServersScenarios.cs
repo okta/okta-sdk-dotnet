@@ -273,10 +273,10 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
-            var createdPolicy = await testClient.AuthorizationServers.CreateAuthorizationServerPolicyAsync(testPolicy, createdAuthorizationServer.Id);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
             try
             {
-                var policies = await testClient.AuthorizationServers.ListAuthorizationServerPolicies(createdAuthorizationServer.Id).ToListAsync();
+                var policies = await createdAuthorizationServer.ListPolicies().ToListAsync();
                 policies.Should().NotBeNull();
                 policies.Count.Should().BeGreaterThan(0);
                 policies.Select(p => p.Id).ToHashSet().Should().Contain(createdPolicy.Id);
@@ -324,7 +324,7 @@ namespace Okta.Sdk.IntegrationTests
                 createdAuthorizationServer.Should().NotBeNull();
                 createdPolicy.Should().NotBeNull();
 
-                var retrievedPolicy = await testClient.AuthorizationServers.GetAuthorizationServerPolicyAsync(createdAuthorizationServer.Id, createdPolicy.Id);
+                var retrievedPolicy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
                 retrievedPolicy.Should().NotBeNull();
                 retrievedPolicy.Id.Should().Be(createdPolicy.Id);
                 retrievedPolicy.Name.Should().Be(createdPolicy.Name);
@@ -421,7 +421,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 updatedPolicy.Should().NotBeNull();
                 updatedPolicy.Name.Should().Be($"{SdkPrefix}:Test Policy Updated");
-                updatedPolicy.Description.Should().Be( "Test policy description updated");
+                updatedPolicy.Description.Should().Be("Test policy description updated");
             }
             finally
             {
@@ -498,7 +498,7 @@ namespace Okta.Sdk.IntegrationTests
             var createdOAuthScope = await createdAuthorizationServer.CreateOAuth2ScopeAsync(testOAuthScope);
             try
             {
-                var allAuthorizationServerScopes = await testClient.AuthorizationServers.ListOAuth2Scopes(createdAuthorizationServer.Id).ToListAsync();
+                var allAuthorizationServerScopes = await createdAuthorizationServer.ListOAuth2Scopes().ToListAsync();
                 allAuthorizationServerScopes.Should().NotBeNull();
                 allAuthorizationServerScopes.Count.Should().BeGreaterThan(0);
                 allAuthorizationServerScopes.Select(scope => scope.Id).ToHashSet().Should().Contain(createdOAuthScope.Id);
@@ -806,7 +806,7 @@ namespace Okta.Sdk.IntegrationTests
                 createdAuthorizationServer.Should().NotBeNull();
                 createdOAuthClaim.Should().NotBeNull();
                 createdOAuthClaim.Name.Should().Be(testOAuthClaim.Name);
-                var updatedOAuthScope = await testClient.AuthorizationServers.UpdateOAuth2ClaimAsync(testUpdatedOAuthClaim, createdAuthorizationServer.Id, createdOAuthClaim.Id);
+                var updatedOAuthScope = await createdAuthorizationServer.UpdateOAuth2ClaimAsync(testUpdatedOAuthClaim, createdOAuthClaim.Id);
                 updatedOAuthScope.Should().NotBeNull();
                 updatedOAuthScope.Name.Should().Be(testUpdatedOAuthClaim.Name);
             }
@@ -902,9 +902,17 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
 
-            var keys = await createdAuthorizationServer.RotateKeys(new JwkUse()).ToListAsync();
-            keys.Should().NotBeNull();
-            keys.Count.Should().BeGreaterThan(0);
+            try
+            {
+                var keys = await createdAuthorizationServer.RotateKeys(new JwkUse()).ToListAsync();
+                keys.Should().NotBeNull();
+                keys.Count.Should().BeGreaterThan(0);
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
         }
     }
 }
