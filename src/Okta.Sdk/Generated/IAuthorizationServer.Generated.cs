@@ -42,7 +42,7 @@ namespace Okta.Sdk
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeleteOAuth2ClaimAsync(
-            CancellationToken cancellationToken = default(CancellationToken));
+            string claimId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IOAuth2Claim> GetOAuth2ClaimAsync(
             string claimId, CancellationToken cancellationToken = default(CancellationToken));
@@ -84,7 +84,7 @@ namespace Okta.Sdk
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeletePolicyAsync(
-            CancellationToken cancellationToken = default(CancellationToken));
+            string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IPolicy> GetPolicyAsync(
             string policyId, CancellationToken cancellationToken = default(CancellationToken));

@@ -63,7 +63,7 @@ namespace Okta.Sdk
         Task<IApplication> UpdateApplicationAsync(IApplication application, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Enumerates CSRs for an application
+        /// Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <param name="appId"></param>
         /// <returns>A collection of <see cref="ICsr"/> that can be enumerated asynchronously.</returns>

@@ -86,8 +86,8 @@ namespace Okta.Sdk
         
         /// <inheritdoc />
         public Task DeleteOAuth2ClaimAsync(
-            CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().AuthorizationServers.DeleteOAuth2ClaimAsync(Id, Id, cancellationToken);
+            string claimId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.DeleteOAuth2ClaimAsync(Id, claimId, cancellationToken);
         
         /// <inheritdoc />
         public Task<IOAuth2Claim> GetOAuth2ClaimAsync(
@@ -156,8 +156,8 @@ namespace Okta.Sdk
         
         /// <inheritdoc />
         public Task DeletePolicyAsync(
-            CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().AuthorizationServers.DeleteAuthorizationServerPolicyAsync(Id, Id, cancellationToken);
+            string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.DeleteAuthorizationServerPolicyAsync(Id, policyId, cancellationToken);
         
         /// <inheritdoc />
         public Task<IPolicy> GetPolicyAsync(
