@@ -126,6 +126,7 @@ const enumErrata = [
   { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
   { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
   { path: 'FactorType.webauthn', rename: 'webAuthentication', renameReason: 'Legibility' },
+  { path: 'PolicyType.oauthAuthorizationPolicy', rename: 'oAuthAuthorizationPolicy', renameReason: 'Convention' },
 ];
 
 const modelErrata = [

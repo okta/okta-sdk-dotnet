@@ -258,7 +258,7 @@ namespace Okta.Sdk.IntegrationTests
             };
             var testPolicy = new Policy
             {
-                Type = PolicyType.OauthAuthorizationPolicy,
+                Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
                 Name = "Test Policy",
                 Description = "Test policy",
@@ -303,7 +303,7 @@ namespace Okta.Sdk.IntegrationTests
             };
             var testPolicy = new Policy
             {
-                Type = PolicyType.OauthAuthorizationPolicy,
+                Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
                 Name = "Test Policy",
                 Description = "Test policy",
@@ -352,7 +352,7 @@ namespace Okta.Sdk.IntegrationTests
             };
             var testPolicy = new Policy
             {
-                Type = PolicyType.OauthAuthorizationPolicy,
+                Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
                 Name = "Test Policy",
                 Description = "Test policy",
@@ -398,7 +398,7 @@ namespace Okta.Sdk.IntegrationTests
             var testPolicy = new OAuthAuthorizationPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
-                Type = PolicyType.OauthAuthorizationPolicy,
+                Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
                 Description = "Test policy",
                 Priority = 1,
@@ -446,7 +446,7 @@ namespace Okta.Sdk.IntegrationTests
             var testPolicy = new OAuthAuthorizationPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
-                Type = PolicyType.OauthAuthorizationPolicy,
+                Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
                 Description = "Test policy",
                 Priority = 1,
