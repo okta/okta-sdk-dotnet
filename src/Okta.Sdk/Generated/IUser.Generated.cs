@@ -63,6 +63,12 @@ namespace Okta.Sdk
         Task AddGroupTargetToRoleAsync(
             string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
+        ICollectionClient<IRole> ListAssignedRoles(
+            string expand = null);
+
+        Task AddAllAppsAsTargetToRoleAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken));
+
         ICollectionClient<IOAuth2ScopeConsentGrant> ListGrants(
             string scopeId = null, string expand = null, string after = null, int? limit = 20);
 
@@ -108,6 +114,9 @@ namespace Okta.Sdk
         Task<IUser> ExpirePasswordAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
+        Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
         Task UnlockAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
@@ -143,6 +152,12 @@ namespace Okta.Sdk
 
         ICollectionClient<IResponseLinks> GetLinkedObjects(
             string relationshipName, string after = null, int? limit = -1);
+
+        Task ClearSessionsAsync(
+            bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RemoveLinkedObjectAsync(
+            string relationshipName, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

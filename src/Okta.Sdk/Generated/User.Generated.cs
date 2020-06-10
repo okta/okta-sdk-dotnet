@@ -105,6 +105,16 @@ namespace Okta.Sdk
             => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
         
         /// <inheritdoc />
+        public ICollectionClient<IRole> ListAssignedRoles(
+            string expand = null)
+            => GetClient().Users.ListAssignedRolesForUser(Id, expand);
+        
+        /// <inheritdoc />
+        public Task AddAllAppsAsTargetToRoleAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.AddAllAppsAsTargetToRoleAsync(Id, roleId, cancellationToken);
+        
+        /// <inheritdoc />
         public ICollectionClient<IOAuth2ScopeConsentGrant> ListGrants(
             string scopeId = null, string expand = null, string after = null, int? limit = 20)
             => GetClient().Users.ListUserGrants(Id, scopeId, expand, after, limit);
@@ -180,6 +190,11 @@ namespace Okta.Sdk
             => GetClient().Users.ExpirePasswordAsync(Id, cancellationToken);
         
         /// <inheritdoc />
+        public Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ExpirePasswordAndGetTemporaryPasswordAsync(Id, cancellationToken);
+        
+        /// <inheritdoc />
         public Task UnlockAsync(
             CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.UnlockUserAsync(Id, cancellationToken);
@@ -238,6 +253,16 @@ namespace Okta.Sdk
         public ICollectionClient<IResponseLinks> GetLinkedObjects(
             string relationshipName, string after = null, int? limit = -1)
             => GetClient().Users.GetLinkedObjectsForUser(Id, relationshipName, after, limit);
+        
+        /// <inheritdoc />
+        public Task ClearSessionsAsync(
+            bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ClearUserSessionsAsync(Id, oauthTokens, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task RemoveLinkedObjectAsync(
+            string relationshipName, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.RemoveLinkedObjectForUserAsync(Id, relationshipName, cancellationToken);
         
     }
 }

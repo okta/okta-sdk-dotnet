@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -123,6 +124,246 @@ namespace Okta.Sdk.UnitTests
             await client.Users.RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync("foo", "bar", "baz");
 
             mockRequestExecutor.ReceivedHref.Should().StartWith("/api/v1/users/foo/roles/bar/targets/catalog/apps/baz");
+        }
+
+        [Fact]
+        public async Task RevokeGrantsForUserAndClient()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Users.RevokeGrantsForUserAndClientAsync("foo", "bar");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/grants");
+        }
+
+        [Fact]
+        public async Task ListGrantsForUserAndClient()
+        {
+            var rawResponse = @"[
+                                  {
+                                    ""id"": ""oar579Mcp7OUsNTlo0g3"",
+                                    ""status"": ""ACTIVE"",
+                                    ""created"": ""2018-03-09T03:18:06.000Z"",
+                                    ""lastUpdated"": ""2018-03-09T03:18:06.000Z"",
+                                    ""expiresAt"": ""2018-03-16T03:18:06.000Z"",
+                                    ""issuer"": ""https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7"",
+                                    ""clientId"": ""0oabskvc6442nkvQO0h7"",
+                                    ""userId"": ""00u5t60iloOHN9pBi0h7"",
+                                    ""scopes"": [
+                                      ""offline_access"",
+                                      ""car:drive""
+                                    ],
+                                    ""_links"": {
+                                      ""app"": {
+                                        ""href"": ""https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7"",
+                                        ""title"": ""Native""
+                                      },
+                                      ""self"": {
+                                        ""href"": ""https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3""
+                                      },
+                                      ""revoke"": {
+                                        ""href"": ""https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"",
+                                        ""hints"": {
+                                          ""allow"": [
+                                            ""DELETE""
+                                          ]
+                                        }
+                                      },
+                                      ""client"": {
+                                        ""href"": ""https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7"",
+                                        ""title"": ""Example Client App""
+                                      },
+                                      ""user"": {
+                                        ""href"": ""https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3"",
+                                        ""title"": ""Saml Jackson""
+                                      },
+                                      ""authorizationServer"": {
+                                        ""href"": ""https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7"",
+                                        ""title"": ""Example Authorization Server""
+                                      }
+                                    }
+                                  }
+                                ]";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Users.ListGrantsForUserAndClient("foo", "bar").ToListAsync();
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/grants?limit=20");
+        }
+
+        [Fact]
+        public async Task RevokeTokenForUserAndClient()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Users.RevokeTokenForUserAndClientAsync("foo", "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/tokens/baz");
+        }
+
+        [Fact]
+        public async Task ListRefreshTokensForUserAndClient()
+        {
+          var rawResponse = @"[
+                                {
+                                  ""id"": ""oar579Mcp7OUsNTlo0g3"",
+                                  ""status"": ""ACTIVE"",
+                                  ""created"": ""2018-03-09T03:18:06.000Z"",
+                                  ""lastUpdated"": ""2018-03-09T03:18:06.000Z"",
+                                  ""expiresAt"": ""2018-03-16T03:18:06.000Z"",
+                                  ""issuer"": ""https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7"",
+                                  ""clientId"": ""0oabskvc6442nkvQO0h7"",
+                                  ""userId"": ""00u5t60iloOHN9pBi0h7"",
+                                  ""scopes"": [
+                                    ""offline_access"",
+                                    ""car:drive""
+                                  ],
+                                  ""_links"": {
+                                    ""app"": {
+                                      ""href"": ""https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7"",
+                                      ""title"": ""Native""
+                                    },
+                                    ""self"": {
+                                      ""href"": ""https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3""
+                                    },
+                                    ""revoke"": {
+                                      ""href"": ""https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"",
+                                      ""hints"": {
+                                        ""allow"": [
+                                          ""DELETE""
+                                        ]
+                                      }
+                                    },
+                                    ""client"": {
+                                      ""href"": ""https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7"",
+                                      ""title"": ""Example Client App""
+                                    },
+                                    ""user"": {
+                                      ""href"": ""https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3"",
+                                      ""title"": ""Saml Jackson""
+                                    },
+                                    ""authorizationServer"": {
+                                      ""href"": ""https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7"",
+                                      ""title"": ""Example Authorization Server""
+                                    }
+                                  }
+                                }
+                              ]";
+          var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+          var client = new TestableOktaClient(mockRequestExecutor);
+          await client.Users.ListRefreshTokensForUserAndClient("foo", "bar").ToListAsync();
+
+          mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/tokens?limit=20");
+        }
+
+        [Fact]
+        public async Task GetRefreshTokenForUserAndClient()
+        {
+          var rawResponse = @"{
+                                ""id"": ""oar579Mcp7OUsNTlo0g3"",
+                                ""status"": ""ACTIVE"",
+                                ""created"": ""2018-03-09T03:18:06.000Z"",
+                                ""lastUpdated"": ""2018-03-09T03:18:06.000Z"",
+                                ""expiresAt"": ""2018-03-16T03:18:06.000Z"",
+                                ""issuer"": ""https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7"",
+                                ""clientId"": ""0oabskvc6442nkvQO0h7"",
+                                ""userId"": ""00u5t60iloOHN9pBi0h7"",
+                                ""scopes"": [
+                                  ""offline_access"",
+                                  ""car:drive""
+                                ],
+                                ""_embedded"": {
+                                  ""scopes"": [
+                                    {
+                                      ""id"": ""scppb56cIl4GvGxy70g3"",
+                                      ""name"": ""offline_access"",
+                                      ""description"": ""Requests a refresh token by default, used to obtain more access tokens without re-prompting the user for authentication."",
+                                      ""_links"": {
+                                        ""scope"": {
+                                          ""href"": ""https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scppb56cIl4GvGxy70g3"",
+                                          ""title"": ""offline_access""
+                                        }
+                                      }
+                                    },
+                                    {
+                                      ""id"": ""scp142iq2J8IGRUCS0g4"",
+                                      ""name"": ""car:drive"",
+                                      ""displayName"": ""Drive car"",
+                                      ""description"": ""Allows the user to drive a car."",
+                                      ""_links"": {
+                                        ""scope"": {
+                                          ""href"": ""https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes/scp142iq2J8IGRUCS0g4"",
+                                          ""title"": ""Drive car""
+                                        }
+                                      }
+                                    }
+                                  ]
+                                },
+                                ""_links"": {
+                                  ""app"": {
+                                    ""href"": ""https://${yourOktaDomain}/api/v1/apps/0oabskvc6442nkvQO0h7"",
+                                    ""title"": ""Native""
+                                  },
+                                  ""self"": {
+                                    ""href"": ""https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3""
+                                  },
+                                  ""revoke"": {
+                                    ""href"": ""https://${yourOktaDomain}/api/v1/users/00u5t60iloOHN9pBi0h7/clients/0oabskvc6442nkvQO0h7/tokens/oar579Mcp7OUsNTlo0g3"",
+                                    ""hints"": {
+                                      ""allow"": [
+                                        ""DELETE""
+                                      ]
+                                    }
+                                  },
+                                  ""client"": {
+                                    ""href"": ""https://${yourOktaDomain}/oauth2/v1/clients/0oabskvc6442nkvQO0h7"",
+                                    ""title"": ""Example Client App""
+                                  },
+                                  ""user"": {
+                                    ""href"": ""https://${yourOktaDomain}/api/v1/users/00upcgi9dyWEOeCwM0g3"",
+                                    ""title"": ""Saml Jackson""
+                                  },
+                                  ""authorizationServer"": {
+                                    ""href"": ""https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7"",
+                                    ""title"": ""Example Authorization Server""
+                                  }
+                                }
+                              }";
+          var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+          var client = new TestableOktaClient(mockRequestExecutor);
+          await client.Users.GetRefreshTokenForUserAndClientAsync("foo", "bar", "baz");
+
+          mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/tokens/baz?limit=20");
+        }
+
+        [Fact]
+        public async Task RevokeUserGrants()
+        {
+          var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+          var client = new TestableOktaClient(mockRequestExecutor);
+          await client.Users.RevokeUserGrantsAsync("foo");
+
+          mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/grants");
+        }
+
+        [Fact]
+        public async Task GetUserGrant()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Users.GetUserGrantAsync("foo", "bar");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/grants/bar?");
+        }
+
+        [Fact]
+        public async Task ReactivateUser() // Difficult to create a user with "PROVISIONED" status; core api requires user in a "PROVISIONED" status in order to reactivate. 
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Users.ReactivateUserAsync("foo");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/lifecycle/reactivate?sendEmail=false");
         }
     }
 }

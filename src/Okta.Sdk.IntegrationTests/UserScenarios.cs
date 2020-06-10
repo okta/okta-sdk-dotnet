@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
@@ -718,6 +719,542 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeactivateOrDeleteAsync();
                 await createdGroup1.DeleteAsync();
                 await createdGroup2.DeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ListUserClients()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ListUserClients)}",
+                    Email = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
+                },
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var userClients = await createdUser.ListClients().ToListAsync();
+                userClients.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ForgotPasswordGenerateOneTimeToken()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ForgotPasswordGenerateOneTimeToken)}",
+                    Email = $"{nameof(ForgotPasswordGenerateOneTimeToken)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ForgotPasswordGenerateOneTimeToken)}-dotnet-sdk-{guid}@example.com",
+                },
+                RecoveryQuestion = "Answer to life, the universe, & everything",
+                RecoveryAnswer = "42 of course",
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var forgotPasswordResponse = await createdUser.ForgotPasswordGenerateOneTimeTokenAsync(false);
+                forgotPasswordResponse.Should().NotBeNull();
+                forgotPasswordResponse.ResetPasswordUrl.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ForgotPasswordSetNewPassword()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ListUserClients)}",
+                    Email = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
+                },
+                RecoveryQuestion = "Answer to life, the universe, & everything",
+                RecoveryAnswer = "42 of course",
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var forgotPasswordResponse = await createdUser.ForgotPasswordSetNewPasswordAsync(
+                    new UserCredentials
+                    {
+                        Password = new PasswordCredential
+                        {
+                            Value = "NewPassword1!",
+                        },
+                        RecoveryQuestion = new RecoveryQuestionCredential
+                        {
+                            Question = "Answer to life, the universe, & everything",
+                            Answer = "42 of course",
+                        },
+                    });
+                forgotPasswordResponse.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ListUserGrants()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ListUserGrants)}",
+                    Email = $"{nameof(ListUserGrants)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ListUserGrants)}-dotnet-sdk-{guid}@example.com",
+                },
+                RecoveryQuestion = "Answer to life, the universe, & everything",
+                RecoveryAnswer = "42 of course",
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var grants = await createdUser.ListGrants().ToListAsync();
+                grants.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ListUserIdentityProviders()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ListUserIdentityProviders)}",
+                    Email = $"{nameof(ListUserIdentityProviders)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ListUserIdentityProviders)}-dotnet-sdk-{guid}@example.com",
+                },
+                RecoveryQuestion = "Answer to life, the universe, & everything",
+                RecoveryAnswer = "42 of course",
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var identityProviders = await createdUser.ListIdentityProviders().ToListAsync();
+                identityProviders.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ExpirePasswordAndGetTemporaryPassword()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ExpirePasswordAndGetTemporaryPassword)}",
+                    Email = $"{nameof(ExpirePasswordAndGetTemporaryPassword)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ExpirePasswordAndGetTemporaryPassword)}-dotnet-sdk-{guid}@example.com",
+                },
+                RecoveryQuestion = "Answer to life, the universe, & everything",
+                RecoveryAnswer = "42 of course",
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var tempPassword = await createdUser.ExpirePasswordAndGetTemporaryPasswordAsync();
+                tempPassword.Should().NotBeNull();
+                tempPassword.Password.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ResetFactors()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = $"{nameof(ResetFactors)}",
+                    Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                },
+                RecoveryQuestion = "Answer to life, the universe, & everything",
+                RecoveryAnswer = "42 of course",
+                Password = "Abcd1234",
+                Activate = true,
+            });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                await createdUser.ResetFactorsAsync();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task GetLinkedObjectForUser()
+        {
+            var client = TestClient.Create();
+            var randomString = TestClient.RandomString(6); // use of guid results in field values that are too long
+
+            var primaryRelationshipName = $"dotnet_sdk_{nameof(GetLinkedObjectForUser)}_primary_{randomString}";
+            var associatedRelationshipName = $"dotnet_sdk_{nameof(GetLinkedObjectForUser)}_associated_{randomString}";
+
+            var createdPrimaryUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John-Primary",
+                        LastName = $"{nameof(GetLinkedObjectForUser)}",
+                        Email = $"{nameof(GetLinkedObjectForUser)}-primary-dotnet-sdk-{randomString}@example.com",
+                        Login = $"{nameof(GetLinkedObjectForUser)}-primary-dotnet-sdk-{randomString}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            var createdAssociatedUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "David-Associated",
+                        LastName = $"{nameof(GetLinkedObjectForUser)}",
+                        Email = $"{nameof(GetLinkedObjectForUser)}-associated-dotnet-sdk-{randomString}@example.com",
+                        Login = $"{nameof(GetLinkedObjectForUser)}-associated-dotnet-sdk-{randomString}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            var createdLinkedObjectDefinition = await client.LinkedObjects.AddLinkedObjectDefinitionAsync(
+                new LinkedObject
+                {
+                    Primary = new LinkedObjectDetails
+                    {
+                        Name = primaryRelationshipName,
+                        Title = "Primary",
+                        Description = "Primary link property",
+                        Type = "USER",
+                    },
+                    Associated = new LinkedObjectDetails
+                    {
+                        Name = associatedRelationshipName,
+                        Title = "Associated",
+                        Description = "Associated link property",
+                        Type = "USER",
+                    },
+                });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                await createdAssociatedUser.SetLinkedObjectAsync(primaryRelationshipName, createdPrimaryUser.Id);
+                var links = await createdAssociatedUser.GetLinkedObjects(primaryRelationshipName).ToListAsync();
+                links.Should().NotBeNull();
+                links.Count.Should().Be(1);
+            }
+            finally
+            {
+                await createdPrimaryUser.DeactivateAsync();
+                await createdPrimaryUser.DeactivateOrDeleteAsync();
+                await createdAssociatedUser.DeactivateAsync();
+                await createdAssociatedUser.DeactivateOrDeleteAsync();
+                await client.LinkedObjects.DeleteLinkedObjectDefinitionAsync(primaryRelationshipName);
+            }
+        }
+
+        [Fact]
+        public async Task RemoveLinkedObjectForUser()
+        {
+            var client = TestClient.Create();
+            var randomString = TestClient.RandomString(6); // use of guid results in field values that are too long
+
+            var primaryRelationshipName = $"dotnet_sdk_{nameof(RemoveLinkedObjectForUser)}_primary_{randomString}";
+            var associatedRelationshipName = $"dotnet_sdk_{nameof(RemoveLinkedObjectForUser)}_associated_{randomString}";
+
+            var createdPrimaryUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John-Primary",
+                        LastName = $"{nameof(RemoveLinkedObjectForUser)}",
+                        Email = $"{nameof(RemoveLinkedObjectForUser)}-primary-dotnet-sdk-{randomString}@example.com",
+                        Login = $"{nameof(RemoveLinkedObjectForUser)}-primary-dotnet-sdk-{randomString}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            var createdAssociatedUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "David-Associated",
+                        LastName = $"{nameof(RemoveLinkedObjectForUser)}",
+                        Email = $"{nameof(RemoveLinkedObjectForUser)}-associated-dotnet-sdk-{randomString}@example.com",
+                        Login = $"{nameof(RemoveLinkedObjectForUser)}-associated-dotnet-sdk-{randomString}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            var createdLinkedObjectDefinition = await client.LinkedObjects.AddLinkedObjectDefinitionAsync(
+                new LinkedObject
+                {
+                    Primary = new LinkedObjectDetails
+                    {
+                        Name = primaryRelationshipName,
+                        Title = "Primary",
+                        Description = "Primary link property",
+                        Type = "USER",
+                    },
+                    Associated = new LinkedObjectDetails
+                    {
+                        Name = associatedRelationshipName,
+                        Title = "Associated",
+                        Description = "Associated link property",
+                        Type = "USER",
+                    },
+                });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                await createdAssociatedUser.SetLinkedObjectAsync(primaryRelationshipName, createdPrimaryUser.Id);
+                var links = await createdAssociatedUser.GetLinkedObjects(primaryRelationshipName).ToListAsync();
+                links.Should().NotBeNull();
+                links.Count.Should().Be(1);
+                await createdAssociatedUser.RemoveLinkedObjectAsync(primaryRelationshipName);
+                links = await createdAssociatedUser.GetLinkedObjects(primaryRelationshipName).ToListAsync();
+                links.Should().NotBeNull();
+                links.Count.Should().Be(0);
+            }
+            finally
+            {
+                await createdPrimaryUser.DeactivateAsync();
+                await createdPrimaryUser.DeactivateOrDeleteAsync();
+                await createdAssociatedUser.DeactivateAsync();
+                await createdAssociatedUser.DeactivateOrDeleteAsync();
+                await client.LinkedObjects.DeleteLinkedObjectDefinitionAsync(primaryRelationshipName);
+            }
+        }
+
+        [Fact]
+        public async Task ListAssignedRolesForUser()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+            var createdUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = $"{nameof(ResetFactors)}",
+                        Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var assignedRoles = await createdUser.ListAssignedRoles().ToListAsync();
+                assignedRoles.Should().NotBeNull();
+                assignedRoles.Count.Should().Be(0);
+                await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest
+                    {
+                        Type = RoleType.OrgAdmin,
+                    });
+                assignedRoles = await createdUser.ListAssignedRoles().ToListAsync();
+                assignedRoles.Should().NotBeNull();
+                assignedRoles.Count.Should().Be(1);
+                assignedRoles[0].Type.Should().Be(RoleType.OrgAdmin);
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task AddAllAppsAsTargetToRole()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+            var createdUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = $"{nameof(ResetFactors)}",
+                        Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                var role = await createdUser.AssignRoleAsync(
+                    new AssignRoleRequest
+                    {
+                        Type = RoleType.AppAdmin,
+                    });
+                await createdUser.AddAllAppsAsTargetToRoleAsync(role.Id); // 204
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        [Fact]
+        public async Task ClearUserSessions()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+            var createdUser = await client.Users.CreateUserAsync(
+                new CreateUserWithPasswordOptions
+                {
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = $"{nameof(ResetFactors)}",
+                        Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+            Thread.Sleep(3000); // allow for user replication prior to read attempt
+
+            try
+            {
+                await createdUser.ClearSessionsAsync();
+            }
+            finally
+            {
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
             }
         }
     }
