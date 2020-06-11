@@ -840,41 +840,7 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeactivateOrDeleteAsync();
             }
         }
-
-        [Fact]
-        public async Task ResetFactors()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-            {
-                Profile = new UserProfile
-                {
-                    FirstName = "John",
-                    LastName = $"{nameof(ResetFactors)}",
-                    Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                },
-                RecoveryQuestion = "Answer to life, the universe, & everything",
-                RecoveryAnswer = "42 of course",
-                Password = "Abcd1234",
-                Activate = true,
-            });
-
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
-
-            try
-            {
-                await createdUser.ResetFactorsAsync();
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
+        
         [Fact]
         public async Task GetLinkedObjectForUser()
         {
@@ -1048,9 +1014,9 @@ namespace Okta.Sdk.IntegrationTests
                     Profile = new UserProfile
                     {
                         FirstName = "John",
-                        LastName = $"{nameof(ResetFactors)}",
-                        Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                        Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
+                        LastName = $"{nameof(ListAssignedRolesForUser)}",
+                        Email = $"{nameof(ListAssignedRolesForUser)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"{nameof(ListAssignedRolesForUser)}-dotnet-sdk-{guid}@example.com",
                     },
                     RecoveryQuestion = "Answer to life, the universe, & everything",
                     RecoveryAnswer = "42 of course",

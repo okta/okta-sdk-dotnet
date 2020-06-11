@@ -456,6 +456,16 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public async Task ResetFactors()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Users.ResetFactorsAsync("foo");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/lifecycle/reset_factors");
+        }
+
+        [Fact]
         public async Task ClearUserOAuthSessions()
         {
           var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
