@@ -344,8 +344,6 @@ namespace Okta.Sdk.IntegrationTests
                 var updatedUser = await client.Users.GetUserAsync(createdUser.Id);
 
                 updatedUser.PasswordChanged.Value.Should().BeAfter(createdUser.PasswordChanged.Value);
-
-                // TODO: Add Check that you can now authn with the new password (Not in the SDK yet)
             }
             finally
             {
@@ -378,10 +376,9 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 // Expire the user password
-                var tempPassword = await createdUser.ExpirePasswordAsync();
+                var user = await createdUser.ExpirePasswordAsync();
 
-                // TODO: Review
-                //tempPassword.Password.Should().NotBeNullOrEmpty();
+                user.Id.Should().Be(createdUser.Id);
             }
             finally
             {
