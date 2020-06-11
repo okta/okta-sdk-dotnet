@@ -723,39 +723,6 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task ListUserClients()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-            {
-                Profile = new UserProfile
-                {
-                    FirstName = "John",
-                    LastName = $"{nameof(ListUserClients)}",
-                    Email = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
-                },
-                Password = "Abcd1234",
-                Activate = true,
-            });
-
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
-
-            try
-            {
-                var userClients = await createdUser.ListClients().ToListAsync();
-                userClients.Should().NotBeNull();
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
-        [Fact]
         public async Task ForgotPasswordGenerateOneTimeToken()
         {
             var client = TestClient.Create();
@@ -802,9 +769,9 @@ namespace Okta.Sdk.IntegrationTests
                 Profile = new UserProfile
                 {
                     FirstName = "John",
-                    LastName = $"{nameof(ListUserClients)}",
-                    Email = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"{nameof(ListUserClients)}-dotnet-sdk-{guid}@example.com",
+                    LastName = $"{nameof(ForgotPasswordSetNewPassword)}",
+                    Email = $"{nameof(ForgotPasswordSetNewPassword)}-dotnet-sdk-{guid}@example.com",
+                    Login = $"{nameof(ForgotPasswordSetNewPassword)}-dotnet-sdk-{guid}@example.com",
                 },
                 RecoveryQuestion = "Answer to life, the universe, & everything",
                 RecoveryAnswer = "42 of course",
@@ -830,76 +797,6 @@ namespace Okta.Sdk.IntegrationTests
                         },
                     });
                 forgotPasswordResponse.Should().NotBeNull();
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
-        [Fact]
-        public async Task ListUserGrants()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-            {
-                Profile = new UserProfile
-                {
-                    FirstName = "John",
-                    LastName = $"{nameof(ListUserGrants)}",
-                    Email = $"{nameof(ListUserGrants)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"{nameof(ListUserGrants)}-dotnet-sdk-{guid}@example.com",
-                },
-                RecoveryQuestion = "Answer to life, the universe, & everything",
-                RecoveryAnswer = "42 of course",
-                Password = "Abcd1234",
-                Activate = true,
-            });
-
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
-
-            try
-            {
-                var grants = await createdUser.ListGrants().ToListAsync();
-                grants.Should().NotBeNull();
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
-        [Fact]
-        public async Task ListUserIdentityProviders()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-            {
-                Profile = new UserProfile
-                {
-                    FirstName = "John",
-                    LastName = $"{nameof(ListUserIdentityProviders)}",
-                    Email = $"{nameof(ListUserIdentityProviders)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"{nameof(ListUserIdentityProviders)}-dotnet-sdk-{guid}@example.com",
-                },
-                RecoveryQuestion = "Answer to life, the universe, & everything",
-                RecoveryAnswer = "42 of course",
-                Password = "Abcd1234",
-                Activate = true,
-            });
-
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
-
-            try
-            {
-                var identityProviders = await createdUser.ListIdentityProviders().ToListAsync();
-                identityProviders.Should().NotBeNull();
             }
             finally
             {
@@ -1177,79 +1074,6 @@ namespace Okta.Sdk.IntegrationTests
                 assignedRoles.Should().NotBeNull();
                 assignedRoles.Count.Should().Be(1);
                 assignedRoles[0].Type.Should().Be(RoleType.OrgAdmin);
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
-        [Fact]
-        public async Task AddAllAppsAsTargetToRole()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-            var createdUser = await client.Users.CreateUserAsync(
-                new CreateUserWithPasswordOptions
-                {
-                    Profile = new UserProfile
-                    {
-                        FirstName = "John",
-                        LastName = $"{nameof(ResetFactors)}",
-                        Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                        Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                    },
-                    RecoveryQuestion = "Answer to life, the universe, & everything",
-                    RecoveryAnswer = "42 of course",
-                    Password = "Abcd1234",
-                    Activate = true,
-                });
-
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
-
-            try
-            {
-                var role = await createdUser.AssignRoleAsync(
-                    new AssignRoleRequest
-                    {
-                        Type = RoleType.AppAdmin,
-                    });
-                await createdUser.AddAllAppsAsTargetToRoleAsync(role.Id); // 204
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
-        [Fact]
-        public async Task ClearUserSessions()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-            var createdUser = await client.Users.CreateUserAsync(
-                new CreateUserWithPasswordOptions
-                {
-                    Profile = new UserProfile
-                    {
-                        FirstName = "John",
-                        LastName = $"{nameof(ResetFactors)}",
-                        Email = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                        Login = $"{nameof(ResetFactors)}-dotnet-sdk-{guid}@example.com",
-                    },
-                    RecoveryQuestion = "Answer to life, the universe, & everything",
-                    RecoveryAnswer = "42 of course",
-                    Password = "Abcd1234",
-                    Activate = true,
-                });
-
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
-
-            try
-            {
-                await createdUser.ClearSessionsAsync();
             }
             finally
             {
