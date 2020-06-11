@@ -915,7 +915,7 @@ namespace Okta.Sdk.IntegrationTests
                 var retrievedGroupRule = await testClient.Groups.GetGroupRuleAsync(createdGroupRule.Id);
                 retrievedGroupRule.Should().NotBeNull();
 
-                await testClient.Groups.DeactivateGroupRuleAsync(createdGroupRule.Id);
+                await testClient.Groups.DeleteGroupRuleAsync(createdGroupRule.Id);
                 Thread.Sleep(3000);
                 var ex = await Assert.ThrowsAsync<OktaApiException>(() => testClient.Groups.GetGroupRuleAsync(createdGroup.Id));
                 ex.StatusCode.Should().Be(404);
