@@ -33,5 +33,7 @@ namespace Okta.Sdk
 
         OAuth2ScopeConsentGrantStatus Status { get; set; }
 
+        string UserId { get; set; }
+
     }
 }
