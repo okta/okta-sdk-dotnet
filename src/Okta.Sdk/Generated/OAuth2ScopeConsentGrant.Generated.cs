@@ -67,5 +67,12 @@ namespace Okta.Sdk
             set => this["status"] = value;
         }
         
+        /// <inheritdoc/>
+        public string UserId 
+        {
+            get => GetStringProperty("userId");
+            set => this["userId"] = value;
+        }
+        
     }
 }

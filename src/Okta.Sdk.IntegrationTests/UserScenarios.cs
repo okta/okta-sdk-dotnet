@@ -643,9 +643,9 @@ namespace Okta.Sdk.IntegrationTests
                         Type = RoleType.UserAdmin,
                     });
 
-                await createdUser.AddGroupTargetToRoleAsync(role.Id, createdGroup.Id);
+                await createdUser.AddGroupTargetAsync(role.Id, createdGroup.Id);
 
-                var retrievedGroupsForRole = await createdUser.ListGroupTargetsForRole(role.Id).ToListAsync();
+                var retrievedGroupsForRole = await createdUser.ListGroupTargets(role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup.Id);
             }
             finally
@@ -697,16 +697,16 @@ namespace Okta.Sdk.IntegrationTests
                     });
 
                 // Need 2 groups, because if you remove the last one it throws an (expected) exception.
-                await createdUser.AddGroupTargetToRoleAsync(role.Id, createdGroup1.Id);
-                await createdUser.AddGroupTargetToRoleAsync(role.Id, createdGroup2.Id);
+                await createdUser.AddGroupTargetAsync(role.Id, createdGroup1.Id);
+                await createdUser.AddGroupTargetAsync(role.Id, createdGroup2.Id);
 
-                var retrievedGroupsForRole = await createdUser.ListGroupTargetsForRole(role.Id).ToListAsync();
+                var retrievedGroupsForRole = await createdUser.ListGroupTargets(role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup1.Id);
                 retrievedGroupsForRole.Should().Contain(x => x.Id == createdGroup2.Id);
 
-                await createdUser.RemoveGroupTargetFromRoleAsync(role.Id, createdGroup1.Id);
+                await createdUser.RemoveGroupTargetAsync(role.Id, createdGroup1.Id);
 
-                retrievedGroupsForRole = await createdUser.ListGroupTargetsForRole(role.Id).ToListAsync();
+                retrievedGroupsForRole = await createdUser.ListGroupTargets(role.Id).ToListAsync();
                 retrievedGroupsForRole.Should().NotContain(x => x.Id == createdGroup1.Id);
             }
             finally

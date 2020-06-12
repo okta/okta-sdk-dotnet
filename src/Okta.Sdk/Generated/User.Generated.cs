@@ -65,11 +65,6 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task EndAllSessionsAsync(
-            bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ClearUserSessionsAsync(Id, oauthTokens, cancellationToken);
-        
-        /// <inheritdoc />
         public Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, 
             bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.ForgotPasswordSetNewPasswordAsync(user, Id, sendEmail, cancellationToken);
@@ -90,17 +85,17 @@ namespace Okta.Sdk
             => GetClient().Users.RemoveRoleFromUserAsync(Id, roleId, cancellationToken);
         
         /// <inheritdoc />
-        public ICollectionClient<IGroup> ListGroupTargetsForRole(
+        public ICollectionClient<IGroup> ListGroupTargets(
             string roleId, string after = null, int? limit = 20)
             => GetClient().Users.ListGroupTargetsForRole(Id, roleId, after, limit);
         
         /// <inheritdoc />
-        public Task RemoveGroupTargetFromRoleAsync(
+        public Task RemoveGroupTargetAsync(
             string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.RemoveGroupTargetFromRoleAsync(Id, roleId, groupId, cancellationToken);
         
         /// <inheritdoc />
-        public Task AddGroupTargetToRoleAsync(
+        public Task AddGroupTargetAsync(
             string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.AddGroupTargetToRoleAsync(Id, roleId, groupId, cancellationToken);
         
@@ -110,7 +105,7 @@ namespace Okta.Sdk
             => GetClient().Users.ListAssignedRolesForUser(Id, expand);
         
         /// <inheritdoc />
-        public Task AddAllAppsAsTargetToRoleAsync(
+        public Task AddAllAppsAsTargetAsync(
             string roleId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.AddAllAppsAsTargetToRoleAsync(Id, roleId, cancellationToken);
         

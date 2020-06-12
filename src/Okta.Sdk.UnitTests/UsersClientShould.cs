@@ -3,11 +3,10 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentAssertions;
 using Okta.Sdk.UnitTests.Internal;
+using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -147,7 +146,13 @@ namespace Okta.Sdk.UnitTests
                                 ]";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            await client.Users.ListUserClients("foo").ToListAsync();
+            var userClients = await client.Users.ListUserClients("foo").ToListAsync();
+            userClients.Should().NotBeNull();
+            userClients.Count.Should().Be(1);
+            userClients[0].ClientId.Should().Be("0oabskvc6442nkvQO0h7");
+            userClients[0].ClientName.Should().Be("My App");
+            userClients[0].ClientUri.Should().BeNullOrEmpty();
+            userClients[0].LogoUri.Should().BeNullOrEmpty();
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients");
         }
@@ -277,7 +282,18 @@ namespace Okta.Sdk.UnitTests
                                 ]";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            await client.Users.ListRefreshTokensForUserAndClient("foo", "bar").ToListAsync();
+            var refreshTokens = await client.Users.ListRefreshTokensForUserAndClient("foo", "bar").ToListAsync();
+            refreshTokens.Should().NotBeNull();
+            refreshTokens.Count.Should().Be(1);
+            refreshTokens[0].Id.Should().Be("oar579Mcp7OUsNTlo0g3");
+            refreshTokens[0].Status.Should().Be("ACTIVE");
+            refreshTokens[0].Issuer.Should().Be("https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7");
+            refreshTokens[0].ClientId.Should().Be("0oabskvc6442nkvQO0h7");
+            refreshTokens[0].UserId.Should().Be("00u5t60iloOHN9pBi0h7");
+            refreshTokens[0].Scopes.Should().NotBeNull();
+            refreshTokens[0].Scopes.Count.Should().Be(2);
+            refreshTokens[0].Scopes[0].Should().Be("offline_access");
+            refreshTokens[0].Scopes[1].Should().Be("car:drive");
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/tokens?limit=20");
         }
@@ -330,7 +346,15 @@ namespace Okta.Sdk.UnitTests
                                 ]";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            await client.Users.ListUserGrants("foo").ToListAsync();
+            var grants = await client.Users.ListUserGrants("foo").ToListAsync();
+            grants.Should().NotBeNull();
+            grants.Count.Should().Be(1);
+            grants[0].Id.Should().Be("oag3ih1zrm1cBFOiq0h6");
+            grants[0].Status.Should().Be(OAuth2ScopeConsentGrantStatus.Active);
+            grants[0].Issuer.Should().Be("https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7");
+            grants[0].ClientId.Should().Be("0oabskvc6442nkvQO0h7");
+            grants[0].UserId.Should().Be("00u5t60iloOHN9pBi0h7");
+            grants[0].ScopeId.Should().Be("scpCmCCV1DpxVkCaye2X");
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/grants?limit=20");
         }
@@ -430,8 +454,47 @@ namespace Okta.Sdk.UnitTests
                                 }]";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            await client.Users.ListUserIdentityProviders("foo").ToListAsync();
+            var identityProviders = await client.Users.ListUserIdentityProviders("foo").ToListAsync();
 
+            identityProviders.Should().NotBeNull();
+            identityProviders.Count.Should().Be(1);
+            identityProviders[0].Id.Should().Be("0oa62b57p7c8PaGpU0h7");
+            identityProviders[0].Type.Should().Be("FACEBOOK");
+            identityProviders[0].Name.Should().Be("Facebook");
+            identityProviders[0].Status.Should().Be("ACTIVE");
+            identityProviders[0].Protocol.Should().NotBeNull();
+            identityProviders[0].Protocol.Type.Should().Be("OAUTH2");
+            identityProviders[0].Protocol.Endpoints.Should().NotBeNull();
+            identityProviders[0].Protocol.Endpoints.Authorization.Should().NotBeNull();
+            identityProviders[0].Protocol.Endpoints.Authorization.Url.Should().Be("https://www.facebook.com/dialog/oauth");
+            identityProviders[0].Protocol.Endpoints.Authorization.Binding.Should().Be("HTTP-REDIRECT");
+            identityProviders[0].Protocol.Endpoints.Token.Url.Should().Be("https://graph.facebook.com/v2.5/oauth/access_token");
+            identityProviders[0].Protocol.Endpoints.Token.Binding.Should().Be("HTTP-POST");
+            identityProviders[0].Protocol.Scopes.Should().NotBeNull();
+            identityProviders[0].Protocol.Scopes.Count.Should().Be(2);
+            identityProviders[0].Protocol.Scopes[0].Should().Be("public_profile");
+            identityProviders[0].Protocol.Scopes[1].Should().Be("email");
+            identityProviders[0].Protocol.Credentials.Should().NotBeNull();
+            identityProviders[0].Protocol.Credentials.Client.Should().NotBeNull();
+            identityProviders[0].Protocol.Credentials.Client.ClientId.Should().Be("your-client-id");
+            identityProviders[0].Protocol.Credentials.Client.ClientSecret.Should().Be("your-client-secret");
+            identityProviders[0].Policy.Should().NotBeNull();
+            identityProviders[0].Policy.Provisioning.Should().NotBeNull();
+            identityProviders[0].Policy.Provisioning.Action.Should().Be("AUTO");
+            identityProviders[0].Policy.Provisioning.ProfileMaster.Should().Be(true);
+            identityProviders[0].Policy.Provisioning.Groups.Should().NotBeNull();
+            identityProviders[0].Policy.Provisioning.Groups.Action.Should().Be("NONE");
+            identityProviders[0].Policy.Provisioning.Conditions.Should().NotBeNull();
+            identityProviders[0].Policy.Provisioning.Conditions.Suspended.Should().NotBeNull();
+            identityProviders[0].Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
+            identityProviders[0].Policy.AccountLink.Should().NotBeNull();
+            identityProviders[0].Policy.AccountLink.Action.Should().Be("AUTO");
+            identityProviders[0].Policy.Subject.Should().NotBeNull();
+            identityProviders[0].Policy.Subject.UserNameTemplate.Should().NotBeNull();
+            identityProviders[0].Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.userPrincipalName");
+            identityProviders[0].Policy.Subject.Filter.Should().BeNull();
+            identityProviders[0].Policy.Subject.MatchType.Should().Be(PolicySubjectMatchType.Username);
+            identityProviders[0].Policy.MaxClockSkew.Should().Be(0);
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/idps");
         }
 
@@ -550,8 +613,16 @@ namespace Okta.Sdk.UnitTests
                                 }";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            await client.Users.GetRefreshTokenForUserAndClientAsync("foo", "bar", "baz");
+            var oauth2RefreshToken = await client.Users.GetRefreshTokenForUserAndClientAsync("foo", "bar", "baz");
 
+            oauth2RefreshToken.Should().NotBeNull();
+            oauth2RefreshToken.Id.Should().Be("oar579Mcp7OUsNTlo0g3");
+            oauth2RefreshToken.Issuer.Should().Be("https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7");
+            oauth2RefreshToken.ClientId.Should().Be("0oabskvc6442nkvQO0h7");
+            oauth2RefreshToken.UserId.Should().Be("00u5t60iloOHN9pBi0h7");
+            oauth2RefreshToken.Scopes.Count.Should().Be(2);
+            oauth2RefreshToken.Scopes[0].Should().Be("offline_access");
+            oauth2RefreshToken.Scopes[1].Should().Be("car:drive");
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/clients/bar/tokens/baz?limit=20");
         }
 
