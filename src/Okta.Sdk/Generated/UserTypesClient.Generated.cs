@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IUserType>(new HttpRequest
             {
                 Uri = "/api/v1/meta/types/user",
+                Verb = HttpVerb.Get,
                 
             });
                     
@@ -41,6 +42,7 @@ namespace Okta.Sdk
             => await PostAsync<UserType>(new HttpRequest
             {
                 Uri = "/api/v1/meta/types/user",
+                Verb = HttpVerb.Post,
                 Payload = userType,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -49,6 +51,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/meta/types/user/{typeId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -61,6 +64,7 @@ namespace Okta.Sdk
             => await GetAsync<UserType>(new HttpRequest
             {
                 Uri = "/api/v1/meta/types/user/{typeId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -73,6 +77,7 @@ namespace Okta.Sdk
             => await PostAsync<UserType>(new HttpRequest
             {
                 Uri = "/api/v1/meta/types/user/{typeId}",
+                Verb = HttpVerb.Post,
                 Payload = userType,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -85,6 +90,7 @@ namespace Okta.Sdk
             => await PutAsync<UserType>(new HttpRequest
             {
                 Uri = "/api/v1/meta/types/user/{typeId}",
+                Verb = HttpVerb.Put,
                 Payload = userType,
                 PathParameters = new Dictionary<string, object>()
                 {

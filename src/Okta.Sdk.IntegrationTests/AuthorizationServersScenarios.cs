@@ -887,7 +887,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "ICollectionClient doesn't support POST - OKTA-302822")]
+        [Fact]
         public async Task RotateAuthorizationServerKeys()
         {
             var testClient = TestClient.Create();
@@ -899,12 +899,16 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
+            var key = new JwkUse
+            {
+                Use = "sig"
+            };
 
             var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
 
             try
             {
-                var keys = await createdAuthorizationServer.RotateKeys(new JwkUse()).ToListAsync();
+                var keys = await createdAuthorizationServer.RotateKeys(key).ToListAsync();
                 keys.Should().NotBeNull();
                 keys.Count.Should().BeGreaterThan(0);
             }

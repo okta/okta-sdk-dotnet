@@ -28,6 +28,23 @@ namespace Okta.Sdk.UnitTests.Internal
             _statusCode = statusCode;
         }
 
+        public Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            switch (request.Verb)
+            {
+                case HttpVerb.Get:
+                    return GetAsync(request.Uri, request.Headers, cancellationToken);
+                case HttpVerb.Post:
+                    return PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
+                case HttpVerb.Put:
+                    return PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
+                case HttpVerb.Delete:
+                    return DeleteAsync(request.Uri, request.Headers, cancellationToken);
+                default:
+                    return GetAsync(request.Uri, request.Headers, cancellationToken);
+            }
+        }
+
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             ReceivedHref = href;

@@ -205,7 +205,7 @@ namespace Okta.Sdk.Internal
         {
             PrepareRequest(request, requestContext);
 
-            var response = await _requestExecutor.GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.ExecuteRequestAsync(request.SetSerializer(_serializer), cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var resources = _serializer

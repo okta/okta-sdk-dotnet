@@ -48,6 +48,23 @@ namespace Okta.Sdk.UnitTests.Internal
             return Task.FromResult(serializer.Serialize(itemData));
         }
 
+        public async Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            switch (request.Verb)
+            {
+                case HttpVerb.Get:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken);
+                case HttpVerb.Post:
+                    return await PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
+                case HttpVerb.Put:
+                    return await PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
+                case HttpVerb.Delete:
+                    return await DeleteAsync(request.Uri, request.Headers, cancellationToken);
+                default:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken);
+            }
+        }
+
         public async Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var responseHeaders = new List<KeyValuePair<string, IEnumerable<string>>>

@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/policies",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -47,6 +48,7 @@ namespace Okta.Sdk
             => await PostAsync<Policy>(new HttpRequest
             {
                 Uri = "/api/v1/policies",
+                Verb = HttpVerb.Post,
                 Payload = policy,
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -59,6 +61,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -71,6 +74,7 @@ namespace Okta.Sdk
             => await GetAsync<Policy>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -87,6 +91,7 @@ namespace Okta.Sdk
             => await PutAsync<Policy>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}",
+                Verb = HttpVerb.Put,
                 Payload = policy,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -99,6 +104,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -111,6 +117,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -123,6 +130,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IPolicyRule>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -135,6 +143,7 @@ namespace Okta.Sdk
             => await PostAsync<PolicyRule>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules",
+                Verb = HttpVerb.Post,
                 Payload = policyRule,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -147,6 +156,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules/{ruleId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -160,6 +170,7 @@ namespace Okta.Sdk
             => await GetAsync<PolicyRule>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules/{ruleId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -173,6 +184,7 @@ namespace Okta.Sdk
             => await PutAsync<PolicyRule>(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules/{ruleId}",
+                Verb = HttpVerb.Put,
                 Payload = policyRule,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -186,6 +198,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -199,6 +212,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

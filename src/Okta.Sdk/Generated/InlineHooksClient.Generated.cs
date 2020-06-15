@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IInlineHook>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -45,6 +46,7 @@ namespace Okta.Sdk
             => await PostAsync<InlineHook>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks",
+                Verb = HttpVerb.Post,
                 Payload = inlineHook,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -53,6 +55,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -65,6 +68,7 @@ namespace Okta.Sdk
             => await GetAsync<InlineHook>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -77,6 +81,7 @@ namespace Okta.Sdk
             => await PutAsync<InlineHook>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}",
+                Verb = HttpVerb.Put,
                 Payload = inlineHook,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -89,6 +94,7 @@ namespace Okta.Sdk
             => await PostAsync<InlineHookResponse>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}/execute",
+                Verb = HttpVerb.Post,
                 Payload = payloadData,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -101,6 +107,7 @@ namespace Okta.Sdk
             => await PostAsync<InlineHook>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -113,6 +120,7 @@ namespace Okta.Sdk
             => await PostAsync<InlineHook>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

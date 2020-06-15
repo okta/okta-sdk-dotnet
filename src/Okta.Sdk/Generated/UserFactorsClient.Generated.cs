@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IUserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -45,6 +46,7 @@ namespace Okta.Sdk
             => await PostAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors",
+                Verb = HttpVerb.Post,
                 Payload = body,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -64,6 +66,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IUserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/catalog",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -76,6 +79,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ISecurityQuestion>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/questions",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -88,6 +92,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -101,6 +106,7 @@ namespace Okta.Sdk
             => await GetAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -114,6 +120,7 @@ namespace Okta.Sdk
             => await PostAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 Payload = body,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -127,6 +134,7 @@ namespace Okta.Sdk
             => await GetAsync<VerifyUserFactorResponse>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -141,6 +149,7 @@ namespace Okta.Sdk
             => await PostAsync<VerifyUserFactorResponse>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/verify",
+                Verb = HttpVerb.Post,
                 Payload = body,
                 PathParameters = new Dictionary<string, object>()
                 {

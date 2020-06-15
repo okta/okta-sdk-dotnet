@@ -17,7 +17,7 @@ namespace Okta.Sdk.Internal
     /// <summary>
     /// The default implementation of <see cref="IRequestExecutor"/> that uses <c>System.Net.Http</c>.
     /// </summary>
-    public sealed class DefaultRequestExecutor : IRequestExecutor
+    public class DefaultRequestExecutor : IRequestExecutor
     {
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
 
@@ -165,8 +165,25 @@ namespace Okta.Sdk.Internal
             }
         }
 
+        public virtual async Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            switch (request.Verb)
+            {
+                case HttpVerb.Get:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Post:
+                    return await PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Put:
+                    return await PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Delete:
+                    return await DeleteAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+                default:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+            }
+        }
+
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -177,7 +194,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -192,7 +209,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -207,7 +224,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 

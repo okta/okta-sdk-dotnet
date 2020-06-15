@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IIdentityProvider>(new HttpRequest
             {
                 Uri = "/api/v1/idps",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -48,6 +49,7 @@ namespace Okta.Sdk
             => await PostAsync<IdentityProvider>(new HttpRequest
             {
                 Uri = "/api/v1/idps",
+                Verb = HttpVerb.Post,
                 Payload = identityProvider,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -56,6 +58,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IJsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/credentials/keys",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -69,6 +72,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/credentials/keys",
+                Verb = HttpVerb.Post,
                 Payload = jsonWebKey,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -77,6 +81,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/idps/credentials/keys/{keyId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -89,6 +94,7 @@ namespace Okta.Sdk
             => await GetAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/credentials/keys/{keyId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -101,6 +107,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -113,6 +120,7 @@ namespace Okta.Sdk
             => await GetAsync<IdentityProvider>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -125,6 +133,7 @@ namespace Okta.Sdk
             => await PutAsync<IdentityProvider>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}",
+                Verb = HttpVerb.Put,
                 Payload = identityProvider,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -137,6 +146,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ICsr>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -149,6 +159,7 @@ namespace Okta.Sdk
             => await PostAsync<Csr>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs",
+                Verb = HttpVerb.Post,
                 Payload = metadata,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -161,6 +172,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -174,6 +186,7 @@ namespace Okta.Sdk
             => await GetAsync<Csr>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -187,6 +200,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
+                Verb = HttpVerb.Post,
                 Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -200,6 +214,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
+                Verb = HttpVerb.Post,
                 Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -213,6 +228,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
+                Verb = HttpVerb.Post,
                 Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -226,6 +242,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
+                Verb = HttpVerb.Post,
                 Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -239,6 +256,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
+                Verb = HttpVerb.Post,
                 Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -252,6 +270,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IJsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/keys",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -264,6 +283,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/keys/generate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -280,6 +300,7 @@ namespace Okta.Sdk
             => await GetAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/keys/{keyId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -293,6 +314,7 @@ namespace Okta.Sdk
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/keys/{keyId}/clone",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -310,6 +332,7 @@ namespace Okta.Sdk
             => await PostAsync<IdentityProvider>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -322,6 +345,7 @@ namespace Okta.Sdk
             => await PostAsync<IdentityProvider>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -334,6 +358,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IIdentityProviderApplicationUser>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/users",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -346,6 +371,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/users/{userId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -359,6 +385,7 @@ namespace Okta.Sdk
             => await GetAsync<IdentityProviderApplicationUser>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/users/{userId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -372,6 +399,7 @@ namespace Okta.Sdk
             => await PostAsync<IdentityProviderApplicationUser>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/users/{userId}",
+                Verb = HttpVerb.Post,
                 Payload = userIdentityProviderLinkRequest,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -385,6 +413,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ISocialAuthToken>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/users/{userId}/credentials/tokens",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

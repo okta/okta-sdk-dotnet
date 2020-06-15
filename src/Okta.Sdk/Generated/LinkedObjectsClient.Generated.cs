@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ILinkedObject>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/user/linkedObjects",
+                Verb = HttpVerb.Get,
                 
             });
                     
@@ -41,6 +42,7 @@ namespace Okta.Sdk
             => await PostAsync<LinkedObject>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/user/linkedObjects",
+                Verb = HttpVerb.Post,
                 Payload = linkedObject,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -49,6 +51,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -61,6 +64,7 @@ namespace Okta.Sdk
             => await GetAsync<LinkedObject>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
