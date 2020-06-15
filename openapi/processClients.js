@@ -120,6 +120,7 @@ function createContextForClient(tag, operations) {
       isCollection: operation.isArray,
       path: operation.path,
       httpMethod: {
+        verbName: `${pascalCase(operation.method)}`, 
         memberName: `${pascalCase(operation.method)}Async`
       }
     }
