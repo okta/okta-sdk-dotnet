@@ -887,7 +887,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "OKTA-303121: Api validation failed: com.saasure.framework.exception.KeyStoreLimitExceededException (400, E0000001): Unable to create new authorization server. You cannot create authorization servers because signing keys could not be generated. To fix this issue, contact support.")]
         public async Task RotateAuthorizationServerKeys()
         {
             var testClient = TestClient.Create();
