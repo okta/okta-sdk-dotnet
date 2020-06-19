@@ -3,21 +3,21 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
     /// <summary>
     /// The default implementation of <see cref="IRequestExecutor"/> that uses <c>System.Net.Http</c>.
     /// </summary>
-    public sealed class DefaultRequestExecutor : IRequestExecutor
+    public class DefaultRequestExecutor : IRequestExecutor
     {
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
 
@@ -27,6 +27,20 @@ namespace Okta.Sdk.Internal
         private readonly IRetryStrategy _retryStrategy;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
         private readonly OktaClientConfiguration _oktaConfiguration;
+        private readonly Dictionary<HttpVerb, HttpMethod> _httpMethods = new Dictionary<HttpVerb, HttpMethod>
+        {
+            { HttpVerb.Get, HttpMethod.Get },
+            { HttpVerb.Post, HttpMethod.Post },
+            { HttpVerb.Put, HttpMethod.Put },
+            { HttpVerb.Delete, HttpMethod.Delete },
+        };
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
+        /// </summary>
+        protected DefaultRequestExecutor() // to enable testing
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -166,7 +180,25 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public virtual async Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            switch (request.Verb)
+            {
+                case HttpVerb.Get:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Post:
+                    return await PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Put:
+                    return await PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Delete:
+                    return await DeleteAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+                default:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+            }
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -177,7 +209,13 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> PostAsync(HttpRequest httpRequest, CancellationToken cancellationToken)
+        {
+            return SendAsync(CreateMessage(httpRequest), cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public virtual Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -192,7 +230,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -207,7 +245,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public virtual Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -215,6 +253,19 @@ namespace Okta.Sdk.Internal
             ApplyHeadersToRequest(request, headers);
 
             return SendAsync(request, cancellationToken);
+        }
+
+        private HttpRequestMessage CreateMessage(HttpRequest httpRequest)
+        {
+            var path = EnsureRelativeUrl(httpRequest.Uri);
+            var httpRequestMessage = new HttpRequestMessage(_httpMethods[httpRequest.Verb], new Uri(path, UriKind.Relative));
+            ApplyHeadersToRequest(
+                httpRequestMessage,
+                httpRequest.Headers.Keys
+                    .Select(header => new KeyValuePair<string, string>(header, httpRequest.Headers[header]))
+                    .ToList());
+            httpRequest.SetMessageContent(httpRequestMessage);
+            return httpRequestMessage;
         }
     }
 }

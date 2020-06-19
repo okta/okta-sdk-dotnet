@@ -5,6 +5,7 @@
 
 using System;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Okta.Sdk.UnitTests.Internal;
@@ -128,6 +129,61 @@ namespace Okta.Sdk.UnitTests
             await client.Applications.RevokeOAuth2TokensForApplicationAsync("foo");
 
             mockRequestExecutor.ReceivedHref.Should().StartWith("/api/v1/apps/foo/tokens");
+        }
+
+        [Fact]
+        public async Task BuildPublishCerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishCerCertAsync("foo", "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishBinaryCerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishBinaryCerCertAsync(Encoding.UTF8.GetBytes("foo"), "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishDerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishDerCertAsync("foo", "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishBinaryDerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("foo"), "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishBinaryPemCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishBinaryPemCertAsync(Encoding.UTF8.GetBytes("foo"), "bar", "baz");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
         }
 
         private string GetBookmarkApplicationStubResponse(string features = "null")

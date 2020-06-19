@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IEventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks",
+                Verb = HttpVerb.Get,
                 
             });
                     
@@ -41,6 +42,7 @@ namespace Okta.Sdk
             => await PostAsync<EventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks",
+                Verb = HttpVerb.Post,
                 Payload = eventHook,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -49,6 +51,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks/{eventHookId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -61,6 +64,7 @@ namespace Okta.Sdk
             => await GetAsync<EventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks/{eventHookId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -73,6 +77,7 @@ namespace Okta.Sdk
             => await PutAsync<EventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks/{eventHookId}",
+                Verb = HttpVerb.Put,
                 Payload = eventHook,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -85,6 +90,7 @@ namespace Okta.Sdk
             => await PostAsync<EventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -97,6 +103,7 @@ namespace Okta.Sdk
             => await PostAsync<EventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -109,6 +116,7 @@ namespace Okta.Sdk
             => await PostAsync<EventHook>(new HttpRequest
             {
                 Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/verify",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

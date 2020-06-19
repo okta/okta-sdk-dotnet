@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ISmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -45,6 +46,7 @@ namespace Okta.Sdk
             => await PostAsync<SmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms",
+                Verb = HttpVerb.Post,
                 Payload = smsTemplate,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -53,6 +55,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -65,6 +68,7 @@ namespace Okta.Sdk
             => await GetAsync<SmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -77,6 +81,7 @@ namespace Okta.Sdk
             => await PostAsync<SmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
+                Verb = HttpVerb.Post,
                 Payload = smsTemplate,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -89,6 +94,7 @@ namespace Okta.Sdk
             => await PutAsync<SmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
+                Verb = HttpVerb.Put,
                 Payload = smsTemplate,
                 PathParameters = new Dictionary<string, object>()
                 {

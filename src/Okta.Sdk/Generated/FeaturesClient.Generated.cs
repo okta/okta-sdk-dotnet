@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IFeature>(new HttpRequest
             {
                 Uri = "/api/v1/features",
+                Verb = HttpVerb.Get,
                 
             });
                     
@@ -41,6 +42,7 @@ namespace Okta.Sdk
             => await GetAsync<Feature>(new HttpRequest
             {
                 Uri = "/api/v1/features/{featureId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -53,6 +55,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IFeature>(new HttpRequest
             {
                 Uri = "/api/v1/features/{featureId}/dependencies",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -65,6 +68,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IFeature>(new HttpRequest
             {
                 Uri = "/api/v1/features/{featureId}/dependents",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -77,6 +81,7 @@ namespace Okta.Sdk
             => await PostAsync<Feature>(new HttpRequest
             {
                 Uri = "/api/v1/features/{featureId}/{lifecycle}",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

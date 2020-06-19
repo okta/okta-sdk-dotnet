@@ -13,7 +13,7 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.UnitTests.Internal
 {
-    public class MockedCollectionRequestExecutor<T> : IRequestExecutor
+    public class MockedCollectionRequestExecutor<T> : DefaultRequestExecutor
     {
         private const string BaseUrl = "http://mock-collection.dev";
         private readonly int _pageSize;
@@ -48,7 +48,7 @@ namespace Okta.Sdk.UnitTests.Internal
             return Task.FromResult(serializer.Serialize(itemData));
         }
 
-        public async Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public override async Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var responseHeaders = new List<KeyValuePair<string, IEnumerable<string>>>
             {
@@ -68,17 +68,22 @@ namespace Okta.Sdk.UnitTests.Internal
             };
         }
 
-        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public override Task<HttpResponse<string>> PostAsync(HttpRequest request, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public override Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }
 
-        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public override Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             throw new NotImplementedException();
         }

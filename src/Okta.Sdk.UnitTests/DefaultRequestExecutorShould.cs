@@ -85,5 +85,75 @@ namespace Okta.Sdk.UnitTests
             tokenMessageHandler.NumberOfCalls.Should().Be(1);
             requestMessageHandler.NumberOfCalls.Should().Be(1);
         }
+
+        [Theory]
+        [InlineData(HttpVerb.Get)]
+        [InlineData(HttpVerb.Post)]
+        [InlineData(HttpVerb.Put)]
+        [InlineData(HttpVerb.Delete)]
+        public async Task ExecuteMethodBasedOnVerb(HttpVerb verb)
+        {
+            var requestMessageHandler = new MockHttpMessageHandler(string.Empty, HttpStatusCode.OK);
+            var httpClientRequest = new HttpClient(requestMessageHandler);
+            var configuration = new OktaClientConfiguration
+            {
+                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                AuthorizationMode = AuthorizationMode.PrivateKey,
+                ClientId = "foo",
+                PrivateKey = TestCryptoKeys.GetMockRSAPrivateKeyConfiguration(),
+                Scopes = new List<string> { "foo" },
+            };
+            var oktaClient = new OktaClient(configuration);
+            var logger = Substitute.For<ILogger>();
+
+            var resourceFactory = new ResourceFactory(oktaClient, logger);
+
+            var tokenResponse = @"{""token_type"":""Bearer"",""expires_in"":3600,""access_token"":""foo"",""scope"":""okta.users.read okta.users.manage""}";
+            var tokenMessageHandler = new MockHttpMessageHandler(tokenResponse, HttpStatusCode.OK);
+            var httpClientToken = new HttpClient(tokenMessageHandler);
+            var tokenProvider = new DefaultOAuthTokenProvider(configuration, resourceFactory, httpClientToken);
+
+            var testRequestExecutor = new TestDefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), tokenProvider);
+            HttpRequest testRequest = new HttpRequest
+            {
+                Verb = verb,
+            };
+            await testRequestExecutor.ExecuteRequestAsync(testRequest, default(CancellationToken));
+            testRequestExecutor.VerbExecutionCounts[verb].Should().Be(1);
+        }
+
+        [Fact]
+        public async Task SetMessageContentForPost()
+        {
+            var requestMessageHandler = new MockHttpMessageHandler(string.Empty, HttpStatusCode.OK);
+            var httpClientRequest = new HttpClient(requestMessageHandler);
+            var configuration = new OktaClientConfiguration
+            {
+                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                AuthorizationMode = AuthorizationMode.PrivateKey,
+                ClientId = "foo",
+                PrivateKey = TestCryptoKeys.GetMockRSAPrivateKeyConfiguration(),
+                Scopes = new List<string> { "foo" },
+            };
+            var oktaClient = new OktaClient(configuration);
+            var logger = Substitute.For<ILogger>();
+            var resourceFactory = new ResourceFactory(oktaClient, logger);
+
+            var tokenResponse = @"{""token_type"":""Bearer"",""expires_in"":3600,""access_token"":""foo"",""scope"":""okta.users.read okta.users.manage""}";
+            var tokenMessageHandler = new MockHttpMessageHandler(tokenResponse, HttpStatusCode.OK);
+            var httpClientToken = new HttpClient(tokenMessageHandler);
+            var tokenProvider = new DefaultOAuthTokenProvider(configuration, resourceFactory, httpClientToken);
+
+            var requestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), tokenProvider);
+
+            var testRequest = new TestHttpRequest { Uri = "/foo", Verb = HttpVerb.Post };
+            testRequest.HttpRequestMessage.Should().BeNull();
+
+            await requestExecutor.PostAsync(testRequest, CancellationToken.None);
+
+            testRequest.HttpRequestMessage.Should().NotBeNull();
+            testRequest.HttpRequestMessage.Method.Should().Be(HttpMethod.Post);
+            testRequest.HttpRequestMessage.RequestUri.PathAndQuery.Should().Be("/foo");
+        }
     }
 }

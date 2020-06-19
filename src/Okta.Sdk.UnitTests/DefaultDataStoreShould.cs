@@ -104,7 +104,7 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
@@ -113,9 +113,7 @@ namespace Okta.Sdk.UnitTests
             await dataStore.PostAsync<TestResource>(request, new RequestContext(), CancellationToken.None);
 
             await mockRequestExecutor.Received().PostAsync(
-                "https://foo.dev",
-                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
-                "{}",
+                Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals("https://foo.dev")),
                 CancellationToken.None);
         }
 
@@ -379,11 +377,33 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public async Task SetPayloadHandlerContentTypeOnPost()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var testPayloadHandler = new TestPayloadHandler();
+            PayloadHandler.Register(testPayloadHandler);
+
+            var request = new TestHttpRequest();
+            request.ContentType.Should().Be("application/json");
+            request.GetPayLoadHandler().ContentType.Should().Be("application/json");
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            await dataStore.PostAsync<TestResource>(request, new RequestContext { ContentType = "foo" }, CancellationToken.None);
+
+            request.ContentType.Should().Be("foo");
+            request.GetPayLoadHandler().ContentType.Should().Be("foo");
+        }
+
+        [Fact]
         public async Task PostWithNullBody()
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .PostAsync(Arg.Any<HttpRequest>(),  Arg.Any<CancellationToken>())
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
@@ -392,9 +412,7 @@ namespace Okta.Sdk.UnitTests
             await dataStore.PostAsync<TestResource>(request, new RequestContext(), CancellationToken.None);
 
             await mockRequestExecutor.Received().PostAsync(
-                href: "https://foo.dev",
-                headers: Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
-                body: null,
+                request: Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals("https://foo.dev")),
                 cancellationToken: CancellationToken.None);
         }
     }

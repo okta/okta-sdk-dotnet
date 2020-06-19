@@ -69,6 +69,8 @@ namespace Okta.Sdk
                 serializer,
                 resourceFactory,
                 logger);
+
+            PayloadHandler.Register<PkixCertPayloadHandler>();
         }
 
         /// <summary>
@@ -143,6 +145,25 @@ namespace Okta.Sdk
 
             return compiledConfig;
         }
+
+        /// <inheritdoc/>
+        public IOktaClient ContentType(string contentType)
+        {
+            var requestContext = _requestContext?.Clone() ?? new RequestContext();
+            requestContext.ContentType = contentType;
+            return CreatedScoped(requestContext);
+        }
+
+        /// <inheritdoc/>
+        public IOktaClient ContentTransferEncoding(string contentTransferEncoding)
+        {
+            var requestContext = _requestContext?.Clone() ?? new RequestContext();
+            requestContext.ContentTransferEncoding = contentTransferEncoding;
+            return CreatedScoped(requestContext);
+        }
+
+        /// <inheritdoc/>
+        public RequestContext RequestContext => _requestContext;
 
         /// <inheritdoc/>
         public OktaClientConfiguration Configuration { get; }

@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSubstitute;
+using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
@@ -16,6 +18,52 @@ namespace Okta.Sdk.UnitTests
 {
     public class OktaClientShould
     {
+        [Fact]
+        public void GetClientWithContentType()
+        {
+            var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
+            client.RequestContext.ContentType.Should().BeNullOrEmpty();
+            client.ContentType("foo").RequestContext.ContentType.Should().Be("foo");
+        }
+
+        [Fact]
+        public void GetClientWithContentTransferEncoding()
+        {
+            var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
+            client.RequestContext.ContentTransferEncoding.Should().BeNullOrEmpty();
+            client.ContentTransferEncoding("foo").RequestContext.ContentTransferEncoding.Should().Be("foo");
+        }
+
+        [Fact]
+        public async Task OverrideRequestContentType()
+        {
+            var executor = Substitute.For<IRequestExecutor>();
+            executor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
+
+            var client = new TestableOktaClient(executor);
+            await client.ContentType("foo").PostAsync(new HttpRequest { ContentType = "bar" });
+
+            await executor.Received()
+                .PostAsync(Arg.Is<HttpRequest>(request => request.ContentType.Equals("foo")), Arg.Any<CancellationToken>());
+        }
+
+        [Fact]
+        public async Task SetContentTransferEncodingForPost()
+        {
+            var executor = Substitute.For<IRequestExecutor>();
+            executor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
+
+            var client = new TestableOktaClient(executor);
+            await client.ContentTransferEncoding("foo").PostAsync(new HttpRequest { ContentType = "bar" });
+
+            await executor.Received()
+                .PostAsync(Arg.Is<HttpRequest>(request => request.Headers.ContainsKey("Content-Transfer-Encoding") && request.Headers["Content-Transfer-Encoding"].Equals("foo")), Arg.Any<CancellationToken>());
+        }
+
         [Fact]
         public async Task GetCollection()
         {
@@ -66,7 +114,7 @@ namespace Okta.Sdk.UnitTests
         /// </summary>
         /// <returns>The asynchronous test.</returns>
         [Fact]
-        public async Task GetResouceAsInterface()
+        public async Task GetResourceAsInterface()
         {
             var json = @"{
   ""id"": ""foobar123""

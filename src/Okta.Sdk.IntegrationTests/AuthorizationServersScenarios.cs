@@ -562,7 +562,7 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
-            var createdOAuthScope = await createdAuthorizationServer.CreateOAuth2ScopeAsync(testOAuthScope); 
+            var createdOAuthScope = await createdAuthorizationServer.CreateOAuth2ScopeAsync(testOAuthScope);
             try
             {
                 createdOAuthScope.Should().NotBeNull();
@@ -887,7 +887,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "ICollectionClient doesn't support POST - OKTA-302822")]
+        [Fact(Skip = "OKTA-303121: Api validation failed: com.saasure.framework.exception.KeyStoreLimitExceededException (400, E0000001): Unable to create new authorization server. You cannot create authorization servers because signing keys could not be generated. To fix this issue, contact support.")]
         public async Task RotateAuthorizationServerKeys()
         {
             var testClient = TestClient.Create();
@@ -899,12 +899,16 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
+            var key = new JwkUse
+            {
+                Use = "sig",
+            };
 
             var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
 
             try
             {
-                var keys = await createdAuthorizationServer.RotateKeys(new JwkUse()).ToListAsync();
+                var keys = await createdAuthorizationServer.RotateKeys(key).ToListAsync();
                 keys.Should().NotBeNull();
                 keys.Count.Should().BeGreaterThan(0);
             }

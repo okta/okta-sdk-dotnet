@@ -15,6 +15,14 @@ namespace Okta.Sdk.Internal
     public interface IRequestExecutor
     {
         /// <summary>
+        /// Execute the specified request.
+        /// </summary>
+        /// <param name="request">The request to execute.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The HTTP response.</returns>
+        Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken);
+
+        /// <summary>
         /// Sends a GET request to the specified <paramref name="href"/>.
         /// </summary>
         /// <param name="href">The request URL.</param>
@@ -22,6 +30,14 @@ namespace Okta.Sdk.Internal
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The HTTP response.</returns>
         Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken);
+
+        /// <summary>
+        /// Sends the specified POST request.
+        /// </summary>
+        /// <param name="request">The request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The HTTP response.</returns>
+        Task<HttpResponse<string>> PostAsync(HttpRequest request, CancellationToken cancellationToken);
 
         /// <summary>
         /// Sends a POST request to the specified <paramref name="href"/>.
