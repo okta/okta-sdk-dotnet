@@ -1,4 +1,4 @@
-// <copyright file="IVerifyUserFactorResponse.Generated.cs" company="Okta, Inc">
+// <copyright file="IWebAuthnUserFactor.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,14 +12,10 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a VerifyUserFactorResponse resource in the Okta API.</summary>
-    public partial interface IVerifyUserFactorResponse : IResource
+    /// <summary>Represents a WebAuthnUserFactor resource in the Okta API.</summary>
+    public partial interface IWebAuthnUserFactor : IUserFactor
     {
-        DateTimeOffset? ExpiresAt { get; }
-
-        string FactorResult { get; set; }
-
-        string FactorResultMessage { get; set; }
+        IWebAuthnUserFactorProfile Profile { get; set; }
 
     }
 }

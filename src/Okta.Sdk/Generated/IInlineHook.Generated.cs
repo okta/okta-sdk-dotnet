@@ -25,9 +25,9 @@ namespace Okta.Sdk
 
         string Name { get; set; }
 
-        string Status { get; set; }
+        InlineHookStatus Status { get; set; }
 
-        string Type { get; set; }
+        InlineHookType Type { get; set; }
 
         string Version { get; set; }
 

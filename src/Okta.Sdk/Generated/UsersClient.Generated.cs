@@ -654,8 +654,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = 20)
-            => GetCollectionClient<IApplication>(new HttpRequest
+        public ICollectionClient<ICatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = 20)
+            => GetCollectionClient<ICatalogApplication>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps",
                 Verb = HttpVerb.Get,
