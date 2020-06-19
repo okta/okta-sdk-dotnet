@@ -255,12 +255,12 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public Task PostAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+            => PostAsync(new HttpRequest { Uri = href, Payload = model, Verb = HttpVerb.Post}, cancellationToken);
 
         /// <inheritdoc/>
         public Task<TResponse> PostAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
-            => PostAsync<TResponse>(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+            => PostAsync<TResponse>(new HttpRequest { Uri = href, Payload = model, Verb = HttpVerb.Post}, cancellationToken);
 
         /// <inheritdoc/>
         public Task PostAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
@@ -270,6 +270,7 @@ namespace Okta.Sdk
         public async Task<TResponse> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
         {
+            request.Verb = HttpVerb.Post;
             var response = await _dataStore.PostAsync<TResponse>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
