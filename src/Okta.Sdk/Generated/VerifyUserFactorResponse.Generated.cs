@@ -17,11 +17,7 @@ namespace Okta.Sdk
     public sealed partial class VerifyUserFactorResponse : Resource, IVerifyUserFactorResponse
     {
         /// <inheritdoc/>
-        public string ExpiresAt 
-        {
-            get => GetStringProperty("expiresAt");
-            set => this["expiresAt"] = value;
-        }
+        public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
         
         /// <inheritdoc/>
         public string FactorResult 

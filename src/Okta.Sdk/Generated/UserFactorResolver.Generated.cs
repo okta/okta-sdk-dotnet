@@ -80,6 +80,11 @@ namespace Okta.Sdk.Internal
                 return typeof(WebUserFactor);
             }
             
+            if (value.Equals("webauthn"))
+            {
+                return typeof(WebAuthnUserFactor);
+            }
+            
             return typeof(UserFactor);
         }
     }

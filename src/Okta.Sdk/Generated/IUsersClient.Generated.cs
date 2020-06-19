@@ -390,8 +390,8 @@ namespace Okta.Sdk
         /// <param name="roleId"></param>
         /// <param name="after"></param>
         /// <param name="limit"></param>
-        /// <returns>A collection of <see cref="IApplication"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = 20);
+        /// <returns>A collection of <see cref="ICatalogApplication"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<ICatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
         /// Success
