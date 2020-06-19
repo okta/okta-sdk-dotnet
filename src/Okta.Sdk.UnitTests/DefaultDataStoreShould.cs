@@ -385,7 +385,7 @@ namespace Okta.Sdk.UnitTests
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var testPayloadHandler = new TestPayloadHandler();
-            PayloadHandler.Register(testPayloadHandler);
+            PayloadHandler.TryRegister(testPayloadHandler);
 
             var request = new TestHttpRequest();
             request.ContentType.Should().Be("application/json");

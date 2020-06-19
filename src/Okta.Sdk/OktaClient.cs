@@ -70,7 +70,7 @@ namespace Okta.Sdk
                 resourceFactory,
                 logger);
 
-            PayloadHandler.Register<PkixCertPayloadHandler>();
+            PayloadHandler.TryRegister<PkixCertPayloadHandler>();
         }
 
         /// <summary>

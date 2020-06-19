@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
@@ -23,10 +24,12 @@ namespace Okta.Sdk.Internal
             Serializer = new DefaultSerializer();
         }
 
-        private static readonly Dictionary<string, IPayloadHandler> _payloadHandlers = new Dictionary<string, IPayloadHandler>
+        static PayloadHandler()
         {
-            { "application/json", Default },
-        };
+            _payloadHandlers.TryAdd("application/json", Default);
+        }
+
+        private static readonly ConcurrentDictionary<string, IPayloadHandler> _payloadHandlers = new ConcurrentDictionary<string, IPayloadHandler>();
 
         private ISerializer Serializer { get; }
 
@@ -97,22 +100,19 @@ namespace Okta.Sdk.Internal
         /// Register the specified generic payload handler.
         /// </summary>
         /// <typeparam name="T">The type of the payload handler to register.</typeparam>
-        public static void Register<T>()
+        public static bool TryRegister<T>()
             where T : PayloadHandler, new()
         {
-            Register(new T());
+            return TryRegister(new T());
         }
 
         /// <summary>
         /// Register the specified payload handler.
         /// </summary>
         /// <param name="payloadHandler">The payload handler instance to register.</param>
-        public static void Register(IPayloadHandler payloadHandler)
+        public static bool TryRegister(IPayloadHandler payloadHandler)
         {
-            if (!_payloadHandlers.ContainsKey(payloadHandler.ContentType))
-            {
-                _payloadHandlers.Add(payloadHandler.ContentType, payloadHandler);
-            }
+            return _payloadHandlers.TryAdd(payloadHandler.ContentType, payloadHandler);
         }
 
         /// <summary>
