@@ -10,14 +10,15 @@ namespace Okta.Sdk.UnitTests.Internal
 {
     public class TestDefaultRequestExecutor : DefaultRequestExecutor
     {
-        public TestDefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null) : base(configuration, httpClient, logger, retryStrategy, oAuthTokenProvider)
+        public TestDefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
+            : base(configuration, httpClient, logger, retryStrategy, oAuthTokenProvider)
         {
             VerbExecutionCounts = new Dictionary<HttpVerb, int>
             {
-                {HttpVerb.Get, 0},
-                {HttpVerb.Post, 0},
-                {HttpVerb.Put, 0},
-                {HttpVerb.Delete, 0},
+                { HttpVerb.Get, 0 },
+                { HttpVerb.Post, 0 },
+                { HttpVerb.Put, 0 },
+                { HttpVerb.Delete, 0 },
             };
         }
 
@@ -54,7 +55,7 @@ namespace Okta.Sdk.UnitTests.Internal
             return new HttpResponse<string>
             {
                 StatusCode = 200,
-                Payload = "test", 
+                Payload = "test",
             };
         }
     }
