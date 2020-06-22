@@ -93,8 +93,7 @@ namespace Okta.Sdk.UnitTests
         [InlineData(HttpVerb.Delete)]
         public async Task ExecuteMethodBasedOnVerb(HttpVerb verb)
         {
-            var requestMessageHandler = new MockHttpMessageHandler(string.Empty, HttpStatusCode.OK);
-            var httpClientRequest = new HttpClient(requestMessageHandler);
+            var httpClientRequest = new HttpClient();
             var configuration = new OktaClientConfiguration
             {
                 OktaDomain = "https://myOktaDomain.oktapreview.com",
@@ -103,17 +102,9 @@ namespace Okta.Sdk.UnitTests
                 PrivateKey = TestCryptoKeys.GetMockRSAPrivateKeyConfiguration(),
                 Scopes = new List<string> { "foo" },
             };
-            var oktaClient = new OktaClient(configuration);
             var logger = Substitute.For<ILogger>();
 
-            var resourceFactory = new ResourceFactory(oktaClient, logger);
-
-            var tokenResponse = @"{""token_type"":""Bearer"",""expires_in"":3600,""access_token"":""foo"",""scope"":""okta.users.read okta.users.manage""}";
-            var tokenMessageHandler = new MockHttpMessageHandler(tokenResponse, HttpStatusCode.OK);
-            var httpClientToken = new HttpClient(tokenMessageHandler);
-            var tokenProvider = new DefaultOAuthTokenProvider(configuration, resourceFactory, httpClientToken);
-
-            var testRequestExecutor = new TestDefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), tokenProvider);
+            var testRequestExecutor = new TestDefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), null);
             HttpRequest testRequest = new HttpRequest
             {
                 Verb = verb,
