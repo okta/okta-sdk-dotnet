@@ -122,10 +122,14 @@ namespace Okta.Sdk.UnitTests
             };
             var logger = Substitute.For<ILogger>();
             var mockHttpRequestMessageProvider = Substitute.For<IHttpRequestMessageProvider>();
+            mockHttpRequestMessageProvider
+                .CreateHttpRequestMessage(Arg.Any<HttpRequest>(), Arg.Any<string>())
+                .Returns(new HttpRequestMessage());
 
             var testRequestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), null, mockHttpRequestMessageProvider);
-            testRequestExecutor.PostAsync(new HttpRequest {Uri = "/api/v1"}, CancellationToken.None);
-            mockHttpRequestMessageProvider.Received(1)
+            await testRequestExecutor.PostAsync(new HttpRequest { Uri = "/api/v1" }, CancellationToken.None);
+            mockHttpRequestMessageProvider
+                .Received(1)
                 .CreateHttpRequestMessage(Arg.Any<HttpRequest>(), Arg.Any<string>());
         }
     }

@@ -27,7 +27,6 @@ namespace Okta.Sdk.Internal
         private readonly IRetryStrategy _retryStrategy;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
         private readonly OktaClientConfiguration _oktaConfiguration;
-
         private readonly IHttpRequestMessageProvider _httpRequestMessageProvider;
 
         /// <summary>
