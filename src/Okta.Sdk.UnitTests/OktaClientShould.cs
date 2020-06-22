@@ -23,7 +23,8 @@ namespace Okta.Sdk.UnitTests
         {
             var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
             client.RequestContext.ContentType.Should().BeNullOrEmpty();
-            client.ContentType("foo").RequestContext.ContentType.Should().Be("foo");
+            var scopedClient = client.CreatedScoped(new RequestContext { ContentType = "foo" });
+            scopedClient.RequestContext.ContentType.Should().Be("foo");
         }
 
         [Fact]
@@ -31,7 +32,8 @@ namespace Okta.Sdk.UnitTests
         {
             var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
             client.RequestContext.ContentTransferEncoding.Should().BeNullOrEmpty();
-            client.ContentTransferEncoding("foo").RequestContext.ContentTransferEncoding.Should().Be("foo");
+            var scopedClient = client.CreatedScoped(new RequestContext { ContentTransferEncoding = "foo" });
+            scopedClient.RequestContext.ContentTransferEncoding.Should().Be("foo");
         }
 
         [Fact]
@@ -43,7 +45,7 @@ namespace Okta.Sdk.UnitTests
                 .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
 
             var client = new TestableOktaClient(executor);
-            await client.ContentType("foo").PostAsync(new HttpRequest { ContentType = "bar" });
+            await client.CreatedScoped(new RequestContext { ContentType = "foo" }).PostAsync(new HttpRequest { ContentType = "bar" });
 
             await executor.Received()
                 .PostAsync(Arg.Is<HttpRequest>(request => request.ContentType.Equals("foo")), Arg.Any<CancellationToken>());
@@ -58,7 +60,7 @@ namespace Okta.Sdk.UnitTests
                 .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
 
             var client = new TestableOktaClient(executor);
-            await client.ContentTransferEncoding("foo").PostAsync(new HttpRequest { ContentType = "bar" });
+            await client.CreatedScoped(new RequestContext { ContentTransferEncoding = "foo" }).PostAsync(new HttpRequest { ContentType = "bar" });
 
             await executor.Received()
                 .PostAsync(Arg.Is<HttpRequest>(request => request.Headers.ContainsKey("Content-Transfer-Encoding") && request.Headers["Content-Transfer-Encoding"].Equals("foo")), Arg.Any<CancellationToken>());

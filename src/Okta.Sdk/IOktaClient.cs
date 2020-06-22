@@ -20,20 +20,6 @@ namespace Okta.Sdk
         RequestContext RequestContext { get; }
 
         /// <summary>
-        /// Gets an IOktaClient with the specified content type.
-        /// </summary>
-        /// <param name="contentType">The value to set the content type to.</param>
-        /// <returns>An Okta client with the specified content type.</returns>
-        IOktaClient ContentType(string contentType);
-
-        /// <summary>
-        /// Gets an IOktaClient with the specified content transfer encoding.
-        /// </summary>
-        /// <param name="contentTransferEncoding">The value to set the content transfer encoding to.</param>
-        /// <returns>An Okta client with the specified content transfer encoding.</returns>
-        IOktaClient ContentTransferEncoding(string contentTransferEncoding);
-
-        /// <summary>
         /// Gets the configuration passed to this <see cref="IOktaClient">OktaClient</see>.
         /// </summary>
         /// <value>
