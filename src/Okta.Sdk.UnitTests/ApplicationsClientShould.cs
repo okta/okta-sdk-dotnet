@@ -137,7 +137,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-            await client.Applications.PublishCerCertAsync("foo", "bar", "baz");
+            await client.Applications.PublishCerCertAsync("fakeBase64EncodedCertificate", "testAppId", "testCertificateSigningRequestId");
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
         }
@@ -148,7 +148,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-            await client.Applications.PublishBinaryCerCertAsync(Encoding.UTF8.GetBytes("foo"), "bar", "baz");
+            await client.Applications.PublishBinaryCerCertAsync(Encoding.UTF8.GetBytes("fakeBase64EncodedCertificate"), "testAppId", "testCertificateSigningRequestId");
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
         }
