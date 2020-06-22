@@ -159,7 +159,8 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-            await client.Applications.PublishDerCertAsync("fakeDerCertificate", "testAppId", "testCertificateSigningRequestId");
+            var fakeCertificate = Convert.ToBase64String(Encoding.UTF8.GetBytes("fakeDerCertificate"));
+            await client.Applications.PublishDerCertAsync(fakeCertificate, "testAppId", "testCertificateSigningRequestId");
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
         }
