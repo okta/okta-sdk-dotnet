@@ -10,11 +10,11 @@ namespace Okta.Sdk.UnitTests.Internal
             return PayloadHandler;
         }
 
-        public HttpRequestMessage HttpRequestMessage { get; set; }
+        public HttpRequestMessage SentHttpRequestMessage { get; set; }
 
         public override void SetHttpRequestMessageContent(HttpRequestMessage httpRequestMessage)
         {
-            HttpRequestMessage = httpRequestMessage;
+            SentHttpRequestMessage = httpRequestMessage;
         }
     }
 }

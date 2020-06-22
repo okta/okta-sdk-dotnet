@@ -124,13 +124,13 @@ namespace Okta.Sdk.UnitTests
             var testRequestExecutor = new TestDefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), null);
 
             var testRequest = new TestHttpRequest { Uri = "/foo", Verb = HttpVerb.Post };
-            testRequest.HttpRequestMessage.Should().BeNull();
+            testRequest.SentHttpRequestMessage.Should().BeNull();
 
             await testRequestExecutor.PostAsync(testRequest, CancellationToken.None);
 
-            testRequest.HttpRequestMessage.Should().NotBeNull();
-            testRequest.HttpRequestMessage.Method.Should().Be(HttpMethod.Post);
-            testRequest.HttpRequestMessage.RequestUri.PathAndQuery.Should().Be("/foo");
+            testRequest.SentHttpRequestMessage.Should().NotBeNull();
+            testRequest.SentHttpRequestMessage.Method.Should().Be(HttpMethod.Post);
+            testRequest.SentHttpRequestMessage.RequestUri.PathAndQuery.Should().Be("/foo");
         }
     }
 }
