@@ -97,10 +97,7 @@ namespace Okta.Sdk.UnitTests
             var configuration = new OktaClientConfiguration
             {
                 OktaDomain = "https://myOktaDomain.oktapreview.com",
-                AuthorizationMode = AuthorizationMode.PrivateKey,
-                ClientId = "foo",
-                PrivateKey = TestCryptoKeys.GetMockRSAPrivateKeyConfiguration(),
-                Scopes = new List<string> { "foo" },
+                Token = "foo",
             };
             var logger = Substitute.For<ILogger>();
 
