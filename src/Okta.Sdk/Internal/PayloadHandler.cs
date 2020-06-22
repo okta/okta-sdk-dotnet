@@ -16,6 +16,8 @@ namespace Okta.Sdk.Internal
     /// </summary>
     public abstract class PayloadHandler : IPayloadHandler
     {
+        private string _body;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="PayloadHandler"/> class.
         /// </summary>
@@ -40,9 +42,7 @@ namespace Okta.Sdk.Internal
         /// Gets or sets the content transfer encoding.
         /// </summary>
         protected string ContentTransferEncoding { get; set; }
-
-        private string _body;
-
+        
         /// <inheritdoc/>
         public virtual string GetBody(HttpRequest httpRequest)
         {
@@ -63,12 +63,12 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="httpRequest">The request whose content is returned.</param>
         /// <returns>Content for the specified request.</returns>
-        protected abstract HttpContent GetContent(HttpRequest httpRequest);
+        protected abstract HttpContent GetRequestHttpContent(HttpRequest httpRequest);
 
         /// <inheritdoc/>
         public virtual void SetMessageContent(HttpRequest httpRequest, HttpRequestMessage httpRequestMessage)
         {
-            httpRequestMessage.Content = GetContent(httpRequest);
+            httpRequestMessage.Content = GetRequestHttpContent(httpRequest);
             if (!string.IsNullOrEmpty(ContentTransferEncoding))
             {
                 httpRequestMessage.Headers.Add("Content-Transfer-Encoding", ContentTransferEncoding);

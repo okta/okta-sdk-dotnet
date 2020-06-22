@@ -16,6 +16,9 @@ namespace Okta.Sdk
     /// </summary>
     public class HttpRequest
     {
+        private string _contentType;
+        private string _body;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="HttpRequest"/> class.
         /// </summary>
@@ -52,8 +55,6 @@ namespace Okta.Sdk
         /// The request payload.
         /// </value>
         public object Payload { get; set; }
-
-        private string _contentType;
 
         /// <summary>
         /// Gets or sets the content type.
@@ -95,8 +96,6 @@ namespace Okta.Sdk
         public IDictionary<string, string> Headers { get; set; }
             = new Dictionary<string, string>();
 
-        private string _body;
-
         /// <summary>
         /// Get the request body.
         /// </summary>
@@ -118,7 +117,7 @@ namespace Okta.Sdk
         /// Set the content of the specified message.
         /// </summary>
         /// <param name="httpRequestMessage">The message whose content is set.</param>
-        public virtual void SetMessageContent(HttpRequestMessage httpRequestMessage)
+        public virtual void SetHttpRequestMessageContent(HttpRequestMessage httpRequestMessage)
         {
             PayloadHandler.SetMessageContent(this, httpRequestMessage);
         }

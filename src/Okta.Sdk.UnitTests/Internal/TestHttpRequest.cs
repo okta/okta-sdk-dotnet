@@ -12,7 +12,7 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public HttpRequestMessage HttpRequestMessage { get; set; }
 
-        public override void SetMessageContent(HttpRequestMessage httpRequestMessage)
+        public override void SetHttpRequestMessageContent(HttpRequestMessage httpRequestMessage)
         {
             HttpRequestMessage = httpRequestMessage;
         }

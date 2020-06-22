@@ -27,7 +27,7 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="httpRequest">The request whose content is returned.</param>
         /// <returns>Content for the specified request.</returns>
-        protected override HttpContent GetContent(HttpRequest httpRequest)
+        protected override HttpContent GetRequestHttpContent(HttpRequest httpRequest)
         {
             ValidateRequest(httpRequest);
 

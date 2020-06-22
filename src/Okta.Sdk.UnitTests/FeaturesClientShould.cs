@@ -76,7 +76,7 @@ namespace Okta.Sdk.UnitTests
 
             var retrievedDependents = await testClient.Features.ListFeatureDependents(featureId).ToListAsync();
             retrievedDependents.FirstOrDefault().Name.Should().Be("TestFeature");
-            _ = await mockRequestExecutor.Received(1)
+            _ = await mockRequestExecutor
                 .Received(1)
                 .ExecuteRequestAsync(Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals(dependentsEndpoint)), Arg.Any<CancellationToken>());
         }

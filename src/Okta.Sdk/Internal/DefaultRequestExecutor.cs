@@ -211,7 +211,7 @@ namespace Okta.Sdk.Internal
         /// <inheritdoc/>
         public virtual Task<HttpResponse<string>> PostAsync(HttpRequest httpRequest, CancellationToken cancellationToken)
         {
-            return SendAsync(CreateMessage(httpRequest), cancellationToken);
+            return SendAsync(CreateHttpRequestMessage(httpRequest), cancellationToken);
         }
 
         /// <inheritdoc/>
@@ -255,7 +255,7 @@ namespace Okta.Sdk.Internal
             return SendAsync(request, cancellationToken);
         }
 
-        private HttpRequestMessage CreateMessage(HttpRequest httpRequest)
+        private HttpRequestMessage CreateHttpRequestMessage(HttpRequest httpRequest)
         {
             var path = EnsureRelativeUrl(httpRequest.Uri);
             var httpRequestMessage = new HttpRequestMessage(_httpMethods[httpRequest.Verb], new Uri(path, UriKind.Relative));
@@ -264,7 +264,7 @@ namespace Okta.Sdk.Internal
                 httpRequest.Headers.Keys
                     .Select(header => new KeyValuePair<string, string>(header, httpRequest.Headers[header]))
                     .ToList());
-            httpRequest.SetMessageContent(httpRequestMessage);
+            httpRequest.SetHttpRequestMessageContent(httpRequestMessage);
             return httpRequestMessage;
         }
     }

@@ -32,7 +32,7 @@ namespace Okta.Sdk.Internal
         /// Throws an ArgumentNullException if request payload is null.
         /// Throws an InvalidOperationException if the payload is not a byte array.
         /// </remarks>
-        protected override HttpContent GetContent(HttpRequest httpRequest)
+        protected override HttpContent GetRequestHttpContent(HttpRequest httpRequest)
         {
             ValidateRequest(httpRequest);
 

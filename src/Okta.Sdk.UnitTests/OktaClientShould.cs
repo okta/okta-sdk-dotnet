@@ -23,8 +23,9 @@ namespace Okta.Sdk.UnitTests
         {
             var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
             client.RequestContext.ContentType.Should().BeNullOrEmpty();
-            var scopedClient = client.CreatedScoped(new RequestContext { ContentType = "foo" });
-            scopedClient.RequestContext.ContentType.Should().Be("foo");
+            var requestContext = new RequestContext{ ContentType = "foo" };
+            var scopedClient = client.CreatedScoped(requestContext);
+            ((OktaClient)scopedClient).RequestContext.ContentType.Should().Be("foo");
         }
 
         [Fact]
@@ -33,7 +34,7 @@ namespace Okta.Sdk.UnitTests
             var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
             client.RequestContext.ContentTransferEncoding.Should().BeNullOrEmpty();
             var scopedClient = client.CreatedScoped(new RequestContext { ContentTransferEncoding = "foo" });
-            scopedClient.RequestContext.ContentTransferEncoding.Should().Be("foo");
+            ((OktaClient)scopedClient).RequestContext.ContentTransferEncoding.Should().Be("foo");
         }
 
         [Fact]

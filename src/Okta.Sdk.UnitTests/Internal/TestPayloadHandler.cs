@@ -10,7 +10,7 @@ namespace Okta.Sdk.UnitTests.Internal
             ContentType = "foo";
         }
 
-        protected override HttpContent GetContent(HttpRequest httpRequest)
+        protected override HttpContent GetRequestHttpContent(HttpRequest httpRequest)
         {
             throw new System.NotImplementedException();
         }

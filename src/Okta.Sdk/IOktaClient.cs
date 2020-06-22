@@ -15,11 +15,6 @@ namespace Okta.Sdk
     public interface IOktaClient
     {
         /// <summary>
-        /// Gets the request context.
-        /// </summary>
-        RequestContext RequestContext { get; }
-
-        /// <summary>
         /// Gets the configuration passed to this <see cref="IOktaClient">OktaClient</see>.
         /// </summary>
         /// <value>
