@@ -135,12 +135,12 @@ namespace Okta.Sdk.UnitTests
             var httpClientToken = new HttpClient(tokenMessageHandler);
             var tokenProvider = new DefaultOAuthTokenProvider(configuration, resourceFactory, httpClientToken);
 
-            var requestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), tokenProvider);
+            var testRequestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), tokenProvider);
 
             var testRequest = new TestHttpRequest { Uri = "/foo", Verb = HttpVerb.Post };
             testRequest.HttpRequestMessage.Should().BeNull();
 
-            await requestExecutor.PostAsync(testRequest, CancellationToken.None);
+            await testRequestExecutor.PostAsync(testRequest, CancellationToken.None);
 
             testRequest.HttpRequestMessage.Should().NotBeNull();
             testRequest.HttpRequestMessage.Method.Should().Be(HttpMethod.Post);
