@@ -147,9 +147,6 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public RequestContext RequestContext => _requestContext;
-
-        /// <inheritdoc/>
         public OktaClientConfiguration Configuration { get; }
 
         /// <inheritdoc/>

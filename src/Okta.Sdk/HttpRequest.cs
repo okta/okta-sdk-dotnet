@@ -97,7 +97,7 @@ namespace Okta.Sdk
             = new Dictionary<string, string>();
 
         /// <summary>
-        /// Get the request body.
+        /// Gets the request body.
         /// </summary>
         /// <returns>The HTTP request body.</returns>
         public string GetBody()
@@ -114,7 +114,7 @@ namespace Okta.Sdk
         }
 
         /// <summary>
-        /// Set the content of the specified message.
+        /// Sets the content of the specified message.
         /// </summary>
         /// <param name="httpRequestMessage">The message whose content is set.</param>
         public virtual void SetHttpRequestMessageContent(HttpRequestMessage httpRequestMessage)

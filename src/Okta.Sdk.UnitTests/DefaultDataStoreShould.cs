@@ -389,13 +389,13 @@ namespace Okta.Sdk.UnitTests
 
             var request = new TestHttpRequest();
             request.ContentType.Should().Be("application/json");
-            request.GetPayLoadHandler().ContentType.Should().Be("application/json");
+            request.GetPayloadHandler().ContentType.Should().Be("application/json");
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
             await dataStore.PostAsync<TestResource>(request, new RequestContext { ContentType = "foo" }, CancellationToken.None);
 
             request.ContentType.Should().Be("foo");
-            request.GetPayLoadHandler().ContentType.Should().Be("foo");
+            request.GetPayloadHandler().ContentType.Should().Be("foo");
         }
 
         [Fact]

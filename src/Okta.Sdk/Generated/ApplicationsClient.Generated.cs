@@ -156,6 +156,7 @@ namespace Okta.Sdk
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
+        /*
         /// <inheritdoc />
         public async Task<IJsonWebKey> PublishCerCertAsync(string certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<JsonWebKey>(new HttpRequest
@@ -224,7 +225,7 @@ namespace Okta.Sdk
                     ["appId"] = appId,
                     ["csrId"] = csrId,
                 },
-                }, cancellationToken).ConfigureAwait(false);
+                }, cancellationToken).ConfigureAwait(false);*/
         
         /// <inheritdoc />
         public ICollectionClient<IJsonWebKey> ListApplicationKeys(string appId)

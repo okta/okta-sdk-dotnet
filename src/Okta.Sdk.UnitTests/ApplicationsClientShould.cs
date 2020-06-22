@@ -139,7 +139,7 @@ namespace Okta.Sdk.UnitTests
 
             await client.Applications.PublishCerCertAsync("fakeBase64EncodedCertificate", "testAppId", "testCertificateSigningRequestId");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
         }
 
         [Fact]
@@ -150,7 +150,7 @@ namespace Okta.Sdk.UnitTests
 
             await client.Applications.PublishBinaryCerCertAsync(Encoding.UTF8.GetBytes("fakeBase64EncodedCertificate"), "testAppId", "testCertificateSigningRequestId");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
         }
 
         [Fact]
@@ -161,7 +161,7 @@ namespace Okta.Sdk.UnitTests
 
             await client.Applications.PublishDerCertAsync("fakeDerCertificate", "testAppId", "testCertificateSigningRequestId");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
         }
 
         [Fact]
@@ -170,9 +170,9 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-            await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("foo"), "bar", "baz");
+            await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigninRequestId");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigninRequestId/lifecycle/publish");
         }
 
         [Fact]

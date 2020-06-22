@@ -19,25 +19,6 @@ namespace Okta.Sdk.UnitTests
     public class OktaClientShould
     {
         [Fact]
-        public void GetClientWithContentType()
-        {
-            var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
-            client.RequestContext.ContentType.Should().BeNullOrEmpty();
-            var requestContext = new RequestContext{ ContentType = "foo" };
-            var scopedClient = client.CreatedScoped(requestContext);
-            ((OktaClient)scopedClient).RequestContext.ContentType.Should().Be("foo");
-        }
-
-        [Fact]
-        public void GetClientWithContentTransferEncoding()
-        {
-            var client = new TestableOktaClient(Substitute.For<IRequestExecutor>());
-            client.RequestContext.ContentTransferEncoding.Should().BeNullOrEmpty();
-            var scopedClient = client.CreatedScoped(new RequestContext { ContentTransferEncoding = "foo" });
-            ((OktaClient)scopedClient).RequestContext.ContentTransferEncoding.Should().Be("foo");
-        }
-
-        [Fact]
         public async Task OverrideRequestContentType()
         {
             var executor = Substitute.For<IRequestExecutor>();

@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -111,26 +112,21 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public async Task SetMessageContentForPost()
+        public async Task CallRequestMessageProviderOnPost()
         {
             var httpClientRequest = new HttpClient();
             var configuration = new OktaClientConfiguration
             {
-                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                OktaDomain = "https://okta.okta.com",
                 Token = "foo",
             };
             var logger = Substitute.For<ILogger>();
+            var mockHttpRequestMessageProvider = Substitute.For<IHttpRequestMessageProvider>();
 
-            var testRequestExecutor = new TestDefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), null);
-
-            var testRequest = new TestHttpRequest { Uri = "/foo", Verb = HttpVerb.Post };
-            testRequest.SentHttpRequestMessage.Should().BeNull();
-
-            await testRequestExecutor.PostAsync(testRequest, CancellationToken.None);
-
-            testRequest.SentHttpRequestMessage.Should().NotBeNull();
-            testRequest.SentHttpRequestMessage.Method.Should().Be(HttpMethod.Post);
-            testRequest.SentHttpRequestMessage.RequestUri.PathAndQuery.Should().Be("/foo");
+            var testRequestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), null, mockHttpRequestMessageProvider);
+            testRequestExecutor.PostAsync(new HttpRequest {Uri = "/api/v1"}, CancellationToken.None);
+            mockHttpRequestMessageProvider.Received(1)
+                .CreateHttpRequestMessage(Arg.Any<HttpRequest>(), Arg.Any<string>());
         }
     }
 }

@@ -5,7 +5,7 @@ namespace Okta.Sdk.UnitTests.Internal
 {
     public class TestHttpRequest : HttpRequest
     {
-        public IPayloadHandler GetPayLoadHandler()
+        public IPayloadHandler GetPayloadHandler()
         {
             return PayloadHandler;
         }

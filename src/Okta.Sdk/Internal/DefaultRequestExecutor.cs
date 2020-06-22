@@ -17,7 +17,7 @@ namespace Okta.Sdk.Internal
     /// <summary>
     /// The default implementation of <see cref="IRequestExecutor"/> that uses <c>System.Net.Http</c>.
     /// </summary>
-    public class DefaultRequestExecutor : IRequestExecutor
+    public sealed class DefaultRequestExecutor : IRequestExecutor
     {
         private const string OktaClientUserAgentName = "oktasdk-dotnet";
 
@@ -27,13 +27,8 @@ namespace Okta.Sdk.Internal
         private readonly IRetryStrategy _retryStrategy;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
         private readonly OktaClientConfiguration _oktaConfiguration;
-        private readonly Dictionary<HttpVerb, HttpMethod> _httpMethods = new Dictionary<HttpVerb, HttpMethod>
-        {
-            { HttpVerb.Get, HttpMethod.Get },
-            { HttpVerb.Post, HttpMethod.Post },
-            { HttpVerb.Put, HttpMethod.Put },
-            { HttpVerb.Delete, HttpMethod.Delete },
-        };
+
+        private readonly IHttpRequestMessageProvider _httpRequestMessageProvider;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -50,7 +45,7 @@ namespace Okta.Sdk.Internal
         /// <param name="logger">The logging interface.</param>
         /// <param name="retryStrategy">The retry strategy interface.</param>
         /// <param name="oAuthTokenProvider">The OAuth token provider interface.</param>
-        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null, IHttpRequestMessageProvider httpRequestMessageProvider = null)
         {
             if (configuration == null)
             {
@@ -63,6 +58,7 @@ namespace Okta.Sdk.Internal
             _retryStrategy = retryStrategy ?? new DefaultRetryStrategy(configuration.MaxRetries.Value, configuration.RequestTimeout.Value);
             _oAuthTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
             _oktaConfiguration = configuration;
+            _httpRequestMessageProvider = httpRequestMessageProvider ?? HttpRequestMessageProvider.Default;
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
 
@@ -180,7 +176,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public virtual async Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        public async Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
         {
             switch (request.Verb)
             {
@@ -198,7 +194,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public virtual Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -209,13 +205,13 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public virtual Task<HttpResponse<string>> PostAsync(HttpRequest httpRequest, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(HttpRequest httpRequest, CancellationToken cancellationToken)
         {
-            return SendAsync(CreateHttpRequestMessage(httpRequest), cancellationToken);
+            return SendAsync(_httpRequestMessageProvider.CreateHttpRequestMessage(httpRequest, EnsureRelativeUrl(httpRequest.Uri)), cancellationToken);
         }
 
         /// <inheritdoc/>
-        public virtual Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -230,7 +226,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public virtual Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -245,7 +241,7 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
-        public virtual Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
 
@@ -253,19 +249,6 @@ namespace Okta.Sdk.Internal
             ApplyHeadersToRequest(request, headers);
 
             return SendAsync(request, cancellationToken);
-        }
-
-        private HttpRequestMessage CreateHttpRequestMessage(HttpRequest httpRequest)
-        {
-            var path = EnsureRelativeUrl(httpRequest.Uri);
-            var httpRequestMessage = new HttpRequestMessage(_httpMethods[httpRequest.Verb], new Uri(path, UriKind.Relative));
-            ApplyHeadersToRequest(
-                httpRequestMessage,
-                httpRequest.Headers.Keys
-                    .Select(header => new KeyValuePair<string, string>(header, httpRequest.Headers[header]))
-                    .ToList());
-            httpRequest.SetHttpRequestMessageContent(httpRequestMessage);
-            return httpRequestMessage;
         }
     }
 }

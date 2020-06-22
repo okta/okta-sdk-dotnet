@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -8,10 +10,9 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.UnitTests.Internal
 {
-    public class TestDefaultRequestExecutor : DefaultRequestExecutor
+    public class TestDefaultRequestExecutor : IRequestExecutor
     {
         public TestDefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
-            : base(configuration, httpClient, logger, retryStrategy, oAuthTokenProvider)
         {
             VerbExecutionCounts = new Dictionary<HttpVerb, int>
             {
@@ -26,25 +27,52 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public string ReceivedHref { get; set; }
 
-        public override Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            switch (request.Verb)
+            {
+                case HttpVerb.Get:
+                    return GetAsync(request.Uri, request.Headers, cancellationToken);
+                case HttpVerb.Post:
+                    return PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
+                case HttpVerb.Put:
+                    return PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
+                case HttpVerb.Delete:
+                    return DeleteAsync(request.Uri, request.Headers, cancellationToken);
+                default:
+                    return GetAsync(request.Uri, request.Headers, cancellationToken);
+            }
+        }
+
+        public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             VerbExecutionCounts[HttpVerb.Get] += 1;
             return Task.FromResult(GetTestResponse());
         }
 
-        public override Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PostAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            var headers = request
+                .Headers
+                .Keys
+                .Select(header => new KeyValuePair<string, string>(header, request.Headers[header]))
+                .ToList();
+            return PostAsync(request.Uri, headers, request.GetBody(), cancellationToken);
+        }
+
+        public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             VerbExecutionCounts[HttpVerb.Post] += 1;
             return Task.FromResult(GetTestResponse());
         }
 
-        public override Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
             VerbExecutionCounts[HttpVerb.Put] += 1;
             return Task.FromResult(GetTestResponse());
         }
 
-        public override Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
+        public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             VerbExecutionCounts[HttpVerb.Delete] += 1;
             return Task.FromResult(GetTestResponse());
