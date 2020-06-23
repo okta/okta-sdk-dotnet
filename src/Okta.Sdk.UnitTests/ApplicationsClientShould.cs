@@ -176,7 +176,7 @@ namespace Okta.Sdk.UnitTests
 
             await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigningRequestId");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigninRequestId/lifecycle/publish");
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
         }
 
         [Fact]
