@@ -101,7 +101,7 @@ var client = new OktaClient(new OktaClientConfiguration
     Token = "{{yourApiToken}}"
 });
 
-var scopedClient = client.CreatedScoped(new RequestContext { ContentType = "my-custom-content-type" });
+var scopedClient = client.CreateScoped(new RequestContext { ContentType = "my-custom-content-type" });
 ```
 The content type specified in a scoped client overrides the content type specified on a request, see also [Call other API endpoints](#call-other-api-endpoints).
 

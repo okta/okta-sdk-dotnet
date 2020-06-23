@@ -29,7 +29,7 @@ namespace Okta.Sdk.UnitTests
             var client = new TestableOktaClient(executor);
             var requestContextContentType = "requestContextContentType";
             var requestContentType = "requestContentType";
-            await client.CreatedScoped(new RequestContext { ContentType = requestContextContentType }).PostAsync(new HttpRequest { ContentType = requestContentType });
+            await client.CreateScoped(new RequestContext { ContentType = requestContextContentType }).PostAsync(new HttpRequest { ContentType = requestContentType });
 
             await executor.Received()
                 .PostAsync(Arg.Is<HttpRequest>(request => request.ContentType.Equals(requestContextContentType)), Arg.Any<CancellationToken>());
@@ -44,7 +44,7 @@ namespace Okta.Sdk.UnitTests
                 .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
 
             var client = new TestableOktaClient(executor);
-            await client.CreatedScoped(new RequestContext { ContentTransferEncoding = "foo" }).PostAsync(new HttpRequest { ContentTransferEncoding = "bar" });
+            await client.CreateScoped(new RequestContext { ContentTransferEncoding = "foo" }).PostAsync(new HttpRequest { ContentTransferEncoding = "bar" });
 
             await executor.Received()
                 .PostAsync(Arg.Is<HttpRequest>(request => request.Headers.ContainsKey("Content-Transfer-Encoding") && request.Headers["Content-Transfer-Encoding"].Equals("foo")), Arg.Any<CancellationToken>());

@@ -152,7 +152,7 @@ namespace Okta.Sdk
         public OktaClientConfiguration Configuration { get; }
 
         /// <inheritdoc/>
-        public IOktaClient CreatedScoped(RequestContext requestContext)
+        public IOktaClient CreateScoped(RequestContext requestContext)
             => new OktaClient(_dataStore, Configuration, requestContext);
 
         /// <inheritdoc/>
