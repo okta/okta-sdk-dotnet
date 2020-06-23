@@ -71,6 +71,8 @@ namespace Okta.Sdk
                 logger);
 
             PayloadHandler.TryRegister<PkixCertPayloadHandler>();
+            PayloadHandler.TryRegister<PemFilePayloadHandler>();
+            PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
         }
 
         /// <summary>
@@ -105,6 +107,8 @@ namespace Okta.Sdk
                 logger);
 
             PayloadHandler.TryRegister<PkixCertPayloadHandler>();
+            PayloadHandler.TryRegister<PemFilePayloadHandler>();
+            PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
         }
 
         /// <summary>

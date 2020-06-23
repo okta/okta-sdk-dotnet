@@ -41,13 +41,7 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException("request payload");
             }
 
-            if (httpRequest.Payload.GetType() != typeof(byte[]))
-            {
-                throw new InvalidOperationException($"request payload should be of type byte array (byte[]), but was {httpRequest.Payload.GetType().FullName}");
-            }
-
-            var bytes = (byte[])httpRequest.Payload;
-            return new StringContent(Convert.ToBase64String(bytes), Encoding.UTF8, ContentType);
+            return new StringContent((string)httpRequest.Payload, Encoding.UTF8, ContentType);
         }
     }
 }

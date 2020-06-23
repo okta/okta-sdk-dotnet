@@ -4,6 +4,7 @@
 // </copyright>
 
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Okta.Sdk.Internal;
@@ -28,6 +29,7 @@ namespace Okta.Sdk.UnitTests
             httpRequestMessage.Content.Should().BeNull();
             testPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
             httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
         }
 
         [Fact]
@@ -49,6 +51,8 @@ namespace Okta.Sdk.UnitTests
 
             // if there is no content transfer encoding on the request then the value from the PayloadHandler is used
             httpRequestMessage.Headers.ToString().Should().Be("Content-Transfer-Encoding: testContentTransferEncoding-fromPayloadHandler\r\n");
+            httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
         }
 
         [Fact]
@@ -73,6 +77,62 @@ namespace Okta.Sdk.UnitTests
 
             // the content transfer encoding set on the request should win over the content transfer encoding set on the payload handler
             httpRequestMessage.Headers.ToString().Should().Be("Content-Transfer-Encoding: testContentTransferEncoding-fromRequest\r\n");
+            httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
+        }
+
+        [Fact]
+        public void SetPkixCertContent()
+        {
+            var pkixCertPayloadHandler = new PkixCertPayloadHandler();
+            PayloadHandler.TryRegister(pkixCertPayloadHandler);
+            var testHttpRequest = new TestHttpRequest
+            {
+                ContentType = "application/pkix-cert", // this must match the ContentType of the PkixCertPayloadHandler for this test
+                Payload = "testPayload",
+            };
+            testHttpRequest.GetPayloadHandler().GetType().Should().Be(typeof(PkixCertPayloadHandler));
+
+            var httpRequestMessage = new HttpRequestMessage();
+            pkixCertPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
+            httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
+        }
+
+        [Fact]
+        public void SetPemCertContent()
+        {
+            var pkixCertPayloadHandler = new PemFilePayloadHandler();
+            PayloadHandler.TryRegister(pkixCertPayloadHandler);
+            var testHttpRequest = new TestHttpRequest
+            {
+                ContentType = "application/x-pem-file", // this must match the ContentType of the PemFilePayloadHandler for this test
+                Payload = Encoding.UTF8.GetBytes("testPayload"),
+            };
+            testHttpRequest.GetPayloadHandler().GetType().Should().Be(typeof(PemFilePayloadHandler));
+
+            var httpRequestMessage = new HttpRequestMessage();
+            pkixCertPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
+            httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(ByteArrayContent));
+        }
+
+        [Fact]
+        public void SetX509CertContent()
+        {
+            var pkixCertPayloadHandler = new X509CaCertPayloadHandler();
+            PayloadHandler.TryRegister(pkixCertPayloadHandler);
+            var testHttpRequest = new TestHttpRequest
+            {
+                ContentType = "application/x-x509-ca-cert", // this must match the ContentType of the X509CaCertPayloadHandler for this test
+                Payload = Encoding.UTF8.GetBytes("testPayload"),
+            };
+            testHttpRequest.GetPayloadHandler().GetType().Should().Be(typeof(X509CaCertPayloadHandler));
+
+            var httpRequestMessage = new HttpRequestMessage();
+            pkixCertPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
+            httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(ByteArrayContent));
         }
     }
 }

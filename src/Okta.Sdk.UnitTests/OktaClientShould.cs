@@ -344,10 +344,12 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public void RegisterPkixCertPayloadHandlerOnConstruction()
+        public void RegisterPayloadHandlers()
         {
             _ = new OktaClient();
             PayloadHandler.ForContentType("application/pkix-cert").GetType().Should().Be(typeof(PkixCertPayloadHandler));
+            PayloadHandler.ForContentType("application/x-pem-file").GetType().Should().Be(typeof(PemFilePayloadHandler));
+            PayloadHandler.ForContentType("application/x-x509-ca-cert").GetType().Should().Be(typeof(X509CaCertPayloadHandler));
         }
     }
 }

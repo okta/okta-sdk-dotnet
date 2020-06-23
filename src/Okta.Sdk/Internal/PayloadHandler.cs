@@ -21,7 +21,7 @@ namespace Okta.Sdk.Internal
         /// <summary>
         /// Initializes a new instance of the <see cref="PayloadHandler"/> class.
         /// </summary>
-        public PayloadHandler()
+        protected PayloadHandler()
         {
             Serializer = new DefaultSerializer();
         }
@@ -106,6 +106,7 @@ namespace Okta.Sdk.Internal
         /// Register the specified generic payload handler.
         /// </summary>
         /// <typeparam name="T">The type of the payload handler to register.</typeparam>
+        /// <returns>True if successfully registered.</returns>
         public static bool TryRegister<T>()
             where T : PayloadHandler, new()
         {
@@ -116,6 +117,7 @@ namespace Okta.Sdk.Internal
         /// Register the specified payload handler.
         /// </summary>
         /// <param name="payloadHandler">The payload handler instance to register.</param>
+        /// <returns>True if successfully registered.</returns>
         public static bool TryRegister(IPayloadHandler payloadHandler)
         {
             return _payloadHandlers.TryAdd(payloadHandler.ContentType, payloadHandler);
