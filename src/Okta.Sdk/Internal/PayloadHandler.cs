@@ -42,7 +42,7 @@ namespace Okta.Sdk.Internal
         /// Gets or sets the content transfer encoding.
         /// </summary>
         protected string ContentTransferEncoding { get; set; }
-        
+
         /// <inheritdoc/>
         public virtual string GetBody(HttpRequest httpRequest)
         {
@@ -66,12 +66,18 @@ namespace Okta.Sdk.Internal
         protected abstract HttpContent GetRequestHttpContent(HttpRequest httpRequest);
 
         /// <inheritdoc/>
-        public virtual void SetMessageContent(HttpRequest httpRequest, HttpRequestMessage httpRequestMessage)
+        public virtual void SetHttpRequestMessageContent(HttpRequest httpRequest, HttpRequestMessage httpRequestMessage)
         {
             httpRequestMessage.Content = GetRequestHttpContent(httpRequest);
-            if (!string.IsNullOrEmpty(ContentTransferEncoding))
+            if (!string.IsNullOrEmpty(ContentTransferEncoding)
+                && !httpRequestMessage.Headers.Contains("Content-Transfer-Encoding")
+                && string.IsNullOrEmpty(httpRequest.ContentTransferEncoding))
             {
                 httpRequestMessage.Headers.Add("Content-Transfer-Encoding", ContentTransferEncoding);
+            }
+            else if (!string.IsNullOrEmpty(httpRequest.ContentTransferEncoding))
+            {
+                httpRequestMessage.Headers.Add("Content-Transfer-Encoding", httpRequest.ContentTransferEncoding);
             }
         }
 

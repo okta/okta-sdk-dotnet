@@ -6,8 +6,11 @@
 using System;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSubstitute;
+using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
@@ -171,7 +174,7 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-            await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigninRequestId");
+            await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigningRequestId");
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigninRequestId/lifecycle/publish");
         }
@@ -182,9 +185,21 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-            await client.Applications.PublishBinaryPemCertAsync(Encoding.UTF8.GetBytes("foo"), "bar", "baz");
+            await client.Applications.PublishBinaryPemCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigningRequestId");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/credentials/csrs/baz/lifecycle/publish");
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task CallDataStorePostAsync()
+        {
+            var mockDataStore = Substitute.For<IDataStore>();
+            var client = new TestableOktaClient(mockDataStore);
+            var testRequest = new HttpRequest();
+            await client.PostAsync(testRequest, CancellationToken.None);
+            await mockDataStore
+                .Received(1)
+                .PostAsync<Resource>(Arg.Is(testRequest), Arg.Any<RequestContext>(), Arg.Any<CancellationToken>());
         }
 
         private string GetBookmarkApplicationStubResponse(string features = "null")

@@ -103,6 +103,8 @@ namespace Okta.Sdk
                 serializer,
                 resourceFactory,
                 logger);
+
+            PayloadHandler.TryRegister<PkixCertPayloadHandler>();
         }
 
         /// <summary>

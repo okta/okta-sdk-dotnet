@@ -29,6 +29,6 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="httpRequest">The request used to create the message content.</param>
         /// <param name="httpRequestMessage">The message whose content is set.</param>
-        void SetMessageContent(HttpRequest httpRequest, HttpRequestMessage httpRequestMessage);
+        void SetHttpRequestMessageContent(HttpRequest httpRequest, HttpRequestMessage httpRequestMessage);
     }
 }

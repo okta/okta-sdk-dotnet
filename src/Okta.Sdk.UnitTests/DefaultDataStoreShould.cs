@@ -377,7 +377,7 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public async Task SetPayloadHandlerContentTypeOnPost()
+        public async Task SetPayloadHandlerContentTypeOnPostAsync()
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
@@ -396,6 +396,23 @@ namespace Okta.Sdk.UnitTests
 
             request.ContentType.Should().Be("foo");
             request.GetPayloadHandler().ContentType.Should().Be("foo");
+        }
+
+        [Fact]
+        public async Task CallRequestExecutorPostAsyncOnPostAsync()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+            var defaultDataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var testRequest = new HttpRequest();
+            var testRequestContext = new RequestContext();
+
+            await defaultDataStore.PostAsync<Resource>(testRequest, testRequestContext, CancellationToken.None);
+            await mockRequestExecutor
+                .Received(1)
+                .PostAsync(Arg.Is(testRequest), Arg.Any<CancellationToken>());
         }
 
         [Fact]

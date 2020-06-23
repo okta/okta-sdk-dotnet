@@ -112,7 +112,7 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public async Task CallRequestMessageProviderOnPost()
+        public async Task CallRequestMessageProviderOnPostAsync()
         {
             var httpClientRequest = new HttpClient();
             var configuration = new OktaClientConfiguration
@@ -127,10 +127,11 @@ namespace Okta.Sdk.UnitTests
                 .Returns(new HttpRequestMessage());
 
             var testRequestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, logger, new NoRetryStrategy(), null, mockHttpRequestMessageProvider);
-            await testRequestExecutor.PostAsync(new HttpRequest { Uri = "/api/v1" }, CancellationToken.None);
+            var testHttpRequest = new HttpRequest { Uri = "/api/v1" };
+            await testRequestExecutor.PostAsync(testHttpRequest, CancellationToken.None);
             mockHttpRequestMessageProvider
                 .Received(1)
-                .CreateHttpRequestMessage(Arg.Any<HttpRequest>(), Arg.Any<string>());
+                .CreateHttpRequestMessage(Arg.Is(testHttpRequest), Arg.Is<string>("api/v1"));
         }
     }
 }

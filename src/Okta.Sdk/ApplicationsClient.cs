@@ -67,6 +67,7 @@ namespace Okta.Sdk
                     Verb = HttpVerb.Post,
                     Payload = Convert.FromBase64String(base64EncodedCertificateData),
                     ContentType = "application/pkix-cert",
+                    ContentTransferEncoding = "base64",
                     PathParameters = new Dictionary<string, object>()
                     {
                         ["appId"] = appId,
@@ -99,6 +100,7 @@ namespace Okta.Sdk
                     Verb = HttpVerb.Post,
                     Payload = Convert.FromBase64String(base64EncodedCertificateData),
                     ContentType = "application/pkix-cert",
+                    ContentTransferEncoding = "base64",
                     PathParameters = new Dictionary<string, object>()
                     {
                         ["appId"] = appId,

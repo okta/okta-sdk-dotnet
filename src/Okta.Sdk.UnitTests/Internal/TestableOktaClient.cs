@@ -24,5 +24,13 @@ namespace Okta.Sdk.UnitTests.Internal
                 new RequestContext())
         {
         }
+
+        public TestableOktaClient(IDataStore dataStore)
+            : base(
+                dataStore,
+                DefaultFakeConfiguration,
+                new RequestContext())
+        {
+        }
     }
 }

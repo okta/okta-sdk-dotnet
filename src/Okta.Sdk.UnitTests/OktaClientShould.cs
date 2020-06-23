@@ -325,5 +325,13 @@ namespace Okta.Sdk.UnitTests
             statements.First().Type.Should().Be("EXPRESSION");
             statements.First().Name.Should().Be("Attribute");
         }
+
+        [Fact]
+        public void RegisterPkixCertPayloadHandlerOnConstruction()
+        {
+            PayloadHandler.ForContentType("application/pkix-cert").GetType().Should().Be(typeof(JsonPayloadHandler)); // the PkixCertPayload handler gets registered on construction of the OktaClient
+            _ = new OktaClient();
+            PayloadHandler.ForContentType("application/pkix-cert").GetType().Should().Be(typeof(PkixCertPayloadHandler));
+        }
     }
 }

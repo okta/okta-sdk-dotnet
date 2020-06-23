@@ -70,6 +70,15 @@ namespace Okta.Sdk
         }
 
         /// <summary>
+        /// Gets or sets the content encoding. 
+        /// </summary>
+        public string ContentTransferEncoding
+        {
+            get => GetHeader("Content-Transfer-Encoding");
+            set => SetHeader("Content-Transfer-Encoding", value);
+        }
+
+        /// <summary>
         /// Gets or sets the set of query parameters to send with the request.
         /// </summary>
         /// <value>
@@ -119,13 +128,35 @@ namespace Okta.Sdk
         /// <param name="httpRequestMessage">The message whose content is set.</param>
         public virtual void SetHttpRequestMessageContent(HttpRequestMessage httpRequestMessage)
         {
-            PayloadHandler.SetMessageContent(this, httpRequestMessage);
+            PayloadHandler.SetHttpRequestMessageContent(this, httpRequestMessage);
         }
 
         internal HttpRequest SetBody(string body)
         {
             _body = body;
             return this;
+        }
+
+        private void SetHeader(string key, string value)
+        {
+            if (Headers.ContainsKey(key))
+            {
+                Headers[key] = value;
+            }
+            else
+            {
+                Headers.Add(key, value);
+            }
+        }
+
+        private string GetHeader(string key)
+        {
+            if (Headers.ContainsKey(key))
+            {
+                return Headers[key];
+            }
+
+            return string.Empty;
         }
     }
 }
