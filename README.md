@@ -1,4 +1,4 @@
-[<img src="https://devforum.okta.com/uploads/oktadev/original/1X/bf54a16b5fda189e4ad2706fb57cbb7a1e5b8deb.png" align="right" width="256px"/>](https://devforum.okta.com/)
+[<img src="https://devforum.okta.com/uploads/oktadev/original/1X/bf54a16b5fda189e4ad2706fb57cbb7a1e5b8deb.png" align="right" width="256px"/>](https://devforum.okta.com/) 
 
 [![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
 [![API Reference](https://img.shields.io/badge/docs-reference-lightgrey.svg)][dotnetdocs]
