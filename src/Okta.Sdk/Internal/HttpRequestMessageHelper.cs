@@ -26,8 +26,9 @@ namespace Okta.Sdk.Internal
 
             if (request.Content != null)
             {
+                clonedRequest.Content = request.Content;
                 // Copy the request's content (via a MemoryStream) into the cloned object
-                var memoryStream = new MemoryStream();
+                /*var memoryStream = new MemoryStream();
                 await request.Content.CopyToAsync(memoryStream).ConfigureAwait(false);
                 memoryStream.Position = 0;
                 clonedRequest.Content = new StreamContent(memoryStream);
@@ -39,7 +40,7 @@ namespace Okta.Sdk.Internal
                     {
                         clonedRequest.Content.Headers.Add(header.Key, header.Value);
                     }
-                }
+                }*/
             }
 
             clonedRequest.Version = request.Version;
