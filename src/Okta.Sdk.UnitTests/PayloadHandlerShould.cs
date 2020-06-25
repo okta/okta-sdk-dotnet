@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -97,6 +98,8 @@ namespace Okta.Sdk.UnitTests
             pkixCertPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
             httpRequestMessage.Content.Should().NotBeNull();
             httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
+            httpRequestMessage.Content.Headers.Contains("Content-Type");
+            httpRequestMessage.Content.Headers.ContentType.ToString().Should().Be("application/pkix-cert; charset=utf-8");
         }
 
         [Fact]
@@ -115,6 +118,8 @@ namespace Okta.Sdk.UnitTests
             pkixCertPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
             httpRequestMessage.Content.Should().NotBeNull();
             httpRequestMessage.Content.GetType().Should().Be(typeof(ByteArrayContent));
+            httpRequestMessage.Content.Headers.Contains("Content-Type");
+            httpRequestMessage.Content.Headers.ContentType.ToString().Should().Be("application/x-pem-file");
         }
 
         [Fact]
@@ -133,6 +138,8 @@ namespace Okta.Sdk.UnitTests
             pkixCertPayloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
             httpRequestMessage.Content.Should().NotBeNull();
             httpRequestMessage.Content.GetType().Should().Be(typeof(ByteArrayContent));
+            httpRequestMessage.Content.Headers.Contains("Content-Type");
+            httpRequestMessage.Content.Headers.ContentType.ToString().Should().Be("application/x-x509-ca-cert");
         }
     }
 }

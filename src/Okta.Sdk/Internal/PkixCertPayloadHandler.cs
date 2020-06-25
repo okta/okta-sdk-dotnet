@@ -41,7 +41,17 @@ namespace Okta.Sdk.Internal
                 throw new ArgumentNullException("request payload");
             }
 
-            return new StringContent((string)httpRequest.Payload, Encoding.UTF8, ContentType);
+            var content = string.Empty;
+            if (httpRequest.Payload is string stringPayload)
+            {
+                content = stringPayload;
+            }
+            else if (httpRequest.Payload is byte[] bytePayload)
+            {
+                content = Convert.ToBase64String(bytePayload);
+            }
+
+            return new StringContent(content, Encoding.UTF8, ContentType);
         }
     }
 }
