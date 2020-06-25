@@ -97,9 +97,8 @@ namespace Okta.Sdk
                 {
                     Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
                     Verb = HttpVerb.Post,
-                    Payload = Convert.FromBase64String(base64EncodedCertificateData),
+                    Payload = base64EncodedCertificateData,
                     ContentType = "application/pkix-cert",
-                    ContentTransferEncoding = "base64",
                     PathParameters = new Dictionary<string, object>()
                     {
                         ["appId"] = appId,
