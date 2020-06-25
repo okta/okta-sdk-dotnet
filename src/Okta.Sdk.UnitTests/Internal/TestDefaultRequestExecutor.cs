@@ -1,32 +1,31 @@
-﻿// <copyright file="MockedStringRequestExecutor.cs" company="Okta, Inc">
-// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
-// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
-// </copyright>
-
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
 namespace Okta.Sdk.UnitTests.Internal
 {
-    public class MockedStringRequestExecutor : IRequestExecutor
+    public class TestDefaultRequestExecutor : IRequestExecutor
     {
-        private readonly string _returnThis;
-        private readonly int _statusCode;
+        public TestDefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        {
+            VerbExecutionCounts = new Dictionary<HttpVerb, int>
+            {
+                { HttpVerb.Get, 0 },
+                { HttpVerb.Post, 0 },
+                { HttpVerb.Put, 0 },
+                { HttpVerb.Delete, 0 },
+            };
+        }
+
+        public Dictionary<HttpVerb, int> VerbExecutionCounts { get; set; }
 
         public string ReceivedHref { get; set; }
-        public IEnumerable<KeyValuePair<string, string>> ReceivedHeaders { get; set; }
-
-        public string OktaDomain => throw new NotImplementedException();
-
-        public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
-        {
-            _returnThis = returnThis;
-            _statusCode = statusCode;
-        }
 
         public Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
         {
@@ -47,14 +46,8 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-            ReceivedHref = href;
-            ReceivedHeaders = headers;
-
-            return Task.FromResult(new HttpResponse<string>
-            {
-                StatusCode = _statusCode,
-                Payload = _returnThis,
-            });
+            VerbExecutionCounts[HttpVerb.Get] += 1;
+            return Task.FromResult(GetTestResponse());
         }
 
         public Task<HttpResponse<string>> PostAsync(HttpRequest request, CancellationToken cancellationToken)
@@ -64,44 +57,34 @@ namespace Okta.Sdk.UnitTests.Internal
                 .Keys
                 .Select(header => new KeyValuePair<string, string>(header, request.Headers[header]))
                 .ToList();
-            ReceivedHeaders = headers;
             return PostAsync(request.Uri, headers, request.GetBody(), cancellationToken);
         }
 
         public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
-            ReceivedHref = href;
-            ReceivedHeaders = headers;
-
-            return Task.FromResult(new HttpResponse<string>
-            {
-                StatusCode = _statusCode,
-                Payload = _returnThis,
-            });
+            VerbExecutionCounts[HttpVerb.Post] += 1;
+            return Task.FromResult(GetTestResponse());
         }
 
         public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
-            ReceivedHref = href;
-            ReceivedHeaders = headers;
-
-            return Task.FromResult(new HttpResponse<string>
-            {
-                StatusCode = _statusCode,
-                Payload = _returnThis,
-            });
+            VerbExecutionCounts[HttpVerb.Put] += 1;
+            return Task.FromResult(GetTestResponse());
         }
 
         public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-            ReceivedHref = href;
-            ReceivedHeaders = headers;
+            VerbExecutionCounts[HttpVerb.Delete] += 1;
+            return Task.FromResult(GetTestResponse());
+        }
 
-            return Task.FromResult(new HttpResponse<string>
+        private HttpResponse<string> GetTestResponse()
+        {
+            return new HttpResponse<string>
             {
-                Payload = _returnThis,
-                StatusCode = _statusCode,
-            });
+                StatusCode = 200,
+                Payload = "test",
+            };
         }
     }
 }

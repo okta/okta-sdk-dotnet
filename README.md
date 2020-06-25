@@ -92,6 +92,19 @@ var client = new OktaClient(new OktaClientConfiguration
 
 Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
 
+### Create a scoped client
+Create a client scoped to a specific context to specify a custom content type:
+``` csharp
+var client = new OktaClient(new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    Token = "{{yourApiToken}}"
+});
+
+var scopedClient = client.CreateScoped(new RequestContext { ContentType = "my-custom-content-type" });
+```
+The content type specified in a scoped client overrides the content type specified on a request, see also [Call other API endpoints](#call-other-api-endpoints).
+
 ### OAuth 2.0
 
 Okta allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. 

@@ -5,8 +5,12 @@
 
 using System;
 using System.Linq;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSubstitute;
+using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
@@ -128,6 +132,74 @@ namespace Okta.Sdk.UnitTests
             await client.Applications.RevokeOAuth2TokensForApplicationAsync("foo");
 
             mockRequestExecutor.ReceivedHref.Should().StartWith("/api/v1/apps/foo/tokens");
+        }
+
+        [Fact]
+        public async Task BuildPublishCerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishCerCertAsync("fakeBase64EncodedCertificate", "testAppId", "testCertificateSigningRequestId");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishBinaryCerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishBinaryCerCertAsync(Encoding.UTF8.GetBytes("fakeBase64EncodedCertificate"), "testAppId", "testCertificateSigningRequestId");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishDerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var fakeCertificate = Convert.ToBase64String(Encoding.UTF8.GetBytes("fakeDerCertificate"));
+            await client.Applications.PublishDerCertAsync(fakeCertificate, "testAppId", "testCertificateSigningRequestId");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishBinaryDerCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishBinaryDerCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigningRequestId");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task BuildPublishBinaryPemCertRequest()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.PublishBinaryPemCertAsync(Encoding.UTF8.GetBytes("certificateByteDataFromFile"), "testAppId", "testCertificateSigningRequestId");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/testAppId/credentials/csrs/testCertificateSigningRequestId/lifecycle/publish");
+        }
+
+        [Fact]
+        public async Task CallDataStorePostAsync()
+        {
+            var mockDataStore = Substitute.For<IDataStore>();
+            var client = new TestableOktaClient(mockDataStore);
+            var testRequest = new HttpRequest();
+            await client.PostAsync(testRequest, CancellationToken.None);
+            await mockDataStore
+                .Received(1)
+                .PostAsync<Resource>(Arg.Is(testRequest), Arg.Any<RequestContext>(), Arg.Any<CancellationToken>());
         }
 
         private string GetBookmarkApplicationStubResponse(string features = "null")

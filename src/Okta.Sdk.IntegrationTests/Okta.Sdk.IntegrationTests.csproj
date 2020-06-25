@@ -9,7 +9,6 @@
     <PackageReference Include="FluentAssertions" Version="5.3.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.2" />
     <PackageReference Include="Polly" Version="5.2.0" />
-    <PackageReference Include="Portable.BouncyCastle" Version="1.8.6.7" />
     <PackageReference Include="xunit" Version="2.4.0" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.0" />
     <AdditionalFiles Include="..\stylecop.json" />

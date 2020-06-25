@@ -8,14 +8,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Org.BouncyCastle.Asn1.X509;
-using Org.BouncyCastle.Crypto;
-using Org.BouncyCastle.Crypto.Generators;
-using Org.BouncyCastle.Crypto.Prng;
-using Org.BouncyCastle.Math;
-using Org.BouncyCastle.Security;
-using Org.BouncyCastle.Utilities;
-using Org.BouncyCastle.X509;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
@@ -1812,81 +1804,6 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Applications.DeactivateApplicationAsync(createdApp.Id);
                 await client.Applications.DeleteApplicationAsync(createdApp.Id);
             }
-        }
-
-        [Fact(Skip = "Depends on OKTA-295020")]
-        public async Task PublishCsr()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var createdApp = await client.Applications.CreateApplicationAsync(
-                new CreateBasicAuthApplicationOptions()
-                {
-                    Label = $"dotnet-sdk: PublishCsr {guid}",
-                    Url = "https://example.com/login.html",
-                    AuthUrl = "https://example.com/auth.html",
-                });
-
-            try
-            {
-                var csrMetadata = new CsrMetadata()
-                {
-                    Subject = new CsrMetadataSubject()
-                    {
-                        CountryName = "US",
-                        StateOrProvinceName = "California",
-                        LocalityName = "San Francisco",
-                        OrganizationName = "Okta, Inc.",
-                        OrganizationalUnitName = "Dev",
-                        CommonName = "SP Issuer",
-                    },
-                    SubjectAltNames = new CsrMetadataSubjectAltNames()
-                    {
-                        DnsNames = new List<string>() { "dev.okta.com" },
-                    },
-                };
-
-                var generatedCsr = await createdApp.GenerateCsrAsync(csrMetadata);
-
-                var certificate = GenerateTestCertificate();
-                var scopedClient = client.CreatedScoped(new RequestContext() { ContentTransferEncoding = "base64", ContentType = "application/pkix-cert" });
-
-                var key = await scopedClient.Applications.PublishBinaryCerCertAsync(certificate.GetEncoded(), createdApp.Id, generatedCsr.Id);
-
-                key.Should().NotBeNull();
-            }
-            finally
-            {
-                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
-                await client.Applications.DeleteApplicationAsync(createdApp.Id);
-            }
-        }
-
-        private X509Certificate GenerateTestCertificate()
-        {
-            // Keypair Generator
-            RsaKeyPairGenerator kpGenerator = new RsaKeyPairGenerator();
-            kpGenerator.Init(new KeyGenerationParameters(new SecureRandom(), 2048));
-            // Create a keypair
-            AsymmetricCipherKeyPair kp = kpGenerator.GenerateKeyPair();
-
-            var randomGenerator = new CryptoApiRandomGenerator();
-            var random = new SecureRandom(randomGenerator);
-            var serialNumber = BigIntegers.CreateRandomInRange(BigInteger.One, BigInteger.ValueOf(long.MaxValue), random);
-
-            // Certificate Generator
-            X509V3CertificateGenerator certificateGenerator = new X509V3CertificateGenerator();
-            certificateGenerator.SetSerialNumber(serialNumber);
-            certificateGenerator.SetSubjectDN(new X509Name("CN=SP Issuer"));
-            certificateGenerator.SetIssuerDN(new X509Name("CN=SP Issuer"));
-            certificateGenerator.SetNotBefore(DateTime.Now);
-            certificateGenerator.SetNotAfter(DateTime.Now.Add(new TimeSpan(365, 0, 0, 0)));
-            certificateGenerator.SetSignatureAlgorithm("SHA256WithRSA");
-            certificateGenerator.SetPublicKey(kp.Public);
-            X509Certificate cert = certificateGenerator.Generate(kp.Private);
-
-            return cert;
         }
     }
 }

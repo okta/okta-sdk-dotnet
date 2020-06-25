@@ -1,16 +1,15 @@
-﻿﻿// <copyright file="FeaturesClientShould.cs" company="Okta, Inc">
+﻿// <copyright file="FeaturesClientShould.cs" company="Okta, Inc">
 // Copyright (c) 2020 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using NSubstitute;
-using Okta.Sdk.Internal;
-using Okta.Sdk.UnitTests.Internal;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSubstitute;
+using Okta.Sdk.Internal;
+using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests
@@ -27,13 +26,13 @@ namespace Okta.Sdk.UnitTests
             var mockResponse = Substitute.For<HttpResponse<string>>();
             mockResponse.StatusCode = 200;
             _ = mockRequestExecutor
-                .PostAsync(featureLifeCycleEndpoint, Arg.Any<Dictionary<string, string>>(), null, Arg.Any<CancellationToken>())
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
                 .Returns(Task.FromResult(mockResponse));
 
             var testClient = new TestableOktaClient(mockRequestExecutor);
 
             await testClient.Features.UpdateFeatureLifecycleAsync(featureId, lifecycle);
-            _ = await mockRequestExecutor.Received(1).PostAsync(featureLifeCycleEndpoint, Arg.Any<Dictionary<string, string>>(), null, Arg.Any<CancellationToken>());
+            _ = await mockRequestExecutor.Received(1).PostAsync(Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals(featureLifeCycleEndpoint)), Arg.Any<CancellationToken>());
         }
 
         [Fact]
@@ -47,7 +46,7 @@ namespace Okta.Sdk.UnitTests
                 "[{\"Description\":null,\"Id\":null,\"name\":\"TestFeature\",\"Stage\":{\"State\":null,\"Value\":null},\"Status\":null,\"Type\":null}]";
             mockResponse.StatusCode = 200;
             _ = mockRequestExecutor
-                .GetAsync(dependenciesEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>())
+                .ExecuteRequestAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
                 .Returns(Task.FromResult(mockResponse));
 
             var testClient = new TestableOktaClient(mockRequestExecutor);
@@ -56,7 +55,7 @@ namespace Okta.Sdk.UnitTests
             retrievedDependencies.FirstOrDefault().Name.Should().Be("TestFeature");
             _ = await mockRequestExecutor
                 .Received(1)
-                .GetAsync(dependenciesEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>());
+                .ExecuteRequestAsync(Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals(dependenciesEndpoint)), Arg.Any<CancellationToken>());
         }
 
         [Fact]
@@ -70,15 +69,16 @@ namespace Okta.Sdk.UnitTests
                 "[{\"Description\":null,\"Id\":null,\"name\":\"TestFeature\",\"Stage\":{\"State\":null,\"Value\":null},\"Status\":null,\"Type\":null}]";
             mockResponse.StatusCode = 200;
             _ = mockRequestExecutor
-                .GetAsync(dependentsEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>())
+                .ExecuteRequestAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
                 .Returns(Task.FromResult(mockResponse));
 
             var testClient = new TestableOktaClient(mockRequestExecutor);
 
             var retrievedDependents = await testClient.Features.ListFeatureDependents(featureId).ToListAsync();
             retrievedDependents.FirstOrDefault().Name.Should().Be("TestFeature");
-            _ = await mockRequestExecutor.Received(1)
-                .GetAsync(dependentsEndpoint, Arg.Any<Dictionary<string, string>>(), Arg.Any<CancellationToken>());
+            _ = await mockRequestExecutor
+                .Received(1)
+                .ExecuteRequestAsync(Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals(dependentsEndpoint)), Arg.Any<CancellationToken>());
         }
     }
 }

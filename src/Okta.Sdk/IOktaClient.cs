@@ -3,11 +3,9 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Configuration;
-using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
@@ -151,7 +149,7 @@ namespace Okta.Sdk
         /// <param name="requestContext">The request context</param>
         /// <remarks>This method is used to temporarily create a copy of the client in order to pass information about the current request to the Okta API.</remarks>
         /// <returns>The new client.</returns>
-        IOktaClient CreatedScoped(RequestContext requestContext);
+        IOktaClient CreateScoped(RequestContext requestContext);
 
         /// <summary>
         /// Gets a resource by URL and deserializes it to a <see cref="Resource"/> type.

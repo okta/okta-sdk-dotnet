@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ILogEvent>(new HttpRequest
             {
                 Uri = "/api/v1/logs",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {

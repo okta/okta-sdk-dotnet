@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => await PostAsync<Session>(new HttpRequest
             {
                 Uri = "/api/v1/sessions",
+                Verb = HttpVerb.Post,
                 Payload = createSessionRequest,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -41,6 +42,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/sessions/{sessionId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -53,6 +55,7 @@ namespace Okta.Sdk
             => await GetAsync<Session>(new HttpRequest
             {
                 Uri = "/api/v1/sessions/{sessionId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -65,6 +68,7 @@ namespace Okta.Sdk
             => await PostAsync<Session>(new HttpRequest
             {
                 Uri = "/api/v1/sessions/{sessionId}/lifecycle/refresh",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

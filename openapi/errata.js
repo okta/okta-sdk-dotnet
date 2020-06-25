@@ -315,6 +315,11 @@ const operationSkipList = [
   { id: 'forgotPassword', reason: 'Revisit in alpha2 (#62)'},
   { id: 'addRoleToUser', reason: 'Revisit in alpha2 (#102)'},
   { id: 'previewSamlMetadataForApplication', reason: 'Operation defined manually' },
+  { id: 'publishCerCert', reason: 'Operation defined manually' },
+  { id: 'publishBinaryCerCert', reason: 'Operation defined manually' },
+  { id: 'publishDerCert', reason: 'Operation defined manually' },
+  { id: 'publishBinaryDerCert', reason: 'Operation defined manually' },
+  { id: 'publishBinaryPemCert', reason: 'Operation defined manually' },
 ];
 
 function shouldSkipOperation(operationId) {

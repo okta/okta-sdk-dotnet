@@ -99,12 +99,12 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="certificate">The <see cref="string"/> resource.</param>
+        /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
         /// <param name="appId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishCerCertAsync(string certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishCerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 
@@ -119,12 +119,12 @@ namespace Okta.Sdk
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="certificate">The <see cref="string"/> resource.</param>
+        /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
         /// <param name="appId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishDerCertAsync(string certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishDerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// 

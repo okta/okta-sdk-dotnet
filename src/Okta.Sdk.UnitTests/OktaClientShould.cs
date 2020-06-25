@@ -9,6 +9,8 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
+using NSubstitute;
+using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
@@ -16,6 +18,53 @@ namespace Okta.Sdk.UnitTests
 {
     public class OktaClientShould
     {
+        [Fact]
+        public async Task OverrideRequestContentType()
+        {
+            var executor = Substitute.For<IRequestExecutor>();
+            executor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
+
+            var client = new TestableOktaClient(executor);
+            var requestContextContentType = "requestContextContentType";
+            var requestContentType = "requestContentType";
+            await client.CreateScoped(new RequestContext { ContentType = requestContextContentType }).PostAsync(new HttpRequest { ContentType = requestContentType });
+
+            await executor.Received()
+                .PostAsync(Arg.Is<HttpRequest>(request => request.ContentType.Equals(requestContextContentType)), Arg.Any<CancellationToken>());
+        }
+
+        [Fact]
+        public async Task SetContentTransferEncodingForPost()
+        {
+            var executor = Substitute.For<IRequestExecutor>();
+            executor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
+
+            var client = new TestableOktaClient(executor);
+            await client.CreateScoped(new RequestContext { ContentTransferEncoding = "foo" }).PostAsync(new HttpRequest { ContentTransferEncoding = "bar" });
+
+            await executor.Received()
+                .PostAsync(Arg.Is<HttpRequest>(request => request.Headers.ContainsKey("Content-Transfer-Encoding") && request.Headers["Content-Transfer-Encoding"].Equals("foo")), Arg.Any<CancellationToken>());
+        }
+
+        [Fact]
+        public async Task SetContentTransferEncodingFromRequestForPost()
+        {
+            var executor = Substitute.For<IRequestExecutor>();
+            executor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(Task.FromResult(new HttpResponse<string>() { StatusCode = 200 }));
+
+            var client = new TestableOktaClient(executor);
+            await client.PostAsync(new HttpRequest { ContentTransferEncoding = "bar" });
+
+            await executor.Received()
+                .PostAsync(Arg.Is<HttpRequest>(request => request.Headers.ContainsKey("Content-Transfer-Encoding") && request.Headers["Content-Transfer-Encoding"].Equals("bar")), Arg.Any<CancellationToken>());
+        }
+
         [Fact]
         public async Task GetCollection()
         {
@@ -66,7 +115,7 @@ namespace Okta.Sdk.UnitTests
         /// </summary>
         /// <returns>The asynchronous test.</returns>
         [Fact]
-        public async Task GetResouceAsInterface()
+        public async Task GetResourceAsInterface()
         {
             var json = @"{
   ""id"": ""foobar123""
@@ -292,6 +341,15 @@ namespace Okta.Sdk.UnitTests
             var statements = samlApp.Settings.SignOn.AttributeStatements.ToArray();
             statements.First().Type.Should().Be("EXPRESSION");
             statements.First().Name.Should().Be("Attribute");
+        }
+
+        [Fact]
+        public void RegisterPayloadHandlers()
+        {
+            _ = new OktaClient();
+            PayloadHandler.ForContentType("application/pkix-cert").GetType().Should().Be(typeof(PkixCertPayloadHandler));
+            PayloadHandler.ForContentType("application/x-pem-file").GetType().Should().Be(typeof(PemFilePayloadHandler));
+            PayloadHandler.ForContentType("application/x-x509-ca-cert").GetType().Should().Be(typeof(X509CaCertPayloadHandler));
         }
     }
 }

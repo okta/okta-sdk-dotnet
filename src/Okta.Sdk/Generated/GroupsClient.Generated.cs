@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/groups",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -48,6 +49,7 @@ namespace Okta.Sdk
             => await PostAsync<Group>(new HttpRequest
             {
                 Uri = "/api/v1/groups",
+                Verb = HttpVerb.Post,
                 Payload = group,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -56,6 +58,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IGroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -71,6 +74,7 @@ namespace Okta.Sdk
             => await PostAsync<GroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules",
+                Verb = HttpVerb.Post,
                 Payload = groupRule,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -79,6 +83,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -91,6 +96,7 @@ namespace Okta.Sdk
             => await GetAsync<GroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -107,6 +113,7 @@ namespace Okta.Sdk
             => await PutAsync<GroupRule>(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}",
+                Verb = HttpVerb.Put,
                 Payload = groupRule,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -119,6 +126,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -131,6 +139,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -143,6 +152,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -155,6 +165,7 @@ namespace Okta.Sdk
             => await GetAsync<Group>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -167,6 +178,7 @@ namespace Okta.Sdk
             => await PutAsync<Group>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}",
+                Verb = HttpVerb.Put,
                 Payload = group,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -179,6 +191,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IApplication>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/apps",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -196,6 +209,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IRole>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -212,6 +226,7 @@ namespace Okta.Sdk
             => await PostAsync<Role>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles",
+                Verb = HttpVerb.Post,
                 Payload = assignRoleRequest,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -228,6 +243,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -241,6 +257,7 @@ namespace Okta.Sdk
             => await GetAsync<Role>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -254,6 +271,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IApplication>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -272,6 +290,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -286,6 +305,7 @@ namespace Okta.Sdk
             => await PutAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}",
+                Verb = HttpVerb.Put,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -300,6 +320,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -315,6 +336,7 @@ namespace Okta.Sdk
             => await PutAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}",
+                Verb = HttpVerb.Put,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -330,6 +352,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/groups",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -348,6 +371,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -362,6 +386,7 @@ namespace Okta.Sdk
             => await PutAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId}",
+                Verb = HttpVerb.Put,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -376,6 +401,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IUser>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/users",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -393,6 +419,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/users/{userId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -406,6 +433,7 @@ namespace Okta.Sdk
             => await PutAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/users/{userId}",
+                Verb = HttpVerb.Put,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

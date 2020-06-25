@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -56,6 +57,87 @@ namespace Okta.Sdk
 
             return CreateApplicationAsync(app, basicAuthApplicationOptions.Activate, cancellationToken);
         }
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishCerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = base64EncodedCertificateData,
+                    ContentType = "application/pkix-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = certificate,
+                    ContentType = "application/pkix-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishDerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = Convert.FromBase64String(base64EncodedCertificateData),
+                    ContentType = "application/pkix-cert",
+                    ContentTransferEncoding = "base64",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = certificate,
+                    ContentType = "application/x-x509-ca-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = certificate,
+                    ContentType = "application/x-pem-file",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
 
         /// <summary>
         /// Adds a bookmark application

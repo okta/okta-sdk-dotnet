@@ -33,6 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ITrustedOrigin>(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
@@ -48,6 +49,7 @@ namespace Okta.Sdk
             => await PostAsync<TrustedOrigin>(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins",
+                Verb = HttpVerb.Post,
                 Payload = trustedOrigin,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -56,6 +58,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -68,6 +71,7 @@ namespace Okta.Sdk
             => await GetAsync<TrustedOrigin>(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -80,6 +84,7 @@ namespace Okta.Sdk
             => await PutAsync<TrustedOrigin>(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+                Verb = HttpVerb.Put,
                 Payload = trustedOrigin,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -92,6 +97,7 @@ namespace Okta.Sdk
             => await PostAsync<TrustedOrigin>(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -104,6 +110,7 @@ namespace Okta.Sdk
             => await PostAsync<TrustedOrigin>(new HttpRequest
             {
                 Uri = "/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

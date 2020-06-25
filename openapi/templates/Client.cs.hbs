@@ -36,6 +36,7 @@ namespace Okta.Sdk
             {{#if isCollection}}=> GetCollectionClient<I{{returnType.memberName}}>(new HttpRequest
             {
                 Uri = "{{{path}}}",
+                Verb = HttpVerb.{{httpMethod.verbName}},
                 {{#if bodyModel}}Payload = {{bodyModel.parameterName}},{{/if}}
                 {{#if pathParameters}}
                 PathParameters = new Dictionary<string, object>()
@@ -57,6 +58,7 @@ namespace Okta.Sdk
             {{else}}=> await {{httpMethod.memberName}}{{#if returnType.memberName}}<{{returnType.memberName}}>{{/if}}(new HttpRequest
             {
                 Uri = "{{{path}}}",
+                Verb = HttpVerb.{{httpMethod.verbName}},
                 {{#if bodyModel}}Payload = {{bodyModel.parameterName}},{{/if}}
                 {{#if pathParameters}}
                 PathParameters = new Dictionary<string, object>()
