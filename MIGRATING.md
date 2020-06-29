@@ -76,17 +76,17 @@ ncellationToken)`
 <br />&mdash; Renamed `ClearUserSessionsAsync(String userId,Boolean oauthTokens,CancellationToken cancellationToken)`
 
 ### New Okta Clients
-The following is a list of context specific clients that are new in version 3.0.  Instances of each are available as properties of an OktaClient where the name of the property is the name of the type with the "Client" suffix removed.
+The following is a list of context specific clients that are new in version 3.0.  Instances of each are available as properties of an OktaClient instance where the name of the property is the name of the type with the "Client" suffix removed.
 
-- `Okta.Sdk.AuthorizationServersClient`, see [Authorization Servers](https://developer.okta.com/docs/reference/api/authorization-servers/)
-- `Okta.Sdk.EventHooksClient`, see [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/)
-- `Okta.Sdk.FeaturesClient`, see [Features API](https://developer.okta.com/docs/reference/api/features/)
-- `Okta.Sdk.IdentityProvidersClient`, see [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/)
-- `Okta.Sdk.InlineHooksClient`, see [Inline Hooks Management API](https://developer.okta.com/docs/reference/api/inline-hooks/)
-- `Okta.Sdk.LinkedObjectsClient`, see [Linked Objects API](https://developer.okta.com/docs/reference/api/linked-objects/)
-- `Okta.Sdk.TemplatesClient`, see [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/)
-- `Okta.Sdk.TrustedOriginsClient`, see [Trusted Origins API](https://developer.okta.com/docs/reference/api/trusted-origins/)
-- `Okta.Sdk.UserTypesClient`, see [User Types API](https://developer.okta.com/docs/reference/api/user-types/)
+- `Okta.Sdk.AuthorizationServersClient`, see [Authorization Servers](https://developer.okta.com/docs/reference/api/authorization-servers/).
+- `Okta.Sdk.EventHooksClient`, see [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/).
+- `Okta.Sdk.FeaturesClient`, see [Features API](https://developer.okta.com/docs/reference/api/features/).
+- `Okta.Sdk.IdentityProvidersClient`, see [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/).
+- `Okta.Sdk.InlineHooksClient`, see [Inline Hooks Management API](https://developer.okta.com/docs/reference/api/inline-hooks/).
+- `Okta.Sdk.LinkedObjectsClient`, see [Linked Objects API](https://developer.okta.com/docs/reference/api/linked-objects/).
+- `Okta.Sdk.TemplatesClient`, see [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/).
+- `Okta.Sdk.TrustedOriginsClient`, see [Trusted Origins API](https://developer.okta.com/docs/reference/api/trusted-origins/).
+- `Okta.Sdk.UserTypesClient`, see [User Types API](https://developer.okta.com/docs/reference/api/user-types/).
 
 
 
