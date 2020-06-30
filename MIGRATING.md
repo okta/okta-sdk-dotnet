@@ -76,7 +76,7 @@ ncellationToken)`
 <br />&mdash; Renamed `ClearUserSessionsAsync(string userId, bool oauthTokens, CancellationToken cancellationToken)`
 
 ### New Okta Clients
-The following is a list of context specific clients that are new in version 3.0.  Instances of each are available as properties of an OktaClient instance where the name of the property is the name of the type with the "Client" suffix removed.
+The following is a list of context specific clients that are new in version 3.0.0. Instances of each are available as properties of an OktaClient instance where the name of the property is the name of the type with the "Client" suffix removed.
 
 - `Okta.Sdk.AuthorizationServersClient`, see [Authorization Servers API](https://developer.okta.com/docs/reference/api/authorization-servers/).
 - `Okta.Sdk.EventHooksClient`, see [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/).
