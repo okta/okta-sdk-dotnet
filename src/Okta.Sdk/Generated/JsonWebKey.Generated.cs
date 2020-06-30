@@ -26,11 +26,7 @@ namespace Okta.Sdk
         public string E => GetStringProperty("e");
         
         /// <inheritdoc/>
-        public string ExpiresAt 
-        {
-            get => GetStringProperty("expiresAt");
-            set => this["expiresAt"] = value;
-        }
+        public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
         
         /// <inheritdoc/>
         public IList<string> KeyOps => GetArrayProperty<string>("key_ops");

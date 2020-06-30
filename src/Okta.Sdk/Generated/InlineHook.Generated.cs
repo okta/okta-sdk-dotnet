@@ -40,16 +40,16 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Status 
+        public InlineHookStatus Status 
         {
-            get => GetStringProperty("status");
+            get => GetEnumProperty<InlineHookStatus>("status");
             set => this["status"] = value;
         }
         
         /// <inheritdoc/>
-        public string Type 
+        public InlineHookType Type 
         {
-            get => GetStringProperty("type");
+            get => GetEnumProperty<InlineHookType>("type");
             set => this["type"] = value;
         }
         

@@ -97,56 +97,6 @@ namespace Okta.Sdk
         Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishCerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishDerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Enumerates key credentials for an application
         /// </summary>
         /// <param name="appId"></param>
