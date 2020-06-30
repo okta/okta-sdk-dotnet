@@ -78,7 +78,7 @@ ncellationToken)`
 ### New Okta Clients
 The following is a list of context specific clients that are new in version 3.0.  Instances of each are available as properties of an OktaClient instance where the name of the property is the name of the type with the "Client" suffix removed.
 
-- `Okta.Sdk.AuthorizationServersClient`, see [Authorization Servers](https://developer.okta.com/docs/reference/api/authorization-servers/).
+- `Okta.Sdk.AuthorizationServersClient`, see [Authorization Servers API](https://developer.okta.com/docs/reference/api/authorization-servers/).
 - `Okta.Sdk.EventHooksClient`, see [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/).
 - `Okta.Sdk.FeaturesClient`, see [Features API](https://developer.okta.com/docs/reference/api/features/).
 - `Okta.Sdk.IdentityProvidersClient`, see [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/).
