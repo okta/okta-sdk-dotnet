@@ -49,7 +49,7 @@ The following is a list of changes that break backward compatibility in version 
 <br />&mdash; Renamed with new signature `EnrollFactorAsync(Okta.Sdk.IUserFactor body, string userId, bool updatePhone, string templateId, int tokenLifetimeSeconds, bool activate, CancellationToken ca
 ncellationToken)`
 - `ActivateFactorAsync(Okta.Sdk.IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, CancellationToken cancellationToken)`
-<br />&mdash;Renamed with new signature `ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed with new signature `ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken)`
 
 **Okta.Sdk.UsersClient**
 - `ListUsers(string q, string after, int limit, string filter, string format, string search, string expand)`
