@@ -18,15 +18,15 @@ namespace Okta.Sdk
         /// <summary>
         /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>
-        /// <param name="until"></param>
         /// <param name="since"></param>
+        /// <param name="until"></param>
         /// <param name="filter"></param>
         /// <param name="q"></param>
         /// <param name="limit"></param>
         /// <param name="sortOrder"></param>
         /// <param name="after"></param>
         /// <returns>A collection of <see cref="ILogEvent"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null);
+        ICollectionClient<ILogEvent> GetLogs(string since = null, string until = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null);
 
     }
 }

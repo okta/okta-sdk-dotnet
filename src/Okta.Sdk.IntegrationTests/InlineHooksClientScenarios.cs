@@ -113,7 +113,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedInlineHook.Id.Should().Be(createdInlineHook.Id);
                 retrievedInlineHook.Name.Should().Be(testInlineHookName);
                 retrievedInlineHook.Version.Should().Be("1.0.0");
-                retrievedInlineHook.Type.Should().Be("com.okta.oauth2.tokens.transform");
+                retrievedInlineHook.Type.Should().Be(InlineHookType.ComOktaOauth2TokensTransform);
                 retrievedInlineHook.Channel.Should().NotBeNull();
                 retrievedInlineHook.Channel.Config.Should().NotBeNull();
                 retrievedInlineHook.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHook");
@@ -202,7 +202,7 @@ namespace Okta.Sdk.IntegrationTests
                 updatedInlineHook.Id.Should().Be(createdInlineHook.Id);
                 updatedInlineHook.Name.Should().Be(updatedTestInlineHookName);
                 updatedInlineHook.Version.Should().Be("1.0.0");
-                updatedInlineHook.Type.Should().Be("com.okta.oauth2.tokens.transform");
+                updatedInlineHook.Type.Should().Be(InlineHookType.ComOktaOauth2TokensTransform);
                 updatedInlineHook.Channel.Should().NotBeNull();
                 updatedInlineHook.Channel.Config.Should().NotBeNull();
                 updatedInlineHook.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHookUpdated");
@@ -212,7 +212,7 @@ namespace Okta.Sdk.IntegrationTests
                 retrievedInlineHookForValidation.Id.Should().Be(createdInlineHook.Id);
                 retrievedInlineHookForValidation.Name.Should().Be(updatedTestInlineHookName);
                 retrievedInlineHookForValidation.Version.Should().Be("1.0.0");
-                retrievedInlineHookForValidation.Type.Should().Be("com.okta.oauth2.tokens.transform");
+                retrievedInlineHookForValidation.Type.Should().Be(InlineHookType.ComOktaOauth2TokensTransform);
                 retrievedInlineHookForValidation.Channel.Should().NotBeNull();
                 retrievedInlineHookForValidation.Channel.Config.Should().NotBeNull();
                 retrievedInlineHookForValidation.Channel.Config.Uri.Should().Be("https://www.example.com/inlineHookUpdated");
@@ -387,12 +387,12 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 createdInlineHook.Id.Should().NotBeNullOrEmpty();
-                createdInlineHook.Status.Should().Be("ACTIVE");
+                createdInlineHook.Status.Should().Be(InlineHookStatus.Active);
 
                 await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
 
                 var retrievedInlineHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
-                retrievedInlineHook.Status.Should().Be("INACTIVE");
+                retrievedInlineHook.Status.Should().Be(InlineHookStatus.Inactive);
             }
             finally
             {
@@ -440,16 +440,16 @@ namespace Okta.Sdk.IntegrationTests
             try
             {
                 createdInlineHook.Id.Should().NotBeNullOrEmpty();
-                createdInlineHook.Status.Should().Be("ACTIVE");
+                createdInlineHook.Status.Should().Be(InlineHookStatus.Active);
 
                 await testClient.InlineHooks.DeactivateInlineHookAsync(createdInlineHook.Id);
 
                 var retrievedInlineHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
-                retrievedInlineHook.Status.Should().Be("INACTIVE");
+                retrievedInlineHook.Status.Should().Be(InlineHookStatus.Inactive);
 
                 await testClient.InlineHooks.ActivateInlineHookAsync(createdInlineHook.Id);
                 var reactivatedInlineHook = await testClient.InlineHooks.GetInlineHookAsync(createdInlineHook.Id);
-                reactivatedInlineHook.Status.Should().Be("ACTIVE");
+                reactivatedInlineHook.Status.Should().Be(InlineHookStatus.Active);
             }
             finally
             {

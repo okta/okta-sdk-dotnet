@@ -140,5 +140,55 @@ namespace Okta.Sdk
         /// <returns>A Task that represents the asynchronous operation.</returns>
         /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task DeleteApplicationUserAsync(string appId, string userId);
+
+        /// <summary>
+        /// Publishes with an X.509 certificate in base64 encoded CER.
+        /// </summary>
+        /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
+        Task<IJsonWebKey> PublishCerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Publishes with an X.509 certificate in binary CER.
+        /// </summary>
+        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
+        Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Publishes with an X.509 certificate in base64 encoded DER.
+        /// </summary>
+        /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
+        Task<IJsonWebKey> PublishDerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Publishes with an X.509 certificate a binary DER.
+        /// </summary>
+        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
+        Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Publishes with an X.509 certificate in PEM format.
+        /// </summary>
+        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
+        Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
