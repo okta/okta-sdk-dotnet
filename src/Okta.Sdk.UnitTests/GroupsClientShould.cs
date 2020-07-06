@@ -64,7 +64,7 @@ namespace Okta.Sdk.UnitTests
             apps.Should().NotBeNullOrEmpty();
             apps.Should().HaveCount(2);
             apps.FirstOrDefault().Name.Should().Be("facebook");
-            apps.FirstOrDefault().Status.Should().Be("ACTIVE");
+            apps.FirstOrDefault().Status.Should().Be(CatalogApplicationStatus.Active);
             apps.FirstOrDefault().Id.Should().BeNullOrEmpty();
             apps.FirstOrDefault().GetProperty<string>("description").Should().Be("Description");
             apps.FirstOrDefault().GetProperty<string>("displayName").Should().Be("Facebook");
@@ -74,7 +74,7 @@ namespace Okta.Sdk.UnitTests
             apps.FirstOrDefault().GetArrayProperty<string>("signOnModes").Should().Contain("BROWSER_PLUGIN");
 
             apps[1].Name.Should().Be("24 Seven Office 0");
-            apps[1].Status.Should().Be("ACTIVE");
+            apps[1].Status.Should().Be(CatalogApplicationStatus.Active);
             apps[1].Id.Should().Be("0oasrudLtMlzAsTxk0g3");
         }
 

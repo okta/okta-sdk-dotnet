@@ -67,7 +67,7 @@ namespace Okta.Sdk.UnitTests
             apps.Should().NotBeNullOrEmpty();
             apps.Should().HaveCount(2);
             apps.FirstOrDefault().Name.Should().Be("salesforce");
-            apps.FirstOrDefault().Status.Should().Be("ACTIVE");
+            apps.FirstOrDefault().Status.Should().Be(CatalogApplicationStatus.Active);
             apps.FirstOrDefault().Id.Should().BeNullOrEmpty();
             apps.FirstOrDefault().GetProperty<string>("description").Should().Be("Salesforce");
             apps.FirstOrDefault().GetProperty<string>("displayName").Should().Be("Salesforce.com");
@@ -77,7 +77,7 @@ namespace Okta.Sdk.UnitTests
             apps.FirstOrDefault().Features.Should().Contain("IMPORT_NEW_USERS");
 
             apps[1].Name.Should().Be("Facebook (Toronto)");
-            apps[1].Status.Should().Be("ACTIVE");
+            apps[1].Status.Should().Be(CatalogApplicationStatus.Active);
             apps[1].Id.Should().Be("0obdfgrQ5dv29pqyQo0f5");
         }
 

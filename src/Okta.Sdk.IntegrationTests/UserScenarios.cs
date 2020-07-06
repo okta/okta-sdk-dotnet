@@ -31,8 +31,8 @@ namespace Okta.Sdk.IntegrationTests
                 LastName = "List-Users",
                 Email = $"john-list-users-dotnet-sdk-{guid}@example.com",
                 Login = $"john-list-users-dotnet-sdk-{guid}@example.com",
+                ["nickName"] = $"johny-list-users-{guid}",
             };
-            profile["nickName"] = "johny-list-users";
 
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
@@ -43,7 +43,7 @@ namespace Okta.Sdk.IntegrationTests
             // this delay and the below retry policy are to handle:
             // https://developer.okta.com/docs/api/resources/users.html#list-users-with-search
             // "Queries data from a replicated store, so changes aren’t always immediately available in search results."
-            await Task.Delay(10000);
+            await Task.Delay(3000);
 
             try
             {
