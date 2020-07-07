@@ -42,7 +42,8 @@ This library uses semantic versioning and follows Okta's [library version policy
 | ------- | ------------------------- |
 | 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
 | 1.x | :warning: Retiring on 2020-12-27 |
-| 2.x | :heavy_check_mark: Stable |
+| 2.x | :warning: Retiring on 2021-04-10 |
+| 3.x | :heavy_check_mark: Stable |
 
  
 The latest release can always be found on the [releases page][github-releases].
