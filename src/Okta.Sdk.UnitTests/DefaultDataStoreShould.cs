@@ -104,7 +104,7 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
@@ -113,9 +113,7 @@ namespace Okta.Sdk.UnitTests
             await dataStore.PostAsync<TestResource>(request, new RequestContext(), CancellationToken.None);
 
             await mockRequestExecutor.Received().PostAsync(
-                "https://foo.dev",
-                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
-                "{}",
+                Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals("https://foo.dev")),
                 CancellationToken.None);
         }
 
@@ -284,6 +282,72 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public async Task AddContextAcceptToRequests()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext { Accept = "application/pkcs10" };
+
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "Accept" && kvp.Value == "application/pkcs10")),
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task AddContextContentTransferEncodingToRequests()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext { ContentTransferEncoding = "base64" };
+
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "Content-Transfer-Encoding" && kvp.Value == "base64")),
+                CancellationToken.None);
+        }
+
+        [Fact]
+        public async Task AddContextAcceptLanguageToRequests()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .GetAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var request = new HttpRequest { Uri = "https://foo.dev" };
+            var requestContext = new RequestContext { AcceptLanguage = "de" };
+
+            await dataStore.GetAsync<TestResource>(request, requestContext, CancellationToken.None);
+
+            // Assert that the request sent to the RequestExecutor included the User-Agent header
+            await mockRequestExecutor.Received().GetAsync(
+                "https://foo.dev",
+                Arg.Is<IEnumerable<KeyValuePair<string, string>>>(
+                    headers => headers.Any(kvp => kvp.Key == "Accept-Language" && kvp.Value == "de")),
+                CancellationToken.None);
+        }
+
+        [Fact]
         public async Task AddContextXForwardedToRequests()
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
@@ -313,11 +377,50 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public async Task SetPayloadHandlerContentTypeOnPostAsync()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+
+            var testPayloadHandler = new TestPayloadHandler();
+            PayloadHandler.TryRegister(testPayloadHandler);
+
+            var request = new TestHttpRequest();
+            request.ContentType.Should().Be("application/json");
+            request.GetPayloadHandler().ContentType.Should().Be("application/json");
+
+            var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            await dataStore.PostAsync<TestResource>(request, new RequestContext { ContentType = "foo" }, CancellationToken.None);
+
+            request.ContentType.Should().Be("foo");
+            request.GetPayloadHandler().ContentType.Should().Be("foo");
+        }
+
+        [Fact]
+        public async Task CallRequestExecutorPostAsyncOnPostAsync()
+        {
+            var mockRequestExecutor = Substitute.For<IRequestExecutor>();
+            mockRequestExecutor
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
+            var defaultDataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
+            var testRequest = new HttpRequest();
+            var testRequestContext = new RequestContext();
+
+            await defaultDataStore.PostAsync<Resource>(testRequest, testRequestContext, CancellationToken.None);
+            await mockRequestExecutor
+                .Received(1)
+                .PostAsync(Arg.Is(testRequest), Arg.Any<CancellationToken>());
+        }
+
+        [Fact]
         public async Task PostWithNullBody()
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .PostAsync(Arg.Any<HttpRequest>(),  Arg.Any<CancellationToken>())
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
@@ -326,9 +429,7 @@ namespace Okta.Sdk.UnitTests
             await dataStore.PostAsync<TestResource>(request, new RequestContext(), CancellationToken.None);
 
             await mockRequestExecutor.Received().PostAsync(
-                href: "https://foo.dev",
-                headers: Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
-                body: null,
+                request: Arg.Is<HttpRequest>(httpRequest => httpRequest.Uri.Equals("https://foo.dev")),
                 cancellationToken: CancellationToken.None);
         }
     }

@@ -13,13 +13,16 @@ namespace Okta.Sdk
     public sealed class PolicyType : StringEnum
     {
         /// <summary>The OAUTH_AUTHORIZATION_POLICY PolicyType.</summary>
-        public static PolicyType OauthAuthorizationPolicy = new PolicyType("OAUTH_AUTHORIZATION_POLICY");
+        public static PolicyType OAuthAuthorizationPolicy = new PolicyType("OAUTH_AUTHORIZATION_POLICY");
 
         /// <summary>The OKTA_SIGN_ON PolicyType.</summary>
         public static PolicyType OktaSignOn = new PolicyType("OKTA_SIGN_ON");
 
         /// <summary>The PASSWORD PolicyType.</summary>
         public static PolicyType Password = new PolicyType("PASSWORD");
+
+        /// <summary>The IDP_DISCOVERY PolicyType.</summary>
+        public static PolicyType IdpDiscovery = new PolicyType("IDP_DISCOVERY");
 
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyType"/>

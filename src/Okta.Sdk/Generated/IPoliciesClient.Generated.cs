@@ -5,6 +5,7 @@
 
 // This file was automatically generated. Don't modify it directly.
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,18 +16,16 @@ namespace Okta.Sdk
     public partial interface IPoliciesClient
     {
         /// <summary>
-        /// 
+        /// Gets all policies with the specified type.
         /// </summary>
         /// <param name="type"></param>
         /// <param name="status"></param>
-        /// <param name="after"></param>
-        /// <param name="limit"></param>
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IPolicy"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IPolicy> ListPolicies(string type, string status = null, string after = null, int? limit = -1, string expand = "");
+        ICollectionClient<IPolicy> ListPolicies(string type, string status = null, string expand = "");
 
         /// <summary>
-        /// 
+        /// Creates a policy.
         /// </summary>
         /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
         /// <param name="activate"></param>
@@ -35,7 +34,7 @@ namespace Okta.Sdk
         Task<IPolicy> CreatePolicyAsync(IPolicy policy, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Removes a policy.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -43,7 +42,7 @@ namespace Okta.Sdk
         Task DeletePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Gets a policy.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="expand"></param>
@@ -52,7 +51,7 @@ namespace Okta.Sdk
         Task<IPolicy> GetPolicyAsync(string policyId, string expand = "", CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Updates a policy.
         /// </summary>
         /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
         /// <param name="policyId"></param>
@@ -61,7 +60,7 @@ namespace Okta.Sdk
         Task<IPolicy> UpdatePolicyAsync(IPolicy policy, string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Activates a policy.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -69,7 +68,7 @@ namespace Okta.Sdk
         Task ActivatePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Deactivates a policy.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
@@ -77,24 +76,23 @@ namespace Okta.Sdk
         Task DeactivatePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Enumerates all policy rules.
         /// </summary>
         /// <param name="policyId"></param>
         /// <returns>A collection of <see cref="IPolicyRule"/> that can be enumerated asynchronously.</returns>
         ICollectionClient<IPolicyRule> ListPolicyRules(string policyId);
 
         /// <summary>
-        /// 
+        /// Creates a policy rule.
         /// </summary>
         /// <param name="policyRule">The <see cref="IPolicyRule"/> resource.</param>
         /// <param name="policyId"></param>
-        /// <param name="activate"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IPolicyRule"/> response.</returns>
-        Task<IPolicyRule> AddPolicyRuleAsync(IPolicyRule policyRule, string policyId, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IPolicyRule> CreatePolicyRuleAsync(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Removes a policy rule.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="ruleId"></param>
@@ -103,7 +101,7 @@ namespace Okta.Sdk
         Task DeletePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Gets a policy rule.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="ruleId"></param>
@@ -112,7 +110,7 @@ namespace Okta.Sdk
         Task<IPolicyRule> GetPolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Updates a policy rule.
         /// </summary>
         /// <param name="policyRule">The <see cref="IPolicyRule"/> resource.</param>
         /// <param name="policyId"></param>
@@ -122,7 +120,7 @@ namespace Okta.Sdk
         Task<IPolicyRule> UpdatePolicyRuleAsync(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Activates a policy rule.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="ruleId"></param>
@@ -131,7 +129,7 @@ namespace Okta.Sdk
         Task ActivatePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Deactivates a policy rule.
         /// </summary>
         /// <param name="policyId"></param>
         /// <param name="ruleId"></param>

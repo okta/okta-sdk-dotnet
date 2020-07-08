@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -56,6 +57,86 @@ namespace Okta.Sdk
 
             return CreateApplicationAsync(app, basicAuthApplicationOptions.Activate, cancellationToken);
         }
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishCerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = base64EncodedCertificateData,
+                    ContentType = "application/pkix-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = certificate,
+                    ContentType = "application/pkix-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishDerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = base64EncodedCertificateData,
+                    ContentType = "application/pkix-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = certificate,
+                    ContentType = "application/x-x509-ca-cert",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
+
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(
+                new HttpRequest
+                {
+                    Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                    Verb = HttpVerb.Post,
+                    Payload = certificate,
+                    ContentType = "application/x-pem-file",
+                    PathParameters = new Dictionary<string, object>()
+                    {
+                        ["appId"] = appId,
+                        ["csrId"] = csrId,
+                    },
+                }, cancellationToken).ConfigureAwait(false);
 
         /// <summary>
         /// Adds a bookmark application
@@ -267,6 +348,8 @@ namespace Okta.Sdk
                 {
                     SignOn = new SamlApplicationSettingsSignOn()
                     {
+                        AudienceOverride = samlApplicationOptions.AudienceOverride,
+                        DestinationOverride = samlApplicationOptions.DestinationOverride,
                         DefaultRelayState = samlApplicationOptions.DefaultRelayState,
                         SsoAcsUrl = samlApplicationOptions.SsoAcsUrl,
                         IdpIssuer = samlApplicationOptions.IdpIssuer,
@@ -284,6 +367,8 @@ namespace Okta.Sdk
                         SpIssuer = samlApplicationOptions.SpIssuer,
                         RequestCompressed = samlApplicationOptions.RequestCompressed,
                         AttributeStatements = samlApplicationOptions.AttributeStatements,
+                        RecipientOverride = samlApplicationOptions.RecipientOverride,
+                        SsoAcsUrlOverride = samlApplicationOptions.SsoAcsUrlOverride,
                     },
                 },
             };
@@ -374,6 +459,9 @@ namespace Okta.Sdk
                         ApplicationType = openIdApplicationOptions.ApplicationType,
                         TermsOfServiceUri = openIdApplicationOptions.TermsOfServiceUri,
                         PolicyUri = openIdApplicationOptions.PolicyUri,
+                        ConsentMethod = openIdApplicationOptions.ConsentMethod,
+                        IssuerMode = openIdApplicationOptions.IssuerMode,
+                        InitiateLoginUri = openIdApplicationOptions.InitiateLoginUri,
                     },
                 },
             };

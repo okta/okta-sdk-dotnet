@@ -15,8 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a UserCredentials resource in the Okta API.</summary>
     public partial interface IUserCredentials : IResource
     {
-        IList<IEmailAddress> Emails { get; set; }
-
         IPasswordCredential Password { get; set; }
 
         IAuthenticationProvider Provider { get; set; }

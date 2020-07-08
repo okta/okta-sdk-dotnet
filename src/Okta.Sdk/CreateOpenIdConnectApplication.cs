@@ -81,5 +81,20 @@ namespace Okta.Sdk
         /// Gets or sets a policy uri
         /// </summary>
         public string PolicyUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets the consent method
+        /// </summary>
+        public OpenIdConnectApplicationConsentMethod ConsentMethod { get; set; }
+
+        /// <summary>
+        /// Gets or sets the issuer mode
+        /// </summary>
+        public OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets the initiate-login URI
+        /// </summary>
+        public string InitiateLoginUri { get; set; }
     }
 }

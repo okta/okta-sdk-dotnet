@@ -2,6 +2,94 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 2.0.0 to 3.x
+
+Version 3.0.0 of this library introduces a number of breaking changes from previous versions; in addition to new classes some class definitions are no longer backward compatible due to method renames and signature changes, see [Breaking Changes](#breaking-changes).
+
+### Breaking Changes
+
+The following is a list of changes that break backward compatibility in version 3.0.0.
+
+**Okta.Sdk.OktaClient**
+- `CreatedScoped(Okta.Sdk.RequestContext requestContext)`
+<br />&mdash; Renamed `CreateScoped(Okta.Sdk.RequestContext requestContext)`
+
+**Okta.Sdk.GroupsClient**                
+- `ListGroups(string q, string filter, string after, int limit, string expand)` 
+<br />&mdash; Signature changed `ListGroups(string q, string filter, string after, int limit)`
+- `ListRules(int limit, string after, string expand)` 
+<br />&mdash; Renamed with new signature `ListGroupRules(int limit, string after, string search, string expand)`
+- `CreateRuleAsync(Okta.Sdk.IGroupRule groupRule, CancellationToken cancellationToken)` 
+<br />&mdash; Renamed `CreateGroupRuleAsync(Okta.Sdk.IGroupRule groupRule, CancellationToken cancellationToken)`
+- `DeleteRuleAsync(string ruleId, bool removeUsers, CancellationToken cancellationToken)` 
+<br />&mdash; Renamed with new signature `DeleteGroupRuleAsync(string ruleId, CancellationToken cancellationToken)`
+- `GetRuleAsync(string ruleId, string expand, CancellationToken cancellationToken)` 
+<br />&mdash; Renamed `GetGroupRuleAsync(string ruleId, string expand, CancellationToken cancellationToken)`
+- `UpdateRuleAsync(Okta.Sdk.IGroupRule groupRule, string ruleId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed `UpdateGroupRuleAsync(Okta.Sdk.IGroupRule groupRule, string ruleId, CancellationToken cancellationToken)`
+- `ActivateRuleAsync(string ruleId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed `ActivateGroupRuleAsync(string ruleId, CancellationToken cancellationToken)`
+- `DeactivateRuleAsync(string ruleId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed `DeactivateGroupRuleAsync(string ruleId, CancellationToken cancellationToken)`
+- `GetGroupAsync(string groupId, string expand, CancellationToken cancellationToken)`
+<br />&mdash; Signature changed `GetGroupAsync(string groupId, CancellationToken cancellationToken)`
+- `ListGroupUsers(string groupId, string after, int limit, string managedBy)`
+<br />&mdash; Signature changed `ListGroupUsers(string groupId, string after, int limit)`
+- `RemoveGroupUserAsync(string groupId, string userId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed `RemoveUserFromGroupAsync(string groupId, string userId, CancellationToken cancellationToken)`
+
+**Okta.Sdk.PoliciesClient**
+- `ListPolicies(string type, string status, string after, int limit, string expand)`
+<br />&mdash; Signature changed `ListPolicies(string type, string status, string expand)`
+- `AddPolicyRuleAsync(Okta.Sdk.IPolicyRule policyRule, string policyId, bool activate, CancellationToken cancellationToken)`
+<br />&mdash; Signature changed `AddPolicyRuleAsync(Okta.Sdk.IPolicyRule policyRule, string policyId, CancellationToken cancellationToken)`
+
+**Okta.Sdk.UserFactorsClient**                
+- `AddFactorAsync(Okta.Sdk.IFactor factor, string userId, bool updatePhone, string templateId, int tokenLifetimeSeconds, bool activate, CancellationToken cancellationToken)`
+<br />&mdash; Renamed with new signature `EnrollFactorAsync(Okta.Sdk.IUserFactor body, string userId, bool updatePhone, string templateId, int tokenLifetimeSeconds, bool activate, CancellationToken ca
+ncellationToken)`
+- `ActivateFactorAsync(Okta.Sdk.IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed with new signature `ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken)`
+
+**Okta.Sdk.UsersClient**
+- `ListUsers(string q, string after, int limit, string filter, string format, string search, string expand)`
+<br />&mdash; Signature changed `ListUsers(string q, string after, int limit, string filter, string search, string sortBy, string sortOrder)`
+- `CreateUserAsync(Okta.Sdk.IUser user, bool activate, bool provider, Okta.Sdk.UserNextLogin nextLogin, CancellationToken cancellationToken)`
+<br />&mdash; Signature changed `CreateUserAsync(Okta.Sdk.ICreateUserRequest body, bool activate, bool provider, Okta.Sdk.UserNextLogin nextLogin, CancellationToken cancellationToken)`
+- `ListAppLinks(string userId, bool showAll)`
+<br />&mdash; Signature changed `ListAppLinks(string userId)`
+- `ListUserGroups(string userId, string after, int limit)`
+<br />&mdash; Signature changed `ListUserGroups(string userId)`
+- `ExpirePasswordAsync(string userId, bool tempPassword, CancellationToken cancellationToken)`
+<br />&mdash; Signature changed `ExpirePasswordAsync(string userId, CancellationToken cancellationToken)` 
+- `ResetAllFactorsAsync(string userId, CancellationToken cancellationToken)`
+<br />&mdash; Renamed `ResetFactorsAsync(string userId, CancellationToken cancellationToken)`
+- `ResetPasswordAsync(string userId, Okta.Sdk.AuthenticationProviderType provider, bool sendEmail, CancellationToken cancellationToken)`
+<br />&mdash; Removed; instead use any of the following:
+  - `ForgotPasswordGenerateOneTimeTokenAsync(string userId, bool sendEmail, CancellationToken cancellationToken)`
+  - `ForgotPasswordSetNewPasswordAsync(Okta.Sdk.IUserCredentials user, string userId, bool sendEmail, CancellationToken cancellationToken)`
+  - `ExpirePasswordAsync(string userId, CancellationToken cancellationToken)`
+  - `ExpirePasswordAndGetTemporaryPasswordAsync(string userId, CancellationToken cancellationToken)`
+- `ListAssignedRoles(string userId, string expand)`
+<br />&mdash; Renamed `ListAssignedRolesForUser(string userId, string expand)`
+- `EndAllUserSessionsAsync(string userId, bool oauthTokens, CancellationToken cancellationToken)`
+<br />&mdash; Renamed `ClearUserSessionsAsync(string userId, bool oauthTokens, CancellationToken cancellationToken)`
+
+### New Okta Clients
+The following is a list of context specific clients that are new in version 3.0.0. Instances of each are available as properties of an OktaClient instance where the name of the property is the name of the type with the "Client" suffix removed.
+
+- `Okta.Sdk.AuthorizationServersClient`, see [Authorization Servers API](https://developer.okta.com/docs/reference/api/authorization-servers/).
+- `Okta.Sdk.EventHooksClient`, see [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/).
+- `Okta.Sdk.FeaturesClient`, see [Features API](https://developer.okta.com/docs/reference/api/features/).
+- `Okta.Sdk.IdentityProvidersClient`, see [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/).
+- `Okta.Sdk.InlineHooksClient`, see [Inline Hooks Management API](https://developer.okta.com/docs/reference/api/inline-hooks/).
+- `Okta.Sdk.LinkedObjectsClient`, see [Linked Objects API](https://developer.okta.com/docs/reference/api/linked-objects/).
+- `Okta.Sdk.TemplatesClient`, see [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/).
+- `Okta.Sdk.TrustedOriginsClient`, see [Trusted Origins API](https://developer.okta.com/docs/reference/api/trusted-origins/).
+- `Okta.Sdk.UserTypesClient`, see [User Types API](https://developer.okta.com/docs/reference/api/user-types/).
+
+
+
 ## Migrating from 0.3.3 to 1.x
 
 The previous version of this library, [Okta.Core.Client](https://www.nuget.org/packages/Okta.Core.Client), has been rewritten from the ground up as [Okta.Sdk](https://www.nuget.org/packages/Okta.Sdk) (this project). This was done to improve stability and to add support for .NET Core alongside .NET Framework.

@@ -19,9 +19,9 @@ namespace Okta.Sdk
 
         int? AuthenticationStep { get; }
 
-        IList<LogCredentialProvider> CredentialProvider { get; }
+        LogCredentialProvider CredentialProvider { get; set; }
 
-        IList<LogCredentialType> CredentialType { get; }
+        LogCredentialType CredentialType { get; set; }
 
         string ExternalSessionId { get; }
 

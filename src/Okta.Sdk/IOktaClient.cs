@@ -3,11 +3,9 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Configuration;
-using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
@@ -24,6 +22,14 @@ namespace Okta.Sdk
         /// </value>
         /// <remarks>The configuration is immutable after the client is initialized. This property references a copy of the configuration.</remarks>
         OktaClientConfiguration Configuration { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IUserTypesClient">UserTypesClient</see> that interacts with the Okta User Types API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IUserTypesClient">UserTypesClient</see> that interacts with the Okta User Types API.
+        /// </value>
+        IUserTypesClient UserTypes { get; }
 
         /// <summary>
         /// Gets a <see cref="IUsersClient">UsersClient</see> that interacts with the Okta Users API.
@@ -82,12 +88,68 @@ namespace Okta.Sdk
         IGroupsClient Groups { get; }
 
         /// <summary>
+        /// Gets an <see cref="IAuthorizationServersClient">AuthorizationServersClient</see> that interacts with the Okta Authorization Servers API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IAuthorizationServersClient">AuthorizationServersClient</see> that interacts with the Okta Authorization Servers API.
+        /// </value>
+        IAuthorizationServersClient AuthorizationServers { get; }
+
+        /// <summary>
+        /// Gets an <see cref="IEventHooksClient">EventHooksClient</see> that interacts with the Okta Event Hooks API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IEventHooksClient">EventHooksClient</see> that interacts with the Okta Event Hooks API.
+        /// </value>
+        IEventHooksClient EventHooks { get; }
+
+        /// <summary>
+        /// Gets an <see cref="IInlineHooksClient">InlineHooksClient</see> that interacts with the Okta Inline Hooks API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IInlineHooksClient">InlineHooksClient</see> that interacts with the Okta Inline Hooks API.
+        /// </value>
+        IInlineHooksClient InlineHooks { get; }
+
+        /// <summary>
+        /// Gets an <see cref="ILinkedObjectsClient">LinkedObjectsClient</see> that interacts with the Okta Linked Objects API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="ILinkedObjectsClient">LinkedObjectsClient</see> that interacts with the Okta Linked Objects API.
+        /// </value>
+        ILinkedObjectsClient LinkedObjects { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IFeaturesClient">FeaturesClient</see> that interacts with the Okta Features API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IFeaturesClient">FeaturesClient</see> that interacts with the Okta Features API.
+        /// </value>
+        IFeaturesClient Features { get; }
+
+        /// <summary>
+        /// Gets an <see cref="IIdentityProvidersClient">IdentityProvidersClient</see> that interacts with the Okta Identity Providers API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="IIdentityProvidersClient">IdentityProvidersClient</see> that interacts with the Okta Identity Providers API.
+        /// </value>
+        IIdentityProvidersClient IdentityProviders { get; }
+
+        /// <summary>
+        /// Gets a <see cref="ITemplatesClient">TemplatesClient</see> that interacts with the Okta Templates API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="ITemplatesClient">TemplatesClient</see> that interacts with the Okta Templates API.
+        /// </value>
+        ITemplatesClient Templates { get; }
+
+        /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
         /// </summary>
         /// <param name="requestContext">The request context</param>
         /// <remarks>This method is used to temporarily create a copy of the client in order to pass information about the current request to the Okta API.</remarks>
         /// <returns>The new client.</returns>
-        IOktaClient CreatedScoped(RequestContext requestContext);
+        IOktaClient CreateScoped(RequestContext requestContext);
 
         /// <summary>
         /// Gets a resource by URL and deserializes it to a <see cref="Resource"/> type.

@@ -29,15 +29,16 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<ILogEvent> GetLogs(string until = null, string since = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
+        public ICollectionClient<ILogEvent> GetLogs(string since = null, string until = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null)
             => GetCollectionClient<ILogEvent>(new HttpRequest
             {
                 Uri = "/api/v1/logs",
+                Verb = HttpVerb.Get,
                 
                 QueryParameters = new Dictionary<string, object>()
                 {
-                    ["until"] = until,
                     ["since"] = since,
+                    ["until"] = until,
                     ["filter"] = filter,
                     ["q"] = q,
                     ["limit"] = limit,

@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a Role resource in the Okta API.</summary>
     public partial interface IRole : IResource
     {
-        string AssignmentType { get; set; }
+        RoleAssignmentType AssignmentType { get; set; }
 
         DateTimeOffset? Created { get; }
 
@@ -29,7 +29,25 @@ namespace Okta.Sdk
 
         RoleStatus Status { get; }
 
-        string Type { get; set; }
+        RoleType Type { get; set; }
+
+        Task AddAdminGroupTargetAsync(
+            string groupId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddAppInstanceTargetToAdminRoleAsync(
+            string groupId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddAppTargetToAdminRoleAsync(
+            string groupId, string appName, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddAllAppsAsTargetToRoleAsync(
+            string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddAppTargetToAppAdminRoleForUserAsync(
+            string userId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddAppTargetToAdminRoleForUserAsync(
+            string userId, string appName, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

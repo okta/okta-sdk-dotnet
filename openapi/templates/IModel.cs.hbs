@@ -21,8 +21,8 @@ namespace Okta.Sdk
         {{/each}}
         {{#each methods}}
         {{{returnTypeLiteral}}} {{memberName}}(
-            {{~#if bodyModel}}{{bodyModel.type.memberName}} {{bodyModel.parameterName}}, {{/if}}
-            {{~nbsp 0}}{{{methodSignatureLiteral}}});
+            {{~#if bodyModel}}{{bodyModel.type.memberName}} {{bodyModel.parameterName}}{{~#if hasMoreParams}},{{~nbsp 0}}{{/if}} {{/if}}
+            {{{methodSignatureLiteral}}});
 
         {{/each}}
     }

@@ -17,6 +17,13 @@ namespace Okta.Sdk
     public partial class Policy : Resource, IPolicy
     {
         /// <inheritdoc/>
+        public IPolicyRuleConditions Conditions 
+        {
+            get => GetResourceProperty<PolicyRuleConditions>("conditions");
+            set => this["conditions"] = value;
+        }
+        
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
@@ -68,23 +75,28 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Task ActivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Policies.ActivatePolicyAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Task DeactivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Policies.DeactivatePolicyAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public ICollectionClient<IPolicyRule> ListPolicyRules()
+        public ICollectionClient<IPolicyRule> ListPolicyRules(
+            )
             => GetClient().Policies.ListPolicyRules(Id);
         
         /// <inheritdoc />
-        public Task<IPolicyRule> CreateRuleAsync(PolicyRule policyRule, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Policies.AddPolicyRuleAsync(policyRule, Id, activate, cancellationToken);
+        public Task<IPolicyRule> CreateRuleAsync(IPolicyRule policyRule, 
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Policies.CreatePolicyRuleAsync(policyRule, Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IPolicyRule> GetPolicyRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IPolicyRule> GetPolicyRuleAsync(
+            string ruleId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Policies.GetPolicyRuleAsync(Id, ruleId, cancellationToken);
         
     }

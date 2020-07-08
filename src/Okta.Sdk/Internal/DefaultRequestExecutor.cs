@@ -3,14 +3,14 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Extensions.Logging;
-using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
@@ -27,6 +27,14 @@ namespace Okta.Sdk.Internal
         private readonly IRetryStrategy _retryStrategy;
         private readonly IOAuthTokenProvider _oAuthTokenProvider;
         private readonly OktaClientConfiguration _oktaConfiguration;
+        private readonly IHttpRequestMessageProvider _httpRequestMessageProvider;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
+        /// </summary>
+        protected DefaultRequestExecutor() // to enable testing
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRequestExecutor"/> class.
@@ -36,7 +44,7 @@ namespace Okta.Sdk.Internal
         /// <param name="logger">The logging interface.</param>
         /// <param name="retryStrategy">The retry strategy interface.</param>
         /// <param name="oAuthTokenProvider">The OAuth token provider interface.</param>
-        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null, IHttpRequestMessageProvider httpRequestMessageProvider = null)
         {
             if (configuration == null)
             {
@@ -49,6 +57,7 @@ namespace Okta.Sdk.Internal
             _retryStrategy = retryStrategy ?? new DefaultRetryStrategy(configuration.MaxRetries.Value, configuration.RequestTimeout.Value);
             _oAuthTokenProvider = oAuthTokenProvider ?? NullOAuthTokenProvider.Instance;
             _oktaConfiguration = configuration;
+            _httpRequestMessageProvider = httpRequestMessageProvider ?? HttpRequestMessageProvider.Default;
             ApplyDefaultClientSettings(_httpClient, _oktaDomain, configuration);
         }
 
@@ -166,6 +175,24 @@ namespace Okta.Sdk.Internal
         }
 
         /// <inheritdoc/>
+        public async Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
+        {
+            switch (request.Verb)
+            {
+                case HttpVerb.Get:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Post:
+                    return await PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Put:
+                    return await PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
+                case HttpVerb.Delete:
+                    return await DeleteAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+                default:
+                    return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+            }
+        }
+
+        /// <inheritdoc/>
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
             var path = EnsureRelativeUrl(href);
@@ -174,6 +201,12 @@ namespace Okta.Sdk.Internal
             ApplyHeadersToRequest(request, headers);
 
             return SendAsync(request, cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<HttpResponse<string>> PostAsync(HttpRequest httpRequest, CancellationToken cancellationToken)
+        {
+            return SendAsync(_httpRequestMessageProvider.CreateHttpRequestMessage(httpRequest, EnsureRelativeUrl(httpRequest.Uri)), cancellationToken);
         }
 
         /// <inheritdoc/>

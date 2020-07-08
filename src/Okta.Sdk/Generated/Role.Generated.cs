@@ -17,9 +17,9 @@ namespace Okta.Sdk
     public sealed partial class Role : Resource, IRole
     {
         /// <inheritdoc/>
-        public string AssignmentType 
+        public RoleAssignmentType AssignmentType 
         {
-            get => GetStringProperty("assignmentType");
+            get => GetEnumProperty<RoleAssignmentType>("assignmentType");
             set => this["assignmentType"] = value;
         }
         
@@ -46,11 +46,41 @@ namespace Okta.Sdk
         public RoleStatus Status => GetEnumProperty<RoleStatus>("status");
         
         /// <inheritdoc/>
-        public string Type 
+        public RoleType Type 
         {
-            get => GetStringProperty("type");
+            get => GetEnumProperty<RoleType>("type");
             set => this["type"] = value;
         }
+        
+        /// <inheritdoc />
+        public Task AddAdminGroupTargetAsync(
+            string groupId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.AddGroupTargetToGroupAdministratorRoleForGroupAsync(groupId, Id, targetGroupId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task AddAppInstanceTargetToAdminRoleAsync(
+            string groupId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(groupId, Id, appName, applicationId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task AddAppTargetToAdminRoleAsync(
+            string groupId, string appName, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.AddApplicationTargetToAdminRoleGivenToGroupAsync(groupId, Id, appName, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task AddAllAppsAsTargetToRoleAsync(
+            string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.AddAllAppsAsTargetToRoleAsync(userId, Id, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task AddAppTargetToAppAdminRoleForUserAsync(
+            string userId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.AddApplicationTargetToAppAdminRoleForUserAsync(userId, Id, appName, applicationId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task AddAppTargetToAdminRoleForUserAsync(
+            string userId, string appName, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.AddApplicationTargetToAdminRoleForUserAsync(userId, Id, appName, cancellationToken);
         
     }
 }

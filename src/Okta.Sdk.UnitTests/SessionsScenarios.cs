@@ -6,7 +6,6 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentAssertions;
 using Microsoft.Extensions.Logging.Abstractions;
 using NSubstitute;
 using Okta.Sdk.Internal;
@@ -27,7 +26,7 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-                .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
                 .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
@@ -41,9 +40,7 @@ namespace Okta.Sdk.UnitTests
             await client.Sessions.CreateSessionAsync(createSessionRequest);
 
             await mockRequestExecutor.Received().PostAsync(
-                "/api/v1/sessions",
-                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
-                "{\"sessionToken\":\"foo\"}",
+                Arg.Is<HttpRequest>(request => request.Uri.Equals("/api/v1/sessions") && request.GetBody().Equals("{\"sessionToken\":\"foo\"}")),
                 CancellationToken.None);
         }
 
@@ -71,8 +68,8 @@ namespace Okta.Sdk.UnitTests
         {
             var mockRequestExecutor = Substitute.For<IRequestExecutor>();
             mockRequestExecutor
-            .PostAsync(Arg.Any<string>(), Arg.Any<IEnumerable<KeyValuePair<string, string>>>(), Arg.Any<string>(), Arg.Any<CancellationToken>())
-            .Returns(new HttpResponse<string>() { StatusCode = 200 });
+                .PostAsync(Arg.Any<HttpRequest>(), Arg.Any<CancellationToken>())
+                .Returns(new HttpResponse<string>() { StatusCode = 200 });
 
             var dataStore = new DefaultDataStore(mockRequestExecutor, new DefaultSerializer(), new ResourceFactory(null, null), NullLogger.Instance);
 
@@ -80,10 +77,7 @@ namespace Okta.Sdk.UnitTests
             await client.Sessions.RefreshSessionAsync("foo");
 
             await mockRequestExecutor.Received().PostAsync(
-                "/api/v1/sessions/foo/lifecycle/refresh",
-                Arg.Any<IEnumerable<KeyValuePair<string, string>>>(),
-                null,
-                CancellationToken.None);
+                Arg.Is<HttpRequest>(request => request.Uri.Equals("/api/v1/sessions/foo/lifecycle/refresh")), CancellationToken.None);
         }
 
         [Fact]

@@ -29,10 +29,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IFactor> ListFactors(string userId)
-            => GetCollectionClient<IFactor>(new HttpRequest
+        public ICollectionClient<IUserFactor> ListFactors(string userId)
+            => GetCollectionClient<IUserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -41,11 +42,12 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IFactor> AddFactorAsync(IFactor factor, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Factor>(new HttpRequest
+        public async Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors",
-                Payload = factor,
+                Verb = HttpVerb.Post,
+                Payload = body,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
@@ -60,10 +62,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public ICollectionClient<IFactor> ListSupportedFactors(string userId)
-            => GetCollectionClient<IFactor>(new HttpRequest
+        public ICollectionClient<IUserFactor> ListSupportedFactors(string userId)
+            => GetCollectionClient<IUserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/catalog",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -76,6 +79,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ISecurityQuestion>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/questions",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -88,6 +92,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -97,10 +102,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Factor>(new HttpRequest
+        public async Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}",
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -110,11 +116,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IFactor> ActivateFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Factor>(new HttpRequest
+        public async Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate",
-                Payload = verifyFactorRequest,
+                Verb = HttpVerb.Post,
+                Payload = body,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
@@ -123,11 +130,27 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IVerifyFactorResponse> VerifyFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<VerifyFactorResponse>(new HttpRequest
+        public async Task<IVerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<VerifyUserFactorResponse>(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["factorId"] = factorId,
+                    ["transactionId"] = transactionId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest body, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<VerifyUserFactorResponse>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/verify",
-                Payload = verifyFactorRequest,
+                Verb = HttpVerb.Post,
+                Payload = body,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,

@@ -15,6 +15,10 @@ namespace Okta.Sdk
     /// <summary>Represents a PasswordCredential resource in the Okta API.</summary>
     public partial interface IPasswordCredential : IResource
     {
+        IPasswordCredentialHash Hash { get; set; }
+
+        IPasswordCredentialHook Hook { get; set; }
+
         string Value { get; set; }
 
     }

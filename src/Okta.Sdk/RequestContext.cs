@@ -3,6 +3,8 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
+
 namespace Okta.Sdk
 {
     /// <summary>
@@ -45,5 +47,53 @@ namespace Okta.Sdk
         /// The X-Forwarded-Port value.
         /// </value>
         public string XForwardedPort { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Accept-Language value that should be sent to the Okta API.
+        /// </summary>
+        /// <value>
+        /// The Accept-Language value.
+        /// </value>
+        public string AcceptLanguage { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Accept value that should be sent to the Okta API.
+        /// </summary>
+        /// <value>
+        /// The Accept value.
+        /// </value>
+        public string Accept { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Content-Transfer-Encoding value that should be sent to the Okta API.
+        /// </summary>
+        /// <value>
+        /// The Content-Transfer-Encoding value.
+        /// </value>
+        public string ContentTransferEncoding { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Content-Type.
+        /// </summary>
+        public string ContentType { get; set; }
+
+        /// <summary>
+        /// Clone the current request context.
+        /// </summary>
+        /// <returns>A clone of the current request context.</returns>
+        public RequestContext Clone()
+        {
+            return new RequestContext
+            {
+                UserAgent = UserAgent,
+                XForwardedFor = XForwardedFor,
+                XForwardedPort = XForwardedPort,
+                XForwardedProto = XForwardedProto,
+                AcceptLanguage = AcceptLanguage,
+                Accept = Accept,
+                ContentTransferEncoding = ContentTransferEncoding,
+                ContentType = ContentType,
+            };
+        }
     }
 }

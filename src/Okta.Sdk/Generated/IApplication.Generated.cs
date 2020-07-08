@@ -43,27 +43,92 @@ namespace Okta.Sdk
 
         IApplicationVisibility Visibility { get; set; }
 
-        Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task ActivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<IAppUser> ListApplicationUsers(string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null);
+        ICollectionClient<IAppUser> ListApplicationUsers(
+            string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null);
 
-        Task<IAppUser> AssignUserToApplicationAsync(AppUser appUser, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IAppUser> AssignUserToApplicationAsync(IAppUser appUser, 
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IAppUser> GetApplicationUserAsync(string userId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IAppUser> GetApplicationUserAsync(
+            string userId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(ApplicationGroupAssignment applicationGroupAssignment, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(IApplicationGroupAssignment applicationGroupAssignment, 
+            string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(
+            string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> CloneApplicationKeyAsync(string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> CloneApplicationKeyAsync(
+            string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> GetApplicationKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> GetApplicationKeyAsync(
+            string keyId, CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<IApplicationGroupAssignment> ListGroupAssignments(string q = null, string after = null, int? limit = -1, string expand = null);
+        ICollectionClient<IApplicationGroupAssignment> ListGroupAssignments(
+            string q = null, string after = null, int? limit = -1, string expand = null);
 
-        ICollectionClient<IJsonWebKey> ListKeys();
+        ICollectionClient<IJsonWebKey> ListKeys(
+            );
+
+        Task<IJsonWebKey> GenerateKeyAsync(
+            int? validityYears = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<ICsr> GenerateCsrAsync(ICsrMetadata metadata, 
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<ICsr> GetCsrAsync(
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RevokeCsrAsync(
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<ICsr> ListCsrs(
+            );
+
+        Task<IJsonWebKey> PublishCerCertAsync(string certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IJsonWebKey> PublishDerCertAsync(string certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, 
+            string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IOAuth2Token> ListOAuth2Tokens(
+            string expand = null, string after = null, int? limit = 20);
+
+        Task RevokeOAuth2TokenForApplicationAsync(
+            string tokenId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOAuth2Token> GetOAuth2TokenAsync(
+            string tokenId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RevokeOAuth2TokensAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IOAuth2ScopeConsentGrant> ListScopeConsentGrants(
+            string expand = null);
+
+        Task<IOAuth2ScopeConsentGrant> GrantConsentToScopeAsync(IOAuth2ScopeConsentGrant oAuth2ScopeConsentGrant, 
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RevokeScopeConsentGrantAsync(
+            string grantId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(
+            string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

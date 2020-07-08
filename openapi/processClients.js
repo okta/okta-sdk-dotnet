@@ -3,7 +3,8 @@ const {
   pascalCase,
   createMethodSignatureLiteral,
   createParametersLiteral,
-  getPluralName
+  getPluralName,
+  getTypeForMember
 } = require('./utils');
 
 const {
@@ -119,6 +120,7 @@ function createContextForClient(tag, operations) {
       isCollection: operation.isArray,
       path: operation.path,
       httpMethod: {
+        verbName: `${pascalCase(operation.method)}`, 
         memberName: `${pascalCase(operation.method)}Async`
       }
     }
@@ -127,11 +129,18 @@ function createContextForClient(tag, operations) {
     if (!operation.isArray) operationContext.memberName += 'Async';
 
     if (operation.bodyModel) {
+      let bodyModelParamName = operation.bodyModel;
+      let bodyModelParams = operation.parameters.filter(x => x.in == 'body');
+      if(bodyModelParams != null){
+        let bodyModelParam = bodyModelParams[0];
+        bodyModelParamName = bodyModelParam.name;
+      }
+
       operationContext.bodyModel = {
         type: { 
-          memberName: operation.bodyModel
+          memberName: getTypeForMember(operation.bodyModel, operation.bodyFormat)
         },
-        parameterName: camelCase(operation.bodyModel)
+        parameterName: camelCase(bodyModelParamName)
       };
     }
 
@@ -140,11 +149,14 @@ function createContextForClient(tag, operations) {
     };
 
     if (operation.isArray) {
-      operationContext.returnType.literal = `ICollectionClient<I${operationContext.returnType.memberName}>`;
-      operationContext.returnType.documentationLiteral = `A collection of <see cref="I${operationContext.returnType.memberName}"/> that can be enumerated asynchronously.`;
+      operationContext.returnType.literal = `ICollectionClient<${getTypeForMember(operationContext.returnType.memberName)}>`;
+      operationContext.returnType.documentationLiteral = `A collection of <see cref="${getTypeForMember(operationContext.returnType.memberName)}"/> that can be enumerated asynchronously.`;
     } else if (operation.responseModel) {
-      operationContext.returnType.literal = `Task<I${operationContext.returnType.memberName}>`;
-      operationContext.returnType.documentationLiteral = `The <see cref="I${operationContext.returnType.memberName}"/> response.`;
+      operationContext.returnType.literal = `Task<${getTypeForMember(operationContext.returnType.memberName)}>`;
+      operationContext.returnType.documentationLiteral = `The <see cref="${getTypeForMember(operationContext.returnType.memberName)}"/> response.`;
+    } else if (operation.returnType) {
+      operationContext.returnType.literal = `Task<${getTypeForMember(operation.returnType)}>`;
+      operationContext.returnType.documentationLiteral = `The <see cref="${getTypeForMember(operation.returnType)}"/> response.`;
     } else {
       operationContext.returnType.literal = 'Task';
       operationContext.returnType.documentationLiteral = 'A Task that represents the asynchronous operation.';

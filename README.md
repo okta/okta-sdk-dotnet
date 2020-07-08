@@ -21,6 +21,8 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage applications with the [Apps API](https://developer.okta.com/docs/api/resources/apps)
 * Manage logs with the [Logs API](https://developer.okta.com/docs/api/resources/system_log)
 * Manage sessions with the [Sessions API](https://developer.okta.com/docs/api/resources/sessions)
+* Manage templates with the [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/)
+* Manage identity providers with the [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/)
 * Much more!
  
 We also publish these other libraries for .NET:
@@ -40,7 +42,8 @@ This library uses semantic versioning and follows Okta's [library version policy
 | ------- | ------------------------- |
 | 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
 | 1.x | :warning: Retiring on 2020-12-27 |
-| 2.x | :heavy_check_mark: Stable |
+| 2.x | :warning: Retiring on 2021-04-10 |
+| 3.x | :heavy_check_mark: Stable |
 
  
 The latest release can always be found on the [releases page][github-releases].
@@ -89,6 +92,19 @@ var client = new OktaClient(new OktaClientConfiguration
 ```
 
 Hard-coding the Okta domain and API token works for quick tests, but for real projects you should use a more secure way of storing these values (such as environment variables). This library supports a few different configuration sources, covered in the [configuration reference](#configuration-reference) section.
+
+### Create a scoped client
+Create a client scoped to a specific context to specify a custom content type:
+``` csharp
+var client = new OktaClient(new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    Token = "{{yourApiToken}}"
+});
+
+var scopedClient = client.CreateScoped(new RequestContext { ContentType = "my-custom-content-type" });
+```
+The content type specified in a scoped client overrides the content type specified on a request, see also [Call other API endpoints](#call-other-api-endpoints).
 
 ### OAuth 2.0
 
@@ -239,7 +255,7 @@ if (group != null && user != null)
 var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Get user factors
-var factors = await user.Factors.ToArray();
+var factors = await user.ListFactors().ToListAsync();
 ```
 
 ### Enroll a User in a new Factor
@@ -261,8 +277,13 @@ var user = await client.Users.First(x => x.Profile.Email == "darth.vader@imperia
 // Find the desired factor
 var smsFactor = await user.Factors.First(x => x.FactorType == FactorType.Sms);
 
-// Activate sms facotr
-await client.UserFactors.ActivateFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
+// Activate sms factor
+var activateFactorRequest = new ActivateFactorRequest()
+{
+    PassCode = "foo",
+};
+
+await client.UserFactors.ActivateFactorAsync(activateFactorRequest, user.Id, smsFactor.Id);
 ```
 
 ### Verify a Factor
@@ -274,7 +295,25 @@ var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vade
 var smsFactor = await user.Factors.FirstOrDefault(x => x.FactorType == FactorType.Sms);
 
 // Verify sms factor
+var verifyFactorRequest = new VerifyFactorRequest()
+{
+    PassCode = "foo",
+};
+
 var response = await client.UserFactors.VerifyFactorAsync(verifyFactorRequest, user.Id, smsFactor.Id);
+```
+
+### Issuing an SMS Factor Challenge Using a Custom Template
+
+You can customize and optionally localize the SMS message sent to the user on verification. For more information about this feature and the underlying API call, see the related [developer documentation](https://developer.okta.com/docs/reference/api/factors/#issuing-an-sms-factor-challenge-using-a-custom-template).
+
+If you need to send additional information via the `AcceptLanguage` header, use an scoped client and pass a `RequestContext` object with your desired headers:
+
+```csharp
+// Create scoped client with specific headers
+var scopedClient = client.CreatedScoped(new RequestContext() { AcceptLanguage = "de" });
+
+await scopedClient.UserFactors.VerifyFactorAsync(userId, factorId, templateId);
 ```
 
 ### List all Applications

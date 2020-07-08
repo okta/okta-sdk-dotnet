@@ -37,33 +37,124 @@ namespace Okta.Sdk
 
         UserStatus TransitioningToStatus { get; }
 
-        Task EndAllSessionsAsync(bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken));
+        IUserType Type { get; set; }
 
-        Task<IUserActivationToken> ActivateAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, 
+            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
+            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task SuspendAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
+            string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task UnsuspendAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task RemoveRoleAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ITempPassword> ExpirePasswordAsync(bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
+        ICollectionClient<IGroup> ListGroupTargets(
+            string roleId, string after = null, int? limit = 20);
 
-        Task UnlockAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task RemoveGroupTargetAsync(
+            string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task ResetFactorsAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task AddGroupTargetAsync(
+            string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task AddToGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
+        ICollectionClient<IRole> ListAssignedRoles(
+            string expand = null);
 
-        Task<IFactor> AddFactorAsync(Factor factor, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task AddAllAppsAsTargetAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<IFactor> ListSupportedFactors();
+        ICollectionClient<IOAuth2ScopeConsentGrant> ListGrants(
+            string scopeId = null, string expand = null, string after = null, int? limit = 20);
 
-        ICollectionClient<IFactor> ListFactors();
+        Task RevokeGrantsAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions();
+        Task RevokeGrantAsync(
+            string grantId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IFactor> GetFactorAsync(string factorId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RevokeGrantsForUserAndClientAsync(
+            string clientId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IOAuth2RefreshToken> ListRefreshTokensForUserAndClient(
+            string clientId, string expand = null, string after = null, int? limit = 20);
+
+        Task RevokeTokenForUserAndClientAsync(
+            string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOAuth2RefreshToken> GetRefreshTokenForUserAndClientAsync(
+            string clientId, string tokenId, string expand = null, int? limit = 20, string after = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RevokeTokensForUserAndClientAsync(
+            string clientId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IOAuth2Client> ListClients(
+            );
+
+        Task<IUserActivationToken> ActivateAsync(
+            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IUserActivationToken> ReactivateAsync(
+            bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task DeactivateAsync(
+            bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task SuspendAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task UnsuspendAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IUser> ExpirePasswordAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task UnlockAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task ResetFactorsAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task DeleteFactorAsync(
+            string factorId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task AddToGroupAsync(
+            string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IUserFactor> EnrollFactorAsync(IUserFactor body, 
+            bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IUserFactor> ListSupportedFactors(
+            );
+
+        ICollectionClient<IUserFactor> ListFactors(
+            );
+
+        ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(
+            );
+
+        Task<IUserFactor> GetFactorAsync(
+            string factorId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task SetLinkedObjectAsync(
+            string primaryRelationshipName, string primaryUserId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IIdentityProvider> ListIdentityProviders(
+            );
+
+        ICollectionClient<IResponseLinks> GetLinkedObjects(
+            string relationshipName, string after = null, int? limit = -1);
+
+        Task ClearSessionsAsync(
+            bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task RemoveLinkedObjectAsync(
+            string relationshipName, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

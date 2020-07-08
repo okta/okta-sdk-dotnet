@@ -3,12 +3,12 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace Okta.Sdk.Internal
 {
@@ -125,6 +125,26 @@ namespace Okta.Sdk.Internal
             {
                 request.Headers["X-Forwarded-Proto"] = context.XForwardedProto;
             }
+
+            if (!string.IsNullOrEmpty(context.AcceptLanguage))
+            {
+                request.Headers["Accept-Language"] = context.AcceptLanguage;
+            }
+
+            if (!string.IsNullOrEmpty(context.Accept))
+            {
+                request.Headers["Accept"] = context.Accept;
+            }
+
+            if (!string.IsNullOrEmpty(context.ContentTransferEncoding))
+            {
+                request.Headers["Content-Transfer-Encoding"] = context.ContentTransferEncoding;
+            }
+
+            if (!string.IsNullOrEmpty(context.ContentType))
+            {
+                request.ContentType = context.ContentType;
+            }
         }
 
         private void EnsureResponseSuccess(HttpResponse<string> response)
@@ -190,7 +210,7 @@ namespace Okta.Sdk.Internal
         {
             PrepareRequest(request, requestContext);
 
-            var response = await _requestExecutor.GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
+            var response = await _requestExecutor.ExecuteRequestAsync(request, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var resources = _serializer
@@ -207,8 +227,8 @@ namespace Okta.Sdk.Internal
             PrepareRequest(request, requestContext);
 
             var body = _serializer.Serialize(request.Payload);
-
-            var response = await _requestExecutor.PostAsync(request.Uri, request.Headers, body, cancellationToken).ConfigureAwait(false);
+            request.SetBody(body);
+            var response = await _requestExecutor.PostAsync(request, cancellationToken).ConfigureAwait(false);
             EnsureResponseSuccess(response);
 
             var data = _serializer.Deserialize(PayloadOrEmpty(response));

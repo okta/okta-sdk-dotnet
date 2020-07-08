@@ -29,9 +29,9 @@ namespace Okta.Sdk
         IAsyncEnumerable<IGroup> Groups { get; }
 
         /// <summary>
-        /// Gets a collection of <see cref="IFactor"/> that can be enumerated asynchronously
+        /// Gets a collection of <see cref="IUserFactor"/> that can be enumerated asynchronously
         /// </summary>
-        IAsyncEnumerable<IFactor> Factors { get; }
+        IAsyncEnumerable<IUserFactor> Factors { get; }
 
         /// <summary>
         /// Changes the user password
@@ -86,64 +86,64 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="securityQuestionFactorOptions">The security question options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds a call factor to the user
         /// </summary>
         /// <param name="callFactorOptions">The call factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds an email factor to the user
         /// </summary>
         /// <param name="emailFactorOptions">The email factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds a hardward factor to the user
         /// </summary>
         /// <param name="hardwareFactorOptions">The hardware factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds a push factor to the user
         /// </summary>
         /// <param name="pushFactorOptions">The push factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds an SMS factor to the user
         /// </summary>
         /// <param name="smsFactorOptions">The SMS factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds a token factor to the user
         /// </summary>
         /// <param name="tokenFactorOptions">The token factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Adds a token:software:totp factor to the user
         /// </summary>
         /// <param name="totpFactorOptions">The token:software:totp options</param>
         /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>The <see cref="IFactor"/> response</returns>
-        Task<IFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deactivates a user

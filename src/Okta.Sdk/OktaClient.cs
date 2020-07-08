@@ -69,6 +69,10 @@ namespace Okta.Sdk
                 serializer,
                 resourceFactory,
                 logger);
+
+            PayloadHandler.TryRegister<PkixCertPayloadHandler>();
+            PayloadHandler.TryRegister<PemFilePayloadHandler>();
+            PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
         }
 
         /// <summary>
@@ -101,6 +105,10 @@ namespace Okta.Sdk
                 serializer,
                 resourceFactory,
                 logger);
+
+            PayloadHandler.TryRegister<PkixCertPayloadHandler>();
+            PayloadHandler.TryRegister<PemFilePayloadHandler>();
+            PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
         }
 
         /// <summary>
@@ -148,8 +156,11 @@ namespace Okta.Sdk
         public OktaClientConfiguration Configuration { get; }
 
         /// <inheritdoc/>
-        public IOktaClient CreatedScoped(RequestContext requestContext)
+        public IOktaClient CreateScoped(RequestContext requestContext)
             => new OktaClient(_dataStore, Configuration, requestContext);
+
+        /// <inheritdoc/>
+        public IUserTypesClient UserTypes => new UserTypesClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
         public IUsersClient Users => new UsersClient(_dataStore, Configuration, _requestContext);
@@ -167,10 +178,31 @@ namespace Okta.Sdk
         public ISessionsClient Sessions => new SessionsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public IAuthorizationServersClient AuthorizationServers => new AuthorizationServersClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public ILogsClient Logs => new LogsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
         public IPoliciesClient Policies => new PoliciesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IEventHooksClient EventHooks => new EventHooksClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IInlineHooksClient InlineHooks => new InlineHooksClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public ILinkedObjectsClient LinkedObjects => new LinkedObjectsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IFeaturesClient Features => new FeaturesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public ITemplatesClient Templates => new TemplatesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IIdentityProvidersClient IdentityProviders => new IdentityProvidersClient(_dataStore, Configuration, _requestContext);
 
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
@@ -185,12 +217,13 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
             where T : Resource, new()
-            => GetAsync<T>(new HttpRequest { Uri = href }, cancellationToken);
+            => GetAsync<T>(new HttpRequest { Uri = href, Verb = HttpVerb.Get }, cancellationToken);
 
         /// <inheritdoc/>
         public async Task<T> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where T : Resource, new()
         {
+            request.Verb = HttpVerb.Get;
             var response = await _dataStore.GetAsync<T>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
@@ -210,12 +243,12 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public Task PostAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
-            => PostAsync(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+            => PostAsync(new HttpRequest { Uri = href, Payload = model, Verb = HttpVerb.Post }, cancellationToken);
 
         /// <inheritdoc/>
         public Task<TResponse> PostAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
-            => PostAsync<TResponse>(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+            => PostAsync<TResponse>(new HttpRequest { Uri = href, Payload = model, Verb = HttpVerb.Post }, cancellationToken);
 
         /// <inheritdoc/>
         public Task PostAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
@@ -225,18 +258,19 @@ namespace Okta.Sdk
         public async Task<TResponse> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
         {
+            request.Verb = HttpVerb.Post;
             var response = await _dataStore.PostAsync<TResponse>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }
 
         /// <inheritdoc/>
         public Task PutAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
-            => PutAsync(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+            => PutAsync(new HttpRequest { Uri = href, Payload = model, Verb = HttpVerb.Put }, cancellationToken);
 
         /// <inheritdoc/>
         public Task<TResponse> PutAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
-            => PutAsync<TResponse>(new HttpRequest { Uri = href, Payload = model }, cancellationToken);
+            => PutAsync<TResponse>(new HttpRequest { Uri = href, Payload = model, Verb = HttpVerb.Put }, cancellationToken);
 
         /// <inheritdoc/>
         public Task PutAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
@@ -246,6 +280,7 @@ namespace Okta.Sdk
         public async Task<TResponse> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
             where TResponse : Resource, new()
         {
+            request.Verb = HttpVerb.Put;
             var response = await _dataStore.PutAsync<TResponse>(request, _requestContext, cancellationToken).ConfigureAwait(false);
             return response?.Payload;
         }

@@ -27,9 +27,16 @@ namespace Okta.Sdk
 
         IGroupProfile Profile { get; set; }
 
-        string Type { get; }
+        GroupType Type { get; }
 
-        Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RemoveUserAsync(
+            string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IApplication> ListApplications(
+            string after = null, int? limit = 20);
+
+        Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
+            string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

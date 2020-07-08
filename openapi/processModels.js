@@ -8,13 +8,15 @@ const {
   isNullOrUndefined,
   createMethodSignatureLiteral,
   createParametersLiteral,
-  getPluralName
+  getPluralName,
+  getTypeForMember
 } = require('./utils');
 
 const {
   isPropertyUnsupported,
   applyPropertyErrata,
   applyModelErrata,
+  applyOperationErrata,
   shouldSkipModelMethod
 } = require('./errata');
 
@@ -65,6 +67,7 @@ function getTemplatesforModels(models, infoLogger, errorLogger) {
       }
     
       if(method.operation != null) {
+        method.operation = applyOperationErrata(method.operation.tags[0], method.operation, infoLogger);
         method.operation.pathParams = method.operation.pathParams || [];
         method.operation.queryParams = method.operation.queryParams || [];
         method.operation.allParams = method.operation.pathParams
@@ -180,22 +183,41 @@ function createContextForModel(model, strictModelList, errFunc) {
 
   for (let method of model.methods) {
     if (method.hidden) continue;
-
     let methodContext = {};
-
+    if(method.operation === undefined) {
+      console.log(method)
+      }
+    
+    // if (method.operation.bodyModel) {
+    //   methodContext.bodyModel = {
+    //     type: { 
+    //       memberName: method.operation.bodyModel
+    //     },
+    //     parameterName: camelCase(method.operation.bodyModel)
+    //   };
+    // }
     if (method.operation.bodyModel) {
+      let bodyModelParamName = method.operation.bodyModel;
+      let bodyModelParams = method.operation.parameters.filter(x => x.in == 'body');
+      if(bodyModelParams != null){
+        let bodyModelParam = bodyModelParams[0];
+        bodyModelParamName = bodyModelParam.name;
+      }
+
       methodContext.bodyModel = {
         type: { 
-          memberName: method.operation.bodyModel
+          memberName: getTypeForMember(method.operation.bodyModel, method.operation.bodyFormat)
         },
-        parameterName: camelCase(method.operation.bodyModel)
+        parameterName: camelCase(bodyModelParamName)
       };
     }
     
     if (method.operation.isArray) {
       methodContext.returnTypeLiteral = `ICollectionClient<I${method.operation.responseModel}>`;
+      //methodContext.returnType.literal = `ICollectionClient<${getTypeForMember(methodContext.returnType.memberName)}>`;
     } else if (method.operation.responseModel) {
       methodContext.returnTypeLiteral = `Task<I${method.operation.responseModel}>`;
+     // methodContext.returnType.literal = `Task<${getTypeForMember(methodContext.returnType.memberName)}>`;
     } else {
       methodContext.returnTypeLiteral = 'Task'
     }
@@ -215,9 +237,16 @@ function createContextForModel(model, strictModelList, errFunc) {
       method.operation,
       method.arguments);
 
-    methodContext.parametersLiteral = createParametersLiteral(
+    if(methodContext.methodSignatureLiteral != ''){
+      methodContext.hasMoreParams = true;
+    }
+
+    let parametersInfo = createParametersLiteral(
       method.operation,
       method.arguments);
+
+    methodContext.parametersLiteral = parametersInfo.parametersLiteral;
+    methodContext.parametersCount = parametersInfo.parametersCount;
 
     context.methods.push(methodContext);
   }

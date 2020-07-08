@@ -7,6 +7,7 @@ const propertyErrata = [
 
   { path: 'ActivationToken.activationToken', rename: 'token', renameReason: '.NET type name and member name cannot be identical' },
   { path: 'TempPassword.tempPassword', rename: 'password', renameReason: '.NET type name and member name cannot be identical' },
+  { path: 'Csr.csr', rename: 'CsrValue', renameReason: '.NET type name and member name cannot be identical' },
 
   { path: 'CallFactor.profile', hidesBaseMember: true },
   { path: 'EmailFactor.profile', hidesBaseMember: true },
@@ -125,10 +126,15 @@ const enumErrata = [
   { path: 'SessionAuthenticationMethod.mfa', rename: 'multifactor', renameReason: 'Legibility' },
   { path: 'LogCredentialProvider.oktaAuthenticationProvider', rename: 'okta', renameReason: 'Legibility' },
   { path: 'FactorType.webauthn', rename: 'webAuthentication', renameReason: 'Legibility' },
+  { path: 'PolicyType.oauthAuthorizationPolicy', rename: 'oAuthAuthorizationPolicy', renameReason: 'Convention' },
 ];
 
 const modelErrata = [
   { path: 'LogClient', rename: 'LogClientInfo', renameReason: 'Legibility' },
+  { path: 'CSR', rename: 'Csr', renameReason: 'Pattern consistency' },
+  { path: 'CSRMetadata', rename: 'CsrMetadata', renameReason: 'Pattern consistency' },
+  { path: 'CSRMetadataSubject', rename: 'CsrMetadataSubject', renameReason: 'Pattern consistency' },
+  { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
 ];
 
 const operationErrata = [
@@ -143,27 +149,44 @@ const operationErrata = [
 function applyOperationErrata(tag, existingOperation, infoLogger) {
   let errata = operationErrata.find(x => x.tag === tag && x.operationId == existingOperation.operationId);
 
-  if(!errata) return existingOperation;
+  if(errata) {
+    if(errata.queryParamName) {
+      let queryParam = existingOperation.queryParams.find(x => x.name == errata.queryParamName);
 
-  if(errata.queryParamName) {
-    let queryParam = existingOperation.queryParams.find(x => x.name == errata.queryParamName);
+      if(!queryParam) return existingOperation;
 
-    if(!queryParam) return existingOperation;
+      if(errata.default) {
+        queryParam.default = errata.default;
+        infoLogger(`Errata: Changing default for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.default}`, `(Reason: ${errata.defaultReason})`);
+      }
 
-    if(errata.default) {
-      queryParam.default = errata.default;
-      infoLogger(`Errata: Changing default for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.default}`, `(Reason: ${errata.defaultReason})`);
+      if(errata.type) {
+        queryParam.type = errata.type;
+        infoLogger(`Errata: Changing type for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.type}`, `(Reason: ${errata.typeReason})`);
+      }
     }
 
-    if(errata.type) {
-      queryParam.type = errata.type;
-      infoLogger(`Errata: Changing type for query parameter in ${tag} > ${existingOperation.operationId} to ${errata.type}`, `(Reason: ${errata.typeReason})`);
+    if(errata.description){
+          existingOperation.description = errata.description;
+          infoLogger(`Errata: Changing description for operation ${existingOperation.operationId} to ${errata.description}`, `(Reason: ${errata.descriptionReason})`);
     }
   }
 
-  if(errata.description){
-        existingOperation.description = errata.description;
-        infoLogger(`Errata: Changing description for operation ${existingOperation.operationId} to ${errata.description}`, `(Reason: ${errata.descriptionReason})`);
+  // Check for model rename
+  let errataBodyModel = modelErrata.find(x => x.path == existingOperation.bodyModel);
+
+  if(errataBodyModel) {
+    if(errataBodyModel.rename){
+      existingOperation.bodyModel = errataBodyModel.rename;
+    }
+  }
+
+  let errataResponseModel = modelErrata.find(x => x.path == existingOperation.responseModel);
+
+  if(errataResponseModel) {
+    if(errataResponseModel.rename){
+      existingOperation.responseModel = errataResponseModel.rename;
+    }
   }
 
   return existingOperation;
@@ -189,40 +212,53 @@ function applyPropertyErrata(existingProperty, infoLogger) {
   if (!exists) return existingProperty;
 
   let errata = propertyErrata.find(x => x.path === existingProperty.fullPath || (x.path === `*.${existingProperty.propertyName}`));
-  if (!errata) return existingProperty;
+  if (errata) {
+ 
+    if (errata.rename) {
+      existingProperty.displayName = errata.rename;
+      infoLogger(`Errata: Renaming property ${existingProperty.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+    }
 
-  if (errata.rename) {
-    existingProperty.displayName = errata.rename;
-    infoLogger(`Errata: Renaming property ${existingProperty.fullPath} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+    if(errata.binding) {
+      existingProperty.propertyName = errata.binding;
+      infoLogger(`Errata: Renaming binding of property ${existingProperty.fullPath} to ${errata.binding}`, `(Reason: ${errata.renameReason})`);
+    }
+
+    if (errata.hidesBaseMember) {
+      existingProperty.hidesBaseMember = true;
+    }
+
+    if (errata.skip) {
+      existingProperty.hidden = true;
+      infoLogger(`Errata: Hiding property ${existingProperty.fullPath}`, `Reason: ${errata.skipReason}`)
+    }
+
+    if (errata.type) {
+      existingProperty.commonType = errata.type;
+      infoLogger(`Errata: Explicitly setting type of ${existingProperty.fullPath} to '${errata.type}'`, `(Reason: ${errata.typeReason})`)
+    }
+
+    if(errata.readOnly != null) {
+      existingProperty.readOnly = errata.readOnly;
+      infoLogger(`Errata: ReadOnly changed for property ${existingProperty.fullPath}`)
+    }
+
+    if(errata.model) {
+      existingProperty.model = errata.model;
+      infoLogger(`Errata: Explicitly setting model type for property ${existingProperty.fullPath}`)
+    }
   }
 
-  if(errata.binding) {
-    existingProperty.propertyName = errata.binding;
-    infoLogger(`Errata: Renaming binding of property ${existingProperty.fullPath} to ${errata.binding}`, `(Reason: ${errata.renameReason})`);
-  }
+  if(existingProperty.isObject && existingProperty.model) {
+    
+    let errataModel = modelErrata.find(x => x.path == existingProperty.model);
 
-  if (errata.hidesBaseMember) {
-    existingProperty.hidesBaseMember = true;
-  }
+    if(errataModel) {
+      if(errataModel.rename){
+        existingProperty.model = errataModel.rename;
+      }
+    }
 
-  if (errata.skip) {
-    existingProperty.hidden = true;
-    infoLogger(`Errata: Hiding property ${existingProperty.fullPath}`, `Reason: ${errata.skipReason}`)
-  }
-
-  if (errata.type) {
-    existingProperty.commonType = errata.type;
-    infoLogger(`Errata: Explicitly setting type of ${existingProperty.fullPath} to '${errata.type}'`, `(Reason: ${errata.typeReason})`)
-  }
-
-  if(errata.readOnly != null) {
-    existingProperty.readOnly = errata.readOnly;
-    infoLogger(`Errata: ReadOnly changed for property ${existingProperty.fullPath}`)
-  }
-
-  if(errata.model) {
-    existingProperty.model = errata.model;
-    infoLogger(`Errata: Explicitly setting model type for property ${existingProperty.fullPath}`)
   }
 
   return existingProperty;
@@ -262,13 +298,8 @@ const modelMethodSkipList = [
   { path: 'User.listAppLinks', reason: 'Implemented as IUser.AppLinks' },
   { path: 'User.listRoles', reason: 'Implemented as IUser.Roles' },
   { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
-  { path: 'User.removeRole', reason: 'Add back in alpha2 (#64)' },
-  { path: 'User.listGroupTargetsForRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.addGroupTargetToRole', reason: 'Too complex for IUser, leave on IUserClient' },
-  { path: 'User.removeGroupTargetFromRole', reason: 'Too complex for IUser, leave on IUserClient' },
   { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
-  { path: 'Application.generateApplicationKey', reason: 'Operation is not defined' },
 ];
 
 function shouldSkipModelMethod(fullPath) {
@@ -283,6 +314,12 @@ function shouldSkipModelMethod(fullPath) {
 const operationSkipList = [
   { id: 'forgotPassword', reason: 'Revisit in alpha2 (#62)'},
   { id: 'addRoleToUser', reason: 'Revisit in alpha2 (#102)'},
+  { id: 'previewSamlMetadataForApplication', reason: 'Operation defined manually' },
+  { id: 'publishCerCert', reason: 'Operation defined manually' },
+  { id: 'publishBinaryCerCert', reason: 'Operation defined manually' },
+  { id: 'publishDerCert', reason: 'Operation defined manually' },
+  { id: 'publishBinaryDerCert', reason: 'Operation defined manually' },
+  { id: 'publishBinaryPemCert', reason: 'Operation defined manually' },
 ];
 
 function shouldSkipOperation(operationId) {

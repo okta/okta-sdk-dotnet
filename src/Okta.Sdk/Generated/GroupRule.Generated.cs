@@ -24,13 +24,6 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public bool? AllGroupsValid 
-        {
-            get => GetBooleanProperty("allGroupsValid");
-            set => this["allGroupsValid"] = value;
-        }
-        
-        /// <inheritdoc/>
         public IGroupRuleConditions Conditions 
         {
             get => GetResourceProperty<GroupRuleConditions>("conditions");
@@ -64,12 +57,14 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Groups.ActivateRuleAsync(Id, cancellationToken);
+        public Task ActivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.ActivateGroupRuleAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Groups.DeactivateRuleAsync(Id, cancellationToken);
+        public Task DeactivateAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.DeactivateGroupRuleAsync(Id, cancellationToken);
         
     }
 }

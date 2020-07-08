@@ -39,11 +39,22 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Type => GetStringProperty("type");
+        public GroupType Type => GetEnumProperty<GroupType>("type");
         
         /// <inheritdoc />
-        public Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Groups.RemoveGroupUserAsync(Id, userId, cancellationToken);
+        public Task RemoveUserAsync(
+            string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.RemoveUserFromGroupAsync(Id, userId, cancellationToken);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IApplication> ListApplications(
+            string after = null, int? limit = 20)
+            => GetClient().Groups.ListAssignedApplicationsForGroup(Id, after, limit);
+        
+        /// <inheritdoc />
+        public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
+            string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.AssignRoleToGroupAsync(assignRoleRequest, Id, disableNotifications, cancellationToken);
         
     }
 }

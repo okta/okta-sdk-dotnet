@@ -37,7 +37,7 @@ namespace Okta.Sdk
 
         string Use { get; }
 
-        IList<string> X5C { get; }
+        IList<string> X5C { get; set; }
 
         string X5T { get; }
 

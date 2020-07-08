@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json.Linq;
@@ -57,14 +58,16 @@ namespace Okta.Sdk.IntegrationTests
                 LastName = "OAuth-List-Users",
                 Email = $"john-list-users-dotnet-sdk-{guid}@example.com",
                 Login = $"john-list-users-dotnet-sdk-{guid}@example.com",
+                ["nickName"] = "johny-list-users",
             };
-            profile["nickName"] = "johny-list-users";
 
             var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
             {
                 Profile = profile,
                 Password = "Abcd1234",
             });
+
+            Thread.Sleep(3500);
 
             try
             {
@@ -92,15 +95,17 @@ namespace Okta.Sdk.IntegrationTests
                                     ""qi"":""u1mS53N4BUSoMeOHFd0o4_n3QGH4izNUsiJVBIkv_UZUAk4LYudPEikTWRLqWsrcXmOyZYao5sSaZyt-B2XCkfdnkIhl-Q7b0_W0yt3Eh5XjAzH9oy5Dklog255lh-Y0yoWXvLjq-KEDs7Nd2uIT4gvKU4ymTqybvzazr2jY9qQ"",""dp"":""nCtPBsK1-9oFgJdoaWYApOAH8DBFipSXs3SQ-oTuW_S5coD4jAmniDuQB2p-6LblDXrDFKb8pZi6XL60UO-hUv7As4s4c8NVDb5X5SEBP9-Sv-koHgU-L4eQZY21ejY0SOS4dTFRNNKasQsxc_2XJIOTLc8T3_wPpD-cGQYN_dE"",""dq"":""ZWb4iZ0qICzFLW6N3gXIYrFi3ndQcC4m0jmTLdRs2o4RkRQ0RGj4vS7ex1G0MWI8MjZoMTe49Qs6Cunvr1bRo_YxI_1p7D6Tk9wZKTeFsqaBl1mUlo7jgXUJL5U9p9zAV-uVah7nWuBjo-vgg4wij2MZfZj9zuoWFWThk3LUKKU"",""n"":""mTjMc8AxU102LT1Jf-1qkGmaSiK4L7DDlC1SMvtyCRbDaiJDIagedfp1w8Pgud8YWOaS5FFx0S6JqGGP2U8OtpowzBcv5sYa-e5LHfnoueTJPj_jnI3fj5omZM1w-ofhFLPZoYEQ7DFYw0yLrzf8zaKB5-9BZ8yyOLhSKqxaOl2s7lw2TrwBRuQpPXmEir70oDPvazd8-An5ow6F5q7mzMtHAt61DJqrosRHiRwh4N37zIX_RNu-Tn1aMktCBl01rdoDyVq7Y4iwNH8ZAtT5thKK2eo8d-jb9TF9PH6LGffYCth157w-K4AZwXw74Ybo5NOux3XpIpKRbFTwvBLp1Q""
                                  }";
 
-                var configuration = new OktaClientConfiguration();
-                configuration.Scopes = new List<string> { "okta.users.read" };
-                configuration.ClientId = service.GetProperty<string>("client_id");
-                configuration.PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey);
-                configuration.AuthorizationMode = AuthorizationMode.PrivateKey;
+                var configuration = new OktaClientConfiguration
+                {
+                    Scopes = new List<string> { "okta.users.read" },
+                    ClientId = service.GetProperty<string>("client_id"),
+                    PrivateKey = new JsonWebKeyConfiguration(jsonPrivateKey),
+                    AuthorizationMode = AuthorizationMode.PrivateKey,
+                };
 
-                var oAuthClient = TestClient.Create(configuration);
+                var testOAuthClient = TestClient.Create(configuration);
 
-                var users = await oAuthClient.Users.ListUsers().ToArrayAsync();
+                var users = await testOAuthClient.Users.ListUsers().ToArrayAsync();
 
                 users.Should().NotBeEmpty();
             }

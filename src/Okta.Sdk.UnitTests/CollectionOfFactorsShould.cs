@@ -16,56 +16,56 @@ namespace Okta.Sdk.UnitTests
 {
     public class CollectionOfFactorsShould
     {
-        private static readonly List<IFactor> AllFactors = new List<IFactor>()
+        private static readonly List<IUserFactor> AllFactors = new List<IUserFactor>()
         {
             TestResourceCreator.NewFactor(
                 factorType: FactorType.Question,
                 provider: "OTKA",
-                profile: new SecurityQuestionFactorProfile { Question = "disliked_food" }),
+                profile: new SecurityQuestionUserFactorProfile { Question = "disliked_food" }),
 
             TestResourceCreator.NewFactor(
                 factorType: FactorType.Sms,
                 provider: "OTKA",
-                profile: new SmsFactorProfile() { PhoneNumber = "+15556667899" }),
+                profile: new SmsUserFactorProfile() { PhoneNumber = "+15556667899" }),
         };
 
         [Fact]
         public async Task RetrieveQuestionFactor()
         {
-            var mockRequestExecutor = new MockedCollectionRequestExecutor<IFactor>(pageSize: 2, items: AllFactors);
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUserFactor>(pageSize: 2, items: AllFactors);
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
                 new ResourceFactory(null, null),
                 NullLogger.Instance);
 
-            var collection = new CollectionClient<Factor>(
+            var collection = new CollectionClient<IUserFactor>(
                 dataStore,
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
             var retrievedItems = await collection.ToArrayAsync();
-            var securityQuestionFactor = retrievedItems.OfType<SecurityQuestionFactor>().FirstOrDefault();
+            var securityQuestionFactor = retrievedItems.OfType<SecurityQuestionUserFactor>().FirstOrDefault();
             securityQuestionFactor.Should().NotBeNull();
         }
 
         [Fact]
         public async Task RetrieveQuestionFactorAsInterface()
         {
-            var mockRequestExecutor = new MockedCollectionRequestExecutor<IFactor>(pageSize: 2, items: AllFactors);
+            var mockRequestExecutor = new MockedCollectionRequestExecutor<IUserFactor>(pageSize: 2, items: AllFactors);
             var dataStore = new DefaultDataStore(
                 mockRequestExecutor,
                 new DefaultSerializer(),
                 new ResourceFactory(null, null),
                 NullLogger.Instance);
 
-            var collection = new CollectionClient<Factor>(
+            var collection = new CollectionClient<UserFactor>(
                 dataStore,
                 new HttpRequest { Uri = "http://mock-collection.dev" },
                 new RequestContext());
 
             var retrievedItems = await collection.ToArrayAsync();
-            var securityQuestionFactor = retrievedItems.OfType<ISecurityQuestionFactor>().FirstOrDefault();
+            var securityQuestionFactor = retrievedItems.OfType<ISecurityQuestionUserFactor>().FirstOrDefault();
             securityQuestionFactor.Should().NotBeNull();
         }
     }
