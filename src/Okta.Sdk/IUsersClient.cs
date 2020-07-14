@@ -23,6 +23,15 @@ namespace Okta.Sdk
         Task<IUser> CreateUserAsync(CreateUserWithoutCredentialsOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Creates a new user in your Okta organization without a password or a recovery question/answer.
+        /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/users/#create-user-with-password-import-inline-hook">Create User with Password Import Inline Hook</a> in the documentation.</remarks>
+        /// <param name="options">The options for this Create User (with password import inline hook) request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The created user.</returns>
+        Task<IUser> CreateUserAsync(CreateUserWithPasswordImportInlineHookOptions options, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Creates a new user in your Okta organization with a recovery question/answer (but no password).
         /// </summary>
         /// <remarks>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-recovery-question">Create User with Recovery Question</a> in the documentation.</remarks>
