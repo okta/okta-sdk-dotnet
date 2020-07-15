@@ -115,6 +115,47 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task CreateUserWithPasswordImportInlineHookOptions()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordImportInlineHookOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = "CreateUserWithPasswordImportInlineHookOptions",
+                    Email = $"john-create-user-inline-hooks-pass-dotnet-sdk-{guid}@example.com",
+                    Login = $"john-create-user-inline-hooks-pass-dotnet-sdk-{guid}@example.com",
+                },
+                Activate = false,
+            });
+
+            try
+            {
+                // Retrieve by ID
+                var userRetrievedById = await client.Users.GetUserAsync(createdUser.Id);
+                userRetrievedById.Profile.FirstName.Should().Be("John");
+                userRetrievedById.Profile.LastName.Should().Be("CreateUserWithPasswordImportInlineHookOptions");
+                userRetrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.Import);
+                userRetrievedById.Credentials.Provider.Name.Should().Be("IMPORT");
+
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Users.GetUserAsync(createdUser.Id));
+        }
+
+        [Fact]
         public async Task ActivateUser()
         {
             var client = TestClient.Create();
