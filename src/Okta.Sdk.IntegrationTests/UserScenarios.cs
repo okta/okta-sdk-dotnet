@@ -781,7 +781,7 @@ namespace Okta.Sdk.IntegrationTests
                 Activate = true,
             });
 
-            Thread.Sleep(3000); // allow for user replication prior to read attempt
+            Thread.Sleep(5000); // allow for user replication prior to read attempt
 
             try
             {
