@@ -23,8 +23,16 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage sessions with the [Sessions API](https://developer.okta.com/docs/api/resources/sessions)
 * Manage templates with the [Custom Templates API](https://developer.okta.com/docs/reference/api/templates/)
 * Manage identity providers with the [Identity Providers API](https://developer.okta.com/docs/reference/api/idps/)
+* Manage authorization servers with the [Authorization Servers API](https://developer.okta.com/docs/reference/api/authorization-servers/)
+* Manage event hooks with the [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/)
+* Manage inline hooks with the [Inline Hooks Management API](https://developer.okta.com/docs/reference/api/inline-hooks/).
+* Manage features with the [Features API](https://developer.okta.com/docs/reference/api/features/).
+* Manage linked objects with the [Linked Objects API](https://developer.okta.com/docs/reference/api/linked-objects/).
+* Manage trusted origins with the [Trusted Origins API](https://developer.okta.com/docs/reference/api/trusted-origins/).
+* Manage user types with the [User Types API](https://developer.okta.com/docs/reference/api/user-types/).
 * Much more!
- 
+
+
 We also publish these other libraries for .NET:
  
 * [Okta ASP.NET middleware](https://github.com/okta/okta-aspnet)
@@ -42,7 +50,7 @@ This library uses semantic versioning and follows Okta's [library version policy
 | ------- | ------------------------- |
 | 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
 | 1.x | :warning: Retiring on 2020-12-27 |
-| 2.x | :warning: Retiring on 2021-04-10 |
+| 2.x | :warning: Retiring on 2021-04-10 ([migration guide](MIGRATING.md))  |
 | 3.x | :heavy_check_mark: Stable |
 
  
