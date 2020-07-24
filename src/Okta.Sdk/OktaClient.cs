@@ -196,6 +196,9 @@ namespace Okta.Sdk
         public ILinkedObjectsClient LinkedObjects => new LinkedObjectsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public ITrustedOriginsClient TrustedOrigins => new TrustedOriginsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IFeaturesClient Features => new FeaturesClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
