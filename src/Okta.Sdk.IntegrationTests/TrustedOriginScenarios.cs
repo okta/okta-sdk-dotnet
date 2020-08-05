@@ -21,16 +21,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ListOrigins()
         {
             var client = TestClient.Create();
-            var trustedOrigins = await client.TrustedOrigins.ListOrigins().ToListAsync();
-            trustedOrigins.Should().NotBeNull();
-            trustedOrigins.Count.Should().BeGreaterThan(0);
-        }
-
-        [Fact]
-        public async Task CreateOrigin()
-        {
-            var client = TestClient.Create();
-            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(CreateOrigin)}_Test";
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(ListOrigins)}_{guid}_Test";
             var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
                 new TrustedOrigin
                 {
@@ -40,11 +32,48 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         new Scope()
                         {
-                            Type = "CORS",
+                            Type = ScopeType.Cors,
                         },
                         new Scope()
                         {
-                            Type = "REDIRECT",
+                            Type = ScopeType.Redirect,
+                        },
+                    },
+                });
+
+            try
+            {
+                var trustedOrigins = await client.TrustedOrigins.ListOrigins().ToListAsync();
+                trustedOrigins.Should().NotBeNull();
+                trustedOrigins.Count.Should().BeGreaterThan(0);
+                trustedOrigins.FirstOrDefault(to => to.Name.Equals(testTrustedOriginName)).Should().NotBeNull();
+            }
+            finally
+            {
+                await client.TrustedOrigins.DeleteOriginAsync(createdTrustedOrigin.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateOrigin()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(CreateOrigin)}_{guid}_Test";
+            var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
+                new TrustedOrigin
+                {
+                    Name = testTrustedOriginName,
+                    Origin = "http://example.com",
+                    Scopes = new List<IScope>()
+                    {
+                        new Scope()
+                        {
+                            Type = ScopeType.Cors,
+                        },
+                        new Scope()
+                        {
+                            Type = ScopeType.Redirect,
                         },
                     },
                 });
@@ -67,7 +96,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeleteOrigin()
         {
             var client = TestClient.Create();
-            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(DeleteOrigin)}_Test";
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(DeleteOrigin)}_{guid}_Test";
             var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
                 new TrustedOrigin
                 {
@@ -77,11 +107,11 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         new Scope()
                         {
-                            Type = "CORS",
+                            Type = ScopeType.Cors,
                         },
                         new Scope()
                         {
-                            Type = "REDIRECT",
+                            Type = ScopeType.Redirect,
                         },
                     },
                 });
@@ -98,23 +128,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task GetOrigin()
         {
             var client = TestClient.Create();
-            var trustedOrigins = await client.TrustedOrigins.ListOrigins().ToListAsync();
-            trustedOrigins.Should().NotBeNull();
-            trustedOrigins.Count.Should().BeGreaterThan(0);
-            var trustedOrigin = trustedOrigins.FirstOrDefault();
-            var retrievedTrustedOrigin = await client.TrustedOrigins.GetOriginAsync(trustedOrigin.Id);
-            retrievedTrustedOrigin.Should().NotBeNull();
-            retrievedTrustedOrigin.Id.Should().Be(trustedOrigin.Id);
-            retrievedTrustedOrigin.Name.Should().Be(trustedOrigin.Name);
-            retrievedTrustedOrigin.Origin.Should().Be(trustedOrigin.Origin);
-        }
-
-        [Fact]
-        public async Task UpdateOrigin()
-        {
-            var client = TestClient.Create();
-            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(UpdateOrigin)}_Test";
-            var testUpdatedTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(UpdateOrigin)}_Test_Updated";
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(GetOrigin)}_{guid}_Test";
             var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
                 new TrustedOrigin
                 {
@@ -124,11 +139,49 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         new Scope()
                         {
-                            Type = "CORS",
+                            Type = ScopeType.Cors,
                         },
                         new Scope()
                         {
-                            Type = "REDIRECT",
+                            Type = ScopeType.Redirect,
+                        },
+                    },
+                });
+            try
+            {
+                var retrievedTrustedOrigin = await client.TrustedOrigins.GetOriginAsync(createdTrustedOrigin.Id);
+                retrievedTrustedOrigin.Should().NotBeNull();
+                retrievedTrustedOrigin.Id.Should().Be(createdTrustedOrigin.Id);
+                retrievedTrustedOrigin.Name.Should().Be(createdTrustedOrigin.Name);
+                retrievedTrustedOrigin.Origin.Should().Be(createdTrustedOrigin.Origin);
+            }
+            finally
+            {
+                await client.TrustedOrigins.DeleteOriginAsync(createdTrustedOrigin.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateOrigin()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(UpdateOrigin)}_{guid}_Test";
+            var testUpdatedTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(UpdateOrigin)}_{guid}_Test_Updated";
+            var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
+                new TrustedOrigin
+                {
+                    Name = testTrustedOriginName,
+                    Origin = "http://example.com",
+                    Scopes = new List<IScope>()
+                    {
+                        new Scope()
+                        {
+                            Type = ScopeType.Cors,
+                        },
+                        new Scope()
+                        {
+                            Type = ScopeType.Redirect,
                         },
                     },
                 });
@@ -144,11 +197,11 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         new Scope()
                         {
-                            Type = "CORS",
+                            Type = ScopeType.Cors,
                         },
                         new Scope()
                         {
-                            Type = "REDIRECT",
+                            Type = ScopeType.Redirect,
                         },
                     },
                 };
@@ -170,7 +223,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task ActivateOrigin()
         {
             var client = TestClient.Create();
-            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(ActivateOrigin)}_Test";
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(ActivateOrigin)}_{guid}_Test";
             var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
                 new TrustedOrigin
                 {
@@ -180,11 +234,11 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         new Scope()
                         {
-                            Type = "CORS",
+                            Type = ScopeType.Cors,
                         },
                         new Scope()
                         {
-                            Type = "REDIRECT",
+                            Type = ScopeType.Redirect,
                         },
                     },
                 });
@@ -207,7 +261,8 @@ namespace Okta.Sdk.IntegrationTests
         public async Task DeactivateOrigin()
         {
             var client = TestClient.Create();
-            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(ActivateOrigin)}_Test";
+            var guid = Guid.NewGuid();
+            var testTrustedOriginName = $"{dotnetSdkPrefix}_{nameof(ActivateOrigin)}_{guid}_Test";
             var createdTrustedOrigin = await client.TrustedOrigins.CreateOriginAsync(
                 new TrustedOrigin
                 {
@@ -217,11 +272,11 @@ namespace Okta.Sdk.IntegrationTests
                     {
                         new Scope()
                         {
-                            Type = "CORS",
+                            Type = ScopeType.Cors,
                         },
                         new Scope()
                         {
-                            Type = "REDIRECT",
+                            Type = ScopeType.Redirect,
                         },
                     },
                 });
