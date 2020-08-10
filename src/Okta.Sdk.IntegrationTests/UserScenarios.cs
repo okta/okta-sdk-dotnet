@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -763,37 +764,40 @@ namespace Okta.Sdk.IntegrationTests
         [Fact]
         public async Task ForgotPasswordGenerateOneTimeToken()
         {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
+            await RunTestWithRetry(nameof(ForgotPasswordGenerateOneTimeToken), async () =>
             {
-                Profile = new UserProfile
+                var client = TestClient.Create();
+                var guid = Guid.NewGuid();
+
+                var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
                 {
-                    FirstName = "John",
-                    LastName = $"{nameof(ForgotPasswordGenerateOneTimeToken)}",
-                    Email = $"{nameof(ForgotPasswordGenerateOneTimeToken)}-dotnet-sdk-{guid}@example.com",
-                    Login = $"{nameof(ForgotPasswordGenerateOneTimeToken)}-dotnet-sdk-{guid}@example.com",
-                },
-                RecoveryQuestion = "Answer to life, the universe, & everything",
-                RecoveryAnswer = "42 of course",
-                Password = "Abcd1234",
-                Activate = true,
+                    Profile = new UserProfile
+                    {
+                        FirstName = "John",
+                        LastName = $"{nameof(ForgotPasswordGenerateOneTimeToken)}",
+                        Email = $"{nameof(ForgotPasswordGenerateOneTimeToken)}-dotnet-sdk-{guid}@example.com",
+                        Login = $"{nameof(ForgotPasswordGenerateOneTimeToken)}-dotnet-sdk-{guid}@example.com",
+                    },
+                    RecoveryQuestion = "Answer to life, the universe, & everything",
+                    RecoveryAnswer = "42 of course",
+                    Password = "Abcd1234",
+                    Activate = true,
+                });
+
+                Thread.Sleep(5000); // allow for user replication prior to read attempt
+
+                try
+                {
+                    var forgotPasswordResponse = await createdUser.ForgotPasswordGenerateOneTimeTokenAsync(false);
+                    forgotPasswordResponse.Should().NotBeNull();
+                    forgotPasswordResponse.ResetPasswordUrl.Should().NotBeNullOrEmpty();
+                }
+                finally
+                {
+                    await createdUser.DeactivateAsync();
+                    await createdUser.DeactivateOrDeleteAsync();
+                }
             });
-
-            Thread.Sleep(5000); // allow for user replication prior to read attempt
-
-            try
-            {
-                var forgotPasswordResponse = await createdUser.ForgotPasswordGenerateOneTimeTokenAsync(false);
-                forgotPasswordResponse.Should().NotBeNull();
-                forgotPasswordResponse.ResetPasswordUrl.Should().NotBeNullOrEmpty();
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
         }
 
         [Fact]
@@ -1083,6 +1087,26 @@ namespace Okta.Sdk.IntegrationTests
             {
                 await createdUser.DeactivateAsync();
                 await createdUser.DeactivateOrDeleteAsync();
+            }
+        }
+
+        private async Task RunTestWithRetry(string testName, Func<Task> testFunction, int retryCount = 2)
+        {
+            try
+            {
+                await testFunction();
+            }
+            catch (Exception ex)
+            {
+                Trace.WriteLine($"Exception executing test: {testName}, retryCount = {retryCount}\r\n\t{ex.Message}");
+                if (retryCount > 0)
+                {
+                    await RunTestWithRetry(testName, testFunction, --retryCount);
+                }
+                else
+                {
+                    throw ex;
+                }
             }
         }
     }
