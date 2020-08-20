@@ -785,9 +785,15 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var forgotPasswordResponse = await createdUser.ForgotPasswordGenerateOneTimeTokenAsync(false);
-                forgotPasswordResponse.Should().NotBeNull();
-                forgotPasswordResponse.ResetPasswordUrl.Should().NotBeNullOrEmpty();
+                var policy = Polly.Policy
+                    .Handle<Exception>()
+                    .WaitAndRetryAsync(4, attemptNumber => TimeSpan.FromSeconds(Math.Pow(5, attemptNumber - 1)))
+                    .ExecuteAsync(async () =>
+                    {
+                        var forgotPasswordResponse = await createdUser.ForgotPasswordGenerateOneTimeTokenAsync(false);
+                        forgotPasswordResponse.Should().NotBeNull();
+                        forgotPasswordResponse.ResetPasswordUrl.Should().NotBeNullOrEmpty();
+                    });
             }
             finally
             {
