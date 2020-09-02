@@ -23,6 +23,15 @@ namespace Okta.Sdk
         Task<IUser> CreateUserAsync(CreateUserWithoutCredentialsOptions options, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Creates a new user in your Okta organization a user with a specified hashed password.
+        /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/users/#create-user-with-imported-hashed-password">Create User with Imported Hashed Password</a> in the documentation.</remarks>
+        /// <param name="options">The options for this Create User (with a specified hashed password) request.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The created user.</returns>
+        Task<IUser> CreateUserAsync(CreateUserWithImportedHashedPasswordOptions options, CancellationToken cancellationToken = default);
+
+        /// <summary>
         /// Creates a new user in your Okta organization specifying that a Password Inline Hook should be used to handle password verification..
         /// </summary>
         /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/users/#create-user-with-password-import-inline-hook">Create User with Password Import Inline Hook</a> in the documentation.</remarks>

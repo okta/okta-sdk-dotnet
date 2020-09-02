@@ -156,6 +156,55 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task CreateUserWithImportedHashedPasswords()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+            var userLastName = nameof(CreateUserWithImportedHashedPasswords);
+            var userMail = $"{userLastName.ToLower()}-{guid}@example.com";
+
+            // Create a user
+            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithImportedHashedPasswordOptions
+            {
+                Profile = new UserProfile
+                {
+                    FirstName = "John",
+                    LastName = userLastName,
+                    Email = userMail,
+                    Login = userMail,
+                },
+                Hash = new PasswordCredentialHash
+                {
+                    Algorithm = PasswordCredentialHashAlgorithm.Bcrypt,
+                    WorkerFactor = 10,
+                    Salt = "rwh3vH166HCH/NT9XV5FYu",
+                    Value = "qaMqvAPULkbiQzkTCWo5XDcvzpk8Tna",
+                },
+                Activate = true,
+            });
+
+            try
+            {
+                // Retrieve by ID
+                var userRetrievedById = await client.Users.GetUserAsync(createdUser.Id);
+                userRetrievedById.Profile.FirstName.Should().Be("John");
+                userRetrievedById.Profile.LastName.Should().Be(userLastName);
+                userRetrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.Import);
+                userRetrievedById.Credentials.Provider.Name.Should().Be("IMPORT");
+            }
+            finally
+            {
+                // Remove the user
+                await createdUser.DeactivateAsync();
+                await createdUser.DeactivateOrDeleteAsync();
+            }
+
+            // Getting by ID should result in 404 error
+            await Assert.ThrowsAsync<OktaApiException>(
+                () => client.Users.GetUserAsync(createdUser.Id));
+        }
+
+        [Fact]
         public async Task ActivateUser()
         {
             var client = TestClient.Create();
