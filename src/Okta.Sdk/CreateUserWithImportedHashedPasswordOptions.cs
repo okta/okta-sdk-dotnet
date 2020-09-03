@@ -6,7 +6,7 @@
 namespace Okta.Sdk
 {
     /// <summary>
-    /// Contains the options for creating a new <see cref="IUser">User</see> without a password or a recovery question/answer.
+    /// Contains the options for creating a new <see cref="IUser">User</see> with imported hashed password.
     /// Used with <see cref="IUsersClient.CreateUserAsync(CreateUserWithImportedHashedPasswordOptions, System.Threading.CancellationToken)"/>.
     /// </summary>
     /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/users/#create-user-with-imported-hashed-password">Create User with Imported Hashed Password</a> in the documentation.</remarks>
