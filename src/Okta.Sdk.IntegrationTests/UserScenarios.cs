@@ -156,11 +156,11 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task CreateUserWithImportedHashedPasswords()
+        public async Task CreateUserWithImportedHashedPassword()
         {
             var client = TestClient.Create();
             var guid = Guid.NewGuid();
-            var userLastName = nameof(CreateUserWithImportedHashedPasswords);
+            var userLastName = nameof(CreateUserWithImportedHashedPassword);
             var userMail = $"{userLastName.ToLower()}-{guid}@example.com";
 
             // Create a user
