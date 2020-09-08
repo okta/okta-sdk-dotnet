@@ -44,7 +44,7 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 2.x
+:heavy_check_mark: The current stable major version series is: 3.x
 
 | Version | Status                    |
 | ------- | ------------------------- |
@@ -81,7 +81,7 @@ Simply run `install-package Okta.Sdk`. Done!
 
 The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is *retired* and is no longer supported. 
 
-The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 2.x version.
+The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 3.x version.
 
 You'll also need:
 
