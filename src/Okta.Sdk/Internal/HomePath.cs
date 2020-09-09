@@ -22,7 +22,7 @@ namespace Okta.Sdk.Internal
         /// Provides support for Unix-like paths on Windows. If the first path segment starts with <c>~</c>, this segment is prepended with the home directory path.
         /// </remarks>
         /// <param name="pathSegments">The path segments.</param>
-        /// <returns>A combined path which includes the resolved home directory path (if necessary).</returns>
+        /// <returns>A combined path which includes the resolved home directory path (if necessary). If home directory path cannot be resolved, returns null.</returns>
         public static string Resolve(params string[] pathSegments)
         {
             if (pathSegments.Length == 0)
@@ -35,7 +35,10 @@ namespace Okta.Sdk.Internal
                 return Path.Combine(pathSegments);
             }
 
-            var homePath = GetHomePath();
+            if (!TryGetHomePath(out string homePath))
+            {
+                return null;
+            }
 
             var newSegments =
                 new string[] { pathSegments[0].Replace("~", homePath) }
@@ -47,28 +50,43 @@ namespace Okta.Sdk.Internal
 
         /// <summary>
         /// Resolves the current user's home directory path.
+        /// Throws an exception if the path cannot be resolved.
         /// </summary>
         /// <returns>The home path.</returns>
         public static string GetHomePath()
         {
+            if (TryGetHomePath(out var homePath))
+            {
+                return homePath;
+            }
+            else
+            {
+                throw new Exception("Home directory cannot be found in environment variables.");
+            }
+        }
+
+        /// <summary>
+        /// Tries to resolve the current user's home directory path.
+        /// </summary>
+        /// <param name="homePath">Output: resolved home path.</param>
+        /// <returns>true if home path was resolved; otherwise, false.</returns>
+        public static bool TryGetHomePath(out string homePath)
+        {
 #if NET45
-            return Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 #else
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
             {
-                return Environment.GetEnvironmentVariable("USERPROFILE") ??
-                    Path.Combine(Environment.GetEnvironmentVariable("HOMEDRIVE"), Environment.GetEnvironmentVariable("HOMEPATH"));
+                homePath = Environment.GetEnvironmentVariable("USERPROFILE") ??
+                           Path.Combine(Environment.GetEnvironmentVariable("HOMEDRIVE"), Environment.GetEnvironmentVariable("HOMEPATH"));
             }
-
-            var home = Environment.GetEnvironmentVariable("HOME");
-
-            if (string.IsNullOrEmpty(home))
+            else
             {
-                throw new Exception("Home directory not found. The HOME environment variable is not set.");
+                homePath = Environment.GetEnvironmentVariable("HOME");
             }
-
-            return home;
 #endif
+
+            return !string.IsNullOrEmpty(homePath);
         }
     }
 }
