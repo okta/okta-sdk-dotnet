@@ -35,6 +35,29 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
+        public Task<IUser> CreateUserAsync(CreateUserWithImportedHashedPasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            var user = new CreateUserRequest
+            {
+                Profile = options.Profile,
+                Credentials = new UserCredentials
+                {
+                    Password = new PasswordCredential
+                    {
+                        Hash = options.PasswordCredentialHash,
+                    },
+                },
+            };
+
+            return CreateUserAsync(user, options.Activate, cancellationToken: cancellationToken);
+        }
+
+        /// <inheritdoc/>
         public Task<IUser> CreateUserAsync(CreateUserWithPasswordImportInlineHookOptions options, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (options == null)
