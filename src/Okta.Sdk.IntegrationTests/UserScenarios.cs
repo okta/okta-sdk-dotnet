@@ -173,7 +173,7 @@ namespace Okta.Sdk.IntegrationTests
                     Email = userMail,
                     Login = userMail,
                 },
-                Hash = new PasswordCredentialHash
+                PasswordCredentialHash = new PasswordCredentialHash
                 {
                     Algorithm = PasswordCredentialHashAlgorithm.Bcrypt,
                     WorkerFactor = 10,

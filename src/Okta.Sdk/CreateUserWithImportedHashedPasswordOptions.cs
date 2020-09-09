@@ -26,7 +26,7 @@ namespace Okta.Sdk
         /// <value>
         /// The user's hashed password.
         /// </value>
-        public PasswordCredentialHash Hash { get; set; }
+        public PasswordCredentialHash PasswordCredentialHash { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether the new user should be activated immediately.

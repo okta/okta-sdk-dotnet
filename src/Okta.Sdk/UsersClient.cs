@@ -49,7 +49,7 @@ namespace Okta.Sdk
                 {
                     Password = new PasswordCredential
                     {
-                        Hash = options.Hash,
+                        Hash = options.PasswordCredentialHash,
                     },
                 },
             };
