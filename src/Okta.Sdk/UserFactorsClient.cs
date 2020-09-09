@@ -82,7 +82,7 @@ namespace Okta.Sdk
                 Profile = profile,
             };
 
-            return EnrollFactorAsync(factor, userId, cancellationToken: cancellationToken);
+            return EnrollFactorAsync(factor, userId, tokenLifetimeSeconds: emailFactorOptions.TokenLifetimeSeconds, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc/>

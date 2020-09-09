@@ -14,5 +14,10 @@ namespace Okta.Sdk
         /// Gets or sets the email
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets the lifetime of the OTP in a range 1 to 86400, 300 seconds is the default.
+        /// </summary>
+        public int TokenLifetimeSeconds { get; set; } = 300;
     }
 }
