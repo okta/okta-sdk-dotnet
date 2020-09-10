@@ -256,7 +256,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -290,6 +290,52 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task ListAuthorizationServerPolicyRules()
+        {
+            var testClient = TestClient.Create();
+            var testAuthorizationServerName = $"{SdkPrefix}:Test AuthZ Server ({TestClient.RandomString(4)})";
+
+            var testAuthorizationServer = new AuthorizationServer
+            {
+                Name = testAuthorizationServerName,
+                Description = "Test Authorization Server",
+                Audiences = new string[] { "api://default" },
+            };
+            var testPolicy = new AuthorizationServerPolicy
+            {
+                Type = PolicyType.OAuthAuthorizationPolicy,
+                Status = "ACTIVE",
+                Name = "Test Policy",
+                Description = "Test policy",
+                Priority = 1,
+                Conditions = new PolicyRuleConditions
+                {
+                    Clients = new ClientPolicyCondition
+                    {
+                        Include = new List<string> { "ALL_CLIENTS" },
+                    },
+                },
+            };
+
+            var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
+            try
+            {
+                var policy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
+                policy.Should().NotBeNull();
+                var rules = await testClient.AuthorizationServers.ListAuthorizationServerPolicyRules(policy.Id, createdAuthorizationServer.Id).ToListAsync();
+
+                rules.Should().NotBeNull();
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeletePolicyAsync(createdPolicy.Id);
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
+        }
+
+        [Fact]
         public async Task GetAuthorizationServerPolicy()
         {
             var testClient = TestClient.Create();
@@ -301,7 +347,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -350,7 +396,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -395,7 +441,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new OAuthAuthorizationPolicy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
                 Type = PolicyType.OAuthAuthorizationPolicy,
@@ -443,7 +489,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new OAuthAuthorizationPolicy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
                 Type = PolicyType.OAuthAuthorizationPolicy,

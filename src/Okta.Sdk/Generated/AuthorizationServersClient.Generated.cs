@@ -293,8 +293,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public ICollectionClient<IPolicy> ListAuthorizationServerPolicies(string authServerId)
-            => GetCollectionClient<IPolicy>(new HttpRequest
+        public ICollectionClient<IAuthorizationServerPolicy> ListAuthorizationServerPolicies(string authServerId)
+            => GetCollectionClient<IAuthorizationServerPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/authorizationServers/{authServerId}/policies",
                 Verb = HttpVerb.Get,
@@ -306,8 +306,8 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IPolicy> CreateAuthorizationServerPolicyAsync(IPolicy policy, string authServerId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Policy>(new HttpRequest
+        public async Task<IAuthorizationServerPolicy> CreateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<AuthorizationServerPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/authorizationServers/{authServerId}/policies",
                 Verb = HttpVerb.Post,
@@ -333,8 +333,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Policy>(new HttpRequest
+        public async Task<IAuthorizationServerPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<AuthorizationServerPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}",
                 Verb = HttpVerb.Get,
@@ -347,8 +347,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IPolicy> UpdateAuthorizationServerPolicyAsync(IPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<Policy>(new HttpRequest
+        public async Task<IAuthorizationServerPolicy> UpdateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<AuthorizationServerPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}",
                 Verb = HttpVerb.Put,
@@ -360,6 +360,20 @@ namespace Okta.Sdk
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
+        /// <inheritdoc />
+        public ICollectionClient<IAuthorizationServerPolicyRule> ListAuthorizationServerPolicyRules(string policyId, string authServerId)
+            => GetCollectionClient<IAuthorizationServerPolicyRule>(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["policyId"] = policyId,
+                    ["authServerId"] = authServerId,
+                },
+            });
+                    
         /// <inheritdoc />
         public ICollectionClient<IOAuth2Scope> ListOAuth2Scopes(string authServerId, string q = null, string filter = null, string cursor = null, int? limit = -1)
             => GetCollectionClient<IOAuth2Scope>(new HttpRequest

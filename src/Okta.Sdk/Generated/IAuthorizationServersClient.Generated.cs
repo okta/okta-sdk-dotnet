@@ -184,17 +184,17 @@ namespace Okta.Sdk
         /// Success
         /// </summary>
         /// <param name="authServerId"></param>
-        /// <returns>A collection of <see cref="IPolicy"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IPolicy> ListAuthorizationServerPolicies(string authServerId);
+        /// <returns>A collection of <see cref="IAuthorizationServerPolicy"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IAuthorizationServerPolicy> ListAuthorizationServerPolicies(string authServerId);
 
         /// <summary>
         /// Success
         /// </summary>
-        /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
+        /// <param name="policy">The <see cref="IAuthorizationServerPolicy"/> resource.</param>
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IPolicy"/> response.</returns>
-        Task<IPolicy> CreateAuthorizationServerPolicyAsync(IPolicy policy, string authServerId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IAuthorizationServerPolicy"/> response.</returns>
+        Task<IAuthorizationServerPolicy> CreateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
@@ -211,18 +211,26 @@ namespace Okta.Sdk
         /// <param name="authServerId"></param>
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IPolicy"/> response.</returns>
-        Task<IPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IAuthorizationServerPolicy"/> response.</returns>
+        Task<IAuthorizationServerPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
         /// </summary>
-        /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
+        /// <param name="policy">The <see cref="IAuthorizationServerPolicy"/> resource.</param>
         /// <param name="authServerId"></param>
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IPolicy"/> response.</returns>
-        Task<IPolicy> UpdateAuthorizationServerPolicyAsync(IPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IAuthorizationServerPolicy"/> response.</returns>
+        Task<IAuthorizationServerPolicy> UpdateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Enumerates all policy rules.
+        /// </summary>
+        /// <param name="policyId"></param>
+        /// <param name="authServerId"></param>
+        /// <returns>A collection of <see cref="IAuthorizationServerPolicyRule"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IAuthorizationServerPolicyRule> ListAuthorizationServerPolicyRules(string policyId, string authServerId);
 
         /// <summary>
         /// Success

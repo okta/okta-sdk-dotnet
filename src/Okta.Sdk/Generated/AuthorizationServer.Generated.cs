@@ -145,12 +145,12 @@ namespace Okta.Sdk
             => GetClient().AuthorizationServers.DeactivateAuthorizationServerAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public ICollectionClient<IPolicy> ListPolicies(
+        public ICollectionClient<IAuthorizationServerPolicy> ListPolicies(
             )
             => GetClient().AuthorizationServers.ListAuthorizationServerPolicies(Id);
         
         /// <inheritdoc />
-        public Task<IPolicy> CreatePolicyAsync(IPolicy policy, 
+        public Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy policy, 
             CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().AuthorizationServers.CreateAuthorizationServerPolicyAsync(policy, Id, cancellationToken);
         
@@ -160,12 +160,12 @@ namespace Okta.Sdk
             => GetClient().AuthorizationServers.DeleteAuthorizationServerPolicyAsync(Id, policyId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IPolicy> GetPolicyAsync(
+        public Task<IAuthorizationServerPolicy> GetPolicyAsync(
             string policyId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().AuthorizationServers.GetAuthorizationServerPolicyAsync(Id, policyId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IPolicy> UpdatePolicyAsync(IPolicy policy, 
+        public Task<IAuthorizationServerPolicy> UpdatePolicyAsync(IAuthorizationServerPolicy policy, 
             string policyId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().AuthorizationServers.UpdateAuthorizationServerPolicyAsync(policy, Id, policyId, cancellationToken);
         
