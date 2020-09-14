@@ -4,7 +4,6 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
@@ -354,36 +353,6 @@ namespace Okta.Sdk.UnitTests
             PayloadHandler.ForContentType("application/pkix-cert").GetType().Should().Be(typeof(PkixCertPayloadHandler));
             PayloadHandler.ForContentType("application/x-pem-file").GetType().Should().Be(typeof(PemFilePayloadHandler));
             PayloadHandler.ForContentType("application/x-x509-ca-cert").GetType().Should().Be(typeof(X509CaCertPayloadHandler));
-        }
-
-        [Fact]
-        public async Task EnrollEmailFactor()
-        {
-            var mockDataStore = Substitute.For<IDataStore>();
-            var client = new TestableOktaClient(mockDataStore);
-            var factorsClient = client.UserFactors;
-            var emailFactorOptions = new AddEmailFactorOptions
-            {
-                Email = "johndoe@mail.com",
-                TokenLifetimeSeconds = 999,
-            };
-            await factorsClient.AddFactorAsync("UserId", emailFactorOptions);
-            await mockDataStore
-                .Received(1)
-                .PostAsync<UserFactor>(Arg.Is<HttpRequest>(request => RequestMatchOptions(request, emailFactorOptions)), Arg.Any<RequestContext>(), Arg.Any<CancellationToken>());
-        }
-
-        private bool RequestMatchOptions(HttpRequest request, AddEmailFactorOptions emailFactorOptions)
-        {
-            var queryParamsDict = new Dictionary<string, object>(request.QueryParameters, StringComparer.OrdinalIgnoreCase);
-            if ((request.Payload is IEmailUserFactor actualUserFactor) &&
-                queryParamsDict.TryGetValue(nameof(emailFactorOptions.TokenLifetimeSeconds), out var tokenLifeTimeSeconds))
-            {
-                return string.Equals (actualUserFactor.Profile?.Email, emailFactorOptions.Email, StringComparison.OrdinalIgnoreCase) &&
-                       (int)tokenLifeTimeSeconds == emailFactorOptions.TokenLifetimeSeconds;
-            }
-
-            return false;
         }
     }
 }
