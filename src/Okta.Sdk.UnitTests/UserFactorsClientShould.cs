@@ -25,7 +25,7 @@ namespace Okta.Sdk.UnitTests
                 TokenLifetimeSeconds = 999,
             };
             await factorsClient.AddFactorAsync("UserId", emailFactorOptions);
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/UserId/factors?updatePhone=false&tokenLifetimeSeconds=999&activate=false");
+            mockRequestExecutor.ReceivedHref.Should().Match("/api/v1/users/UserId/factors*tokenLifetimeSeconds=999*");
             mockRequestExecutor.ReceivedBody.Should().Be("{\"factorType\":\"email\",\"provider\":\"OKTA\",\"profile\":{\"email\":\"johndoe@mail.com\"}}");
         }
     }
