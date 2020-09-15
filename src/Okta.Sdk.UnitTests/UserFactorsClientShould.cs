@@ -1,9 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading;
+﻿// <copyright file="UserFactorsClientShould.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
 using System.Threading.Tasks;
-using NSubstitute;
-using Okta.Sdk.Internal;
+using FluentAssertions;
 using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
@@ -14,8 +15,9 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public async Task EnrollEmailFactor()
         {
-            var mockDataStore = Substitute.For<IDataStore>();
-            var client = new TestableOktaClient(mockDataStore);
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
             var factorsClient = client.UserFactors;
             var emailFactorOptions = new AddEmailFactorOptions
             {
@@ -23,22 +25,8 @@ namespace Okta.Sdk.UnitTests
                 TokenLifetimeSeconds = 999,
             };
             await factorsClient.AddFactorAsync("UserId", emailFactorOptions);
-            await mockDataStore
-                .Received(1)
-                .PostAsync<UserFactor>(Arg.Is<HttpRequest>(request => RequestMatchOptions(request, emailFactorOptions)), Arg.Any<RequestContext>(), Arg.Any<CancellationToken>());
-        }
-
-        private bool RequestMatchOptions(HttpRequest request, AddEmailFactorOptions emailFactorOptions)
-        {
-            var queryParamsDict = new Dictionary<string, object>(request.QueryParameters, StringComparer.OrdinalIgnoreCase);
-            if ((request.Payload is IEmailUserFactor actualUserFactor) &&
-                queryParamsDict.TryGetValue(nameof(emailFactorOptions.TokenLifetimeSeconds), out var tokenLifeTimeSeconds))
-            {
-                return string.Equals(actualUserFactor.Profile?.Email, emailFactorOptions.Email, StringComparison.OrdinalIgnoreCase) &&
-                       (int)tokenLifeTimeSeconds == emailFactorOptions.TokenLifetimeSeconds;
-            }
-
-            return false;
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/UserId/factors?updatePhone=false&tokenLifetimeSeconds=999&activate=false");
+            mockRequestExecutor.ReceivedBody.Should().Be("{\"factorType\":\"email\",\"provider\":\"OKTA\",\"profile\":{\"email\":\"johndoe@mail.com\"}}");
         }
     }
 }
