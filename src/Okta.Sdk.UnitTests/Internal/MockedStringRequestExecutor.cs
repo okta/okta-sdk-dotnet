@@ -18,6 +18,9 @@ namespace Okta.Sdk.UnitTests.Internal
         private readonly int _statusCode;
 
         public string ReceivedHref { get; set; }
+
+        public string ReceivedBody { get; set; }
+
         public IEnumerable<KeyValuePair<string, string>> ReceivedHeaders { get; set; }
 
         public string OktaDomain => throw new NotImplementedException();
@@ -72,6 +75,7 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             ReceivedHref = href;
             ReceivedHeaders = headers;
+            ReceivedBody = body;
 
             return Task.FromResult(new HttpResponse<string>
             {
@@ -84,6 +88,7 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             ReceivedHref = href;
             ReceivedHeaders = headers;
+            ReceivedBody = body;
 
             return Task.FromResult(new HttpResponse<string>
             {
