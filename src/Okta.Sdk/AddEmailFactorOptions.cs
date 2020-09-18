@@ -14,5 +14,11 @@ namespace Okta.Sdk
         /// Gets or sets the email
         /// </summary>
         public string Email { get; set; }
+
+        /// <summary>
+        /// Gets or sets the lifetime of the OTP in seconds. Default value is 300.
+        /// </summary>
+        /// <Remarks>For more details see <a href="https://developer.okta.com/docs/reference/api/factors/#enroll-okta-email-factor">Enroll Okta Email Factor</a>.</Remarks>
+        public int TokenLifetimeSeconds { get; set; } = 300;
     }
 }

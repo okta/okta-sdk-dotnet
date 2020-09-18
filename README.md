@@ -1,4 +1,4 @@
-[<img src="https://devforum.okta.com/uploads/oktadev/original/1X/bf54a16b5fda189e4ad2706fb57cbb7a1e5b8deb.png" align="right" width="256px"/>](https://devforum.okta.com/)
+[<img src="https://aws1.discourse-cdn.com/standard14/uploads/oktadev/original/1X/0c6402653dfb70edc661d4976a43a46f33e5e919.png" align="right" width="256px"/>](https://devforum.okta.com/)
 
 [![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
 [![API Reference](https://img.shields.io/badge/docs-reference-lightgrey.svg)][dotnetdocs]
@@ -44,7 +44,7 @@ You can learn more on the [Okta + .NET][lang-landing] page in our documentation.
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/).
 
-:heavy_check_mark: The current stable major version series is: 2.x
+:heavy_check_mark: The current stable major version series is: 3.x
 
 | Version | Status                    |
 | ------- | ------------------------- |
@@ -81,7 +81,7 @@ Simply run `install-package Okta.Sdk`. Done!
 
 The [`legacy` branch](https://github.com/okta/okta-sdk-dotnet/tree/legacy) is published on NuGet as [Okta.Core.Client 0.3.3](https://www.nuget.org/packages/Okta.Core.Client/0.3.3).  This version is *retired* and is no longer supported. 
 
-The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 2.x version.
+The [1.x series](https://github.com/okta/okta-sdk-dotnet/tree/legacy-1.x-series) will not be supported past December 27, 2020.  It will likely remain working after that date but you should make a plan to migrate to the new 3.x version.
 
 You'll also need:
 
@@ -155,7 +155,7 @@ The string argument for `GetUserAsync` can be the user's ID or the user's login 
 
 The SDK will automatically [paginate](https://developer.okta.com/docs/api/getting_started/design_principles#pagination) Okta collections for you:
 
-```
+``` csharp
 // These different styles all perform the same action:
 var allUsers = await client.Users.ToArrayAsync();
 var allUsers = await client.Users.ToListAsync();
@@ -479,7 +479,7 @@ keep in mind that this configuration will also affect how all other date-formatt
   
 This library looks for configuration in the following sources:
  
-1. An `okta.yaml` file in a `.okta` folder in the current user's home directory (`~/.okta/okta.yaml` or `%userprofile\.okta\okta.yaml`)
+1. An `okta.yaml` file in a `.okta` folder in the current user's home directory (`~/.okta/okta.yaml` or `%userprofile%\.okta\okta.yaml`)
 2. An `okta.yaml` file in a `.okta` folder in the application or project's root directory
 3. Environment variables
 4. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
