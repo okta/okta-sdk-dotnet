@@ -65,13 +65,13 @@ namespace Okta.Sdk
                     {
                         Users = new UserCondition
                         {
-                            Exclude = options.UsersConditionExclude,
-                            Include = options.UsersConditionInclude,
+                            Exclude = options.PeopleConditionExcludeUsers,
+                            Include = options.PeopleConditionIncludeUsers,
                         },
                         Groups = new GroupCondition
                         {
-                            Exclude = options.GroupsConditionExclude,
-                            Include = options.GroupsConditionInclude,
+                            Exclude = options.PeopleConditionExcludeGroups,
+                            Include = options.PeopleConditionIncludeGroups,
                         },
                     },
                     Network = new PolicyNetworkCondition
@@ -142,13 +142,13 @@ namespace Okta.Sdk
                     {
                         Users = new UserCondition
                         {
-                            Exclude = options.UsersConditionExclude,
-                            Include = options.UsersConditionInclude,
+                            Exclude = options.PeopleConditionExcludeUsers,
+                            Include = options.PeopleConditionIncludeUsers,
                         },
                         Groups = new GroupCondition
                         {
-                            Exclude = options.GroupsConditionExclude,
-                            Include = options.GroupsConditionInclude,
+                            Exclude = options.PeopleConditionExcludeGroups,
+                            Include = options.PeopleConditionIncludeGroups,
                         },
                     },
                     AuthContext = new PolicyRuleAuthContextCondition

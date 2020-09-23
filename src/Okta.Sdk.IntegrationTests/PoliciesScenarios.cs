@@ -401,9 +401,9 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddPasswordPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreatePasswordPolicyRule {guid}".Substring(0, 50),
-                UsersConditionExclude = new List<string>(),
-                GroupsConditionExclude = new List<string>(),
-                UsersConditionInclude = new List<string>(),
+                PeopleConditionExcludeUsers = new List<string>(),
+                PeopleConditionExcludeGroups = new List<string>(),
+                PeopleConditionIncludeUsers = new List<string>(),
                 NetworkConditionConnection = "ANYWHERE",
                 NetworkConditionInclude = new List<string>(),
                 NetworkConditionExclude = new List<string>(),
@@ -566,10 +566,10 @@ namespace Okta.Sdk.IntegrationTests
 
                 NetworkConditionConnection = "ANYWHERE",
                 AuthType = "ANY",
-                UsersConditionInclude = new List<string>(),
-                UsersConditionExclude = new List<string>(),
-                GroupsConditionInclude = new List<string>(),
-                GroupsConditionExclude = new List<string>(),
+                PeopleConditionIncludeUsers = new List<string>(),
+                PeopleConditionExcludeUsers = new List<string>(),
+                PeopleConditionIncludeGroups = new List<string>(),
+                PeopleConditionExcludeGroups = new List<string>(),
             };
 
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
@@ -663,7 +663,7 @@ namespace Okta.Sdk.IntegrationTests
             {
                 Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
                 Access = "ALLOW",
-                RequireFactor = false,
+                RequireFactor = true,
                 FactorPromptMode = "ALWAYS",
                 RememberDeviceByDefault = false,
                 UsePersistentCookie = false,
@@ -671,33 +671,11 @@ namespace Okta.Sdk.IntegrationTests
                 MaxSessionLifetimeMinutes = 0,
             };
 
-            var policyRule = new OktaSignOnPolicyRule()
-            {
-                Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
-                Type = "SIGN_ON",
-                Actions = new OktaSignOnPolicyRuleActions()
-                {
-                    Signon = new OktaSignOnPolicyRuleSignonActions()
-                    {
-                        Access = "ALLOW",
-                        RequireFactor = true,
-                        FactorPromptMode = "ALWAYS",
-                        RememberDeviceByDefault = false,
-                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
-                        {
-                            UsePersistentCookie = false,
-                            MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
-                        },
-                    },
-                },
-            };
-
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Name.Should().Be(policyRuleOptions.Name);
                 createdPolicyRule.Type.Should().Be("SIGN_ON");
                 createdPolicyRule.Actions.Signon.Access.Should().Be("ALLOW");
                 createdPolicyRule.Actions.Signon.RequireFactor.Should().Be(true);
@@ -751,7 +729,7 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddPasswordPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: GetPolicyRules {guid}".Substring(0, 50),
-                UsersConditionExclude = new List<string>(),
+                PeopleConditionExcludeUsers = new List<string>(),
                 NetworkConditionConnection = "ANYWHERE",
                 PasswordChangeAccess = "ALLOW",
                 SelfServicePasswordResetAccess = "ALLOW",

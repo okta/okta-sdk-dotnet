@@ -30,22 +30,26 @@ namespace Okta.Sdk
         /// <summary>
         /// Gets or sets a list of users to be excluded
         /// </summary>
-        public IList<string> UsersConditionExclude { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a></remarks>
+        public IList<string> PeopleConditionExcludeUsers { get; set; }
 
         /// <summary>
         /// Gets or sets a list of users to be included
         /// </summary>
-        public IList<string> UsersConditionInclude { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a></remarks>
+        public IList<string> PeopleConditionIncludeUsers { get; set; }
 
         /// <summary>
         /// Gets or sets a list of groups whose users to be excluded
         /// </summary>
-        public IList<string> GroupsConditionExclude { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a></remarks>
+        public IList<string> PeopleConditionExcludeGroups { get; set; }
 
         /// <summary>
         /// Gets or sets a list of groups whose users to be included
         /// </summary>
-        public IList<string> GroupsConditionInclude { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a></remarks>
+        public IList<string> PeopleConditionIncludeGroups { get; set; }
 
         /// <summary>
         /// Gets or sets a network selection mode
