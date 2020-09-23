@@ -252,8 +252,8 @@ namespace Okta.Sdk.IntegrationTests
 
             createdPolicy.Name = $"dotnet-sdk: Updated UpdatePolicy {Guid.NewGuid()}".Substring(0, 50);
             createdPolicy.Description = "This description was updated";
-            // TODO: it would be nicer to do this intead: client.Policies.UpdatePolicyAsync(createdPolicy);
-            await client.Policies.UpdatePolicyAsync(createdPolicy, createdPolicy.Id);
+
+            await client.Policies.UpdatePolicyAsync<IOktaSignOnPolicy>(createdPolicy);
 
             var updatedPolicy = await client.Policies.GetPolicyAsync(createdPolicy.Id);
 
@@ -396,50 +396,27 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "The default policy applies in all situations if no other policy applies.",
             };
 
-            // TODO: Create an AddPasswordPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addPasswordPolicyRuleOptions);
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
-            var policyRule = new PasswordPolicyRule()
+            var policyRuleOptions = new AddPasswordPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreatePasswordPolicyRule {guid}".Substring(0, 50),
-                Type = PolicyType.Password,
-                Conditions = new PasswordPolicyRuleConditions()
-                {
-                    People = new PolicyPeopleCondition()
-                    {
-                        Users = new UserCondition()
-                        {
-                            Exclude = new List<string>(),
-                        },
-                    },
-                    Network = new PolicyNetworkCondition()
-                    {
-                        Connection = "ANYWHERE",
-                    },
-                },
-                Actions = new PasswordPolicyRuleActions()
-                {
-                    PasswordChange = new PasswordPolicyRuleAction()
-                    {
-                        Access = "ALLOW",
-                    },
-                    SelfServicePasswordReset = new PasswordPolicyRuleAction()
-                    {
-                        Access = "ALLOW",
-                    },
-                    SelfServiceUnlock = new PasswordPolicyRuleAction()
-                    {
-                        Access = "DENY",
-                    },
-                },
+                UsersConditionExclude = new List<string>(),
+                GroupsConditionExclude = new List<string>(),
+                UsersConditionInclude = new List<string>(),
+                NetworkConditionConnection = "ANYWHERE",
+                NetworkConditionInclude = new List<string>(),
+                NetworkConditionExclude = new List<string>(),
+                PasswordChangeAccess = "ALLOW",
+                SelfServicePasswordResetAccess = "ALLOW",
+                SelfServiceUnlockAccess = "DENY",
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IPasswordPolicyRule>(policyRule, createdPolicy.Id);
-
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Name.Should().Be(policyRuleOptions.Name);
                 createdPolicyRule.Actions.Should().NotBeNull();
                 createdPolicyRule.Actions.PasswordChange.Access.Should().Be("ALLOW");
                 createdPolicyRule.Actions.SelfServicePasswordReset.Access.Should().Be("ALLOW");
@@ -471,41 +448,25 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
-            // TODO: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
-            var policyRule = new OktaSignOnPolicyRule()
+            var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnOnPremPolicyRule {guid}".Substring(0, 50),
-                Type = "SIGN_ON",
-                Actions = new OktaSignOnPolicyRuleActions()
-                {
-                    Signon = new OktaSignOnPolicyRuleSignonActions()
-                    {
-                        Access = "ALLOW",
-                        RequireFactor = false,
-                        RememberDeviceByDefault = false,
-                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
-                        {
-                            UsePersistentCookie = false,
-                            MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
-                        },
-                    },
-                },
-                Conditions = new OktaSignOnPolicyRuleConditions()
-                {
-                    AuthContext = new PolicyRuleAuthContextCondition()
-                    {
-                        AuthType = "ANY",
-                    },
-                },
+                Access = "ALLOW",
+                RequireFactor = false,
+                RememberDeviceByDefault = false,
+                FactorLifetime = 10,
+                UsePersistentCookie = false,
+                MaxSessionIdleMinutes = 720,
+                MaxSessionLifetimeMinutes = 0,
+                AuthType = "ANY",
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IOktaSignOnPolicyRule>(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
 
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Name.Should().Be(policyRuleOptions.Name);
                 createdPolicyRule.Type.Should().Be("SIGN_ON");
                 createdPolicyRule.Actions.Signon.Access.Should().Be("ALLOW");
                 createdPolicyRule.Actions.Signon.RequireFactor.Should().Be(false);
@@ -537,46 +498,27 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-            // TODO: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
-            var policyRule = new OktaSignOnPolicyRule()
+
+            var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnRadiusPolicyRule {guid}".Substring(0, 50),
-                Type = "SIGN_ON",
-                Actions = new OktaSignOnPolicyRuleActions()
-                {
-                    Signon = new OktaSignOnPolicyRuleSignonActions()
-                    {
-                        Access = "ALLOW",
-                        RequireFactor = true,
-                        FactorPromptMode = "ALWAYS",
-                        RememberDeviceByDefault = false,
-                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
-                        {
-                            UsePersistentCookie = false,
-                            MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
-                        },
-                    },
-                },
-                Conditions = new OktaSignOnPolicyRuleConditions()
-                {
-                    Network = new PolicyNetworkCondition()
-                    {
-                        Connection = "ANYWHERE",
-                    },
-                    AuthContext = new PolicyRuleAuthContextCondition()
-                    {
-                        AuthType = "RADIUS",
-                    },
-                },
+                Access = "ALLOW",
+                RequireFactor = true,
+                FactorPromptMode = "ALWAYS",
+                RememberDeviceByDefault = false,
+                UsePersistentCookie = false,
+                MaxSessionIdleMinutes = 720,
+                MaxSessionLifetimeMinutes = 0,
+                NetworkConditionConnection = "ANYWHERE",
+                AuthType = "RADIUS",
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IOktaSignOnPolicyRule>(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
 
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Name.Should().Be(policyRuleOptions.Name);
                 createdPolicyRule.Type.Should().Be("SIGN_ON");
                 createdPolicyRule.Actions.Signon.Access.Should().Be("ALLOW");
                 createdPolicyRule.Actions.Signon.RequireFactor.Should().Be(true);
@@ -610,59 +552,31 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-            // TODO: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
-            var policyRule = new OktaSignOnPolicyRule()
+
+            var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnCloudPolicyRule {guid}".Substring(0, 50),
-                Type = "SIGN_ON",
-                Actions = new OktaSignOnPolicyRuleActions()
-                {
-                    Signon = new OktaSignOnPolicyRuleSignonActions()
-                    {
-                        Access = "ALLOW",
-                        RequireFactor = true,
-                        FactorPromptMode = "ALWAYS",
-                        RememberDeviceByDefault = false,
-                        Session = new OktaSignOnPolicyRuleSignonSessionActions()
-                        {
-                            UsePersistentCookie = false,
-                            MaxSessionIdleMinutes = 720,
-                            MaxSessionLifetimeMinutes = 0,
-                        },
-                    },
-                },
-                Conditions = new OktaSignOnPolicyRuleConditions()
-                {
-                    Network = new PolicyNetworkCondition()
-                    {
-                        Connection = "ANYWHERE",
-                    },
-                    AuthContext = new PolicyRuleAuthContextCondition()
-                    {
-                        AuthType = "ANY",
-                    },
-                    People = new PolicyPeopleCondition()
-                    {
-                        Users = new UserCondition()
-                        {
-                            Include = new List<string>(),
-                            Exclude = new List<string>(),
-                        },
-                        Groups = new GroupCondition()
-                        {
-                            Include = new List<string>(),
-                            Exclude = new List<string>(),
-                        },
-                    },
-                },
+                Access = "ALLOW",
+                RequireFactor = true,
+                FactorPromptMode = "ALWAYS",
+                RememberDeviceByDefault = false,
+                UsePersistentCookie = false,
+                MaxSessionIdleMinutes = 720,
+                MaxSessionLifetimeMinutes = 0,
+
+                NetworkConditionConnection = "ANYWHERE",
+                AuthType = "ANY",
+                UsersConditionInclude = new List<string>(),
+                UsersConditionExclude = new List<string>(),
+                GroupsConditionInclude = new List<string>(),
+                GroupsConditionExclude = new List<string>(),
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IOktaSignOnPolicyRule>(policyRule, createdPolicy.Id);
-
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Name.Should().Be(policyRuleOptions.Name);
                 createdPolicyRule.Type.Should().Be("SIGN_ON");
                 createdPolicyRule.Actions.Signon.Access.Should().Be("ALLOW");
                 createdPolicyRule.Actions.Signon.RequireFactor.Should().Be(true);
@@ -700,38 +614,22 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-            // TODO: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
-            var policyRule = new OktaSignOnPolicyRule()
+
+            var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnDenyPolicyRule {guid}".Substring(0, 50),
-                Type = "SIGN_ON",
-                Actions = new OktaSignOnPolicyRuleActions()
-                {
-                    Signon = new OktaSignOnPolicyRuleSignonActions()
-                    {
-                        Access = "DENY",
-                        RequireFactor = false,
-                    },
-                },
-                Conditions = new OktaSignOnPolicyRuleConditions()
-                {
-                    AuthContext = new PolicyRuleAuthContextCondition()
-                    {
-                        AuthType = "ANY",
-                    },
-                    Network = new PolicyNetworkCondition()
-                    {
-                        Connection = "ANYWHERE",
-                    },
-                },
+                Access = "DENY",
+                RequireFactor = false,
+                AuthType = "ANY",
+                NetworkConditionConnection = "ANYWHERE",
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IOktaSignOnPolicyRule>(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
 
             try
             {
                 createdPolicyRule.Should().NotBeNull();
-                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Name.Should().Be(policyRuleOptions.Name);
                 createdPolicyRule.Type.Should().Be("SIGN_ON");
                 createdPolicyRule.Actions.Signon.Access.Should().Be("DENY");
                 createdPolicyRule.Actions.Signon.RequireFactor.Should().Be(false);
@@ -761,6 +659,18 @@ namespace Okta.Sdk.IntegrationTests
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
 
+            var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
+            {
+                Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
+                Access = "ALLOW",
+                RequireFactor = false,
+                FactorPromptMode = "ALWAYS",
+                RememberDeviceByDefault = false,
+                UsePersistentCookie = false,
+                MaxSessionIdleMinutes = 720,
+                MaxSessionLifetimeMinutes = 0,
+            };
+
             var policyRule = new OktaSignOnPolicyRule()
             {
                 Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
@@ -783,9 +693,7 @@ namespace Okta.Sdk.IntegrationTests
                 },
             };
 
-            // TODO: use this instead: client.Policies.AddPolicyRuleAsync(policyRule);
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IOktaSignOnPolicyRule>(policyRule, createdPolicy.Id);
-
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
             try
             {
                 createdPolicyRule.Should().NotBeNull();
@@ -839,43 +747,18 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
-            // TODO: Create an AddSignOnPolicyRuleOptions helper class with plain properties, encapsulate all the creation logic below and use this instead: client.Policies.AddPolicyRuleAsync(addSignOnPolicyRuleOptions);
-            var policyRule = new PasswordPolicyRule()
+
+            var policyRuleOptions = new AddPasswordPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: GetPolicyRules {guid}".Substring(0, 50),
-                Type = PolicyType.Password,
-                Conditions = new PasswordPolicyRuleConditions()
-                {
-                    People = new PolicyPeopleCondition()
-                    {
-                        Users = new UserCondition()
-                        {
-                            Exclude = new List<string>(),
-                        },
-                    },
-                    Network = new PolicyNetworkCondition()
-                    {
-                        Connection = "ANYWHERE",
-                    },
-                },
-                Actions = new PasswordPolicyRuleActions()
-                {
-                    PasswordChange = new PasswordPolicyRuleAction()
-                    {
-                        Access = "ALLOW",
-                    },
-                    SelfServicePasswordReset = new PasswordPolicyRuleAction()
-                    {
-                        Access = "ALLOW",
-                    },
-                    SelfServiceUnlock = new PasswordPolicyRuleAction()
-                    {
-                        Access = "DENY",
-                    },
-                },
+                UsersConditionExclude = new List<string>(),
+                NetworkConditionConnection = "ANYWHERE",
+                PasswordChangeAccess = "ALLOW",
+                SelfServicePasswordResetAccess = "ALLOW",
+                SelfServiceUnlockAccess = "DENY",
             };
 
-            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync<IPasswordPolicyRule>(policyRule, createdPolicy.Id);
+            var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
 
             try
             {
@@ -883,7 +766,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 policyRules.Should().NotBeNullOrEmpty();
                 policyRules.Should().HaveCount(1);
-                ((IPasswordPolicyRule)policyRules.First()).Name.Should().Be(policyRule.Name);
+                ((IPasswordPolicyRule)policyRules.First()).Name.Should().Be(policyRuleOptions.Name);
                 ((IPasswordPolicyRule)policyRules.First()).Type.Should().Be(PolicyType.Password);
                 ((IPasswordPolicyRule)policyRules.First()).Conditions.People.Users.Exclude.Should().BeNullOrEmpty();
                 ((IPasswordPolicyRule)policyRules.First()).Conditions.Network.Connection.Should().Be("ANYWHERE");

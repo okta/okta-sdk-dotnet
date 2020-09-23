@@ -18,7 +18,7 @@ namespace Okta.Sdk
         /// <param name="policyId">The policy id</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IPolicy"/> response.</returns>
-        Task<T> GetPolicyAsync<T>(string policyId, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> GetPolicyAsync<T>(string policyId, CancellationToken cancellationToken = default)
             where T : class, IPolicy;
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Okta.Sdk
         /// <param name="activate">The activate flag</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IPolicy"/> response.</returns>
-        Task<T> CreatePolicyAsync<T>(IPolicy policy, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> CreatePolicyAsync<T>(IPolicy policy, bool? activate = true, CancellationToken cancellationToken = default)
             where T : class, IPolicy;
 
         /// <summary>
@@ -40,7 +40,17 @@ namespace Okta.Sdk
         /// <param name="policyId">The policy ID</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IPolicy"/> response.</returns>
-        Task<T> UpdatePolicyAsync<T>(IPolicy policy, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> UpdatePolicyAsync<T>(IPolicy policy, string policyId, CancellationToken cancellationToken = default)
+            where T : class, IPolicy;
+
+        /// <summary>
+        /// Updates a policy
+        /// </summary>
+        /// <typeparam name="T">The policy type</typeparam>
+        /// <param name="policy">The <see cref="IPolicy"/> resource.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPolicy"/> response.</returns>
+        Task<T> UpdatePolicyAsync<T>(IPolicy policy, CancellationToken cancellationToken = default)
             where T : class, IPolicy;
 
         /// <summary>
@@ -51,7 +61,7 @@ namespace Okta.Sdk
         /// <param name="policyId">The policy ID</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IPolicyRule"/> response.</returns>
-        Task<T> AddPolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> AddPolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default)
             where T : class, IPolicyRule;
 
         /// <summary>
@@ -63,7 +73,7 @@ namespace Okta.Sdk
         /// <param name="ruleId">The rule ID</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IPolicyRule"/> response.</returns>
-        Task<T> UpdatePolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> UpdatePolicyRuleAsync<T>(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default)
             where T : class, IPolicyRule;
 
         /// <summary>
@@ -74,7 +84,23 @@ namespace Okta.Sdk
         /// <param name="ruleId">The rule ID</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IPolicyRule"/> response.</returns>
-        Task<T> GetPolicyRuleAsync<T>(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+        Task<T> GetPolicyRuleAsync<T>(string policyId, string ruleId, CancellationToken cancellationToken = default)
             where T : class, IPolicyRule;
+
+        /// <summary>
+        /// Creates a password policy rule
+        /// </summary>
+        /// <param name="options">The password policy rule options. Instance of <see cref="AddPasswordPolicyRuleOptions"/>.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IPasswordPolicyRule"/> response.</returns>
+        Task<IPasswordPolicyRule> AddPolicyRuleAsync(AddPasswordPolicyRuleOptions options, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Creates a password policy rule
+        /// </summary>
+        /// <param name="options">The sign on policy rule options. Instance of <see cref="AddSignOnPolicyRuleOptions"/>.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IOktaSignOnPolicyRule"/> response.</returns>
+        Task<IOktaSignOnPolicyRule> AddPolicyRuleAsync(AddSignOnPolicyRuleOptions options, CancellationToken cancellationToken = default);
     }
 }
