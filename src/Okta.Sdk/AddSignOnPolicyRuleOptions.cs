@@ -18,73 +18,85 @@ namespace Okta.Sdk
         public string Type => "SIGN_ON";
 
         /// <summary>
-        /// Gets or sets a name of the rule
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or sets an identifier of the policy
         /// </summary>
         public string PolicyId { get; set; }
 
         /// <summary>
-        /// Gets or sets an access
+        /// Gets or sets a name of the rule
         /// </summary>
-        public string Access { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the requireFactor parameter
+        /// Gets or sets an access property for Signon Action.
         /// </summary>
-        public bool? RequireFactor { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-action-object">the API documentation on Signon Action.</remarks>
+        public string SignonActionAccess { get; set; }
 
         /// <summary>
-        /// Gets or sets the rememberDeviceByDefault parameter
+        /// Gets or sets the requireFactor property for Signon Action
         /// </summary>
-        public bool? RememberDeviceByDefault { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-action-object">the API documentation on Signon Action.</remarks>
+        public bool? SignonActionRequireFactor { get; set; }
 
         /// <summary>
-        /// Gets or sets the factorPromptMode parameter
+        /// Gets or sets the rememberDeviceByDefault property for Signon Action
         /// </summary>
-        public string FactorPromptMode { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-action-object">the API documentation on Signon Action.</remarks>
+        public bool? SignonActionRememberDeviceByDefault { get; set; }
 
         /// <summary>
-        /// Gets or sets the factorLifetime parameter
+        /// Gets or sets the factorPromptMode property for Signon Action
         /// </summary>
-        public int? FactorLifetime { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-action-object">the API documentation on Signon Action.</remarks>
+        public string SignonActionFactorPromptMode { get; set; }
 
         /// <summary>
-        /// Gets or sets the usePersistentCookie parameter
+        /// Gets or sets the  factorLifetime property for Signon Action
         /// </summary>
-        public bool? UsePersistentCookie { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-action-object">the API documentation on Signon Action.</remarks>
+        public int? SignonActionFactorLifetime { get; set; }
 
         /// <summary>
-        /// Gets or sets the maxSessionIdleMinutes parameter
+        /// Gets or sets the Signon Session usePersistentCookie value
         /// </summary>
-        public int? MaxSessionIdleMinutes { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-session-object">the API documentation on Signon Session.</remarks>
+        public bool? SignonSessionUsePersistentCookie { get; set; }
 
         /// <summary>
-        /// Gets or sets the maxSessionLifetimeMinutes parameter
+        /// Gets or sets the Signon Session maxSessionIdleMinutes value
         /// </summary>
-        public int? MaxSessionLifetimeMinutes { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-session-object">the API documentation on Signon Session.</remarks>
+        public int? SignonSessionMaxSessionIdleMinutes { get; set; }
 
         /// <summary>
-        /// Gets or sets an authentication entry point
+        /// Gets or sets the Signon Session maxSessionLifetimeMinutes value
         /// </summary>
-        public string AuthType { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#signon-session-object">the API documentation on Signon Session.</remarks>
+        public int? SignonSessionMaxSessionLifetimeMinutes { get; set; }
+
+        /// <summary>
+        /// Gets or sets an AuthContext Condition object value
+        /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#authcontext-condition-object">the API documentation on AuthContext Condition.</remarks>
+        public string AuthContextConditionAuthType { get; set; }
 
         /// <summary>
         /// Gets or sets a network selection mode
         /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a></remarks>
         public string NetworkConditionConnection { get; set; }
 
         /// <summary>
         /// Gets or sets the zones to include
         /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a></remarks>
         public IList<string> NetworkConditionInclude { get; set; }
 
         /// <summary>
         /// Gets or sets the zones to exclude
         /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a></remarks>
         public IList<string> NetworkConditionExclude { get; set; }
 
         /// <summary>

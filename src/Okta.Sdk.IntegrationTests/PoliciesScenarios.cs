@@ -407,9 +407,9 @@ namespace Okta.Sdk.IntegrationTests
                 NetworkConditionConnection = "ANYWHERE",
                 NetworkConditionInclude = new List<string>(),
                 NetworkConditionExclude = new List<string>(),
-                PasswordChangeAccess = "ALLOW",
-                SelfServicePasswordResetAccess = "ALLOW",
-                SelfServiceUnlockAccess = "DENY",
+                ActionPasswordChangeAccess = "ALLOW",
+                ActionSelfServicePasswordResetAccess = "ALLOW",
+                ActionSelfServiceUnlockAccess = "DENY",
             };
 
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
@@ -451,14 +451,14 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnOnPremPolicyRule {guid}".Substring(0, 50),
-                Access = "ALLOW",
-                RequireFactor = false,
-                RememberDeviceByDefault = false,
-                FactorLifetime = 10,
-                UsePersistentCookie = false,
-                MaxSessionIdleMinutes = 720,
-                MaxSessionLifetimeMinutes = 0,
-                AuthType = "ANY",
+                SignonActionAccess = "ALLOW",
+                SignonActionRequireFactor = false,
+                SignonActionRememberDeviceByDefault = false,
+                SignonActionFactorLifetime = 10,
+                SignonSessionUsePersistentCookie = false,
+                SignonSessionMaxSessionIdleMinutes = 720,
+                SignonSessionMaxSessionLifetimeMinutes = 0,
+                AuthContextConditionAuthType = "ANY",
             };
 
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
@@ -502,15 +502,15 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnRadiusPolicyRule {guid}".Substring(0, 50),
-                Access = "ALLOW",
-                RequireFactor = true,
-                FactorPromptMode = "ALWAYS",
-                RememberDeviceByDefault = false,
-                UsePersistentCookie = false,
-                MaxSessionIdleMinutes = 720,
-                MaxSessionLifetimeMinutes = 0,
+                SignonActionAccess = "ALLOW",
+                SignonActionRequireFactor = true,
+                SignonActionFactorPromptMode = "ALWAYS",
+                SignonActionRememberDeviceByDefault = false,
+                SignonSessionUsePersistentCookie = false,
+                SignonSessionMaxSessionIdleMinutes = 720,
+                SignonSessionMaxSessionLifetimeMinutes = 0,
                 NetworkConditionConnection = "ANYWHERE",
-                AuthType = "RADIUS",
+                AuthContextConditionAuthType = "RADIUS",
             };
 
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
@@ -556,16 +556,16 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnCloudPolicyRule {guid}".Substring(0, 50),
-                Access = "ALLOW",
-                RequireFactor = true,
-                FactorPromptMode = "ALWAYS",
-                RememberDeviceByDefault = false,
-                UsePersistentCookie = false,
-                MaxSessionIdleMinutes = 720,
-                MaxSessionLifetimeMinutes = 0,
+                SignonActionAccess = "ALLOW",
+                SignonActionRequireFactor = true,
+                SignonActionFactorPromptMode = "ALWAYS",
+                SignonActionRememberDeviceByDefault = false,
+                SignonSessionUsePersistentCookie = false,
+                SignonSessionMaxSessionIdleMinutes = 720,
+                SignonSessionMaxSessionLifetimeMinutes = 0,
 
                 NetworkConditionConnection = "ANYWHERE",
-                AuthType = "ANY",
+                AuthContextConditionAuthType = "ANY",
                 PeopleConditionIncludeUsers = new List<string>(),
                 PeopleConditionExcludeUsers = new List<string>(),
                 PeopleConditionIncludeGroups = new List<string>(),
@@ -618,9 +618,9 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: CreateOktaSignOnDenyPolicyRule {guid}".Substring(0, 50),
-                Access = "DENY",
-                RequireFactor = false,
-                AuthType = "ANY",
+                SignonActionAccess = "DENY",
+                SignonActionRequireFactor = false,
+                AuthContextConditionAuthType = "ANY",
                 NetworkConditionConnection = "ANYWHERE",
             };
 
@@ -662,13 +662,13 @@ namespace Okta.Sdk.IntegrationTests
             var policyRuleOptions = new AddSignOnPolicyRuleOptions(createdPolicy.Id)
             {
                 Name = $"dotnet-sdk: UpdateOktaSignOnPolicyRule {guid}".Substring(0, 50),
-                Access = "ALLOW",
-                RequireFactor = true,
-                FactorPromptMode = "ALWAYS",
-                RememberDeviceByDefault = false,
-                UsePersistentCookie = false,
-                MaxSessionIdleMinutes = 720,
-                MaxSessionLifetimeMinutes = 0,
+                SignonActionAccess = "ALLOW",
+                SignonActionRequireFactor = true,
+                SignonActionFactorPromptMode = "ALWAYS",
+                SignonActionRememberDeviceByDefault = false,
+                SignonSessionUsePersistentCookie = false,
+                SignonSessionMaxSessionIdleMinutes = 720,
+                SignonSessionMaxSessionLifetimeMinutes = 0,
             };
 
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);
@@ -731,9 +731,9 @@ namespace Okta.Sdk.IntegrationTests
                 Name = $"dotnet-sdk: GetPolicyRules {guid}".Substring(0, 50),
                 PeopleConditionExcludeUsers = new List<string>(),
                 NetworkConditionConnection = "ANYWHERE",
-                PasswordChangeAccess = "ALLOW",
-                SelfServicePasswordResetAccess = "ALLOW",
-                SelfServiceUnlockAccess = "DENY",
+                ActionPasswordChangeAccess = "ALLOW",
+                ActionSelfServicePasswordResetAccess = "ALLOW",
+                ActionSelfServiceUnlockAccess = "DENY",
             };
 
             var createdPolicyRule = await client.Policies.AddPolicyRuleAsync(policyRuleOptions);

@@ -18,14 +18,14 @@ namespace Okta.Sdk
         public string Type => "PASSWORD";
 
         /// <summary>
-        /// Gets or sets a name of the rule
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or sets an identifier of the policy
         /// </summary>
         public string PolicyId { get; set; }
+
+        /// <summary>
+        /// Gets or sets a name of the rule
+        /// </summary>
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or sets a list of users to be excluded
@@ -54,32 +54,38 @@ namespace Okta.Sdk
         /// <summary>
         /// Gets or sets a network selection mode
         /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a></remarks>
         public string NetworkConditionConnection { get; set; }
 
         /// <summary>
         /// Gets or sets the zones to include
         /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a></remarks>
         public IList<string> NetworkConditionInclude { get; set; }
 
         /// <summary>
         /// Gets or sets the zones to exclude
         /// </summary>
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a></remarks>
         public IList<string> NetworkConditionExclude { get; set; }
 
         /// <summary>
-        /// Gets or sets a rule for PasswordChange Access
+        /// Gets or sets a value of Password Change Action object
         /// </summary>
-        public string PasswordChangeAccess { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#password-action-object">the API documentation on Password Action object.</a></remarks>
+        public string ActionPasswordChangeAccess { get; set; }
 
         /// <summary>
-        /// Gets or sets a rule for SelfServicePasswordReset Access
+        /// Gets or sets a value of Self Service Password Reset Action object
         /// </summary>
-        public string SelfServicePasswordResetAccess { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#password-action-object">the API documentation on Password Action object.</a></remarks>
+        public string ActionSelfServicePasswordResetAccess { get; set; }
 
         /// <summary>
-        /// Gets or sets a rule for SelfServiceUnlock Access
+        /// Gets or sets a value for Self Service Unlock Action object object
         /// </summary>
-        public string SelfServiceUnlockAccess { get; set; }
+        /// <remarks>See <a href="https://developer.okta.com/docs/reference/api/policy/#password-action-object">the API documentation on Password Action object.</a></remarks>
+        public string ActionSelfServiceUnlockAccess { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AddPasswordPolicyRuleOptions"/> class.

@@ -85,15 +85,15 @@ namespace Okta.Sdk
                 {
                     PasswordChange = new PasswordPolicyRuleAction
                     {
-                        Access = options.PasswordChangeAccess,
+                        Access = options.ActionPasswordChangeAccess,
                     },
                     SelfServicePasswordReset = new PasswordPolicyRuleAction
                     {
-                        Access = options.SelfServicePasswordResetAccess,
+                        Access = options.ActionSelfServicePasswordResetAccess,
                     },
                     SelfServiceUnlock = new PasswordPolicyRuleAction
                     {
-                        Access = options.SelfServiceUnlockAccess,
+                        Access = options.ActionSelfServiceUnlockAccess,
                     },
                 },
             };
@@ -117,16 +117,16 @@ namespace Okta.Sdk
                 {
                     Signon = new OktaSignOnPolicyRuleSignonActions
                     {
-                        Access = options.Access,
-                        FactorLifetime = options.FactorLifetime,
-                        FactorPromptMode = options.FactorPromptMode,
-                        RememberDeviceByDefault = options.RememberDeviceByDefault,
-                        RequireFactor = options.RequireFactor,
+                        Access = options.SignonActionAccess,
+                        FactorLifetime = options.SignonActionFactorLifetime,
+                        FactorPromptMode = options.SignonActionFactorPromptMode,
+                        RememberDeviceByDefault = options.SignonActionRememberDeviceByDefault,
+                        RequireFactor = options.SignonActionRequireFactor,
                         Session = new OktaSignOnPolicyRuleSignonSessionActions
                         {
-                            UsePersistentCookie = options.UsePersistentCookie,
-                            MaxSessionIdleMinutes = options.MaxSessionIdleMinutes,
-                            MaxSessionLifetimeMinutes = options.MaxSessionLifetimeMinutes,
+                            UsePersistentCookie = options.SignonSessionUsePersistentCookie,
+                            MaxSessionIdleMinutes = options.SignonSessionMaxSessionIdleMinutes,
+                            MaxSessionLifetimeMinutes = options.SignonSessionMaxSessionLifetimeMinutes,
                         },
                     },
                 },
@@ -153,7 +153,7 @@ namespace Okta.Sdk
                     },
                     AuthContext = new PolicyRuleAuthContextCondition
                     {
-                        AuthType = options.AuthType,
+                        AuthType = options.AuthContextConditionAuthType,
                     },
                 },
             };
