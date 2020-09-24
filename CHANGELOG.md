@@ -6,6 +6,7 @@ Running changelog of releases since `3.1.1`
 ### Features
 
 - Add helper method to create users with imported hashed password (#402)
+- Add helper methods to create policy rules (#287)
 
 ### Bug Fixes
 
