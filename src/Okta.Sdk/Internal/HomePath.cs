@@ -72,19 +72,27 @@ namespace Okta.Sdk.Internal
         /// <returns>true if home path was resolved; otherwise, false.</returns>
         public static bool TryGetHomePath(out string homePath)
         {
+            homePath = string.Empty;
+            try
+            {
 #if NET45
             homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
 #else
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                homePath = Environment.GetEnvironmentVariable("USERPROFILE") ??
-                           Path.Combine(Environment.GetEnvironmentVariable("HOMEDRIVE"), Environment.GetEnvironmentVariable("HOMEPATH"));
-            }
-            else
-            {
-                homePath = Environment.GetEnvironmentVariable("HOME");
-            }
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+                {
+                    homePath = Environment.GetEnvironmentVariable("USERPROFILE") ??
+                               Path.Combine(Environment.GetEnvironmentVariable("HOMEDRIVE"), Environment.GetEnvironmentVariable("HOMEPATH"));
+                }
+                else
+                {
+                    homePath = Environment.GetEnvironmentVariable("HOME");
+                }
 #endif
+            }
+            catch
+            {
+                // Ignore
+            }
 
             return !string.IsNullOrEmpty(homePath);
         }

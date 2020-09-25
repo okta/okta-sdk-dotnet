@@ -129,13 +129,23 @@ namespace Okta.Sdk
         {
             string configurationFileRoot = Directory.GetCurrentDirectory();
 
-            var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
 
             var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, "appsettings.json");
             var applicationOktaYamlLocation = Path.Combine(configurationFileRoot ?? string.Empty, "okta.yaml");
 
-            var configBuilder = new ConfigurationBuilder()
-                .AddYamlFile(homeOktaYamlLocation, optional: true)
+            var configBuilder = new ConfigurationBuilder();
+
+            try
+            {
+                var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
+                configBuilder.AddYamlFile(homeOktaYamlLocation, optional: true);
+            }
+            catch
+            {
+                // ignore -- production and pipeline environments often don't have a HOME location
+            }
+
+            configBuilder
                 .AddJsonFile(applicationAppSettingsLocation, optional: true)
                 .AddYamlFile(applicationOktaYamlLocation, optional: true)
                 .AddEnvironmentVariables("okta", "_", root: "okta")
