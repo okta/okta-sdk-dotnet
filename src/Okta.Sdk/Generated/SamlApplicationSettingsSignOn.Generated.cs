@@ -17,6 +17,20 @@ namespace Okta.Sdk
     public sealed partial class SamlApplicationSettingsSignOn : Resource, ISamlApplicationSettingsSignOn
     {
         /// <inheritdoc/>
+        public IList<IAcsEndpoint> AcsEndpoints 
+        {
+            get => GetArrayProperty<IAcsEndpoint>("acsEndpoints");
+            set => this["acsEndpoints"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public bool? AllowMultipleAcsEndpoints 
+        {
+            get => GetBooleanProperty("allowMultipleAcsEndpoints");
+            set => this["allowMultipleAcsEndpoints"] = value;
+        }
+        
+        /// <inheritdoc/>
         public bool? AssertionSigned 
         {
             get => GetBooleanProperty("assertionSigned");
