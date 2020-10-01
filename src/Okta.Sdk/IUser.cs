@@ -146,7 +146,7 @@ namespace Okta.Sdk
         Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Adds a token:software:totp factor to the user
+        /// Adds a token:hotp factor to the user
         /// </summary>
         /// <param name="hotpFactorOptions">The token:hotp options</param>
         /// <param name="cancellationToken">The cancellation token</param>
