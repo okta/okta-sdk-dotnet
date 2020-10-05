@@ -39,7 +39,7 @@ namespace Okta.Sdk
         /// <param name="options">The password options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserCredentials"/> response</returns>
-        Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Resets the user password
@@ -47,7 +47,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail">The send email flag</param>
         /// <param name="cancellationToken">The cancellation token </param>
         /// <returns>The <see cref="IResetPasswordToken"/> response</returns>
-        Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deletes a deactivated user
@@ -55,7 +55,7 @@ namespace Okta.Sdk
         /// <param name="sendEmail">The send email flag</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The asynchronous task</returns>
-        Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Changes the user recovery question
@@ -63,7 +63,7 @@ namespace Okta.Sdk
         /// <param name="options">The recovery question options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The asynchronous task</returns>
-        Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken));
+        Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Removes a user from a group
@@ -71,7 +71,7 @@ namespace Okta.Sdk
         /// <param name="groupId">The group id</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The asynchronous task</returns>
-        Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Saves changes and returns the updated resource.
@@ -79,7 +79,7 @@ namespace Okta.Sdk
         /// <remarks>Alias of <see cref="IUsersClient.UpdateUserAsync(IUser, string, CancellationToken)"/>.</remarks>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="IUser">User</see>.</returns>
-        Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> UpdateAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a security question factor to the user
@@ -87,7 +87,7 @@ namespace Okta.Sdk
         /// <param name="securityQuestionFactorOptions">The security question options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a call factor to the user
@@ -95,7 +95,7 @@ namespace Okta.Sdk
         /// <param name="callFactorOptions">The call factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds an email factor to the user
@@ -103,7 +103,7 @@ namespace Okta.Sdk
         /// <param name="emailFactorOptions">The email factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a hardward factor to the user
@@ -111,7 +111,7 @@ namespace Okta.Sdk
         /// <param name="hardwareFactorOptions">The hardware factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a push factor to the user
@@ -119,7 +119,7 @@ namespace Okta.Sdk
         /// <param name="pushFactorOptions">The push factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds an SMS factor to the user
@@ -127,7 +127,7 @@ namespace Okta.Sdk
         /// <param name="smsFactorOptions">The SMS factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a token factor to the user
@@ -135,7 +135,7 @@ namespace Okta.Sdk
         /// <param name="tokenFactorOptions">The token factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Adds a token:software:totp factor to the user
@@ -143,7 +143,15 @@ namespace Okta.Sdk
         /// <param name="totpFactorOptions">The token:software:totp options</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The <see cref="IUserFactor"/> response</returns>
-        Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default);
+
+        /// <summary>
+        /// Adds a token:hotp factor to the user
+        /// </summary>
+        /// <param name="hotpFactorOptions">The token:hotp options</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>The <see cref="IUserFactor"/> response</returns>
+        Task<IUserFactor> AddFactorAsync(AddCustomHotpFactorOptions hotpFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deactivates a user
@@ -151,7 +159,7 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>The asynchronous task</returns>
         /// <remarks>Explicit overload to support backward compatibility.</remarks>
-        Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken));
+        Task DeactivateAsync(CancellationToken cancellationToken = default);
 
         /// <summary>
         /// Deactivates a user.

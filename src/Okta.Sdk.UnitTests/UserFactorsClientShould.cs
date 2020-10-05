@@ -28,5 +28,22 @@ namespace Okta.Sdk.UnitTests
             mockRequestExecutor.ReceivedHref.Should().Match("/api/v1/users/UserId/factors*tokenLifetimeSeconds=999*");
             mockRequestExecutor.ReceivedBody.Should().Be("{\"factorType\":\"email\",\"provider\":\"OKTA\",\"profile\":{\"email\":\"johndoe@mail.com\"}}");
         }
+
+        [Fact]
+        public async Task EnrollHotpFactor()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var factorsClient = client.UserFactors;
+            var hotpFactorOptions = new AddCustomHotpFactorOptions
+            {
+                FactorProfileId = "fpr20l2mDyaUGWGCa0g4",
+                ProfileSharedSecret = "484f97be3213b117e3a20438e291540a",
+            };
+            await factorsClient.AddFactorAsync("UserId", hotpFactorOptions);
+            mockRequestExecutor.ReceivedHref.Should().Match("/api/v1/users/UserId/factors*activate=true*");
+            mockRequestExecutor.ReceivedBody.Should().Be("{\"factorType\":\"token:hotp\",\"provider\":\"CUSTOM\",\"factorProfileId\":\"fpr20l2mDyaUGWGCa0g4\",\"profile\":{\"sharedSecret\":\"484f97be3213b117e3a20438e291540a\"}}");
+        }
     }
 }
