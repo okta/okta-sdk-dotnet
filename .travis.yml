@@ -13,12 +13,32 @@ script:
     else
         ./build.sh;
     fi
-env:
-  global:
-    secure: Nn2fgkaM5WjJiGtjAqPnFH2ULzef+lxemF8TgVaWysshgYWx3G8p70a1sm7tAzw15WQAeg7kGszSdpQqaVOd1fS7Hu7DoGexQcOJmHpoRZn6a50cxIc/2AFAcbW1Ar051Cl3KnNc+9b6L8KcOjAmDs4CMXHrg7BTsiqKbDoCuns=
-notifications:
-  slack:
-    if: type = cron
-    secure: cLvrcIznO1QFFVe4lIav+4rVqB2nlpHswKDYplOGlDJ1s1KXYDwoqigFMN+mWmOkCcDUI1Bls/R1zfNWCAupIVRbj4eMREoQkwpVi+wVv5xQ/T5bYqVQMKqL6BGoodjnxkHzz7NbNNejYQbFtNkCvyC1Rl28VbiJIMZkh4wLNbI=
-  on_success: never
-  on_failure: always
+  - if [[ $DEPLOY_DOCS ]]; then ./build.sh --target Docs; fi
+deploy:
+- provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  local_dir: docs/temp
+ # email: deploy-dotnet@okta.com
+  name: ".NET Deployment Bot"
+  on:
+    condition: "$DEPLOY_DOCS = true"
+    tags: true
+- provider: pages
+  skip_cleanup: true
+  github_token: "$GITHUB_TOKEN"
+  local_dir: docs/temp
+  email: deploy-dotnet@okta.com
+  name: ".NET Deployment Bot"
+  on:
+    condition: "$DEPLOY_DOCS = true AND $TRAVIS_PULL_REQUEST = false"
+    branch: master
+# env:
+#   global:
+#     secure: Nn2fgkaM5WjJiGtjAqPnFH2ULzef+lxemF8TgVaWysshgYWx3G8p70a1sm7tAzw15WQAeg7kGszSdpQqaVOd1fS7Hu7DoGexQcOJmHpoRZn6a50cxIc/2AFAcbW1Ar051Cl3KnNc+9b6L8KcOjAmDs4CMXHrg7BTsiqKbDoCuns=
+# notifications:
+#   slack:
+#     if: type = cron
+#     secure: cLvrcIznO1QFFVe4lIav+4rVqB2nlpHswKDYplOGlDJ1s1KXYDwoqigFMN+mWmOkCcDUI1Bls/R1zfNWCAupIVRbj4eMREoQkwpVi+wVv5xQ/T5bYqVQMKqL6BGoodjnxkHzz7NbNNejYQbFtNkCvyC1Rl28VbiJIMZkh4wLNbI=
+#   on_success: never
+#   on_failure: always

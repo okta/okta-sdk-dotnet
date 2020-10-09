@@ -1,3 +1,24 @@
+#addin "nuget:?package=Cake.Git&version=0.22.0";
+#addin "nuget:?package=Cake.GitPackager&version=0.1.3.2";
+#addin "nuget:?package=Cake.DocFx&version=0.13.1";
+#addin "nuget:?package=Cake.FileHelpers&version=3.3.0";
+#tool "nuget:?package=docfx.console&version=2.56.2";
+
+
+// Helper method for setting a lot of file attributes at once
+public FilePath[] SetFileAttributes(FilePathCollection files, System.IO.FileAttributes fileAttributes)
+{
+    var results = new System.Collections.Concurrent.ConcurrentBag<FilePath>();
+
+    Parallel.ForEach(files, f =>
+    {
+        System.IO.File.SetAttributes(f.FullPath, fileAttributes);
+        results.Add(f);
+    });
+
+    return results.ToArray();
+}
+
 // Default MSBuild configuration arguments
 
 var configuration = Argument("configuration", "Release");
@@ -78,6 +99,73 @@ Task("IntegrationTest")
     }
 });
 
+Task("BuildDocs")
+.IsDependentOn("Build")
+.Does(() =>
+{
+    FilePath artifactLocation = File("./src/Okta.Sdk/bin/Release/netstandard1.3/Okta.Sdk.dll");
+    DocFxMetadata(new DocFxMetadataSettings
+    {
+        OutputPath = MakeAbsolute(Directory("./docs/api/")),
+        Projects = new[] { artifactLocation }
+    });
+
+    DocFxBuild("./docs/docfx.json");
+    // Outputs to docs/_site
+});
+
+Task("CloneExistingDocs")
+.Does(() =>
+{
+    var tempDir = "./docs/temp";
+
+    if (DirectoryExists(tempDir))
+    {
+        // Some git files are read-only, so recursively remove any attributes:
+        SetFileAttributes(GetFiles(tempDir + "/**/*.*"), System.IO.FileAttributes.Normal);
+
+        DeleteDirectory(tempDir, recursive: true);
+    }
+
+    GitClone("https://github.com/okta/okta-sdk-dotnet.git",
+            tempDir,
+            new GitCloneSettings
+            {
+                BranchName = "gh-pages",
+            });
+});
+
+Task("CopyDocsToVersionedDirectories")
+.IsDependentOn("BuildDocs")
+.IsDependentOn("CloneExistingDocs")
+.Does(() =>
+{
+    DeleteDirectory("./docs/temp/latest", recursive: true);
+    Information("Copying docs to docs/temp/latest");
+    CopyDirectory("./docs/_site/", "./docs/temp/latest/");
+
+    var travisTag = EnvironmentVariable("TRAVIS_TAG");
+    if (string.IsNullOrEmpty(travisTag))
+    {
+        Console.WriteLine("TRAVIS_TAG not set, won't copy docs to a tagged directory");
+        return;
+    }
+
+    var taggedVersion = travisTag.TrimStart('v');
+    var tagDocsDirectory = string.Format("./docs/temp/{0}", taggedVersion);
+
+    Information("Copying docs to " + tagDocsDirectory);
+    CopyDirectory("./docs/_site/", tagDocsDirectory);
+});
+
+Task("CreateRootRedirector")
+.Does(() =>
+{
+    FileWriteText("./docs/temp/index.html",
+        //@"<meta http-equiv=""refresh"" content=""0; url=https://developer.okta.com/okta-sdk-dotnet/latest/"">");
+        @"<meta http-equiv=""refresh"" content=""0; url=https://andriizhegurov-okta.github.io/okta-sdk-dotnet/latest/"">");
+});
+
 // Define top-level tasks
 
 Task("Default")
@@ -93,6 +181,12 @@ Task("DefaultIT")
     .IsDependentOn("Build")
     .IsDependentOn("IntegrationTest")
     .IsDependentOn("Pack");
+
+Task("Docs")
+    .IsDependentOn("BuildDocs")
+    .IsDependentOn("CloneExistingDocs")
+    .IsDependentOn("CopyDocsToVersionedDirectories")
+    .IsDependentOn("CreateRootRedirector");
 
 // Default task
 var target = Argument("target", "Default");
