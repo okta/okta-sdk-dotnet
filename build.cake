@@ -1,9 +1,8 @@
-#addin "nuget:?package=Cake.Git&version=0.22.0";
-#addin "nuget:?package=Cake.GitPackager&version=0.1.3.2";
-#addin "nuget:?package=Cake.DocFx&version=0.13.1";
-#addin "nuget:?package=Cake.FileHelpers&version=3.3.0";
-#tool "nuget:?package=docfx.console&version=2.56.2";
-
+#addin nuget:?package=Cake.Figlet&version=1.3.1
+#addin nuget:?package=Cake.GitPackager&version=0.1.3.2
+#addin nuget:?package=Cake.Git&version=0.22.0
+#addin nuget:?package=Cake.FileHelpers&version=3.3.0
+#tool nuget:?package=docfx.console&version=2.51.0
 
 // Helper method for setting a lot of file attributes at once
 public FilePath[] SetFileAttributes(FilePathCollection files, System.IO.FileAttributes fileAttributes)
@@ -103,14 +102,8 @@ Task("BuildDocs")
 .IsDependentOn("Build")
 .Does(() =>
 {
-    FilePath artifactLocation = File("./src/Okta.Sdk/bin/Release/netstandard1.3/Okta.Sdk.dll");
-    DocFxMetadata(new DocFxMetadataSettings
-    {
-        OutputPath = MakeAbsolute(Directory("./docs/api/")),
-        Projects = new[] { artifactLocation }
-    });
-
-    DocFxBuild("./docs/docfx.json");
+    StartProcess(Context.Tools.Resolve("docfx") ?? Context.Tools.Resolve("docfx.exe"), 
+                 "./docs/docfx.json");
     // Outputs to docs/_site
 });
 
@@ -162,8 +155,7 @@ Task("CreateRootRedirector")
 .Does(() =>
 {
     FileWriteText("./docs/temp/index.html",
-        //@"<meta http-equiv=""refresh"" content=""0; url=https://developer.okta.com/okta-sdk-dotnet/latest/"">");
-        @"<meta http-equiv=""refresh"" content=""0; url=https://andriizhegurov-okta.github.io/okta-sdk-dotnet/latest/"">");
+        @"<meta http-equiv=""refresh"" content=""0; url=https://developer.okta.com/okta-sdk-dotnet/latest/"">");
 });
 
 // Define top-level tasks
