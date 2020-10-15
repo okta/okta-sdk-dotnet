@@ -1,4 +1,18 @@
 {
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [ "**/Okta.Sdk.csproj" ],
+          "exclude": [ "**/bin/**", "**/obj/**", "docs/**" ],
+          "src": "../"
+		  }
+      ],
+      "dest": "api",
+      "disableGitFeatures": false,
+      "disableDefaultFilter": false
+    }
+  ],
   "build": {
     "content": [
       {
@@ -31,9 +45,10 @@
     ],
     "globalMetadata": {
       "_appTitle": "Okta .NET SDK API Documentation",
-      "_appFooter": "Copyright &copy; 2017 Okta, Inc.<br>Generated with <b>DocFx</b>.",
+      "_appFooter": "Copyright &copy; 2020 Okta, Inc.<br>Generated with <b>DocFx</b>.",
       "_appLogoPath": "images/okta-dev-logo.png",
-      "_appFaviconPath": "images/favicon.ico"
+      "_appFaviconPath": "images/favicon.ico",
+      "_disableContribution": "true"
     },
     "dest": "_site",
     "globalMetadataFiles": [],
