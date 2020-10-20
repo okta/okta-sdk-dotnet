@@ -37,7 +37,7 @@ deploy:
     branch: master
 env:
   global:
-    secure: Nn2fgkaM5WjJiGtjAqPnFH2ULzef+lxemF8TgVaWysshgYWx3G8p70a1sm7tAzw15WQAeg7kGszSdpQqaVOd1fS7Hu7DoGexQcOJmHpoRZn6a50cxIc/2AFAcbW1Ar051Cl3KnNc+9b6L8KcOjAmDs4CMXHrg7BTsiqKbDoCuns=
+    secure: pFXoI5PwpenQ4WkGN+3Q4I01GYNKRoL+xKz7zwcLlO9t7oF0CuaQsJIZKY1/ORwF5VcvUCwmdKl9yeP6D0d88Zwy6z1M6IxGnF8wDfiwZY7weQeUHe8ShJ8ROmCPPadnLVcl7Frejgcw/qxaXTdHsiePg+5HBhCqSmQ/7P0nmz0=
 notifications:
   slack:
     if: type = cron
