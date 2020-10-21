@@ -13,7 +13,7 @@ script:
     else
         ./build.sh;
     fi
-  - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
+  - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
       ./build.sh --target Docs; 
     fi 
 deploy:
@@ -33,7 +33,7 @@ deploy:
   email: deploy-dotnet@okta.com
   name: ".NET Deployment Bot"
   on:
-    condition: "$DEPLOY_DOCS = true && $TRAVIS_PULL_REQUEST = false"
+    condition: "$DEPLOY_DOCS = true"
     branch: master
 notifications:
   slack:
