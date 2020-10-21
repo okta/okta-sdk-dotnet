@@ -13,7 +13,7 @@ script:
     else
         ./build.sh;
     fi
-  - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
+  - if [[ $DEPLOY_DOCS = true ]]; then 
       ./build.sh --target Docs; 
     fi 
 deploy:
