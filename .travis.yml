@@ -13,7 +13,7 @@ script:
     else
         ./build.sh;
     fi
-  - if [[ $DEPLOY_DOCS = true ]]; then 
+  - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
       ./build.sh --target Docs; 
     fi 
 deploy:
@@ -33,17 +33,8 @@ deploy:
   email: deploy-dotnet@okta.com
   name: ".NET Deployment Bot"
   on:
-    condition: "$DEPLOY_DOCS = true"
+    condition: "$DEPLOY_DOCS = true && $TRAVIS_PULL_REQUEST = false"
     branch: master
-- provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: docs/temp
-  email: deploy-dotnet@okta.com
-  name: ".NET Deployment Bot"
-  on:
-    condition: "$DEPLOY_DOCS = true"
-    branch: Update-Tavis-CI-configuration
 notifications:
   slack:
     if: type = cron
