@@ -35,5 +35,17 @@ namespace Okta.Sdk
 
         PolicyType Type { get; set; }
 
+        ICollectionClient<IAuthorizationServerPolicyRule> ListPolicyRules(
+            string authServerId);
+
+        Task<IAuthorizationServerPolicyRule> CreatePolicyRuleAsync(IAuthorizationServerPolicyRule policyRule, 
+            string authServerId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IAuthorizationServerPolicyRule> GetPolicyRuleAsync(
+            string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task DeletePolicyRuleAsync(
+            string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

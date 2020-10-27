@@ -17,6 +17,20 @@ namespace Okta.Sdk
     public sealed partial class AuthorizationServerPolicyRule : Resource, IAuthorizationServerPolicyRule
     {
         /// <inheritdoc/>
+        public IAuthorizationServerPolicyRuleActions Actions 
+        {
+            get => GetResourceProperty<AuthorizationServerPolicyRuleActions>("actions");
+            set => this["actions"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IAuthorizationServerPolicyRuleConditions Conditions 
+        {
+            get => GetResourceProperty<AuthorizationServerPolicyRuleConditions>("conditions");
+            set => this["conditions"] = value;
+        }
+        
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
@@ -24,6 +38,13 @@ namespace Okta.Sdk
         
         /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
+        
+        /// <inheritdoc/>
+        public string Name 
+        {
+            get => GetStringProperty("name");
+            set => this["name"] = value;
+        }
         
         /// <inheritdoc/>
         public int? Priority 

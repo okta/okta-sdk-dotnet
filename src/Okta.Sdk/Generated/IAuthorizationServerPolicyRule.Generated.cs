@@ -15,11 +15,17 @@ namespace Okta.Sdk
     /// <summary>Represents a AuthorizationServerPolicyRule resource in the Okta API.</summary>
     public partial interface IAuthorizationServerPolicyRule : IResource
     {
+        IAuthorizationServerPolicyRuleActions Actions { get; set; }
+
+        IAuthorizationServerPolicyRuleConditions Conditions { get; set; }
+
         DateTimeOffset? Created { get; }
 
         string Id { get; }
 
         DateTimeOffset? LastUpdated { get; }
+
+        string Name { get; set; }
 
         int? Priority { get; set; }
 

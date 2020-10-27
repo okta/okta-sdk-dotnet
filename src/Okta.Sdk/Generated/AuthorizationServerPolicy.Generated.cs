@@ -74,5 +74,25 @@ namespace Okta.Sdk
             set => this["type"] = value;
         }
         
+        /// <inheritdoc />
+        public ICollectionClient<IAuthorizationServerPolicyRule> ListPolicyRules(
+            string authServerId)
+            => GetClient().AuthorizationServers.ListAuthorizationServerPolicyRules(Id, authServerId);
+        
+        /// <inheritdoc />
+        public Task<IAuthorizationServerPolicyRule> CreatePolicyRuleAsync(IAuthorizationServerPolicyRule policyRule, 
+            string authServerId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.CreateAuthorizationServerPolicyRuleAsync(policyRule, Id, authServerId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IAuthorizationServerPolicyRule> GetPolicyRuleAsync(
+            string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.GetAuthorizationServerPolicyRuleAsync(Id, authServerId, ruleId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task DeletePolicyRuleAsync(
+            string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.DeleteAuthorizationServerPolicyRuleAsync(Id, authServerId, ruleId, cancellationToken);
+        
     }
 }
