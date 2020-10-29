@@ -176,7 +176,7 @@ namespace Okta.Sdk.IntegrationTests
                 PasswordCredentialHash = new PasswordCredentialHash
                 {
                     Algorithm = PasswordCredentialHashAlgorithm.Bcrypt,
-                    WorkerFactor = 10,
+                    WorkFactor = 10,
                     Salt = "rwh3vH166HCH/NT9XV5FYu",
                     Value = "qaMqvAPULkbiQzkTCWo5XDcvzpk8Tna",
                 },

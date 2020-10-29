@@ -23,7 +23,7 @@ namespace Okta.Sdk
 
         string Value { get; set; }
 
-        int? WorkerFactor { get; set; }
+        int? WorkFactor { get; set; }
 
     }
 }

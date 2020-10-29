@@ -59,6 +59,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IOpenIdConnectApplicationSettingsClientKeys Jwks 
+        {
+            get => GetResourceProperty<OpenIdConnectApplicationSettingsClientKeys>("jwks");
+            set => this["jwks"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string LogoUri 
         {
             get => GetStringProperty("logo_uri");

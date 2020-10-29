@@ -27,6 +27,8 @@ namespace Okta.Sdk
 
         OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
 
+        IOpenIdConnectApplicationSettingsClientKeys Jwks { get; set; }
+
         string LogoUri { get; set; }
 
         string PolicyUri { get; set; }

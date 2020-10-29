@@ -15,6 +15,10 @@ namespace Okta.Sdk
     /// <summary>Represents a SamlApplicationSettingsSignOn resource in the Okta API.</summary>
     public partial interface ISamlApplicationSettingsSignOn : IResource
     {
+        IList<IAcsEndpoint> AcsEndpoints { get; set; }
+
+        bool? AllowMultipleAcsEndpoints { get; set; }
+
         bool? AssertionSigned { get; set; }
 
         IList<ISamlAttributeStatement> AttributeStatements { get; set; }

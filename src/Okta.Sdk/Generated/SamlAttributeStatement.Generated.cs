@@ -17,6 +17,20 @@ namespace Okta.Sdk
     public sealed partial class SamlAttributeStatement : Resource, ISamlAttributeStatement
     {
         /// <inheritdoc/>
+        public string FilterType 
+        {
+            get => GetStringProperty("filterType");
+            set => this["filterType"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string FilterValue 
+        {
+            get => GetStringProperty("filterValue");
+            set => this["filterValue"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string Name 
         {
             get => GetStringProperty("name");
