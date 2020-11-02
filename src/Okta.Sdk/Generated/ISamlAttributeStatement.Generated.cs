@@ -15,6 +15,10 @@ namespace Okta.Sdk
     /// <summary>Represents a SamlAttributeStatement resource in the Okta API.</summary>
     public partial interface ISamlAttributeStatement : IResource
     {
+        string FilterType { get; set; }
+
+        string FilterValue { get; set; }
+
         string Name { get; set; }
 
         string Namespace { get; set; }

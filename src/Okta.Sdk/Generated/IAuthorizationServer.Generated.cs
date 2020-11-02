@@ -77,19 +77,19 @@ namespace Okta.Sdk
         Task DeactivateAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<IPolicy> ListPolicies(
+        ICollectionClient<IAuthorizationServerPolicy> ListPolicies(
             );
 
-        Task<IPolicy> CreatePolicyAsync(IPolicy policy, 
+        Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy policy, 
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeletePolicyAsync(
             string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IPolicy> GetPolicyAsync(
+        Task<IAuthorizationServerPolicy> GetPolicyAsync(
             string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IPolicy> UpdatePolicyAsync(IPolicy policy, 
+        Task<IAuthorizationServerPolicy> UpdatePolicyAsync(IAuthorizationServerPolicy policy, 
             string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         ICollectionClient<IOAuth2Scope> ListOAuth2Scopes(

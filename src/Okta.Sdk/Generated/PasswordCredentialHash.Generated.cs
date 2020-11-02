@@ -45,10 +45,10 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public int? WorkerFactor 
+        public int? WorkFactor 
         {
-            get => GetIntegerProperty("workerFactor");
-            set => this["workerFactor"] = value;
+            get => GetIntegerProperty("workFactor");
+            set => this["workFactor"] = value;
         }
         
     }
