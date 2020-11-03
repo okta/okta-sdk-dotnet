@@ -94,6 +94,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IOpenIdConnectApplicationSettingsRefreshToken RefreshToken 
+        {
+            get => GetResourceProperty<OpenIdConnectApplicationSettingsRefreshToken>("refresh_token");
+            set => this["refresh_token"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IList<OAuthResponseType> ResponseTypes 
         {
             get => GetArrayProperty<OAuthResponseType>("response_types");

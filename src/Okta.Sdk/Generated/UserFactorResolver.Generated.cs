@@ -40,11 +40,6 @@ namespace Okta.Sdk.Internal
                 return typeof(EmailUserFactor);
             }
             
-            if (value.Equals("hotp"))
-            {
-                return typeof(CustomHotpUserFactor);
-            }
-            
             if (value.Equals("push"))
             {
                 return typeof(PushUserFactor);
@@ -68,6 +63,11 @@ namespace Okta.Sdk.Internal
             if (value.Equals("token:hardware"))
             {
                 return typeof(HardwareUserFactor);
+            }
+            
+            if (value.Equals("token:hotp"))
+            {
+                return typeof(CustomHotpUserFactor);
             }
             
             if (value.Equals("token:software:totp"))

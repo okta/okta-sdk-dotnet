@@ -22,9 +22,8 @@ namespace Okta.Sdk
         /// <param name="filter">Filter expression for groups</param>
         /// <param name="after">Specifies the pagination cursor for the next page of groups</param>
         /// <param name="limit">Specifies the number of group results in a page</param>
-        /// <param name="expand">If specified, it causes additional metadata to be included in the response.</param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000, string expand = null);
+        ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000);
 
         /// <summary>
         /// Adds a new group with `OKTA_GROUP` type to your organization.

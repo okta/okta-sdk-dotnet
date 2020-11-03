@@ -37,6 +37,8 @@ namespace Okta.Sdk
 
         IList<string> RedirectUris { get; set; }
 
+        IOpenIdConnectApplicationSettingsRefreshToken RefreshToken { get; set; }
+
         IList<OAuthResponseType> ResponseTypes { get; set; }
 
         string TermsOfServiceUri { get; set; }

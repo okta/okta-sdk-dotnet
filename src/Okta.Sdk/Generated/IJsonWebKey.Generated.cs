@@ -15,35 +15,35 @@ namespace Okta.Sdk
     /// <summary>Represents a JsonWebKey resource in the Okta API.</summary>
     public partial interface IJsonWebKey : IResource
     {
-        string Alg { get; }
+        string Alg { get; set; }
 
         DateTimeOffset? Created { get; }
 
-        string E { get; }
+        string E { get; set; }
 
         DateTimeOffset? ExpiresAt { get; }
 
-        IList<string> KeyOps { get; }
+        IList<string> KeyOps { get; set; }
 
-        string Kid { get; }
+        string Kid { get; set; }
 
-        string Kty { get; }
+        string Kty { get; set; }
 
         DateTimeOffset? LastUpdated { get; }
 
-        string N { get; }
+        string N { get; set; }
 
         string Status { get; }
 
-        string Use { get; }
+        string Use { get; set; }
 
         IList<string> X5C { get; set; }
 
-        string X5T { get; }
+        string X5T { get; set; }
 
-        string X5TS256 { get; }
+        string X5TS256 { get; set; }
 
-        string X5U { get; }
+        string X5U { get; set; }
 
     }
 }
