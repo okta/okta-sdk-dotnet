@@ -256,7 +256,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -301,7 +301,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -350,7 +350,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -395,7 +395,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new OAuthAuthorizationPolicy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
                 Type = PolicyType.OAuthAuthorizationPolicy,
@@ -443,7 +443,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new OAuthAuthorizationPolicy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
                 Type = PolicyType.OAuthAuthorizationPolicy,
