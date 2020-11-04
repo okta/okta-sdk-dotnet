@@ -365,6 +365,16 @@ namespace Okta.Sdk.IntegrationTests
             var guid = Guid.NewGuid();
             var testClientId = $"{nameof(AddOpenIdConnectApp)}_TestClientId";
 
+            var jwk = new JsonWebKey()
+            {
+                Kty = "RSA",
+                Kid = "SIGNING_KEY",
+                E = "AQAB",
+                N = "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ==",
+            };
+
+            var keys = new List<IJsonWebKey>() { jwk };
+
             var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
             {
                 Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
@@ -394,6 +404,7 @@ namespace Okta.Sdk.IntegrationTests
                     OAuthGrantType.Implicit,
                     OAuthGrantType.AuthorizationCode,
                 },
+                Keys = keys,
                 ApplicationType = OpenIdConnectApplicationType.Native,
                 TermsOfServiceUri = "https://example.com/client/tos",
                 PolicyUri = "https://example.com/client/policy",
@@ -427,6 +438,12 @@ namespace Okta.Sdk.IntegrationTests
                 retrieved.Settings.OAuthClient.GrantTypes.First().Should().Be(OAuthGrantType.Implicit);
                 retrieved.Settings.OAuthClient.GrantTypes.Last().Should().Be(OAuthGrantType.AuthorizationCode);
                 retrieved.Settings.OAuthClient.ApplicationType.Should().Be(OpenIdConnectApplicationType.Native);
+
+                retrieved.Settings.OAuthClient.Jwks.Keys.Should().NotBeNullOrEmpty();
+                retrieved.Settings.OAuthClient.Jwks.Keys.FirstOrDefault().Alg.Should().Be(jwk.Alg);
+                retrieved.Settings.OAuthClient.Jwks.Keys.FirstOrDefault().Kty.Should().Be(jwk.Kty);
+                retrieved.Settings.OAuthClient.Jwks.Keys.FirstOrDefault().E.Should().Be(jwk.E);
+                retrieved.Settings.OAuthClient.Jwks.Keys.FirstOrDefault().N.Should().Be(jwk.N);
             }
             finally
             {
