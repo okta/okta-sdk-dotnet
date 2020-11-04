@@ -12,7 +12,7 @@ namespace Okta.Sdk
     /// <inheritdoc/>
     public partial class PasswordCredentialHash : Resource, IPasswordCredentialHash
     {
-        [Obsolete("This method will deprecated in the next major version. Use WorkFactor instead.")]
+        [Obsolete("This method is deprecated and will be removed in the next major release. Use WorkFactor instead.")]
         /// <summary>
         /// Gets and sets the <c>workFactor</c> property. 
         /// </summary>
