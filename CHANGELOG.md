@@ -1,6 +1,22 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v3.2.1
+
+### Features
+
+- Regenerate code using openapi 2.1.6
+- Add `RefreshToken` property to `OpenIdConnectApplicationSettingsClient`
+- Add `Jwks` property to `OpenIdConnectApplicationSettingsClient`
+
+### Additions
+
+- New models:  `OpenIdConnectRefreshTokenRotationType` and `OpenIdConnectApplicationSettingsRefreshToken`
+
+### Bug Fixes
+
+- Add `expand` property back to `GroupsClient.ListGroups` method (#447)
+
 ## v3.2.0
 
 ### Features
