@@ -27,6 +27,8 @@ namespace Okta.Sdk
 
         OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
 
+        IOpenIdConnectApplicationSettingsClientKeys Jwks { get; set; }
+
         string LogoUri { get; set; }
 
         string PolicyUri { get; set; }
@@ -34,6 +36,8 @@ namespace Okta.Sdk
         IList<string> PostLogoutRedirectUris { get; set; }
 
         IList<string> RedirectUris { get; set; }
+
+        IOpenIdConnectApplicationSettingsRefreshToken RefreshToken { get; set; }
 
         IList<OAuthResponseType> ResponseTypes { get; set; }
 

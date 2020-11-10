@@ -5,7 +5,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -465,6 +465,14 @@ namespace Okta.Sdk
                     },
                 },
             };
+
+            if (openIdApplicationOptions.Keys != null && openIdApplicationOptions.Keys.Any())
+            {
+                app.Settings.OAuthClient.Jwks = new OpenIdConnectApplicationSettingsClientKeys()
+                {
+                    Keys = openIdApplicationOptions.Keys,
+                };
+            }
 
             return CreateApplicationAsync(app, openIdApplicationOptions.Activate, cancellationToken);
         }

@@ -96,5 +96,10 @@ namespace Okta.Sdk
         /// Gets or sets the initiate-login URI
         /// </summary>
         public string InitiateLoginUri { get; set; }
+
+        /// <summary>
+        /// Gets or sets the keys.
+        /// </summary>
+        public IList<IJsonWebKey> Keys { get; set; }
     }
 }

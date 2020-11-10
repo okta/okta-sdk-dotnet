@@ -157,16 +157,16 @@ The SDK will automatically [paginate](https://developer.okta.com/docs/api/gettin
 
 ``` csharp
 // These different styles all perform the same action:
-var allUsers = await client.Users.ToArray();
-var allUsers = await client.Users.ToList();
-var allUsers = await client.Users.ListUsers().ToArray();
+var allUsers = await client.Users.ToArrayAsync();
+var allUsers = await client.Users.ToListAsync();
+var allUsers = await client.Users.ListUsers().ToArrayAsync();
 ```
 
 ### Filter or search for Users
 ``` csharp
 var foundUsers = await client.Users
                         .ListUsers(search: $"profile.nickName eq \"Skywalker\"")
-                        .ToArray();
+                        .ToArrayAsync();
 ```
 
 ### Create a User
@@ -226,10 +226,10 @@ await vader.DeactivateOrDeleteAsync();
 
 ``` csharp
 // Find the desired user
-var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // get the user's groups
-var groups = await user.Groups.ToList();
+var groups = await user.Groups.ToListAsync();
 ```
 
 ### Create a Group
@@ -244,10 +244,10 @@ await client.Groups.CreateGroupAsync(new CreateGroupOptions()
 ### Add a User to a Group
 ``` csharp
 // Find the desired user
-var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // find the desired group
-var group = await client.Groups.FirstOrDefault(x => x.Profile.Name == "Stormtroopers");
+var group = await client.Groups.FirstOrDefaultAsync(x => x.Profile.Name == "Stormtroopers");
 
 // add the user to the group by using their id's
 if (group != null && user != null)
@@ -260,7 +260,7 @@ if (group != null && user != null)
 
 ``` csharp
 // Find the desired user
-var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Get user factors
 var factors = await user.ListFactors().ToListAsync();
@@ -269,7 +269,7 @@ var factors = await user.ListFactors().ToListAsync();
 ### Enroll a User in a new Factor
 ``` csharp
 // Find the desired user
-var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Enroll in Okta SMS factor
 await user.AddFactorAsync(new AddSmsFactorOptions
@@ -280,10 +280,10 @@ await user.AddFactorAsync(new AddSmsFactorOptions
 ### Activate a Factor
 ``` csharp
 // Find the desired user
-var user = await client.Users.First(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.FirstAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Find the desired factor
-var smsFactor = await user.Factors.First(x => x.FactorType == FactorType.Sms);
+var smsFactor = await user.Factors.FirstAsync(x => x.FactorType == FactorType.Sms);
 
 // Activate sms factor
 var activateFactorRequest = new ActivateFactorRequest()
@@ -297,10 +297,10 @@ await client.UserFactors.ActivateFactorAsync(activateFactorRequest, user.Id, sms
 ### Verify a Factor
 ``` csharp
 // Find the desired user
-var user = await client.Users.FirstOrDefault(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
 
 // Find the desired factor
-var smsFactor = await user.Factors.FirstOrDefault(x => x.FactorType == FactorType.Sms);
+var smsFactor = await user.Factors.FirstOrDefaultAsync(x => x.FactorType == FactorType.Sms);
 
 // Verify sms factor
 var verifyFactorRequest = new VerifyFactorRequest()
@@ -319,7 +319,7 @@ If you need to send additional information via the `AcceptLanguage` header, use 
 
 ```csharp
 // Create scoped client with specific headers
-var scopedClient = client.CreatedScoped(new RequestContext() { AcceptLanguage = "de" });
+var scopedClient = client.CreateScoped(new RequestContext() { AcceptLanguage = "de" });
 
 await scopedClient.UserFactors.VerifyFactorAsync(userId, factorId, templateId);
 ```
@@ -327,10 +327,10 @@ await scopedClient.UserFactors.VerifyFactorAsync(userId, factorId, templateId);
 ### List all Applications
 ``` csharp
 // List all applications
-var appList = await client.Applications.Applications().ToArray();
+var appList = await client.Applications.ListApplications().ToArrayAsync();
 
 // List all applications of a specific type
-var bookmarkAppList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArray();
+var bookmarkAppList = await client.Applications.ListApplications().OfType<IBookmarkApplication>().ToArrayAsync();
 ```
 
 ### Get an Application

@@ -15,7 +15,7 @@ namespace Okta.Sdk
     public sealed partial class UserFactorsClient : OktaClient, IUserFactorsClient
     {
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default)
         {
             if (securityQuestionFactorOptions == null)
             {
@@ -39,7 +39,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default)
         {
             if (callFactorOptions == null)
             {
@@ -63,7 +63,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default)
         {
             if (emailFactorOptions == null)
             {
@@ -82,11 +82,11 @@ namespace Okta.Sdk
                 Profile = profile,
             };
 
-            return EnrollFactorAsync(factor, userId, cancellationToken: cancellationToken);
+            return EnrollFactorAsync(factor, userId, tokenLifetimeSeconds: emailFactorOptions.TokenLifetimeSeconds, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default)
         {
             if (hardwareFactorOptions == null)
             {
@@ -114,7 +114,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default)
         {
             if (pushFactorOptions == null)
             {
@@ -131,7 +131,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default)
         {
             if (smsFactorOptions == null)
             {
@@ -154,7 +154,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default)
         {
             if (tokenFactorOptions == null)
             {
@@ -189,7 +189,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(string userId, AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default)
         {
             if (totpFactorOptions == null)
             {
@@ -211,7 +211,31 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(string userId, AddCustomHotpFactorOptions hotpFactorOptions, CancellationToken cancellationToken = default)
+        {
+            if (hotpFactorOptions == null)
+            {
+                throw new ArgumentNullException(nameof(hotpFactorOptions));
+            }
+
+            var factorProfile = new CustomHotpUserFactorProfile
+            {
+                SharedSecret = hotpFactorOptions.ProfileSharedSecret,
+            };
+
+            var factor = new CustomHotpUserFactor
+            {
+                FactorType = FactorType.TokenHotp,
+                Provider = FactorProvider.Custom,
+                FactorProfileId = hotpFactorOptions.FactorProfileId,
+                Profile = factorProfile,
+            };
+
+            return EnrollFactorAsync(body: factor, userId: userId, activate: true, cancellationToken: cancellationToken);
+        }
+
+        /// <inheritdoc/>
+        public Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = null, CancellationToken cancellationToken = default)
             => VerifyFactorAsync(null, userId, factorId, templateId, null, cancellationToken);
 
         /// <inheritdoc/>

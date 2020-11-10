@@ -32,60 +32,64 @@ namespace Okta.Sdk
             => GetClient().UserFactors.ListFactors(Id);
 
         /// <inheritdoc/>
-        public Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserCredentials> ChangePasswordAsync(ChangePasswordOptions options, CancellationToken cancellationToken = default)
             => GetClient().Users.ChangePasswordAsync(Id, options, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IResetPasswordToken> ResetPasswordAsync(bool? sendEmail = true, CancellationToken cancellationToken = default)
             => GetClient().Users.ResetPasswordAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc/>
-        public Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
+        public Task DeactivateOrDeleteAsync(bool? sendEmail = false, CancellationToken cancellationToken = default)
             => GetClient().Users.DeactivateOrDeleteUserAsync(Id, sendEmail, cancellationToken);
 
         /// <inheritdoc/>
-        public Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))
+        public Task ChangeRecoveryQuestionAsync(ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default)
             => GetClient().Users.ChangeRecoveryQuestionAsync(Id, options, cancellationToken);
 
         /// <inheritdoc/>
-        public Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task RemoveFromGroupAsync(string groupId, CancellationToken cancellationToken = default)
             => GetClient().Groups.RemoveUserFromGroupAsync(groupId, Id, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUser> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUser> UpdateAsync(CancellationToken cancellationToken = default)
             => GetClient().Users.UpdateUserAsync(this, Id, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, securityQuestionFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, callFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, emailFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, hardwareFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, pushFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, smsFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, tokenFactorOptions, cancellationToken);
 
         /// <inheritdoc/>
-        public Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IUserFactor> AddFactorAsync(AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default)
             => GetClient().UserFactors.AddFactorAsync(Id, totpFactorOptions, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task<IUserFactor> AddFactorAsync(AddCustomHotpFactorOptions hotpFactorOptions, CancellationToken cancellationToken = default)
+            => GetClient().UserFactors.AddFactorAsync(Id, hotpFactorOptions, cancellationToken);
 
         /// <inheritdoc />
         public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))

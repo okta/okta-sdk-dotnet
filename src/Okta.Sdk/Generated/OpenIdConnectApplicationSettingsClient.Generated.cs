@@ -59,6 +59,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IOpenIdConnectApplicationSettingsClientKeys Jwks 
+        {
+            get => GetResourceProperty<OpenIdConnectApplicationSettingsClientKeys>("jwks");
+            set => this["jwks"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string LogoUri 
         {
             get => GetStringProperty("logo_uri");
@@ -84,6 +91,13 @@ namespace Okta.Sdk
         {
             get => GetArrayProperty<string>("redirect_uris");
             set => this["redirect_uris"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IOpenIdConnectApplicationSettingsRefreshToken RefreshToken 
+        {
+            get => GetResourceProperty<OpenIdConnectApplicationSettingsRefreshToken>("refresh_token");
+            set => this["refresh_token"] = value;
         }
         
         /// <inheritdoc/>
