@@ -35,5 +35,11 @@ namespace Okta.Sdk
 
         string Type { get; set; }
 
+        Task ActivateAsync(
+            string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task DeactivateAsync(
+            string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }
