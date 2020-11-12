@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -256,7 +257,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -290,6 +291,466 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task ListAuthorizationServerPolicyRules()
+        {
+            var testClient = TestClient.Create();
+            var testAuthorizationServerName = $"{SdkPrefix}:Test AuthZ Server ({TestClient.RandomString(4)})";
+
+            var testAuthorizationServer = new AuthorizationServer
+            {
+                Name = testAuthorizationServerName,
+                Description = "Test Authorization Server",
+                Audiences = new string[] { "api://default" },
+            };
+            var testPolicy = new AuthorizationServerPolicy
+            {
+                Type = PolicyType.OAuthAuthorizationPolicy,
+                Status = "ACTIVE",
+                Name = "Test Policy",
+                Description = "Test policy",
+                Priority = 1,
+                Conditions = new PolicyRuleConditions
+                {
+                    Clients = new ClientPolicyCondition
+                    {
+                        Include = new List<string> { "ALL_CLIENTS" },
+                    },
+                },
+            };
+
+            var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
+            try
+            {
+                var policy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
+                policy.Should().NotBeNull();
+
+                var policyRule = new AuthorizationServerPolicyRule
+                {
+                    Name = $"{SdkPrefix}:{nameof(ListAuthorizationServerPolicyRules)}",
+                    Type = "RESOURCE_ACCESS",
+                    Priority = 1,
+                    Conditions = new AuthorizationServerPolicyRuleConditions
+                    {
+                        People = new PolicyPeopleCondition
+                        {
+                            Groups = new GroupCondition
+                            {
+                                Include = new List<string>() { "EVERYONE" },
+                            },
+                        },
+                        GrantTypes = new GrantTypePolicyRuleCondition
+                        {
+                            Include = new List<string>() { "implicit", "client_credentials", "authorization_code", "password" },
+                        },
+                        Scopes = new OAuth2ScopesMediationPolicyRuleCondition
+                        {
+                            Include = new List<string>() { "openid", "email", "address" },
+                        },
+                    },
+                    Actions = new AuthorizationServerPolicyRuleActions
+                    {
+                        Token = new TokenAuthorizationServerPolicyRuleAction
+                        {
+                            AccessTokenLifetimeMinutes = 60,
+                            RefreshTokenLifetimeMinutes = 0,
+                            RefreshTokenWindowMinutes = 10080,
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await testClient.AuthorizationServers.CreateAuthorizationServerPolicyRuleAsync(policyRule, createdPolicy.Id, createdAuthorizationServer.Id);
+
+                var rules = await testClient.AuthorizationServers.ListAuthorizationServerPolicyRules(createdPolicy.Id, createdAuthorizationServer.Id).ToListAsync();
+
+                rules.Should().NotBeNull();
+                rules.FirstOrDefault(x => x.Name == policyRule.Name).Should().NotBeNull();
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeletePolicyAsync(createdPolicy.Id);
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateAuthorizationServerPolicyRule()
+        {
+            var testClient = TestClient.Create();
+            var testAuthorizationServerName = $"{SdkPrefix}:Test AuthZ Server ({TestClient.RandomString(4)})";
+
+            var testAuthorizationServer = new AuthorizationServer
+            {
+                Name = testAuthorizationServerName,
+                Description = "Test Authorization Server",
+                Audiences = new string[] { "api://default" },
+            };
+            var testPolicy = new AuthorizationServerPolicy
+            {
+                Type = PolicyType.OAuthAuthorizationPolicy,
+                Status = "ACTIVE",
+                Name = "Test Policy",
+                Description = "Test policy",
+                Priority = 1,
+                Conditions = new PolicyRuleConditions
+                {
+                    Clients = new ClientPolicyCondition
+                    {
+                        Include = new List<string> { "ALL_CLIENTS" },
+                    },
+                },
+            };
+
+            var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
+            try
+            {
+                var policy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
+                policy.Should().NotBeNull();
+
+                var policyRule = new AuthorizationServerPolicyRule
+                {
+                    Name = $"{SdkPrefix}:{nameof(CreateAuthorizationServerPolicyRule)}",
+                    Type = "RESOURCE_ACCESS",
+                    Priority = 1,
+                    Conditions = new AuthorizationServerPolicyRuleConditions
+                    {
+                        People = new PolicyPeopleCondition
+                        {
+                            Groups = new GroupCondition
+                            {
+                                Include = new List<string>() { "EVERYONE" },
+                            },
+                        },
+                        GrantTypes = new GrantTypePolicyRuleCondition
+                        {
+                            Include = new List<string>() { "implicit", "client_credentials", "authorization_code", "password" },
+                        },
+                        Scopes = new OAuth2ScopesMediationPolicyRuleCondition
+                        {
+                            Include = new List<string>() { "openid", "email", "address" },
+                        },
+                    },
+                    Actions = new AuthorizationServerPolicyRuleActions
+                    {
+                        Token = new TokenAuthorizationServerPolicyRuleAction
+                        {
+                            AccessTokenLifetimeMinutes = 60,
+                            RefreshTokenLifetimeMinutes = 0,
+                            RefreshTokenWindowMinutes = 10080,
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await testClient.AuthorizationServers.CreateAuthorizationServerPolicyRuleAsync(policyRule, createdPolicy.Id, createdAuthorizationServer.Id);
+                createdPolicyRule.Should().NotBeNull();
+                createdPolicyRule.Name.Should().Be(policyRule.Name);
+                createdPolicyRule.Type.Should().Be("RESOURCE_ACCESS");
+                createdPolicyRule.Priority.Should().Be(1);
+                createdPolicyRule.Conditions.People.Groups.Include.Should().Contain("EVERYONE");
+                createdPolicyRule.Conditions.GrantTypes.Include.Should().Contain(new List<string>() { "implicit", "client_credentials", "authorization_code", "password" });
+                createdPolicyRule.Conditions.Scopes.Include.Should().Contain(new List<string>() { "openid", "email", "address" });
+                createdPolicyRule.Actions.Token.AccessTokenLifetimeMinutes.Should().Be(60);
+                createdPolicyRule.Actions.Token.RefreshTokenLifetimeMinutes.Should().Be(0);
+                createdPolicyRule.Actions.Token.RefreshTokenWindowMinutes.Should().Be(10080);
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeletePolicyAsync(createdPolicy.Id);
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetAuthorizationServerPolicyRule()
+        {
+            var testClient = TestClient.Create();
+            var testAuthorizationServerName = $"{SdkPrefix}:Test AuthZ Server ({TestClient.RandomString(4)})";
+
+            var testAuthorizationServer = new AuthorizationServer
+            {
+                Name = testAuthorizationServerName,
+                Description = "Test Authorization Server",
+                Audiences = new string[] { "api://default" },
+            };
+            var testPolicy = new AuthorizationServerPolicy
+            {
+                Type = PolicyType.OAuthAuthorizationPolicy,
+                Status = "ACTIVE",
+                Name = "Test Policy",
+                Description = "Test policy",
+                Priority = 1,
+                Conditions = new PolicyRuleConditions
+                {
+                    Clients = new ClientPolicyCondition
+                    {
+                        Include = new List<string> { "ALL_CLIENTS" },
+                    },
+                },
+            };
+
+            var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
+
+            try
+            {
+                var policy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
+                policy.Should().NotBeNull();
+
+                var policyRule = new AuthorizationServerPolicyRule
+                {
+                    Name = $"{SdkPrefix}:{nameof(GetAuthorizationServerPolicyRule)}",
+                    Type = "RESOURCE_ACCESS",
+                    Priority = 1,
+                    Conditions = new AuthorizationServerPolicyRuleConditions
+                    {
+                        People = new PolicyPeopleCondition
+                        {
+                            Groups = new GroupCondition
+                            {
+                                Include = new List<string>() { "EVERYONE" },
+                            },
+                        },
+                        GrantTypes = new GrantTypePolicyRuleCondition
+                        {
+                            Include = new List<string>() { "implicit", "client_credentials", "authorization_code", "password" },
+                        },
+                        Scopes = new OAuth2ScopesMediationPolicyRuleCondition
+                        {
+                            Include = new List<string>() { "openid", "email", "address" },
+                        },
+                    },
+                    Actions = new AuthorizationServerPolicyRuleActions
+                    {
+                        Token = new TokenAuthorizationServerPolicyRuleAction
+                        {
+                            AccessTokenLifetimeMinutes = 60,
+                            RefreshTokenLifetimeMinutes = 0,
+                            RefreshTokenWindowMinutes = 10080,
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await createdPolicy.CreatePolicyRuleAsync(policyRule, createdAuthorizationServer.Id);
+                var retrievedPolicyRule = await createdPolicy.GetPolicyRuleAsync(createdAuthorizationServer.Id, createdPolicyRule.Id);
+
+                retrievedPolicyRule.Should().NotBeNull();
+                retrievedPolicyRule.Id.Should().Be(createdPolicyRule.Id);
+                retrievedPolicyRule.Name.Should().Be(policyRule.Name);
+                retrievedPolicyRule.Type.Should().Be("RESOURCE_ACCESS");
+                retrievedPolicyRule.Priority.Should().Be(1);
+                retrievedPolicyRule.Conditions.People.Groups.Include.Should().Contain("EVERYONE");
+                retrievedPolicyRule.Conditions.GrantTypes.Include.Should().Contain(new List<string>() { "implicit", "client_credentials", "authorization_code", "password" });
+                retrievedPolicyRule.Conditions.Scopes.Include.Should().Contain(new List<string>() { "openid", "email", "address" });
+                retrievedPolicyRule.Actions.Token.AccessTokenLifetimeMinutes.Should().Be(60);
+                retrievedPolicyRule.Actions.Token.RefreshTokenLifetimeMinutes.Should().Be(0);
+                retrievedPolicyRule.Actions.Token.RefreshTokenWindowMinutes.Should().Be(10080);
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeletePolicyAsync(createdPolicy.Id);
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UpdateAuthorizationServerPolicyRule()
+        {
+            var testClient = TestClient.Create();
+            var testAuthorizationServerName = $"{SdkPrefix}:Test AuthZ Server ({TestClient.RandomString(4)})";
+
+            var testAuthorizationServer = new AuthorizationServer
+            {
+                Name = testAuthorizationServerName,
+                Description = "Test Authorization Server",
+                Audiences = new string[] { "api://default" },
+            };
+            var testPolicy = new AuthorizationServerPolicy
+            {
+                Type = PolicyType.OAuthAuthorizationPolicy,
+                Status = "ACTIVE",
+                Name = "Test Policy",
+                Description = "Test policy",
+                Priority = 1,
+                Conditions = new PolicyRuleConditions
+                {
+                    Clients = new ClientPolicyCondition
+                    {
+                        Include = new List<string> { "ALL_CLIENTS" },
+                    },
+                },
+            };
+
+            var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
+            try
+            {
+                var policy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
+                policy.Should().NotBeNull();
+
+                var policyRule = new AuthorizationServerPolicyRule
+                {
+                    Name = $"{SdkPrefix}:{nameof(UpdateAuthorizationServerPolicyRule)}",
+                    Type = "RESOURCE_ACCESS",
+                    Priority = 1,
+                    Conditions = new AuthorizationServerPolicyRuleConditions
+                    {
+                        People = new PolicyPeopleCondition
+                        {
+                            Groups = new GroupCondition
+                            {
+                                Include = new List<string>() { "EVERYONE" },
+                            },
+                        },
+                        GrantTypes = new GrantTypePolicyRuleCondition
+                        {
+                            Include = new List<string>() { "implicit", "client_credentials", "authorization_code", "password" },
+                        },
+                        Scopes = new OAuth2ScopesMediationPolicyRuleCondition
+                        {
+                            Include = new List<string>() { "openid", "email", "address" },
+                        },
+                    },
+                    Actions = new AuthorizationServerPolicyRuleActions
+                    {
+                        Token = new TokenAuthorizationServerPolicyRuleAction
+                        {
+                            AccessTokenLifetimeMinutes = 60,
+                            RefreshTokenLifetimeMinutes = 0,
+                            RefreshTokenWindowMinutes = 10080,
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await createdPolicy.CreatePolicyRuleAsync(policyRule, createdAuthorizationServer.Id);
+                var retrievedPolicyRule = await createdPolicy.GetPolicyRuleAsync(createdAuthorizationServer.Id, createdPolicyRule.Id);
+
+                retrievedPolicyRule.Should().NotBeNull();
+                retrievedPolicyRule.Id.Should().Be(createdPolicyRule.Id);
+                retrievedPolicyRule.Name.Should().Be(policyRule.Name);
+                retrievedPolicyRule.Type.Should().Be("RESOURCE_ACCESS");
+                retrievedPolicyRule.Priority.Should().Be(1);
+                retrievedPolicyRule.Conditions.People.Groups.Include.Should().Contain("EVERYONE");
+                retrievedPolicyRule.Conditions.GrantTypes.Include.Should().Contain(new List<string>() { "implicit", "client_credentials", "authorization_code", "password" });
+                retrievedPolicyRule.Conditions.Scopes.Include.Should().Contain(new List<string>() { "openid", "email", "address" });
+                retrievedPolicyRule.Actions.Token.AccessTokenLifetimeMinutes.Should().Be(60);
+                retrievedPolicyRule.Actions.Token.RefreshTokenLifetimeMinutes.Should().Be(0);
+                retrievedPolicyRule.Actions.Token.RefreshTokenWindowMinutes.Should().Be(10080);
+
+                createdPolicyRule.Name = $"{SdkPrefix}: Name Updated";
+                createdPolicyRule.Priority = 2;
+                createdPolicyRule.Actions.Token.AccessTokenLifetimeMinutes = 65;
+                createdPolicyRule.Actions.Token.RefreshTokenLifetimeMinutes = 65;
+                createdPolicyRule.Actions.Token.RefreshTokenWindowMinutes = 65;
+
+                var updatedPolicyRule = await testClient.AuthorizationServers.UpdateAuthorizationServerPolicyRuleAsync(createdPolicyRule, createdPolicy.Id, createdAuthorizationServer.Id, createdPolicyRule.Id);
+
+                updatedPolicyRule.Name.Should().Be(createdPolicyRule.Name);
+                updatedPolicyRule.Priority = 2;
+                updatedPolicyRule.Actions.Token.AccessTokenLifetimeMinutes = 65;
+                updatedPolicyRule.Actions.Token.RefreshTokenLifetimeMinutes = 65;
+                updatedPolicyRule.Actions.Token.RefreshTokenWindowMinutes = 65;
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeletePolicyAsync(createdPolicy.Id);
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
+        }
+
+        [Fact]
+        public async Task DeleteAuthorizationServerPolicyRule()
+        {
+            var testClient = TestClient.Create();
+            var testAuthorizationServerName = $"{SdkPrefix}:Test AuthZ Server ({TestClient.RandomString(4)})";
+
+            var testAuthorizationServer = new AuthorizationServer
+            {
+                Name = testAuthorizationServerName,
+                Description = "Test Authorization Server",
+                Audiences = new string[] { "api://default" },
+            };
+            var testPolicy = new AuthorizationServerPolicy
+            {
+                Type = PolicyType.OAuthAuthorizationPolicy,
+                Status = "ACTIVE",
+                Name = "Test Policy",
+                Description = "Test policy",
+                Priority = 1,
+                Conditions = new PolicyRuleConditions
+                {
+                    Clients = new ClientPolicyCondition
+                    {
+                        Include = new List<string> { "ALL_CLIENTS" },
+                    },
+                },
+            };
+
+            var createdAuthorizationServer = await testClient.AuthorizationServers.CreateAuthorizationServerAsync(testAuthorizationServer);
+            var createdPolicy = await createdAuthorizationServer.CreatePolicyAsync(testPolicy);
+            try
+            {
+                var policy = await createdAuthorizationServer.GetPolicyAsync(createdPolicy.Id);
+                policy.Should().NotBeNull();
+
+                var policyRule = new AuthorizationServerPolicyRule
+                {
+                    Name = $"{SdkPrefix}:{nameof(DeleteAuthorizationServerPolicyRule)}",
+                    Type = "RESOURCE_ACCESS",
+                    Priority = 1,
+                    Conditions = new AuthorizationServerPolicyRuleConditions
+                    {
+                        People = new PolicyPeopleCondition
+                        {
+                            Groups = new GroupCondition
+                            {
+                                Include = new List<string>() { "EVERYONE" },
+                            },
+                        },
+                        GrantTypes = new GrantTypePolicyRuleCondition
+                        {
+                            Include = new List<string>() { "implicit", "client_credentials", "authorization_code", "password" },
+                        },
+                        Scopes = new OAuth2ScopesMediationPolicyRuleCondition
+                        {
+                            Include = new List<string>() { "openid", "email", "address" },
+                        },
+                    },
+                    Actions = new AuthorizationServerPolicyRuleActions
+                    {
+                        Token = new TokenAuthorizationServerPolicyRuleAction
+                        {
+                            AccessTokenLifetimeMinutes = 60,
+                            RefreshTokenLifetimeMinutes = 0,
+                            RefreshTokenWindowMinutes = 10080,
+                        },
+                    },
+                };
+
+                var createdPolicyRule = await createdPolicy.CreatePolicyRuleAsync(policyRule, createdAuthorizationServer.Id);
+
+                var rules = await testClient.AuthorizationServers.ListAuthorizationServerPolicyRules(createdPolicy.Id, createdAuthorizationServer.Id).ToListAsync();
+
+                rules.Should().NotBeNull();
+                rules.FirstOrDefault(x => x.Name == policyRule.Name).Should().NotBeNull();
+
+                await createdPolicy.DeletePolicyRuleAsync(createdAuthorizationServer.Id, createdPolicyRule.Id); //testClient.AuthorizationServers.DeleteAuthorizationServerPolicyRuleAsync(createdPolicy.Id, createdAuthorizationServer.Id, createdPolicyRule.Id);
+                rules = await createdPolicy.ListPolicyRules(createdAuthorizationServer.Id).ToListAsync();
+                rules.FirstOrDefault(x => x.Name == policyRule.Name).Should().BeNull();
+            }
+            finally
+            {
+                await createdAuthorizationServer.DeletePolicyAsync(createdPolicy.Id);
+                await createdAuthorizationServer.DeactivateAsync();
+                await testClient.AuthorizationServers.DeleteAuthorizationServerAsync(createdAuthorizationServer.Id);
+            }
+        }
+
+        [Fact]
         public async Task GetAuthorizationServerPolicy()
         {
             var testClient = TestClient.Create();
@@ -301,7 +762,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -350,7 +811,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new Policy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Type = PolicyType.OAuthAuthorizationPolicy,
                 Status = "ACTIVE",
@@ -395,7 +856,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new OAuthAuthorizationPolicy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
                 Type = PolicyType.OAuthAuthorizationPolicy,
@@ -443,7 +904,7 @@ namespace Okta.Sdk.IntegrationTests
                 Description = "Test Authorization Server",
                 Audiences = new string[] { "api://default" },
             };
-            var testPolicy = new OAuthAuthorizationPolicy
+            var testPolicy = new AuthorizationServerPolicy
             {
                 Name = $"{SdkPrefix}:Test Policy",
                 Type = PolicyType.OAuthAuthorizationPolicy,
