@@ -72,6 +72,8 @@ The SDK is compatible with:
 * .NET Framework 4.6.1 or higher
 * .NET Core 3.0 or higher
 
+Visual Studio 2017 or newer is required as previous versions are not compatible with the above frameworks.
+
 ### Install using Nuget Package Manager
  1. Right-click on your project in the Solution Explorer and choose **Manage Nuget Packages...**
  2. Search for Okta. Install the `Okta.Sdk` package.
