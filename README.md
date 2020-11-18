@@ -71,6 +71,7 @@ The SDK is compatible with:
 * [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1
 * .NET Framework 4.6.1 or higher
 * .NET Core 3.0 or higher
+* .NET 5.0
 
 Visual Studio 2017 or newer is required as previous versions are not compatible with the above frameworks.
 
