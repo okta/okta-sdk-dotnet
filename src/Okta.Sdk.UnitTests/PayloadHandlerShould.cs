@@ -51,7 +51,9 @@ namespace Okta.Sdk.UnitTests
             httpRequestMessage.Headers.Contains("Content-Transfer-Encoding").Should().BeTrue();
 
             // if there is no content transfer encoding on the request then the value from the PayloadHandler is used
-            httpRequestMessage.Headers.ToString().Should().Be("Content-Transfer-Encoding: testContentTransferEncoding-fromPayloadHandler\r\n");
+            httpRequestMessage.Headers.ToString().Should().BeOneOf(
+                "Content-Transfer-Encoding: testContentTransferEncoding-fromPayloadHandler\n",
+                "Content-Transfer-Encoding: testContentTransferEncoding-fromPayloadHandler\r\n");
             httpRequestMessage.Content.Should().NotBeNull();
             httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
         }
@@ -77,7 +79,9 @@ namespace Okta.Sdk.UnitTests
             httpRequestMessage.Headers.Contains("Content-Transfer-Encoding").Should().BeTrue();
 
             // the content transfer encoding set on the request should win over the content transfer encoding set on the payload handler
-            httpRequestMessage.Headers.ToString().Should().Be("Content-Transfer-Encoding: testContentTransferEncoding-fromRequest\r\n");
+            httpRequestMessage.Headers.ToString().Should().BeOneOf(
+                "Content-Transfer-Encoding: testContentTransferEncoding-fromRequest\n",
+                "Content-Transfer-Encoding: testContentTransferEncoding-fromRequest\r\n");
             httpRequestMessage.Content.Should().NotBeNull();
             httpRequestMessage.Content.GetType().Should().Be(typeof(StringContent));
         }
