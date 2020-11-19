@@ -21,8 +21,8 @@ namespace Okta.Sdk
         /// <param name="type"></param>
         /// <param name="status"></param>
         /// <param name="expand"></param>
-        /// <returns>A collection of <see cref="IPolicy"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IPolicy> ListPolicies(string type, string status = null, string expand = "");
+        /// <returns>A collection of <see cref="IAuthorizationServerPolicy"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IAuthorizationServerPolicy> ListPolicies(string type, string status = null, string expand = "");
 
         /// <summary>
         /// Creates a policy.
