@@ -1,6 +1,16 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v4.0.0
+
+### Features
+
+- Add new models for [Authorization Server Policies and Policy Rules](https://developer.okta.com/docs/reference/api/authorization-servers/#authorization-server-operations)
+
+### Bug Fixes
+
+- Fix AuthorizationServer.Policy.ListPolicyRules 404 error (#415). This fix requires a breaking change.
+
 ## v3.2.1
 
 ### Features

@@ -2,6 +2,56 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 3.x to 4.x
+
+The 3.x series of this library introduced a new client for Authorization Servers. This client had an issue when trying to retrieve policy rules for given Authorization Server Policy. In order to fix this issue, new policy models were created to represent both policies and policy rules for Authorization Servers.
+
+Because this was a breaking change, Okta.Sdk was published with version numbers starting from 4.0.0.
+
+All Authorization Server methods that manipulate Policies and/or Policy Rules have changed:
+
+### `AuthorizationServer`
+
+Below APIs has undergone a signature change.
+
+*  `public ICollectionClient<IPolicy> ListPolicies()` changed to `public ICollectionClient<IAuthorizationServerPolicy> ListPolicies()`
+> Note that the method returns now an `IAuthorizationServerPolicy`.
+
+* ` public Task<IPolicy> CreatePolicyAsync(IPolicy policy, CancellationToken cancellationToken = default(CancellationToken))` changed to `public Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy policy, CancellationToken cancellationToken = default(CancellationToken))` 
+
+> Note that the method expects and returns now an `IAuthorizationServerPolicy`.
+
+* `public Task<IPolicy> GetPolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))` changed to `public Task<IAuthorizationServerPolicy> GetPolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))`
+
+> Note that the method returns now an `IAuthorizationServerPolicy`.
+
+### `AuthorizationServersClient`
+
+Below APIs has undergone a signature change.
+
+* `public ICollectionClient<IPolicy> ListAuthorizationServerPolicies(string authServerId)` changed to `public ICollectionClient<IAuthorizationServerPolicy> ListAuthorizationServerPolicies(string authServerId)`
+
+> Note that the method returns now an `ICollectionClient` of `IAuthorizationServerPolicy`.
+
+* `public async Task<IPolicy> CreateAuthorizationServerPolicyAsync(IPolicy policy, string authServerId, CancellationToken cancellationToken = default(CancellationToken))` change to `public async Task<IAuthorizationServerPolicy> CreateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, CancellationToken cancellationToken = default(CancellationToken))`
+
+> Note that the method expects and returns now an `IAuthorizationServerPolicy`.
+
+* `public async Task<IPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))` changed to `public async Task<IAuthorizationServerPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))`
+
+> Note that the method returns now an `IAuthorizationServerPolicy`.
+
+* ` public async Task<IPolicy> UpdateAuthorizationServerPolicyAsync(IPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))` changed to `public async Task<IAuthorizationServerPolicy> UpdateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))`
+
+> Note that the method expects and returns now an `IAuthorizationServerPolicy`.
+
+You now can get policy rules given an Authorization Server Policy:
+
+```csharp
+var authorizationServerPolicy = await authorizationServer.GetPolicyAsync(policy.Id);
+var authorizationServerPolicyRules = await authorizationServerPolicy.ListPolicyRules(authorizationServer.Id).ToListAsync();
+```
+
 ## Migrating from 2.0.0 to 3.x
 
 Version 3.0.0 of this library introduces a number of breaking changes from previous versions; in addition to new classes some class definitions are no longer backward compatible due to method renames and signature changes, see [Breaking Changes](#breaking-changes).

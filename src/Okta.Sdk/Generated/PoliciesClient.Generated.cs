@@ -29,8 +29,8 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IPolicy> ListPolicies(string type, string status = null, string expand = "")
-            => GetCollectionClient<IPolicy>(new HttpRequest
+        public ICollectionClient<IAuthorizationServerPolicy> ListPolicies(string type, string status = null, string expand = "")
+            => GetCollectionClient<IAuthorizationServerPolicy>(new HttpRequest
             {
                 Uri = "/api/v1/policies",
                 Verb = HttpVerb.Get,

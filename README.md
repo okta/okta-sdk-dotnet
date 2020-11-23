@@ -51,7 +51,8 @@ This library uses semantic versioning and follows Okta's [library version policy
 | 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
 | 1.x | :warning: Retiring on 2020-12-27 |
 | 2.x | :warning: Retiring on 2021-04-10 ([migration guide](MIGRATING.md))  |
-| 3.x | :heavy_check_mark: Stable |
+| 3.x | :warning: Retiring on 2021-08-11 ([migration guide](MIGRATING.md)) |
+| 4.x | :heavy_check_mark: Stable |
 
  
 The latest release can always be found on the [releases page][github-releases].
@@ -71,6 +72,7 @@ The SDK is compatible with:
 * [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/library) 2.0 and 2.1
 * .NET Framework 4.6.1 or higher
 * .NET Core 3.0 or higher
+* .NET 5.0
 
 Visual Studio 2017 or newer is required as previous versions are not compatible with the above frameworks.
 
