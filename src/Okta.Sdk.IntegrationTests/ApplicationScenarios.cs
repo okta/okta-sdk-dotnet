@@ -1822,5 +1822,43 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Applications.DeleteApplicationAsync(createdApp.Id);
             }
         }
+
+        [Fact]
+        public async Task UpdateApplicationProfile()
+        {
+            var oktaClient = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var appCreateOptions = new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: {nameof(UpdateApplicationProfile)} {guid}",
+                Activate = true,
+                ResponseTypes = new[] {OAuthResponseType.Code },
+                GrantTypes = new[] { OAuthGrantType.AuthorizationCode, OAuthGrantType.ClientCredentials },
+                ApplicationType = OpenIdConnectApplicationType.Service,
+                RedirectUris = new[] { "https://example.com" },
+            };
+
+            var newApp = await oktaClient.Applications.CreateApplicationAsync(appCreateOptions);
+
+            var whitelist = newApp.Profile.GetArrayProperty<string>("whitelist");
+            whitelist.Add("test");
+
+            try
+            {
+                await oktaClient.Applications.UpdateApplicationAsync(newApp, newApp.Id);
+                var persistedApp = await oktaClient.Applications.GetApplicationAsync(newApp.Id);
+                var listProperty = persistedApp.Profile.GetArrayProperty<string>("whitelist");
+                listProperty.Should().HaveCount(1);
+                listProperty.First().Should().Be("test");
+            }
+            finally
+            {
+                // Remove App
+                await oktaClient.Applications.DeactivateApplicationAsync(newApp.Id);
+                await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
+            }
+        }
+
     }
 }
