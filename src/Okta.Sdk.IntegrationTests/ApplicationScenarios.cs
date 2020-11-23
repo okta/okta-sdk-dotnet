@@ -1840,15 +1840,14 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var newApp = await oktaClient.Applications.CreateApplicationAsync(appCreateOptions);
-
-            var whitelist = newApp.Profile.GetArrayProperty<string>("whitelist");
-            whitelist.Add("test");
+            var somelist = newApp.Profile.GetArrayProperty<string>("somelist");
+            somelist.Add("test");
 
             try
             {
                 await oktaClient.Applications.UpdateApplicationAsync(newApp, newApp.Id);
                 var persistedApp = await oktaClient.Applications.GetApplicationAsync(newApp.Id);
-                var listProperty = persistedApp.Profile.GetArrayProperty<string>("whitelist");
+                var listProperty = persistedApp.Profile.GetArrayProperty<string>("somelist");
                 listProperty.Should().HaveCount(1);
                 listProperty.First().Should().Be("test");
             }
