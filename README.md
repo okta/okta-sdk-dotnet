@@ -3,6 +3,7 @@
 [![Support](https://img.shields.io/badge/support-Developer%20Forum-blue.svg)][devforum]
 [![API Reference](https://img.shields.io/badge/docs-reference-lightgrey.svg)][dotnetdocs]
 
+
 # Okta .NET management SDK
 
 * [Release status](#release-status)
