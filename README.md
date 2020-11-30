@@ -510,7 +510,7 @@ okta:
       maxRetries: 4
 ```
  
-When you use OAuth 2.0 the full YAML configuration looks like:
+When you use OAuth 2.0 the full YAML configuration looks like this when using EC key:
 
 ```yaml
 okta:
@@ -532,6 +532,36 @@ okta:
         crv: "P-256"
         x: "{x}"
         y: "{y}"
+    requestTimeout: 0 # seconds
+    rateLimit:
+      maxRetries: 4
+```
+
+Or like this for RSA key:
+
+```yaml
+okta:
+  client:
+    connectionTimeout: 30 # seconds
+    oktaDomain: "https://{yourOktaDomain}"
+    proxy:
+      port: null
+      host: null
+      username: null
+      password: null
+    authorizationMode: "PrivateKey"
+    clientId: "{yourClientId}"
+    Scopes:
+    - scope1
+    - scope2
+    PrivateKey: 
+      "p": "{p}"
+      "kty": "RSA"
+      "q": "{q}"
+      "d": "{d}"
+      "e": "{e}"
+      "kid": "{kid}"
+      "qi": "{qi}"
     requestTimeout: 0 # seconds
     rateLimit:
       maxRetries: 4

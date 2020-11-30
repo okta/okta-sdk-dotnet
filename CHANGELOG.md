@@ -10,6 +10,7 @@ Running changelog of releases since `3.1.1`
 ### Bug Fixes
 
 - Fix AuthorizationServer.Policy.ListPolicyRules 404 error (#415). This fix requires a breaking change.
+- Fix "New IApplication.Profile doesn't save when empty" issue (#319).
 
 ## v3.2.1
 
