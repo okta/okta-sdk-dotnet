@@ -490,6 +490,7 @@ This library looks for configuration in the following sources:
 5. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
  
 Higher numbers win. In other words, configuration passed via the constructor will override configuration found in environment variables, which will override configuration in `okta.yaml` (if any), and so on.
+
 Note that `json` files cannot be used if they contain JavaScript comments. Comments are not allowed by JSON format.
  
 ### YAML configuration
