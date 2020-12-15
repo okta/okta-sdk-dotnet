@@ -484,7 +484,7 @@ keep in mind that this configuration will also affect how all other date-formatt
 This library looks for configuration in the following sources:
  
 1. An `okta.yaml` file in a `.okta` folder in the current user's home directory (`~/.okta/okta.yaml` or `%userprofile%\.okta\okta.yaml`)
-2. An `appsettings.json` file in in the application or project's root directory
+2. An `appsettings.json` file in the application or project's root directory
 3. An `okta.yaml` file in a `.okta` folder in the application or project's root directory
 4. Environment variables
 5. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
