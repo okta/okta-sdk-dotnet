@@ -484,11 +484,14 @@ keep in mind that this configuration will also affect how all other date-formatt
 This library looks for configuration in the following sources:
  
 1. An `okta.yaml` file in a `.okta` folder in the current user's home directory (`~/.okta/okta.yaml` or `%userprofile%\.okta\okta.yaml`)
-2. An `okta.yaml` file in a `.okta` folder in the application or project's root directory
-3. Environment variables
-4. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
+2. An `appsettings.json` file in the application or project's root directory
+3. An `okta.yaml` file in a `.okta` folder in the application or project's root directory
+4. Environment variables
+5. Configuration explicitly passed to the constructor (see the example in [Getting started](#getting-started))
  
 Higher numbers win. In other words, configuration passed via the constructor will override configuration found in environment variables, which will override configuration in `okta.yaml` (if any), and so on.
+
+Note that `json` files cannot be used if they contain JavaScript comments. Comments are not allowed by JSON format.
  
 ### YAML configuration
  
