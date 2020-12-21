@@ -229,8 +229,8 @@ await vader.DeactivateOrDeleteAsync();
 ### List a User's Groups
 
 ``` csharp
-// Find the desired user
-var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+// Retrieve the desired user
+var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
 
 // get the user's groups
 var groups = await user.Groups.ToListAsync();
@@ -247,8 +247,8 @@ await client.Groups.CreateGroupAsync(new CreateGroupOptions()
 
 ### Add a User to a Group
 ``` csharp
-// Find the desired user
-var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+// Retrieve the desired user
+var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
 
 // find the desired group
 var group = await client.Groups.FirstOrDefaultAsync(x => x.Profile.Name == "Stormtroopers");
@@ -272,8 +272,8 @@ var factors = await user.ListFactors().ToListAsync();
 
 ### Enroll a User in a new Factor
 ``` csharp
-// Find the desired user
-var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+// Retrieve the desired user
+var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
 
 // Enroll in Okta SMS factor
 await user.AddFactorAsync(new AddSmsFactorOptions
@@ -300,8 +300,8 @@ await client.UserFactors.ActivateFactorAsync(activateFactorRequest, user.Id, sms
 
 ### Verify a Factor
 ``` csharp
-// Find the desired user
-var user = await client.Users.FirstOrDefaultAsync(x => x.Profile.Email == "darth.vader@imperial-senate.gov");
+// Retrieve the desired user
+var user = await client.Users.GetUserAsync("darth.vader@imperial-senate.gov");
 
 // Find the desired factor
 var smsFactor = await user.Factors.FirstOrDefaultAsync(x => x.FactorType == FactorType.Sms);
