@@ -399,7 +399,7 @@ var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpen
 
 ## Manual pagination
 
-Collections can be fetched with manually controlled pagination as in code sample below.
+Collections can be fetched with manually controlled pagination, see the following.
 
 ```csharp
 var retrievedUsers = new List<IUser>();
