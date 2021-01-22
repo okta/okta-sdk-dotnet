@@ -397,6 +397,22 @@ var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpen
 });
 ```
 
+## Manual pagination
+
+Collections can be fetched with manually controlled pagination as in code sample below.
+
+```csharp
+var retrievedUsers = new List<IUser>();
+var users = oktaClient.Users.ListUsers(limit: 5); // 5 records per a page
+var enumerator = users.GetPagedEnumerator();
+
+while (await enumerator.MoveNextAsync())
+{
+    retrievedUsers.AddRange(enumerator.CurrentPage.Items);
+    // ....................
+}
+```
+
 ## Call other API endpoints
 
 The SDK client object can be used to make calls to any Okta API (not just the endpoints officially supported by the SDK) via the `GetAsync`, `PostAsync`, `PutAsync` and `DeleteAsync` methods.
