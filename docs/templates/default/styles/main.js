@@ -5,6 +5,7 @@ function setVersions ()
 	{
 		let versionSelect = $("#version-switcher");
 		versionSelect.empty();
+		data.versions.sort();
 		$.each(data.versions, (index, value)=> 
 		{
 			versionSelect.append("<option>" + value + "</option>");
