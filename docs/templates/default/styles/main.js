@@ -1,7 +1,7 @@
 // Copyright (c) Microsoft. All rights reserved. Licensed under the MIT license. See LICENSE file in the project root for full license information.
 function setVersions ()
 {
-	$.getJSON("/versions.json", data =>
+	$.getJSON("https://developer.okta.com/okta-sdk-dotnet/versions.json", data =>
 	{
 		let versionSelect = $("#version-switcher");
 		versionSelect.empty();
@@ -12,7 +12,7 @@ function setVersions ()
 	});	
 	
     $('#version-switcher').change(function() {
-        window.location = $(this).val() + "/index.html"
+        window.location = "http://developer.okta.com/okta-sdk-dotnet/" + $(this).val() + "/index.html"
     });
 };
 
