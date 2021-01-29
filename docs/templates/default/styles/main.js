@@ -3,12 +3,18 @@ function setVersions ()
 {
 	$.getJSON("https://developer.okta.com/okta-sdk-dotnet/versions.json", data =>
 	{
+		let pathNameParts = window.location.pathname.split('/');
+		let locationTag = pathNameParts[2];
+		
 		let versionSelect = $("#version-switcher");
 		versionSelect.empty();
 		data.versions.sort();
 		$.each(data.versions, (index, value)=> 
 		{
-			versionSelect.append("<option>" + value + "</option>");
+			if (value == locationTag)
+				versionSelect.append("<option selected='selected'>" + value + "</option>");
+			else
+				versionSelect.append("<option>" + value + "</option>");
 		})
 	});	
 	
