@@ -11,9 +11,9 @@ addons:
     - dotnet-sdk-2.2
 script:
   - if [[ $TRAVIS_EVENT_TYPE = 'push' ]]; then
-        ./build.sh --target DefaultIT;
+        ./build.sh --target Docs;
     else
-        ./build.sh;
+        ./build.sh --target Docs;
     fi
   - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
       ./build.sh --target Docs; 
