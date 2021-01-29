@@ -45,7 +45,7 @@
     ],
     "globalMetadata": {
       "_appTitle": "Okta .NET SDK API Documentation",
-      "_appFooter": "Copyright &copy; 2020 Okta, Inc.<br>Generated with <b>DocFx</b>.",
+      "_appFooter": "Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.",
       "_appLogoPath": "images/okta-dev-logo.png",
       "_appFaviconPath": "images/favicon.ico",
       "_disableContribution": "true"
@@ -54,7 +54,8 @@
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
-      "default"
+      "default",
+      "templates/default"
     ],
     "postProcessors": [],
     "noLangKeyword": false,
