@@ -135,7 +135,6 @@ Task("CloneExistingDocs")
             });
 });
 
-
 Task("PrepareVersionsList").
 IsDependentOn("CopyDocsToVersionedDirectories").
 Does(()=>
