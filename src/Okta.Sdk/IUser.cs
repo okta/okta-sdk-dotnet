@@ -106,7 +106,7 @@ namespace Okta.Sdk
         Task<IUserFactor> AddFactorAsync(AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Adds a hardward factor to the user
+        /// Adds a hardware factor to the user
         /// </summary>
         /// <param name="hardwareFactorOptions">The hardware factor options</param>
         /// <param name="cancellationToken">The cancellation token</param>
