@@ -15,7 +15,7 @@ namespace Okta.Sdk
         /// <summary>
         /// Gets the collection of <see cref="IUser">Users</see> in this Group.
         /// </summary>
-        /// <value>The colletion of Users in this Group.</value>
+        /// <value>The collection of Users in this Group.</value>
         IAsyncEnumerable<IUser> Users { get; }
 
         /// <summary>
