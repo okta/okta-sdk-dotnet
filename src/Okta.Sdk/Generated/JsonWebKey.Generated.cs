@@ -17,65 +17,37 @@ namespace Okta.Sdk
     public sealed partial class JsonWebKey : Resource, IJsonWebKey
     {
         /// <inheritdoc/>
-        public string Alg 
-        {
-            get => GetStringProperty("alg");
-            set => this["alg"] = value;
-        }
+        public string Alg => GetStringProperty("alg");
         
         /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
-        public string E 
-        {
-            get => GetStringProperty("e");
-            set => this["e"] = value;
-        }
+        public string E => GetStringProperty("e");
         
         /// <inheritdoc/>
         public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
         
         /// <inheritdoc/>
-        public IList<string> KeyOps 
-        {
-            get => GetArrayProperty<string>("key_ops");
-            set => this["key_ops"] = value;
-        }
+        public IList<string> KeyOps => GetArrayProperty<string>("key_ops");
         
         /// <inheritdoc/>
-        public string Kid 
-        {
-            get => GetStringProperty("kid");
-            set => this["kid"] = value;
-        }
+        public string Kid => GetStringProperty("kid");
         
         /// <inheritdoc/>
-        public string Kty 
-        {
-            get => GetStringProperty("kty");
-            set => this["kty"] = value;
-        }
+        public string Kty => GetStringProperty("kty");
         
         /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
         
         /// <inheritdoc/>
-        public string N 
-        {
-            get => GetStringProperty("n");
-            set => this["n"] = value;
-        }
+        public string N => GetStringProperty("n");
         
         /// <inheritdoc/>
         public string Status => GetStringProperty("status");
         
         /// <inheritdoc/>
-        public string Use 
-        {
-            get => GetStringProperty("use");
-            set => this["use"] = value;
-        }
+        public string Use => GetStringProperty("use");
         
         /// <inheritdoc/>
         public IList<string> X5C 
@@ -85,25 +57,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string X5T 
-        {
-            get => GetStringProperty("x5t");
-            set => this["x5t"] = value;
-        }
+        public string X5T => GetStringProperty("x5t");
         
         /// <inheritdoc/>
-        public string X5TS256 
-        {
-            get => GetStringProperty("x5t#S256");
-            set => this["x5t#S256"] = value;
-        }
+        public string X5TS256 => GetStringProperty("x5t#S256");
         
         /// <inheritdoc/>
-        public string X5U 
-        {
-            get => GetStringProperty("x5u");
-            set => this["x5u"] = value;
-        }
+        public string X5U => GetStringProperty("x5u");
         
     }
 }
