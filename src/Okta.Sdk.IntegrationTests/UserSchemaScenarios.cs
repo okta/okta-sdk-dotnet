@@ -82,7 +82,7 @@ namespace Okta.Sdk.IntegrationTests
             retrievedCustomAttribute.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
 
-            // Remove custom attribute - TODO: Serialize nulls
+            // Remove custom attribute
             customAttribute["twitterUserName"] = null;
             updatedUserSchema.Definitions.Custom.Properties = customAttribute;
             updatedUserSchema = await testClient.UserSchemas.UpdateUserProfileAsync(updatedUserSchema, "default");

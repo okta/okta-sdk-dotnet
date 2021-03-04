@@ -290,7 +290,7 @@ function applyModelErrata(existingModel, strictModelList, infoLogger) {
 
   if (errata.includeNullValues) {
     existingModel.includeNullValues = errata.includeNullValues;
-    infoLogger(`***************Errata: Adding includeNullValues prop to model ${existingModel.modelName}`);
+    infoLogger(`Errata: Adding includeNullValues prop to model ${existingModel.modelName}`);
   }
 
   return existingModel;
