@@ -17,37 +17,81 @@ namespace Okta.Sdk
     public sealed partial class JsonWebKey : Resource, IJsonWebKey
     {
         /// <inheritdoc/>
-        public string Alg => GetStringProperty("alg");
+        public string Alg 
+        {
+            get => GetStringProperty("alg");
+            set => this["alg"] = value;
+        }
         
         /// <inheritdoc/>
-        public DateTimeOffset? Created => GetDateTimeProperty("created");
+        public DateTimeOffset? Created 
+        {
+            get => GetDateTimeProperty("created");
+            set => this["created"] = value;
+        }
         
         /// <inheritdoc/>
-        public string E => GetStringProperty("e");
+        public string E 
+        {
+            get => GetStringProperty("e");
+            set => this["e"] = value;
+        }
         
         /// <inheritdoc/>
-        public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
+        public DateTimeOffset? ExpiresAt 
+        {
+            get => GetDateTimeProperty("expiresAt");
+            set => this["expiresAt"] = value;
+        }
         
         /// <inheritdoc/>
-        public IList<string> KeyOps => GetArrayProperty<string>("key_ops");
+        public IList<string> KeyOps 
+        {
+            get => GetArrayProperty<string>("key_ops");
+            set => this["key_ops"] = value;
+        }
         
         /// <inheritdoc/>
-        public string Kid => GetStringProperty("kid");
+        public string Kid 
+        {
+            get => GetStringProperty("kid");
+            set => this["kid"] = value;
+        }
         
         /// <inheritdoc/>
-        public string Kty => GetStringProperty("kty");
+        public string Kty 
+        {
+            get => GetStringProperty("kty");
+            set => this["kty"] = value;
+        }
         
         /// <inheritdoc/>
-        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
+        public DateTimeOffset? LastUpdated 
+        {
+            get => GetDateTimeProperty("lastUpdated");
+            set => this["lastUpdated"] = value;
+        }
         
         /// <inheritdoc/>
-        public string N => GetStringProperty("n");
+        public string N 
+        {
+            get => GetStringProperty("n");
+            set => this["n"] = value;
+        }
         
         /// <inheritdoc/>
-        public string Status => GetStringProperty("status");
+        public string Status 
+        {
+            get => GetStringProperty("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
-        public string Use => GetStringProperty("use");
+        public string Use 
+        {
+            get => GetStringProperty("use");
+            set => this["use"] = value;
+        }
         
         /// <inheritdoc/>
         public IList<string> X5C 
@@ -57,13 +101,25 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string X5T => GetStringProperty("x5t");
+        public string X5T 
+        {
+            get => GetStringProperty("x5t");
+            set => this["x5t"] = value;
+        }
         
         /// <inheritdoc/>
-        public string X5TS256 => GetStringProperty("x5t#S256");
+        public string X5TS256 
+        {
+            get => GetStringProperty("x5t#S256");
+            set => this["x5t#S256"] = value;
+        }
         
         /// <inheritdoc/>
-        public string X5U => GetStringProperty("x5u");
+        public string X5U 
+        {
+            get => GetStringProperty("x5u");
+            set => this["x5u"] = value;
+        }
         
     }
 }

@@ -1,4 +1,4 @@
-// <copyright file="IUserSchemaDefinitions.Generated.cs" company="Okta, Inc">
+// <copyright file="SpCertificate.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -9,15 +9,19 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a UserSchemaDefinitions resource in the Okta API.</summary>
-    public partial interface IUserSchemaDefinitions : IResource
+    /// <inheritdoc/>
+    public sealed partial class SpCertificate : Resource, ISpCertificate
     {
-        IUserSchemaBase Base { get; set; }
-
-        IUserSchemaPublic Custom { get; set; }
-
+        /// <inheritdoc/>
+        public IList<string> X5C 
+        {
+            get => GetArrayProperty<string>("x5c");
+            set => this["x5c"] = value;
+        }
+        
     }
 }

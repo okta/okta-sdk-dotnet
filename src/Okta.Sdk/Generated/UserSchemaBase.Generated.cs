@@ -1,4 +1,4 @@
-// <copyright file="BaseUserSchema.Generated.cs" company="Okta, Inc">
+// <copyright file="UserSchemaBase.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,15 +14,15 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class BaseUserSchema : Resource, IBaseUserSchema
+    public sealed partial class UserSchemaBase : Resource, IUserSchemaBase
     {
         /// <inheritdoc/>
         public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
-        public IBaseUserSchemaProperties Properties 
+        public IUserSchemaBaseProperties Properties 
         {
-            get => GetResourceProperty<BaseUserSchemaProperties>("properties");
+            get => GetResourceProperty<UserSchemaBaseProperties>("properties");
             set => this["properties"] = value;
         }
         

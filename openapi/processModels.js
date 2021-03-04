@@ -173,6 +173,10 @@ function createContextForModel(model, strictModelList, errFunc) {
 
     let getterLiteral = `${getterName(property, isInterface)}("${property.propertyName}")`;
 
+    if (model.includeNullValues) {
+      context.includeNullValues = model.includeNullValues
+    }
+
     context.properties.push({
       type, memberName, getterLiteral,
       propertyName: property.propertyName,

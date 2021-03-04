@@ -1,4 +1,4 @@
-// <copyright file="UserSchemaDefinitions.Generated.cs" company="Okta, Inc">
+// <copyright file="OpenIdConnectApplicationIdpInitiatedLogin.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,20 +14,20 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class UserSchemaDefinitions : Resource, IUserSchemaDefinitions
+    public sealed partial class OpenIdConnectApplicationIdpInitiatedLogin : Resource, IOpenIdConnectApplicationIdpInitiatedLogin
     {
         /// <inheritdoc/>
-        public IUserSchemaBase Base 
+        public IList<string> DefaultScope 
         {
-            get => GetResourceProperty<UserSchemaBase>("base");
-            set => this["base"] = value;
+            get => GetArrayProperty<string>("default_scope");
+            set => this["default_scope"] = value;
         }
         
         /// <inheritdoc/>
-        public IUserSchemaPublic Custom 
+        public string Mode 
         {
-            get => GetResourceProperty<UserSchemaPublic>("custom");
-            set => this["custom"] = value;
+            get => GetStringProperty("mode");
+            set => this["mode"] = value;
         }
         
     }

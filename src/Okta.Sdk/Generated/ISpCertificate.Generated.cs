@@ -1,4 +1,4 @@
-// <copyright file="IUserSchemaDefinitions.Generated.cs" company="Okta, Inc">
+// <copyright file="ISpCertificate.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -12,12 +12,10 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>Represents a UserSchemaDefinitions resource in the Okta API.</summary>
-    public partial interface IUserSchemaDefinitions : IResource
+    /// <summary>Represents a SpCertificate resource in the Okta API.</summary>
+    public partial interface ISpCertificate : IResource
     {
-        IUserSchemaBase Base { get; set; }
-
-        IUserSchemaPublic Custom { get; set; }
+        IList<string> X5C { get; set; }
 
     }
 }

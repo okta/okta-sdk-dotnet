@@ -14,7 +14,9 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
+    {{#if includeNullValues}}[ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] 
     public {{#unless isBaseModel}}sealed {{/unless}}partial class {{memberName}} : {{baseClass}}, I{{memberName}}
+    {{else}}public {{#unless isBaseModel}}sealed {{/unless}}partial class {{memberName}} : {{baseClass}}, I{{memberName}}{{/if}}
     {
         {{#each properties}}
         /// <inheritdoc/>

@@ -18,6 +18,9 @@ namespace Okta.Sdk
         /// <summary>The RSA FactorProvider.</summary>
         public static FactorProvider Rsa = new FactorProvider("RSA");
 
+        /// <summary>The FIDO FactorProvider.</summary>
+        public static FactorProvider Fido = new FactorProvider("FIDO");
+
         /// <summary>The GOOGLE FactorProvider.</summary>
         public static FactorProvider Google = new FactorProvider("GOOGLE");
 

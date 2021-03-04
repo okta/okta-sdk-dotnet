@@ -45,6 +45,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IOpenIdConnectApplicationIdpInitiatedLogin IdpInitiatedLogin 
+        {
+            get => GetResourceProperty<OpenIdConnectApplicationIdpInitiatedLogin>("idp_initiated_login");
+            set => this["idp_initiated_login"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string InitiateLoginUri 
         {
             get => GetStringProperty("initiate_login_uri");

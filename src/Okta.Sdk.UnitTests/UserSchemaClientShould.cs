@@ -151,7 +151,6 @@ namespace Okta.Sdk.UnitTests
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
 
-
             // Add custom attribute
             var customAttributeDetails = new UserSchemaAttribute()
             {
@@ -167,7 +166,7 @@ namespace Okta.Sdk.UnitTests
             var userSchema = new UserSchema();
             userSchema.Definitions = new UserSchemaDefinitions
             {
-                Custom = new PublicSchema
+                Custom = new UserSchemaPublic
                 {
                     Properties = customAttribute,
                 },

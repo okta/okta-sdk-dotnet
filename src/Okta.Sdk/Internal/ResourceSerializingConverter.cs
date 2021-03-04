@@ -4,6 +4,7 @@
 // </copyright>
 
 using System;
+using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -41,9 +42,31 @@ namespace Okta.Sdk.Internal
                 return;
             }
 
+            // We no longer remove empty children, to allow partial updates where a property is removed by setting it as null
             var token = JToken.FromObject(resource.GetData(), serializer);
-            token = RemoveEmptyChildren(token);
+
+            if (!IncludeNullValues(value))
+            {
+                token = RemoveEmptyChildren(token);
+            }
+
             token.WriteTo(writer);
+        }
+
+        private static bool IncludeNullValues(object resource)
+        {
+            var includeNullValues = false;
+
+            var customAttributes = (ResourceObjectAttribute[])resource.GetType().GetCustomAttributes(typeof(ResourceObjectAttribute), true);
+            if (customAttributes.Any())
+            {
+                ResourceObjectAttribute resourceAttribute = customAttributes.First();
+                ResourceNullValueHandling nullValueHandling = resourceAttribute.NullValueHandling;
+
+                includeNullValues = nullValueHandling == ResourceNullValueHandling.Include;
+            }
+
+            return includeNullValues;
         }
 
         private static JToken RemoveEmptyChildren(JToken token)

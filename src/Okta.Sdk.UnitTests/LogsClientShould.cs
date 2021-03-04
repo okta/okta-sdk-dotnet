@@ -29,7 +29,7 @@ namespace Okta.Sdk.UnitTests
             log.Actor.Id.Should().Be("0000222244448888000");
             log.Actor.Type.Should().Be("User");
             log.Actor.DisplayName.Should().Be("Jon Okta");
-            log.Actor.Detail.GetData().Should().BeEmpty();
+            log.Actor.Detail.Should().BeNull();
 
             // Client
             log.ClientInfo.Should().BeOfType<LogClientInfo>();
@@ -55,8 +55,7 @@ namespace Okta.Sdk.UnitTests
             log.AuthenticationContext.AuthenticationProvider.Should().BeNull();
             log.AuthenticationContext.CredentialProvider.Should().BeNull();
             log.AuthenticationContext.CredentialType.Should().BeNull();
-            // This line should be like this:  log.AuthenticationContext.Issuer.Should().BeNull();
-            log.AuthenticationContext.Issuer.GetData().Should().BeEmpty();
+            log.AuthenticationContext.Issuer.Should().BeNull();
             log.AuthenticationContext.Interface.Should().BeNull();
             log.AuthenticationContext.AuthenticationStep.Should().Be(0);
             log.AuthenticationContext.ExternalSessionId.Should().Be("trs-T02AyaeRDKxyrAUXkV-yg");
@@ -100,7 +99,7 @@ namespace Okta.Sdk.UnitTests
             log.Target.First().Should().BeOfType<LogTarget>();
             log.Target.First().AlternateId.Should().Be("john-okta@example.com");
             log.Target.First().DisplayName.Should().Be("John Okta");
-            log.Target.First().DetailEntry.GetData().Should().BeEmpty();
+            log.Target.First().DetailEntry.Should().BeNull();
         }
 
         private string GetLogsStubResponse()

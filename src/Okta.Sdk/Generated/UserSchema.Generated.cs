@@ -14,21 +14,15 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
+    [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] 
     public sealed partial class UserSchema : Resource, IUserSchema
+    
     {
         /// <inheritdoc/>
-        public string Schema 
-        {
-            get => GetStringProperty("$schema");
-            set => this["$schema"] = value;
-        }
+        public string Schema => GetStringProperty("$schema");
         
         /// <inheritdoc/>
-        public string Created 
-        {
-            get => GetStringProperty("created");
-            set => this["created"] = value;
-        }
+        public string Created => GetStringProperty("created");
         
         /// <inheritdoc/>
         public IUserSchemaDefinitions Definitions 
@@ -38,35 +32,16 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Description 
-        {
-            get => GetStringProperty("description");
-            set => this["description"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
-        public string LastUpdated 
-        {
-            get => GetStringProperty("lastUpdated");
-            set => this["lastUpdated"] = value;
-        }
+        public string LastUpdated => GetStringProperty("lastUpdated");
         
         /// <inheritdoc/>
-        public string Name 
-        {
-            get => GetStringProperty("name");
-            set => this["name"] = value;
-        }
+        public string Name => GetStringProperty("name");
         
         /// <inheritdoc/>
-        public Resource Properties 
-        {
-            get => GetResourceProperty<Resource>("properties");
-            set => this["properties"] = value;
-        }
+        public Resource Properties => GetResourceProperty<Resource>("properties");
         
         /// <inheritdoc/>
         public string Title 
@@ -76,11 +51,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Type 
-        {
-            get => GetStringProperty("type");
-            set => this["type"] = value;
-        }
+        public string Type => GetStringProperty("type");
         
     }
 }
