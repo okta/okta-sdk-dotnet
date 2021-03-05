@@ -11,13 +11,13 @@ namespace Okta.Sdk.Internal
     public enum ResourceNullValueHandling
     {
         /// <summary>
+        /// Ignore null values when serializing and deserializing resources. Default.
+        /// </summary>
+        Ignore,
+
+        /// <summary>
         /// Include null values when serializing and deserializing resources.
         /// </summary>
         Include,
-
-        /// <summary>
-        /// Ignore null values when serializing and deserializing resources.
-        /// </summary>
-        Ignore,
     }
 }
