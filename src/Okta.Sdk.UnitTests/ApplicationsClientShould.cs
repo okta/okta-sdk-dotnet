@@ -19,6 +19,54 @@ namespace Okta.Sdk.UnitTests
     public class ApplicationsClientShould
     {
         [Fact]
+        public void NotFailIfSignOnIsUnknown()
+        {
+            var rawResponse = @"{
+                ""id"": ""0oafxqCAJWWGELFTYASJ"",
+                ""name"": ""bookmark"",
+                ""label"": ""Sample Bookmark App"",
+                ""status"": ""ACTIVE"",
+                ""lastUpdated"": ""2013-10-01T04:22:31.000Z"",
+                ""created"": ""2013-10-01T04:22:27.000Z"",
+                ""accessibility"": {
+                    ""selfService"": false,
+                    ""errorRedirectUrl"": null
+                },
+                ""visibility"": {
+                    ""autoSubmitToolbar"": false,
+                    ""hide"": {
+                        ""iOS"": false,
+                        ""web"": false
+                    },
+                    ""appLinks"": {
+                        ""login"": true
+                    }
+                },
+                ""features"":""[]"",
+                ""signOnMode"": ""SOME_UNKNOWN_SIGN_ON_MODE"",
+                ""credentials"": {
+                    ""userNameTemplate"": {
+                        ""template"": ""${source.login}"",
+                        ""type"": ""BUILT_IN""
+                    }
+                },
+                ""settings"": {
+                    ""app"": {
+                        ""requestIntegration"": false,
+                        ""url"": ""https://example.com/bookmark.htm""
+                    }
+                },
+            }";
+
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var app = client.Applications.GetApplicationAsync<IApplication>("foo").Result;
+
+            app.SignOnMode.Should().Be(new ApplicationSignOnMode("SOME_UNKNOWN_SIGN_ON_MODE"));
+        }
+
+        [Fact]
         public void NotReturnNullWhenFeaturesHasNoData()
         {
             var mockRequestExecutor = new MockedStringRequestExecutor(GetBookmarkApplicationStubResponse(features: "[]"));

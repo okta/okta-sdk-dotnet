@@ -17,7 +17,7 @@ namespace Okta.Sdk.UnitTests
         public void NotThrowForNonexistentNestedProperty()
         {
             var resource = new TestNestedResource();
-            resource.Nested.Should().NotBeNull();
+            resource.Nested.Should().BeNull();
         }
 
         [Fact]

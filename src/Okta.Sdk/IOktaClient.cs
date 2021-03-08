@@ -120,6 +120,14 @@ namespace Okta.Sdk
         ILinkedObjectsClient LinkedObjects { get; }
 
         /// <summary>
+        /// Gets an <see cref="IUserSchemasClient">UserSchemasClient</see> that interacts with the Okta Schemas API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="ILinkedObjectsClient">UserSchemasClient</see> that interacts with the Okta Schemas API.
+        /// </value>
+        IUserSchemasClient UserSchemas { get; }
+
+        /// <summary>
         /// Gets an <see cref="ITrustedOriginsClient">TrustedOriginsClient</see> that interacts with the Okta Trusted Origins API.
         /// </summary>
         /// <value>

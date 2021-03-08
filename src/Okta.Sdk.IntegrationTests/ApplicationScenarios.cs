@@ -1840,8 +1840,8 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var newApp = await oktaClient.Applications.CreateApplicationAsync(appCreateOptions);
-            var somelist = newApp.Profile.GetArrayProperty<string>("somelist");
-            somelist.Add("test");
+            newApp.Profile = new Resource();
+            newApp.Profile["somelist"] = new List<string> { "test" };
 
             try
             {

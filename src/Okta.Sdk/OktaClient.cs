@@ -207,6 +207,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IIdentityProvidersClient IdentityProviders => new IdentityProvidersClient(_dataStore, Configuration, _requestContext);
 
+        /// <inheritdoc/>
+        public IUserSchemasClient UserSchemas => new UserSchemasClient(_dataStore, Configuration, _requestContext);
+
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
         /// </summary>

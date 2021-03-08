@@ -135,6 +135,7 @@ const modelErrata = [
   { path: 'CSRMetadata', rename: 'CsrMetadata', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubject', rename: 'CsrMetadataSubject', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
+  { path: 'UserSchema', includeNullValues: true },
 ];
 
 const operationErrata = [
@@ -285,6 +286,11 @@ function applyModelErrata(existingModel, strictModelList, infoLogger) {
 
     existingModel.modelName = errata.rename;
     infoLogger(`Errata: Renaming model ${existingModel.path} to ${errata.rename}`, `(Reason: ${errata.renameReason})`);
+  }
+
+  if (errata.includeNullValues) {
+    existingModel.includeNullValues = errata.includeNullValues;
+    infoLogger(`Errata: Adding includeNullValues prop to model ${existingModel.modelName}`);
   }
 
   return existingModel;

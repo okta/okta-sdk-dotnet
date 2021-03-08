@@ -51,6 +51,10 @@ namespace Okta.Sdk
 
         string SignatureAlgorithm { get; set; }
 
+        ISingleLogout Slo { get; set; }
+
+        ISpCertificate SpCertificate { get; set; }
+
         string SpIssuer { get; set; }
 
         string SsoAcsUrl { get; set; }

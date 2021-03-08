@@ -143,6 +143,20 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public ISingleLogout Slo 
+        {
+            get => GetResourceProperty<SingleLogout>("slo");
+            set => this["slo"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public ISpCertificate SpCertificate 
+        {
+            get => GetResourceProperty<SpCertificate>("spCertificate");
+            set => this["spCertificate"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string SpIssuer 
         {
             get => GetStringProperty("spIssuer");
