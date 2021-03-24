@@ -20,7 +20,7 @@ _New models:_
 * UserSchemaPublic
 * UserSchemasClient
 
-## Breaking changes
+### Breaking changes
 
 - [Change in default behavior when serializing resources (JSON objects)](https://github.com/okta/okta-sdk-dotnet/pull/477/files#diff-6436f2d9902dcaed04626994e79b8c0da031d73e6ff937b1ec1014544228a5feR319). Previously, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties would result in `null` property value. 
 
