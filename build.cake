@@ -139,10 +139,11 @@ Task("PrepareVersionsList").
 IsDependentOn("CopyDocsToVersionedDirectories").
 Does(()=>
 {
-    var versionDirectories = System.IO.Directory.GetDirectories("./docs/temp", "*", new EnumerationOptions() { AttributesToSkip = FileAttributes.Hidden })
-        .Select(d => $"\"{System.IO.Path.GetFileName(d)}\"");
-        
-    var versions = string.Join(',', versionDirectories);
+    var versionDirectories = System.IO.Directory.GetDirectories("./docs/temp")
+        .Select(d => $"\"{System.IO.Path.GetFileName(d)}\"")
+        .Where(d => !d.Equals("\".git\""));
+
+    var versions = string.Join(",", versionDirectories);
 
     FileWriteText("./docs/temp/versions.json", $"{{\"versions\":[{versions}]}}");
 });
