@@ -185,6 +185,18 @@ namespace Okta.Sdk.Internal
             request.Uri = UrlFormatter.ApplyParametersToPath(request);
         }
 
+        private IDictionary<string, object> ExtractDataFromResponse(HttpResponse<string> response)
+        {
+            if (string.Equals(response.ContentType.MediaType, "application/json", StringComparison.OrdinalIgnoreCase))
+            {
+                return _serializer.Deserialize(PayloadOrEmpty(response));
+            }
+            else
+            {
+                return new Dictionary<string, object> { { "_rawData", response.Payload } };
+            }
+        }
+
         /// <inheritdoc/>
         public async Task<HttpResponse<T>> GetAsync<T>(
             HttpRequest request,
@@ -198,7 +210,7 @@ namespace Okta.Sdk.Internal
 
             EnsureResponseSuccess(response);
 
-            var data = _serializer.Deserialize(PayloadOrEmpty(response));
+            var data = ExtractDataFromResponse(response);
             var resource = _resourceFactory.CreateNew<T>(data);
 
             return CreateResourceResponse(response, resource);

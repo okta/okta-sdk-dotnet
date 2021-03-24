@@ -4,6 +4,7 @@
 // </copyright>
 
 using System.Collections.Generic;
+using System.Net.Http.Headers;
 
 namespace Okta.Sdk
 {
@@ -45,6 +46,11 @@ namespace Okta.Sdk
         /// The payload of the response.
         /// </value>
         public T Payload { get; set; }
+
+        /// <summary>
+        /// Gets the response's content type
+        /// </summary>
+        public MediaTypeHeaderValue ContentType { get; internal set; }
     }
 
 #pragma warning restore SA1649 // File name must match first type name

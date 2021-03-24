@@ -110,6 +110,7 @@ namespace Okta.Sdk.Internal
                 Headers = ExtractHeaders(response),
                 StatusCode = (int)response.StatusCode,
                 Payload = stringContent,
+                ContentType = response.Content.Headers.ContentType,
             };
         }
 
