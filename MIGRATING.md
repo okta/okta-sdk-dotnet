@@ -4,7 +4,7 @@ This library uses semantic versioning and follows Okta's [library version policy
 
 ## Migrating from 4.x to 5.x
 
-In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties would result in `null` property value.
+In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties will result in `null` property value.
 
 _Before:_
 
