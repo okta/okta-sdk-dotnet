@@ -26,7 +26,7 @@ _Now:_
 
 ```
 
-Since this is a breaking change in the default behavior, Okta.Sdk was published with version numbers starting from 5.0.0.
+Since this is a breaking change in the default behavior, the major version of Okta.Sdk was incremented to 5; the latest version is now 5.0.0.
 
 If you were relying on this behavior, make sure to update your code and verify the resource is not `null` before accessing its properties.
 
