@@ -2,6 +2,34 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 4.x to 5.x
+
+In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties would result in `null` property value.
+
+_Before:_
+
+```
+{                                                 deserializedResource.Prop1.Should().Be("Hello World!");          
+    prop1 : "Hello World!",         =>            deserializedResource.NestedObject.Should().NotBeNull();
+    nestedObject: null                            deserializedResource.NestedObject.Prop1.Should().BeNull();
+}
+
+```
+
+_Now:_
+
+```
+{                                                 deserializedResource.Prop1.Should().Be("Hello World!");          
+    prop1 : "Hello World!",         =>            deserializedResource.NestedObject.Should().BeNull();
+    nestedObject: null                            
+}
+
+```
+
+Since this is a breaking change in the default behavior, Okta.Sdk was published with version numbers starting from 5.0.0.
+
+If you were relying on this behavior, make sure to update your code and verify the resource is not `null` before accessing its properties.
+
 ## Migrating from 3.x to 4.x
 
 The 3.x series of this library introduced a new client for Authorization Servers. This client had an issue when trying to retrieve policy rules for given Authorization Server Policy. In order to fix this issue, new policy models were created to represent both policies and policy rules for Authorization Servers.
