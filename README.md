@@ -138,6 +138,33 @@ var client = new OktaClient(new OktaClientConfiguration
 });
 ```
 
+Key object for assigning to the PrivateKey can be created and initialized inline like in this example for RSA key:
+
+``` csharp
+var privateKey = new JsonWebKeyConfiguration
+{
+    P = "{{P}}",
+    Kty = "RSA",
+    Q = "{{Q}}",
+    D = "{{D}}",
+    E = "{{E}}",
+    Kid = "{{P}}",
+    Qi = "{{Qi}}"
+};
+
+var clientConfiguration = new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey = privateKey
+};
+
+var client = new OktaClient(clientConfiguration);
+```
+
+
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
