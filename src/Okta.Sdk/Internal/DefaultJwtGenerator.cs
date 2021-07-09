@@ -70,7 +70,7 @@ namespace Okta.Sdk.Internal
             try
             {
                 TimeSpan timeSpanIat = DateTime.UtcNow - new DateTime(1970, 1, 1);
-                TimeSpan timeSpanExp = DateTime.UtcNow.AddHours(1) - new DateTime(1970, 1, 1);
+		TimeSpan timeSpanExp = DateTime.UtcNow.AddMinutes(50) - new DateTime(1970, 1, 1);
 
                 var payload = new JwtPayload
                 {
