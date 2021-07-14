@@ -1,0 +1,1024 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class UserFactorsClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class UserFactorsClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.26.3.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.UserFactorsClient">
+  
+  
+  <h1 id="Okta_Sdk_UserFactorsClient" data-uid="Okta.Sdk.UserFactorsClient" class="text-break">Class UserFactorsClient
+  </h1>
+  <div class="markdown level0 summary"><p>A client that works with Okta UserFactor resources.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Okta.Sdk.OktaClient.html">OktaClient</a></div>
+    <div class="level2"><span class="xref">UserFactorsClient</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a></div>
+    <div><a class="xref" href="Okta.Sdk.IUserFactorsClient.html">IUserFactorsClient</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_CreatedScoped_Okta_Sdk_RequestContext_">OktaClient.CreatedScoped(RequestContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_GetCollectionClient__1_Okta_Sdk_Internal_HttpRequest_">OktaClient.GetCollectionClient&lt;T&gt;(HttpRequest)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_GetAsync__1_System_String_System_Threading_CancellationToken_">OktaClient.GetAsync&lt;T&gt;(String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_GetAsync__1_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.GetAsync&lt;T&gt;(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PostAsync(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync__1_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PostAsync&lt;TResponse&gt;(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PostAsync(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync__1_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PostAsync&lt;TResponse&gt;(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PutAsync(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync__1_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PutAsync&lt;TResponse&gt;(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PutAsync(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync__1_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PutAsync&lt;TResponse&gt;(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_DeleteAsync_System_String_System_Threading_CancellationToken_">OktaClient.DeleteAsync(String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_DeleteAsync_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.DeleteAsync(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_Configuration">OktaClient.Configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_Users">OktaClient.Users</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_UserFactors">OktaClient.UserFactors</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_Groups">OktaClient.Groups</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_UserFactorsClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class UserFactorsClient : OktaClient, IOktaClient, IUserFactorsClient</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_ActivateFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.ActivateFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_ActivateFactorAsync_Okta_Sdk_IVerifyFactorRequest_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.ActivateFactorAsync(Okta.Sdk.IVerifyFactorRequest,System.String,System.String,System.Threading.CancellationToken)">ActivateFactorAsync(IVerifyFactorRequest, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; ActivateFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IVerifyFactorRequest.html">IVerifyFactorRequest</a></td>
+        <td><span class="parametername">verifyFactorRequest</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">factorId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_Okta_Sdk_IFactor_System_String_System_Nullable_System_Boolean__System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(Okta.Sdk.IFactor,System.String,System.Nullable{System.Boolean},System.String,System.Threading.CancellationToken)">AddFactorAsync(IFactor, String, Nullable&lt;Boolean&gt;, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(IFactor factor, string userId, Nullable&lt;bool&gt; updatePhone, string templateId = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a></td>
+        <td><span class="parametername">factor</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">updatePhone</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">templateId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddCallFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCallFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddCallFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddCallFactorOptions.html">AddCallFactorOptions</a></td>
+        <td><span class="parametername">callFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddEmailFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddEmailFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddEmailFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddEmailFactorOptions.html">AddEmailFactorOptions</a></td>
+        <td><span class="parametername">emailFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddHardwareFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddHardwareFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddHardwareFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddHardwareFactorOptions.html">AddHardwareFactorOptions</a></td>
+        <td><span class="parametername">hardwareFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddPushFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddPushFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddPushFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddPushFactorOptions.html">AddPushFactorOptions</a></td>
+        <td><span class="parametername">pushFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddSecurityQuestionFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSecurityQuestionFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddSecurityQuestionFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddSecurityQuestionFactorOptions.html">AddSecurityQuestionFactorOptions</a></td>
+        <td><span class="parametername">securityQuestionFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddSmsFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSmsFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddSmsFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddSmsFactorOptions.html">AddSmsFactorOptions</a></td>
+        <td><span class="parametername">smsFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddTokenFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTokenFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddTokenFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddTokenFactorOptions.html">AddTokenFactorOptions</a></td>
+        <td><span class="parametername">tokenFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_AddFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_AddFactorAsync_System_String_Okta_Sdk_AddTotpFactorOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTotpFactorOptions,System.Threading.CancellationToken)">AddFactorAsync(String, AddTotpFactorOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; AddFactorAsync(string userId, AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddTotpFactorOptions.html">AddTotpFactorOptions</a></td>
+        <td><span class="parametername">totpFactorOptions</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_DeleteFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.DeleteFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_DeleteFactorAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.DeleteFactorAsync(System.String,System.String,System.Threading.CancellationToken)">DeleteFactorAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">factorId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_GetFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.GetFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_GetFactorAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.GetFactorAsync(System.String,System.String,System.Threading.CancellationToken)">GetFactorAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IFactor&gt; GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">factorId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_ListFactors_" data-uid="Okta.Sdk.UserFactorsClient.ListFactors*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_ListFactors_System_String_" data-uid="Okta.Sdk.UserFactorsClient.ListFactors(System.String)">ListFactors(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IFactor&gt; ListFactors(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_ListSupportedFactors_" data-uid="Okta.Sdk.UserFactorsClient.ListSupportedFactors*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_ListSupportedFactors_System_String_" data-uid="Okta.Sdk.UserFactorsClient.ListSupportedFactors(System.String)">ListSupportedFactors(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IFactor&gt; ListSupportedFactors(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;<a class="xref" href="Okta.Sdk.IFactor.html">IFactor</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_ListSupportedSecurityQuestions_" data-uid="Okta.Sdk.UserFactorsClient.ListSupportedSecurityQuestions*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_ListSupportedSecurityQuestions_System_String_" data-uid="Okta.Sdk.UserFactorsClient.ListSupportedSecurityQuestions(System.String)">ListSupportedSecurityQuestions(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;ISecurityQuestion&gt; ListSupportedSecurityQuestions(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;<a class="xref" href="Okta.Sdk.ISecurityQuestion.html">ISecurityQuestion</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_UserFactorsClient_VerifyFactorAsync_" data-uid="Okta.Sdk.UserFactorsClient.VerifyFactorAsync*"></a>
+  <h4 id="Okta_Sdk_UserFactorsClient_VerifyFactorAsync_Okta_Sdk_IVerifyFactorRequest_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.UserFactorsClient.VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest,System.String,System.String,System.String,System.Threading.CancellationToken)">VerifyFactorAsync(IVerifyFactorRequest, String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IVerifyFactorResponse&gt; VerifyFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, string templateId = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IVerifyFactorRequest.html">IVerifyFactorRequest</a></td>
+        <td><span class="parametername">verifyFactorRequest</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">factorId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">templateId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IVerifyFactorResponse.html">IVerifyFactorResponse</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a>
+  </div>
+  <div>
+      <a class="xref" href="Okta.Sdk.IUserFactorsClient.html">IUserFactorsClient</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2017 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

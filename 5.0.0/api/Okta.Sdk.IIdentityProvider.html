@@ -1,0 +1,955 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IIdentityProvider
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IIdentityProvider
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+              	<div class="apiversion">
+              			<form action="#" method="GET">
+              				<span>API version:</span>
+                              <select id="version-switcher" name="version"></select>
+                          </form>
+              	</div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.IIdentityProvider">
+  
+  
+  <h1 id="Okta_Sdk_IIdentityProvider" data-uid="Okta.Sdk.IIdentityProvider" class="text-break">Interface IIdentityProvider
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a IdentityProvider resource in the Okta API.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Okta.Sdk.IResource.html#Okta_Sdk_IResource_Item_System_String_">IResource.Item[String]</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.IResource.html#Okta_Sdk_IResource_GetArrayProperty__1_System_String_">IResource.GetArrayProperty&lt;T&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.IResource.html#Okta_Sdk_IResource_GetData">IResource.GetData()</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.IResource.html#Okta_Sdk_IResource_SetProperty_System_String_System_Object_">IResource.SetProperty(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.IResource.html#Okta_Sdk_IResource_GetProperty__1_System_String_">IResource.GetProperty&lt;T&gt;(String)</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_IIdentityProvider_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IIdentityProvider : IResource</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Okta_Sdk_IIdentityProvider_Created_" data-uid="Okta.Sdk.IIdentityProvider.Created*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Created" data-uid="Okta.Sdk.IIdentityProvider.Created">Created</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DateTimeOffset? Created { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTimeOffset</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_Id_" data-uid="Okta.Sdk.IIdentityProvider.Id*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Id" data-uid="Okta.Sdk.IIdentityProvider.Id">Id</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Id { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_IssuerMode_" data-uid="Okta.Sdk.IIdentityProvider.IssuerMode*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_IssuerMode" data-uid="Okta.Sdk.IIdentityProvider.IssuerMode">IssuerMode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string IssuerMode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_LastUpdated_" data-uid="Okta.Sdk.IIdentityProvider.LastUpdated*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_LastUpdated" data-uid="Okta.Sdk.IIdentityProvider.LastUpdated">LastUpdated</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">DateTimeOffset? LastUpdated { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTimeOffset</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_Name_" data-uid="Okta.Sdk.IIdentityProvider.Name*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Name" data-uid="Okta.Sdk.IIdentityProvider.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_Policy_" data-uid="Okta.Sdk.IIdentityProvider.Policy*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Policy" data-uid="Okta.Sdk.IIdentityProvider.Policy">Policy</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IIdentityProviderPolicy Policy { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IIdentityProviderPolicy.html">IIdentityProviderPolicy</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_Protocol_" data-uid="Okta.Sdk.IIdentityProvider.Protocol*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Protocol" data-uid="Okta.Sdk.IIdentityProvider.Protocol">Protocol</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IProtocol Protocol { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IProtocol.html">IProtocol</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_Status_" data-uid="Okta.Sdk.IIdentityProvider.Status*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Status" data-uid="Okta.Sdk.IIdentityProvider.Status">Status</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_Type_" data-uid="Okta.Sdk.IIdentityProvider.Type*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_Type" data-uid="Okta.Sdk.IIdentityProvider.Type">Type</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Type { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_IIdentityProvider_ActivateAsync_" data-uid="Okta.Sdk.IIdentityProvider.ActivateAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_ActivateAsync_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.ActivateAsync(System.Threading.CancellationToken)">ActivateAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_CloneKeyAsync_" data-uid="Okta.Sdk.IIdentityProvider.CloneKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_CloneKeyAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.CloneKeyAsync(System.String,System.String,System.Threading.CancellationToken)">CloneKeyAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; CloneKeyAsync(string keyId, string targetIdpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">targetIdpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_DeactivateAsync_" data-uid="Okta.Sdk.IIdentityProvider.DeactivateAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_DeactivateAsync_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.DeactivateAsync(System.Threading.CancellationToken)">DeactivateAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_DeleteSigningCsrAsync_" data-uid="Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_DeleteSigningCsrAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync(System.String,System.Threading.CancellationToken)">DeleteSigningCsrAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteSigningCsrAsync(string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_GenerateCsrAsync_" data-uid="Okta.Sdk.IIdentityProvider.GenerateCsrAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_GenerateCsrAsync_Okta_Sdk_ICsrMetadata_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.GenerateCsrAsync(Okta.Sdk.ICsrMetadata,System.Threading.CancellationToken)">GenerateCsrAsync(ICsrMetadata, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICsr&gt; GenerateCsrAsync(ICsrMetadata metadata, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICsrMetadata.html">ICsrMetadata</a></td>
+        <td><span class="parametername">metadata</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_GenerateSigningKeyAsync_" data-uid="Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_GenerateSigningKeyAsync_System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)">GenerateSigningKeyAsync(Nullable&lt;Int32&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; GenerateSigningKeyAsync(int? validityYears, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">validityYears</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_GetSigningCsrAsync_" data-uid="Okta.Sdk.IIdentityProvider.GetSigningCsrAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_GetSigningCsrAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.GetSigningCsrAsync(System.String,System.Threading.CancellationToken)">GetSigningCsrAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICsr&gt; GetSigningCsrAsync(string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_GetSigningKeyAsync_" data-uid="Okta.Sdk.IIdentityProvider.GetSigningKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_GetSigningKeyAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.GetSigningKeyAsync(System.String,System.Threading.CancellationToken)">GetSigningKeyAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; GetSigningKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_GetUserAsync_" data-uid="Okta.Sdk.IIdentityProvider.GetUserAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_GetUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.GetUserAsync(System.String,System.Threading.CancellationToken)">GetUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProviderApplicationUser&gt; GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_LinkUserAsync_" data-uid="Okta.Sdk.IIdentityProvider.LinkUserAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_LinkUserAsync_Okta_Sdk_IUserIdentityProviderLinkRequest_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.LinkUserAsync(Okta.Sdk.IUserIdentityProviderLinkRequest,System.String,System.Threading.CancellationToken)">LinkUserAsync(IUserIdentityProviderLinkRequest, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProviderApplicationUser&gt; LinkUserAsync(IUserIdentityProviderLinkRequest userIdentityProviderLinkRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUserIdentityProviderLinkRequest.html">IUserIdentityProviderLinkRequest</a></td>
+        <td><span class="parametername">userIdentityProviderLinkRequest</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_ListSigningCsrs_" data-uid="Okta.Sdk.IIdentityProvider.ListSigningCsrs*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_ListSigningCsrs" data-uid="Okta.Sdk.IIdentityProvider.ListSigningCsrs">ListSigningCsrs()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;ICsr&gt; ListSigningCsrs()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_ListSigningKeys_" data-uid="Okta.Sdk.IIdentityProvider.ListSigningKeys*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_ListSigningKeys" data-uid="Okta.Sdk.IIdentityProvider.ListSigningKeys">ListSigningKeys()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IJsonWebKey&gt; ListSigningKeys()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_ListSocialAuthTokens_" data-uid="Okta.Sdk.IIdentityProvider.ListSocialAuthTokens*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_ListSocialAuthTokens_System_String_" data-uid="Okta.Sdk.IIdentityProvider.ListSocialAuthTokens(System.String)">ListSocialAuthTokens(String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;ISocialAuthToken&gt; ListSocialAuthTokens(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.ISocialAuthToken.html">ISocialAuthToken</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_ListUsers_" data-uid="Okta.Sdk.IIdentityProvider.ListUsers*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_ListUsers" data-uid="Okta.Sdk.IIdentityProvider.ListUsers">ListUsers()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IIdentityProviderApplicationUser&gt; ListUsers()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvider_UnlinkUserAsync_" data-uid="Okta.Sdk.IIdentityProvider.UnlinkUserAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvider_UnlinkUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvider.UnlinkUserAsync(System.String,System.Threading.CancellationToken)">UnlinkUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UnlinkUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

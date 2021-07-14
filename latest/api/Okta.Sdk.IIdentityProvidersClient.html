@@ -1,0 +1,1632 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IIdentityProvidersClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IIdentityProvidersClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+              	<div class="apiversion">
+              			<form action="#" method="GET">
+              				<span>API version:</span>
+                              <select id="version-switcher" name="version"></select>
+                          </form>
+              	</div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.IIdentityProvidersClient">
+  
+  
+  <h1 id="Okta_Sdk_IIdentityProvidersClient" data-uid="Okta.Sdk.IIdentityProvidersClient" class="text-break">Interface IIdentityProvidersClient
+  </h1>
+  <div class="markdown level0 summary"><p>A client that works with Okta IdentityProvider resources.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_IIdentityProvidersClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IIdentityProvidersClient</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ActivateIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.ActivateIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ActivateIdentityProviderAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.ActivateIdentityProviderAsync(System.String,System.Threading.CancellationToken)">ActivateIdentityProviderAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Activates an inactive IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; ActivateIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_CloneIdentityProviderKeyAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.CloneIdentityProviderKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_CloneIdentityProviderKeyAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.CloneIdentityProviderKeyAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">CloneIdentityProviderKeyAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; CloneIdentityProviderKeyAsync(string idpId, string keyId, string targetIdpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">targetIdpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_CreateIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.CreateIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_CreateIdentityProviderAsync_Okta_Sdk_IIdentityProvider_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.CreateIdentityProviderAsync(Okta.Sdk.IIdentityProvider,System.Threading.CancellationToken)">CreateIdentityProviderAsync(IIdentityProvider, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds a new IdP to your organization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; CreateIdentityProviderAsync(IIdentityProvider identityProvider, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a></td>
+        <td><span class="parametername">identityProvider</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_CreateIdentityProviderKeyAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.CreateIdentityProviderKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_CreateIdentityProviderKeyAsync_Okta_Sdk_IJsonWebKey_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.CreateIdentityProviderKeyAsync(Okta.Sdk.IJsonWebKey,System.Threading.CancellationToken)">CreateIdentityProviderKeyAsync(IJsonWebKey, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds a new X.509 certificate credential to the IdP key store.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; CreateIdentityProviderKeyAsync(IJsonWebKey jsonWebKey, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a></td>
+        <td><span class="parametername">jsonWebKey</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_DeactivateIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.DeactivateIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_DeactivateIdentityProviderAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.DeactivateIdentityProviderAsync(System.String,System.Threading.CancellationToken)">DeactivateIdentityProviderAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deactivates an active IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; DeactivateIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_DeleteIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.DeleteIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_DeleteIdentityProviderAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.DeleteIdentityProviderAsync(System.String,System.Threading.CancellationToken)">DeleteIdentityProviderAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes an IdP from your organization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_DeleteIdentityProviderKeyAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.DeleteIdentityProviderKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_DeleteIdentityProviderKeyAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.DeleteIdentityProviderKeyAsync(System.String,System.Threading.CancellationToken)">DeleteIdentityProviderKeyAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes a specific IdP Key Credential by <code>kid</code> if it is not currently being used by an Active or Inactive IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GenerateCsrForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GenerateCsrForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GenerateCsrForIdentityProviderAsync_Okta_Sdk_ICsrMetadata_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GenerateCsrForIdentityProviderAsync(Okta.Sdk.ICsrMetadata,System.String,System.Threading.CancellationToken)">GenerateCsrForIdentityProviderAsync(ICsrMetadata, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Generates a new key pair and returns a Certificate Signing Request for it.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICsr&gt; GenerateCsrForIdentityProviderAsync(ICsrMetadata metadata, string idpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICsrMetadata.html">ICsrMetadata</a></td>
+        <td><span class="parametername">metadata</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.ICsrMetadata.html">ICsrMetadata</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GenerateIdentityProviderSigningKeyAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GenerateIdentityProviderSigningKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GenerateIdentityProviderSigningKeyAsync_System_String_System_Nullable_System_Int32__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GenerateIdentityProviderSigningKeyAsync(System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)">GenerateIdentityProviderSigningKeyAsync(String, Nullable&lt;Int32&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; GenerateIdentityProviderSigningKeyAsync(string idpId, int? validityYears, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">validityYears</span></td>
+        <td><p>expiry of the IdP Key Credential</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GetCsrForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetCsrForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GetCsrForIdentityProviderAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetCsrForIdentityProviderAsync(System.String,System.String,System.Threading.CancellationToken)">GetCsrForIdentityProviderAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a specific Certificate Signing Request model by id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ICsr&gt; GetCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderApplicationUserAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderApplicationUserAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderApplicationUserAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderApplicationUserAsync(System.String,System.String,System.Threading.CancellationToken)">GetIdentityProviderApplicationUserAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Fetches a linked IdP user by ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProviderApplicationUser&gt; GetIdentityProviderApplicationUserAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderAsync(System.String,System.Threading.CancellationToken)">GetIdentityProviderAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Fetches an IdP by <code>id</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; GetIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderKeyAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderKeyAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderKeyAsync(System.String,System.Threading.CancellationToken)">GetIdentityProviderKeyAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a specific IdP Key Credential by <code>kid</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; GetIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderSigningKeyAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderSigningKeyAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_GetIdentityProviderSigningKeyAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.GetIdentityProviderSigningKeyAsync(System.String,System.String,System.Threading.CancellationToken)">GetIdentityProviderSigningKeyAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a specific IdP Key Credential by <code>kid</code></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; GetIdentityProviderSigningKeyAsync(string idpId, string keyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_LinkUserToIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.LinkUserToIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_LinkUserToIdentityProviderAsync_Okta_Sdk_IUserIdentityProviderLinkRequest_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.LinkUserToIdentityProviderAsync(Okta.Sdk.IUserIdentityProviderLinkRequest,System.String,System.String,System.Threading.CancellationToken)">LinkUserToIdentityProviderAsync(IUserIdentityProviderLinkRequest, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProviderApplicationUser&gt; LinkUserToIdentityProviderAsync(IUserIdentityProviderLinkRequest userIdentityProviderLinkRequest, string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUserIdentityProviderLinkRequest.html">IUserIdentityProviderLinkRequest</a></td>
+        <td><span class="parametername">userIdentityProviderLinkRequest</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserIdentityProviderLinkRequest.html">IUserIdentityProviderLinkRequest</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ListCsrsForIdentityProvider_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListCsrsForIdentityProvider*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ListCsrsForIdentityProvider_System_String_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListCsrsForIdentityProvider(System.String)">ListCsrsForIdentityProvider(String)</h4>
+  <div class="markdown level1 summary"><p>Enumerates Certificate Signing Requests for an IdP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;ICsr&gt; ListCsrsForIdentityProvider(string idpId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.ICsr.html">ICsr</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviderApplicationUsers_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviderApplicationUsers*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviderApplicationUsers_System_String_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviderApplicationUsers(System.String)">ListIdentityProviderApplicationUsers(String)</h4>
+  <div class="markdown level1 summary"><p>Find all the users linked to an identity provider</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IIdentityProviderApplicationUser&gt; ListIdentityProviderApplicationUsers(string idpId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IIdentityProviderApplicationUser.html">IIdentityProviderApplicationUser</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviderKeys_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviderKeys*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviderKeys_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviderKeys(System.String,System.Nullable{System.Int32})">ListIdentityProviderKeys(String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Enumerates IdP key credentials.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IJsonWebKey&gt; ListIdentityProviderKeys(string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td><p>Specifies the pagination cursor for the next page of keys</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of key results in a page</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviders_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviders*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviders_System_String_System_String_System_Nullable_System_Int32__System_String_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviders(System.String,System.String,System.Nullable{System.Int32},System.String)">ListIdentityProviders(String, String, Nullable&lt;Int32&gt;, String)</h4>
+  <div class="markdown level1 summary"><p>Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IIdentityProvider&gt; ListIdentityProviders(string q = null, string after = null, int? limit, string type = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>Searches the name property of IdPs for matching value</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td><p>Specifies the pagination cursor for the next page of IdPs</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of IdP results in a page</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">type</span></td>
+        <td><p>Filters IdPs by type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviderSigningKeys_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviderSigningKeys*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ListIdentityProviderSigningKeys_System_String_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListIdentityProviderSigningKeys(System.String)">ListIdentityProviderSigningKeys(String)</h4>
+  <div class="markdown level1 summary"><p>Enumerates signing key credentials for an IdP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IJsonWebKey&gt; ListIdentityProviderSigningKeys(string idpId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_ListSocialAuthTokens_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListSocialAuthTokens*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_ListSocialAuthTokens_System_String_System_String_" data-uid="Okta.Sdk.IIdentityProvidersClient.ListSocialAuthTokens(System.String,System.String)">ListSocialAuthTokens(String, String)</h4>
+  <div class="markdown level1 summary"><p>Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;ISocialAuthToken&gt; ListSocialAuthTokens(string idpId, string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.ISocialAuthToken.html">ISocialAuthToken</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.ISocialAuthToken.html">ISocialAuthToken</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_PublishBinaryCerCertForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishBinaryCerCertForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_PublishBinaryCerCertForIdentityProviderAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishBinaryCerCertForIdentityProviderAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)">PublishBinaryCerCertForIdentityProviderAsync(Byte[], String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; PublishBinaryCerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">certificate</span></td>
+        <td><p>The <see cref="!:byte[]"></see> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_PublishBinaryDerCertForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishBinaryDerCertForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_PublishBinaryDerCertForIdentityProviderAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishBinaryDerCertForIdentityProviderAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)">PublishBinaryDerCertForIdentityProviderAsync(Byte[], String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; PublishBinaryDerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">certificate</span></td>
+        <td><p>The <see cref="!:byte[]"></see> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_PublishBinaryPemCertForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishBinaryPemCertForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_PublishBinaryPemCertForIdentityProviderAsync_System_Byte___System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishBinaryPemCertForIdentityProviderAsync(System.Byte[],System.String,System.String,System.Threading.CancellationToken)">PublishBinaryPemCertForIdentityProviderAsync(Byte[], String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; PublishBinaryPemCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">certificate</span></td>
+        <td><p>The <see cref="!:byte[]"></see> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_PublishCerCertForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishCerCertForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_PublishCerCertForIdentityProviderAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishCerCertForIdentityProviderAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">PublishCerCertForIdentityProviderAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; PublishCerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">certificate</span></td>
+        <td><p>The <span class="xref">System.String</span> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_PublishDerCertForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishDerCertForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_PublishDerCertForIdentityProviderAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.PublishDerCertForIdentityProviderAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">PublishDerCertForIdentityProviderAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IJsonWebKey&gt; PublishDerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">certificate</span></td>
+        <td><p>The <span class="xref">System.String</span> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IJsonWebKey.html">IJsonWebKey</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_RevokeCsrForIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.RevokeCsrForIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_RevokeCsrForIdentityProviderAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.RevokeCsrForIdentityProviderAsync(System.String,System.String,System.Threading.CancellationToken)">RevokeCsrForIdentityProviderAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Revoke a Certificate Signing Request and delete the key pair from the IdP</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">csrId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_UnlinkUserFromIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.UnlinkUserFromIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_UnlinkUserFromIdentityProviderAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.UnlinkUserFromIdentityProviderAsync(System.String,System.String,System.Threading.CancellationToken)">UnlinkUserFromIdentityProviderAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes the link between the Okta user and the IdP user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UnlinkUserFromIdentityProviderAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IIdentityProvidersClient_UpdateIdentityProviderAsync_" data-uid="Okta.Sdk.IIdentityProvidersClient.UpdateIdentityProviderAsync*"></a>
+  <h4 id="Okta_Sdk_IIdentityProvidersClient_UpdateIdentityProviderAsync_Okta_Sdk_IIdentityProvider_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IIdentityProvidersClient.UpdateIdentityProviderAsync(Okta.Sdk.IIdentityProvider,System.String,System.Threading.CancellationToken)">UpdateIdentityProviderAsync(IIdentityProvider, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates the configuration for an IdP.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IIdentityProvider&gt; UpdateIdentityProviderAsync(IIdentityProvider identityProvider, string idpId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a></td>
+        <td><span class="parametername">identityProvider</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idpId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

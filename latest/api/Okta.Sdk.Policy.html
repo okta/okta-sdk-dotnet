@@ -1,0 +1,769 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class Policy
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class Policy
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+              	<div class="apiversion">
+              			<form action="#" method="GET">
+              				<span>API version:</span>
+                              <select id="version-switcher" name="version"></select>
+                          </form>
+              	</div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.Policy">
+  
+  
+  <h1 id="Okta_Sdk_Policy" data-uid="Okta.Sdk.Policy" class="text-break">Class Policy
+  </h1>
+  <div class="markdown level0 summary"><p>Represents a resource in the Okta API.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Okta.Sdk.Resource.html">Resource</a></div>
+    <div class="level2"><span class="xref">Policy</span></div>
+      <div class="level3"><a class="xref" href="Okta.Sdk.IdentityProviderPolicy.html">IdentityProviderPolicy</a></div>
+      <div class="level3"><a class="xref" href="Okta.Sdk.OAuthAuthorizationPolicy.html">OAuthAuthorizationPolicy</a></div>
+      <div class="level3"><a class="xref" href="Okta.Sdk.OktaSignOnPolicy.html">OktaSignOnPolicy</a></div>
+      <div class="level3"><a class="xref" href="Okta.Sdk.PasswordPolicy.html">PasswordPolicy</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a></div>
+    <div><a class="xref" href="Okta.Sdk.IResource.html">IResource</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetClient">Resource.GetClient()</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetData">Resource.GetData()</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_Item_System_String_">Resource.Item[String]</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetProperty__1_System_String_">Resource.GetProperty&lt;T&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_SetProperty_System_String_System_Object_">Resource.SetProperty(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetStringProperty_System_String_">Resource.GetStringProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetBooleanProperty_System_String_">Resource.GetBooleanProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetIntegerProperty_System_String_">Resource.GetIntegerProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetLongProperty_System_String_">Resource.GetLongProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetDoubleProperty_System_String_">Resource.GetDoubleProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetDateTimeProperty_System_String_">Resource.GetDateTimeProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetArrayProperty__1_System_String_">Resource.GetArrayProperty&lt;T&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetEnumProperty__1_System_String_">Resource.GetEnumProperty&lt;TEnum&gt;(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.Resource.html#Okta_Sdk_Resource_GetResourceProperty__1_System_String_">Resource.GetResourceProperty&lt;T&gt;(String)</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_Policy_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class Policy : Resource, IPolicy, IResource</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Okta_Sdk_Policy_Conditions_" data-uid="Okta.Sdk.Policy.Conditions*"></a>
+  <h4 id="Okta_Sdk_Policy_Conditions" data-uid="Okta.Sdk.Policy.Conditions">Conditions</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPolicyRuleConditions Conditions { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicyRuleConditions.html">IPolicyRuleConditions</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Created_" data-uid="Okta.Sdk.Policy.Created*"></a>
+  <h4 id="Okta_Sdk_Policy_Created" data-uid="Okta.Sdk.Policy.Created">Created</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? Created { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTimeOffset</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Description_" data-uid="Okta.Sdk.Policy.Description*"></a>
+  <h4 id="Okta_Sdk_Policy_Description" data-uid="Okta.Sdk.Policy.Description">Description</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Description { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Id_" data-uid="Okta.Sdk.Policy.Id*"></a>
+  <h4 id="Okta_Sdk_Policy_Id" data-uid="Okta.Sdk.Policy.Id">Id</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Id { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_LastUpdated_" data-uid="Okta.Sdk.Policy.LastUpdated*"></a>
+  <h4 id="Okta_Sdk_Policy_LastUpdated" data-uid="Okta.Sdk.Policy.LastUpdated">LastUpdated</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DateTimeOffset? LastUpdated { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.DateTimeOffset</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Name_" data-uid="Okta.Sdk.Policy.Name*"></a>
+  <h4 id="Okta_Sdk_Policy_Name" data-uid="Okta.Sdk.Policy.Name">Name</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Priority_" data-uid="Okta.Sdk.Policy.Priority*"></a>
+  <h4 id="Okta_Sdk_Policy_Priority" data-uid="Okta.Sdk.Policy.Priority">Priority</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int? Priority { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Status_" data-uid="Okta.Sdk.Policy.Status*"></a>
+  <h4 id="Okta_Sdk_Policy_Status" data-uid="Okta.Sdk.Policy.Status">Status</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Status { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_System_" data-uid="Okta.Sdk.Policy.System*"></a>
+  <h4 id="Okta_Sdk_Policy_System" data-uid="Okta.Sdk.Policy.System">System</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool? System { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_Type_" data-uid="Okta.Sdk.Policy.Type*"></a>
+  <h4 id="Okta_Sdk_Policy_Type" data-uid="Okta.Sdk.Policy.Type">Type</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public PolicyType Type { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.PolicyType.html">PolicyType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_Policy_ActivateAsync_" data-uid="Okta.Sdk.Policy.ActivateAsync*"></a>
+  <h4 id="Okta_Sdk_Policy_ActivateAsync_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Policy.ActivateAsync(System.Threading.CancellationToken)">ActivateAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_CreateRuleAsync_" data-uid="Okta.Sdk.Policy.CreateRuleAsync*"></a>
+  <h4 id="Okta_Sdk_Policy_CreateRuleAsync_Okta_Sdk_IPolicyRule_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Policy.CreateRuleAsync(Okta.Sdk.IPolicyRule,System.Threading.CancellationToken)">CreateRuleAsync(IPolicyRule, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IPolicyRule&gt; CreateRuleAsync(IPolicyRule policyRule, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a></td>
+        <td><span class="parametername">policyRule</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_CreateRuleAsync_" data-uid="Okta.Sdk.Policy.CreateRuleAsync*"></a>
+  <h4 id="Okta_Sdk_Policy_CreateRuleAsync__1_Okta_Sdk_PolicyRule_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Policy.CreateRuleAsync``1(Okta.Sdk.PolicyRule,System.Threading.CancellationToken)">CreateRuleAsync&lt;T&gt;(PolicyRule, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a policy rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; CreateRuleAsync&lt;T&gt;(PolicyRule policyRule, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicyRule</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.PolicyRule.html">PolicyRule</a></td>
+        <td><span class="parametername">policyRule</span></td>
+        <td><p>The policy rule</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The created policy rule</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of policy rule</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_DeactivateAsync_" data-uid="Okta.Sdk.Policy.DeactivateAsync*"></a>
+  <h4 id="Okta_Sdk_Policy_DeactivateAsync_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Policy.DeactivateAsync(System.Threading.CancellationToken)">DeactivateAsync(CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_GetPolicyRuleAsync_" data-uid="Okta.Sdk.Policy.GetPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_Policy_GetPolicyRuleAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Policy.GetPolicyRuleAsync(System.String,System.Threading.CancellationToken)">GetPolicyRuleAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IPolicyRule&gt; GetPolicyRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_GetPolicyRuleAsync_" data-uid="Okta.Sdk.Policy.GetPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_Policy_GetPolicyRuleAsync__1_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Policy.GetPolicyRuleAsync``1(System.String,System.Threading.CancellationToken)">GetPolicyRuleAsync&lt;T&gt;(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a policy rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; GetPolicyRuleAsync&lt;T&gt;(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicyRule</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td><p>The policy rule Id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The policy rule</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of policy rule</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Policy_ListPolicyRules_" data-uid="Okta.Sdk.Policy.ListPolicyRules*"></a>
+  <h4 id="Okta_Sdk_Policy_ListPolicyRules" data-uid="Okta.Sdk.Policy.ListPolicyRules">ListPolicyRules()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ICollectionClient&lt;IPolicyRule&gt; ListPolicyRules()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a>
+  </div>
+  <div>
+      <a class="xref" href="Okta.Sdk.IResource.html">IResource</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

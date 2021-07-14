@@ -1,0 +1,521 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class PayloadHandler
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class PayloadHandler
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.Internal.PayloadHandler">
+  
+  
+  <h1 id="Okta_Sdk_Internal_PayloadHandler" data-uid="Okta.Sdk.Internal.PayloadHandler" class="text-break">Class PayloadHandler
+  </h1>
+  <div class="markdown level0 summary"><p>A class responsible for providing body and message content.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">PayloadHandler</span></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.Internal.ByteArrayPayloadHandler.html">ByteArrayPayloadHandler</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.Internal.JsonPayloadHandler.html">JsonPayloadHandler</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.Internal.PkixCertPayloadHandler.html">PkixCertPayloadHandler</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Okta.Sdk.Internal.IPayloadHandler.html">IPayloadHandler</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.Internal.html">Okta.Sdk.Internal</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_Internal_PayloadHandler_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class PayloadHandler : IPayloadHandler</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Okta_Sdk_Internal_PayloadHandler__ctor_" data-uid="Okta.Sdk.Internal.PayloadHandler.#ctor*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler__ctor" data-uid="Okta.Sdk.Internal.PayloadHandler.#ctor">PayloadHandler()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Okta.Sdk.Internal.PayloadHandler.html">PayloadHandler</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected PayloadHandler()</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Okta_Sdk_Internal_PayloadHandler_ContentTransferEncoding_" data-uid="Okta.Sdk.Internal.PayloadHandler.ContentTransferEncoding*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_ContentTransferEncoding" data-uid="Okta.Sdk.Internal.PayloadHandler.ContentTransferEncoding">ContentTransferEncoding</h4>
+  <div class="markdown level1 summary"><p>Gets or sets the content transfer encoding.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string ContentTransferEncoding { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_ContentType_" data-uid="Okta.Sdk.Internal.PayloadHandler.ContentType*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_ContentType" data-uid="Okta.Sdk.Internal.PayloadHandler.ContentType">ContentType</h4>
+  <div class="markdown level1 summary"><p>Gets the content type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ContentType { get; protected set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_Default_" data-uid="Okta.Sdk.Internal.PayloadHandler.Default*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_Default" data-uid="Okta.Sdk.Internal.PayloadHandler.Default">Default</h4>
+  <div class="markdown level1 summary"><p>The default payload handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPayloadHandler Default { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.IPayloadHandler.html">IPayloadHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_Internal_PayloadHandler_ForContentType_" data-uid="Okta.Sdk.Internal.PayloadHandler.ForContentType*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_ForContentType_System_String_" data-uid="Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)">ForContentType(String)</h4>
+  <div class="markdown level1 summary"><p>Get the payload handler registered for the specified content type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static IPayloadHandler ForContentType(string contentType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">contentType</span></td>
+        <td><p>The content type whose payload handler is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.IPayloadHandler.html">IPayloadHandler</a></td>
+        <td><p>A payload handler.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_GetBody_" data-uid="Okta.Sdk.Internal.PayloadHandler.GetBody*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_GetBody_Okta_Sdk_HttpRequest_" data-uid="Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)">GetBody(HttpRequest)</h4>
+  <div class="markdown level1 summary"><p>Gets the body for the specified request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual string GetBody(HttpRequest httpRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">httpRequest</span></td>
+        <td><p>The request whose body is retrieved.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The request body.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_GetRequestHttpContent_" data-uid="Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_GetRequestHttpContent_Okta_Sdk_HttpRequest_" data-uid="Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)">GetRequestHttpContent(HttpRequest)</h4>
+  <div class="markdown level1 summary"><p>Get content for the specified request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract HttpContent GetRequestHttpContent(HttpRequest httpRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">httpRequest</span></td>
+        <td><p>The request whose content is returned.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpContent</span></td>
+        <td><p>Content for the specified request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_SetHttpRequestMessageContent_" data-uid="Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_SetHttpRequestMessageContent_Okta_Sdk_HttpRequest_System_Net_Http_HttpRequestMessage_" data-uid="Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest,System.Net.Http.HttpRequestMessage)">SetHttpRequestMessageContent(HttpRequest, HttpRequestMessage)</h4>
+  <div class="markdown level1 summary"><p>Set the content of the specified request message based on the specified request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetHttpRequestMessageContent(HttpRequest httpRequest, HttpRequestMessage httpRequestMessage)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">httpRequest</span></td>
+        <td><p>The request used to create the message content.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpRequestMessage</span></td>
+        <td><span class="parametername">httpRequestMessage</span></td>
+        <td><p>The message whose content is set.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_TryRegister_" data-uid="Okta.Sdk.Internal.PayloadHandler.TryRegister*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_TryRegister_Okta_Sdk_Internal_IPayloadHandler_" data-uid="Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)">TryRegister(IPayloadHandler)</h4>
+  <div class="markdown level1 summary"><p>Register the specified payload handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryRegister(IPayloadHandler payloadHandler)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.IPayloadHandler.html">IPayloadHandler</a></td>
+        <td><span class="parametername">payloadHandler</span></td>
+        <td><p>The payload handler instance to register.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if successfully registered.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_TryRegister_" data-uid="Okta.Sdk.Internal.PayloadHandler.TryRegister*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_TryRegister__1" data-uid="Okta.Sdk.Internal.PayloadHandler.TryRegister``1">TryRegister&lt;T&gt;()</h4>
+  <div class="markdown level1 summary"><p>Register the specified generic payload handler.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool TryRegister&lt;T&gt;()
+    where T : PayloadHandler, new()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>True if successfully registered.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The type of the payload handler to register.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_PayloadHandler_ValidateRequest_" data-uid="Okta.Sdk.Internal.PayloadHandler.ValidateRequest*"></a>
+  <h4 id="Okta_Sdk_Internal_PayloadHandler_ValidateRequest_Okta_Sdk_HttpRequest_" data-uid="Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)">ValidateRequest(HttpRequest)</h4>
+  <div class="markdown level1 summary"><p>Validate the specified request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void ValidateRequest(HttpRequest httpRequest)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">httpRequest</span></td>
+        <td><p>The request to validate.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_Internal_PayloadHandler_ValidateRequest_Okta_Sdk_HttpRequest__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Throws an ArgumentNullException if the specified request is null.
+Throws an InvalidOperationException if the current payload handler is not for the content type of the specified request</p>
+</div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Okta.Sdk.Internal.IPayloadHandler.html">IPayloadHandler</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2020 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,515 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IInlineHooksClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IInlineHooksClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+              	<div class="apiversion">
+              			<form action="#" method="GET">
+              				<span>API version:</span>
+                              <select id="version-switcher" name="version"></select>
+                          </form>
+              	</div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.IInlineHooksClient">
+  
+  
+  <h1 id="Okta_Sdk_IInlineHooksClient" data-uid="Okta.Sdk.IInlineHooksClient" class="text-break">Interface IInlineHooksClient
+  </h1>
+  <div class="markdown level0 summary"><p>A client that works with Okta InlineHook resources.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_IInlineHooksClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IInlineHooksClient</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_IInlineHooksClient_ActivateInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_ActivateInlineHookAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync(System.String,System.Threading.CancellationToken)">ActivateInlineHookAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Activates the Inline Hook matching the provided id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IInlineHook&gt; ActivateInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">inlineHookId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_CreateInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_CreateInlineHookAsync_Okta_Sdk_IInlineHook_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync(Okta.Sdk.IInlineHook,System.Threading.CancellationToken)">CreateInlineHookAsync(IInlineHook, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IInlineHook&gt; CreateInlineHookAsync(IInlineHook inlineHook, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a></td>
+        <td><span class="parametername">inlineHook</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_DeactivateInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_DeactivateInlineHookAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync(System.String,System.Threading.CancellationToken)">DeactivateInlineHookAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deactivates the Inline Hook matching the provided id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IInlineHook&gt; DeactivateInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">inlineHookId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_DeleteInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_DeleteInlineHookAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync(System.String,System.Threading.CancellationToken)">DeleteInlineHookAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeleteInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">inlineHookId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_ExecuteInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_ExecuteInlineHookAsync_Okta_Sdk_IInlineHookPayload_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync(Okta.Sdk.IInlineHookPayload,System.String,System.Threading.CancellationToken)">ExecuteInlineHookAsync(IInlineHookPayload, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IInlineHookResponse&gt; ExecuteInlineHookAsync(IInlineHookPayload payloadData, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IInlineHookPayload.html">IInlineHookPayload</a></td>
+        <td><span class="parametername">payloadData</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHookPayload.html">IInlineHookPayload</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">inlineHookId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IInlineHookResponse.html">IInlineHookResponse</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHookResponse.html">IInlineHookResponse</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_GetInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.GetInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_GetInlineHookAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.GetInlineHookAsync(System.String,System.Threading.CancellationToken)">GetInlineHookAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets an inline hook by ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IInlineHook&gt; GetInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">inlineHookId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_ListInlineHooks_" data-uid="Okta.Sdk.IInlineHooksClient.ListInlineHooks*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_ListInlineHooks_System_String_" data-uid="Okta.Sdk.IInlineHooksClient.ListInlineHooks(System.String)">ListInlineHooks(String)</h4>
+  <div class="markdown level1 summary"><p>Success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IInlineHook&gt; ListInlineHooks(string type = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IInlineHooksClient_UpdateInlineHookAsync_" data-uid="Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync*"></a>
+  <h4 id="Okta_Sdk_IInlineHooksClient_UpdateInlineHookAsync_Okta_Sdk_IInlineHook_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync(Okta.Sdk.IInlineHook,System.String,System.Threading.CancellationToken)">UpdateInlineHookAsync(IInlineHook, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates an inline hook by ID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IInlineHook&gt; UpdateInlineHookAsync(IInlineHook inlineHook, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a></td>
+        <td><span class="parametername">inlineHook</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">inlineHookId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IInlineHook.html">IInlineHook</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

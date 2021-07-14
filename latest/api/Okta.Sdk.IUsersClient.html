@@ -1,0 +1,3507 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IUsersClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IUsersClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+              	<div class="apiversion">
+              			<form action="#" method="GET">
+              				<span>API version:</span>
+                              <select id="version-switcher" name="version"></select>
+                          </form>
+              	</div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.IUsersClient">
+  
+  
+  <h1 id="Okta_Sdk_IUsersClient" data-uid="Okta.Sdk.IUsersClient" class="text-break">Interface IUsersClient
+  </h1>
+  <div class="markdown level0 summary"><p>A client that works with Okta User resources.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Collections.Generic.IAsyncEnumerable&lt;Okta.Sdk.IUser&gt;.GetAsyncEnumerator(System.Threading.CancellationToken)</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_IUsersClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IUsersClient : IAsyncEnumerable&lt;IUser&gt;</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_IUsersClient_ActivateUserAsync_" data-uid="Okta.Sdk.IUsersClient.ActivateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ActivateUserAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ActivateUserAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ActivateUserAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Activates a user.  This operation can only be performed on users with a <code>STAGED</code> status.  Activation of a user is an asynchronous operation. The user will have the <code>transitioningToStatus</code> property with a value of <code>ACTIVE</code> during activation to indicate that the user hasn&apos;t completed the asynchronous operation.  The user will have a status of <code>ACTIVE</code> when the activation process is complete.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUserActivationToken&gt; ActivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td><p>Sends an activation email to the user if true</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUserActivationToken.html">IUserActivationToken</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserActivationToken.html">IUserActivationToken</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_AddAllAppsAsTargetToRoleAsync_" data-uid="Okta.Sdk.IUsersClient.AddAllAppsAsTargetToRoleAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_AddAllAppsAsTargetToRoleAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.AddAllAppsAsTargetToRoleAsync(System.String,System.String,System.Threading.CancellationToken)">AddAllAppsAsTargetToRoleAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AddAllAppsAsTargetToRoleAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_AddApplicationTargetToAdminRoleForUserAsync_" data-uid="Okta.Sdk.IUsersClient.AddApplicationTargetToAdminRoleForUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_AddApplicationTargetToAdminRoleForUserAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.AddApplicationTargetToAdminRoleForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">AddApplicationTargetToAdminRoleForUserAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AddApplicationTargetToAdminRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">appName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_AddApplicationTargetToAppAdminRoleForUserAsync_" data-uid="Okta.Sdk.IUsersClient.AddApplicationTargetToAppAdminRoleForUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_AddApplicationTargetToAppAdminRoleForUserAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.AddApplicationTargetToAppAdminRoleForUserAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">AddApplicationTargetToAppAdminRoleForUserAsync(String, String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Add App Instance Target to App Administrator Role given to a User</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AddApplicationTargetToAppAdminRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">appName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">applicationId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_AddGroupTargetToRoleAsync_" data-uid="Okta.Sdk.IUsersClient.AddGroupTargetToRoleAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_AddGroupTargetToRoleAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.AddGroupTargetToRoleAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">AddGroupTargetToRoleAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Adds a group target for a role assigned to a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_AssignRoleToUserAsync_" data-uid="Okta.Sdk.IUsersClient.AssignRoleToUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_AssignRoleToUserAsync_Okta_Sdk_IAssignRoleRequest_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.AssignRoleToUserAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.String,System.Threading.CancellationToken)">AssignRoleToUserAsync(IAssignRoleRequest, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Assigns a role to a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IRole&gt; AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IAssignRoleRequest.html">IAssignRoleRequest</a></td>
+        <td><span class="parametername">assignRoleRequest</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IAssignRoleRequest.html">IAssignRoleRequest</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">disableNotifications</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IRole.html">IRole</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IRole.html">IRole</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ChangePasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ChangePasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ChangePasswordAsync_Okta_Sdk_IChangePasswordRequest_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ChangePasswordAsync(Okta.Sdk.IChangePasswordRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ChangePasswordAsync(IChangePasswordRequest, String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Changes a user&apos;s password by validating the user&apos;s current password. This operation can only be performed on users in <code>STAGED</code>, <code>ACTIVE</code>, <code>PASSWORD_EXPIRED</code>, or <code>RECOVERY</code> status that have a valid password credential</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUserCredentials&gt; ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, bool? strict = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IChangePasswordRequest.html">IChangePasswordRequest</a></td>
+        <td><span class="parametername">changePasswordRequest</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IChangePasswordRequest.html">IChangePasswordRequest</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">strict</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ChangePasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ChangePasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ChangePasswordAsync_Okta_Sdk_IChangePasswordRequest_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ChangePasswordAsync(Okta.Sdk.IChangePasswordRequest,System.String,System.Threading.CancellationToken)">ChangePasswordAsync(IChangePasswordRequest, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Changes a user&apos;s password by validating the user&apos;s current password.  This operation can only be performed on users in <code>STAGED</code>, <code>ACTIVE</code>, <code>PASSWORD_EXPIRED</code>, or <code>RECOVERY</code> status that have a valid <a href="#password-object">password credential</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUserCredentials&gt; ChangePasswordAsync(IChangePasswordRequest changePasswordRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IChangePasswordRequest.html">IChangePasswordRequest</a></td>
+        <td><span class="parametername">changePasswordRequest</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IChangePasswordRequest.html">IChangePasswordRequest</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The user ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_ChangePasswordAsync_Okta_Sdk_IChangePasswordRequest_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Explicit overload to support backward compatibility.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_ChangePasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ChangePasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ChangePasswordAsync_System_String_Okta_Sdk_ChangePasswordOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ChangePasswordAsync(System.String,Okta.Sdk.ChangePasswordOptions,System.Threading.CancellationToken)">ChangePasswordAsync(String, ChangePasswordOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Changes a user&apos;s password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUserCredentials&gt; ChangePasswordAsync(string userId, ChangePasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The user ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ChangePasswordOptions.html">ChangePasswordOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Change Password request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.UserCredentials.html">UserCredentials</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ChangeRecoveryQuestionAsync_" data-uid="Okta.Sdk.IUsersClient.ChangeRecoveryQuestionAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ChangeRecoveryQuestionAsync_Okta_Sdk_IUserCredentials_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ChangeRecoveryQuestionAsync(Okta.Sdk.IUserCredentials,System.String,System.Threading.CancellationToken)">ChangeRecoveryQuestionAsync(IUserCredentials, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUserCredentials&gt; ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a></td>
+        <td><span class="parametername">userCredentials</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ChangeRecoveryQuestionAsync_" data-uid="Okta.Sdk.IUsersClient.ChangeRecoveryQuestionAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ChangeRecoveryQuestionAsync_System_String_Okta_Sdk_ChangeRecoveryQuestionOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ChangeRecoveryQuestionAsync(System.String,Okta.Sdk.ChangeRecoveryQuestionOptions,System.Threading.CancellationToken)">ChangeRecoveryQuestionAsync(String, ChangeRecoveryQuestionOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Changes a user&apos;s recovery question.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ChangeRecoveryQuestionAsync(string userId, ChangeRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The user ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ChangeRecoveryQuestionOptions.html">ChangeRecoveryQuestionOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Change Recovery Question request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ClearUserSessionsAsync_" data-uid="Okta.Sdk.IUsersClient.ClearUserSessionsAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ClearUserSessionsAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ClearUserSessionsAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ClearUserSessionsAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ClearUserSessionsAsync(string userId, bool? oauthTokens, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">oauthTokens</span></td>
+        <td><p>Revoke issued OpenID Connect and OAuth refresh and access tokens</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithImportedHashedPasswordOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithImportedHashedPasswordOptions,System.Threading.CancellationToken)">CreateUserAsync(CreateUserWithImportedHashedPasswordOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization with the specified hashed password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(CreateUserWithImportedHashedPasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateUserWithImportedHashedPasswordOptions.html">CreateUserWithImportedHashedPasswordOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Create User (with a specified hashed password) request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The created user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithImportedHashedPasswordOptions_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://developer.okta.com/docs/reference/api/users/#create-user-with-imported-hashed-password">Create User with Imported Hashed Password</a> in the documentation.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithoutCredentialsOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithoutCredentialsOptions,System.Threading.CancellationToken)">CreateUserAsync(CreateUserWithoutCredentialsOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization without a password or a recovery question/answer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(CreateUserWithoutCredentialsOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateUserWithoutCredentialsOptions.html">CreateUserWithoutCredentialsOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Create User (without credentials) request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The created user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithoutCredentialsOptions_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-without-credentials">Create User without Credentials</a> in the documentation.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithPasswordImportInlineHookOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithPasswordImportInlineHookOptions,System.Threading.CancellationToken)">CreateUserAsync(CreateUserWithPasswordImportInlineHookOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization specifying that a Password Inline Hook should be used to handle password verification..</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(CreateUserWithPasswordImportInlineHookOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateUserWithPasswordImportInlineHookOptions.html">CreateUserWithPasswordImportInlineHookOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Create User (with password import inline hook) request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The created user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithPasswordImportInlineHookOptions_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://developer.okta.com/docs/reference/api/users/#create-user-with-password-import-inline-hook">Create User with Password Import Inline Hook</a> in the documentation.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithPasswordOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithPasswordOptions,System.Threading.CancellationToken)">CreateUserAsync(CreateUserWithPasswordOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization with the specified password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(CreateUserWithPasswordOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateUserWithPasswordOptions.html">CreateUserWithPasswordOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Create User (with password) request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The created user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithPasswordOptions_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-password">Create User with Password</a> in the documentation.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithProviderOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithProviderOptions,System.Threading.CancellationToken)">CreateUserAsync(CreateUserWithProviderOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization with the specified authentication provider.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(CreateUserWithProviderOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateUserWithProviderOptions.html">CreateUserWithProviderOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Create User (with authentication provider) request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The created user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithProviderOptions_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-authentication-provider">Create User with Authentication Provider</a> in the documentation.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithRecoveryQuestionOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions,System.Threading.CancellationToken)">CreateUserAsync(CreateUserWithRecoveryQuestionOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization with a recovery question/answer (but no password).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(CreateUserWithRecoveryQuestionOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateUserWithRecoveryQuestionOptions.html">CreateUserWithRecoveryQuestionOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The options for this Create User (with recovery question) request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The created user.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_CreateUserWithRecoveryQuestionOptions_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-recovery-question">Create User with Recovery Question</a> in the documentation.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_CreateUserAsync_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_CreateUserAsync_Okta_Sdk_ICreateUserRequest_System_Nullable_System_Boolean__System_Nullable_System_Boolean__Okta_Sdk_UserNextLogin_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.ICreateUserRequest,System.Nullable{System.Boolean},System.Nullable{System.Boolean},Okta.Sdk.UserNextLogin,System.Threading.CancellationToken)">CreateUserAsync(ICreateUserRequest, Nullable&lt;Boolean&gt;, Nullable&lt;Boolean&gt;, UserNextLogin, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a new user in your Okta organization with or without credentials.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; CreateUserAsync(ICreateUserRequest body, bool? activate, bool? provider, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICreateUserRequest.html">ICreateUserRequest</a></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.ICreateUserRequest.html">ICreateUserRequest</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">activate</span></td>
+        <td><p>Executes activation lifecycle operation when creating the user</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">provider</span></td>
+        <td><p>Indicates whether to create a user with a specified authentication provider</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.UserNextLogin.html">UserNextLogin</a></td>
+        <td><span class="parametername">nextLogin</span></td>
+        <td><p>With activate=true, set nextLogin to &quot;changePassword&quot; to have the password be EXPIRED, so user must change it the next time they log in.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_" data-uid="Okta.Sdk.IUsersClient.DeactivateOrDeleteUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_System_String_" data-uid="Okta.Sdk.IUsersClient.DeactivateOrDeleteUserAsync(System.String)">DeactivateOrDeleteUserAsync(String)</h4>
+  <div class="markdown level1 summary"><p>Deletes a user permanently. This operation can only be performed on users that have a <code>DEPROVISIONED</code> status.  <strong>This action cannot be recovered!</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeactivateOrDeleteUserAsync(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The User ID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_System_String__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Explicit overload to support backward compatibility.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_" data-uid="Okta.Sdk.IUsersClient.DeactivateOrDeleteUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.DeactivateOrDeleteUserAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">DeactivateOrDeleteUserAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes a user permanently.  This operation can only be performed on users that have a <code>DEPROVISIONED</code> status.  <strong>This action cannot be recovered!</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_" data-uid="Okta.Sdk.IUsersClient.DeactivateOrDeleteUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.DeactivateOrDeleteUserAsync(System.String,System.Threading.CancellationToken)">DeactivateOrDeleteUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes a user permanently. This operation can only be performed on users that have a <code>DEPROVISIONED</code> status.  <strong>This action cannot be recovered!</strong></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeactivateOrDeleteUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The User ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_DeactivateOrDeleteUserAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Explicit overload to support backward compatibility.</p>
+</div>
+  <a id="Okta_Sdk_IUsersClient_DeactivateUserAsync_" data-uid="Okta.Sdk.IUsersClient.DeactivateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_DeactivateUserAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.DeactivateUserAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">DeactivateUserAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deactivates a user.  This operation can only be performed on users that do not have a <code>DEPROVISIONED</code> status.  Deactivation of a user is an asynchronous operation.  The user will have the <code>transitioningToStatus</code> property with a value of <code>DEPROVISIONED</code> during deactivation to indicate that the user hasn&apos;t completed the asynchronous operation.  The user will have a status of <code>DEPROVISIONED</code> when the deactivation process is complete.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeactivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ExpirePasswordAndGetTemporaryPasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ExpirePasswordAndGetTemporaryPasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ExpirePasswordAndGetTemporaryPasswordAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ExpirePasswordAndGetTemporaryPasswordAsync(System.String,System.Threading.CancellationToken)">ExpirePasswordAndGetTemporaryPasswordAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>This operation transitions the user to the status of <code>PASSWORD_EXPIRED</code> and the user&apos;s password is reset to a temporary password that is returned.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;ITempPassword&gt; ExpirePasswordAndGetTemporaryPasswordAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.ITempPassword.html">ITempPassword</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.ITempPassword.html">ITempPassword</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ExpirePasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ExpirePasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ExpirePasswordAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ExpirePasswordAsync(System.String,System.Threading.CancellationToken)">ExpirePasswordAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>This operation transitions the user to the status of <code>PASSWORD_EXPIRED</code> so that the user is required to change their password at their next login.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; ExpirePasswordAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ForgotPasswordGenerateOneTimeTokenAsync_" data-uid="Okta.Sdk.IUsersClient.ForgotPasswordGenerateOneTimeTokenAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ForgotPasswordGenerateOneTimeTokenAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ForgotPasswordGenerateOneTimeTokenAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ForgotPasswordGenerateOneTimeTokenAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Generates a one-time token (OTT) that can be used to reset a user&apos;s password</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IForgotPasswordResponse&gt; ForgotPasswordGenerateOneTimeTokenAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IForgotPasswordResponse.html">IForgotPasswordResponse</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IForgotPasswordResponse.html">IForgotPasswordResponse</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ForgotPasswordSetNewPasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ForgotPasswordSetNewPasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ForgotPasswordSetNewPasswordAsync_Okta_Sdk_IUserCredentials_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ForgotPasswordSetNewPasswordAsync(Okta.Sdk.IUserCredentials,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ForgotPasswordSetNewPasswordAsync(IUserCredentials, String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sets a new password for a user by validating the user&apos;s answer to their current recovery question</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IForgotPasswordResponse&gt; ForgotPasswordSetNewPasswordAsync(IUserCredentials user, string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserCredentials.html">IUserCredentials</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IForgotPasswordResponse.html">IForgotPasswordResponse</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IForgotPasswordResponse.html">IForgotPasswordResponse</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_GetLinkedObjectsForUser_" data-uid="Okta.Sdk.IUsersClient.GetLinkedObjectsForUser*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_GetLinkedObjectsForUser_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IUsersClient.GetLinkedObjectsForUser(System.String,System.String,System.String,System.Nullable{System.Int32})">GetLinkedObjectsForUser(String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Get linked objects for a user, relationshipName can be a primary or associated relationship name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IResponseLinks&gt; GetLinkedObjectsForUser(string userId, string relationshipName, string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relationshipName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IResponseLinks.html">IResponseLinks</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IResponseLinks.html">IResponseLinks</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_GetRefreshTokenForUserAndClientAsync_" data-uid="Okta.Sdk.IUsersClient.GetRefreshTokenForUserAndClientAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_GetRefreshTokenForUserAndClientAsync_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.GetRefreshTokenForUserAndClientAsync(System.String,System.String,System.String,System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">GetRefreshTokenForUserAndClientAsync(String, String, String, String, Nullable&lt;Int32&gt;, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a refresh token issued for the specified User and Client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IOAuth2RefreshToken&gt; GetRefreshTokenForUserAndClientAsync(string userId, string clientId, string tokenId, string expand = null, int? limit, string after = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tokenId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IOAuth2RefreshToken.html">IOAuth2RefreshToken</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IOAuth2RefreshToken.html">IOAuth2RefreshToken</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_GetUserAsync_" data-uid="Okta.Sdk.IUsersClient.GetUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_GetUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.GetUserAsync(System.String,System.Threading.CancellationToken)">GetUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Fetches a user from your Okta organization.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_GetUserGrantAsync_" data-uid="Okta.Sdk.IUsersClient.GetUserGrantAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_GetUserGrantAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.GetUserGrantAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">GetUserGrantAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a grant for the specified user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IOAuth2ScopeConsentGrant&gt; GetUserGrantAsync(string userId, string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">grantId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IOAuth2ScopeConsentGrant.html">IOAuth2ScopeConsentGrant</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IOAuth2ScopeConsentGrant.html">IOAuth2ScopeConsentGrant</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListApplicationTargetsForApplicationAdministratorRoleForUser_" data-uid="Okta.Sdk.IUsersClient.ListApplicationTargetsForApplicationAdministratorRoleForUser*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListApplicationTargetsForApplicationAdministratorRoleForUser_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IUsersClient.ListApplicationTargetsForApplicationAdministratorRoleForUser(System.String,System.String,System.String,System.Nullable{System.Int32})">ListApplicationTargetsForApplicationAdministratorRoleForUser(String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Lists all App targets for an <code>APP_ADMIN</code> Role assigned to a User. This methods return list may include full Applications or Instances. The response for an instance will have an <code>ID</code> value, while Application will not have an ID.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;ICatalogApplication&gt; ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.ICatalogApplication.html">ICatalogApplication</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.ICatalogApplication.html">ICatalogApplication</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListAppLinks_" data-uid="Okta.Sdk.IUsersClient.ListAppLinks*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListAppLinks_System_String_" data-uid="Okta.Sdk.IUsersClient.ListAppLinks(System.String)">ListAppLinks(String)</h4>
+  <div class="markdown level1 summary"><p>Fetches appLinks for all direct or indirect (via group membership) assigned applications.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IAppLink&gt; ListAppLinks(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IAppLink.html">IAppLink</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IAppLink.html">IAppLink</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListAssignedRolesForUser_" data-uid="Okta.Sdk.IUsersClient.ListAssignedRolesForUser*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListAssignedRolesForUser_System_String_System_String_" data-uid="Okta.Sdk.IUsersClient.ListAssignedRolesForUser(System.String,System.String)">ListAssignedRolesForUser(String, String)</h4>
+  <div class="markdown level1 summary"><p>Lists all roles assigned to a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IRole&gt; ListAssignedRolesForUser(string userId, string expand = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IRole.html">IRole</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IRole.html">IRole</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListGrantsForUserAndClient_" data-uid="Okta.Sdk.IUsersClient.ListGrantsForUserAndClient*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListGrantsForUserAndClient_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IUsersClient.ListGrantsForUserAndClient(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})">ListGrantsForUserAndClient(String, String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Lists all grants for a specified user and client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IOAuth2ScopeConsentGrant&gt; ListGrantsForUserAndClient(string userId, string clientId, string expand = null, string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IOAuth2ScopeConsentGrant.html">IOAuth2ScopeConsentGrant</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IOAuth2ScopeConsentGrant.html">IOAuth2ScopeConsentGrant</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListGroupTargetsForRole_" data-uid="Okta.Sdk.IUsersClient.ListGroupTargetsForRole*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListGroupTargetsForRole_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IUsersClient.ListGroupTargetsForRole(System.String,System.String,System.String,System.Nullable{System.Int32})">ListGroupTargetsForRole(String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>List all group targets given a role id.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IGroup&gt; ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListRefreshTokensForUserAndClient_" data-uid="Okta.Sdk.IUsersClient.ListRefreshTokensForUserAndClient*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListRefreshTokensForUserAndClient_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IUsersClient.ListRefreshTokensForUserAndClient(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})">ListRefreshTokensForUserAndClient(String, String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Lists all refresh tokens issued for the specified User and Client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IOAuth2RefreshToken&gt; ListRefreshTokensForUserAndClient(string userId, string clientId, string expand = null, string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IOAuth2RefreshToken.html">IOAuth2RefreshToken</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IOAuth2RefreshToken.html">IOAuth2RefreshToken</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListUserClients_" data-uid="Okta.Sdk.IUsersClient.ListUserClients*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListUserClients_System_String_" data-uid="Okta.Sdk.IUsersClient.ListUserClients(System.String)">ListUserClients(String)</h4>
+  <div class="markdown level1 summary"><p>Lists all client resources for which the specified user has grants or tokens.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IOAuth2Client&gt; ListUserClients(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IOAuth2Client.html">IOAuth2Client</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IOAuth2Client.html">IOAuth2Client</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListUserGrants_" data-uid="Okta.Sdk.IUsersClient.ListUserGrants*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListUserGrants_System_String_System_String_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.IUsersClient.ListUserGrants(System.String,System.String,System.String,System.String,System.Nullable{System.Int32})">ListUserGrants(String, String, String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"><p>Lists all grants for the specified user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IOAuth2ScopeConsentGrant&gt; ListUserGrants(string userId, string scopeId = null, string expand = null, string after = null, int? limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">scopeId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IOAuth2ScopeConsentGrant.html">IOAuth2ScopeConsentGrant</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IOAuth2ScopeConsentGrant.html">IOAuth2ScopeConsentGrant</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListUserGroups_" data-uid="Okta.Sdk.IUsersClient.ListUserGroups*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListUserGroups_System_String_" data-uid="Okta.Sdk.IUsersClient.ListUserGroups(System.String)">ListUserGroups(String)</h4>
+  <div class="markdown level1 summary"><p>Fetches the groups of which the user is a member.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IGroup&gt; ListUserGroups(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListUserIdentityProviders_" data-uid="Okta.Sdk.IUsersClient.ListUserIdentityProviders*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListUserIdentityProviders_System_String_" data-uid="Okta.Sdk.IUsersClient.ListUserIdentityProviders(System.String)">ListUserIdentityProviders(String)</h4>
+  <div class="markdown level1 summary"><p>Lists the IdPs associated with the user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IIdentityProvider&gt; ListUserIdentityProviders(string userId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IIdentityProvider.html">IIdentityProvider</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ListUsers_" data-uid="Okta.Sdk.IUsersClient.ListUsers*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ListUsers_System_String_System_String_System_Nullable_System_Int32__System_String_System_String_System_String_System_String_" data-uid="Okta.Sdk.IUsersClient.ListUsers(System.String,System.String,System.Nullable{System.Int32},System.String,System.String,System.String,System.String)">ListUsers(String, String, Nullable&lt;Int32&gt;, String, String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IUser&gt; ListUsers(string q = null, string after = null, int? limit, string filter = null, string search = null, string sortBy = null, string sortOrder = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">q</span></td>
+        <td><p>Finds a user that matches firstName, lastName, and email properties</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td><p>Specifies the pagination cursor for the next page of users</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td><p>Specifies the number of results returned</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filter</span></td>
+        <td><p>Filters users with a supported expression for a subset of properties</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">search</span></td>
+        <td><p>Searches for users with a supported filtering  expression for most properties</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sortBy</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">sortOrder</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_PartialUpdateUserAsync_" data-uid="Okta.Sdk.IUsersClient.PartialUpdateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_PartialUpdateUserAsync_Okta_Sdk_IUser_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.PartialUpdateUserAsync(Okta.Sdk.IUser,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">PartialUpdateUserAsync(IUser, String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Fetch a user by <code>id</code>, <code>login</code>, or <code>login shortname</code> if the short name is unambiguous.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; PartialUpdateUserAsync(IUser user, string userId, bool? strict = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUser.html">IUser</a></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">strict</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ReactivateUserAsync_" data-uid="Okta.Sdk.IUsersClient.ReactivateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ReactivateUserAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ReactivateUserAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ReactivateUserAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Reactivates a user.  This operation can only be performed on users with a <code>PROVISIONED</code> status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from <a href="#activate-user">Activate User</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUserActivationToken&gt; ReactivateUserAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td><p>Sends an activation email to the user if true</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUserActivationToken.html">IUserActivationToken</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUserActivationToken.html">IUserActivationToken</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RemoveApplicationTargetFromAdministratorRoleForUserAsync_" data-uid="Okta.Sdk.IUsersClient.RemoveApplicationTargetFromAdministratorRoleForUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RemoveApplicationTargetFromAdministratorRoleForUserAsync_System_String_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RemoveApplicationTargetFromAdministratorRoleForUserAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)">RemoveApplicationTargetFromAdministratorRoleForUserAsync(String, String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Remove App Instance Target to App Administrator Role given to a User</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RemoveApplicationTargetFromAdministratorRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">appName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">applicationId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync_" data-uid="Okta.Sdk.IUsersClient.RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Success</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">appName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RemoveGroupTargetFromRoleAsync_" data-uid="Okta.Sdk.IUsersClient.RemoveGroupTargetFromRoleAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RemoveGroupTargetFromRoleAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RemoveGroupTargetFromRoleAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RemoveGroupTargetFromRoleAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes a group target from a role assigned to a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RemoveLinkedObjectForUserAsync_" data-uid="Okta.Sdk.IUsersClient.RemoveLinkedObjectForUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RemoveLinkedObjectForUserAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RemoveLinkedObjectForUserAsync(System.String,System.String,System.Threading.CancellationToken)">RemoveLinkedObjectForUserAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Delete linked objects for a user, relationshipName can be ONLY a primary relationship name</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RemoveLinkedObjectForUserAsync(string userId, string relationshipName, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">relationshipName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RemoveRoleFromUserAsync_" data-uid="Okta.Sdk.IUsersClient.RemoveRoleFromUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RemoveRoleFromUserAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RemoveRoleFromUserAsync(System.String,System.String,System.Threading.CancellationToken)">RemoveRoleFromUserAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Unassigns a role from a user.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">roleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ResetFactorsAsync_" data-uid="Okta.Sdk.IUsersClient.ResetFactorsAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ResetFactorsAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ResetFactorsAsync(System.String,System.Threading.CancellationToken)">ResetFactorsAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>This operation resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user&apos;s status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ResetFactorsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_ResetPasswordAsync_" data-uid="Okta.Sdk.IUsersClient.ResetPasswordAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_ResetPasswordAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.ResetPasswordAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">ResetPasswordAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Generates a one-time token (OTT) that can be used to reset a user&apos;s password.  The OTT link can be automatically emailed to the user or returned to the API caller and distributed using a custom flow.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IResetPasswordToken&gt; ResetPasswordAsync(string userId, bool? sendEmail, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">sendEmail</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IResetPasswordToken.html">IResetPasswordToken</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IResetPasswordToken.html">IResetPasswordToken</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RevokeGrantsForUserAndClientAsync_" data-uid="Okta.Sdk.IUsersClient.RevokeGrantsForUserAndClientAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RevokeGrantsForUserAndClientAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RevokeGrantsForUserAndClientAsync(System.String,System.String,System.Threading.CancellationToken)">RevokeGrantsForUserAndClientAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Revokes all grants for the specified user and client</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RevokeGrantsForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RevokeTokenForUserAndClientAsync_" data-uid="Okta.Sdk.IUsersClient.RevokeTokenForUserAndClientAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RevokeTokenForUserAndClientAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RevokeTokenForUserAndClientAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">RevokeTokenForUserAndClientAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Revokes the specified refresh token.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RevokeTokenForUserAndClientAsync(string userId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tokenId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RevokeTokensForUserAndClientAsync_" data-uid="Okta.Sdk.IUsersClient.RevokeTokensForUserAndClientAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RevokeTokensForUserAndClientAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RevokeTokensForUserAndClientAsync(System.String,System.String,System.Threading.CancellationToken)">RevokeTokensForUserAndClientAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Revokes all refresh tokens issued for the specified User and Client.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RevokeTokensForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">clientId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RevokeUserGrantAsync_" data-uid="Okta.Sdk.IUsersClient.RevokeUserGrantAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RevokeUserGrantAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RevokeUserGrantAsync(System.String,System.String,System.Threading.CancellationToken)">RevokeUserGrantAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Revokes one grant for a specified user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RevokeUserGrantAsync(string userId, string grantId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">grantId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_RevokeUserGrantsAsync_" data-uid="Okta.Sdk.IUsersClient.RevokeUserGrantsAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_RevokeUserGrantsAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.RevokeUserGrantsAsync(System.String,System.Threading.CancellationToken)">RevokeUserGrantsAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Revokes all grants for a specified user</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task RevokeUserGrantsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_SetLinkedObjectForUserAsync_" data-uid="Okta.Sdk.IUsersClient.SetLinkedObjectForUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_SetLinkedObjectForUserAsync_System_String_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.SetLinkedObjectForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)">SetLinkedObjectForUserAsync(String, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SetLinkedObjectForUserAsync(string associatedUserId, string primaryRelationshipName, string primaryUserId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">associatedUserId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">primaryRelationshipName</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">primaryUserId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_SuspendUserAsync_" data-uid="Okta.Sdk.IUsersClient.SuspendUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_SuspendUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.SuspendUserAsync(System.String,System.Threading.CancellationToken)">SuspendUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Suspends a user.  This operation can only be performed on users with an <code>ACTIVE</code> status.  The user will have a status of <code>SUSPENDED</code> when the process is complete.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task SuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_UnlockUserAsync_" data-uid="Okta.Sdk.IUsersClient.UnlockUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_UnlockUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.UnlockUserAsync(System.String,System.Threading.CancellationToken)">UnlockUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Unlocks a user with a <code>LOCKED_OUT</code> status and returns them to <code>ACTIVE</code> status.  Users will be able to login with their current password.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UnlockUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_UnsuspendUserAsync_" data-uid="Okta.Sdk.IUsersClient.UnsuspendUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_UnsuspendUserAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.UnsuspendUserAsync(System.String,System.Threading.CancellationToken)">UnsuspendUserAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Unsuspends a user and returns them to the <code>ACTIVE</code> state.  This operation can only be performed on users that have a <code>SUSPENDED</code> status.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task UnsuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_UpdateUserAsync_" data-uid="Okta.Sdk.IUsersClient.UpdateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_UpdateUserAsync_Okta_Sdk_IUser_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.UpdateUserAsync(Okta.Sdk.IUser,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">UpdateUserAsync(IUser, String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update a user&apos;s profile and/or credentials using strict-update semantics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; UpdateUserAsync(IUser user, string userId, bool? strict = default(bool? ), CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUser.html">IUser</a></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">strict</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IUsersClient_UpdateUserAsync_" data-uid="Okta.Sdk.IUsersClient.UpdateUserAsync*"></a>
+  <h4 id="Okta_Sdk_IUsersClient_UpdateUserAsync_Okta_Sdk_IUser_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IUsersClient.UpdateUserAsync(Okta.Sdk.IUser,System.String,System.Threading.CancellationToken)">UpdateUserAsync(IUser, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Update a user&apos;s profile and/or credentials using strict-update semantics.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IUser&gt; UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUser.html">IUser</a></td>
+        <td><span class="parametername">user</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td><p>The user ID.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IUser.html">IUser</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_IUsersClient_UpdateUserAsync_Okta_Sdk_IUser_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Explicit overload to support backward compatibility.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

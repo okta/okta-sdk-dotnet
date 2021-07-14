@@ -1,0 +1,1438 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IPoliciesClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IPoliciesClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.IPoliciesClient">
+  
+  
+  <h1 id="Okta_Sdk_IPoliciesClient" data-uid="Okta.Sdk.IPoliciesClient" class="text-break">Interface IPoliciesClient
+  </h1>
+  <div class="markdown level0 summary"><p>A client that works with Okta Policy resources.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_IPoliciesClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IPoliciesClient</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_IPoliciesClient_ActivatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.ActivatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_ActivatePolicyAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.ActivatePolicyAsync(System.String,System.Threading.CancellationToken)">ActivatePolicyAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Activates a policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ActivatePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_ActivatePolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.ActivatePolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_ActivatePolicyRuleAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.ActivatePolicyRuleAsync(System.String,System.String,System.Threading.CancellationToken)">ActivatePolicyRuleAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Activates a policy rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task ActivatePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_AddPolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.AddPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_AddPolicyRuleAsync_Okta_Sdk_AddPasswordPolicyRuleOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.AddPolicyRuleAsync(Okta.Sdk.AddPasswordPolicyRuleOptions,System.Threading.CancellationToken)">AddPolicyRuleAsync(AddPasswordPolicyRuleOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a password policy rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPasswordPolicyRule&gt; AddPolicyRuleAsync(AddPasswordPolicyRuleOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddPasswordPolicyRuleOptions.html">AddPasswordPolicyRuleOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The password policy rule options. Instance of <a class="xref" href="Okta.Sdk.AddPasswordPolicyRuleOptions.html">AddPasswordPolicyRuleOptions</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPasswordPolicyRule.html">IPasswordPolicyRule</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPasswordPolicyRule.html">IPasswordPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_AddPolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.AddPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_AddPolicyRuleAsync_Okta_Sdk_AddSignOnPolicyRuleOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.AddPolicyRuleAsync(Okta.Sdk.AddSignOnPolicyRuleOptions,System.Threading.CancellationToken)">AddPolicyRuleAsync(AddSignOnPolicyRuleOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a password policy rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IOktaSignOnPolicyRule&gt; AddPolicyRuleAsync(AddSignOnPolicyRuleOptions options, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.AddSignOnPolicyRuleOptions.html">AddSignOnPolicyRuleOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td><p>The sign on policy rule options. Instance of <a class="xref" href="Okta.Sdk.AddSignOnPolicyRuleOptions.html">AddSignOnPolicyRuleOptions</a>.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IOktaSignOnPolicyRule.html">IOktaSignOnPolicyRule</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IOktaSignOnPolicyRule.html">IOktaSignOnPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_AddPolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.AddPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_AddPolicyRuleAsync__1_Okta_Sdk_IPolicyRule_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.AddPolicyRuleAsync``1(Okta.Sdk.IPolicyRule,System.String,System.Threading.CancellationToken)">AddPolicyRuleAsync&lt;T&gt;(IPolicyRule, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a policy rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; AddPolicyRuleAsync&lt;T&gt;(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicyRule</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a></td>
+        <td><span class="parametername">policyRule</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td><p>The policy ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy Rule type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_CreatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.CreatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_CreatePolicyAsync_Okta_Sdk_IPolicy_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.CreatePolicyAsync(Okta.Sdk.IPolicy,System.Nullable{System.Boolean},System.Threading.CancellationToken)">CreatePolicyAsync(IPolicy, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPolicy&gt; CreatePolicyAsync(IPolicy policy, bool? activate, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">activate</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_CreatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.CreatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_CreatePolicyAsync__1_Okta_Sdk_IPolicy_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.CreatePolicyAsync``1(Okta.Sdk.IPolicy,System.Nullable{System.Boolean},System.Threading.CancellationToken)">CreatePolicyAsync&lt;T&gt;(IPolicy, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a policy</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; CreatePolicyAsync&lt;T&gt;(IPolicy policy, bool? activate, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicy</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">activate</span></td>
+        <td><p>The activate flag</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_CreatePolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.CreatePolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_CreatePolicyRuleAsync_Okta_Sdk_IPolicyRule_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.CreatePolicyRuleAsync(Okta.Sdk.IPolicyRule,System.String,System.Threading.CancellationToken)">CreatePolicyRuleAsync(IPolicyRule, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Creates a policy rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPolicyRule&gt; CreatePolicyRuleAsync(IPolicyRule policyRule, string policyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a></td>
+        <td><span class="parametername">policyRule</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_DeactivatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.DeactivatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_DeactivatePolicyAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.DeactivatePolicyAsync(System.String,System.Threading.CancellationToken)">DeactivatePolicyAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deactivates a policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeactivatePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_DeactivatePolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.DeactivatePolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_DeactivatePolicyRuleAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.DeactivatePolicyRuleAsync(System.String,System.String,System.Threading.CancellationToken)">DeactivatePolicyRuleAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deactivates a policy rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeactivatePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_DeletePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.DeletePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_DeletePolicyAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.DeletePolicyAsync(System.String,System.Threading.CancellationToken)">DeletePolicyAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes a policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeletePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_DeletePolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.DeletePolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_DeletePolicyRuleAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.DeletePolicyRuleAsync(System.String,System.String,System.Threading.CancellationToken)">DeletePolicyRuleAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Removes a policy rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task DeletePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_GetPolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_GetPolicyAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyAsync(System.String,System.String,System.Threading.CancellationToken)">GetPolicyAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPolicy&gt; GetPolicyAsync(string policyId, string expand = &quot;&quot;, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_GetPolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_GetPolicyAsync__1_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyAsync``1(System.String,System.Threading.CancellationToken)">GetPolicyAsync&lt;T&gt;(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a policy by id</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; GetPolicyAsync&lt;T&gt;(string policyId, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicy</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td><p>The policy id</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_GetPolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_GetPolicyRuleAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyRuleAsync(System.String,System.String,System.Threading.CancellationToken)">GetPolicyRuleAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a policy rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPolicyRule&gt; GetPolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_GetPolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_GetPolicyRuleAsync__1_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.GetPolicyRuleAsync``1(System.String,System.String,System.Threading.CancellationToken)">GetPolicyRuleAsync&lt;T&gt;(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a Policy Rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; GetPolicyRuleAsync&lt;T&gt;(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicyRule</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td><p>The policy ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td><p>The rule ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy Rule type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_ListPolicies_" data-uid="Okta.Sdk.IPoliciesClient.ListPolicies*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_ListPolicies_System_String_System_String_System_String_" data-uid="Okta.Sdk.IPoliciesClient.ListPolicies(System.String,System.String,System.String)">ListPolicies(String, String, String)</h4>
+  <div class="markdown level1 summary"><p>Gets all policies with the specified type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IAuthorizationServerPolicy&gt; ListPolicies(string type, string status = null, string expand = &quot;&quot;)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">status</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IAuthorizationServerPolicy.html">IAuthorizationServerPolicy</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IAuthorizationServerPolicy.html">IAuthorizationServerPolicy</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_ListPolicyRules_" data-uid="Okta.Sdk.IPoliciesClient.ListPolicyRules*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_ListPolicyRules_System_String_" data-uid="Okta.Sdk.IPoliciesClient.ListPolicyRules(System.String)">ListPolicyRules(String)</h4>
+  <div class="markdown level1 summary"><p>Enumerates all policy rules.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">ICollectionClient&lt;IPolicyRule&gt; ListPolicyRules(string policyId)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ICollectionClient-1.html">ICollectionClient</a>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td><p>A collection of <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_UpdatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_UpdatePolicyAsync_Okta_Sdk_IPolicy_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyAsync(Okta.Sdk.IPolicy,System.String,System.Threading.CancellationToken)">UpdatePolicyAsync(IPolicy, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a policy.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPolicy&gt; UpdatePolicyAsync(IPolicy policy, string policyId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_UpdatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_UpdatePolicyAsync__1_Okta_Sdk_IPolicy_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyAsync``1(Okta.Sdk.IPolicy,System.String,System.Threading.CancellationToken)">UpdatePolicyAsync&lt;T&gt;(IPolicy, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a policy</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; UpdatePolicyAsync&lt;T&gt;(IPolicy policy, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicy</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td><p>The policy ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_UpdatePolicyAsync_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_UpdatePolicyAsync__1_Okta_Sdk_IPolicy_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyAsync``1(Okta.Sdk.IPolicy,System.Threading.CancellationToken)">UpdatePolicyAsync&lt;T&gt;(IPolicy, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a policy</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; UpdatePolicyAsync&lt;T&gt;(IPolicy policy, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicy</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a></td>
+        <td><span class="parametername">policy</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicy.html">IPolicy</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_UpdatePolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_UpdatePolicyRuleAsync_Okta_Sdk_IPolicyRule_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyRuleAsync(Okta.Sdk.IPolicyRule,System.String,System.String,System.Threading.CancellationToken)">UpdatePolicyRuleAsync(IPolicyRule, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a policy rule.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;IPolicyRule&gt; UpdatePolicyRuleAsync(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a></td>
+        <td><span class="parametername">policyRule</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a>&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_IPoliciesClient_UpdatePolicyRuleAsync_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyRuleAsync*"></a>
+  <h4 id="Okta_Sdk_IPoliciesClient_UpdatePolicyRuleAsync__1_Okta_Sdk_IPolicyRule_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.IPoliciesClient.UpdatePolicyRuleAsync``1(Okta.Sdk.IPolicyRule,System.String,System.String,System.Threading.CancellationToken)">UpdatePolicyRuleAsync&lt;T&gt;(IPolicyRule, String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Updates a policy rule</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">Task&lt;T&gt; UpdatePolicyRuleAsync&lt;T&gt;(IPolicyRule policyRule, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+    where T : class, IPolicyRule</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a></td>
+        <td><span class="parametername">policyRule</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> resource.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">policyId</span></td>
+        <td><p>The policy ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td><p>The rule ID</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The <a class="xref" href="Okta.Sdk.IPolicyRule.html">IPolicyRule</a> response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The policy Rule type</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2020 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

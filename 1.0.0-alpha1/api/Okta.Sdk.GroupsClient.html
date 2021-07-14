@@ -1,0 +1,1040 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class GroupsClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class GroupsClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.20.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.GroupsClient">
+  
+  
+  <h1 id="Okta_Sdk_GroupsClient" data-uid="Okta.Sdk.GroupsClient" class="text-break">Class GroupsClient
+  </h1>
+  <div class="markdown level0 summary"><p>Provides methods that manipulate Group resources, by communicating with the Okta Groups API.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="Okta.Sdk.OktaClient.html">OktaClient</a></div>
+    <div class="level2"><span class="xref">GroupsClient</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_CreatedScoped_Okta_Sdk_RequestContext_">OktaClient.CreatedScoped(RequestContext)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_GetCollectionClient__1_Okta_Sdk_Internal_HttpRequest_">OktaClient.GetCollectionClient&lt;T&gt;(HttpRequest)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_GetAsync__1_System_String_System_Threading_CancellationToken_">OktaClient.GetAsync&lt;T&gt;(String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_GetAsync__1_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.GetAsync&lt;T&gt;(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PostAsync(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync__1_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PostAsync&lt;TResponse&gt;(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PostAsync(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PostAsync__1_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PostAsync&lt;TResponse&gt;(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PutAsync(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync__1_System_String_System_Object_System_Threading_CancellationToken_">OktaClient.PutAsync&lt;TResponse&gt;(String, Object, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PutAsync(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_PutAsync__1_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.PutAsync&lt;TResponse&gt;(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_DeleteAsync_System_String_System_Threading_CancellationToken_">OktaClient.DeleteAsync(String, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_DeleteAsync_Okta_Sdk_Internal_HttpRequest_System_Threading_CancellationToken_">OktaClient.DeleteAsync(HttpRequest, CancellationToken)</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_Configuration">OktaClient.Configuration</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_Users">OktaClient.Users</a>
+    </div>
+    <div>
+      <a class="xref" href="Okta.Sdk.OktaClient.html#Okta_Sdk_OktaClient_Groups">OktaClient.Groups</a>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_GroupsClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class GroupsClient : OktaClient, IOktaClient, IGroupsClient, IAsyncEnumerable&lt;IGroup&gt;</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_ActivateRuleAsync_" data-uid="Okta.Sdk.GroupsClient.ActivateRuleAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_ActivateRuleAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.ActivateRuleAsync(System.String,System.Threading.CancellationToken)">ActivateRuleAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task ActivateRuleAsync(string ruleId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_ActivateRuleAsync_System_String_System_Threading_CancellationToken_">IGroupsClient.ActivateRuleAsync(String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_AddUserToGroupAsync_" data-uid="Okta.Sdk.GroupsClient.AddUserToGroupAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_AddUserToGroupAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.AddUserToGroupAsync(System.String,System.String,System.Threading.CancellationToken)">AddUserToGroupAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task AddUserToGroupAsync(string groupId, string userId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_AddUserToGroupAsync_System_String_System_String_System_Threading_CancellationToken_">IGroupsClient.AddUserToGroupAsync(String, String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_CreateGroupAsync_" data-uid="Okta.Sdk.GroupsClient.CreateGroupAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_CreateGroupAsync_Okta_Sdk_CreateGroupOptions_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.CreateGroupAsync(Okta.Sdk.CreateGroupOptions,System.Threading.CancellationToken)">CreateGroupAsync(CreateGroupOptions, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroup&gt; CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CreateGroupOptions.html">CreateGroupOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_CreateGroupAsync_Okta_Sdk_CreateGroupOptions_System_Threading_CancellationToken_">IGroupsClient.CreateGroupAsync(CreateGroupOptions, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_CreateGroupAsync_" data-uid="Okta.Sdk.GroupsClient.CreateGroupAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_CreateGroupAsync_Okta_Sdk_IGroup_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.CreateGroupAsync(Okta.Sdk.IGroup,System.Threading.CancellationToken)">CreateGroupAsync(IGroup, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroup&gt; CreateGroupAsync(IGroup group, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_CreateGroupAsync_Okta_Sdk_IGroup_System_Threading_CancellationToken_">IGroupsClient.CreateGroupAsync(IGroup, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_CreateRuleAsync_" data-uid="Okta.Sdk.GroupsClient.CreateRuleAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_CreateRuleAsync_Okta_Sdk_IGroupRule_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.CreateRuleAsync(Okta.Sdk.IGroupRule,System.Threading.CancellationToken)">CreateRuleAsync(IGroupRule, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroupRule&gt; CreateRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IGroupRule.html">IGroupRule</a></td>
+        <td><span class="parametername">groupRule</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroupRule.html">IGroupRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_CreateRuleAsync_Okta_Sdk_IGroupRule_System_Threading_CancellationToken_">IGroupsClient.CreateRuleAsync(IGroupRule, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_DeactivateRuleAsync_" data-uid="Okta.Sdk.GroupsClient.DeactivateRuleAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_DeactivateRuleAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.DeactivateRuleAsync(System.String,System.Threading.CancellationToken)">DeactivateRuleAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeactivateRuleAsync(string ruleId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_DeactivateRuleAsync_System_String_System_Threading_CancellationToken_">IGroupsClient.DeactivateRuleAsync(String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_DeleteGroupAsync_" data-uid="Okta.Sdk.GroupsClient.DeleteGroupAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_DeleteGroupAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.DeleteGroupAsync(System.String,System.Threading.CancellationToken)">DeleteGroupAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_DeleteGroupAsync_System_String_System_Threading_CancellationToken_">IGroupsClient.DeleteGroupAsync(String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_DeleteRuleAsync_" data-uid="Okta.Sdk.GroupsClient.DeleteRuleAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_DeleteRuleAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.DeleteRuleAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)">DeleteRuleAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteRuleAsync(string ruleId, Nullable&lt;bool&gt; removeUsers = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">removeUsers</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_DeleteRuleAsync_System_String_System_Nullable_System_Boolean__System_Threading_CancellationToken_">IGroupsClient.DeleteRuleAsync(String, Nullable&lt;Boolean&gt;, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_GetEnumerator_" data-uid="Okta.Sdk.GroupsClient.GetEnumerator*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_GetEnumerator" data-uid="Okta.Sdk.GroupsClient.GetEnumerator">GetEnumerator()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerator&lt;IGroup&gt; GetEnumerator()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerator</span>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_GetGroupAsync_" data-uid="Okta.Sdk.GroupsClient.GetGroupAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_GetGroupAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.GetGroupAsync(System.String,System.String,System.Threading.CancellationToken)">GetGroupAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroup&gt; GetGroupAsync(string groupId, string expand = null, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_GetGroupAsync_System_String_System_String_System_Threading_CancellationToken_">IGroupsClient.GetGroupAsync(String, String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_GetRuleAsync_" data-uid="Okta.Sdk.GroupsClient.GetRuleAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_GetRuleAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.GetRuleAsync(System.String,System.Threading.CancellationToken)">GetRuleAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroupRule&gt; GetRuleAsync(string ruleId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroupRule.html">IGroupRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_GetRuleAsync_System_String_System_Threading_CancellationToken_">IGroupsClient.GetRuleAsync(String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_ListGroups_" data-uid="Okta.Sdk.GroupsClient.ListGroups*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_ListGroups_System_String_System_String_System_String_System_Nullable_System_Int32__System_String_" data-uid="Okta.Sdk.GroupsClient.ListGroups(System.String,System.String,System.String,System.Nullable{System.Int32},System.String)">ListGroups(String, String, String, Nullable&lt;Int32&gt;, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IGroup&gt; ListGroups(string q = null, string filter = null, string after = null, Nullable&lt;int&gt; limit, string expand = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">q</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">filter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">expand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_ListGroups_System_String_System_String_System_String_System_Nullable_System_Int32__System_String_">IGroupsClient.ListGroups(String, String, String, Nullable&lt;Int32&gt;, String)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_ListGroupUsers_" data-uid="Okta.Sdk.GroupsClient.ListGroupUsers*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_ListGroupUsers_System_String_System_String_System_Nullable_System_Int32__" data-uid="Okta.Sdk.GroupsClient.ListGroupUsers(System.String,System.String,System.Nullable{System.Int32})">ListGroupUsers(String, String, Nullable&lt;Int32&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IUser&gt; ListGroupUsers(string groupId, string after = null, Nullable&lt;int&gt; limit)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;<a class="xref" href="Okta.Sdk.IUser.html">IUser</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_ListGroupUsers_System_String_System_String_System_Nullable_System_Int32__">IGroupsClient.ListGroupUsers(String, String, Nullable&lt;Int32&gt;)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_ListRules_" data-uid="Okta.Sdk.GroupsClient.ListRules*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_ListRules_System_Nullable_System_Int32__System_String_" data-uid="Okta.Sdk.GroupsClient.ListRules(System.Nullable{System.Int32},System.String)">ListRules(Nullable&lt;Int32&gt;, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAsyncEnumerable&lt;IGroupRule&gt; ListRules(Nullable&lt;int&gt; limit, string after = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Int32</span>&gt;</td>
+        <td><span class="parametername">limit</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">after</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IAsyncEnumerable</span>&lt;<a class="xref" href="Okta.Sdk.IGroupRule.html">IGroupRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_ListRules_System_Nullable_System_Int32__System_String_">IGroupsClient.ListRules(Nullable&lt;Int32&gt;, String)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_RemoveGroupUserAsync_" data-uid="Okta.Sdk.GroupsClient.RemoveGroupUserAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_RemoveGroupUserAsync_System_String_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.RemoveGroupUserAsync(System.String,System.String,System.Threading.CancellationToken)">RemoveGroupUserAsync(String, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task RemoveGroupUserAsync(string groupId, string userId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">userId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_RemoveGroupUserAsync_System_String_System_String_System_Threading_CancellationToken_">IGroupsClient.RemoveGroupUserAsync(String, String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_UpdateGroupAsync_" data-uid="Okta.Sdk.GroupsClient.UpdateGroupAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_UpdateGroupAsync_Okta_Sdk_IGroup_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)">UpdateGroupAsync(IGroup, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroup&gt; UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a></td>
+        <td><span class="parametername">group</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">groupId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroup.html">IGroup</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_UpdateGroupAsync_Okta_Sdk_IGroup_System_String_System_Threading_CancellationToken_">IGroupsClient.UpdateGroupAsync(IGroup, String, CancellationToken)</a></div>
+  
+  
+  <a id="Okta_Sdk_GroupsClient_UpdateRuleAsync_" data-uid="Okta.Sdk.GroupsClient.UpdateRuleAsync*"></a>
+  <h4 id="Okta_Sdk_GroupsClient_UpdateRuleAsync_Okta_Sdk_IGroupRule_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.GroupsClient.UpdateRuleAsync(Okta.Sdk.IGroupRule,System.String,System.Threading.CancellationToken)">UpdateRuleAsync(IGroupRule, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;IGroupRule&gt; UpdateRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IGroupRule.html">IGroupRule</a></td>
+        <td><span class="parametername">groupRule</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">ruleId</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.IGroupRule.html">IGroupRule</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="implements">Implements</h5>
+      <div><a class="xref" href="Okta.Sdk.IGroupsClient.html#Okta_Sdk_IGroupsClient_UpdateRuleAsync_Okta_Sdk_IGroupRule_System_String_System_Threading_CancellationToken_">IGroupsClient.UpdateRuleAsync(IGroupRule, String, CancellationToken)</a></div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2017 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
