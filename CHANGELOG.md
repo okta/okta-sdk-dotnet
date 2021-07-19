@@ -1,6 +1,18 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.1.0
+
+### Features
+
+- Update dependencies
+
+* `FlexibleConfiguration 1.2.2 -> 2.0.0`
+* `Microsoft.Extensions.Logging 3.1.1 -> 5.0.0`
+* `System.IdentityModel.Tokens.Jwt 5.6.0 -> 6.11.1`
+* `Newtonsoft.Json 12.0.3 -> 13.0.1`
+* `System.Interactive.Async 4.0.0 -> 5.0.0`
+
 ## v5.0.0
 
 ### Features
