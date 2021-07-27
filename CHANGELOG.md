@@ -1,6 +1,12 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.1.1
+
+### Features
+
+* Change JWT Expiration time - 50 minutes will be used in order to have a 10 minutes leeway in case of clock skew.
+
 ## v5.1.0
 
 ### Features
