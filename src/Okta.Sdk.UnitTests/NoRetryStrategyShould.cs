@@ -27,7 +27,7 @@ namespace Okta.Sdk.UnitTests
             var response = Substitute.For<HttpResponseMessage>();
             response.StatusCode = (HttpStatusCode)429;
             response.Headers.Add("X-Rate-Limit-Reset", resetTime.ToString());
-            response.Headers.Add("Date", dateHeader.ToUniversalTime().ToString("ddd, dd MMM yyyy HH:mm:ss 'GMT'"));
+            response.Headers.Date = dateHeader.ToUniversalTime();
             response.Headers.Add("X-Okta-Request-Id", "foo");
 
             var request = Substitute.For<HttpRequestMessage>();
