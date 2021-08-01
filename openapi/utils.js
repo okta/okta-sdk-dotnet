@@ -38,7 +38,6 @@ function propToCLRType(prop, isInterface) {
       }
       else
       {
-        console.log("**  " + JSON.stringify(prop));
         return prop.commonType;
       }
     }
