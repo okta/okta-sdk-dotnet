@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class OAuthAuthorizationPolicy : Policy, IOAuthAuthorizationPolicy
+    public sealed partial class OAuthAuthorizationPolicy : schemas, IOAuthAuthorizationPolicy
     {
     }
 }

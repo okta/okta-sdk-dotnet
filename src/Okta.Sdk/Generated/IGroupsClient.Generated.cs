@@ -19,12 +19,12 @@ namespace Okta.Sdk
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
         /// </summary>
         /// <param name="q">Searches the name property of groups for matching value</param>
-        /// <param name="filter">Filter expression for groups</param>
+        /// <param name="search">Filter expression for groups</param>
         /// <param name="after">Specifies the pagination cursor for the next page of groups</param>
         /// <param name="limit">Specifies the number of group results in a page</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response.</param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000, string expand = null);
+        ICollectionClient<IGroup> ListGroups(string q = null, string search = null, string after = null, int? limit = 10000, string expand = null);
 
         /// <summary>
         /// Adds a new group with `OKTA_GROUP` type to your organization.
@@ -56,9 +56,10 @@ namespace Okta.Sdk
         /// Removes a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
+        /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteGroupRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches a specific group rule by id from your organization
@@ -217,7 +218,7 @@ namespace Okta.Sdk
         Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Success
+        /// Enumerates group targets for a group role.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="roleId"></param>
@@ -227,7 +228,7 @@ namespace Okta.Sdk
         ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
-        /// 
+        /// remove group target for a group role.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="roleId"></param>
@@ -237,7 +238,7 @@ namespace Okta.Sdk
         Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Enumerates group targets for a group role.
         /// </summary>
         /// <param name="groupId"></param>
         /// <param name="roleId"></param>

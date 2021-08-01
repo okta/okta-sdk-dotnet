@@ -20,7 +20,11 @@ namespace Okta.Sdk
         public string Device => GetStringProperty("device");
         
         /// <inheritdoc/>
-        public ILogGeographicalContext GeographicalContext => GetResourceProperty<LogGeographicalContext>("geographicalContext");
+        public ILogGeographicalContext GeographicalContext 
+        {
+            get => GetResourceProperty<LogGeographicalContext>("geographicalContext");
+            set => this["geographicalContext"] = value;
+        }
         
         /// <inheritdoc/>
         public string Id => GetStringProperty("id");
@@ -29,7 +33,11 @@ namespace Okta.Sdk
         public string IpAddress => GetStringProperty("ipAddress");
         
         /// <inheritdoc/>
-        public ILogUserAgent UserAgent => GetResourceProperty<LogUserAgent>("userAgent");
+        public ILogUserAgent UserAgent 
+        {
+            get => GetResourceProperty<LogUserAgent>("userAgent");
+            set => this["userAgent"] = value;
+        }
         
         /// <inheritdoc/>
         public string Zone => GetStringProperty("zone");

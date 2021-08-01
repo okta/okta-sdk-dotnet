@@ -31,16 +31,16 @@ namespace Okta.Sdk
         /// <summary>
         /// Creates a new user in your Okta organization with or without credentials.
         /// </summary>
-        /// <param name="body">The <see cref="ICreateUserRequest"/> resource.</param>
+        /// <param name="createUserRequest">The <see cref="ICreateUserRequest"/> resource.</param>
         /// <param name="activate">Executes activation lifecycle operation when creating the user</param>
         /// <param name="provider">Indicates whether to create a user with a specified authentication provider</param>
         /// <param name="nextLogin">With activate&#x3D;true, set nextLogin to &quot;changePassword&quot; to have the password be EXPIRED, so user must change it the next time they log in.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUser"/> response.</returns>
-        Task<IUser> CreateUserAsync(ICreateUserRequest body, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> CreateUserAsync(ICreateUserRequest createUserRequest, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Sets a linked object for a user.
         /// </summary>
         /// <param name="associatedUserId"></param>
         /// <param name="primaryRelationshipName"></param>
@@ -183,25 +183,6 @@ namespace Okta.Sdk
         Task<IUserCredentials> ChangeRecoveryQuestionAsync(IUserCredentials userCredentials, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Generates a one-time token (OTT) that can be used to reset a user's password
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sendEmail"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IForgotPasswordResponse"/> response.</returns>
-        Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Sets a new password for a user by validating the user's answer to their current recovery question
-        /// </summary>
-        /// <param name="user">The <see cref="IUserCredentials"/> resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="sendEmail"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IForgotPasswordResponse"/> response.</returns>
-        Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Revokes all grants for a specified user
         /// </summary>
         /// <param name="userId"></param>
@@ -275,17 +256,10 @@ namespace Okta.Sdk
         /// This operation transitions the user to the status of `PASSWORD_EXPIRED` so that the user is required to change their password at their next login.
         /// </summary>
         /// <param name="userId"></param>
+        /// <param name="tempPassword">When set to &#x27;true&#x27; the user&#x27;s password is reset to a temporary password that is returned. When omitted or set to &#x27;false&#x27; the user will be required to change their password at their next login.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUser"/> response.</returns>
-        Task<IUser> ExpirePasswordAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// This operation transitions the user to the status of `PASSWORD_EXPIRED` and the user's password is reset to a temporary password that is returned.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITempPassword"/> response.</returns>
-        Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUser> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Reactivates a user.  This operation can only be performed on users with a `PROVISIONED` status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from [Activate User](#activate-user).

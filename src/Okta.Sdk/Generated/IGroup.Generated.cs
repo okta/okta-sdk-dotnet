@@ -27,7 +27,7 @@ namespace Okta.Sdk
 
         IGroupProfile Profile { get; set; }
 
-        GroupType Type { get; }
+        GroupType Type { get; set; }
 
         Task RemoveUserAsync(
             string userId, CancellationToken cancellationToken = default(CancellationToken));

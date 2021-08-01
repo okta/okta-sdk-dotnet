@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SwaThreeFieldApplication : BrowserPluginApplication, ISwaThreeFieldApplication
+    public sealed partial class SwaThreeFieldApplication : schemas, ISwaThreeFieldApplication
     {
         /// <inheritdoc/>
         public new string Name 

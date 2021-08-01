@@ -26,11 +26,11 @@ namespace Okta.Sdk
         /// <summary>
         /// Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
-        /// <param name="body">The <see cref="IUserSchema"/> resource.</param>
+        /// <param name="userSchema">The <see cref="IUserSchema"/> resource.</param>
         /// <param name="appInstanceId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUserSchema"/> response.</returns>
-        Task<IUserSchema> UpdateApplicationUserProfileAsync(IUserSchema body, string appInstanceId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserSchema> UpdateApplicationUserProfileAsync(IUserSchema userSchema, string appInstanceId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches the schema for a Schema Id.

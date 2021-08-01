@@ -43,7 +43,11 @@ namespace Okta.Sdk
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
         
         /// <inheritdoc/>
-        public RoleStatus Status => GetEnumProperty<RoleStatus>("status");
+        public RoleStatus Status 
+        {
+            get => GetEnumProperty<RoleStatus>("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
         public RoleType Type 

@@ -72,14 +72,14 @@ namespace Okta.Sdk
         /// <summary>
         /// Generates a new key pair and returns the Certificate Signing Request for it.
         /// </summary>
-        /// <param name="metadata">The <see cref="ICsrMetadata"/> resource.</param>
+        /// <param name="csrMetadata">The <see cref="ICsrMetadata"/> resource.</param>
         /// <param name="appId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ICsr"/> response.</returns>
-        Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata metadata, string appId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata csrMetadata, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Revokes a certificate signing request and deletes the key pair from the application.
         /// </summary>
         /// <param name="appId"></param>
         /// <param name="csrId"></param>
@@ -88,13 +88,22 @@ namespace Okta.Sdk
         Task RevokeCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// 
+        /// Fetches a certificate signing request for the app by `id`.
         /// </summary>
         /// <param name="appId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ICsr"/> response.</returns>
         Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
+        Task<IJsonWebKey> PublishCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates key credentials for an application

@@ -48,12 +48,12 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IUser> CreateUserAsync(ICreateUserRequest body, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUser> CreateUserAsync(ICreateUserRequest createUserRequest, bool? activate = true, bool? provider = false, UserNextLogin nextLogin = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<User>(new HttpRequest
             {
                 Uri = "/api/v1/users",
                 Verb = HttpVerb.Post,
-                Payload = body,
+                Payload = createUserRequest,
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["activate"] = activate,
@@ -302,40 +302,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ForgotPasswordResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/credentials/forgot_password",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["sendEmail"] = sendEmail,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ForgotPasswordResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/credentials/forgot_password",
-                Verb = HttpVerb.Post,
-                Payload = user,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["sendEmail"] = sendEmail,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task RevokeUserGrantsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
@@ -461,28 +427,19 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IUser> ExpirePasswordAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUser> ExpirePasswordAsync(string userId, bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<User>(new HttpRequest
             {
-                Uri = "/api/v1/users/{userId}/lifecycle/expire_password?tempPassword=false",
+                Uri = "/api/v1/users/{userId}/lifecycle/expire_password",
                 Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
                 },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<TempPassword>(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/lifecycle/expire_password?tempPassword=true",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
+                QueryParameters = new Dictionary<string, object>()
                 {
-                    ["userId"] = userId,
+                    ["tempPassword"] = tempPassword,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         

@@ -49,13 +49,21 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public UserStatus Status => GetEnumProperty<UserStatus>("status");
+        public UserStatus Status 
+        {
+            get => GetEnumProperty<UserStatus>("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
         public DateTimeOffset? StatusChanged => GetDateTimeProperty("statusChanged");
         
         /// <inheritdoc/>
-        public UserStatus TransitioningToStatus => GetEnumProperty<UserStatus>("transitioningToStatus");
+        public UserStatus TransitioningToStatus 
+        {
+            get => GetEnumProperty<UserStatus>("transitioningToStatus");
+            set => this["transitioningToStatus"] = value;
+        }
         
         /// <inheritdoc/>
         public IUserType Type 
@@ -63,16 +71,6 @@ namespace Okta.Sdk
             get => GetResourceProperty<UserType>("type");
             set => this["type"] = value;
         }
-        
-        /// <inheritdoc />
-        public Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, 
-            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ForgotPasswordSetNewPasswordAsync(user, Id, sendEmail, cancellationToken);
-        
-        /// <inheritdoc />
-        public Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
-            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ForgotPasswordGenerateOneTimeTokenAsync(Id, sendEmail, cancellationToken);
         
         /// <inheritdoc />
         public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
@@ -181,13 +179,8 @@ namespace Okta.Sdk
         
         /// <inheritdoc />
         public Task<IUser> ExpirePasswordAsync(
-            CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ExpirePasswordAsync(Id, cancellationToken);
-        
-        /// <inheritdoc />
-        public Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
-            CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ExpirePasswordAndGetTemporaryPasswordAsync(Id, cancellationToken);
+            bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ExpirePasswordAsync(Id, tempPassword, cancellationToken);
         
         /// <inheritdoc />
         public Task UnlockAsync(
@@ -210,9 +203,9 @@ namespace Okta.Sdk
             => GetClient().Groups.AddUserToGroupAsync(groupId, Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IUserFactor> EnrollFactorAsync(IUserFactor body, 
+        public Task<IUserFactor> EnrollFactorAsync(IUserFactor userFactor, 
             bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.EnrollFactorAsync(body, Id, updatePhone, templateId, tokenLifetimeSeconds, activate, cancellationToken);
+            => GetClient().UserFactors.EnrollFactorAsync(userFactor, Id, updatePhone, templateId, tokenLifetimeSeconds, activate, cancellationToken);
         
         /// <inheritdoc />
         public ICollectionClient<IUserFactor> ListSupportedFactors(

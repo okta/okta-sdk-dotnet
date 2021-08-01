@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a OAuthAuthorizationPolicy resource in the Okta API.</summary>
-    public partial interface IOAuthAuthorizationPolicy : IPolicy
+    public partial interface IOAuthAuthorizationPolicy : Ischemas
     {
     }
 }

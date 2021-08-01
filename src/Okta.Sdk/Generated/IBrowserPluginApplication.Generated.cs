@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a BrowserPluginApplication resource in the Okta API.</summary>
-    public partial interface IBrowserPluginApplication : IApplication
+    public partial interface IBrowserPluginApplication : Ischemas
     {
         new ISchemeApplicationCredentials Credentials { get; set; }
 

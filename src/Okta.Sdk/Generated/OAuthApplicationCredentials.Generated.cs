@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class OAuthApplicationCredentials : ApplicationCredentials, IOAuthApplicationCredentials
+    public sealed partial class OAuthApplicationCredentials : schemas, IOAuthApplicationCredentials
     {
         /// <inheritdoc/>
         public IApplicationCredentialsOAuthClient OauthClient 

@@ -29,7 +29,11 @@ namespace Okta.Sdk
         public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
-        public ISessionIdentityProvider Idp => GetResourceProperty<SessionIdentityProvider>("idp");
+        public ISessionIdentityProvider Idp 
+        {
+            get => GetResourceProperty<SessionIdentityProvider>("idp");
+            set => this["idp"] = value;
+        }
         
         /// <inheritdoc/>
         public DateTimeOffset? LastFactorVerification => GetDateTimeProperty("lastFactorVerification");
@@ -41,7 +45,11 @@ namespace Okta.Sdk
         public string Login => GetStringProperty("login");
         
         /// <inheritdoc/>
-        public SessionStatus Status => GetEnumProperty<SessionStatus>("status");
+        public SessionStatus Status 
+        {
+            get => GetEnumProperty<SessionStatus>("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
         public string UserId => GetStringProperty("userId");

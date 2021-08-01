@@ -41,7 +41,11 @@ namespace Okta.Sdk
         public string Name => GetStringProperty("name");
         
         /// <inheritdoc/>
-        public Resource Properties => GetResourceProperty<Resource>("properties");
+        public IUserSchemaProperties Properties 
+        {
+            get => GetResourceProperty<UserSchemaProperties>("properties");
+            set => this["properties"] = value;
+        }
         
         /// <inheritdoc/>
         public string Title 

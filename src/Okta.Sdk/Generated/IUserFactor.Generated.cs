@@ -25,14 +25,14 @@ namespace Okta.Sdk
 
         FactorProvider Provider { get; set; }
 
-        FactorStatus Status { get; }
+        FactorStatus Status { get; set; }
 
         IVerifyFactorRequest Verify { get; set; }
 
-        Task<IUserFactor> ActivateAsync(IActivateFactorRequest body, 
+        Task<IUserFactor> ActivateAsync(IActivateFactorRequest activateFactorRequest, 
             string userId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IVerifyUserFactorResponse> VerifyAsync(IVerifyFactorRequest body, 
+        Task<IVerifyUserFactorResponse> VerifyAsync(IVerifyFactorRequest verifyFactorRequest, 
             string userId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
 
     }

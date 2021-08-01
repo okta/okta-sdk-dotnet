@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SamlApplication : Application, ISamlApplication
+    public sealed partial class SamlApplication : schemas, ISamlApplication
     {
         /// <inheritdoc/>
         public new ISamlApplicationSettings Settings 

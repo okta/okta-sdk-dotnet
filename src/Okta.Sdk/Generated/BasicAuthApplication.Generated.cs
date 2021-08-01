@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class BasicAuthApplication : Application, IBasicAuthApplication
+    public sealed partial class BasicAuthApplication : schemas, IBasicAuthApplication
     {
         /// <inheritdoc/>
         public new ISchemeApplicationCredentials Credentials 

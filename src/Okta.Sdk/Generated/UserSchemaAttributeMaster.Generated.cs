@@ -17,9 +17,16 @@ namespace Okta.Sdk
     public sealed partial class UserSchemaAttributeMaster : Resource, IUserSchemaAttributeMaster
     {
         /// <inheritdoc/>
-        public string Type 
+        public IList<IUserSchemaAttributeMasterPriority> Priority 
         {
-            get => GetStringProperty("type");
+            get => GetArrayProperty<IUserSchemaAttributeMasterPriority>("priority");
+            set => this["priority"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public UserSchemaAttributeMasterType Type 
+        {
+            get => GetEnumProperty<UserSchemaAttributeMasterType>("type");
             set => this["type"] = value;
         }
         

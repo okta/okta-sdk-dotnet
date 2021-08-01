@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class TokenUserFactor : UserFactor, ITokenUserFactor
+    public sealed partial class TokenUserFactor : schemas, ITokenUserFactor
     {
         /// <inheritdoc/>
         public ITokenUserFactorProfile Profile 

@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PushUserFactor : UserFactor, IPushUserFactor
+    public sealed partial class PushUserFactor : schemas, IPushUserFactor
     {
         /// <inheritdoc/>
         public DateTimeOffset? ExpiresAt 

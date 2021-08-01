@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a LogAuthenticationContext resource in the Okta API.</summary>
     public partial interface ILogAuthenticationContext : IResource
     {
-        LogAuthenticationProvider AuthenticationProvider { get; }
+        LogAuthenticationProvider AuthenticationProvider { get; set; }
 
         int? AuthenticationStep { get; }
 
@@ -27,7 +27,7 @@ namespace Okta.Sdk
 
         string Interface { get; }
 
-        ILogIssuer Issuer { get; }
+        ILogIssuer Issuer { get; set; }
 
     }
 }

@@ -47,7 +47,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public GroupRuleStatus Status => GetEnumProperty<GroupRuleStatus>("status");
+        public GroupRuleStatus Status 
+        {
+            get => GetEnumProperty<GroupRuleStatus>("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
         public string Type 

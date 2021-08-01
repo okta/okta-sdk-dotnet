@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SamlApplicationSettings resource in the Okta API.</summary>
-    public partial interface ISamlApplicationSettings : IApplicationSettings
+    public partial interface ISamlApplicationSettings : Ischemas
     {
         ISamlApplicationSettingsSignOn SignOn { get; set; }
 

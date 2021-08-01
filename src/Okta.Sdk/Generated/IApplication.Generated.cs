@@ -79,7 +79,7 @@ namespace Okta.Sdk
         Task<IJsonWebKey> GenerateKeyAsync(
             int? validityYears = null, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ICsr> GenerateCsrAsync(ICsrMetadata metadata, 
+        Task<ICsr> GenerateCsrAsync(ICsrMetadata csrMetadata, 
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task<ICsr> GetCsrAsync(
@@ -91,19 +91,19 @@ namespace Okta.Sdk
         ICollectionClient<ICsr> ListCsrs(
             );
 
-        Task<IJsonWebKey> PublishCerCertAsync(string certificate, 
+        Task<IJsonWebKey> PublishCerCertAsync(
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, 
+        Task<IJsonWebKey> PublishBinaryCerCertAsync(
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishDerCertAsync(string certificate, 
+        Task<IJsonWebKey> PublishDerCertAsync(
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, 
+        Task<IJsonWebKey> PublishBinaryDerCertAsync(
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, 
+        Task<IJsonWebKey> PublishBinaryPemCertAsync(
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         ICollectionClient<IOAuth2Token> ListOAuth2Tokens(

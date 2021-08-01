@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SecurePasswordStoreApplicationSettings : ApplicationSettings, ISecurePasswordStoreApplicationSettings
+    public sealed partial class SecurePasswordStoreApplicationSettings : schemas, ISecurePasswordStoreApplicationSettings
     {
         /// <inheritdoc/>
         public new ISecurePasswordStoreApplicationSettingsApplication App 

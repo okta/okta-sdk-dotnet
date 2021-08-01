@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SchemeApplicationCredentials resource in the Okta API.</summary>
-    public partial interface ISchemeApplicationCredentials : IApplicationCredentials
+    public partial interface ISchemeApplicationCredentials : Ischemas
     {
         IPasswordCredential Password { get; set; }
 

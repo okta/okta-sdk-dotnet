@@ -17,13 +17,13 @@ namespace Okta.Sdk
     {
         string Device { get; }
 
-        ILogGeographicalContext GeographicalContext { get; }
+        ILogGeographicalContext GeographicalContext { get; set; }
 
         string Id { get; }
 
         string IpAddress { get; }
 
-        ILogUserAgent UserAgent { get; }
+        ILogUserAgent UserAgent { get; set; }
 
         string Zone { get; }
 

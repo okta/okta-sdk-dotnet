@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         string Id { get; }
 
-        SessionIdentityProviderType Type { get; }
+        SessionIdentityProviderType Type { get; set; }
 
     }
 }

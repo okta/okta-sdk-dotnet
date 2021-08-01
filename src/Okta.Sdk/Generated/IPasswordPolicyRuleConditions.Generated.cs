@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a PasswordPolicyRuleConditions resource in the Okta API.</summary>
-    public partial interface IPasswordPolicyRuleConditions : IResource
+    public partial interface IPasswordPolicyRuleConditions : Ischemas
     {
         IPolicyNetworkCondition Network { get; set; }
 

@@ -25,13 +25,23 @@ function paramToCLRType(param) {
     return param.model;
   }
   
-  return getType(param.type);
+  return getType(param.schema.type);
 }
 
 function propToCLRType(prop, isInterface) {
   switch (prop.commonType) {
     case 'array': return `IList<${isInterface ? `I${prop.model}` : getType(prop.model)}>`;
-    case 'object': return isInterface ? `I${prop.model}` : prop.model;
+    case 'object': {
+      if(prop.model)
+      {    
+        return isInterface ? `I${prop.model}` : prop.model;
+      }
+      else
+      {
+        console.log("**  " + JSON.stringify(prop));
+        return prop.commonType;
+      }
+    }
     case 'enum': return prop.model;
     case 'hash': return `Resource`;
     default: return getType(prop.commonType);
@@ -55,6 +65,7 @@ function getterName(prop, isInterface) {
     case 'DateTimeOffset?': return 'GetDateTimeProperty';
     case 'string': return 'GetStringProperty';
     case 'double?': return 'GetDoubleProperty';
+    case 'object': return 'GetProperty<object>';
     default: return `GetResourceProperty<${clrType}>`;
   }
 }
@@ -81,12 +92,12 @@ function createMethodSignatureLiteral(operation, args) {
 
     let parameterLiteral = `${typeMemberName} ${parameterName}`;
 
-    let hasDefaultValue = !isNullOrUndefined(param.default);
+    let hasDefaultValue = !isNullOrUndefined(param.schema.default);
     if (hasDefaultValue) {
       parameterLiteral += ' = ';
-      parameterLiteral += param.type === 'string'
-        ? `"${param.default}"`
-        : param.default;
+      parameterLiteral += param.schema.type === 'string'
+        ? `"${param.schema.default}"`
+        : param.schema.default;
     }
 
     let optionalAndNoDefaultValue = !hasDefaultValue && !param.required;
@@ -110,15 +121,7 @@ function createParametersLiteral(operation, args) {
 
   let hasBodyArgument = !!operation.bodyModel;
   if (hasBodyArgument) {
-      // grab param name from parameter list
-      let bodyModelParams = operation.parameters.filter(x => x.in == 'body');
-      if(bodyModelParams != null){
-        let bodyModelParam = bodyModelParams[0];
-        bodyModelParamName = bodyModelParam.name;
-      }
-
-    let parameterName = bodyModelParamName;
-    parameters.push(parameterName);
+    parameters.push(operation.requestBody.name || camelCase(operation.bodyModel));
   }
 
   for (let param of operation.allParams) {

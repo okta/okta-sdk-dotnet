@@ -38,7 +38,7 @@ namespace Okta.Sdk
         ICollectionClient<IAuthorizationServerPolicyRule> ListPolicyRules(
             string authServerId);
 
-        Task<IAuthorizationServerPolicyRule> CreatePolicyRuleAsync(IAuthorizationServerPolicyRule policyRule, 
+        Task<IAuthorizationServerPolicyRule> CreatePolicyRuleAsync(IAuthorizationServerPolicyRule authorizationServerPolicyRule, 
             string authServerId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IAuthorizationServerPolicyRule> GetPolicyRuleAsync(
@@ -46,6 +46,12 @@ namespace Okta.Sdk
 
         Task DeletePolicyRuleAsync(
             string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task ActivateAsync(
+            string authServerId, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task DeactivateAsync(
+            string authServerId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

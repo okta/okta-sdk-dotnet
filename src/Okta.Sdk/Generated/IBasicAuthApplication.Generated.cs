@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a BasicAuthApplication resource in the Okta API.</summary>
-    public partial interface IBasicAuthApplication : IApplication
+    public partial interface IBasicAuthApplication : Ischemas
     {
         new ISchemeApplicationCredentials Credentials { get; set; }
 

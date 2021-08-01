@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public partial class UserFactor : Resource, IUserFactor
+    public sealed partial class UserFactor : Resource, IUserFactor
     {
         /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
@@ -40,7 +40,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public FactorStatus Status => GetEnumProperty<FactorStatus>("status");
+        public FactorStatus Status 
+        {
+            get => GetEnumProperty<FactorStatus>("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
         public IVerifyFactorRequest Verify 
@@ -50,14 +54,14 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task<IUserFactor> ActivateAsync(IActivateFactorRequest body, 
+        public Task<IUserFactor> ActivateAsync(IActivateFactorRequest activateFactorRequest, 
             string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.ActivateFactorAsync(body, userId, Id, cancellationToken);
+            => GetClient().UserFactors.ActivateFactorAsync(activateFactorRequest, userId, Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IVerifyUserFactorResponse> VerifyAsync(IVerifyFactorRequest body, 
+        public Task<IVerifyUserFactorResponse> VerifyAsync(IVerifyFactorRequest verifyFactorRequest, 
             string userId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.VerifyFactorAsync(body, userId, Id, templateId, tokenLifetimeSeconds, cancellationToken);
+            => GetClient().UserFactors.VerifyFactorAsync(verifyFactorRequest, userId, Id, templateId, tokenLifetimeSeconds, cancellationToken);
         
     }
 }

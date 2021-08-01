@@ -36,7 +36,7 @@ namespace Okta.Sdk
         ICollectionClient<ICsr> ListSigningCsrs(
             );
 
-        Task<ICsr> GenerateCsrAsync(ICsrMetadata metadata, 
+        Task<ICsr> GenerateCsrAsync(ICsrMetadata csrMetadata, 
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeleteSigningCsrAsync(

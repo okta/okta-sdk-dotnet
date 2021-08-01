@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SmsUserFactor resource in the Okta API.</summary>
-    public partial interface ISmsUserFactor : IUserFactor
+    public partial interface ISmsUserFactor : Ischemas
     {
         ISmsUserFactorProfile Profile { get; set; }
 

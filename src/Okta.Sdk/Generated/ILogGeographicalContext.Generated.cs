@@ -19,7 +19,7 @@ namespace Okta.Sdk
 
         string Country { get; }
 
-        ILogGeolocation Geolocation { get; }
+        ILogGeolocation Geolocation { get; set; }
 
         string PostalCode { get; }
 

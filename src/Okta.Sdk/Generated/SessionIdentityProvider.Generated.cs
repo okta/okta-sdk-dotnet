@@ -20,7 +20,11 @@ namespace Okta.Sdk
         public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
-        public SessionIdentityProviderType Type => GetEnumProperty<SessionIdentityProviderType>("type");
+        public SessionIdentityProviderType Type 
+        {
+            get => GetEnumProperty<SessionIdentityProviderType>("type");
+            set => this["type"] = value;
+        }
         
     }
 }

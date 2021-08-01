@@ -23,7 +23,7 @@ namespace Okta.Sdk
 
         string Id { get; }
 
-        ISessionIdentityProvider Idp { get; }
+        ISessionIdentityProvider Idp { get; set; }
 
         DateTimeOffset? LastFactorVerification { get; }
 
@@ -31,7 +31,7 @@ namespace Okta.Sdk
 
         string Login { get; }
 
-        SessionStatus Status { get; }
+        SessionStatus Status { get; set; }
 
         string UserId { get; }
 

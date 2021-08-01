@@ -17,7 +17,11 @@ namespace Okta.Sdk
     public sealed partial class LogAuthenticationContext : Resource, ILogAuthenticationContext
     {
         /// <inheritdoc/>
-        public LogAuthenticationProvider AuthenticationProvider => GetEnumProperty<LogAuthenticationProvider>("authenticationProvider");
+        public LogAuthenticationProvider AuthenticationProvider 
+        {
+            get => GetEnumProperty<LogAuthenticationProvider>("authenticationProvider");
+            set => this["authenticationProvider"] = value;
+        }
         
         /// <inheritdoc/>
         public int? AuthenticationStep => GetIntegerProperty("authenticationStep");
@@ -43,7 +47,11 @@ namespace Okta.Sdk
         public string Interface => GetStringProperty("interface");
         
         /// <inheritdoc/>
-        public ILogIssuer Issuer => GetResourceProperty<LogIssuer>("issuer");
+        public ILogIssuer Issuer 
+        {
+            get => GetResourceProperty<LogIssuer>("issuer");
+            set => this["issuer"] = value;
+        }
         
     }
 }

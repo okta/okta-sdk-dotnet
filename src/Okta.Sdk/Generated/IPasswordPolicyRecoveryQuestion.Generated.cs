@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a PasswordPolicyRecoveryQuestion resource in the Okta API.</summary>
     public partial interface IPasswordPolicyRecoveryQuestion : IResource
     {
-        IPasswordPolicyRecoveryQuestionProperties Properties { get; }
+        IPasswordPolicyRecoveryQuestionProperties Properties { get; set; }
 
         string Status { get; }
 

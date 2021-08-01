@@ -27,7 +27,7 @@ namespace Okta.Sdk
 
         DateTimeOffset? LastUpdated { get; }
 
-        RoleStatus Status { get; }
+        RoleStatus Status { get; set; }
 
         RoleType Type { get; set; }
 

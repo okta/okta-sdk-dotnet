@@ -58,11 +58,11 @@ namespace Okta.Sdk
         /// <summary>
         /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
-        /// <param name="payloadData">The <see cref="IInlineHookPayload"/> resource.</param>
+        /// <param name="inlineHookPayload">The <see cref="IInlineHookPayload"/> resource.</param>
         /// <param name="inlineHookId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IInlineHookResponse"/> response.</returns>
-        Task<IInlineHookResponse> ExecuteInlineHookAsync(IInlineHookPayload payloadData, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IInlineHookResponse> ExecuteInlineHookAsync(IInlineHookPayload inlineHookPayload, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Activates the Inline Hook matching the provided id

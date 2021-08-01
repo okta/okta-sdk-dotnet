@@ -116,12 +116,12 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata metadata, string appId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata csrMetadata, string appId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Csr>(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/credentials/csrs",
                 Verb = HttpVerb.Post,
-                Payload = metadata,
+                Payload = csrMetadata,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["appId"] = appId,
@@ -148,6 +148,20 @@ namespace Okta.Sdk
             {
                 Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
                 Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["csrId"] = csrId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IJsonWebKey> PublishCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<JsonWebKey>(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

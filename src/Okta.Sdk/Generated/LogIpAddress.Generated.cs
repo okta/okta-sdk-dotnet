@@ -17,7 +17,11 @@ namespace Okta.Sdk
     public sealed partial class LogIpAddress : Resource, ILogIpAddress
     {
         /// <inheritdoc/>
-        public ILogGeographicalContext GeographicalContext => GetResourceProperty<LogGeographicalContext>("geographicalContext");
+        public ILogGeographicalContext GeographicalContext 
+        {
+            get => GetResourceProperty<LogGeographicalContext>("geographicalContext");
+            set => this["geographicalContext"] = value;
+        }
         
         /// <inheritdoc/>
         public string Ip => GetStringProperty("ip");

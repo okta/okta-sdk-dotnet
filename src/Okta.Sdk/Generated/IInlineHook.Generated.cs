@@ -37,7 +37,7 @@ namespace Okta.Sdk
         Task<IInlineHook> DeactivateAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IInlineHookResponse> ExecuteAsync(IInlineHookPayload payloadData, 
+        Task<IInlineHookResponse> ExecuteAsync(IInlineHookPayload inlineHookPayload, 
             CancellationToken cancellationToken = default(CancellationToken));
 
     }

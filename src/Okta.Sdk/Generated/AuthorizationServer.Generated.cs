@@ -130,9 +130,9 @@ namespace Okta.Sdk
             => GetClient().AuthorizationServers.ListAuthorizationServerKeys(Id);
         
         /// <inheritdoc />
-        public ICollectionClient<IJsonWebKey> RotateKeys(IJwkUse use 
+        public ICollectionClient<IJsonWebKey> RotateKeys(IJwkUse jwkUse 
             )
-            => GetClient().AuthorizationServers.RotateAuthorizationServerKeys(use, Id);
+            => GetClient().AuthorizationServers.RotateAuthorizationServerKeys(jwkUse, Id);
         
         /// <inheritdoc />
         public Task ActivateAsync(
@@ -150,9 +150,9 @@ namespace Okta.Sdk
             => GetClient().AuthorizationServers.ListAuthorizationServerPolicies(Id);
         
         /// <inheritdoc />
-        public Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy policy, 
+        public Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy authorizationServerPolicy, 
             CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().AuthorizationServers.CreateAuthorizationServerPolicyAsync(policy, Id, cancellationToken);
+            => GetClient().AuthorizationServers.CreateAuthorizationServerPolicyAsync(authorizationServerPolicy, Id, cancellationToken);
         
         /// <inheritdoc />
         public Task DeletePolicyAsync(
@@ -165,9 +165,9 @@ namespace Okta.Sdk
             => GetClient().AuthorizationServers.GetAuthorizationServerPolicyAsync(Id, policyId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IAuthorizationServerPolicy> UpdatePolicyAsync(IAuthorizationServerPolicy policy, 
+        public Task<IAuthorizationServerPolicy> UpdatePolicyAsync(IAuthorizationServerPolicy authorizationServerPolicy, 
             string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().AuthorizationServers.UpdateAuthorizationServerPolicyAsync(policy, Id, policyId, cancellationToken);
+            => GetClient().AuthorizationServers.UpdateAuthorizationServerPolicyAsync(authorizationServerPolicy, Id, policyId, cancellationToken);
         
         /// <inheritdoc />
         public ICollectionClient<IOAuth2Scope> ListOAuth2Scopes(

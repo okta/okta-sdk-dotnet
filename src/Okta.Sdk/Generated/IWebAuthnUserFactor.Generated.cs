@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a WebAuthnUserFactor resource in the Okta API.</summary>
-    public partial interface IWebAuthnUserFactor : IUserFactor
+    public partial interface IWebAuthnUserFactor : Ischemas
     {
         IWebAuthnUserFactorProfile Profile { get; set; }
 

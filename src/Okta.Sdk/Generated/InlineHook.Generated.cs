@@ -71,9 +71,9 @@ namespace Okta.Sdk
             => GetClient().InlineHooks.DeactivateInlineHookAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IInlineHookResponse> ExecuteAsync(IInlineHookPayload payloadData, 
+        public Task<IInlineHookResponse> ExecuteAsync(IInlineHookPayload inlineHookPayload, 
             CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().InlineHooks.ExecuteInlineHookAsync(payloadData, Id, cancellationToken);
+            => GetClient().InlineHooks.ExecuteInlineHookAsync(inlineHookPayload, Id, cancellationToken);
         
     }
 }

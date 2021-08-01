@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a AutoLoginApplicationSettings resource in the Okta API.</summary>
-    public partial interface IAutoLoginApplicationSettings : IApplicationSettings
+    public partial interface IAutoLoginApplicationSettings : Ischemas
     {
         IAutoLoginApplicationSettingsSignOn SignOn { get; set; }
 

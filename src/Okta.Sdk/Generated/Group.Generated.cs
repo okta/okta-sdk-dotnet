@@ -39,7 +39,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public GroupType Type => GetEnumProperty<GroupType>("type");
+        public GroupType Type 
+        {
+            get => GetEnumProperty<GroupType>("type");
+            set => this["type"] = value;
+        }
         
         /// <inheritdoc />
         public Task RemoveUserAsync(

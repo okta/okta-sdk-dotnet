@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SecurePasswordStoreApplicationSettingsApplication : ApplicationSettingsApplication, ISecurePasswordStoreApplicationSettingsApplication
+    public sealed partial class SecurePasswordStoreApplicationSettingsApplication : schemas, ISecurePasswordStoreApplicationSettingsApplication
     {
         /// <inheritdoc/>
         public string OptionalField1 

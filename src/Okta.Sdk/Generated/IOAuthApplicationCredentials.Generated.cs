@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a OAuthApplicationCredentials resource in the Okta API.</summary>
-    public partial interface IOAuthApplicationCredentials : IApplicationCredentials
+    public partial interface IOAuthApplicationCredentials : Ischemas
     {
         IApplicationCredentialsOAuthClient OauthClient { get; set; }
 

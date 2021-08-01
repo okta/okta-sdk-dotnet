@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class HardwareUserFactor : UserFactor, IHardwareUserFactor
+    public sealed partial class HardwareUserFactor : schemas, IHardwareUserFactor
     {
         /// <inheritdoc/>
         public IHardwareUserFactorProfile Profile 

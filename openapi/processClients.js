@@ -129,12 +129,7 @@ function createContextForClient(tag, operations) {
     if (!operation.isArray) operationContext.memberName += 'Async';
 
     if (operation.bodyModel) {
-      let bodyModelParamName = operation.bodyModel;
-      let bodyModelParams = operation.parameters.filter(x => x.in == 'body');
-      if(bodyModelParams != null){
-        let bodyModelParam = bodyModelParams[0];
-        bodyModelParamName = bodyModelParam.name;
-      }
+      const bodyModelParamName = operation.requestBody.name || operation.bodyModel;
 
       operationContext.bodyModel = {
         type: { 

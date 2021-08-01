@@ -31,19 +31,13 @@ namespace Okta.Sdk
 
         IUserProfile Profile { get; set; }
 
-        UserStatus Status { get; }
+        UserStatus Status { get; set; }
 
         DateTimeOffset? StatusChanged { get; }
 
-        UserStatus TransitioningToStatus { get; }
+        UserStatus TransitioningToStatus { get; set; }
 
         IUserType Type { get; set; }
-
-        Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, 
-            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
-            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
@@ -109,10 +103,7 @@ namespace Okta.Sdk
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IUser> ExpirePasswordAsync(
-            CancellationToken cancellationToken = default(CancellationToken));
-
-        Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
-            CancellationToken cancellationToken = default(CancellationToken));
+            bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
 
         Task UnlockAsync(
             CancellationToken cancellationToken = default(CancellationToken));
@@ -126,7 +117,7 @@ namespace Okta.Sdk
         Task AddToGroupAsync(
             string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IUserFactor> EnrollFactorAsync(IUserFactor body, 
+        Task<IUserFactor> EnrollFactorAsync(IUserFactor userFactor, 
             bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
 
         ICollectionClient<IUserFactor> ListSupportedFactors(

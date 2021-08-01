@@ -23,7 +23,11 @@ namespace Okta.Sdk
         public string Country => GetStringProperty("country");
         
         /// <inheritdoc/>
-        public ILogGeolocation Geolocation => GetResourceProperty<LogGeolocation>("geolocation");
+        public ILogGeolocation Geolocation 
+        {
+            get => GetResourceProperty<LogGeolocation>("geolocation");
+            set => this["geolocation"] = value;
+        }
         
         /// <inheritdoc/>
         public string PostalCode => GetStringProperty("postalCode");

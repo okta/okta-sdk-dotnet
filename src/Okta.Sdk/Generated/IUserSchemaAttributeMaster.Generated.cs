@@ -15,7 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a UserSchemaAttributeMaster resource in the Okta API.</summary>
     public partial interface IUserSchemaAttributeMaster : IResource
     {
-        string Type { get; set; }
+        IList<IUserSchemaAttributeMasterPriority> Priority { get; set; }
+
+        UserSchemaAttributeMasterType Type { get; set; }
 
     }
 }

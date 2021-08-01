@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class BasicApplicationSettingsApplication : ApplicationSettingsApplication, IBasicApplicationSettingsApplication
+    public sealed partial class BasicApplicationSettingsApplication : schemas, IBasicApplicationSettingsApplication
     {
         /// <inheritdoc/>
         public string AuthUrl 

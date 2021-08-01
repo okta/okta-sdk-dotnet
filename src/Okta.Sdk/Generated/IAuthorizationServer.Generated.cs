@@ -68,7 +68,7 @@ namespace Okta.Sdk
         ICollectionClient<IJsonWebKey> ListKeys(
             );
 
-        ICollectionClient<IJsonWebKey> RotateKeys(IJwkUse use 
+        ICollectionClient<IJsonWebKey> RotateKeys(IJwkUse jwkUse 
             );
 
         Task ActivateAsync(
@@ -80,7 +80,7 @@ namespace Okta.Sdk
         ICollectionClient<IAuthorizationServerPolicy> ListPolicies(
             );
 
-        Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy policy, 
+        Task<IAuthorizationServerPolicy> CreatePolicyAsync(IAuthorizationServerPolicy authorizationServerPolicy, 
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeletePolicyAsync(
@@ -89,7 +89,7 @@ namespace Okta.Sdk
         Task<IAuthorizationServerPolicy> GetPolicyAsync(
             string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IAuthorizationServerPolicy> UpdatePolicyAsync(IAuthorizationServerPolicy policy, 
+        Task<IAuthorizationServerPolicy> UpdatePolicyAsync(IAuthorizationServerPolicy authorizationServerPolicy, 
             string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         ICollectionClient<IOAuth2Scope> ListOAuth2Scopes(

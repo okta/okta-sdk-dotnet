@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class WsFederationApplicationSettingsApplication : ApplicationSettingsApplication, IWsFederationApplicationSettingsApplication
+    public sealed partial class WsFederationApplicationSettingsApplication : schemas, IWsFederationApplicationSettingsApplication
     {
         /// <inheritdoc/>
         public string AttributeStatements 

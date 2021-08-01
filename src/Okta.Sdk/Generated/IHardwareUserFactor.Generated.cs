@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a HardwareUserFactor resource in the Okta API.</summary>
-    public partial interface IHardwareUserFactor : IUserFactor
+    public partial interface IHardwareUserFactor : Ischemas
     {
         IHardwareUserFactorProfile Profile { get; set; }
 

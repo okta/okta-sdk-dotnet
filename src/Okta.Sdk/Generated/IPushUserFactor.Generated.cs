@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a PushUserFactor resource in the Okta API.</summary>
-    public partial interface IPushUserFactor : IUserFactor
+    public partial interface IPushUserFactor : Ischemas
     {
         DateTimeOffset? ExpiresAt { get; set; }
 

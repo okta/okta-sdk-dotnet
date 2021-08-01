@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SwaThreeFieldApplicationSettingsApplication resource in the Okta API.</summary>
-    public partial interface ISwaThreeFieldApplicationSettingsApplication : IApplicationSettingsApplication
+    public partial interface ISwaThreeFieldApplicationSettingsApplication : Ischemas
     {
         string ButtonSelector { get; set; }
 

@@ -90,12 +90,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IInlineHookResponse> ExecuteInlineHookAsync(IInlineHookPayload payloadData, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IInlineHookResponse> ExecuteInlineHookAsync(IInlineHookPayload inlineHookPayload, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<InlineHookResponse>(new HttpRequest
             {
                 Uri = "/api/v1/inlineHooks/{inlineHookId}/execute",
                 Verb = HttpVerb.Post,
-                Payload = payloadData,
+                Payload = inlineHookPayload,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["inlineHookId"] = inlineHookId,

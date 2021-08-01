@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SamlApplication resource in the Okta API.</summary>
-    public partial interface ISamlApplication : IApplication
+    public partial interface ISamlApplication : Ischemas
     {
         new ISamlApplicationSettings Settings { get; set; }
 

@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public partial class ApplicationCredentials : Resource, IApplicationCredentials
+    public sealed partial class ApplicationCredentials : Resource, IApplicationCredentials
     {
         /// <inheritdoc/>
         public IApplicationCredentialsSigning Signing 

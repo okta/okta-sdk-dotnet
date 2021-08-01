@@ -40,11 +40,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Id 
-        {
-            get => GetStringProperty("id");
-            set => this["id"] = value;
-        }
+        public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
@@ -58,6 +54,11 @@ namespace Okta.Sdk
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
+        
+        /// <inheritdoc />
+        public Task<IUserType> ReplaceUserTypeAsync(IUserType userType, 
+            string typeId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserTypes.ReplaceUserTypeAsync(userType, typeId, cancellationToken);
         
     }
 }

@@ -42,12 +42,12 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserFactor> EnrollFactorAsync(IUserFactor userFactor, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors",
                 Verb = HttpVerb.Post,
-                Payload = body,
+                Payload = userFactor,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
@@ -116,12 +116,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest activateFactorRequest, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate",
                 Verb = HttpVerb.Post,
-                Payload = body,
+                Payload = activateFactorRequest,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
@@ -145,12 +145,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest body, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<VerifyUserFactorResponse>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}/verify",
                 Verb = HttpVerb.Post,
-                Payload = body,
+                Payload = verifyFactorRequest,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,

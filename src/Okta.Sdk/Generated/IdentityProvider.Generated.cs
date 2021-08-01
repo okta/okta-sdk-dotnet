@@ -73,9 +73,9 @@ namespace Okta.Sdk
             => GetClient().IdentityProviders.ListCsrsForIdentityProvider(Id);
         
         /// <inheritdoc />
-        public Task<ICsr> GenerateCsrAsync(ICsrMetadata metadata, 
+        public Task<ICsr> GenerateCsrAsync(ICsrMetadata csrMetadata, 
             CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().IdentityProviders.GenerateCsrForIdentityProviderAsync(metadata, Id, cancellationToken);
+            => GetClient().IdentityProviders.GenerateCsrForIdentityProviderAsync(csrMetadata, Id, cancellationToken);
         
         /// <inheritdoc />
         public Task DeleteSigningCsrAsync(

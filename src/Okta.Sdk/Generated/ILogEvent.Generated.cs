@@ -15,13 +15,13 @@ namespace Okta.Sdk
     /// <summary>Represents a LogEvent resource in the Okta API.</summary>
     public partial interface ILogEvent : IResource
     {
-        ILogActor Actor { get; }
+        ILogActor Actor { get; set; }
 
-        ILogAuthenticationContext AuthenticationContext { get; }
+        ILogAuthenticationContext AuthenticationContext { get; set; }
 
-        ILogClientInfo ClientInfo { get; }
+        ILogClientInfo ClientInfo { get; set; }
 
-        ILogDebugContext DebugContext { get; }
+        ILogDebugContext DebugContext { get; set; }
 
         string DisplayMessage { get; }
 
@@ -29,19 +29,19 @@ namespace Okta.Sdk
 
         string LegacyEventType { get; }
 
-        ILogOutcome Outcome { get; }
+        ILogOutcome Outcome { get; set; }
 
         DateTimeOffset? Published { get; }
 
-        ILogRequest Request { get; }
+        ILogRequest Request { get; set; }
 
-        ILogSecurityContext SecurityContext { get; }
+        ILogSecurityContext SecurityContext { get; set; }
 
-        LogSeverity Severity { get; }
+        LogSeverity Severity { get; set; }
 
         IList<ILogTarget> Target { get; }
 
-        ILogTransaction Transaction { get; }
+        ILogTransaction Transaction { get; set; }
 
         string Uuid { get; }
 

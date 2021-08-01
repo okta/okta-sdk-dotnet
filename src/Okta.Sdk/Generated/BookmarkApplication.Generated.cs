@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class BookmarkApplication : Application, IBookmarkApplication
+    public sealed partial class BookmarkApplication : schemas, IBookmarkApplication
     {
         /// <inheritdoc/>
         public new string Name 

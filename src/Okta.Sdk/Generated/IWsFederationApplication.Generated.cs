@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a WsFederationApplication resource in the Okta API.</summary>
-    public partial interface IWsFederationApplication : IApplication
+    public partial interface IWsFederationApplication : Ischemas
     {
         new string Name { get; set; }
 

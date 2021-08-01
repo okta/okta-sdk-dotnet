@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SecurePasswordStoreApplication resource in the Okta API.</summary>
-    public partial interface ISecurePasswordStoreApplication : IApplication
+    public partial interface ISecurePasswordStoreApplication : Ischemas
     {
         new ISchemeApplicationCredentials Credentials { get; set; }
 

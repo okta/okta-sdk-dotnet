@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SchemeApplicationCredentials : ApplicationCredentials, ISchemeApplicationCredentials
+    public sealed partial class SchemeApplicationCredentials : schemas, ISchemeApplicationCredentials
     {
         /// <inheritdoc/>
         public IPasswordCredential Password 

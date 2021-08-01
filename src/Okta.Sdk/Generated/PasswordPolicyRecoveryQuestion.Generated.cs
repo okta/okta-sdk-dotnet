@@ -17,7 +17,11 @@ namespace Okta.Sdk
     public sealed partial class PasswordPolicyRecoveryQuestion : Resource, IPasswordPolicyRecoveryQuestion
     {
         /// <inheritdoc/>
-        public IPasswordPolicyRecoveryQuestionProperties Properties => GetResourceProperty<PasswordPolicyRecoveryQuestionProperties>("properties");
+        public IPasswordPolicyRecoveryQuestionProperties Properties 
+        {
+            get => GetResourceProperty<PasswordPolicyRecoveryQuestionProperties>("properties");
+            set => this["properties"] = value;
+        }
         
         /// <inheritdoc/>
         public string Status => GetStringProperty("status");

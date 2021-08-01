@@ -42,12 +42,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IUserSchema> UpdateApplicationUserProfileAsync(IUserSchema body, string appInstanceId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IUserSchema> UpdateApplicationUserProfileAsync(IUserSchema userSchema, string appInstanceId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<UserSchema>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/apps/{appInstanceId}/default",
                 Verb = HttpVerb.Post,
-                Payload = body,
+                Payload = userSchema,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["appInstanceId"] = appInstanceId,

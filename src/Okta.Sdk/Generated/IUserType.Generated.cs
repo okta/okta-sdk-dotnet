@@ -25,13 +25,16 @@ namespace Okta.Sdk
 
         string DisplayName { get; set; }
 
-        string Id { get; set; }
+        string Id { get; }
 
         DateTimeOffset? LastUpdated { get; }
 
         string LastUpdatedBy { get; }
 
         string Name { get; set; }
+
+        Task<IUserType> ReplaceUserTypeAsync(IUserType userType, 
+            string typeId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class BasicApplicationSettings : ApplicationSettings, IBasicApplicationSettings
+    public sealed partial class BasicApplicationSettings : schemas, IBasicApplicationSettings
     {
         /// <inheritdoc/>
         public new IBasicApplicationSettingsApplication App 

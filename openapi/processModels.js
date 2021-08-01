@@ -202,10 +202,13 @@ function createContextForModel(model, strictModelList, errFunc) {
     // }
     if (method.operation.bodyModel) {
       let bodyModelParamName = method.operation.bodyModel;
-      let bodyModelParams = method.operation.parameters.filter(x => x.in == 'body');
-      if(bodyModelParams != null){
-        let bodyModelParam = bodyModelParams[0];
-        bodyModelParamName = bodyModelParam.name;
+      if (method.operation.requestBody.name) {
+        bodyModelParamName = method.operation.requestBody.name;
+      }
+
+      if (!bodyModelParamName) 
+      {
+        bodyModelParamName = method.operation.bodyModel.bodyName;
       }
 
       methodContext.bodyModel = {

@@ -15,7 +15,7 @@ namespace Okta.Sdk
     /// <summary>Represents a LogIpAddress resource in the Okta API.</summary>
     public partial interface ILogIpAddress : IResource
     {
-        ILogGeographicalContext GeographicalContext { get; }
+        ILogGeographicalContext GeographicalContext { get; set; }
 
         string Ip { get; }
 

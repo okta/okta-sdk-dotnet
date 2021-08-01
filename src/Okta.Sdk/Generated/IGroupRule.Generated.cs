@@ -27,7 +27,7 @@ namespace Okta.Sdk
 
         string Name { get; set; }
 
-        GroupRuleStatus Status { get; }
+        GroupRuleStatus Status { get; set; }
 
         string Type { get; set; }
 

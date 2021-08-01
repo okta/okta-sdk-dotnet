@@ -25,7 +25,7 @@ namespace Okta.Sdk
         /// <summary>
         /// Enrolls a user with a supported factor.
         /// </summary>
-        /// <param name="body">The <see cref="IUserFactor"/> resource.</param>
+        /// <param name="userFactor">The <see cref="IUserFactor"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="updatePhone"></param>
         /// <param name="templateId">id of SMS template (only for SMS factor)</param>
@@ -33,7 +33,7 @@ namespace Okta.Sdk
         /// <param name="activate"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUserFactor"/> response.</returns>
-        Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> EnrollFactorAsync(IUserFactor userFactor, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates all the supported factors that can be enrolled for the specified user
@@ -70,12 +70,12 @@ namespace Okta.Sdk
         /// <summary>
         /// The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
         /// </summary>
-        /// <param name="body">The <see cref="IActivateFactorRequest"/> resource.</param>
+        /// <param name="activateFactorRequest">The <see cref="IActivateFactorRequest"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUserFactor"/> response.</returns>
-        Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest activateFactorRequest, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Polls factors verification transaction for status.
@@ -90,14 +90,14 @@ namespace Okta.Sdk
         /// <summary>
         /// Verifies an OTP for a `token` or `token:hardware` factor
         /// </summary>
-        /// <param name="body">The <see cref="IVerifyFactorRequest"/> resource.</param>
+        /// <param name="verifyFactorRequest">The <see cref="IVerifyFactorRequest"/> resource.</param>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
         /// <param name="templateId"></param>
         /// <param name="tokenLifetimeSeconds"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IVerifyUserFactorResponse"/> response.</returns>
-        Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest body, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest verifyFactorRequest, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }
