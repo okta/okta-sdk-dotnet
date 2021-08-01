@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a OpenIdConnectApplication resource in the Okta API.</summary>
-    public partial interface IOpenIdConnectApplication : Ischemas
+    public partial interface IOpenIdConnectApplication : IApplication
     {
         new IOAuthApplicationCredentials Credentials { get; set; }
 

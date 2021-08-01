@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a IdentityProviderPolicy resource in the Okta API.</summary>
-    public partial interface IIdentityProviderPolicy : Ischemas
+    public partial interface IIdentityProviderPolicy : IPolicy
     {
         IPolicyAccountLink AccountLink { get; set; }
 

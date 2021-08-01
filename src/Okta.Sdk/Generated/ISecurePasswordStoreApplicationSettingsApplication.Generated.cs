@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SecurePasswordStoreApplicationSettingsApplication resource in the Okta API.</summary>
-    public partial interface ISecurePasswordStoreApplicationSettingsApplication : Ischemas
+    public partial interface ISecurePasswordStoreApplicationSettingsApplication : IApplicationSettingsApplication
     {
         string OptionalField1 { get; set; }
 

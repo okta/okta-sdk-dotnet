@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class EmailUserFactor : schemas, IEmailUserFactor
+    public sealed partial class EmailUserFactor : UserFactor, IEmailUserFactor
     {
         /// <inheritdoc/>
         public IEmailUserFactorProfile Profile 

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a BookmarkApplication resource in the Okta API.</summary>
-    public partial interface IBookmarkApplication : Ischemas
+    public partial interface IBookmarkApplication : IApplication
     {
         new string Name { get; set; }
 

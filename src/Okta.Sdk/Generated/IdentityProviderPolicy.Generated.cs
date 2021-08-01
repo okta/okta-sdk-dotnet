@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class IdentityProviderPolicy : schemas, IIdentityProviderPolicy
+    public sealed partial class IdentityProviderPolicy : Policy, IIdentityProviderPolicy
     {
         /// <inheritdoc/>
         public IPolicyAccountLink AccountLink 

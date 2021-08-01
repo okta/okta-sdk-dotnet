@@ -196,12 +196,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> PublishCerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IJsonWebKey> PublishCerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
                 Verb = HttpVerb.Post,
-                
+                Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,
@@ -210,12 +210,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> PublishBinaryCerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IJsonWebKey> PublishBinaryCerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
                 Verb = HttpVerb.Post,
-                
+                Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,
@@ -224,12 +224,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> PublishDerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IJsonWebKey> PublishDerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
                 Verb = HttpVerb.Post,
-                
+                Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,
@@ -238,12 +238,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> PublishBinaryDerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IJsonWebKey> PublishBinaryDerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
                 Verb = HttpVerb.Post,
-                
+                Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,
@@ -252,12 +252,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> PublishBinaryPemCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IJsonWebKey> PublishBinaryPemCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<JsonWebKey>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish",
                 Verb = HttpVerb.Post,
-                
+                Payload = certificate,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,

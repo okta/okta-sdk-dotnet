@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PasswordPolicyConditions : schemas, IPasswordPolicyConditions
+    public sealed partial class PasswordPolicyConditions : PolicyRuleConditions, IPasswordPolicyConditions
     {
         /// <inheritdoc/>
         public IPasswordPolicyAuthenticationProviderCondition AuthProvider 

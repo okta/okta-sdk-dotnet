@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class OktaSignOnPolicy : schemas, IOktaSignOnPolicy
+    public sealed partial class OktaSignOnPolicy : Policy, IOktaSignOnPolicy
     {
         /// <inheritdoc/>
         public IOktaSignOnPolicyConditions Conditions 

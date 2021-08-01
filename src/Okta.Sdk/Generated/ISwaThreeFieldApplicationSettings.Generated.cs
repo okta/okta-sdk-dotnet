@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SwaThreeFieldApplicationSettings resource in the Okta API.</summary>
-    public partial interface ISwaThreeFieldApplicationSettings : Ischemas
+    public partial interface ISwaThreeFieldApplicationSettings : IApplicationSettings
     {
         new ISwaThreeFieldApplicationSettingsApplication App { get; set; }
 

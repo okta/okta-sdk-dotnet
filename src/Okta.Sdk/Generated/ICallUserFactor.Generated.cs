@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a CallUserFactor resource in the Okta API.</summary>
-    public partial interface ICallUserFactor : Ischemas
+    public partial interface ICallUserFactor : IUserFactor
     {
         ICallUserFactorProfile Profile { get; set; }
 

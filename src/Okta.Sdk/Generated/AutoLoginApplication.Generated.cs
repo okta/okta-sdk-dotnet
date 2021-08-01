@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class AutoLoginApplication : schemas, IAutoLoginApplication
+    public sealed partial class AutoLoginApplication : Application, IAutoLoginApplication
     {
         /// <inheritdoc/>
         public new ISchemeApplicationCredentials Credentials 

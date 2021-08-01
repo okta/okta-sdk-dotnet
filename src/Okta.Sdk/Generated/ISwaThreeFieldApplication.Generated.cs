@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a SwaThreeFieldApplication resource in the Okta API.</summary>
-    public partial interface ISwaThreeFieldApplication : Ischemas
+    public partial interface ISwaThreeFieldApplication : IBrowserPluginApplication
     {
         new string Name { get; set; }
 

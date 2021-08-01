@@ -91,19 +91,19 @@ namespace Okta.Sdk
         ICollectionClient<ICsr> ListCsrs(
             );
 
-        Task<IJsonWebKey> PublishCerCertAsync(
+        Task<IJsonWebKey> PublishCerCertAsync(string certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishBinaryCerCertAsync(
+        Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishDerCertAsync(
+        Task<IJsonWebKey> PublishDerCertAsync(string certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishBinaryDerCertAsync(
+        Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IJsonWebKey> PublishBinaryPemCertAsync(
+        Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         ICollectionClient<IOAuth2Token> ListOAuth2Tokens(

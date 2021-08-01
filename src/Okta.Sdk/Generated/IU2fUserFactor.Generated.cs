@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a U2fUserFactor resource in the Okta API.</summary>
-    public partial interface IU2fUserFactor : Ischemas
+    public partial interface IU2fUserFactor : IUserFactor
     {
         IU2fUserFactorProfile Profile { get; set; }
 

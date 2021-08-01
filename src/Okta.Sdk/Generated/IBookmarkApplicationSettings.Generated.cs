@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a BookmarkApplicationSettings resource in the Okta API.</summary>
-    public partial interface IBookmarkApplicationSettings : Ischemas
+    public partial interface IBookmarkApplicationSettings : IApplicationSettings
     {
         new IBookmarkApplicationSettingsApplication App { get; set; }
 

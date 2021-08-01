@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class SwaApplicationSettingsApplication : schemas, ISwaApplicationSettingsApplication
+    public sealed partial class SwaApplicationSettingsApplication : ApplicationSettingsApplication, ISwaApplicationSettingsApplication
     {
         /// <inheritdoc/>
         public string ButtonField 

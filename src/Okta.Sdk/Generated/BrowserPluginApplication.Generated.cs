@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class BrowserPluginApplication : schemas, IBrowserPluginApplication
+    public partial class BrowserPluginApplication : Application, IBrowserPluginApplication
     {
         /// <inheritdoc/>
         public new ISchemeApplicationCredentials Credentials 

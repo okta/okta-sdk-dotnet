@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PolicyRule : Resource, IPolicyRule
+    public partial class PolicyRule : Resource, IPolicyRule
     {
         /// <inheritdoc/>
         public IPolicyRuleActions Actions 

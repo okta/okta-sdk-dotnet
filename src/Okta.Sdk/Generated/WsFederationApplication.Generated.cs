@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class WsFederationApplication : schemas, IWsFederationApplication
+    public sealed partial class WsFederationApplication : Application, IWsFederationApplication
     {
         /// <inheritdoc/>
         public new string Name 

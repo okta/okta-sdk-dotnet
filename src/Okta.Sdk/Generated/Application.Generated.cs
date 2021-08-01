@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class Application : Resource, IApplication
+    public partial class Application : Resource, IApplication
     {
         /// <inheritdoc/>
         public IApplicationAccessibility Accessibility 
@@ -175,29 +175,29 @@ namespace Okta.Sdk
             => GetClient().Applications.ListCsrsForApplication(Id);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> PublishCerCertAsync(
+        public Task<IJsonWebKey> PublishCerCertAsync(string certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.PublishCerCertAsync(Id, csrId, cancellationToken);
+            => GetClient().Applications.PublishCerCertAsync(certificate, Id, csrId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> PublishBinaryCerCertAsync(
+        public Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.PublishBinaryCerCertAsync(Id, csrId, cancellationToken);
+            => GetClient().Applications.PublishBinaryCerCertAsync(certificate, Id, csrId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> PublishDerCertAsync(
+        public Task<IJsonWebKey> PublishDerCertAsync(string certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.PublishDerCertAsync(Id, csrId, cancellationToken);
+            => GetClient().Applications.PublishDerCertAsync(certificate, Id, csrId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> PublishBinaryDerCertAsync(
+        public Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.PublishBinaryDerCertAsync(Id, csrId, cancellationToken);
+            => GetClient().Applications.PublishBinaryDerCertAsync(certificate, Id, csrId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IJsonWebKey> PublishBinaryPemCertAsync(
+        public Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, 
             string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.PublishBinaryPemCertAsync(Id, csrId, cancellationToken);
+            => GetClient().Applications.PublishBinaryPemCertAsync(certificate, Id, csrId, cancellationToken);
         
         /// <inheritdoc />
         public ICollectionClient<IOAuth2Token> ListOAuth2Tokens(

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a BasicApplicationSettingsApplication resource in the Okta API.</summary>
-    public partial interface IBasicApplicationSettingsApplication : Ischemas
+    public partial interface IBasicApplicationSettingsApplication : IApplicationSettingsApplication
     {
         string AuthUrl { get; set; }
 

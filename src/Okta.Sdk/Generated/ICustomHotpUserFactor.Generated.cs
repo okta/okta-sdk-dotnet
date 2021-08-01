@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a CustomHotpUserFactor resource in the Okta API.</summary>
-    public partial interface ICustomHotpUserFactor : Ischemas
+    public partial interface ICustomHotpUserFactor : IUserFactor
     {
         string FactorProfileId { get; set; }
 

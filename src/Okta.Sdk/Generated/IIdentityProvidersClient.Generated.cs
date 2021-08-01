@@ -127,47 +127,52 @@ namespace Okta.Sdk
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
+        /// <param name="certificate">The <see cref="string"/> resource.</param>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishCerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishCerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
+        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishBinaryCerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishBinaryCerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
+        /// <param name="certificate">The <see cref="string"/> resource.</param>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishDerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishDerCertForIdentityProviderAsync(string certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
+        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishBinaryDerCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishBinaryDerCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
+        /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
         /// <param name="idpId"></param>
         /// <param name="csrId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
-        Task<IJsonWebKey> PublishBinaryPemCertForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IJsonWebKey> PublishBinaryPemCertForIdentityProviderAsync(byte[] certificate, string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.

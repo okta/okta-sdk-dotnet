@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class OpenIdConnectApplicationSettings : schemas, IOpenIdConnectApplicationSettings
+    public sealed partial class OpenIdConnectApplicationSettings : ApplicationSettings, IOpenIdConnectApplicationSettings
     {
         /// <inheritdoc/>
         public IOpenIdConnectApplicationSettingsClient OAuthClient 

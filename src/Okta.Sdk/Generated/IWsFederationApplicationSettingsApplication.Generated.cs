@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a WsFederationApplicationSettingsApplication resource in the Okta API.</summary>
-    public partial interface IWsFederationApplicationSettingsApplication : Ischemas
+    public partial interface IWsFederationApplicationSettingsApplication : IApplicationSettingsApplication
     {
         string AttributeStatements { get; set; }
 

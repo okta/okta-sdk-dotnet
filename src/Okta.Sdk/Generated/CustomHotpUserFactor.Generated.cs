@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class CustomHotpUserFactor : schemas, ICustomHotpUserFactor
+    public sealed partial class CustomHotpUserFactor : UserFactor, ICustomHotpUserFactor
     {
         /// <inheritdoc/>
         public string FactorProfileId 
