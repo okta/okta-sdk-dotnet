@@ -22,8 +22,7 @@ namespace Okta.Sdk
         ICollectionClient<ICAPTCHAInstance> ListCaptchaInstances();
 
         /// <summary>
-        /// Adds a new CAPTCHA instance to your organization.
-In current release, we only allow one CAPTCHA instance per org
+        /// Adds a new CAPTCHA instance to your organization. In current release, we only allow one CAPTCHA instance per org.
         /// </summary>
         /// <param name="captchaInstance">The <see cref="ICAPTCHAInstance"/> resource.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
