@@ -6,6 +6,7 @@ const propertyErrata = [
   { path: '*._links', skip: true, skipReason: 'Not currently supported'},
 
   { path: 'ActivationToken.activationToken', rename: 'token', renameReason: '.NET type name and member name cannot be identical' },
+  { path: 'Domain.domain', rename: 'DomainName', renameReason: '.NET type name and member name cannot be identical' },
   { path: 'TempPassword.tempPassword', rename: 'password', renameReason: '.NET type name and member name cannot be identical' },
   { path: 'Csr.csr', rename: 'CsrValue', renameReason: '.NET type name and member name cannot be identical' },
 

@@ -210,6 +210,14 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IUserSchemasClient UserSchemas => new UserSchemasClient(_dataStore, Configuration, _requestContext);
 
+        /// <inheritdoc/>
+        public IDomainsClient Domains => new DomainsClient(_dataStore, Configuration, _requestContext);
+
+
+        /// <inheritdoc/>
+        public INetworkZonesClient NetworkZones => new NetworkZonesClient(_dataStore, Configuration, _requestContext);
+
+
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
         /// </summary>

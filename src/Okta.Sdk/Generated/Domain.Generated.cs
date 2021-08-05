@@ -31,7 +31,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Domain 
+        public string DomainName 
         {
             get => GetStringProperty("domain");
             set => this["domain"] = value;

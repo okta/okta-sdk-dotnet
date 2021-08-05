@@ -19,7 +19,7 @@ namespace Okta.Sdk
 
         IList<IDNSRecord> DnsRecords { get; set; }
 
-        string Domain { get; set; }
+        string DomainName { get; set; }
 
         string Id { get; }
 
