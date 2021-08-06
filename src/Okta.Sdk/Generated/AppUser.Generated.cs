@@ -30,7 +30,11 @@ namespace Okta.Sdk
         public string ExternalId => GetStringProperty("externalId");
         
         /// <inheritdoc/>
-        public string Id => GetStringProperty("id");
+        public string Id 
+        {
+            get => GetStringProperty("id");
+            set => this["id"] = value;
+        }
         
         /// <inheritdoc/>
         public DateTimeOffset? LastSync => GetDateTimeProperty("lastSync");

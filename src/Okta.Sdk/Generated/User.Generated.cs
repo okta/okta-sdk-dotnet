@@ -73,6 +73,16 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
+        public Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials userCredentials, 
+            bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ForgotPasswordSetNewPasswordAsync(userCredentials, Id, sendEmail, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
+            bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ForgotPasswordGenerateOneTimeTokenAsync(Id, sendEmail, cancellationToken);
+        
+        /// <inheritdoc />
         public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.AssignRoleToUserAsync(assignRoleRequest, Id, disableNotifications, cancellationToken);
@@ -179,8 +189,13 @@ namespace Okta.Sdk
         
         /// <inheritdoc />
         public Task<IUser> ExpirePasswordAsync(
-            bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ExpirePasswordAsync(Id, tempPassword, cancellationToken);
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ExpirePasswordAsync(Id, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Users.ExpirePasswordAndGetTemporaryPasswordAsync(Id, cancellationToken);
         
         /// <inheritdoc />
         public Task UnlockAsync(

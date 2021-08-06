@@ -231,7 +231,7 @@ namespace Okta.Sdk
                 Profile = factorProfile,
             };
 
-            return EnrollFactorAsync(body: factor, userId: userId, activate: true, cancellationToken: cancellationToken);
+            return EnrollFactorAsync(userFactor: factor, userId: userId, activate: true, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc/>

@@ -39,6 +39,12 @@ namespace Okta.Sdk
 
         IUserType Type { get; set; }
 
+        Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials userCredentials, 
+            bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
+            bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
+
         Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -103,7 +109,10 @@ namespace Okta.Sdk
             CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IUser> ExpirePasswordAsync(
-            bool? tempPassword = false, CancellationToken cancellationToken = default(CancellationToken));
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<ITempPassword> ExpirePasswordAndGetTemporaryPasswordAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
 
         Task UnlockAsync(
             CancellationToken cancellationToken = default(CancellationToken));

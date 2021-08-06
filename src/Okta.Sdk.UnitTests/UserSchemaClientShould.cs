@@ -81,9 +81,9 @@ namespace Okta.Sdk.UnitTests
             userSchema.Definitions.Base.Id.Should().Be("#base");
             userSchema.Definitions.Base.Type.Should().Be("object");
             userSchema.Definitions.Base.Properties.Login.Title.Should().Be("Username");
-            userSchema.Definitions.Base.Properties.Login.Type.Should().Be("string");
+            userSchema.Definitions.Base.Properties.Login.Type.ToString().Should().Be("string");
             userSchema.Definitions.Base.Properties.Login.Required.Should().BeTrue();
-            userSchema.Definitions.Base.Properties.Login.Scope.Should().Be("NONE");
+            userSchema.Definitions.Base.Properties.Login.Scope.ToString().Should().Be("NONE");
             userSchema.Definitions.Base.Properties.Login.MinLength.Should().Be(5);
             userSchema.Definitions.Base.Properties.Login.MaxLength.Should().Be(100);
             userSchema.Definitions.Base.Required.Should().Contain("login");
@@ -176,7 +176,7 @@ namespace Okta.Sdk.UnitTests
 
             var retrievedCustomAttribute = updatedUserSchema.Definitions.Custom.Properties.GetProperty<UserSchemaAttribute>("twitterUserName");
             retrievedCustomAttribute.Title.Should().Be("Twitter username");
-            retrievedCustomAttribute.Type.Should().Be("string");
+            retrievedCustomAttribute.Type.ToString().Should().Be("string");
             retrievedCustomAttribute.Description.Should().Be("User's username for twitter.com");
             retrievedCustomAttribute.Required.Should().BeNull();
             retrievedCustomAttribute.MinLength.Should().Be(1);
