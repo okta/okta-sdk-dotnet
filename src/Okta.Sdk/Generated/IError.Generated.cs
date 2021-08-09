@@ -15,15 +15,15 @@ namespace Okta.Sdk
     /// <summary>Represents a Error resource in the Okta API.</summary>
     public partial interface IError : IResource
     {
-        IList<object> ErrorCauses { get; set; }
-
         string ErrorCode { get; set; }
 
-        string ErrorId { get; set; }
+        string ErrorSummary { get; set; }
 
         string ErrorLink { get; set; }
 
-        string ErrorSummary { get; set; }
+        string ErrorId { get; set; }
+
+        IList<object> ErrorCauses { get; set; }
 
     }
 }

@@ -50,15 +50,6 @@ namespace Okta.Sdk
         ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId);
 
         /// <summary>
-        /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="factorId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a factor for the specified user
         /// </summary>
         /// <param name="userId"></param>
@@ -66,6 +57,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUserFactor"/> response.</returns>
         Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="factorId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.

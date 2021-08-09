@@ -57,19 +57,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeletePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/policies/{policyId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["policyId"] = policyId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IPolicy> GetPolicyAsync(string policyId, string expand = "", CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<Policy>(new HttpRequest
             {
@@ -93,6 +80,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/policies/{policyId}",
                 Verb = HttpVerb.Put,
                 Payload = policy,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["policyId"] = policyId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeletePolicyAsync(string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/policies/{policyId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["policyId"] = policyId,
@@ -152,20 +152,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeletePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/policies/{policyId}/rules/{ruleId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["policyId"] = policyId,
-                    ["ruleId"] = ruleId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IPolicyRule> GetPolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<PolicyRule>(new HttpRequest
             {
@@ -186,6 +172,20 @@ namespace Okta.Sdk
                 Uri = "/api/v1/policies/{policyId}/rules/{ruleId}",
                 Verb = HttpVerb.Put,
                 Payload = policyRule,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["policyId"] = policyId,
+                    ["ruleId"] = ruleId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeletePolicyRuleAsync(string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/policies/{policyId}/rules/{ruleId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["policyId"] = policyId,

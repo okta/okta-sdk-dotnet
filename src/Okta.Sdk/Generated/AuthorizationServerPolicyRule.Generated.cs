@@ -17,27 +17,10 @@ namespace Okta.Sdk
     public sealed partial class AuthorizationServerPolicyRule : Resource, IAuthorizationServerPolicyRule
     {
         /// <inheritdoc/>
-        public IAuthorizationServerPolicyRuleActions Actions 
-        {
-            get => GetResourceProperty<AuthorizationServerPolicyRuleActions>("actions");
-            set => this["actions"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public IAuthorizationServerPolicyRuleConditions Conditions 
-        {
-            get => GetResourceProperty<AuthorizationServerPolicyRuleConditions>("conditions");
-            set => this["conditions"] = value;
-        }
-        
-        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
         public string Id => GetStringProperty("id");
-        
-        /// <inheritdoc/>
-        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
         
         /// <inheritdoc/>
         public string Name 
@@ -45,6 +28,9 @@ namespace Okta.Sdk
             get => GetStringProperty("name");
             set => this["name"] = value;
         }
+        
+        /// <inheritdoc/>
+        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
         
         /// <inheritdoc/>
         public int? Priority 
@@ -72,6 +58,20 @@ namespace Okta.Sdk
         {
             get => GetStringProperty("type");
             set => this["type"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IAuthorizationServerPolicyRuleConditions Conditions 
+        {
+            get => GetResourceProperty<AuthorizationServerPolicyRuleConditions>("conditions");
+            set => this["conditions"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IAuthorizationServerPolicyRuleActions Actions 
+        {
+            get => GetResourceProperty<AuthorizationServerPolicyRuleActions>("actions");
+            set => this["actions"] = value;
         }
         
         /// <inheritdoc />

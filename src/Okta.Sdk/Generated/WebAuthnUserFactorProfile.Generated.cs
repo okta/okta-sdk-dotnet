@@ -17,17 +17,17 @@ namespace Okta.Sdk
     public sealed partial class WebAuthnUserFactorProfile : Resource, IWebAuthnUserFactorProfile
     {
         /// <inheritdoc/>
-        public string AuthenticatorName 
-        {
-            get => GetStringProperty("authenticatorName");
-            set => this["authenticatorName"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string CredentialId 
         {
             get => GetStringProperty("credentialId");
             set => this["credentialId"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string AuthenticatorName 
+        {
+            get => GetStringProperty("authenticatorName");
+            set => this["authenticatorName"] = value;
         }
         
     }

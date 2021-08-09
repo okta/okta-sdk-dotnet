@@ -15,11 +15,11 @@ namespace Okta.Sdk
     /// <summary>Represents a AuthorizationServerPolicyRuleConditions resource in the Okta API.</summary>
     public partial interface IAuthorizationServerPolicyRuleConditions : IResource
     {
+        IPolicyPeopleCondition People { get; set; }
+
         IClientPolicyCondition Clients { get; set; }
 
         IGrantTypePolicyRuleCondition GrantTypes { get; set; }
-
-        IPolicyPeopleCondition People { get; set; }
 
         IOAuth2ScopesMediationPolicyRuleCondition Scopes { get; set; }
 

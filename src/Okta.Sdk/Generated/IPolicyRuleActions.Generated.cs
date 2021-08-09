@@ -17,13 +17,13 @@ namespace Okta.Sdk
     {
         IPolicyRuleActionsEnroll Enroll { get; set; }
 
+        IOktaSignOnPolicyRuleSignonActions Signon { get; set; }
+
         IPasswordPolicyRuleAction PasswordChange { get; set; }
 
         IPasswordPolicyRuleAction SelfServicePasswordReset { get; set; }
 
         IPasswordPolicyRuleAction SelfServiceUnlock { get; set; }
-
-        IOktaSignOnPolicyRuleSignonActions Signon { get; set; }
 
     }
 }

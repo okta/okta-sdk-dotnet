@@ -53,15 +53,6 @@ namespace Okta.Sdk
         Task<IGroupRule> CreateGroupRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes a specific group rule by id from your organization
-        /// </summary>
-        /// <param name="ruleId"></param>
-        /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
@@ -80,6 +71,15 @@ namespace Okta.Sdk
         Task<IGroupRule> UpdateGroupRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Removes a specific group rule by id from your organization
+        /// </summary>
+        /// <param name="ruleId"></param>
+        /// <param name="removeUsers">Indicates whether to keep or remove users from groups assigned by this rule.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Activates a specific group rule by id from your organization
         /// </summary>
         /// <param name="ruleId"></param>
@@ -94,14 +94,6 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeactivateGroupRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Removes a group with `OKTA_GROUP` type from your organization.
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all group rules for your organization.
@@ -119,6 +111,14 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes a group with `OKTA_GROUP` type from your organization.
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates all applications that are assigned to a group.
@@ -148,15 +148,6 @@ namespace Okta.Sdk
         Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Unassigns a Role from a Group
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveRoleFromGroupAsync(string groupId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Success
         /// </summary>
         /// <param name="groupId"></param>
@@ -164,6 +155,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IRole"/> response.</returns>
         Task<IRole> GetRoleAsync(string groupId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Unassigns a Role from a Group
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="roleId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveRoleFromGroupAsync(string groupId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all App targets for an `APP_ADMIN` Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID.
@@ -183,7 +183,7 @@ namespace Okta.Sdk
         /// <param name="appName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
+        Task AddApplicationTargetToAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
@@ -193,18 +193,7 @@ namespace Okta.Sdk
         /// <param name="appName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task AddApplicationTargetToAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add App Instance Target to App Administrator Role given to a Group
@@ -218,6 +207,17 @@ namespace Okta.Sdk
         Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Remove App Instance Target to App Administrator Role given to a Group
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="roleId"></param>
+        /// <param name="appName"></param>
+        /// <param name="applicationId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Enumerates group targets for a group role.
         /// </summary>
         /// <param name="groupId"></param>
@@ -226,16 +226,6 @@ namespace Okta.Sdk
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IGroup"/> that can be enumerated asynchronously.</returns>
         ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = 20);
-
-        /// <summary>
-        /// remove group target for a group role.
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="targetGroupId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates group targets for a group role.
@@ -248,6 +238,16 @@ namespace Okta.Sdk
         Task AddGroupTargetToGroupAdministratorRoleForGroupAsync(string groupId, string roleId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// remove group target for a group role.
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="roleId"></param>
+        /// <param name="targetGroupId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Enumerates all users that are a member of a group.
         /// </summary>
         /// <param name="groupId"></param>
@@ -257,15 +257,6 @@ namespace Okta.Sdk
         ICollectionClient<IUser> ListGroupUsers(string groupId, string after = null, int? limit = 1000);
 
         /// <summary>
-        /// Removes a user from a group with 'OKTA_GROUP' type.
-        /// </summary>
-        /// <param name="groupId"></param>
-        /// <param name="userId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveUserFromGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Adds a user to a group with 'OKTA_GROUP' type.
         /// </summary>
         /// <param name="groupId"></param>
@@ -273,6 +264,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task AddUserToGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes a user from a group with 'OKTA_GROUP' type.
+        /// </summary>
+        /// <param name="groupId"></param>
+        /// <param name="userId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveUserFromGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

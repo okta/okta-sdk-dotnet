@@ -23,13 +23,11 @@ namespace Okta.Sdk
 
         IList<OAuthGrantType> GrantTypes { get; set; }
 
-        IOpenIdConnectApplicationIdpInitiatedLogin IdpInitiatedLogin { get; set; }
-
         string InitiateLoginUri { get; set; }
 
         OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
 
-        IOpenIdConnectApplicationSettingsClientKeys Jwks { get; set; }
+        IOpenIdConnectApplicationIdpInitiatedLogin IdpInitiatedLogin { get; set; }
 
         string LogoUri { get; set; }
 
@@ -39,13 +37,15 @@ namespace Okta.Sdk
 
         IList<string> RedirectUris { get; set; }
 
-        IOpenIdConnectApplicationSettingsRefreshToken RefreshToken { get; set; }
+        string WildcardRedirect { get; set; }
 
         IList<OAuthResponseType> ResponseTypes { get; set; }
 
+        IOpenIdConnectApplicationSettingsRefreshToken RefreshToken { get; set; }
+
         string TermsOfServiceUri { get; set; }
 
-        string WildcardRedirect { get; set; }
+        IOpenIdConnectApplicationSettingsClientKeys Jwks { get; set; }
 
     }
 }

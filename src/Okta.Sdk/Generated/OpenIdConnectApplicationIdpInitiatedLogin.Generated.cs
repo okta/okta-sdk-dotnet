@@ -17,17 +17,17 @@ namespace Okta.Sdk
     public sealed partial class OpenIdConnectApplicationIdpInitiatedLogin : Resource, IOpenIdConnectApplicationIdpInitiatedLogin
     {
         /// <inheritdoc/>
-        public IList<string> DefaultScope 
-        {
-            get => GetArrayProperty<string>("default_scope");
-            set => this["default_scope"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Mode 
         {
             get => GetStringProperty("mode");
             set => this["mode"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<string> DefaultScope 
+        {
+            get => GetArrayProperty<string>("default_scope");
+            set => this["default_scope"] = value;
         }
         
     }

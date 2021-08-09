@@ -34,14 +34,6 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="eventHookId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="eventHookId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IEventHook"/> response.</returns>
         Task<IEventHook> GetEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -53,6 +45,14 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IEventHook"/> response.</returns>
         Task<IEventHook> UpdateEventHookAsync(IEventHook eventHook, string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        /// <param name="eventHookId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success

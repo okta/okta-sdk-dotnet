@@ -37,14 +37,6 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="authServerId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteAuthorizationServerAsync(string authServerId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="authServerId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAuthorizationServer"/> response.</returns>
         Task<IAuthorizationServer> GetAuthorizationServerAsync(string authServerId, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -61,6 +53,14 @@ namespace Okta.Sdk
         /// Success
         /// </summary>
         /// <param name="authServerId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteAuthorizationServerAsync(string authServerId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        /// <param name="authServerId"></param>
         /// <returns>A collection of <see cref="IOAuth2Claim"/> that can be enumerated asynchronously.</returns>
         ICollectionClient<IOAuth2Claim> ListOAuth2Claims(string authServerId);
 
@@ -72,15 +72,6 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2Claim"/> response.</returns>
         Task<IOAuth2Claim> CreateOAuth2ClaimAsync(IOAuth2Claim oAuth2Claim, string authServerId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="authServerId"></param>
-        /// <param name="claimId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteOAuth2ClaimAsync(string authServerId, string claimId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
@@ -105,17 +96,17 @@ namespace Okta.Sdk
         /// Success
         /// </summary>
         /// <param name="authServerId"></param>
-        /// <returns>A collection of <see cref="IOAuth2Client"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IOAuth2Client> ListOAuth2ClientsForAuthorizationServer(string authServerId);
+        /// <param name="claimId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteOAuth2ClaimAsync(string authServerId, string claimId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
         /// </summary>
         /// <param name="authServerId"></param>
-        /// <param name="clientId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A collection of <see cref="IOAuth2Client"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IOAuth2Client> ListOAuth2ClientsForAuthorizationServer(string authServerId);
 
         /// <summary>
         /// Success
@@ -133,10 +124,9 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="authServerId"></param>
         /// <param name="clientId"></param>
-        /// <param name="tokenId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RevokeRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
@@ -148,6 +138,16 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2RefreshToken"/> response.</returns>
         Task<IOAuth2RefreshToken> GetRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="clientId"></param>
+        /// <param name="tokenId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
@@ -202,15 +202,6 @@ namespace Okta.Sdk
         /// <param name="authServerId"></param>
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="authServerId"></param>
-        /// <param name="policyId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAuthorizationServerPolicy"/> response.</returns>
         Task<IAuthorizationServerPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -223,6 +214,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAuthorizationServerPolicy"/> response.</returns>
         Task<IAuthorizationServerPolicy> UpdateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy authorizationServerPolicy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Activate Authorization Server Policy
@@ -261,16 +261,6 @@ namespace Okta.Sdk
         Task<IAuthorizationServerPolicyRule> CreateAuthorizationServerPolicyRuleAsync(IAuthorizationServerPolicyRule authorizationServerPolicyRule, string policyId, string authServerId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
-        /// </summary>
-        /// <param name="policyId"></param>
-        /// <param name="authServerId"></param>
-        /// <param name="ruleId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <param name="policyId"></param>
@@ -290,6 +280,16 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAuthorizationServerPolicyRule"/> response.</returns>
         Task<IAuthorizationServerPolicyRule> UpdateAuthorizationServerPolicyRuleAsync(IAuthorizationServerPolicyRule authorizationServerPolicyRule, string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// </summary>
+        /// <param name="policyId"></param>
+        /// <param name="authServerId"></param>
+        /// <param name="ruleId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Activate Authorization Server Policy Rule
@@ -337,15 +337,6 @@ namespace Okta.Sdk
         /// <param name="authServerId"></param>
         /// <param name="scopeId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteOAuth2ScopeAsync(string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="authServerId"></param>
-        /// <param name="scopeId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2Scope"/> response.</returns>
         Task<IOAuth2Scope> GetOAuth2ScopeAsync(string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -358,6 +349,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2Scope"/> response.</returns>
         Task<IOAuth2Scope> UpdateOAuth2ScopeAsync(IOAuth2Scope oAuth2Scope, string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="scopeId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteOAuth2ScopeAsync(string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -53,19 +53,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteAuthorizationServerAsync(string authServerId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IAuthorizationServer> GetAuthorizationServerAsync(string authServerId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<AuthorizationServer>(new HttpRequest
             {
@@ -85,6 +72,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/authorizationServers/{authServerId}",
                 Verb = HttpVerb.Put,
                 Payload = authorizationServer,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["authServerId"] = authServerId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteAuthorizationServerAsync(string authServerId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["authServerId"] = authServerId,
@@ -118,20 +118,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteOAuth2ClaimAsync(string authServerId, string claimId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/claims/{claimId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["claimId"] = claimId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IOAuth2Claim> GetOAuth2ClaimAsync(string authServerId, string claimId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<OAuth2Claim>(new HttpRequest
             {
@@ -160,6 +146,20 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public async Task DeleteOAuth2ClaimAsync(string authServerId, string claimId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}/claims/{claimId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["authServerId"] = authServerId,
+                    ["claimId"] = claimId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public ICollectionClient<IOAuth2Client> ListOAuth2ClientsForAuthorizationServer(string authServerId)
             => GetCollectionClient<IOAuth2Client>(new HttpRequest
             {
@@ -172,20 +172,6 @@ namespace Okta.Sdk
                 },
             });
                     
-        /// <inheritdoc />
-        public async Task RevokeRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["clientId"] = clientId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
         /// <inheritdoc />
         public ICollectionClient<IOAuth2RefreshToken> ListRefreshTokensForAuthorizationServerAndClient(string authServerId, string clientId, string expand = null, string after = null, int? limit = -1)
             => GetCollectionClient<IOAuth2RefreshToken>(new HttpRequest
@@ -207,17 +193,16 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RevokeRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task RevokeRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId}",
+                Uri = "/api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens",
                 Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["authServerId"] = authServerId,
                     ["clientId"] = clientId,
-                    ["tokenId"] = tokenId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -237,6 +222,21 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["expand"] = expand,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task RevokeRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["authServerId"] = authServerId,
+                    ["clientId"] = clientId,
+                    ["tokenId"] = tokenId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -319,20 +319,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["policyId"] = policyId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IAuthorizationServerPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<AuthorizationServerPolicy>(new HttpRequest
             {
@@ -353,6 +339,20 @@ namespace Okta.Sdk
                 Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}",
                 Verb = HttpVerb.Put,
                 Payload = authorizationServerPolicy,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["authServerId"] = authServerId,
+                    ["policyId"] = policyId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["authServerId"] = authServerId,
@@ -417,21 +417,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["policyId"] = policyId,
-                    ["authServerId"] = authServerId,
-                    ["ruleId"] = ruleId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IAuthorizationServerPolicyRule> GetAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<AuthorizationServerPolicyRule>(new HttpRequest
             {
@@ -453,6 +438,21 @@ namespace Okta.Sdk
                 Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}",
                 Verb = HttpVerb.Put,
                 Payload = authorizationServerPolicyRule,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["policyId"] = policyId,
+                    ["authServerId"] = authServerId,
+                    ["ruleId"] = ruleId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["policyId"] = policyId,
@@ -525,20 +525,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteOAuth2ScopeAsync(string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/scopes/{scopeId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["scopeId"] = scopeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IOAuth2Scope> GetOAuth2ScopeAsync(string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<OAuth2Scope>(new HttpRequest
             {
@@ -559,6 +545,20 @@ namespace Okta.Sdk
                 Uri = "/api/v1/authorizationServers/{authServerId}/scopes/{scopeId}",
                 Verb = HttpVerb.Put,
                 Payload = oAuth2Scope,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["authServerId"] = authServerId,
+                    ["scopeId"] = scopeId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteOAuth2ScopeAsync(string authServerId, string scopeId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/authorizationServers/{authServerId}/scopes/{scopeId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["authServerId"] = authServerId,

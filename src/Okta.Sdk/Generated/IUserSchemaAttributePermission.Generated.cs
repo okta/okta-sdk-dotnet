@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a UserSchemaAttributePermission resource in the Okta API.</summary>
     public partial interface IUserSchemaAttributePermission : IResource
     {
-        string Action { get; set; }
-
         string Principal { get; set; }
+
+        string Action { get; set; }
 
     }
 }

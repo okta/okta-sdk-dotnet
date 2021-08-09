@@ -50,21 +50,22 @@ namespace Okta.Sdk
         Task SetLinkedObjectForUserAsync(string associatedUserId, string primaryRelationshipName, string primaryUserId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deletes a user permanently.  This operation can only be performed on users that have a `DEPROVISIONED` status.  **This action cannot be recovered!**
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="sendEmail"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a user from your Okta organization.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUser"/> response.</returns>
         Task<IUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update a user's profile and/or credentials using strict-update semantics.
+        /// </summary>
+        /// <param name="user">The <see cref="IUser"/> resource.</param>
+        /// <param name="userId"></param>
+        /// <param name="strict"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IUser"/> response.</returns>
+        Task<IUser> UpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetch a user by `id`, `login`, or `login shortname` if the short name is unambiguous.
@@ -77,14 +78,13 @@ namespace Okta.Sdk
         Task<IUser> PartialUpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Update a user's profile and/or credentials using strict-update semantics.
+        /// Deletes a user permanently.  This operation can only be performed on users that have a `DEPROVISIONED` status.  **This action cannot be recovered!**
         /// </summary>
-        /// <param name="user">The <see cref="IUser"/> resource.</param>
         /// <param name="userId"></param>
-        /// <param name="strict"></param>
+        /// <param name="sendEmail"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUser"/> response.</returns>
-        Task<IUser> UpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches appLinks for all direct or indirect (via group membership) assigned applications.
@@ -101,15 +101,6 @@ namespace Okta.Sdk
         ICollectionClient<IOAuth2Client> ListUserClients(string userId);
 
         /// <summary>
-        /// Revokes all grants for the specified user and client
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="clientId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeGrantsForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Lists all grants for a specified user and client
         /// </summary>
         /// <param name="userId"></param>
@@ -121,13 +112,13 @@ namespace Okta.Sdk
         ICollectionClient<IOAuth2ScopeConsentGrant> ListGrantsForUserAndClient(string userId, string clientId, string expand = null, string after = null, int? limit = 20);
 
         /// <summary>
-        /// Revokes all refresh tokens issued for the specified User and Client.
+        /// Revokes all grants for the specified user and client
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="clientId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeTokensForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RevokeGrantsForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all refresh tokens issued for the specified User and Client.
@@ -141,14 +132,13 @@ namespace Okta.Sdk
         ICollectionClient<IOAuth2RefreshToken> ListRefreshTokensForUserAndClient(string userId, string clientId, string expand = null, string after = null, int? limit = 20);
 
         /// <summary>
-        /// Revokes the specified refresh token.
+        /// Revokes all refresh tokens issued for the specified User and Client.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="clientId"></param>
-        /// <param name="tokenId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeTokenForUserAndClientAsync(string userId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RevokeTokensForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a refresh token issued for the specified User and Client.
@@ -162,6 +152,16 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2RefreshToken"/> response.</returns>
         Task<IOAuth2RefreshToken> GetRefreshTokenForUserAndClientAsync(string userId, string clientId, string tokenId, string expand = null, int? limit = 20, string after = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Revokes the specified refresh token.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="clientId"></param>
+        /// <param name="tokenId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeTokenForUserAndClientAsync(string userId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Changes a user's password by validating the user's current password. This operation can only be performed on users in `STAGED`, `ACTIVE`, `PASSWORD_EXPIRED`, or `RECOVERY` status that have a valid password credential
@@ -185,8 +185,8 @@ namespace Okta.Sdk
         /// <summary>
         /// Generates a one-time token (OTT) that can be used to reset a user's password
         /// </summary>
-        /// <param name="userId">Determines whether an email is sent to the user. This only applies when &#x27;user&#x27; is not provided in the request body.</param>
-        /// <param name="sendEmail"></param>
+        /// <param name="userId"></param>
+        /// <param name="sendEmail">Determines whether an email is sent to the user.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IForgotPasswordResponse"/> response.</returns>
         Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(string userId, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
@@ -195,19 +195,11 @@ namespace Okta.Sdk
         /// Sets a new password for a user by validating the user's answer to their current recovery question
         /// </summary>
         /// <param name="userCredentials">The <see cref="IUserCredentials"/> resource.</param>
-        /// <param name="userId">Determines whether an email is sent to the user. This only applies when &#x27;user&#x27; is not provided in the request body.</param>
-        /// <param name="sendEmail"></param>
+        /// <param name="userId"></param>
+        /// <param name="sendEmail">Determines whether an email is sent to the user.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IForgotPasswordResponse"/> response.</returns>
         Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials userCredentials, string userId, bool? sendEmail = null, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Revokes all grants for a specified user
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeUserGrantsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all grants for the specified user
@@ -221,13 +213,12 @@ namespace Okta.Sdk
         ICollectionClient<IOAuth2ScopeConsentGrant> ListUserGrants(string userId, string scopeId = null, string expand = null, string after = null, int? limit = 20);
 
         /// <summary>
-        /// Revokes one grant for a specified user
+        /// Revokes all grants for a specified user
         /// </summary>
         /// <param name="userId"></param>
-        /// <param name="grantId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeUserGrantAsync(string userId, string grantId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RevokeUserGrantsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a grant for the specified user
@@ -238,6 +229,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2ScopeConsentGrant"/> response.</returns>
         Task<IOAuth2ScopeConsentGrant> GetUserGrantAsync(string userId, string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Revokes one grant for a specified user
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="grantId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeUserGrantAsync(string userId, string grantId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches the groups of which the user is a member.
@@ -338,15 +338,6 @@ namespace Okta.Sdk
         Task UnsuspendUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Delete linked objects for a user, relationshipName can be ONLY a primary relationship name
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="relationshipName"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveLinkedObjectForUserAsync(string userId, string relationshipName, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Get linked objects for a user, relationshipName can be a primary or associated relationship name
         /// </summary>
         /// <param name="userId"></param>
@@ -355,6 +346,15 @@ namespace Okta.Sdk
         /// <param name="limit"></param>
         /// <returns>A collection of <see cref="IResponseLinks"/> that can be enumerated asynchronously.</returns>
         ICollectionClient<IResponseLinks> GetLinkedObjectsForUser(string userId, string relationshipName, string after = null, int? limit = -1);
+
+        /// <summary>
+        /// Delete linked objects for a user, relationshipName can be ONLY a primary relationship name
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="relationshipName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveLinkedObjectForUserAsync(string userId, string relationshipName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all roles assigned to a user.
@@ -410,7 +410,7 @@ namespace Okta.Sdk
         /// <param name="appName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
+        Task AddApplicationTargetToAdminRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
@@ -420,18 +420,7 @@ namespace Okta.Sdk
         /// <param name="appName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task AddApplicationTargetToAdminRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a User
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="appName"></param>
-        /// <param name="applicationId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveApplicationTargetFromAdministratorRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Add App Instance Target to App Administrator Role given to a User
@@ -445,6 +434,17 @@ namespace Okta.Sdk
         Task AddApplicationTargetToAppAdminRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Remove App Instance Target to App Administrator Role given to a User
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="roleId"></param>
+        /// <param name="appName"></param>
+        /// <param name="applicationId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveApplicationTargetFromAdministratorRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// List all group targets given a role id.
         /// </summary>
         /// <param name="userId"></param>
@@ -455,16 +455,6 @@ namespace Okta.Sdk
         ICollectionClient<IGroup> ListGroupTargetsForRole(string userId, string roleId, string after = null, int? limit = 20);
 
         /// <summary>
-        /// Removes a group target from a role assigned to a user.
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <param name="roleId"></param>
-        /// <param name="groupId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Adds a group target for a role assigned to a user.
         /// </summary>
         /// <param name="userId"></param>
@@ -473,6 +463,16 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes a group target from a role assigned to a user.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="roleId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.

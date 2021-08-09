@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IOktaSignOnPolicyRuleSignonActions Signon 
+        {
+            get => GetResourceProperty<OktaSignOnPolicyRuleSignonActions>("signon");
+            set => this["signon"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IPasswordPolicyRuleAction PasswordChange 
         {
             get => GetResourceProperty<PasswordPolicyRuleAction>("passwordChange");
@@ -42,13 +49,6 @@ namespace Okta.Sdk
         {
             get => GetResourceProperty<PasswordPolicyRuleAction>("selfServiceUnlock");
             set => this["selfServiceUnlock"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public IOktaSignOnPolicyRuleSignonActions Signon 
-        {
-            get => GetResourceProperty<OktaSignOnPolicyRuleSignonActions>("signon");
-            set => this["signon"] = value;
         }
         
     }

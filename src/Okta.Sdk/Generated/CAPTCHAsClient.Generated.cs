@@ -47,15 +47,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteCaptchaInstanceAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/captchas/{captchaId}",
-                Verb = HttpVerb.Delete,
-                
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<ICAPTCHAInstance> GetCaptchaInstanceAsync(CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<CAPTCHAInstance>(new HttpRequest
             {
@@ -65,20 +56,29 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<ICAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<CAPTCHAInstance>(new HttpRequest
-            {
-                Uri = "/api/v1/captchas/{captchaId}",
-                Verb = HttpVerb.Post,
-                Payload = captchaInstance,
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<ICAPTCHAInstance> UpdateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync<CAPTCHAInstance>(new HttpRequest
             {
                 Uri = "/api/v1/captchas/{captchaId}",
                 Verb = HttpVerb.Put,
+                Payload = captchaInstance,
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteCaptchaInstanceAsync(CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/captchas/{captchaId}",
+                Verb = HttpVerb.Delete,
+                
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<ICAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<CAPTCHAInstance>(new HttpRequest
+            {
+                Uri = "/api/v1/captchas/{captchaId}",
+                Verb = HttpVerb.Post,
                 Payload = captchaInstance,
                 }, cancellationToken).ConfigureAwait(false);
         

@@ -17,13 +17,6 @@ namespace Okta.Sdk
     public sealed partial class Error : Resource, IError
     {
         /// <inheritdoc/>
-        public IList<object> ErrorCauses 
-        {
-            get => GetArrayProperty<object>("errorCauses");
-            set => this["errorCauses"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string ErrorCode 
         {
             get => GetStringProperty("errorCode");
@@ -31,10 +24,10 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string ErrorId 
+        public string ErrorSummary 
         {
-            get => GetStringProperty("errorId");
-            set => this["errorId"] = value;
+            get => GetStringProperty("errorSummary");
+            set => this["errorSummary"] = value;
         }
         
         /// <inheritdoc/>
@@ -45,10 +38,17 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string ErrorSummary 
+        public string ErrorId 
         {
-            get => GetStringProperty("errorSummary");
-            set => this["errorSummary"] = value;
+            get => GetStringProperty("errorId");
+            set => this["errorId"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<object> ErrorCauses 
+        {
+            get => GetArrayProperty<object>("errorCauses");
+            set => this["errorCauses"] = value;
         }
         
     }

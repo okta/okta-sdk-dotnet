@@ -30,20 +30,21 @@ namespace Okta.Sdk
         Task<IUserType> CreateUserTypeAsync(IUserType userType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
-        /// </summary>
-        /// <param name="typeId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type.
         /// </summary>
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IUserType"/> response.</returns>
         Task<IUserType> GetUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Replace an existing User Type
+        /// </summary>
+        /// <param name="userType">The <see cref="IUserType"/> resource.</param>
+        /// <param name="typeId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IUserType"/> response.</returns>
+        Task<IUserType> ReplaceUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates an existing User Type
@@ -55,13 +56,12 @@ namespace Okta.Sdk
         Task<IUserType> UpdateUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Replace an existing User Type
+        /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
-        /// <param name="userType">The <see cref="IUserType"/> resource.</param>
         /// <param name="typeId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserType"/> response.</returns>
-        Task<IUserType> ReplaceUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

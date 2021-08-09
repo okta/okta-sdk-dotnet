@@ -17,6 +17,13 @@ namespace Okta.Sdk
     public sealed partial class AuthorizationServerPolicyRuleConditions : Resource, IAuthorizationServerPolicyRuleConditions
     {
         /// <inheritdoc/>
+        public IPolicyPeopleCondition People 
+        {
+            get => GetResourceProperty<PolicyPeopleCondition>("people");
+            set => this["people"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IClientPolicyCondition Clients 
         {
             get => GetResourceProperty<ClientPolicyCondition>("clients");
@@ -28,13 +35,6 @@ namespace Okta.Sdk
         {
             get => GetResourceProperty<GrantTypePolicyRuleCondition>("grantTypes");
             set => this["grantTypes"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public IPolicyPeopleCondition People 
-        {
-            get => GetResourceProperty<PolicyPeopleCondition>("people");
-            set => this["people"] = value;
         }
         
         /// <inheritdoc/>

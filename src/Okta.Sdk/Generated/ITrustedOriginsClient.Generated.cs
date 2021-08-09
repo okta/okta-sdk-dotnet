@@ -38,14 +38,6 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="trustedOriginId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
         Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
 
@@ -57,6 +49,14 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
         Task<ITrustedOrigin> UpdateOriginAsync(ITrustedOrigin trustedOrigin, string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Success
+        /// </summary>
+        /// <param name="trustedOriginId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success

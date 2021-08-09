@@ -33,14 +33,6 @@ namespace Okta.Sdk
         Task<INetworkZone> CreateNetworkZoneAsync(INetworkZone networkZone, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes network zone.
-        /// </summary>
-        /// <param name="zoneId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a network zone from your Okta organization by `id`.
         /// </summary>
         /// <param name="zoneId"></param>
@@ -58,12 +50,12 @@ namespace Okta.Sdk
         Task<INetworkZone> UpdateNetworkZoneAsync(INetworkZone networkZone, string zoneId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Activate Network Zone
+        /// Removes network zone.
         /// </summary>
         /// <param name="zoneId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="INetworkZone"/> response.</returns>
-        Task<INetworkZone> ActivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Deactivates a network zone.
@@ -72,6 +64,14 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="INetworkZone"/> response.</returns>
         Task<INetworkZone> DeactivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Activate Network Zone
+        /// </summary>
+        /// <param name="zoneId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="INetworkZone"/> response.</returns>
+        Task<INetworkZone> ActivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

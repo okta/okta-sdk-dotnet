@@ -15,23 +15,23 @@ namespace Okta.Sdk
     /// <summary>Represents a UserSchema resource in the Okta API.</summary>
     public partial interface IUserSchema : IResource
     {
+        string Id { get; }
+
         string Schema { get; }
+
+        string Name { get; }
+
+        string Title { get; set; }
+
+        string LastUpdated { get; }
 
         string Created { get; }
 
         IUserSchemaDefinitions Definitions { get; set; }
 
-        string Id { get; }
-
-        string LastUpdated { get; }
-
-        string Name { get; }
+        string Type { get; }
 
         IUserSchemaProperties Properties { get; set; }
-
-        string Title { get; set; }
-
-        string Type { get; }
 
     }
 }

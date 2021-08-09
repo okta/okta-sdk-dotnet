@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a AcsEndpoint resource in the Okta API.</summary>
     public partial interface IAcsEndpoint : IResource
     {
-        int? Index { get; set; }
-
         string Url { get; set; }
+
+        int? Index { get; set; }
 
     }
 }

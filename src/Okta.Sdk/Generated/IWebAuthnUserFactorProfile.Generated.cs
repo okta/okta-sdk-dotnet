@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a WebAuthnUserFactorProfile resource in the Okta API.</summary>
     public partial interface IWebAuthnUserFactorProfile : IResource
     {
-        string AuthenticatorName { get; set; }
-
         string CredentialId { get; set; }
+
+        string AuthenticatorName { get; set; }
 
     }
 }

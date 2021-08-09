@@ -17,17 +17,17 @@ namespace Okta.Sdk
     public sealed partial class AcsEndpoint : Resource, IAcsEndpoint
     {
         /// <inheritdoc/>
-        public int? Index 
-        {
-            get => GetIntegerProperty("index");
-            set => this["index"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Url 
         {
             get => GetStringProperty("url");
             set => this["url"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public int? Index 
+        {
+            get => GetIntegerProperty("index");
+            set => this["index"] = value;
         }
         
     }

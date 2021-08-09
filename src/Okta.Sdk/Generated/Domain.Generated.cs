@@ -38,7 +38,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Id => GetStringProperty("id");
+        public string Id 
+        {
+            get => GetStringProperty("id");
+            set => this["id"] = value;
+        }
         
         /// <inheritdoc/>
         public IDomainCertificateMetadata PublicCertificate 

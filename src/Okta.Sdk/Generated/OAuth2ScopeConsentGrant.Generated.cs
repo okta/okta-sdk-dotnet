@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string UserId 
+        {
+            get => GetStringProperty("userId");
+            set => this["userId"] = value;
+        }
+        
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
@@ -65,13 +72,6 @@ namespace Okta.Sdk
         {
             get => GetEnumProperty<OAuth2ScopeConsentGrantStatus>("status");
             set => this["status"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public string UserId 
-        {
-            get => GetStringProperty("userId");
-            set => this["userId"] = value;
         }
         
     }

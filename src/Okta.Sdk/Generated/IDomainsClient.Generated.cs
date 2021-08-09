@@ -31,20 +31,12 @@ namespace Okta.Sdk
         Task<IDomainResponse> CreateDomainAsync(IDomain domain, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deletes a Domain by `id`.
-        /// </summary>
-        /// <param name="domainId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Fetches a Domain by `id`.
+        /// Verifies the Domain by `id`.
         /// </summary>
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IDomainResponse"/> response.</returns>
-        Task<IDomainResponse> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IDomainResponse> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Creates the Certificate for the Domain.
@@ -56,12 +48,20 @@ namespace Okta.Sdk
         Task CreateCertificateAsync(IDomainCertificate domainCertificate, string domainId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Verifies the Domain by `id`.
+        /// Fetches a Domain by `id`.
         /// </summary>
         /// <param name="domainId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IDomainResponse"/> response.</returns>
-        Task<IDomainResponse> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IDomainResponse> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deletes a Domain by `id`.
+        /// </summary>
+        /// <param name="domainId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

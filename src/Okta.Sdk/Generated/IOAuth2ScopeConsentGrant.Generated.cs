@@ -17,6 +17,8 @@ namespace Okta.Sdk
     {
         string ClientId { get; set; }
 
+        string UserId { get; set; }
+
         DateTimeOffset? Created { get; }
 
         IOAuth2Actor CreatedBy { get; set; }
@@ -32,8 +34,6 @@ namespace Okta.Sdk
         OAuth2ScopeConsentGrantSource Source { get; set; }
 
         OAuth2ScopeConsentGrantStatus Status { get; set; }
-
-        string UserId { get; set; }
 
     }
 }

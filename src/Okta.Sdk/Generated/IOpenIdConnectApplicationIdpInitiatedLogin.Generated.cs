@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a OpenIdConnectApplicationIdpInitiatedLogin resource in the Okta API.</summary>
     public partial interface IOpenIdConnectApplicationIdpInitiatedLogin : IResource
     {
-        IList<string> DefaultScope { get; set; }
-
         string Mode { get; set; }
+
+        IList<string> DefaultScope { get; set; }
 
     }
 }

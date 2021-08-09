@@ -15,17 +15,11 @@ namespace Okta.Sdk
     /// <summary>Represents a PolicyRule resource in the Okta API.</summary>
     public partial interface IPolicyRule : IResource
     {
-        IPolicyRuleActions Actions { get; set; }
-
-        IPolicyRuleConditions Conditions { get; set; }
-
         DateTimeOffset? Created { get; }
 
-        string Id { get; }
+        string Id { get; set; }
 
         DateTimeOffset? LastUpdated { get; }
-
-        string Name { get; set; }
 
         int? Priority { get; set; }
 
@@ -34,6 +28,12 @@ namespace Okta.Sdk
         bool? System { get; set; }
 
         string Type { get; set; }
+
+        string Name { get; set; }
+
+        IPolicyRuleConditions Conditions { get; set; }
+
+        IPolicyRuleActions Actions { get; set; }
 
         Task ActivateAsync(
             string policyId, CancellationToken cancellationToken = default(CancellationToken));

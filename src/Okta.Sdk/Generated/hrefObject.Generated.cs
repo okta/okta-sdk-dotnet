@@ -17,17 +17,17 @@ namespace Okta.Sdk
     public sealed partial class hrefObject : Resource, IhrefObject
     {
         /// <inheritdoc/>
-        public object Hints 
-        {
-            get => GetProperty<object>("hints");
-            set => this["hints"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Href 
         {
             get => GetStringProperty("href");
             set => this["href"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public object Hints 
+        {
+            get => GetProperty<object>("hints");
+            set => this["hints"] = value;
         }
         
     }

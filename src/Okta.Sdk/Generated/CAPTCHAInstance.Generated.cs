@@ -17,9 +17,6 @@ namespace Okta.Sdk
     public sealed partial class CAPTCHAInstance : Resource, ICAPTCHAInstance
     {
         /// <inheritdoc/>
-        public object Link => GetProperty<object>("_link");
-        
-        /// <inheritdoc/>
         public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
@@ -49,6 +46,9 @@ namespace Okta.Sdk
             get => GetStringProperty("type");
             set => this["type"] = value;
         }
+        
+        /// <inheritdoc/>
+        public object Link => GetProperty<object>("_link");
         
     }
 }

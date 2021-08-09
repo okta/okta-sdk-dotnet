@@ -37,14 +37,6 @@ namespace Okta.Sdk
         Task<IApplication> CreateApplicationAsync(IApplication application, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes an inactive application.
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches an application from your Okta organization by `id`.
         /// </summary>
         /// <param name="appId"></param>
@@ -63,6 +55,14 @@ namespace Okta.Sdk
         Task<IApplication> UpdateApplicationAsync(IApplication application, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Removes an inactive application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <param name="appId"></param>
@@ -79,15 +79,6 @@ namespace Okta.Sdk
         Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata csrMetadata, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Revokes a certificate signing request and deletes the key pair from the application.
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a certificate signing request for the app by `id`.
         /// </summary>
         /// <param name="appId"></param>
@@ -95,6 +86,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ICsr"/> response.</returns>
         Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Revokes a certificate signing request and deletes the key pair from the application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
@@ -158,15 +158,6 @@ namespace Okta.Sdk
         Task<IOAuth2ScopeConsentGrant> GrantConsentToScopeAsync(IOAuth2ScopeConsentGrant oAuth2ScopeConsentGrant, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Revokes permission for the application to request the given scope
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="grantId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeScopeConsentGrantAsync(string appId, string grantId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a single scope consent grant for the application
         /// </summary>
         /// <param name="appId"></param>
@@ -175,6 +166,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2ScopeConsentGrant"/> response.</returns>
         Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(string appId, string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Revokes permission for the application to request the given scope
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="grantId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeScopeConsentGrantAsync(string appId, string grantId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates group assignments for an application.
@@ -186,15 +186,6 @@ namespace Okta.Sdk
         /// <param name="expand"></param>
         /// <returns>A collection of <see cref="IApplicationGroupAssignment"/> that can be enumerated asynchronously.</returns>
         ICollectionClient<IApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = -1, string expand = null);
-
-        /// <summary>
-        /// Removes a group assignment from an application.
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="groupId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches an application group assignment
@@ -217,6 +208,15 @@ namespace Okta.Sdk
         Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(IApplicationGroupAssignment applicationGroupAssignment, string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Removes a group assignment from an application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="groupId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Activates an inactive application.
         /// </summary>
         /// <param name="appId"></param>
@@ -233,14 +233,6 @@ namespace Okta.Sdk
         Task DeactivateApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Revokes all tokens for the specified application
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeOAuth2TokensForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Lists all tokens for the application
         /// </summary>
         /// <param name="appId"></param>
@@ -251,13 +243,12 @@ namespace Okta.Sdk
         ICollectionClient<IOAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = null, string after = null, int? limit = 20);
 
         /// <summary>
-        /// Revokes the specified token for the specified application
+        /// Revokes all tokens for the specified application
         /// </summary>
         /// <param name="appId"></param>
-        /// <param name="tokenId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
+        Task RevokeOAuth2TokensForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Gets a token for the specified application
@@ -268,6 +259,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IOAuth2Token"/> response.</returns>
         Task<IOAuth2Token> GetOAuth2TokenForApplicationAsync(string appId, string tokenId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Revokes the specified token for the specified application
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="tokenId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Enumerates all assigned [application users](#application-user-model) for an application.
@@ -292,16 +292,6 @@ namespace Okta.Sdk
         Task<IAppUser> AssignUserToApplicationAsync(IAppUser appUser, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes an assignment for a user from an application.
-        /// </summary>
-        /// <param name="appId"></param>
-        /// <param name="userId"></param>
-        /// <param name="sendEmail"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a specific user assignment for application by `id`.
         /// </summary>
         /// <param name="appId"></param>
@@ -320,6 +310,16 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAppUser"/> response.</returns>
         Task<IAppUser> UpdateApplicationUserAsync(IAppUser appUser, string appId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes an assignment for a user from an application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="userId"></param>
+        /// <param name="sendEmail"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -21,7 +21,7 @@ namespace Okta.Sdk
 
         string Domain { get; set; }
 
-        string Id { get; }
+        string Id { get; set; }
 
         IDomainCertificateMetadata PublicCertificate { get; set; }
 

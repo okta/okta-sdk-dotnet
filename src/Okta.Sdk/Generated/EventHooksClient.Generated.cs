@@ -47,19 +47,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/eventHooks/{eventHookId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IEventHook> GetEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<EventHook>(new HttpRequest
             {
@@ -79,6 +66,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/eventHooks/{eventHookId}",
                 Verb = HttpVerb.Put,
                 Payload = eventHook,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["eventHookId"] = eventHookId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/eventHooks/{eventHookId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["eventHookId"] = eventHookId,

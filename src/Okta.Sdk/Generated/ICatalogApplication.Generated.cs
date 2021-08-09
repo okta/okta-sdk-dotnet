@@ -15,27 +15,27 @@ namespace Okta.Sdk
     /// <summary>Represents a CatalogApplication resource in the Okta API.</summary>
     public partial interface ICatalogApplication : IResource
     {
-        string Category { get; set; }
-
-        string Description { get; set; }
-
-        string DisplayName { get; set; }
-
-        IList<string> Features { get; set; }
-
         string Id { get; }
-
-        DateTimeOffset? LastUpdated { get; }
 
         string Name { get; set; }
 
-        IList<string> SignOnModes { get; set; }
+        string DisplayName { get; set; }
+
+        string Description { get; set; }
 
         CatalogApplicationStatus Status { get; set; }
+
+        DateTimeOffset? LastUpdated { get; }
+
+        string Category { get; set; }
 
         string VerificationStatus { get; set; }
 
         string Website { get; set; }
+
+        IList<string> SignOnModes { get; set; }
+
+        IList<string> Features { get; set; }
 
     }
 }

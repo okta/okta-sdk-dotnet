@@ -24,20 +24,20 @@ namespace Okta.Sdk
         Task<ISession> CreateSessionAsync(ICreateSessionRequest createSessionRequest, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// End a session.
-        /// </summary>
-        /// <param name="sessionId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task EndSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Get details about a session.
         /// </summary>
         /// <param name="sessionId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ISession"/> response.</returns>
         Task<ISession> GetSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// End a session.
+        /// </summary>
+        /// <param name="sessionId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task EndSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Refresh a session.

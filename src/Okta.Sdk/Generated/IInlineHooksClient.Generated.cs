@@ -31,14 +31,6 @@ namespace Okta.Sdk
         Task<IInlineHook> CreateInlineHookAsync(IInlineHook inlineHook, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
-        /// </summary>
-        /// <param name="inlineHookId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets an inline hook by ID
         /// </summary>
         /// <param name="inlineHookId"></param>
@@ -54,6 +46,14 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IInlineHook"/> response.</returns>
         Task<IInlineHook> UpdateInlineHookAsync(IInlineHook inlineHook, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// </summary>
+        /// <param name="inlineHookId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.

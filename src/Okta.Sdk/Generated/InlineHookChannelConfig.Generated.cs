@@ -31,17 +31,17 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Method 
-        {
-            get => GetStringProperty("method");
-            set => this["method"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Uri 
         {
             get => GetStringProperty("uri");
             set => this["uri"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string Method 
+        {
+            get => GetStringProperty("method");
+            set => this["method"] = value;
         }
         
     }

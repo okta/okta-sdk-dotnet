@@ -88,11 +88,11 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<UserFactor>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -102,11 +102,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<UserFactor>(new HttpRequest
+        public async Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/factors/{factorId}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

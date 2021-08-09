@@ -17,17 +17,13 @@ namespace Okta.Sdk
     public sealed partial class CatalogApplication : Resource, ICatalogApplication
     {
         /// <inheritdoc/>
-        public string Category 
-        {
-            get => GetStringProperty("category");
-            set => this["category"] = value;
-        }
+        public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
-        public string Description 
+        public string Name 
         {
-            get => GetStringProperty("description");
-            set => this["description"] = value;
+            get => GetStringProperty("name");
+            set => this["name"] = value;
         }
         
         /// <inheritdoc/>
@@ -38,30 +34,10 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IList<string> Features 
+        public string Description 
         {
-            get => GetArrayProperty<string>("features");
-            set => this["features"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public string Id => GetStringProperty("id");
-        
-        /// <inheritdoc/>
-        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
-        
-        /// <inheritdoc/>
-        public string Name 
-        {
-            get => GetStringProperty("name");
-            set => this["name"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public IList<string> SignOnModes 
-        {
-            get => GetArrayProperty<string>("signOnModes");
-            set => this["signOnModes"] = value;
+            get => GetStringProperty("description");
+            set => this["description"] = value;
         }
         
         /// <inheritdoc/>
@@ -69,6 +45,16 @@ namespace Okta.Sdk
         {
             get => GetEnumProperty<CatalogApplicationStatus>("status");
             set => this["status"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
+        
+        /// <inheritdoc/>
+        public string Category 
+        {
+            get => GetStringProperty("category");
+            set => this["category"] = value;
         }
         
         /// <inheritdoc/>
@@ -83,6 +69,20 @@ namespace Okta.Sdk
         {
             get => GetStringProperty("website");
             set => this["website"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<string> SignOnModes 
+        {
+            get => GetArrayProperty<string>("signOnModes");
+            set => this["signOnModes"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<string> Features 
+        {
+            get => GetArrayProperty<string>("features");
+            set => this["features"] = value;
         }
         
     }

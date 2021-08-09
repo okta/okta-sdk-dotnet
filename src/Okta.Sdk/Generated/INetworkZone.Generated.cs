@@ -15,31 +15,31 @@ namespace Okta.Sdk
     /// <summary>Represents a NetworkZone resource in the Okta API.</summary>
     public partial interface INetworkZone : IResource
     {
+        NetworkZoneType Type { get; set; }
+
+        string Id { get; }
+
+        string Name { get; set; }
+
+        bool? System { get; set; }
+
+        NetworkZoneUsage Usage { get; set; }
+
+        NetworkZoneStatus Status { get; set; }
+
+        string ProxyType { get; set; }
+
+        IList<INetworkZoneLocation> Locations { get; set; }
+
+        IList<INetworkZoneAddress> Gateways { get; set; }
+
+        IList<INetworkZoneAddress> Proxies { get; set; }
+
         IList<string> Asns { get; set; }
 
         DateTimeOffset? Created { get; }
 
-        IList<INetworkZoneAddress> Gateways { get; set; }
-
-        string Id { get; }
-
         DateTimeOffset? LastUpdated { get; }
-
-        IList<INetworkZoneLocation> Locations { get; set; }
-
-        string Name { get; set; }
-
-        IList<INetworkZoneAddress> Proxies { get; set; }
-
-        string ProxyType { get; set; }
-
-        NetworkZoneStatus Status { get; set; }
-
-        bool? System { get; set; }
-
-        NetworkZoneType Type { get; set; }
-
-        NetworkZoneUsage Usage { get; set; }
 
         Task<INetworkZone> ActivateAsync(
             CancellationToken cancellationToken = default(CancellationToken));

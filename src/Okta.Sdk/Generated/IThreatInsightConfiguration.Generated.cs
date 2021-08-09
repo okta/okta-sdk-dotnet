@@ -17,9 +17,9 @@ namespace Okta.Sdk
     {
         string Action { get; set; }
 
-        DateTimeOffset? Created { get; }
-
         IList<string> ExcludeZones { get; set; }
+
+        DateTimeOffset? Created { get; }
 
         DateTimeOffset? LastUpdated { get; }
 

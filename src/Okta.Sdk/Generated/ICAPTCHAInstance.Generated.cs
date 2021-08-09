@@ -15,8 +15,6 @@ namespace Okta.Sdk
     /// <summary>Represents a CAPTCHAInstance resource in the Okta API.</summary>
     public partial interface ICAPTCHAInstance : IResource
     {
-        object Link { get; }
-
         string Id { get; }
 
         string Name { get; set; }
@@ -26,6 +24,8 @@ namespace Okta.Sdk
         string SiteKey { get; set; }
 
         string Type { get; set; }
+
+        object Link { get; }
 
     }
 }

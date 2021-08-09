@@ -31,20 +31,21 @@ namespace Okta.Sdk
         Task<ISmsTemplate> CreateSmsTemplateAsync(ISmsTemplate smsTemplate, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes an SMS template.
-        /// </summary>
-        /// <param name="templateId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a specific template by `id`
         /// </summary>
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
         Task<ISmsTemplate> GetSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Updates the SMS template.
+        /// </summary>
+        /// <param name="smsTemplate">The <see cref="ISmsTemplate"/> resource.</param>
+        /// <param name="templateId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
+        Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Updates only some of the SMS template properties:
@@ -56,13 +57,12 @@ namespace Okta.Sdk
         Task<ISmsTemplate> PartialUpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Updates the SMS template.
+        /// Removes an SMS template.
         /// </summary>
-        /// <param name="smsTemplate">The <see cref="ISmsTemplate"/> resource.</param>
         /// <param name="templateId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
-        Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

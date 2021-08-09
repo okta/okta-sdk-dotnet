@@ -17,7 +17,18 @@ namespace Okta.Sdk
     public sealed partial class UserSchemaPublic : Resource, IUserSchemaPublic
     {
         /// <inheritdoc/>
-        public string Id => GetStringProperty("id");
+        public string Id 
+        {
+            get => GetStringProperty("id");
+            set => this["id"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string Type 
+        {
+            get => GetStringProperty("type");
+            set => this["type"] = value;
+        }
         
         /// <inheritdoc/>
         public Resource Properties 
@@ -31,13 +42,6 @@ namespace Okta.Sdk
         {
             get => GetArrayProperty<string>("required");
             set => this["required"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public string Type 
-        {
-            get => GetStringProperty("type");
-            set => this["type"] = value;
         }
         
     }

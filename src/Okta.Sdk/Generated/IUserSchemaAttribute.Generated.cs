@@ -15,41 +15,41 @@ namespace Okta.Sdk
     /// <summary>Represents a UserSchemaAttribute resource in the Okta API.</summary>
     public partial interface IUserSchemaAttribute : IResource
     {
-        string Description { get; set; }
-
-        IList<string> Enum { get; set; }
-
-        string ExternalName { get; set; }
-
-        string ExternalNamespace { get; set; }
-
-        IUserSchemaAttributeItems Items { get; set; }
-
-        IUserSchemaAttributeMaster Master { get; set; }
-
-        int? MaxLength { get; set; }
-
-        int? MinLength { get; set; }
-
-        string Mutability { get; set; }
-
-        IList<IUserSchemaAttributeEnum> OneOf { get; set; }
-
-        string Pattern { get; set; }
-
-        IList<IUserSchemaAttributePermission> Permissions { get; set; }
-
-        bool? Required { get; set; }
-
-        UserSchemaAttributeScope Scope { get; set; }
-
         string Title { get; set; }
 
         UserSchemaAttributeType Type { get; set; }
 
+        bool? Required { get; set; }
+
+        string Mutability { get; set; }
+
+        UserSchemaAttributeScope Scope { get; set; }
+
+        IList<string> Enum { get; set; }
+
+        IList<IUserSchemaAttributeEnum> OneOf { get; set; }
+
+        int? MinLength { get; set; }
+
+        int? MaxLength { get; set; }
+
+        string Description { get; set; }
+
+        IList<IUserSchemaAttributePermission> Permissions { get; set; }
+
+        IUserSchemaAttributeMaster Master { get; set; }
+
         UserSchemaAttributeUnion Union { get; set; }
 
+        IUserSchemaAttributeItems Items { get; set; }
+
+        string Pattern { get; set; }
+
         string Unique { get; set; }
+
+        string ExternalName { get; set; }
+
+        string ExternalNamespace { get; set; }
 
     }
 }

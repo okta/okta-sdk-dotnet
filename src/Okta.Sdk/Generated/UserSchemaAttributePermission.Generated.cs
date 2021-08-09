@@ -17,17 +17,17 @@ namespace Okta.Sdk
     public sealed partial class UserSchemaAttributePermission : Resource, IUserSchemaAttributePermission
     {
         /// <inheritdoc/>
-        public string Action 
-        {
-            get => GetStringProperty("action");
-            set => this["action"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Principal 
         {
             get => GetStringProperty("principal");
             set => this["principal"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string Action 
+        {
+            get => GetStringProperty("action");
+            set => this["action"] = value;
         }
         
     }

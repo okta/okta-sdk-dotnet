@@ -17,61 +17,20 @@ namespace Okta.Sdk
     public sealed partial class NetworkZone : Resource, INetworkZone
     {
         /// <inheritdoc/>
-        public IList<string> Asns 
+        public NetworkZoneType Type 
         {
-            get => GetArrayProperty<string>("asns");
-            set => this["asns"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public DateTimeOffset? Created => GetDateTimeProperty("created");
-        
-        /// <inheritdoc/>
-        public IList<INetworkZoneAddress> Gateways 
-        {
-            get => GetArrayProperty<INetworkZoneAddress>("gateways");
-            set => this["gateways"] = value;
+            get => GetEnumProperty<NetworkZoneType>("type");
+            set => this["type"] = value;
         }
         
         /// <inheritdoc/>
         public string Id => GetStringProperty("id");
         
         /// <inheritdoc/>
-        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
-        
-        /// <inheritdoc/>
-        public IList<INetworkZoneLocation> Locations 
-        {
-            get => GetArrayProperty<INetworkZoneLocation>("locations");
-            set => this["locations"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Name 
         {
             get => GetStringProperty("name");
             set => this["name"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public IList<INetworkZoneAddress> Proxies 
-        {
-            get => GetArrayProperty<INetworkZoneAddress>("proxies");
-            set => this["proxies"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public string ProxyType 
-        {
-            get => GetStringProperty("proxyType");
-            set => this["proxyType"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public NetworkZoneStatus Status 
-        {
-            get => GetEnumProperty<NetworkZoneStatus>("status");
-            set => this["status"] = value;
         }
         
         /// <inheritdoc/>
@@ -82,18 +41,59 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public NetworkZoneType Type 
-        {
-            get => GetEnumProperty<NetworkZoneType>("type");
-            set => this["type"] = value;
-        }
-        
-        /// <inheritdoc/>
         public NetworkZoneUsage Usage 
         {
             get => GetEnumProperty<NetworkZoneUsage>("usage");
             set => this["usage"] = value;
         }
+        
+        /// <inheritdoc/>
+        public NetworkZoneStatus Status 
+        {
+            get => GetEnumProperty<NetworkZoneStatus>("status");
+            set => this["status"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string ProxyType 
+        {
+            get => GetStringProperty("proxyType");
+            set => this["proxyType"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<INetworkZoneLocation> Locations 
+        {
+            get => GetArrayProperty<INetworkZoneLocation>("locations");
+            set => this["locations"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<INetworkZoneAddress> Gateways 
+        {
+            get => GetArrayProperty<INetworkZoneAddress>("gateways");
+            set => this["gateways"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<INetworkZoneAddress> Proxies 
+        {
+            get => GetArrayProperty<INetworkZoneAddress>("proxies");
+            set => this["proxies"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<string> Asns 
+        {
+            get => GetArrayProperty<string>("asns");
+            set => this["asns"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public DateTimeOffset? Created => GetDateTimeProperty("created");
+        
+        /// <inheritdoc/>
+        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
         
         /// <inheritdoc />
         public Task<INetworkZone> ActivateAsync(

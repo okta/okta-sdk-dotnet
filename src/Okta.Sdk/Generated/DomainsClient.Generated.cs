@@ -47,24 +47,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<IDomainResponse> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<DomainResponse>(new HttpRequest
             {
-                Uri = "/api/v1/domains/{domainId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["domainId"] = domainId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task<IDomainResponse> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<DomainResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/domains/{domainId}",
-                Verb = HttpVerb.Get,
+                Uri = "/api/v1/domains/{domainId}/verify",
+                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -86,11 +73,24 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IDomainResponse> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<DomainResponse>(new HttpRequest
+        public async Task<IDomainResponse> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<DomainResponse>(new HttpRequest
             {
-                Uri = "/api/v1/domains/{domainId}/verify",
-                Verb = HttpVerb.Post,
+                Uri = "/api/v1/domains/{domainId}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["domainId"] = domainId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/domains/{domainId}",
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

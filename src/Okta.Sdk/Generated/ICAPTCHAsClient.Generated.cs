@@ -30,26 +30,11 @@ namespace Okta.Sdk
         Task<ICAPTCHAInstance> CreateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Delete a CAPTCHA instance by `id`.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteCaptchaInstanceAsync(CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a CAPTCHA instance by `id`.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ICAPTCHAInstance"/> response.</returns>
         Task<ICAPTCHAInstance> GetCaptchaInstanceAsync(CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Partially update a CAPTCHA instance by `id`.
-        /// </summary>
-        /// <param name="captchaInstance">The <see cref="ICAPTCHAInstance"/> resource.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ICAPTCHAInstance"/> response.</returns>
-        Task<ICAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update a CAPTCHA instance by `id`.
@@ -58,6 +43,21 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ICAPTCHAInstance"/> response.</returns>
         Task<ICAPTCHAInstance> UpdateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete a CAPTCHA instance by `id`.
+        /// </summary>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteCaptchaInstanceAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Partially update a CAPTCHA instance by `id`.
+        /// </summary>
+        /// <param name="captchaInstance">The <see cref="ICAPTCHAInstance"/> resource.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ICAPTCHAInstance"/> response.</returns>
+        Task<ICAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(ICAPTCHAInstance captchaInstance, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

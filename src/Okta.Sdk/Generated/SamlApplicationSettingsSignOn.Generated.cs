@@ -17,17 +17,17 @@ namespace Okta.Sdk
     public sealed partial class SamlApplicationSettingsSignOn : Resource, ISamlApplicationSettingsSignOn
     {
         /// <inheritdoc/>
-        public IList<IAcsEndpoint> AcsEndpoints 
-        {
-            get => GetArrayProperty<IAcsEndpoint>("acsEndpoints");
-            set => this["acsEndpoints"] = value;
-        }
-        
-        /// <inheritdoc/>
         public bool? AllowMultipleAcsEndpoints 
         {
             get => GetBooleanProperty("allowMultipleAcsEndpoints");
             set => this["allowMultipleAcsEndpoints"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IList<IAcsEndpoint> AcsEndpoints 
+        {
+            get => GetArrayProperty<IAcsEndpoint>("acsEndpoints");
+            set => this["acsEndpoints"] = value;
         }
         
         /// <inheritdoc/>
@@ -150,13 +150,6 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public ISpCertificate SpCertificate 
-        {
-            get => GetResourceProperty<SpCertificate>("spCertificate");
-            set => this["spCertificate"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string SpIssuer 
         {
             get => GetStringProperty("spIssuer");
@@ -175,6 +168,13 @@ namespace Okta.Sdk
         {
             get => GetStringProperty("ssoAcsUrlOverride");
             set => this["ssoAcsUrlOverride"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public ISpCertificate SpCertificate 
+        {
+            get => GetResourceProperty<SpCertificate>("spCertificate");
+            set => this["spCertificate"] = value;
         }
         
         /// <inheritdoc/>

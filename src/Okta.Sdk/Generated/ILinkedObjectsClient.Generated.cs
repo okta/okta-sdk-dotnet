@@ -34,16 +34,16 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="linkedObjectName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="ILinkedObject"/> response.</returns>
+        Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
         /// </summary>
         /// <param name="linkedObjectName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ILinkedObject"/> response.</returns>
-        Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

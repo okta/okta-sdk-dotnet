@@ -15,17 +15,13 @@ namespace Okta.Sdk
     /// <summary>Represents a AuthorizationServerPolicyRule resource in the Okta API.</summary>
     public partial interface IAuthorizationServerPolicyRule : IResource
     {
-        IAuthorizationServerPolicyRuleActions Actions { get; set; }
-
-        IAuthorizationServerPolicyRuleConditions Conditions { get; set; }
-
         DateTimeOffset? Created { get; }
 
         string Id { get; }
 
-        DateTimeOffset? LastUpdated { get; }
-
         string Name { get; set; }
+
+        DateTimeOffset? LastUpdated { get; }
 
         int? Priority { get; set; }
 
@@ -34,6 +30,10 @@ namespace Okta.Sdk
         bool? System { get; set; }
 
         string Type { get; set; }
+
+        IAuthorizationServerPolicyRuleConditions Conditions { get; set; }
+
+        IAuthorizationServerPolicyRuleActions Actions { get; set; }
 
         Task ActivateAsync(
             string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));

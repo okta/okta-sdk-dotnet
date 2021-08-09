@@ -15,13 +15,13 @@ namespace Okta.Sdk
     /// <summary>Represents a UserSchemaBase resource in the Okta API.</summary>
     public partial interface IUserSchemaBase : IResource
     {
-        string Id { get; }
+        string Id { get; set; }
+
+        string Type { get; set; }
 
         IUserSchemaBaseProperties Properties { get; set; }
 
         IList<string> Required { get; set; }
-
-        string Type { get; set; }
 
     }
 }

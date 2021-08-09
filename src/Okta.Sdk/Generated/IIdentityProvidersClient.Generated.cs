@@ -50,14 +50,6 @@ namespace Okta.Sdk
         Task<IJsonWebKey> CreateIdentityProviderKeyAsync(IJsonWebKey jsonWebKey, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP.
-        /// </summary>
-        /// <param name="keyId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets a specific IdP Key Credential by `kid`
         /// </summary>
         /// <param name="keyId"></param>
@@ -66,12 +58,12 @@ namespace Okta.Sdk
         Task<IJsonWebKey> GetIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Removes an IdP from your organization.
+        /// Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP.
         /// </summary>
-        /// <param name="idpId"></param>
+        /// <param name="keyId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken));
+        Task DeleteIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches an IdP by `id`.
@@ -91,6 +83,14 @@ namespace Okta.Sdk
         Task<IIdentityProvider> UpdateIdentityProviderAsync(IIdentityProvider identityProvider, string idpId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Removes an IdP from your organization.
+        /// </summary>
+        /// <param name="idpId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Enumerates Certificate Signing Requests for an IdP
         /// </summary>
         /// <param name="idpId"></param>
@@ -107,15 +107,6 @@ namespace Okta.Sdk
         Task<ICsr> GenerateCsrForIdentityProviderAsync(ICsrMetadata csrMetadata, string idpId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Revoke a Certificate Signing Request and delete the key pair from the IdP
-        /// </summary>
-        /// <param name="idpId"></param>
-        /// <param name="csrId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets a specific Certificate Signing Request model by id
         /// </summary>
         /// <param name="idpId"></param>
@@ -123,6 +114,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="ICsr"/> response.</returns>
         Task<ICsr> GetCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Revoke a Certificate Signing Request and delete the key pair from the IdP
+        /// </summary>
+        /// <param name="idpId"></param>
+        /// <param name="csrId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
@@ -242,15 +242,6 @@ namespace Okta.Sdk
         ICollectionClient<IIdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(string idpId);
 
         /// <summary>
-        /// Removes the link between the Okta user and the IdP user.
-        /// </summary>
-        /// <param name="idpId"></param>
-        /// <param name="userId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task UnlinkUserFromIdentityProviderAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Fetches a linked IdP user by ID
         /// </summary>
         /// <param name="idpId"></param>
@@ -268,6 +259,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IIdentityProviderApplicationUser"/> response.</returns>
         Task<IIdentityProviderApplicationUser> LinkUserToIdentityProviderAsync(IUserIdentityProviderLinkRequest userIdentityProviderLinkRequest, string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes the link between the Okta user and the IdP user.
+        /// </summary>
+        /// <param name="idpId"></param>
+        /// <param name="userId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task UnlinkUserFromIdentityProviderAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.

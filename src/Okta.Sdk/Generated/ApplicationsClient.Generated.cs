@@ -60,19 +60,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IApplication> GetApplicationAsync(string appId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<Application>(new HttpRequest
             {
@@ -96,6 +83,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/apps/{appId}",
                 Verb = HttpVerb.Put,
                 Payload = application,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["appId"] = appId,
@@ -129,11 +129,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RevokeCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<Csr>(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -143,11 +143,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Csr>(new HttpRequest
+        public async Task RevokeCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -263,20 +263,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RevokeScopeConsentGrantAsync(string appId, string grantId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/grants/{grantId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["grantId"] = grantId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(string appId, string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<OAuth2ScopeConsentGrant>(new HttpRequest
             {
@@ -291,6 +277,20 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["expand"] = expand,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task RevokeScopeConsentGrantAsync(string appId, string grantId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/grants/{grantId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["grantId"] = grantId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -314,20 +314,6 @@ namespace Okta.Sdk
                 },
             });
                     
-        /// <inheritdoc />
-        public async Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/groups/{groupId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["groupId"] = groupId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
         /// <inheritdoc />
         public async Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string appId, string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<ApplicationGroupAssignment>(new HttpRequest
@@ -353,6 +339,20 @@ namespace Okta.Sdk
                 Uri = "/api/v1/apps/{appId}/groups/{groupId}",
                 Verb = HttpVerb.Put,
                 Payload = applicationGroupAssignment,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["groupId"] = groupId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/groups/{groupId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["appId"] = appId,
@@ -387,19 +387,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RevokeOAuth2TokensForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/tokens",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public ICollectionClient<IOAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = null, string after = null, int? limit = 20)
             => GetCollectionClient<IOAuth2Token>(new HttpRequest
             {
@@ -419,16 +406,15 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task RevokeOAuth2TokensForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/apps/{appId}/tokens/{tokenId}",
+                Uri = "/api/v1/apps/{appId}/tokens",
                 Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["appId"] = appId,
-                    ["tokenId"] = tokenId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -447,6 +433,20 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["expand"] = expand,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/tokens/{tokenId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["tokenId"] = tokenId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -486,24 +486,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/users/{userId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["sendEmail"] = sendEmail,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IAppUser> GetApplicationUserAsync(string appId, string userId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<AppUser>(new HttpRequest
             {
@@ -532,6 +514,24 @@ namespace Okta.Sdk
                 {
                     ["appId"] = appId,
                     ["userId"] = userId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/users/{userId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["userId"] = userId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["sendEmail"] = sendEmail,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         

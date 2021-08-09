@@ -78,23 +78,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["sendEmail"] = sendEmail,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<User>(new HttpRequest
             {
@@ -104,6 +87,23 @@ namespace Okta.Sdk
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IUser> UpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<User>(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}",
+                Verb = HttpVerb.Put,
+                Payload = user,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["strict"] = strict,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -125,19 +125,19 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IUser> UpdateUserAsync(IUser user, string userId, bool? strict = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<User>(new HttpRequest
+        public async Task DeactivateOrDeleteUserAsync(string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}",
-                Verb = HttpVerb.Put,
-                Payload = user,
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
                 },
                 QueryParameters = new Dictionary<string, object>()
                 {
-                    ["strict"] = strict,
+                    ["sendEmail"] = sendEmail,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -168,20 +168,6 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RevokeGrantsForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/clients/{clientId}/grants",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["clientId"] = clientId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public ICollectionClient<IOAuth2ScopeConsentGrant> ListGrantsForUserAndClient(string userId, string clientId, string expand = null, string after = null, int? limit = 20)
             => GetCollectionClient<IOAuth2ScopeConsentGrant>(new HttpRequest
             {
@@ -202,10 +188,10 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RevokeTokensForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task RevokeGrantsForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/users/{userId}/clients/{clientId}/tokens",
+                Uri = "/api/v1/users/{userId}/clients/{clientId}/grants",
                 Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
@@ -236,17 +222,16 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RevokeTokenForUserAndClientAsync(string userId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task RevokeTokensForUserAndClientAsync(string userId, string clientId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId}",
+                Uri = "/api/v1/users/{userId}/clients/{clientId}/tokens",
                 Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
                     ["clientId"] = clientId,
-                    ["tokenId"] = tokenId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -268,6 +253,21 @@ namespace Okta.Sdk
                     ["expand"] = expand,
                     ["limit"] = limit,
                     ["after"] = after,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task RevokeTokenForUserAndClientAsync(string userId, string clientId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["clientId"] = clientId,
+                    ["tokenId"] = tokenId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -336,19 +336,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RevokeUserGrantsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/grants",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public ICollectionClient<IOAuth2ScopeConsentGrant> ListUserGrants(string userId, string scopeId = null, string expand = null, string after = null, int? limit = 20)
             => GetCollectionClient<IOAuth2ScopeConsentGrant>(new HttpRequest
             {
@@ -369,16 +356,15 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RevokeUserGrantAsync(string userId, string grantId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task RevokeUserGrantsAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/users/{userId}/grants/{grantId}",
+                Uri = "/api/v1/users/{userId}/grants",
                 Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["userId"] = userId,
-                    ["grantId"] = grantId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -397,6 +383,20 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["expand"] = expand,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task RevokeUserGrantAsync(string userId, string grantId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/grants/{grantId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["grantId"] = grantId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -573,20 +573,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RemoveLinkedObjectForUserAsync(string userId, string relationshipName, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/linkedObjects/{relationshipName}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["relationshipName"] = relationshipName,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public ICollectionClient<IResponseLinks> GetLinkedObjectsForUser(string userId, string relationshipName, string after = null, int? limit = -1)
             => GetCollectionClient<IResponseLinks>(new HttpRequest
             {
@@ -605,6 +591,20 @@ namespace Okta.Sdk
                 },
             });
                     
+        /// <inheritdoc />
+        public async Task RemoveLinkedObjectForUserAsync(string userId, string relationshipName, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/linkedObjects/{relationshipName}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["relationshipName"] = relationshipName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
         /// <inheritdoc />
         public ICollectionClient<IRole> ListAssignedRolesForUser(string userId, string expand = null)
             => GetCollectionClient<IRole>(new HttpRequest
@@ -687,21 +687,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["roleId"] = roleId,
-                    ["appName"] = appName,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task AddApplicationTargetToAdminRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))
             => await PutAsync(new HttpRequest
             {
@@ -717,11 +702,26 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RemoveApplicationTargetFromAdministratorRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task RemoveApplicationTargetFromApplicationAdministratorRoleForUserAsync(string userId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}",
+                Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}",
                 Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["roleId"] = roleId,
+                    ["appName"] = appName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task AddApplicationTargetToAppAdminRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}",
+                Verb = HttpVerb.Put,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -733,11 +733,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task AddApplicationTargetToAppAdminRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync(new HttpRequest
+        public async Task RemoveApplicationTargetFromAdministratorRoleForUserAsync(string userId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId}",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -768,11 +768,11 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId}",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.Put,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -783,11 +783,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task AddGroupTargetToRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync(new HttpRequest
+        public async Task RemoveGroupTargetFromRoleAsync(string userId, string roleId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId}",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

@@ -51,11 +51,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<ISmsTemplate> GetSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<SmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -64,12 +64,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<ISmsTemplate> GetSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<SmsTemplate>(new HttpRequest
+        public async Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<SmsTemplate>(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
-                Verb = HttpVerb.Get,
-                
+                Verb = HttpVerb.Put,
+                Payload = smsTemplate,
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["templateId"] = templateId,
@@ -90,12 +90,12 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<SmsTemplate>(new HttpRequest
+        public async Task DeleteSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/templates/sms/{templateId}",
-                Verb = HttpVerb.Put,
-                Payload = smsTemplate,
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["templateId"] = templateId,

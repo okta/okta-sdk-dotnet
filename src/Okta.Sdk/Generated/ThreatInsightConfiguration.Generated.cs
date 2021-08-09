@@ -24,14 +24,14 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public DateTimeOffset? Created => GetDateTimeProperty("created");
-        
-        /// <inheritdoc/>
         public IList<string> ExcludeZones 
         {
             get => GetArrayProperty<string>("excludeZones");
             set => this["excludeZones"] = value;
         }
+        
+        /// <inheritdoc/>
+        public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");

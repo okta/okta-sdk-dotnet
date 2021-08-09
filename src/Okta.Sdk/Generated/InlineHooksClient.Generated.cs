@@ -51,19 +51,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/inlineHooks/{inlineHookId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["inlineHookId"] = inlineHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IInlineHook> GetInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<InlineHook>(new HttpRequest
             {
@@ -83,6 +70,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/inlineHooks/{inlineHookId}",
                 Verb = HttpVerb.Put,
                 Payload = inlineHook,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["inlineHookId"] = inlineHookId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/inlineHooks/{inlineHookId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["inlineHookId"] = inlineHookId,

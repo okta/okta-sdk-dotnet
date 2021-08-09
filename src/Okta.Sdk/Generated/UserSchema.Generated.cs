@@ -19,7 +19,23 @@ namespace Okta.Sdk
     
     {
         /// <inheritdoc/>
+        public string Id => GetStringProperty("id");
+        
+        /// <inheritdoc/>
         public string Schema => GetStringProperty("$schema");
+        
+        /// <inheritdoc/>
+        public string Name => GetStringProperty("name");
+        
+        /// <inheritdoc/>
+        public string Title 
+        {
+            get => GetStringProperty("title");
+            set => this["title"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string LastUpdated => GetStringProperty("lastUpdated");
         
         /// <inheritdoc/>
         public string Created => GetStringProperty("created");
@@ -32,13 +48,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Id => GetStringProperty("id");
-        
-        /// <inheritdoc/>
-        public string LastUpdated => GetStringProperty("lastUpdated");
-        
-        /// <inheritdoc/>
-        public string Name => GetStringProperty("name");
+        public string Type => GetStringProperty("type");
         
         /// <inheritdoc/>
         public IUserSchemaProperties Properties 
@@ -46,16 +56,6 @@ namespace Okta.Sdk
             get => GetResourceProperty<UserSchemaProperties>("properties");
             set => this["properties"] = value;
         }
-        
-        /// <inheritdoc/>
-        public string Title 
-        {
-            get => GetStringProperty("title");
-            set => this["title"] = value;
-        }
-        
-        /// <inheritdoc/>
-        public string Type => GetStringProperty("type");
         
     }
 }

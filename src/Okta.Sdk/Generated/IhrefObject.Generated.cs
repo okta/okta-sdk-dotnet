@@ -15,9 +15,9 @@ namespace Okta.Sdk
     /// <summary>Represents a hrefObject resource in the Okta API.</summary>
     public partial interface IhrefObject : IResource
     {
-        object Hints { get; set; }
-
         string Href { get; set; }
+
+        object Hints { get; set; }
 
     }
 }

@@ -54,19 +54,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["trustedOriginId"] = trustedOriginId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<TrustedOrigin>(new HttpRequest
             {
@@ -86,6 +73,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
                 Verb = HttpVerb.Put,
                 Payload = trustedOrigin,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["trustedOriginId"] = trustedOriginId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["trustedOriginId"] = trustedOriginId,

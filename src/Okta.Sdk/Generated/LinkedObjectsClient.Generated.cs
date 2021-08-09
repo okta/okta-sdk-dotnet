@@ -47,11 +47,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<LinkedObject>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -60,11 +60,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<LinkedObject>(new HttpRequest
+        public async Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

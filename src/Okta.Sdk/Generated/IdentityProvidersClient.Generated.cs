@@ -77,19 +77,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/idps/credentials/keys/{keyId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["keyId"] = keyId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IJsonWebKey> GetIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<JsonWebKey>(new HttpRequest
             {
@@ -103,15 +90,15 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task DeleteIdentityProviderKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
-                Uri = "/api/v1/idps/{idpId}",
+                Uri = "/api/v1/idps/credentials/keys/{keyId}",
                 Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
-                    ["idpId"] = idpId,
+                    ["keyId"] = keyId,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -135,6 +122,19 @@ namespace Okta.Sdk
                 Uri = "/api/v1/idps/{idpId}",
                 Verb = HttpVerb.Put,
                 Payload = identityProvider,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["idpId"] = idpId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteIdentityProviderAsync(string idpId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/idps/{idpId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,
@@ -168,11 +168,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<ICsr> GetCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<Csr>(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.Get,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -182,11 +182,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<ICsr> GetCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Csr>(new HttpRequest
+        public async Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/idps/{idpId}/credentials/csrs/{csrId}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.Delete,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -381,20 +381,6 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task UnlinkUserFromIdentityProviderAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/idps/{idpId}/users/{userId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["idpId"] = idpId,
-                    ["userId"] = userId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task<IIdentityProviderApplicationUser> GetIdentityProviderApplicationUserAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<IdentityProviderApplicationUser>(new HttpRequest
             {
@@ -415,6 +401,20 @@ namespace Okta.Sdk
                 Uri = "/api/v1/idps/{idpId}/users/{userId}",
                 Verb = HttpVerb.Post,
                 Payload = userIdentityProviderLinkRequest,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["idpId"] = idpId,
+                    ["userId"] = userId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task UnlinkUserFromIdentityProviderAsync(string idpId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/idps/{idpId}/users/{userId}",
+                Verb = HttpVerb.Delete,
+                
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["idpId"] = idpId,
