@@ -32,7 +32,7 @@ namespace Okta.Sdk.IntegrationTests
             userSchema.Definitions.Base.Properties.Login.Type.ToString().Should().Be("string");
             userSchema.Definitions.Base.Properties.Login.Required.Should().BeTrue();
             userSchema.Definitions.Base.Properties.Login.Mutability.Should().Be("READ_WRITE");
-            userSchema.Definitions.Base.Properties.Login.Scope.Should().Be("NONE");
+            userSchema.Definitions.Base.Properties.Login.Scope.ToString().Should().Be("NONE");
             userSchema.Definitions.Base.Properties.Login.MinLength.Should().Be(5);
             userSchema.Definitions.Base.Properties.Login.MaxLength.Should().Be(100);
             userSchema.Definitions.Base.Properties.Login.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
