@@ -29,7 +29,7 @@ namespace Okta.Sdk.IntegrationTests
             userSchema.Definitions.Base.Id.Should().Be("#base");
             userSchema.Definitions.Base.Type.Should().Be("object");
             userSchema.Definitions.Base.Properties.Login.Title.Should().Be("Username");
-            userSchema.Definitions.Base.Properties.Login.Type.Should().Be("string");
+            userSchema.Definitions.Base.Properties.Login.Type.ToString().Should().Be("string");
             userSchema.Definitions.Base.Properties.Login.Required.Should().BeTrue();
             userSchema.Definitions.Base.Properties.Login.Mutability.Should().Be("READ_WRITE");
             userSchema.Definitions.Base.Properties.Login.Scope.Should().Be("NONE");
@@ -74,7 +74,7 @@ namespace Okta.Sdk.IntegrationTests
 
             var retrievedCustomAttribute = updatedUserSchema.Definitions.Custom.Properties.GetProperty<UserSchemaAttribute>("twitterUserName");
             retrievedCustomAttribute.Title.Should().Be("Twitter username");
-            retrievedCustomAttribute.Type.Should().Be("string");
+            retrievedCustomAttribute.Type.ToString().Should().Be("string");
             retrievedCustomAttribute.Description.Should().Be(guid.ToString());
             retrievedCustomAttribute.Required.Should().BeNull();
             retrievedCustomAttribute.MinLength.Should().Be(1);
