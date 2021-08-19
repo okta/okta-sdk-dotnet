@@ -336,7 +336,7 @@ var smsFactor = await user.Factors.FirstOrDefaultAsync(x => x.FactorType == Fact
 
 // Verify sms factor
 var verifyFactorRequest = new VerifyFactorRequest()
-{
+{  
     PassCode = "foo",
 };
 
