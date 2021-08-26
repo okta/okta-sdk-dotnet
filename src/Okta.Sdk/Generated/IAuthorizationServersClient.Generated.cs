@@ -225,6 +225,24 @@ namespace Okta.Sdk
         Task<IAuthorizationServerPolicy> UpdateAuthorizationServerPolicyAsync(IAuthorizationServerPolicy policy, string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Activate Authorization Server Policy
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task ActivateAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deactivate Authorization Server Policy
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeactivateAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Enumerates all policy rules for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <param name="policyId"></param>
@@ -272,6 +290,26 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IAuthorizationServerPolicyRule"/> response.</returns>
         Task<IAuthorizationServerPolicyRule> UpdateAuthorizationServerPolicyRuleAsync(IAuthorizationServerPolicyRule policyRule, string policyId, string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Activate Authorization Server Policy Rule
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="policyId"></param>
+        /// <param name="ruleId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task ActivateAuthorizationServerPolicyRuleAsync(string authServerId, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deactivate Authorization Server Policy Rule
+        /// </summary>
+        /// <param name="authServerId"></param>
+        /// <param name="policyId"></param>
+        /// <param name="ruleId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeactivateAuthorizationServerPolicyRuleAsync(string authServerId, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success

@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PasswordPolicyRuleActions : Resource, IPasswordPolicyRuleActions
+    public sealed partial class PasswordPolicyRuleActions : PolicyRuleActions, IPasswordPolicyRuleActions
     {
         /// <inheritdoc/>
         public IPasswordPolicyRuleAction PasswordChange 

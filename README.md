@@ -30,6 +30,8 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage linked objects with the [Linked Objects API](https://developer.okta.com/docs/reference/api/linked-objects/).
 * Manage trusted origins with the [Trusted Origins API](https://developer.okta.com/docs/reference/api/trusted-origins/).
 * Manage user types with the [User Types API](https://developer.okta.com/docs/reference/api/user-types/).
+* Manage custom domains with the [Domains API](https://developer.okta.com/docs/reference/api/domains/).
+* Manage network zones with the [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
 * Much more!
 
 

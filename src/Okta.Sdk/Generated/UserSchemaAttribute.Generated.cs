@@ -24,6 +24,34 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IList<string> Enum 
+        {
+            get => GetArrayProperty<string>("enum");
+            set => this["enum"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string ExternalName 
+        {
+            get => GetStringProperty("externalName");
+            set => this["externalName"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string ExternalNamespace 
+        {
+            get => GetStringProperty("externalNamespace");
+            set => this["externalNamespace"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IUserSchemaAttributeItems Items 
+        {
+            get => GetResourceProperty<UserSchemaAttributeItems>("items");
+            set => this["items"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IUserSchemaAttributeMaster Master 
         {
             get => GetResourceProperty<UserSchemaAttributeMaster>("master");
@@ -52,6 +80,20 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IList<IUserSchemaAttributeEnum> OneOf 
+        {
+            get => GetArrayProperty<IUserSchemaAttributeEnum>("oneOf");
+            set => this["oneOf"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string Pattern 
+        {
+            get => GetStringProperty("pattern");
+            set => this["pattern"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IList<IUserSchemaAttributePermission> Permissions 
         {
             get => GetArrayProperty<IUserSchemaAttributePermission>("permissions");
@@ -66,9 +108,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Scope 
+        public UserSchemaAttributeScope Scope 
         {
-            get => GetStringProperty("scope");
+            get => GetEnumProperty<UserSchemaAttributeScope>("scope");
             set => this["scope"] = value;
         }
         
@@ -80,10 +122,24 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Type 
+        public UserSchemaAttributeType Type 
         {
-            get => GetStringProperty("type");
+            get => GetEnumProperty<UserSchemaAttributeType>("type");
             set => this["type"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public UserSchemaAttributeUnion Union 
+        {
+            get => GetEnumProperty<UserSchemaAttributeUnion>("union");
+            set => this["union"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string Unique 
+        {
+            get => GetStringProperty("unique");
+            set => this["unique"] = value;
         }
         
     }

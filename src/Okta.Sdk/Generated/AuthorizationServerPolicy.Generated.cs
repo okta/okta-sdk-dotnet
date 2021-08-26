@@ -94,5 +94,15 @@ namespace Okta.Sdk
             string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().AuthorizationServers.DeleteAuthorizationServerPolicyRuleAsync(Id, authServerId, ruleId, cancellationToken);
         
+        /// <inheritdoc />
+        public Task ActivateAsync(
+            string authServerId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.ActivateAuthorizationServerPolicyAsync(authServerId, Id, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task DeactivateAsync(
+            string authServerId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().AuthorizationServers.DeactivateAuthorizationServerPolicyAsync(authServerId, Id, cancellationToken);
+        
     }
 }
