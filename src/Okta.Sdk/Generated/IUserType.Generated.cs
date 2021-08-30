@@ -33,5 +33,8 @@ namespace Okta.Sdk
 
         string Name { get; set; }
 
+        Task<IUserType> ReplaceUserTypeAsync(IUserType userType, 
+            string typeId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

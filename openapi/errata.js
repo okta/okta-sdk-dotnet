@@ -110,6 +110,7 @@ const propertyErrata = [
    { path: 'LogUserAgent.os', rename: 'operatingSystem', renameReason: 'Legibility' },
    { path: 'LogEvent.client', rename: 'clientInfo', renameReason: 'Convention', model: 'LogClientInfo', modelReason: 'Convention' },
    { path: 'Session.amr', rename: 'authenticationMethodReference', renameReason: 'Legibility' },
+   { path: 'Domain.domain', rename: 'DomainName', renameReason: '.NET type name and member name cannot be identical' },   
 ];
 
 const enumErrata = [

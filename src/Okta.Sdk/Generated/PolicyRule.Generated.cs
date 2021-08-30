@@ -17,6 +17,20 @@ namespace Okta.Sdk
     public partial class PolicyRule : Resource, IPolicyRule
     {
         /// <inheritdoc/>
+        public IPolicyRuleActions Actions 
+        {
+            get => GetResourceProperty<PolicyRuleActions>("actions");
+            set => this["actions"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IPolicyRuleConditions Conditions 
+        {
+            get => GetResourceProperty<PolicyRuleConditions>("conditions");
+            set => this["conditions"] = value;
+        }
+        
+        /// <inheritdoc/>
         public DateTimeOffset? Created => GetDateTimeProperty("created");
         
         /// <inheritdoc/>
@@ -24,6 +38,13 @@ namespace Okta.Sdk
         
         /// <inheritdoc/>
         public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
+        
+        /// <inheritdoc/>
+        public string Name 
+        {
+            get => GetStringProperty("name");
+            set => this["name"] = value;
+        }
         
         /// <inheritdoc/>
         public int? Priority 

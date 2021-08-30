@@ -1,6 +1,13 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.2.0
+
+### Features
+
+- Regenerate code using the [open API spec v2.6.0](https://github.com/okta/okta-management-openapi-spec/releases/tag/openapi-2.6.0)
+- Add new models and operations to support all the [Domains API's endpoints](https://developer.okta.com/docs/reference/api/domains/) and [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
+
 ## v5.1.1
 
 ### Features

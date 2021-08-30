@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000, string expand = null)
+        public ICollectionClient<IGroup> ListGroups(string q = null, string search = null, string after = null, int? limit = 10000, string expand = null)
             => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/groups",
@@ -38,7 +38,7 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["q"] = q,
-                    ["filter"] = filter,
+                    ["search"] = search,
                     ["after"] = after,
                     ["limit"] = limit,
                     ["expand"] = expand,
@@ -80,7 +80,7 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeleteGroupRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/groups/rules/{ruleId}",
@@ -89,6 +89,10 @@ namespace Okta.Sdk
                 PathParameters = new Dictionary<string, object>()
                 {
                     ["ruleId"] = ruleId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["removeUsers"] = removeUsers,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
