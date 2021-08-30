@@ -67,7 +67,22 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
-        public async Task ListAndGetNetworkZones()
+        public async Task ListNetworkZones()
+        {
+            var oktaClient = TestClient.Create();
+            var zonesClient = oktaClient.NetworkZones;
+
+            var allNetworkZones = zonesClient.ListNetworkZones();
+            // There are pre-defined zones which cannot be deleted
+            allNetworkZones.Should().NotBeNull();
+            var zone = await allNetworkZones.FirstAsync();
+            zone.Should().NotBeNull();
+            zone.Id.Should().NotBeNull();
+            zone.Name.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task GetNetworkZone()
         {
             var oktaClient = TestClient.Create();
             var zonesClient = oktaClient.NetworkZones;
@@ -75,11 +90,6 @@ namespace Okta.Sdk.IntegrationTests
             var createZoneResponse = await zonesClient.CreateNetworkZoneAsync(newZone);
             try
             {
-                var allNetworkZones = zonesClient.ListNetworkZones();
-                var createdZone = await allNetworkZones.FirstOrDefaultAsync(z => z.Id == createZoneResponse.Id);
-
-                createdZone.Should().NotBeNull();
-
                 var getResponse = await zonesClient.GetNetworkZoneAsync(createZoneResponse.Id);
 
                 getResponse.Id.Should().NotBeNullOrEmpty();
