@@ -45,7 +45,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IOktaSignOnPolicyRuleSignonActions Signon 
+        public IOktaSignOnPolicyRuleSignonActions SignOn 
         {
             get => GetResourceProperty<OktaSignOnPolicyRuleSignonActions>("signon");
             set => this["signon"] = value;

@@ -211,6 +211,12 @@ namespace Okta.Sdk
         public IDomainsClient Domains => new DomainsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public IProfileMappingsClient ProfileMappings => new ProfileMappingsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IThreatInsightsClient ThreatInsights => new ThreatInsightsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IIdentityProvidersClient IdentityProviders => new IdentityProvidersClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>

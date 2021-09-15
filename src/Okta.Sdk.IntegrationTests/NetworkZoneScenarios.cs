@@ -14,7 +14,7 @@ namespace Okta.Sdk.IntegrationTests
     public class NetworkZoneScenarios
     {
         [Fact]
-        public async Task CreateUpdateDeleteNetworkZone()
+        public async Task CreateNetworkZone()
         {
             var oktaClient = TestClient.Create();
             var zonesClient = oktaClient.NetworkZones;
@@ -28,7 +28,22 @@ namespace Okta.Sdk.IntegrationTests
                 createZoneResponse.Status.Should().Be(newZone.Status);
                 createZoneResponse.Gateways.Should().HaveCount(2);
                 createZoneResponse.Proxies.Should().HaveCount(2);
+            }
+            finally
+            {
+                await zonesClient.DeleteNetworkZoneAsync(createZoneResponse.Id);
+            }
+        }
 
+        [Fact]
+        public async Task UpdateNetworkZone()
+        {
+            var oktaClient = TestClient.Create();
+            var zonesClient = oktaClient.NetworkZones;
+            NetworkZone newZone = BuildNetworkZoneObject();
+            var createZoneResponse = await zonesClient.CreateNetworkZoneAsync(newZone);
+            try
+            {
                 createZoneResponse.Name = "Another Name";
                 createZoneResponse.Gateways.Add(new NetworkZoneAddress
                 {

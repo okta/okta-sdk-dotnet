@@ -6,7 +6,16 @@ Running changelog of releases since `3.1.1`
 ### Features
 
 - Regenerate code using the [open API spec v2.6.0](https://github.com/okta/okta-management-openapi-spec/releases/tag/openapi-2.6.0)
-- Add new models and operations to support all the [Domains API's endpoints](https://developer.okta.com/docs/reference/api/domains/) and [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
+- Add new models and operations to support the following:
+* [Domains API's endpoints](https://developer.okta.com/docs/reference/api/domains/)
+* [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/)
+* [Mappings API's endpoints](https://developer.okta.com/docs/reference/api/mappings/)
+* [ThreatInsight configuration API's endpoints](https://developer.okta.com/docs/reference/api/threat-insight/)
+
+### Bug Fixes
+
+- Fix GroupsClient.ListGroups `filter` parameter doesn't work. Replaced with `search` parameter.
+- Fix AuthorizationServerPolicyRule.ActivateAsync doesn't work.
 
 ## v5.1.1
 

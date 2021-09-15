@@ -176,6 +176,21 @@ namespace Okta.Sdk
         IDomainsClient Domains { get; }
 
         /// <summary>
+        /// Gets a <see cref="IProfileMappingsClient">ProfileMappingsClient</see> that interacts with the Okta Mappings API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IProfileMappingsClient">ProfileMappingsClient</see> that interacts with the Okta Mappings API.
+        /// </value>
+        IProfileMappingsClient ProfileMappings { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IThreatInsightsClient">ThreatInsightsClient</see> Okta ThreatInsight configuration API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IProfileMappingsClient">ThreatInsightsClient</see> that interacts with the Okta ThreatInsight configuration API.
+        /// </value>
+        IThreatInsightsClient ThreatInsights { get; }
+        /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
         /// </summary>
         /// <param name="requestContext">The request context</param>
