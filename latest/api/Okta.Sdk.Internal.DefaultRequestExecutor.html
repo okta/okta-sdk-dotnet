@@ -1,0 +1,557 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DefaultRequestExecutor
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DefaultRequestExecutor
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+              	<div class="apiversion">
+              			<form action="#" method="GET">
+              				<span>API version:</span>
+                              <select id="version-switcher" name="version"></select>
+                          </form>
+              	</div>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor">
+  
+  
+  <h1 id="Okta_Sdk_Internal_DefaultRequestExecutor" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor" class="text-break">Class DefaultRequestExecutor
+  </h1>
+  <div class="markdown level0 summary"><p>The default implementation of <a class="xref" href="Okta.Sdk.Internal.IRequestExecutor.html">IRequestExecutor</a> that uses <code>System.Net.Http</code>.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DefaultRequestExecutor</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Okta.Sdk.Internal.IRequestExecutor.html">IRequestExecutor</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.Internal.html">Okta.Sdk.Internal</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_Internal_DefaultRequestExecutor_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sealed class DefaultRequestExecutor : IRequestExecutor</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor__ctor_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.#ctor*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor__ctor" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.#ctor">DefaultRequestExecutor()</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Okta.Sdk.Internal.DefaultRequestExecutor.html">DefaultRequestExecutor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DefaultRequestExecutor()</code></pre>
+  </div>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor__ctor_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.#ctor*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor__ctor_Okta_Sdk_Configuration_OktaClientConfiguration_System_Net_Http_HttpClient_Microsoft_Extensions_Logging_ILogger_Okta_Sdk_IRetryStrategy_Okta_Sdk_Internal_IOAuthTokenProvider_Okta_Sdk_Internal_IHttpRequestMessageProvider_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.#ctor(Okta.Sdk.Configuration.OktaClientConfiguration,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger,Okta.Sdk.IRetryStrategy,Okta.Sdk.Internal.IOAuthTokenProvider,Okta.Sdk.Internal.IHttpRequestMessageProvider)">DefaultRequestExecutor(OktaClientConfiguration, HttpClient, ILogger, IRetryStrategy, IOAuthTokenProvider, IHttpRequestMessageProvider)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Okta.Sdk.Internal.DefaultRequestExecutor.html">DefaultRequestExecutor</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DefaultRequestExecutor(OktaClientConfiguration configuration, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy = null, IOAuthTokenProvider oAuthTokenProvider = null, IHttpRequestMessageProvider httpRequestMessageProvider = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Configuration.OktaClientConfiguration.html">OktaClientConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The client configuration.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>The HTTP client to use, if any.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span></td>
+        <td><span class="parametername">logger</span></td>
+        <td><p>The logging interface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IRetryStrategy.html">IRetryStrategy</a></td>
+        <td><span class="parametername">retryStrategy</span></td>
+        <td><p>The retry strategy interface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.IOAuthTokenProvider.html">IOAuthTokenProvider</a></td>
+        <td><span class="parametername">oAuthTokenProvider</span></td>
+        <td><p>The OAuth token provider interface.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.IHttpRequestMessageProvider.html">IHttpRequestMessageProvider</a></td>
+        <td><span class="parametername">httpRequestMessageProvider</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor_DeleteAsync_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.DeleteAsync*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor_DeleteAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.DeleteAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">DeleteAsync(String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a DELETE request to the specified <code data-dev-comment-type="paramref" class="paramref">href</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&lt;string&gt;&gt; DeleteAsync(string href, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; headers, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The request URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The HTTP headers to add to the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.HttpResponse-1.html">HttpResponse</a>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor_ExecuteRequestAsync_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.ExecuteRequestAsync*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor_ExecuteRequestAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.ExecuteRequestAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">ExecuteRequestAsync(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Execute the specified request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&lt;string&gt;&gt; ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request to execute.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.HttpResponse-1.html">HttpResponse</a>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor_GetAsync_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.GetAsync*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor_GetAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_Threading_CancellationToken_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.GetAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Threading.CancellationToken)">GetAsync(String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a GET request to the specified <code data-dev-comment-type="paramref" class="paramref">href</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&lt;string&gt;&gt; GetAsync(string href, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; headers, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The request URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The HTTP headers to add to the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.HttpResponse-1.html">HttpResponse</a>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor_PostAsync_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.PostAsync*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor_PostAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">PostAsync(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends the specified POST request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&lt;string&gt;&gt; PostAsync(HttpRequest httpRequest, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">httpRequest</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.HttpResponse-1.html">HttpResponse</a>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor_PostAsync_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.PostAsync*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor_PostAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.PostAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.String,System.Threading.CancellationToken)">PostAsync(String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a POST request to the specified <code data-dev-comment-type="paramref" class="paramref">href</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&lt;string&gt;&gt; PostAsync(string href, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; headers, string body, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The request URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The HTTP headers to add to the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>The serialized request body.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.HttpResponse-1.html">HttpResponse</a>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_Internal_DefaultRequestExecutor_PutAsync_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.PutAsync*"></a>
+  <h4 id="Okta_Sdk_Internal_DefaultRequestExecutor_PutAsync_System_String_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.Internal.DefaultRequestExecutor.PutAsync(System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.String,System.Threading.CancellationToken)">PutAsync(String, IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;, String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Sends a PUT request to the specified <code data-dev-comment-type="paramref" class="paramref">href</code>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;HttpResponse&lt;string&gt;&gt; PutAsync(string href, IEnumerable&lt;KeyValuePair&lt;string, string&gt;&gt; headers, string body, CancellationToken cancellationToken)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The request URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;&gt;</td>
+        <td><span class="parametername">headers</span></td>
+        <td><p>The HTTP headers to add to the request.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">body</span></td>
+        <td><p>The serialized request body.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;<a class="xref" href="Okta.Sdk.HttpResponse-1.html">HttpResponse</a>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td><p>The HTTP response.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Okta.Sdk.Internal.IRequestExecutor.html">IRequestExecutor</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2021 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

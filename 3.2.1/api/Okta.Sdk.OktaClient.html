@@ -1,0 +1,1913 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class OktaClient
+   | Okta .NET SDK API Documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class OktaClient
+   | Okta .NET SDK API Documentation ">
+    <meta name="generator" content="docfx 2.51.0.0">
+    
+    <link rel="shortcut icon" href="../images/favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../images/okta-dev-logo.png" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Okta.Sdk.OktaClient">
+  
+  
+  <h1 id="Okta_Sdk_OktaClient" data-uid="Okta.Sdk.OktaClient" class="text-break">Class OktaClient
+  </h1>
+  <div class="markdown level0 summary"><p>A client that communicates with the Okta management API.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">OktaClient</span></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.ApplicationsClient.html">ApplicationsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.AuthorizationServersClient.html">AuthorizationServersClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.EventHooksClient.html">EventHooksClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.FeaturesClient.html">FeaturesClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.GroupsClient.html">GroupsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.IdentityProvidersClient.html">IdentityProvidersClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.InlineHooksClient.html">InlineHooksClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.LinkedObjectsClient.html">LinkedObjectsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.LogsClient.html">LogsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.PoliciesClient.html">PoliciesClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.SessionsClient.html">SessionsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.TemplatesClient.html">TemplatesClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.TrustedOriginsClient.html">TrustedOriginsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.UserFactorsClient.html">UserFactorsClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.UsersClient.html">UsersClient</a></div>
+      <div class="level2"><a class="xref" href="Okta.Sdk.UserTypesClient.html">UserTypesClient</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Okta.Sdk.html">Okta.Sdk</a></h6>
+  <h6><strong>Assembly</strong>: Okta.Sdk.dll</h6>
+  <h5 id="Okta_Sdk_OktaClient_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class OktaClient : IOktaClient</code></pre>
+  </div>
+  <h5 id="Okta_Sdk_OktaClient_examples"><strong>Examples</strong></h5>
+  <p>Initialize an OktaClient by passing configuration via code</p>
+<pre><code>var oktaClient = new OktaClient(new OktaClientConfiguration
+{
+  OrgUrl = &quot;https://dev-12345.oktapreview.com/&quot;,
+  Token = &quot;my_api_token&quot;
+});</code></pre>
+
+  <h3 id="constructors">Constructors
+  </h3>
+  <a id="Okta_Sdk_OktaClient__ctor_" data-uid="Okta.Sdk.OktaClient.#ctor*"></a>
+  <h4 id="Okta_Sdk_OktaClient__ctor_Okta_Sdk_Configuration_OktaClientConfiguration_Microsoft_Extensions_Logging_ILogger_Okta_Sdk_Internal_ISerializer_" data-uid="Okta.Sdk.OktaClient.#ctor(Okta.Sdk.Configuration.OktaClientConfiguration,Microsoft.Extensions.Logging.ILogger,Okta.Sdk.Internal.ISerializer)">OktaClient(OktaClientConfiguration, ILogger, ISerializer)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Okta.Sdk.OktaClient.html">OktaClient</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null, ISerializer serializer = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Configuration.OktaClientConfiguration.html">OktaClientConfiguration</a></td>
+        <td><span class="parametername">apiClientConfiguration</span></td>
+        <td><p>The client configuration. If <code>null</code>, the library will attempt to load
+configuration from an <code>okta.yaml</code> file or environment variables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span></td>
+        <td><span class="parametername">logger</span></td>
+        <td><p>The logging interface to use, if any.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.ISerializer.html">ISerializer</a></td>
+        <td><span class="parametername">serializer</span></td>
+        <td><p>The JSON serializer to use, if any. Using the <code>DefaultSerializer</code> is still strongly recommended since it has all the behavior this SDK needs to work properly.
+If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <a class="xref" href="Okta.Sdk.Internal.DefaultSerializer.html">DefaultSerializer</a> to check out what can be configured.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient__ctor_" data-uid="Okta.Sdk.OktaClient.#ctor*"></a>
+  <h4 id="Okta_Sdk_OktaClient__ctor_Okta_Sdk_Configuration_OktaClientConfiguration_System_Net_Http_HttpClient_Microsoft_Extensions_Logging_ILogger_Okta_Sdk_IRetryStrategy_Okta_Sdk_Internal_ISerializer_" data-uid="Okta.Sdk.OktaClient.#ctor(Okta.Sdk.Configuration.OktaClientConfiguration,System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger,Okta.Sdk.IRetryStrategy,Okta.Sdk.Internal.ISerializer)">OktaClient(OktaClientConfiguration, HttpClient, ILogger, IRetryStrategy, ISerializer)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Okta.Sdk.OktaClient.html">OktaClient</a> class using the specified <span class="xref">System.Net.Http.HttpClient</span>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null, ISerializer serializer = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Configuration.OktaClientConfiguration.html">OktaClientConfiguration</a></td>
+        <td><span class="parametername">apiClientConfiguration</span></td>
+        <td><p>The client configuration. If <code>null</code>, the library will attempt to load
+configuration from an <code>okta.yaml</code> file or environment variables.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Net.Http.HttpClient</span></td>
+        <td><span class="parametername">httpClient</span></td>
+        <td><p>The HTTP client to use for requests to the Okta API.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">Microsoft.Extensions.Logging.ILogger</span></td>
+        <td><span class="parametername">logger</span></td>
+        <td><p>The logging interface to use, if any.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IRetryStrategy.html">IRetryStrategy</a></td>
+        <td><span class="parametername">retryStrategy</span></td>
+        <td><p>The retry strategy interface to use, if any.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.ISerializer.html">ISerializer</a></td>
+        <td><span class="parametername">serializer</span></td>
+        <td><p>The JSON serializer to use, if any. Using the <code>DefaultSerializer</code> is still strongly recommended since it has all the behavior this SDK needs to work properly.
+If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <a class="xref" href="Okta.Sdk.Internal.DefaultSerializer.html">DefaultSerializer</a> to check out what settings can be configured.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient__ctor_" data-uid="Okta.Sdk.OktaClient.#ctor*"></a>
+  <h4 id="Okta_Sdk_OktaClient__ctor_Okta_Sdk_Internal_IDataStore_Okta_Sdk_Configuration_OktaClientConfiguration_Okta_Sdk_RequestContext_" data-uid="Okta.Sdk.OktaClient.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.Configuration.OktaClientConfiguration,Okta.Sdk.RequestContext)">OktaClient(IDataStore, OktaClientConfiguration, RequestContext)</h4>
+  <div class="markdown level1 summary"><p>Initializes a new instance of the <a class="xref" href="Okta.Sdk.OktaClient.html">OktaClient</a> class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected OktaClient(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Internal.IDataStore.html">IDataStore</a></td>
+        <td><span class="parametername">dataStore</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Internal.IDataStore.html">IDataStore</a> to use.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Configuration.OktaClientConfiguration.html">OktaClientConfiguration</a></td>
+        <td><span class="parametername">configuration</span></td>
+        <td><p>The client configuration.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.RequestContext.html">RequestContext</a></td>
+        <td><span class="parametername">requestContext</span></td>
+        <td><p>The request context, if any.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient__ctor_Okta_Sdk_Internal_IDataStore_Okta_Sdk_Configuration_OktaClientConfiguration_Okta_Sdk_RequestContext__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This overload is used internally to create cheap copies of an existing client.</p>
+</div>
+  <h3 id="properties">Properties
+  </h3>
+  <a id="Okta_Sdk_OktaClient_Applications_" data-uid="Okta.Sdk.OktaClient.Applications*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Applications" data-uid="Okta.Sdk.OktaClient.Applications">Applications</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IApplicationsClient.html">IApplicationsClient</a> that interacts with the Okta Applications API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IApplicationsClient Applications { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IApplicationsClient.html">IApplicationsClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IApplicationsClient.html">IApplicationsClient</a> that interacts with the Okta Applications API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_AuthorizationServers_" data-uid="Okta.Sdk.OktaClient.AuthorizationServers*"></a>
+  <h4 id="Okta_Sdk_OktaClient_AuthorizationServers" data-uid="Okta.Sdk.OktaClient.AuthorizationServers">AuthorizationServers</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Okta.Sdk.IAuthorizationServersClient.html">IAuthorizationServersClient</a> that interacts with the Okta Authorization Servers API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IAuthorizationServersClient AuthorizationServers { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IAuthorizationServersClient.html">IAuthorizationServersClient</a></td>
+        <td><p>An <a class="xref" href="Okta.Sdk.IAuthorizationServersClient.html">IAuthorizationServersClient</a> that interacts with the Okta Authorization Servers API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Configuration_" data-uid="Okta.Sdk.OktaClient.Configuration*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Configuration" data-uid="Okta.Sdk.OktaClient.Configuration">Configuration</h4>
+  <div class="markdown level1 summary"><p>Gets the configuration passed to this <a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a>.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public OktaClientConfiguration Configuration { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.Configuration.OktaClientConfiguration.html">OktaClientConfiguration</a></td>
+        <td><p>The client configuration.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_Configuration_remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>The configuration is immutable after the client is initialized. This property references a copy of the configuration.</p>
+</div>
+  <a id="Okta_Sdk_OktaClient_EventHooks_" data-uid="Okta.Sdk.OktaClient.EventHooks*"></a>
+  <h4 id="Okta_Sdk_OktaClient_EventHooks" data-uid="Okta.Sdk.OktaClient.EventHooks">EventHooks</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Okta.Sdk.IEventHooksClient.html">IEventHooksClient</a> that interacts with the Okta Event Hooks API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEventHooksClient EventHooks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IEventHooksClient.html">IEventHooksClient</a></td>
+        <td><p>An <a class="xref" href="Okta.Sdk.IEventHooksClient.html">IEventHooksClient</a> that interacts with the Okta Event Hooks API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Features_" data-uid="Okta.Sdk.OktaClient.Features*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Features" data-uid="Okta.Sdk.OktaClient.Features">Features</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IFeaturesClient.html">IFeaturesClient</a> that interacts with the Okta Features API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IFeaturesClient Features { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IFeaturesClient.html">IFeaturesClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IFeaturesClient.html">IFeaturesClient</a> that interacts with the Okta Features API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Groups_" data-uid="Okta.Sdk.OktaClient.Groups*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Groups" data-uid="Okta.Sdk.OktaClient.Groups">Groups</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IGroupsClient.html">IGroupsClient</a> that interacts with the Okta Groups API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IGroupsClient Groups { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IGroupsClient.html">IGroupsClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IGroupsClient.html">IGroupsClient</a> that interacts with the Okta Groups API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_IdentityProviders_" data-uid="Okta.Sdk.OktaClient.IdentityProviders*"></a>
+  <h4 id="Okta_Sdk_OktaClient_IdentityProviders" data-uid="Okta.Sdk.OktaClient.IdentityProviders">IdentityProviders</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Okta.Sdk.IIdentityProvidersClient.html">IIdentityProvidersClient</a> that interacts with the Okta Identity Providers API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IIdentityProvidersClient IdentityProviders { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IIdentityProvidersClient.html">IIdentityProvidersClient</a></td>
+        <td><p>An <a class="xref" href="Okta.Sdk.IIdentityProvidersClient.html">IIdentityProvidersClient</a> that interacts with the Okta Identity Providers API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_InlineHooks_" data-uid="Okta.Sdk.OktaClient.InlineHooks*"></a>
+  <h4 id="Okta_Sdk_OktaClient_InlineHooks" data-uid="Okta.Sdk.OktaClient.InlineHooks">InlineHooks</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Okta.Sdk.IInlineHooksClient.html">IInlineHooksClient</a> that interacts with the Okta Inline Hooks API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IInlineHooksClient InlineHooks { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IInlineHooksClient.html">IInlineHooksClient</a></td>
+        <td><p>An <a class="xref" href="Okta.Sdk.IInlineHooksClient.html">IInlineHooksClient</a> that interacts with the Okta Inline Hooks API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_LinkedObjects_" data-uid="Okta.Sdk.OktaClient.LinkedObjects*"></a>
+  <h4 id="Okta_Sdk_OktaClient_LinkedObjects" data-uid="Okta.Sdk.OktaClient.LinkedObjects">LinkedObjects</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Okta.Sdk.ILinkedObjectsClient.html">ILinkedObjectsClient</a> that interacts with the Okta Linked Objects API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ILinkedObjectsClient LinkedObjects { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ILinkedObjectsClient.html">ILinkedObjectsClient</a></td>
+        <td><p>An <a class="xref" href="Okta.Sdk.ILinkedObjectsClient.html">ILinkedObjectsClient</a> that interacts with the Okta Linked Objects API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Logs_" data-uid="Okta.Sdk.OktaClient.Logs*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Logs" data-uid="Okta.Sdk.OktaClient.Logs">Logs</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.ILogsClient.html">ILogsClient</a> that interacts with the Okta Logs API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ILogsClient Logs { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ILogsClient.html">ILogsClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.ILogsClient.html">ILogsClient</a> that interacts with the Okta Logs API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Policies_" data-uid="Okta.Sdk.OktaClient.Policies*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Policies" data-uid="Okta.Sdk.OktaClient.Policies">Policies</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IPoliciesClient.html">IPoliciesClient</a> that interacts with the Okta Policies API</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IPoliciesClient Policies { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IPoliciesClient.html">IPoliciesClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IPoliciesClient.html">IPoliciesClient</a> that interacts with the Okta Policies API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Sessions_" data-uid="Okta.Sdk.OktaClient.Sessions*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Sessions" data-uid="Okta.Sdk.OktaClient.Sessions">Sessions</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.ISessionsClient.html">ISessionsClient</a> that interacts with the Okta Sessions API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ISessionsClient Sessions { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ISessionsClient.html">ISessionsClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.ISessionsClient.html">ISessionsClient</a> that interacts with the Okta Sessions API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Templates_" data-uid="Okta.Sdk.OktaClient.Templates*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Templates" data-uid="Okta.Sdk.OktaClient.Templates">Templates</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.ITemplatesClient.html">ITemplatesClient</a> that interacts with the Okta Templates API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITemplatesClient Templates { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ITemplatesClient.html">ITemplatesClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.ITemplatesClient.html">ITemplatesClient</a> that interacts with the Okta Templates API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_TrustedOrigins_" data-uid="Okta.Sdk.OktaClient.TrustedOrigins*"></a>
+  <h4 id="Okta_Sdk_OktaClient_TrustedOrigins" data-uid="Okta.Sdk.OktaClient.TrustedOrigins">TrustedOrigins</h4>
+  <div class="markdown level1 summary"><p>Gets an <a class="xref" href="Okta.Sdk.ITrustedOriginsClient.html">ITrustedOriginsClient</a> that interacts with the Okta Trusted Origins API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ITrustedOriginsClient TrustedOrigins { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.ITrustedOriginsClient.html">ITrustedOriginsClient</a></td>
+        <td><p>An <a class="xref" href="Okta.Sdk.ITrustedOriginsClient.html">ITrustedOriginsClient</a> that interacts with the Okta Trusted Origins API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_UserFactors_" data-uid="Okta.Sdk.OktaClient.UserFactors*"></a>
+  <h4 id="Okta_Sdk_OktaClient_UserFactors" data-uid="Okta.Sdk.OktaClient.UserFactors">UserFactors</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IUserFactorsClient.html">IUserFactorsClient</a> that interacts with the Okta Factors API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUserFactorsClient UserFactors { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUserFactorsClient.html">IUserFactorsClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IUserFactorsClient.html">IUserFactorsClient</a> that interacts with the Okta Factors API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_Users_" data-uid="Okta.Sdk.OktaClient.Users*"></a>
+  <h4 id="Okta_Sdk_OktaClient_Users" data-uid="Okta.Sdk.OktaClient.Users">Users</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IUsersClient.html">IUsersClient</a> that interacts with the Okta Users API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUsersClient Users { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUsersClient.html">IUsersClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IUsersClient.html">IUsersClient</a> that interacts with the Okta Users API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_UserTypes_" data-uid="Okta.Sdk.OktaClient.UserTypes*"></a>
+  <h4 id="Okta_Sdk_OktaClient_UserTypes" data-uid="Okta.Sdk.OktaClient.UserTypes">UserTypes</h4>
+  <div class="markdown level1 summary"><p>Gets a <a class="xref" href="Okta.Sdk.IUserTypesClient.html">IUserTypesClient</a> that interacts with the Okta User Types API.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IUserTypesClient UserTypes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IUserTypesClient.html">IUserTypesClient</a></td>
+        <td><p>A <a class="xref" href="Okta.Sdk.IUserTypesClient.html">IUserTypesClient</a> that interacts with the Okta User Types API.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <a id="Okta_Sdk_OktaClient_CreateScoped_" data-uid="Okta.Sdk.OktaClient.CreateScoped*"></a>
+  <h4 id="Okta_Sdk_OktaClient_CreateScoped_Okta_Sdk_RequestContext_" data-uid="Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)">CreateScoped(RequestContext)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a> scoped to the given request context.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IOktaClient CreateScoped(RequestContext requestContext)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.RequestContext.html">RequestContext</a></td>
+        <td><span class="parametername">requestContext</span></td>
+        <td><p>The request context</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a></td>
+        <td><p>The new client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_CreateScoped_Okta_Sdk_RequestContext__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>This method is used to temporarily create a copy of the client in order to pass information about the current request to the Okta API.</p>
+</div>
+  <a id="Okta_Sdk_OktaClient_DeleteAsync_" data-uid="Okta.Sdk.OktaClient.DeleteAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_DeleteAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">DeleteAsync(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes a resource by specifying the HTTP request options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_DeleteAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_DeleteAsync_" data-uid="Okta.Sdk.OktaClient.DeleteAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_DeleteAsync_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)">DeleteAsync(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Deletes a resource by URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task DeleteAsync(string href, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The resource URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_DeleteAsync_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_GetAsync_" data-uid="Okta.Sdk.OktaClient.GetAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_GetAsync__1_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">GetAsync&lt;T&gt;(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a resource by specifying the HTTP request options, and deserializes it to a <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; GetAsync&lt;T&gt;(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+    where T : Resource, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The deserialized resource.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type to deserialize the returned data to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_GetAsync__1_Okta_Sdk_HttpRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_GetAsync_" data-uid="Okta.Sdk.OktaClient.GetAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_GetAsync__1_System_String_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)">GetAsync&lt;T&gt;(String, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Gets a resource by URL and deserializes it to a <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;T&gt; GetAsync&lt;T&gt;(string href, CancellationToken cancellationToken = default(CancellationToken))
+    where T : Resource, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The resource URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;T&gt;</td>
+        <td><p>The deserialized resource.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type to deserialize the returned data to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_GetAsync__1_System_String_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_GetCollection_" data-uid="Okta.Sdk.OktaClient.GetCollection*"></a>
+  <h4 id="Okta_Sdk_OktaClient_GetCollection__1_Okta_Sdk_HttpRequest_" data-uid="Okta.Sdk.OktaClient.GetCollection``1(Okta.Sdk.HttpRequest)">GetCollection&lt;T&gt;(HttpRequest)</h4>
+  <div class="markdown level1 summary"><p>Gets a collection of resources from the Okta API by URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollectionClient&lt;T&gt; GetCollection&lt;T&gt;(HttpRequest request)
+    where T : IResource</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request options.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CollectionClient-1.html">CollectionClient</a>&lt;T&gt;</td>
+        <td><p>A collection that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type of the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_GetCollection_" data-uid="Okta.Sdk.OktaClient.GetCollection*"></a>
+  <h4 id="Okta_Sdk_OktaClient_GetCollection__1_System_String_" data-uid="Okta.Sdk.OktaClient.GetCollection``1(System.String)">GetCollection&lt;T&gt;(String)</h4>
+  <div class="markdown level1 summary"><p>Gets a collection of resources from the Okta API by URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public CollectionClient&lt;T&gt; GetCollection&lt;T&gt;(string href)
+    where T : IResource</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The collection URL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CollectionClient-1.html">CollectionClient</a>&lt;T&gt;</td>
+        <td><p>A collection that can be enumerated asynchronously.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type of the collection.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_GetCollectionClient_" data-uid="Okta.Sdk.OktaClient.GetCollectionClient*"></a>
+  <h4 id="Okta_Sdk_OktaClient_GetCollectionClient__1_Okta_Sdk_HttpRequest_" data-uid="Okta.Sdk.OktaClient.GetCollectionClient``1(Okta.Sdk.HttpRequest)">GetCollectionClient&lt;T&gt;(HttpRequest)</h4>
+  <div class="markdown level1 summary"><p>Creates a new <a class="xref" href="Okta.Sdk.CollectionClient-1.html">CollectionClient&lt;T&gt;</a> given an initial HTTP request.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected CollectionClient&lt;T&gt; GetCollectionClient&lt;T&gt;(HttpRequest initialRequest)
+    where T : IResource</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">initialRequest</span></td>
+        <td><p>The initial HTTP request.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.CollectionClient-1.html">CollectionClient</a>&lt;T&gt;</td>
+        <td><p>The collection client.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">T</span></td>
+        <td><p>The collection client item type.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PostAsync_" data-uid="Okta.Sdk.OktaClient.PostAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PostAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">PostAsync(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Posts data to an endpoint by specifying the HTTP request options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task PostAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PostAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PostAsync_" data-uid="Okta.Sdk.OktaClient.PostAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PostAsync_System_String_System_Object_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)">PostAsync(String, Object, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Posts data to an endpoint by URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task PostAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The endpoint URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">model</span></td>
+        <td><p>The data to serialize and attach to the request body.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PostAsync_System_String_System_Object_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PostAsync_" data-uid="Okta.Sdk.OktaClient.PostAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PostAsync__1_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">PostAsync&lt;TResponse&gt;(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Posts data to an endpoint by specifying the HTTP request options, and deserializes the response payload to a <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PostAsync&lt;TResponse&gt;(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+    where TResponse : Resource, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResponse&gt;</td>
+        <td><p>The deserialized response data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type to deserialize the returned data to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PostAsync__1_Okta_Sdk_HttpRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PostAsync_" data-uid="Okta.Sdk.OktaClient.PostAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PostAsync__1_System_String_System_Object_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)">PostAsync&lt;TResponse&gt;(String, Object, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Posts data to an endpoint by URL, and deserializes the response payload to a <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PostAsync&lt;TResponse&gt;(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+    where TResponse : Resource, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The endpoint URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">model</span></td>
+        <td><p>The data to serialize and attach to the request body.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResponse&gt;</td>
+        <td><p>The deserialized response data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type to deserialize the returned data to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PostAsync__1_System_String_System_Object_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PutAsync_" data-uid="Okta.Sdk.OktaClient.PutAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PutAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">PutAsync(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Puts data to an endpoint by specifying the HTTP request options.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task PutAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The endpoint URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PutAsync_Okta_Sdk_HttpRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PutAsync_" data-uid="Okta.Sdk.OktaClient.PutAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PutAsync_System_String_System_Object_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)">PutAsync(String, Object, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Puts data to an endpoint by URL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task PutAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The endpoint URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">model</span></td>
+        <td><p>The data to serialize and attach to the request body.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span></td>
+        <td><p>A Task that represents the asynchronous operation.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PutAsync_System_String_System_Object_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PutAsync_" data-uid="Okta.Sdk.OktaClient.PutAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PutAsync__1_Okta_Sdk_HttpRequest_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)">PutAsync&lt;TResponse&gt;(HttpRequest, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Puts data to an endpoint by specifying the HTTP request options, and deserializes the response payload to a <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PutAsync&lt;TResponse&gt;(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+    where TResponse : Resource, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.HttpRequest.html">HttpRequest</a></td>
+        <td><span class="parametername">request</span></td>
+        <td><p>The request options.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResponse&gt;</td>
+        <td><p>The deserialized response data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type to deserialize the returned data to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="Okta_Sdk_OktaClient_PutAsync__1_Okta_Sdk_HttpRequest_System_Threading_CancellationToken__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>You typically only need to use this method if you are working with resources not natively handled by this library.</p>
+</div>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <a id="Okta_Sdk_OktaClient_PutAsync_" data-uid="Okta.Sdk.OktaClient.PutAsync*"></a>
+  <h4 id="Okta_Sdk_OktaClient_PutAsync__1_System_String_System_Object_System_Threading_CancellationToken_" data-uid="Okta.Sdk.OktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)">PutAsync&lt;TResponse&gt;(String, Object, CancellationToken)</h4>
+  <div class="markdown level1 summary"><p>Puts data to an endpoint by URL and deserializes the response payload to a <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type.
+<remarks>You typically only need to use this method if you are working with resources not natively handled by this library.</remarks></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public Task&lt;TResponse&gt; PutAsync&lt;TResponse&gt;(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+    where TResponse : Resource, new()</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">href</span></td>
+        <td><p>The endpoint URL.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">model</span></td>
+        <td><p>The data to serialize and attach to the request body.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Threading.CancellationToken</span></td>
+        <td><span class="parametername">cancellationToken</span></td>
+        <td><p>The cancellation token.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Threading.Tasks.Task</span>&lt;TResponse&gt;</td>
+        <td><p>The deserialized response data.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TResponse</span></td>
+        <td><p>The <a class="xref" href="Okta.Sdk.Resource.html">Resource</a> type to deserialize the returned data to.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Okta.Sdk.OktaApiException.html">OktaApiException</a></td>
+        <td><p>An API error occurred.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <a class="xref" href="Okta.Sdk.IOktaClient.html">IOktaClient</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            Copyright &copy; 2020 Okta, Inc.<br>Generated with <b>DocFx</b>.
+            
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
