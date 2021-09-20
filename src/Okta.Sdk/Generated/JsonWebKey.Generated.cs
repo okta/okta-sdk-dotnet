@@ -24,7 +24,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public DateTimeOffset? Created => GetDateTimeProperty("created");
+        public DateTimeOffset? Created 
+        {
+            get => GetDateTimeProperty("created");
+            set => this["created"] = value;
+        }
         
         /// <inheritdoc/>
         public string E 
@@ -34,7 +38,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public DateTimeOffset? ExpiresAt => GetDateTimeProperty("expiresAt");
+        public DateTimeOffset? ExpiresAt 
+        {
+            get => GetDateTimeProperty("expiresAt");
+            set => this["expiresAt"] = value;
+        }
         
         /// <inheritdoc/>
         public IList<string> KeyOps 
@@ -58,7 +66,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public DateTimeOffset? LastUpdated => GetDateTimeProperty("lastUpdated");
+        public DateTimeOffset? LastUpdated 
+        {
+            get => GetDateTimeProperty("lastUpdated");
+            set => this["lastUpdated"] = value;
+        }
         
         /// <inheritdoc/>
         public string N 
@@ -68,7 +80,11 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Status => GetStringProperty("status");
+        public string Status 
+        {
+            get => GetStringProperty("status");
+            set => this["status"] = value;
+        }
         
         /// <inheritdoc/>
         public string Use 

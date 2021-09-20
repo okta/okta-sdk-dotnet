@@ -48,7 +48,7 @@ namespace Okta.Sdk
         /// <returns>The <see cref="IOktaClient">OktaClient</see> that created this resource.</returns>
         protected IOktaClient GetClient()
         {
-            return _client ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object cna call server-side methods.");
+            return _client ?? throw new InvalidOperationException("Only resources retrieved or saved through a Client object can call server-side methods.");
         }
 
         /// <inheritdoc/>
@@ -315,8 +315,10 @@ namespace Okta.Sdk
         {
             var nestedData = GetPropertyOrNull(key) as IDictionary<string, object>;
             var resourceProperty = _resourceFactory.CreateFromExistingData<T>(nestedData);
+
             if (nestedData == null)
             {
+                resourceProperty = default(T);
                 SetProperty(key, resourceProperty);
             }
 

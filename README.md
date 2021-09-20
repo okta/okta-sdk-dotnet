@@ -30,6 +30,8 @@ This repository contains the Okta management SDK for .NET. This SDK can be used 
 * Manage linked objects with the [Linked Objects API](https://developer.okta.com/docs/reference/api/linked-objects/).
 * Manage trusted origins with the [Trusted Origins API](https://developer.okta.com/docs/reference/api/trusted-origins/).
 * Manage user types with the [User Types API](https://developer.okta.com/docs/reference/api/user-types/).
+* Manage custom domains with the [Domains API](https://developer.okta.com/docs/reference/api/domains/).
+* Manage network zones with the [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
 * Much more!
 
 
@@ -49,10 +51,11 @@ This library uses semantic versioning and follows Okta's [library version policy
 | Version | Status                    |
 | ------- | ------------------------- |
 | 0.3.3   | :warning: Retired on 2019-12-11 ([migration guide](MIGRATING.md))  |
-| 1.x | :warning: Retiring on 2020-12-27 |
+| 1.x | :warning: Retired on 2020-12-27 |
 | 2.x | :warning: Retiring on 2021-04-10 ([migration guide](MIGRATING.md))  |
 | 3.x | :warning: Retiring on 2021-08-11 ([migration guide](MIGRATING.md)) |
-| 4.x | :heavy_check_mark: Stable |
+| 4.x | :warning: Retiring on 2021-12-25 ([migration guide](MIGRATING.md)) |
+| 5.x | :heavy_check_mark: Stable |
 
  
 The latest release can always be found on the [releases page][github-releases].
@@ -136,6 +139,33 @@ var client = new OktaClient(new OktaClientConfiguration
     PrivateKey =  new JsonWebKeyConfiguration(jsonString)
 });
 ```
+
+Key object for assigning to the PrivateKey can be created and initialized inline like in this example for RSA key:
+
+``` csharp
+var privateKey = new JsonWebKeyConfiguration
+{
+    P = "{{P}}",
+    Kty = "RSA",
+    Q = "{{Q}}",
+    D = "{{D}}",
+    E = "{{E}}",
+    Kid = "{{P}}",
+    Qi = "{{Qi}}"
+};
+
+var clientConfiguration = new OktaClientConfiguration
+{
+    OktaDomain = "https://{{yourOktaDomain}}",
+    AuthorizationMode = AuthorizationMode.PrivateKey,
+    ClientId = "{{clientId}}",
+    Scopes = new List<string> { "okta.users.read", "okta.apps.read" }, // Add all the scopes you need
+    PrivateKey = privateKey
+};
+
+var client = new OktaClient(clientConfiguration);
+```
+
 
 ## Usage guide
 

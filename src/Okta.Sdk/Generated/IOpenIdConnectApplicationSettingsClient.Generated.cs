@@ -23,6 +23,8 @@ namespace Okta.Sdk
 
         IList<OAuthGrantType> GrantTypes { get; set; }
 
+        IOpenIdConnectApplicationIdpInitiatedLogin IdpInitiatedLogin { get; set; }
+
         string InitiateLoginUri { get; set; }
 
         OpenIdConnectApplicationIssuerMode IssuerMode { get; set; }
@@ -42,6 +44,8 @@ namespace Okta.Sdk
         IList<OAuthResponseType> ResponseTypes { get; set; }
 
         string TermsOfServiceUri { get; set; }
+
+        string WildcardRedirect { get; set; }
 
     }
 }

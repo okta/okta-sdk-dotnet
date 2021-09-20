@@ -120,6 +120,14 @@ namespace Okta.Sdk
         ILinkedObjectsClient LinkedObjects { get; }
 
         /// <summary>
+        /// Gets an <see cref="IUserSchemasClient">UserSchemasClient</see> that interacts with the Okta Schemas API.
+        /// </summary>
+        /// <value>
+        /// An <see cref="ILinkedObjectsClient">UserSchemasClient</see> that interacts with the Okta Schemas API.
+        /// </value>
+        IUserSchemasClient UserSchemas { get; }
+
+        /// <summary>
         /// Gets an <see cref="ITrustedOriginsClient">TrustedOriginsClient</see> that interacts with the Okta Trusted Origins API.
         /// </summary>
         /// <value>
@@ -150,6 +158,22 @@ namespace Okta.Sdk
         /// A <see cref="ITemplatesClient">TemplatesClient</see> that interacts with the Okta Templates API.
         /// </value>
         ITemplatesClient Templates { get; }
+
+        /// <summary>
+        /// Gets a <see cref="INetworkZonesClient">NetworkZonesClient</see> that interacts with the Okta Network Zones API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="INetworkZonesClient">NetworkZonesClient</see> that interacts with the Okta Network Zones API.
+        /// </value>
+        INetworkZonesClient NetworkZones { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IDomainsClient">DomainsClient</see> that interacts with the Okta Domains API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IDomainsClient">DomainsClient</see> that interacts with the Okta Domains API.
+        /// </value>
+        IDomainsClient Domains { get; }
 
         /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.

@@ -17,6 +17,13 @@ namespace Okta.Sdk
     public sealed partial class ApplicationVisibility : Resource, IApplicationVisibility
     {
         /// <inheritdoc/>
+        public bool? AutoLaunch 
+        {
+            get => GetBooleanProperty("autoLaunch");
+            set => this["autoLaunch"] = value;
+        }
+        
+        /// <inheritdoc/>
         public bool? AutoSubmitToolbar 
         {
             get => GetBooleanProperty("autoSubmitToolbar");

@@ -15,6 +15,9 @@ namespace Okta.Sdk
         /// <summary>The OKTA_AUTHENTICATION_PROVIDER LogCredentialProvider.</summary>
         public static LogCredentialProvider Okta = new LogCredentialProvider("OKTA_AUTHENTICATION_PROVIDER");
 
+        /// <summary>The OKTA_CREDENTIAL_PROVIDER LogCredentialProvider.</summary>
+        public static LogCredentialProvider OktaCredentialProvider = new LogCredentialProvider("OKTA_CREDENTIAL_PROVIDER");
+
         /// <summary>The RSA LogCredentialProvider.</summary>
         public static LogCredentialProvider Rsa = new LogCredentialProvider("RSA");
 

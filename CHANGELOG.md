@@ -1,6 +1,75 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.2.0
+
+### Features
+
+- Regenerate code using the [open API spec v2.6.0](https://github.com/okta/okta-management-openapi-spec/releases/tag/openapi-2.6.0)
+- Add new models and operations to support all the [Domains API's endpoints](https://developer.okta.com/docs/reference/api/domains/) and [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
+
+## v5.1.1
+
+### Features
+
+* Change JWT Expiration time - 50 minutes will be used in order to have a 10 minutes leeway in case of clock skew.
+
+## v5.1.0
+
+### Features
+
+- Update dependencies
+
+* `FlexibleConfiguration 1.2.2 -> 2.0.0`
+* `Microsoft.Extensions.Logging 3.1.1 -> 5.0.0`
+* `System.IdentityModel.Tokens.Jwt 5.6.0 -> 6.11.1`
+* `Newtonsoft.Json 12.0.3 -> 13.0.1`
+* `System.Interactive.Async 4.0.0 -> 5.0.0`
+
+## v5.0.0
+
+### Features
+
+- Regenerate code using the [open API spec v2.3.0](https://github.com/okta/okta-management-openapi-spec/releases/tag/openapi-2.3.0).
+- Add new models and operations to support all the [UserSchema API's endpoints](https://developer.okta.com/docs/reference/api/schemas/).
+
+_New models:_
+
+* UserSchema
+* UserSchemaAttribute
+* UserSchemaAttributeMaster
+* UserSchemaAttributePermission
+* UserSchemaBase
+* UserSchemaBaseProperties
+* UserSchemaDefinitions
+* UserSchemaPublic
+* UserSchemasClient
+
+### Breaking changes
+
+- [Change in default behavior when serializing resources (JSON objects)](https://github.com/okta/okta-sdk-dotnet/pull/477/files#diff-6436f2d9902dcaed04626994e79b8c0da031d73e6ff937b1ec1014544228a5feR319). Previously, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties would result in `null` property value. 
+
+_Before:_
+
+```
+{                                                 deserializedResource.Prop1.Should().Be("Hello World!");          
+    prop1 : "Hello World!",         =>            deserializedResource.NestedObject.Should().NotBeNull();
+    nestedObject: null                            deserializedResource.NestedObject.Prop1.Should().BeNull();
+}
+
+```
+
+_Now:_
+
+```
+{                                                 deserializedResource.Prop1.Should().Be("Hello World!");          
+    prop1 : "Hello World!",         =>            deserializedResource.NestedObject.Should().BeNull();
+    nestedObject: null                            
+}
+
+```
+
+
 ## v4.0.0
 
 ### Features

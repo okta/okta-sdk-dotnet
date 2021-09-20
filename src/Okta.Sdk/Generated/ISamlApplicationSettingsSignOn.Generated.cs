@@ -41,6 +41,8 @@ namespace Okta.Sdk
 
         string IdpIssuer { get; set; }
 
+        IList<ISignOnInlineHook> InlineHooks { get; set; }
+
         string Recipient { get; set; }
 
         string RecipientOverride { get; set; }
@@ -50,6 +52,10 @@ namespace Okta.Sdk
         bool? ResponseSigned { get; set; }
 
         string SignatureAlgorithm { get; set; }
+
+        ISingleLogout Slo { get; set; }
+
+        ISpCertificate SpCertificate { get; set; }
 
         string SpIssuer { get; set; }
 

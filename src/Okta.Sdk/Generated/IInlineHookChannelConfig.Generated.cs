@@ -19,6 +19,8 @@ namespace Okta.Sdk
 
         IList<IInlineHookChannelConfigHeaders> Headers { get; set; }
 
+        string Method { get; set; }
+
         string Uri { get; set; }
 
     }

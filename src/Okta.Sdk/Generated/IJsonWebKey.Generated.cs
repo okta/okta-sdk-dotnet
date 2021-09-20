@@ -17,11 +17,11 @@ namespace Okta.Sdk
     {
         string Alg { get; set; }
 
-        DateTimeOffset? Created { get; }
+        DateTimeOffset? Created { get; set; }
 
         string E { get; set; }
 
-        DateTimeOffset? ExpiresAt { get; }
+        DateTimeOffset? ExpiresAt { get; set; }
 
         IList<string> KeyOps { get; set; }
 
@@ -29,11 +29,11 @@ namespace Okta.Sdk
 
         string Kty { get; set; }
 
-        DateTimeOffset? LastUpdated { get; }
+        DateTimeOffset? LastUpdated { get; set; }
 
         string N { get; set; }
 
-        string Status { get; }
+        string Status { get; set; }
 
         string Use { get; set; }
 

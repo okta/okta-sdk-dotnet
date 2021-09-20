@@ -108,6 +108,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IList<ISignOnInlineHook> InlineHooks 
+        {
+            get => GetArrayProperty<ISignOnInlineHook>("inlineHooks");
+            set => this["inlineHooks"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string Recipient 
         {
             get => GetStringProperty("recipient");
@@ -140,6 +147,20 @@ namespace Okta.Sdk
         {
             get => GetStringProperty("signatureAlgorithm");
             set => this["signatureAlgorithm"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public ISingleLogout Slo 
+        {
+            get => GetResourceProperty<SingleLogout>("slo");
+            set => this["slo"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public ISpCertificate SpCertificate 
+        {
+            get => GetResourceProperty<SpCertificate>("spCertificate");
+            set => this["spCertificate"] = value;
         }
         
         /// <inheritdoc/>

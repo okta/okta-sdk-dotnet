@@ -205,7 +205,16 @@ namespace Okta.Sdk
         public ITemplatesClient Templates => new TemplatesClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
+        public INetworkZonesClient NetworkZones => new NetworkZonesClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IDomainsClient Domains => new DomainsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IIdentityProvidersClient IdentityProviders => new IdentityProvidersClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IUserSchemasClient UserSchemas => new UserSchemasClient(_dataStore, Configuration, _requestContext);
 
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.

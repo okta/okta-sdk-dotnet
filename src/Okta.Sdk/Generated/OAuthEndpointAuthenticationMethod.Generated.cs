@@ -24,6 +24,9 @@ namespace Okta.Sdk
         /// <summary>The client_secret_jwt OAuthEndpointAuthenticationMethod.</summary>
         public static OAuthEndpointAuthenticationMethod ClientSecretJwt = new OAuthEndpointAuthenticationMethod("client_secret_jwt");
 
+        /// <summary>The private_key_jwt OAuthEndpointAuthenticationMethod.</summary>
+        public static OAuthEndpointAuthenticationMethod PrivateKeyJwt = new OAuthEndpointAuthenticationMethod("private_key_jwt");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="OAuthEndpointAuthenticationMethod"/>
         /// </summary>

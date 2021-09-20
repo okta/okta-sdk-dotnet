@@ -17,6 +17,8 @@ namespace Okta.Sdk
     {
         int? AccessTokenLifetimeMinutes { get; set; }
 
+        ITokenAuthorizationServerPolicyRuleActionInlineHook InlineHook { get; set; }
+
         int? RefreshTokenLifetimeMinutes { get; set; }
 
         int? RefreshTokenWindowMinutes { get; set; }

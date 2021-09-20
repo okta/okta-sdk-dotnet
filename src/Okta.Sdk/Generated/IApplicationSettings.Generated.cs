@@ -21,6 +21,8 @@ namespace Okta.Sdk
 
         string InlineHookId { get; set; }
 
+        IApplicationSettingsNotes Notes { get; set; }
+
         IApplicationSettingsNotifications Notifications { get; set; }
 
     }
