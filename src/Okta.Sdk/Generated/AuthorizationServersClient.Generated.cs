@@ -361,34 +361,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task ActivateAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["policyId"] = policyId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task DeactivateAuthorizationServerPolicyAsync(string authServerId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["policyId"] = policyId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public ICollectionClient<IAuthorizationServerPolicyRule> ListAuthorizationServerPolicyRules(string policyId, string authServerId)
             => GetCollectionClient<IAuthorizationServerPolicyRule>(new HttpRequest
             {
@@ -457,36 +429,6 @@ namespace Okta.Sdk
                 {
                     ["policyId"] = policyId,
                     ["authServerId"] = authServerId,
-                    ["ruleId"] = ruleId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task ActivateAuthorizationServerPolicyRuleAsync(string authServerId, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["policyId"] = policyId,
-                    ["ruleId"] = ruleId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task DeactivateAuthorizationServerPolicyRuleAsync(string authServerId, string policyId, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
-            {
-                Uri = "/api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["authServerId"] = authServerId,
-                    ["policyId"] = policyId,
                     ["ruleId"] = ruleId,
                 },
                 }, cancellationToken).ConfigureAwait(false);

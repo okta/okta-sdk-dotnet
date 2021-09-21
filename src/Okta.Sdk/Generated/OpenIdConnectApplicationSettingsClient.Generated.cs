@@ -121,12 +121,5 @@ namespace Okta.Sdk
             set => this["tos_uri"] = value;
         }
         
-        /// <inheritdoc/>
-        public string WildcardRedirect 
-        {
-            get => GetStringProperty("wildcard_redirect");
-            set => this["wildcard_redirect"] = value;
-        }
-        
     }
 }

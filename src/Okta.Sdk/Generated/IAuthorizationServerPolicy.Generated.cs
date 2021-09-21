@@ -47,11 +47,5 @@ namespace Okta.Sdk
         Task DeletePolicyRuleAsync(
             string authServerId, string ruleId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task ActivateAsync(
-            string authServerId, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task DeactivateAsync(
-            string authServerId, CancellationToken cancellationToken = default(CancellationToken));
-
     }
 }

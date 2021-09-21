@@ -17,14 +17,6 @@ namespace Okta.Sdk
     {
         string Description { get; set; }
 
-        IList<string> Enum { get; set; }
-
-        string ExternalName { get; set; }
-
-        string ExternalNamespace { get; set; }
-
-        IUserSchemaAttributeItems Items { get; set; }
-
         IUserSchemaAttributeMaster Master { get; set; }
 
         int? MaxLength { get; set; }
@@ -33,23 +25,15 @@ namespace Okta.Sdk
 
         string Mutability { get; set; }
 
-        IList<IUserSchemaAttributeEnum> OneOf { get; set; }
-
-        string Pattern { get; set; }
-
         IList<IUserSchemaAttributePermission> Permissions { get; set; }
 
         bool? Required { get; set; }
 
-        UserSchemaAttributeScope Scope { get; set; }
+        string Scope { get; set; }
 
         string Title { get; set; }
 
-        UserSchemaAttributeType Type { get; set; }
-
-        UserSchemaAttributeUnion Union { get; set; }
-
-        string Unique { get; set; }
+        string Type { get; set; }
 
     }
 }

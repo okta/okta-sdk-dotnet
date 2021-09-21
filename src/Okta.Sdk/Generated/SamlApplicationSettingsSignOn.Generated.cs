@@ -108,13 +108,6 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IList<ISignOnInlineHook> InlineHooks 
-        {
-            get => GetArrayProperty<ISignOnInlineHook>("inlineHooks");
-            set => this["inlineHooks"] = value;
-        }
-        
-        /// <inheritdoc/>
         public string Recipient 
         {
             get => GetStringProperty("recipient");

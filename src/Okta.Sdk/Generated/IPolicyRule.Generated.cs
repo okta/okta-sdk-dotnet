@@ -15,17 +15,11 @@ namespace Okta.Sdk
     /// <summary>Represents a PolicyRule resource in the Okta API.</summary>
     public partial interface IPolicyRule : IResource
     {
-        IPolicyRuleActions Actions { get; set; }
-
-        IPolicyRuleConditions Conditions { get; set; }
-
         DateTimeOffset? Created { get; }
 
         string Id { get; }
 
         DateTimeOffset? LastUpdated { get; }
-
-        string Name { get; set; }
 
         int? Priority { get; set; }
 

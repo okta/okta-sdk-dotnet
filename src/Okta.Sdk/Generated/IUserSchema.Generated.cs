@@ -27,7 +27,7 @@ namespace Okta.Sdk
 
         string Name { get; }
 
-        IUserSchemaProperties Properties { get; }
+        Resource Properties { get; }
 
         string Title { get; set; }
 

@@ -18,9 +18,6 @@ namespace Okta.Sdk
         /// <summary>The email FactorType.</summary>
         public static FactorType Email = new FactorType("email");
 
-        /// <summary>The hotp FactorType.</summary>
-        public static FactorType Hotp = new FactorType("hotp");
-
         /// <summary>The push FactorType.</summary>
         public static FactorType Push = new FactorType("push");
 

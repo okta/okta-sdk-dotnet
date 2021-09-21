@@ -70,11 +70,6 @@ namespace Okta.Sdk.Internal
                 return typeof(HardwareUserFactor);
             }
             
-            if (value.Equals("token:hotp"))
-            {
-                return typeof(CustomHotpUserFactor);
-            }
-            
             if (value.Equals("token:software:totp"))
             {
                 return typeof(TotpUserFactor);

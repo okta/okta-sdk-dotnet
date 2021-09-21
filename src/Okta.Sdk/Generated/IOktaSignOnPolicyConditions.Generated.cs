@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a OktaSignOnPolicyConditions resource in the Okta API.</summary>
-    public partial interface IOktaSignOnPolicyConditions : IPolicyRuleConditions
+    public partial interface IOktaSignOnPolicyConditions : IResource
     {
         IPolicyPeopleCondition People { get; set; }
 

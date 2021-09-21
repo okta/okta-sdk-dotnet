@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class PasswordPolicyRuleConditions : PolicyRuleConditions, IPasswordPolicyRuleConditions
+    public sealed partial class PasswordPolicyRuleConditions : Resource, IPasswordPolicyRuleConditions
     {
         /// <inheritdoc/>
         public IPolicyNetworkCondition Network 

@@ -41,8 +41,6 @@ namespace Okta.Sdk
 
         string IdpIssuer { get; set; }
 
-        IList<ISignOnInlineHook> InlineHooks { get; set; }
-
         string Recipient { get; set; }
 
         string RecipientOverride { get; set; }
