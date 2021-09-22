@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public ITokenAuthorizationServerPolicyRuleActionInlineHook InlineHook 
+        {
+            get => GetResourceProperty<TokenAuthorizationServerPolicyRuleActionInlineHook>("inlineHook");
+            set => this["inlineHook"] = value;
+        }
+        
+        /// <inheritdoc/>
         public int? RefreshTokenLifetimeMinutes 
         {
             get => GetIntegerProperty("refreshTokenLifetimeMinutes");

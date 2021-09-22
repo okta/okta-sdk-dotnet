@@ -38,6 +38,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IApplicationSettingsNotes Notes 
+        {
+            get => GetResourceProperty<ApplicationSettingsNotes>("notes");
+            set => this["notes"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IApplicationSettingsNotifications Notifications 
         {
             get => GetResourceProperty<ApplicationSettingsNotifications>("notifications");

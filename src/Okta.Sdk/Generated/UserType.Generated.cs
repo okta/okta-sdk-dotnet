@@ -59,5 +59,10 @@ namespace Okta.Sdk
             set => this["name"] = value;
         }
         
+        /// <inheritdoc />
+        public Task<IUserType> ReplaceUserTypeAsync(IUserType userType, 
+            string typeId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().UserTypes.ReplaceUserTypeAsync(userType, typeId, cancellationToken);
+        
     }
 }

@@ -45,5 +45,7 @@ namespace Okta.Sdk
 
         string TermsOfServiceUri { get; set; }
 
+        string WildcardRedirect { get; set; }
+
     }
 }
