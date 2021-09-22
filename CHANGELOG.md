@@ -11,6 +11,7 @@ Running changelog of releases since `3.1.1`
 * [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/)
 * [Mappings API's endpoints](https://developer.okta.com/docs/reference/api/mappings/)
 * [ThreatInsight configuration API's endpoints](https://developer.okta.com/docs/reference/api/threat-insight/)
+- Add an overload for GroupsClient.DeleteGroupRuleAsync function. Now you can specify `removeUsers` parameter indicating whether to keep or remove users from groups assigned by this rule.
 
 ### Bug Fixes
 
