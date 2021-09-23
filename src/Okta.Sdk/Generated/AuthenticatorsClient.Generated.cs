@@ -51,8 +51,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task ActivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public async Task<IAuthenticator> ActivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<Authenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators/{authenticatorId}/lifecycle/activate",
                 Verb = HttpVerb.Post,
@@ -64,8 +64,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task DeactivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public async Task<IAuthenticator> DeactivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<Authenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators/{authenticatorId}/lifecycle/deactivate",
                 Verb = HttpVerb.Post,

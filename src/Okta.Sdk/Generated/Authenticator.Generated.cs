@@ -61,12 +61,12 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task ActivateAsync(
+        public Task<IAuthenticator> ActivateAsync(
             CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Authenticators.ActivateAuthenticatorAsync(Id, cancellationToken);
         
         /// <inheritdoc />
-        public Task DeactivateAsync(
+        public Task<IAuthenticator> DeactivateAsync(
             CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Authenticators.DeactivateAuthenticatorAsync(Id, cancellationToken);
         

@@ -12,6 +12,9 @@ namespace Okta.Sdk
     /// </summary>
     public sealed class AuthenticatorType : StringEnum
     {
+        /// <summary>The app AuthenticatorType.</summary>
+        public static AuthenticatorType App = new AuthenticatorType("app");
+
         /// <summary>The password AuthenticatorType.</summary>
         public static AuthenticatorType Password = new AuthenticatorType("password");
 

@@ -34,16 +34,16 @@ namespace Okta.Sdk
         /// </summary>
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task ActivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IAuthenticator"/> response.</returns>
+        Task<IAuthenticator> ActivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Success
         /// </summary>
         /// <param name="authenticatorId"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeactivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>The <see cref="IAuthenticator"/> response.</returns>
+        Task<IAuthenticator> DeactivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

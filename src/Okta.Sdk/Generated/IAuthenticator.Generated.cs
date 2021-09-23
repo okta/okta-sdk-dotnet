@@ -31,10 +31,10 @@ namespace Okta.Sdk
 
         AuthenticatorType Type { get; set; }
 
-        Task ActivateAsync(
+        Task<IAuthenticator> ActivateAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateAsync(
+        Task<IAuthenticator> DeactivateAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
     }
