@@ -14,7 +14,9 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
+    [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] 
     public sealed partial class GroupSchema : Resource, IGroupSchema
+    
     {
         /// <inheritdoc/>
         public string Schema => GetStringProperty("$schema");
