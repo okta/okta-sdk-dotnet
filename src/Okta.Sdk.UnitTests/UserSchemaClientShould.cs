@@ -81,9 +81,9 @@ namespace Okta.Sdk.UnitTests
             userSchema.Definitions.Base.Id.Should().Be("#base");
             userSchema.Definitions.Base.Type.Should().Be("object");
             userSchema.Definitions.Base.Properties.Login.Title.Should().Be("Username");
-            userSchema.Definitions.Base.Properties.Login.Type.Should().Be(UserSchemaAttributeType.String);
+            userSchema.Definitions.Base.Properties.Login.Type.Should().Be("string");
             userSchema.Definitions.Base.Properties.Login.Required.Should().BeTrue();
-            userSchema.Definitions.Base.Properties.Login.Scope.Should().Be(UserSchemaAttributeScope.None);
+            userSchema.Definitions.Base.Properties.Login.Scope.Should().Be("NONE");
             userSchema.Definitions.Base.Properties.Login.MinLength.Should().Be(5);
             userSchema.Definitions.Base.Properties.Login.MaxLength.Should().Be(100);
             userSchema.Definitions.Base.Required.Should().Contain("login");

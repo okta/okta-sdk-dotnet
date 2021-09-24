@@ -19,5 +19,13 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IGroup"/> response.</returns>
         Task<IGroup> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Removes a specific group rule by id from your organization
+        /// </summary>
+        /// <param name="ruleId">Id of the group rule</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteGroupRuleAsync(string ruleId, CancellationToken cancellationToken);
     }
 }

@@ -24,9 +24,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IList<IDNSRecord> DnsRecords 
+        public IList<IDnsRecord> DnsRecords 
         {
-            get => GetArrayProperty<IDNSRecord>("dnsRecords");
+            get => GetArrayProperty<IDnsRecord>("dnsRecords");
             set => this["dnsRecords"] = value;
         }
         

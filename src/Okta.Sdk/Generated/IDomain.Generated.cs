@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         DomainCertificateSourceType CertificateSourceType { get; set; }
 
-        IList<IDNSRecord> DnsRecords { get; set; }
+        IList<IDnsRecord> DnsRecords { get; set; }
 
         string DomainName { get; set; }
 

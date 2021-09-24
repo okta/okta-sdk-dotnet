@@ -24,7 +24,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public string Enduser 
+        public string EndUser 
         {
             get => GetStringProperty("enduser");
             set => this["enduser"] = value;

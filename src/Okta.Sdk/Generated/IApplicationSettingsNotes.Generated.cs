@@ -17,7 +17,7 @@ namespace Okta.Sdk
     {
         string Admin { get; set; }
 
-        string Enduser { get; set; }
+        string EndUser { get; set; }
 
     }
 }
