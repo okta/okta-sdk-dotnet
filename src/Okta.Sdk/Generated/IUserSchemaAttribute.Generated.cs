@@ -41,11 +41,11 @@ namespace Okta.Sdk
 
         bool? Required { get; set; }
 
-        UserSchemaAttributeScope Scope { get; set; }
+        string Scope { get; set; }
 
         string Title { get; set; }
 
-        UserSchemaAttributeType Type { get; set; }
+        string Type { get; set; }
 
         UserSchemaAttributeUnion Union { get; set; }
 

@@ -115,6 +115,8 @@ const propertyErrata = [
    { path: 'DnsRecord.recordType', model: 'DnsRecordType', modelReason: 'Match the changed type name'},
    { path: 'PolicyRuleActions.signon', rename: 'SignOn', renameReason: 'Pattern consistency'},
    { path: 'ApplicationSettingsNotes.enduser', rename: 'EndUser', renameReason: 'Pattern consistency'},
+   { path: 'UserSchemaAttribute.type', type: 'string', typeReason: 'Avoiding breaking change. Think about another approach in a next major version!!!!' },
+   { path: 'UserSchemaAttribute.scope', type: 'string', typeReason: 'Avoiding breaking change. Think about another approach in a next major version!!!!' },
   ];
 
 const enumErrata = [

@@ -29,6 +29,10 @@ namespace Okta.Sdk
             return CreateGroupAsync(newGroup, cancellationToken);
         }
 
+        /// <inheritdoc />
+        public Task DeleteGroupRuleAsync(string ruleId, CancellationToken cancellationToken)
+            => DeleteGroupRuleAsync(ruleId, removeUsers: null, cancellationToken);
+
         /// <inheritdoc/>
         public IAsyncEnumerator<IGroup> GetAsyncEnumerator(CancellationToken cancellationToken = default) => ListGroups().GetAsyncEnumerator(cancellationToken);
     }
