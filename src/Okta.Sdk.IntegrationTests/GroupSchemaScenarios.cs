@@ -27,7 +27,7 @@ namespace Okta.Sdk.IntegrationTests
             groupSchema.Name.Should().Be("group");
         }
 
-        [Fact]
+        [Fact(Skip = "Depends on OKTA-431664")]
         public async Task UpdatePropertyToGroupSchemaAsync()
         {
             var client = TestClient.Create();
