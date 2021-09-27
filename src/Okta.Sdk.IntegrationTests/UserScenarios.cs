@@ -680,6 +680,8 @@ namespace Okta.Sdk.IntegrationTests
                         Type = RoleType.OrgAdmin,
                     });
 
+                Thread.Sleep(2000);
+
                 var roles = await createdUser.Roles.ToListAsync();
                 roles.Count.Should().Be(2);
 

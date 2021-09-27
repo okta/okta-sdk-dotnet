@@ -24,6 +24,21 @@ namespace Okta.Sdk
         OktaClientConfiguration Configuration { get; }
 
         /// <summary>
+        /// Gets a <see cref="IGroupSchemasClient">GroupSchemasClient</see> that interacts with the schemas API.
+        /// </summary>
+        IGroupSchemasClient GroupSchemas { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IAuthenticatorsClient">AuthenticatorsClient</see> that interacts with the Authenticators API.
+        /// </summary>
+        IAuthenticatorsClient Authenticators { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IOrgsClient">OrgsClient</see> that interacts with the Orgs API.
+        /// </summary>
+        IOrgsClient Orgs { get; }
+
+        /// <summary>
         /// Gets a <see cref="IUserTypesClient">UserTypesClient</see> that interacts with the Okta User Types API.
         /// </summary>
         /// <value>

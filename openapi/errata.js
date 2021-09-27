@@ -145,6 +145,7 @@ const modelErrata = [
   { path: 'CSRMetadataSubject', rename: 'CsrMetadataSubject', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
   { path: 'UserSchema', includeNullValues: true },
+  { path: 'GroupSchema', includeNullValues: true },
 ];
 
 const operationErrata = [
