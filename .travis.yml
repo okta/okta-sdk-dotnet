@@ -18,25 +18,6 @@ script:
   - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
       ./build.sh --target Docs; 
     fi 
-deploy:
-- provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: docs/temp
-  email: deploy-dotnet@okta.com
-  name: ".NET Deployment Bot"
-  on:
-    condition: "$DEPLOY_DOCS = true"
-    tags: true
-- provider: pages
-  skip_cleanup: true
-  github_token: "$GITHUB_TOKEN"
-  local_dir: docs/temp
-  email: deploy-dotnet@okta.com
-  name: ".NET Deployment Bot"
-  on:
-    condition: "$DEPLOY_DOCS = true && $TRAVIS_PULL_REQUEST = false"
-    branch: master
 notifications:
   slack:
     if: type = cron
