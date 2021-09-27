@@ -40,7 +40,7 @@ namespace Okta.Sdk.IntegrationTests
             userSchema.Definitions.Base.Required.Should().Contain("login");
         }
 
-        [Fact]
+        [Fact(Skip = "Depends on OKTA-431664")]
         public async Task UpdateUserProfileSchemaProperty()
         {
             var testClient = TestClient.Create();
