@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
@@ -40,7 +41,7 @@ namespace Okta.Sdk.IntegrationTests
             userSchema.Definitions.Base.Required.Should().Contain("login");
         }
 
-        [Fact(Skip = "Depends on OKTA-431664")]
+        [Fact]
         public async Task UpdateUserProfileSchemaProperty()
         {
             var testClient = TestClient.Create();
@@ -81,6 +82,9 @@ namespace Okta.Sdk.IntegrationTests
             retrievedCustomAttribute.MaxLength.Should().Be(20);
             retrievedCustomAttribute.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
+
+            // Wait for job to be finished
+            Thread.Sleep(3000);
 
             // Remove custom attribute
             customAttribute["twitterUserName"] = null;

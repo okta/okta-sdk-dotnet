@@ -6,6 +6,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
@@ -27,7 +28,7 @@ namespace Okta.Sdk.IntegrationTests
             groupSchema.Name.Should().Be("group");
         }
 
-        [Fact(Skip = "Depends on OKTA-431664")]
+        [Fact]
         public async Task UpdatePropertyToGroupSchemaAsync()
         {
             var client = TestClient.Create();
@@ -68,6 +69,9 @@ namespace Okta.Sdk.IntegrationTests
             retrievedCustomAttribute.MaxLength.Should().Be(20);
             retrievedCustomAttribute.Permissions.FirstOrDefault().Principal.Should().Be("SELF");
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
+
+            // Wait for job to be finished
+            Thread.Sleep(3000);
 
             // Remove custom attribute
             customAttribute["groupContact"] = null;
