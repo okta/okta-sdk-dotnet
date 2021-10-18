@@ -15,9 +15,6 @@ script:
     else
         ./build.sh;
     fi
-  - if [[ $DEPLOY_DOCS = true  && ($TRAVIS_PULL_REQUEST = false && $TRAVIS_BRANCH = master || "$TRAVIS_TAG" != "") ]]; then 
-      ./build.sh --target Docs; 
-    fi 
 notifications:
   slack:
     if: type = cron
