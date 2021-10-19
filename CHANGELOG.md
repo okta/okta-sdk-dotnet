@@ -1,6 +1,14 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+
+## v5.2.1
+
+### Update
+
+- Remove FlexibleConfiguration dependency and use .NET Configuration Providers instead.
+
+
 ## v5.2.0
 
 ### Features
