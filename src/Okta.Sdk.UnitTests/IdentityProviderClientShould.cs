@@ -218,7 +218,7 @@ namespace Okta.Sdk.UnitTests
 
             var expectedBody = $"{{\"type\":\"CUSTOM TYPE IDP\",\"name\":\"dotnet-sdk:Custom Idp\"}}";
             mockRequestExecutor.ReceivedHref.Should().StartWith("/api/v1/idps");
-            mockRequestExecutor.ReceivedBody.Should().Be(expectedBody)
+            mockRequestExecutor.ReceivedBody.Should().Be(expectedBody);
         }
     }
 }
