@@ -5,6 +5,8 @@
 
 // This file was automatically generated. Don't modify it directly.
 
+using System;
+
 namespace Okta.Sdk
 {
     /// <summary>
@@ -28,6 +30,7 @@ namespace Okta.Sdk
         public static FactorStatus Enrolled = new FactorStatus("ENROLLED");
 
         /// <summary>The DISABLED FactorStatus.</summary>
+        [Obsolete("This status is never used nor included in any API repsone; it will be removed in a later release.")]
         public static FactorStatus Disabled = new FactorStatus("DISABLED");
 
         /// <summary>The EXPIRED FactorStatus.</summary>
