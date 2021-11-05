@@ -111,7 +111,13 @@ const propertyErrata = [
    { path: 'LogEvent.client', rename: 'clientInfo', renameReason: 'Convention', model: 'LogClientInfo', modelReason: 'Convention' },
    { path: 'Session.amr', rename: 'authenticationMethodReference', renameReason: 'Legibility' },
    { path: 'Domain.domain', rename: 'DomainName', renameReason: '.NET type name and member name cannot be identical' },   
-];
+   { path: 'Domain.dnsRecords', model: 'DnsRecord', modelReason: 'Match the changed type name'},
+   { path: 'DnsRecord.recordType', model: 'DnsRecordType', modelReason: 'Match the changed type name'},
+   { path: 'PolicyRuleActions.signon', rename: 'SignOn', renameReason: 'Pattern consistency'},
+   { path: 'ApplicationSettingsNotes.enduser', rename: 'EndUser', renameReason: 'Pattern consistency'},
+   { path: 'UserSchemaAttribute.type', type: 'string', typeReason: 'Avoiding breaking change. Think about another approach in a next major version!!!!' },
+   { path: 'UserSchemaAttribute.scope', type: 'string', typeReason: 'Avoiding breaking change. Think about another approach in a next major version!!!!' },
+  ];
 
 const enumErrata = [
   { path: 'ApplicationSignOnMode.openidConnect', rename: 'openIdConnect', renameReason: 'Convention' },
@@ -132,11 +138,14 @@ const enumErrata = [
 
 const modelErrata = [
   { path: 'LogClient', rename: 'LogClientInfo', renameReason: 'Legibility' },
+  { path: 'DNSRecord', rename: 'DnsRecord', renameReason: 'Pattern consistency' },
+  { path: 'DNSRecordType', rename: 'DnsRecordType', renameReason: 'Pattern consistency' }, 
   { path: 'CSR', rename: 'Csr', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadata', rename: 'CsrMetadata', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubject', rename: 'CsrMetadataSubject', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
   { path: 'UserSchema', includeNullValues: true },
+  { path: 'GroupSchema', includeNullValues: true },
 ];
 
 const operationErrata = [

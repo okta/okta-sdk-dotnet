@@ -39,6 +39,9 @@ namespace Okta.Sdk
         /// <summary>The REPORT_ADMIN RoleType.</summary>
         public static RoleType ReportAdmin = new RoleType("REPORT_ADMIN");
 
+        /// <summary>The GROUP_MEMBERSHIP_ADMIN RoleType.</summary>
+        public static RoleType GroupMembershipAdmin = new RoleType("GROUP_MEMBERSHIP_ADMIN");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="RoleType"/>
         /// </summary>

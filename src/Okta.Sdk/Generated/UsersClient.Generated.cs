@@ -654,6 +654,20 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public async Task<IRole> GetUserRoleAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<Role>(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/roles/{roleId}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["roleId"] = roleId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public ICollectionClient<ICatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForUser(string userId, string roleId, string after = null, int? limit = 20)
             => GetCollectionClient<ICatalogApplication>(new HttpRequest
             {

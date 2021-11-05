@@ -23,7 +23,7 @@ namespace Okta.Sdk
 
         IPasswordPolicyRuleAction SelfServiceUnlock { get; set; }
 
-        IOktaSignOnPolicyRuleSignonActions Signon { get; set; }
+        IOktaSignOnPolicyRuleSignonActions SignOn { get; set; }
 
     }
 }

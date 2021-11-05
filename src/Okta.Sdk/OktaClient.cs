@@ -10,9 +10,12 @@ using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using FlexibleConfiguration;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
+using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
+using Okta.Sdk.Abstractions.Configuration.Providers.Object;
+using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
 using Okta.Sdk.Configuration;
 using Okta.Sdk.Internal;
 
@@ -160,6 +163,15 @@ namespace Okta.Sdk
             => new OktaClient(_dataStore, Configuration, requestContext);
 
         /// <inheritdoc/>
+        public IGroupSchemasClient GroupSchemas => new GroupSchemasClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IAuthenticatorsClient Authenticators => new AuthenticatorsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IOrgsClient Orgs => new OrgsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IUserTypesClient UserTypes => new UserTypesClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
@@ -209,6 +221,12 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IDomainsClient Domains => new DomainsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IProfileMappingsClient ProfileMappings => new ProfileMappingsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
+        public IThreatInsightsClient ThreatInsights => new ThreatInsightsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
         public IIdentityProvidersClient IdentityProviders => new IdentityProvidersClient(_dataStore, Configuration, _requestContext);

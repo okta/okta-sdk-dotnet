@@ -3,6 +3,8 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -191,6 +193,32 @@ namespace Okta.Sdk.UnitTests
             tokens.FirstOrDefault().Scopes.Should().ContainInOrder("openid", "foo");
         }
 
+        [Fact]
+        public async Task CreateCustomIdp()
+        {
+            var rawResponse = @"{
+                                  ""id"": ""foo"",
+                                  ""issuerMode"": ""ORG_URL"",
+                                  ""name"": ""dotnet-sdk:AddGeneric2021-10-20 3:37:36 PM"",
+                                  ""status"": ""INACTIVE"",
+                                  ""created"": ""2021-10-20T15:37:37.000Z"",
+                                  ""lastUpdated"": ""2021-10-20T15:37:37.000Z"",
+                                }";
 
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var idp = new IdentityProvider()
+            {
+                Type = "CUSTOM TYPE IDP",
+                Name = $"dotnet-sdk:Custom Idp",
+            };
+
+            var createdIdp = await client.IdentityProviders.CreateIdentityProviderAsync(idp);
+
+            var expectedBody = $"{{\"type\":\"CUSTOM TYPE IDP\",\"name\":\"dotnet-sdk:Custom Idp\"}}";
+            mockRequestExecutor.ReceivedHref.Should().StartWith("/api/v1/idps");
+            mockRequestExecutor.ReceivedBody.Should().Be(expectedBody);
+        }
     }
 }

@@ -1,12 +1,34 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+
+## v5.2.1
+
+### Update
+
+- Remove FlexibleConfiguration dependency and use .NET Configuration Providers instead.
+
+
 ## v5.2.0
 
 ### Features
 
 - Regenerate code using the [open API spec v2.6.0](https://github.com/okta/okta-management-openapi-spec/releases/tag/openapi-2.6.0)
-- Add new models and operations to support all the [Domains API's endpoints](https://developer.okta.com/docs/reference/api/domains/) and [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/).
+- Add new models and operations to support the following:
+* [Domains API's endpoints](https://developer.okta.com/docs/reference/api/domains/)
+* [Zones API's endpoints](https://developer.okta.com/docs/reference/api/zones/)
+* [Mappings API's endpoints](https://developer.okta.com/docs/reference/api/mappings/)
+* [ThreatInsight configuration API's endpoints](https://developer.okta.com/docs/reference/api/threat-insight/)
+* [Authenticators API's endpoints](https://developer.okta.com/docs/reference/api/authenticators-admin/)
+* [Org API's endpoints](https://developer.okta.com/docs/reference/api/org/)
+* [GroupSchema API's endpoints](https://developer.okta.com/docs/reference/api/schemas/#group-schema-operations)
+- Add an overload for `GroupsClient.DeleteGroupRuleAsync` method. Now you can specify `removeUsers` parameter indicating whether to keep or remove users from groups assigned by this rule.
+
+
+### Bug Fixes
+
+- Fix GroupsClient.ListGroups `filter` parameter doesn't work. Replaced with `search` parameter.
+- Fix AuthorizationServerPolicyRule.ActivateAsync doesn't work.
 
 ## v5.1.1
 

@@ -108,9 +108,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public UserSchemaAttributeScope Scope 
+        public string Scope 
         {
-            get => GetEnumProperty<UserSchemaAttributeScope>("scope");
+            get => GetStringProperty("scope");
             set => this["scope"] = value;
         }
         
@@ -122,9 +122,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public UserSchemaAttributeType Type 
+        public string Type 
         {
-            get => GetEnumProperty<UserSchemaAttributeType>("type");
+            get => GetStringProperty("type");
             set => this["type"] = value;
         }
         

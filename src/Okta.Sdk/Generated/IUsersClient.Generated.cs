@@ -384,6 +384,15 @@ namespace Okta.Sdk
         Task RemoveRoleFromUserAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Gets role that is assigne to user.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="roleId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IRole"/> response.</returns>
+        Task<IRole> GetUserRoleAsync(string userId, string roleId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Lists all App targets for an `APP_ADMIN` Role assigned to a User. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID.
         /// </summary>
         /// <param name="userId"></param>

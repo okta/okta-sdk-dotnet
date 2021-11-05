@@ -24,6 +24,21 @@ namespace Okta.Sdk
         OktaClientConfiguration Configuration { get; }
 
         /// <summary>
+        /// Gets a <see cref="IGroupSchemasClient">GroupSchemasClient</see> that interacts with the schemas API.
+        /// </summary>
+        IGroupSchemasClient GroupSchemas { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IAuthenticatorsClient">AuthenticatorsClient</see> that interacts with the Authenticators API.
+        /// </summary>
+        IAuthenticatorsClient Authenticators { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IOrgsClient">OrgsClient</see> that interacts with the Orgs API.
+        /// </summary>
+        IOrgsClient Orgs { get; }
+
+        /// <summary>
         /// Gets a <see cref="IUserTypesClient">UserTypesClient</see> that interacts with the Okta User Types API.
         /// </summary>
         /// <value>
@@ -175,6 +190,21 @@ namespace Okta.Sdk
         /// </value>
         IDomainsClient Domains { get; }
 
+        /// <summary>
+        /// Gets a <see cref="IProfileMappingsClient">ProfileMappingsClient</see> that interacts with the Okta Mappings API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IProfileMappingsClient">ProfileMappingsClient</see> that interacts with the Okta Mappings API.
+        /// </value>
+        IProfileMappingsClient ProfileMappings { get; }
+
+        /// <summary>
+        /// Gets a <see cref="IThreatInsightsClient">ThreatInsightsClient</see> Okta ThreatInsight configuration API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="IProfileMappingsClient">ThreatInsightsClient</see> that interacts with the Okta ThreatInsight configuration API.
+        /// </value>
+        IThreatInsightsClient ThreatInsights { get; }
         /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
         /// </summary>

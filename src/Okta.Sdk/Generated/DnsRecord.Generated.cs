@@ -1,4 +1,4 @@
-// <copyright file="DNSRecord.Generated.cs" company="Okta, Inc">
+// <copyright file="DnsRecord.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class DNSRecord : Resource, IDNSRecord
+    public sealed partial class DnsRecord : Resource, IDnsRecord
     {
         /// <inheritdoc/>
         public string Expiration 
@@ -31,9 +31,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public DNSRecordType RecordType 
+        public DnsRecordType RecordType 
         {
-            get => GetEnumProperty<DNSRecordType>("recordType");
+            get => GetEnumProperty<DnsRecordType>("recordType");
             set => this["recordType"] = value;
         }
         
