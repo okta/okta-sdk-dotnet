@@ -166,7 +166,22 @@ var clientConfiguration = new OktaClientConfiguration
 var client = new OktaClient(clientConfiguration);
 ```
 
+It is possible to use previously requested access token for an authentication. For that set `AuthorizationMode` configuration property to `AuthorizationMode.OAuthAccessToken` and `OAuthAccessToken`  to the token string. It is also possible to provide a token renew function, SDK will call the function access token expires.
 
+
+```csharp
+    var client = new OktaClient(new OktaClientConfiguration
+        {
+            ClientId = "<clientId>",
+            AuthorizationMode = AuthorizationMode.OAuthAccessToken,
+            OAuthAccessToken = "<pre-requested access token>",
+        },
+        oauthTokenRenewer: async () =>
+        {
+            return await GetNewToken();
+        }
+        );
+```
 ## Usage guide
 
 These examples will help you understand how to use this library. You can also browse the full [API reference documentation][dotnetdocs].
