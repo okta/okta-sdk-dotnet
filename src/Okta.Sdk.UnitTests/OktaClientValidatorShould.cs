@@ -195,5 +195,36 @@ namespace Okta.Sdk.UnitTests
             Action action = () => OktaClientConfigurationValidator.Validate(configuration);
             action.Should().NotThrow();
         }
+
+        [Fact]
+        public void FailWhenAccessTokenNotProvidedAndAuthorizationModeIsOAuthAccessToken()
+        {
+            var configuration = new OktaClientConfiguration
+            {
+                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                AuthorizationMode = AuthorizationMode.OAuthAccessToken,
+                ClientId = "foo",
+                Scopes = new List<string> { "foo" },
+            };
+
+            Action action = () => OktaClientConfigurationValidator.Validate(configuration);
+            action.Should().Throw<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void NotFailWhenAccessTokenProvidedAndAuthorizationModeIsOAuthAccessToken()
+        {
+            var configuration = new OktaClientConfiguration
+            {
+                OktaDomain = "https://myOktaDomain.oktapreview.com",
+                AuthorizationMode = AuthorizationMode.OAuthAccessToken,
+                OAuthAccessToken = "AnyToken",
+                ClientId = "foo",
+                Scopes = new List<string> { "foo" },
+            };
+
+            Action action = () => OktaClientConfigurationValidator.Validate(configuration);
+            action.Should().NotThrow();
+        }
     }
 }

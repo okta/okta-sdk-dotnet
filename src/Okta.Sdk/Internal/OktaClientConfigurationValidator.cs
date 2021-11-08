@@ -91,6 +91,16 @@ namespace Okta.Sdk.Internal
                     throw new ArgumentNullException(nameof(configuration.Scopes), "Scopes cannot be null or empty.");
                 }
             }
+
+            if (configuration.AuthorizationMode == AuthorizationMode.OAuthAccessToken)
+            {
+                if (string.IsNullOrEmpty(configuration.OAuthAccessToken))
+                {
+                    throw new ArgumentNullException(
+                        nameof(configuration.AuthorizationMode),
+                        $"{nameof(configuration.OAuthAccessToken)} configuration property should be set when AuthorizationMode.AccessToken is chosen.");
+                }
+            }
         }
 
         /// <summary>
