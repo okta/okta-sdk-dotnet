@@ -172,9 +172,9 @@ It is possible to use previously requested access token for an authentication. F
 ```csharp
     var client = new OktaClient(new OktaClientConfiguration
         {
-            ClientId = "<clientId>",
+            ClientId = "{{clientId}}",
             AuthorizationMode = AuthorizationMode.OAuthAccessToken,
-            OAuthAccessToken = "<pre-requested access token>",
+            OAuthAccessToken = "{{preRequestedAccessToken}}",
         },
         oauthTokenRenewer: async () =>
         {
