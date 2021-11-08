@@ -4,8 +4,6 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Okta.Sdk
 {
@@ -14,7 +12,7 @@ namespace Okta.Sdk
     {
         [Obsolete("This method is deprecated and will be removed in the next major release. Use WorkFactor instead.")]
         /// <summary>
-        /// Gets and sets the <c>workFactor</c> property. 
+        /// Gets and sets the <c>workerFactor</c> property. 
         /// </summary>
         public int? WorkerFactor
         {

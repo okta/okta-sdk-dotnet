@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentAssertions;
 using NSubstitute;
 using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;

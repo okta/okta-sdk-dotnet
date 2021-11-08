@@ -3,16 +3,15 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using Okta.Sdk.Internal;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
@@ -31,7 +30,7 @@ namespace Okta.Sdk
         private readonly int _backoffSecondsDelta;
 
         // Now we are only managing 429 errors, but we can accept other codes in the future
-        private IList<HttpStatusCode> _retryableStatusCodes = new List<HttpStatusCode> { (HttpStatusCode)429 };
+        private readonly IList<HttpStatusCode> _retryableStatusCodes = new List<HttpStatusCode> { (HttpStatusCode)429 };
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DefaultRetryStrategy"/> class.
@@ -127,7 +126,7 @@ namespace Okta.Sdk
         {
             DateTime? requestTime = null;
             DateTime? retryDate = null;
-            TimeSpan backoffSeconds = TimeSpan.Zero;
+            var backoffSeconds = TimeSpan.Zero;
 
             if (response.Headers.TryGetValues("Date", out var dates) && dates != null)
             {
@@ -140,14 +139,16 @@ namespace Okta.Sdk
                 retryDate = DateTimeOffset.FromUnixTimeSeconds(rateLimits.Min(x => long.Parse(x))).UtcDateTime;
             }
 
-            if (requestTime.HasValue && retryDate.HasValue)
+            if (!requestTime.HasValue || !retryDate.HasValue)
             {
-                var backoffSecondsAux = retryDate.Value.Subtract(requestTime.Value).Add(new TimeSpan(0, 0, _backoffSecondsDelta));
-                // _requestTimeout <= 0 means no timeout
-                if (_requestTimeout <= 0 || (_requestTimeout > 0 && backoffSecondsAux.Seconds <= _requestTimeout))
-                {
-                    backoffSeconds = backoffSecondsAux;
-                }
+                return backoffSeconds;
+            }
+
+            var backoffSecondsAux = retryDate.Value.Subtract(requestTime.Value).Add(new TimeSpan(0, 0, _backoffSecondsDelta));
+            // _requestTimeout <= 0 means no timeout
+            if (_requestTimeout <= 0 || (_requestTimeout > 0 && backoffSecondsAux.Seconds <= _requestTimeout))
+            {
+                backoffSeconds = backoffSecondsAux;
             }
 
             return backoffSeconds;

@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 
 namespace Okta.Sdk.Internal
 {
@@ -35,7 +34,7 @@ namespace Okta.Sdk.Internal
         /// </summary>
         /// <param name="existingData">The initial dictionary data.</param>
         /// <returns>A new dictionary with the specified behavior.</returns>
-        public IDictionary<string, object> NewDictionary(IDictionary<string, object> existingData)
+        public static IDictionary<string, object> NewDictionary(IDictionary<string, object> existingData)
         {
             var initialData = existingData ?? new Dictionary<string, object>();
 
@@ -60,7 +59,7 @@ namespace Okta.Sdk.Internal
 
             var resource = Activator.CreateInstance(resourceType) as Resource;
 
-            resource.Initialize(_client, this, existingDictionary, _logger);
+            resource?.Initialize(_client, this, existingDictionary, _logger);
             return (T)(object)resource;
         }
 
@@ -83,7 +82,7 @@ namespace Okta.Sdk.Internal
             var resource = Activator.CreateInstance(resourceType) as Resource;
 
             var dictionary = NewDictionary(data);
-            resource.Initialize(_client, this, dictionary, _logger);
+            resource?.Initialize(_client, this, dictionary, _logger);
             return (T)(object)resource;
         }
     }

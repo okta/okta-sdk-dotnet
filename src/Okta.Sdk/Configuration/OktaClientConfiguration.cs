@@ -3,7 +3,6 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Okta.Sdk.Internal;
@@ -90,10 +89,7 @@ namespace Okta.Sdk.Configuration
         /// </summary>
         public bool DisableHttpsCheck
         {
-            get
-            {
-                return _disableHttpsCheck;
-            }
+            get => _disableHttpsCheck;
 
             set
             {

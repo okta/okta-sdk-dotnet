@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Okta.Sdk
+﻿namespace Okta.Sdk
 {
     /// <inheritdoc/>
     public class OAuthApiError : Resource, IOAuthApiError

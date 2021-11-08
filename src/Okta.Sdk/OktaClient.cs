@@ -4,10 +4,8 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -64,7 +62,7 @@ namespace Okta.Sdk
                 logger);
 
             var resourceFactory = new ResourceFactory(this, logger);
-            IOAuthTokenProvider oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
+            var oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
             var requestExecutor = new DefaultRequestExecutor(Configuration, defaultClient, logger, oAuthTokenProvider: oAuthTokenProvider);
 
             _dataStore = new DefaultDataStore(
@@ -100,7 +98,7 @@ namespace Okta.Sdk
             serializer = serializer ?? new DefaultSerializer();
 
             var resourceFactory = new ResourceFactory(this, logger);
-            IOAuthTokenProvider oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
+            var oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
             var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger, retryStrategy, oAuthTokenProvider);
 
             _dataStore = new DefaultDataStore(

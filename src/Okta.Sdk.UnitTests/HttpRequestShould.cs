@@ -8,7 +8,6 @@ using NSubstitute;
 using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
 using System.Net.Http;
-using System.Threading.Tasks;
 using Xunit;
 
 namespace Okta.Sdk.UnitTests

@@ -5,7 +5,6 @@
 
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Net.Http;
 
@@ -28,10 +27,10 @@ namespace Okta.Sdk.Internal
 
         static PayloadHandler()
         {
-            _payloadHandlers.TryAdd("application/json", Default);
+            PayloadHandlers.TryAdd("application/json", Default);
         }
 
-        private static readonly ConcurrentDictionary<string, IPayloadHandler> _payloadHandlers = new ConcurrentDictionary<string, IPayloadHandler>();
+        private static readonly ConcurrentDictionary<string, IPayloadHandler> PayloadHandlers = new ConcurrentDictionary<string, IPayloadHandler>();
 
         private ISerializer Serializer { get; }
 
@@ -46,13 +45,15 @@ namespace Okta.Sdk.Internal
         /// <inheritdoc/>
         public virtual string GetBody(HttpRequest httpRequest)
         {
-            if (httpRequest.Payload != null && Serializer != null)
+            if (httpRequest.Payload == null || Serializer == null)
             {
-                // don't re-serialize if already done
-                if (string.IsNullOrEmpty(_body))
-                {
-                    _body = Serializer.Serialize(httpRequest.Payload);
-                }
+                return _body;
+            }
+
+            // don't re-serialize if already done
+            if (string.IsNullOrEmpty(_body))
+            {
+                _body = Serializer.Serialize(httpRequest.Payload);
             }
 
             return _body;
@@ -93,9 +94,9 @@ namespace Okta.Sdk.Internal
         /// <returns>A payload handler.</returns>
         public static IPayloadHandler ForContentType(string contentType)
         {
-            if (_payloadHandlers.ContainsKey(contentType))
+            if (PayloadHandlers.ContainsKey(contentType))
             {
-                return _payloadHandlers[contentType];
+                return PayloadHandlers[contentType];
             }
 
             Trace.WriteLine($"Payload handler for the specified content type ({contentType}) is not registered; call PayloadHandler.Register first.  Using default payload handler instead.");
@@ -120,7 +121,7 @@ namespace Okta.Sdk.Internal
         /// <returns>True if successfully registered.</returns>
         public static bool TryRegister(IPayloadHandler payloadHandler)
         {
-            return _payloadHandlers.TryAdd(payloadHandler.ContentType, payloadHandler);
+            return PayloadHandlers.TryAdd(payloadHandler.ContentType, payloadHandler);
         }
 
         /// <summary>

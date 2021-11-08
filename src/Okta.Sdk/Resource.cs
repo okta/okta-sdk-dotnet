@@ -38,7 +38,7 @@ namespace Okta.Sdk
         {
             _client = client;
             _resourceFactory = resourceFactory ?? new ResourceFactory(client, logger);
-            _data = data ?? _resourceFactory.NewDictionary(null);
+            _data = data ?? ResourceFactory.NewDictionary(null);
             _logger = logger ?? NullLogger.Instance;
         }
 
@@ -53,7 +53,7 @@ namespace Okta.Sdk
 
         /// <inheritdoc/>
         public IDictionary<string, object> GetData()
-            => _resourceFactory.NewDictionary(_data);
+            => ResourceFactory.NewDictionary(_data);
 
         /// <inheritdoc/>
         public object this[string name]

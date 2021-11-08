@@ -3,14 +3,8 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
-using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
-using NSubstitute;
-using Okta.Sdk.Internal;
 using Okta.Sdk.UnitTests.Internal;
 using Xunit;
 
