@@ -91,6 +91,15 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public async Task UpdateOrgLogoAsync(CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
+            {
+                Uri = "/api/v1/org/logo",
+                Verb = HttpVerb.Post,
+                
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public async Task<IOrgPreferences> GetOrgPreferencesAsync(CancellationToken cancellationToken = default(CancellationToken))
             => await GetAsync<OrgPreferences>(new HttpRequest
             {

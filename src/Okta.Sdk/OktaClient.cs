@@ -163,6 +163,9 @@ namespace Okta.Sdk
             => new OktaClient(_dataStore, Configuration, requestContext);
 
         /// <inheritdoc/>
+        public IBrandsClient Brands => new BrandsClient(_dataStore, Configuration, _requestContext);
+
+        /// <inheritdoc/>
         public IGroupSchemasClient GroupSchemas => new GroupSchemasClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>

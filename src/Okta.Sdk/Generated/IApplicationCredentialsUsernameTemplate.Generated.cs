@@ -15,6 +15,8 @@ namespace Okta.Sdk
     /// <summary>Represents a ApplicationCredentialsUsernameTemplate resource in the Okta API.</summary>
     public partial interface IApplicationCredentialsUsernameTemplate : IResource
     {
+        string PushStatus { get; set; }
+
         string Suffix { get; set; }
 
         string Template { get; set; }

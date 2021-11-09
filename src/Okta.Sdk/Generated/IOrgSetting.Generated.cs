@@ -49,5 +49,32 @@ namespace Okta.Sdk
 
         string Website { get; set; }
 
+        Task<IOrgSetting> PartialUpdateAsync(IOrgSetting orgSetting, 
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        ICollectionClient<IOrgContactTypeObj> GetContactTypes(
+            );
+
+        Task<IOrgContactUser> GetOrgContactUserAsync(
+            string contactType, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOrgOktaSupportSettingsObj> GetSupportSettingsAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOrgOktaCommunicationSetting> CommunicationSettingsAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOrgPreferences> OrgPreferencesAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOrgPreferences> ShowFooterAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IOrgPreferences> HideFooterAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
+        Task UpdateOrgLogoAsync(
+            CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

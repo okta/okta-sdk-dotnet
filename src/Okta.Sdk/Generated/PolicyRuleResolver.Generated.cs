@@ -30,9 +30,19 @@ namespace Okta.Sdk.Internal
                 return typeof(PolicyRule);
             }
             
+            if (value.Equals("ACCESS_POLICY"))
+            {
+                return typeof(AccessPolicyRule);
+            }
+            
             if (value.Equals("PASSWORD"))
             {
                 return typeof(PasswordPolicyRule);
+            }
+            
+            if (value.Equals("PROFILE_ENROLLMENT"))
+            {
+                return typeof(ProfileEnrollmentPolicyRule);
             }
             
             if (value.Equals("SIGN_ON"))

@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a UserIdString resource in the Okta API.</summary>
-    public partial interface IUserIdString : IResource
+    public partial interface IUserIdString : IOrgContactUser
     {
         string UserId { get; set; }
 

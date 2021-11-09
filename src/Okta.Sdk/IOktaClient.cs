@@ -24,6 +24,11 @@ namespace Okta.Sdk
         OktaClientConfiguration Configuration { get; }
 
         /// <summary>
+        /// Gets a <see cref="IBrandsClient">GroupSchemasClient</see> that interacts with the schemas API.
+        /// </summary>
+        IBrandsClient Brands { get; }
+
+        /// <summary>
         /// Gets a <see cref="IGroupSchemasClient">GroupSchemasClient</see> that interacts with the schemas API.
         /// </summary>
         IGroupSchemasClient GroupSchemas { get; }
