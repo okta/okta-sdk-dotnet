@@ -92,13 +92,13 @@ namespace Okta.Sdk.Internal
                 }
             }
 
-            if (configuration.AuthorizationMode == AuthorizationMode.OAuthAccessToken)
+            if (configuration.AuthorizationMode == AuthorizationMode.BearerToken)
             {
-                if (string.IsNullOrEmpty(configuration.OAuthAccessToken))
+                if (string.IsNullOrEmpty(configuration.BearerToken))
                 {
                     throw new ArgumentNullException(
                         nameof(configuration.AuthorizationMode),
-                        $"{nameof(configuration.OAuthAccessToken)} configuration property should be set when AuthorizationMode.AccessToken is chosen.");
+                        $"{nameof(configuration.BearerToken)} configuration property should be set when AuthorizationMode.AccessToken is chosen.");
                 }
             }
         }

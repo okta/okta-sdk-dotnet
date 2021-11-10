@@ -21,8 +21,8 @@ namespace Okta.Sdk.Configuration
         PrivateKey,
 
         /// <summary>
-        /// Indicates that the SDK will use the provided access token <see cref="OktaClientConfiguration.OAuthAccessToken"/> when making calls.
+        /// Indicates that the SDK will use the provided access token <see cref="OktaClientConfiguration.BearerToken"/> when making calls.
         /// </summary>
-        OAuthAccessToken,
+        BearerToken,
     }
 }

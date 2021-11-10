@@ -13,41 +13,41 @@ namespace Okta.Sdk.Internal
     /// </summary>
     public class ExternalTokenProvider : IOAuthTokenProvider
     {
-        private readonly Func<Task<string>> _tokenProviderFunc;
-        private string _accessToken;
+        private readonly IOAuthTokenProvider _customTokenProvider;
+        private string _bearerToken;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalTokenProvider"/> class.
         /// </summary>
-        /// <param name="accessToken">The token.</param>
-        /// <param name="tokenProviderFunc">Optional token provider function.</param>
-        public ExternalTokenProvider(string accessToken, Func<Task<string>> tokenProviderFunc)
+        /// <param name="bearerToken">The token.</param>
+        /// <param name="tokenProvider">Optional custom token provider.</param>
+        public ExternalTokenProvider(string bearerToken, IOAuthTokenProvider tokenProvider)
         {
-            if (string.IsNullOrEmpty(accessToken) && tokenProviderFunc == null)
+            if (string.IsNullOrEmpty(bearerToken) && tokenProvider == default)
             {
-                throw new ArgumentException("The token is not set.", nameof(accessToken));
+                throw new ArgumentException("The token is not set.", nameof(bearerToken));
             }
 
-            _accessToken = accessToken;
-            _tokenProviderFunc = tokenProviderFunc;
+            _bearerToken = bearerToken;
+            _customTokenProvider = tokenProvider;
         }
 
         /// <inheritdoc/>
         public async Task<string> GetAccessTokenAsync(bool forceRenew = false)
         {
-            if (forceRenew || string.IsNullOrEmpty(_accessToken))
+            if (forceRenew || string.IsNullOrEmpty(_bearerToken))
             {
-                if (_tokenProviderFunc != null)
+                if (_customTokenProvider != null)
                 {
-                    _accessToken = await _tokenProviderFunc.Invoke().ConfigureAwait(false);
+                    _bearerToken = await _customTokenProvider.GetAccessTokenAsync(forceRenew).ConfigureAwait(false);
                 }
                 else
                 {
-                    _accessToken = string.Empty;
+                    _bearerToken = string.Empty;
                 }
             }
 
-            return _accessToken;
+            return _bearerToken;
         }
     }
 }

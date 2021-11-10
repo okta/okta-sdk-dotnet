@@ -126,9 +126,9 @@ namespace Okta.Sdk.Configuration
         public List<string> Scopes { get; set; }
 
         /// <summary>
-        /// Gets or sets the OAuth Access Token to use. For AuthorizationMode set to <see cref="AuthorizationMode.OAuthAccessToken"/>.
+        /// Gets or sets the OAuth Access Token to use. For AuthorizationMode set to <see cref="AuthorizationMode.BearerToken"/>.
         /// </summary>
-        public string OAuthAccessToken { get; set; }
+        public string BearerToken { get; set; }
 
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Configuration
                 PrivateKey = this.PrivateKey,
                 ClientId = this.ClientId,
                 Scopes = this.Scopes,
-                OAuthAccessToken = this.OAuthAccessToken,
+                BearerToken = this.BearerToken,
             };
     }
 }

@@ -3,10 +3,10 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Microsoft.Extensions.Logging;
@@ -23,62 +23,33 @@ namespace Okta.Sdk.UnitTests
         [Fact]
         public async Task ReturnAccessTokenWhenRequestSuccess()
         {
-            var response = @"{""token_type"":""Bearer"",""expires_in"":3600,""access_token"":""foo"",""scope"":""okta.users.read okta.users.manage""}";
-            var messageHandler = new MockHttpMessageHandler(response, HttpStatusCode.OK);
-            var httpClient = new HttpClient(messageHandler);
-
-            var configuration = new OktaClientConfiguration
-            {
-                OktaDomain = "https://myOktaDomain.oktapreview.com",
-                AuthorizationMode = AuthorizationMode.OAuthAccessToken,
-                ClientId = "foo",
-                OAuthAccessToken = "Token",
-                Scopes = new List<string> { "foo" },
-            };
-
-            var oktaClient = new OktaClient(configuration);
-            var logger = Substitute.For<ILogger>();
-
-            var resourceFactory = new ResourceFactory(oktaClient, logger);
             var tokenProvider = new ExternalTokenProvider("DefaultExternallyGeneratedToken", default);
-
             var token = await tokenProvider.GetAccessTokenAsync();
-
             token.Should().Be("DefaultExternallyGeneratedToken");
         }
 
         [Fact]
-        public async Task ReturnNewAccessTokenWhenRefreshRequested()
+        public async Task ReturnNewAccessTokenWhenOldIsNotAuthorized()
         {
-            var response = @"{""token_type"":""Bearer"",""expires_in"":3600,""access_token"":""foo"",""scope"":""okta.users.read okta.users.manage""}";
-            var messageHandler = new MockHttpMessageHandler(response, HttpStatusCode.OK);
-            var httpClient = new HttpClient(messageHandler);
-
             var configuration = new OktaClientConfiguration
             {
                 OktaDomain = "https://myOktaDomain.oktapreview.com",
-                AuthorizationMode = AuthorizationMode.OAuthAccessToken,
+                AuthorizationMode = AuthorizationMode.BearerToken,
                 ClientId = "foo",
-                OAuthAccessToken = "token",
+                BearerToken = "token",
                 Scopes = new List<string> { "foo" },
             };
 
-            Func<Task<string>> tokenRenewer = () =>
-            {
-                return Task.FromResult("NewExternallyGeneratedToken");
-            };
+            var requestMessageHandler = new MockHttpMessageHandler(string.Empty, HttpStatusCode.Unauthorized);
+            var httpClientRequest = new HttpClient(requestMessageHandler);
+            var testableCustomTokenProvider = new TestableCustomTokenProvider();
+            var mockLogger = Substitute.For<ILogger>();
+            var externalTokenProvider = new ExternalTokenProvider("oldAccessToken", testableCustomTokenProvider);
+            var requestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, mockLogger, oAuthTokenProvider: externalTokenProvider);
 
-            var oktaClient = new OktaClient(configuration, oauthTokenRenewer: tokenRenewer);
-
-            var logger = Substitute.For<ILogger>();
-
-            var resourceFactory = new ResourceFactory(oktaClient, logger);
-            var tokenProvider = new ExternalTokenProvider("DefaultExternalToken", tokenRenewer);
-
-            var token = await tokenProvider.GetAccessTokenAsync(true);
-
-            token.Should().Be("NewExternallyGeneratedToken");
+            testableCustomTokenProvider.TokenRefreshed.Should().BeFalse();
+            await requestExecutor.GetAsync("https://myOktaDomain.oktapreview.com/v1/users", default, default).ConfigureAwait(false);
+            testableCustomTokenProvider.TokenRefreshed.Should().BeTrue();
         }
-
     }
 }

@@ -202,7 +202,7 @@ namespace Okta.Sdk.UnitTests
             var configuration = new OktaClientConfiguration
             {
                 OktaDomain = "https://myOktaDomain.oktapreview.com",
-                AuthorizationMode = AuthorizationMode.OAuthAccessToken,
+                AuthorizationMode = AuthorizationMode.BearerToken,
                 ClientId = "foo",
                 Scopes = new List<string> { "foo" },
             };
@@ -217,8 +217,8 @@ namespace Okta.Sdk.UnitTests
             var configuration = new OktaClientConfiguration
             {
                 OktaDomain = "https://myOktaDomain.oktapreview.com",
-                AuthorizationMode = AuthorizationMode.OAuthAccessToken,
-                OAuthAccessToken = "AnyToken",
+                AuthorizationMode = AuthorizationMode.BearerToken,
+                BearerToken = "AnyToken",
                 ClientId = "foo",
                 Scopes = new List<string> { "foo" },
             };

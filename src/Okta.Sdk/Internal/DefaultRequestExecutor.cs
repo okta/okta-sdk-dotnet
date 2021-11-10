@@ -3,14 +3,14 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using Microsoft.Extensions.Logging;
-using Okta.Sdk.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
@@ -134,7 +134,7 @@ namespace Okta.Sdk.Internal
                 // If OAuth token expired, get a new token and retry
                 if ((int)response.StatusCode == 401 &&
                     (_oktaConfiguration.AuthorizationMode == AuthorizationMode.PrivateKey ||
-                     _oktaConfiguration.AuthorizationMode == AuthorizationMode.OAuthAccessToken))
+                     _oktaConfiguration.AuthorizationMode == AuthorizationMode.BearerToken))
                 {
                     await ApplyOAuthHeaderAsync(true).ConfigureAwait(false);
 

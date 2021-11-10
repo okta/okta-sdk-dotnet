@@ -47,9 +47,9 @@ namespace Okta.Sdk
         /// <param name="logger">The logging interface to use, if any.</param>
         /// <param name="serializer">The JSON serializer to use, if any. Using the <c>DefaultSerializer</c> is still strongly recommended since it has all the behavior this SDK needs to work properly.
         /// If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <see cref="DefaultSerializer"/> to check out what can be configured.
-        /// <param name="oauthTokenRenewer">The function to be called when a provided <see cref="OktaClientConfiguration.OAuthAccessToken"/> is expired.</param>
+        /// <param name="customTokenProvider">The custom token provider to renew an access token when it expires. Only works with <see cref="AuthorizationMode.BearerToken"/>.</param>
         /// </param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null, ISerializer serializer = null, Func<Task<string>> oauthTokenRenewer = null)
+        public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null, ISerializer serializer = null, IOAuthTokenProvider customTokenProvider = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
             OktaClientConfigurationValidator.Validate(Configuration);
@@ -64,7 +64,7 @@ namespace Okta.Sdk
 
             var resourceFactory = new ResourceFactory(this, logger);
 
-            IOAuthTokenProvider oAuthTokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oauthTokenRenewer);
+            IOAuthTokenProvider oAuthTokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, customTokenProvider);
             var requestExecutor = new DefaultRequestExecutor(Configuration, defaultClient, logger, oAuthTokenProvider: oAuthTokenProvider);
 
             _dataStore = new DefaultDataStore(
@@ -78,7 +78,7 @@ namespace Okta.Sdk
             PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
         }
 
-        private IOAuthTokenProvider GetTokenProvider(OktaClientConfiguration configuration, ILogger logger, ResourceFactory resourceFactory, Func<Task<string>> tokenProviderFunc)
+        private IOAuthTokenProvider GetTokenProvider(OktaClientConfiguration configuration, ILogger logger, ResourceFactory resourceFactory, IOAuthTokenProvider customTokenProvider)
         {
             switch (configuration.AuthorizationMode)
             {
@@ -86,8 +86,8 @@ namespace Okta.Sdk
                     return new DefaultOAuthTokenProvider(configuration, resourceFactory, logger: logger);
                 case AuthorizationMode.SSWS:
                     return NullOAuthTokenProvider.Instance;
-                case AuthorizationMode.OAuthAccessToken:
-                    return new ExternalTokenProvider(configuration.OAuthAccessToken, tokenProviderFunc);
+                case AuthorizationMode.BearerToken:
+                    return new ExternalTokenProvider(configuration.BearerToken, customTokenProvider);
                 default:
                     throw new ArgumentException($"Token provider is not implemented for AuthorizationMode={configuration.AuthorizationMode}", nameof(configuration));
             }
@@ -106,7 +106,8 @@ namespace Okta.Sdk
         /// <param name="serializer">The JSON serializer to use, if any. Using the <c>DefaultSerializer</c> is still strongly recommended since it has all the behavior this SDK needs to work properly.
         /// If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <see cref="DefaultSerializer"/> to check out what settings can be configured.
         /// </param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null, ISerializer serializer = null, Func<Task<string>> oauthTokenRenewer = null)
+        /// <param name="customTokenProvider">The custom token provider to renew an access token when it expires. Only works with <see cref="AuthorizationMode.BearerToken"/>.</param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null, ISerializer serializer = null, IOAuthTokenProvider customTokenProvider = null)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
             OktaClientConfigurationValidator.Validate(Configuration);
@@ -115,7 +116,7 @@ namespace Okta.Sdk
             serializer = serializer ?? new DefaultSerializer();
 
             var resourceFactory = new ResourceFactory(this, logger);
-            IOAuthTokenProvider oAuthTokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oauthTokenRenewer);
+            IOAuthTokenProvider oAuthTokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, customTokenProvider);
             var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger, retryStrategy, oAuthTokenProvider);
 
             _dataStore = new DefaultDataStore(
