@@ -119,20 +119,6 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ImageUploadResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/brands/{brandId}/themes/{themeId}/background-image",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["brandId"] = brandId,
-                    ["themeId"] = themeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task DeleteBrandThemeFaviconAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
@@ -147,39 +133,11 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ImageUploadResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/brands/{brandId}/themes/{themeId}/favicon",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["brandId"] = brandId,
-                    ["themeId"] = themeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
         public async Task DeleteBrandThemeLogoAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/logo",
                 Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["brandId"] = brandId,
-                    ["themeId"] = themeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task<IImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ImageUploadResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/brands/{brandId}/themes/{themeId}/logo",
-                Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

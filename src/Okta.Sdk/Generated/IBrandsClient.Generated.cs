@@ -74,15 +74,6 @@ namespace Okta.Sdk
         Task DeleteBrandThemeBackgroundImageAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Updates the background image for your Theme
-        /// </summary>
-        /// <param name="brandId"></param>
-        /// <param name="themeId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IImageUploadResponse"/> response.</returns>
-        Task<IImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Deletes a Theme favicon. The org then uses the Okta default favicon.
         /// </summary>
         /// <param name="brandId"></param>
@@ -92,15 +83,6 @@ namespace Okta.Sdk
         Task DeleteBrandThemeFaviconAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Updates the favicon for your theme
-        /// </summary>
-        /// <param name="brandId"></param>
-        /// <param name="themeId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IImageUploadResponse"/> response.</returns>
-        Task<IImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Deletes a Theme logo. The org then uses the Okta default logo.
         /// </summary>
         /// <param name="brandId"></param>
@@ -108,15 +90,6 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeleteBrandThemeLogoAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Updates the logo for your Theme
-        /// </summary>
-        /// <param name="brandId"></param>
-        /// <param name="themeId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IImageUploadResponse"/> response.</returns>
-        Task<IImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

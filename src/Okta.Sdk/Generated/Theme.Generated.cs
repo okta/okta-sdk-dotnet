@@ -76,29 +76,14 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task<IImageUploadResponse> UploadBrandThemeLogoAsync(
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Brands.UploadBrandThemeLogoAsync(brandId, themeId, cancellationToken);
-        
-        /// <inheritdoc />
         public Task DeleteBrandThemeLogoAsync(
             string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Brands.DeleteBrandThemeLogoAsync(brandId, themeId, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IImageUploadResponse> UpdateBrandThemeFaviconAsync(
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Brands.UploadBrandThemeFaviconAsync(brandId, themeId, cancellationToken);
-        
-        /// <inheritdoc />
         public Task DeleteBrandThemeFaviconAsync(
             string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Brands.DeleteBrandThemeFaviconAsync(brandId, themeId, cancellationToken);
-        
-        /// <inheritdoc />
-        public Task<IImageUploadResponse> UpdateBrandThemeBackgroundImageAsync(
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Brands.UploadBrandThemeBackgroundImageAsync(brandId, themeId, cancellationToken);
         
         /// <inheritdoc />
         public Task DeleteBrandThemeBackgroundImageAsync(

@@ -33,19 +33,10 @@ namespace Okta.Sdk
 
         SignInPageTouchPointVariant SignInPageTouchPointVariant { get; set; }
 
-        Task<IImageUploadResponse> UploadBrandThemeLogoAsync(
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
-
         Task DeleteBrandThemeLogoAsync(
             string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<IImageUploadResponse> UpdateBrandThemeFaviconAsync(
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
-
         Task DeleteBrandThemeFaviconAsync(
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
-
-        Task<IImageUploadResponse> UpdateBrandThemeBackgroundImageAsync(
             string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task DeleteBrandThemeBackgroundImageAsync(

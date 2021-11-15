@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -147,6 +148,69 @@ namespace Okta.Sdk.IntegrationTests
                 themeToUpdate.ErrorPageTouchPointVariant = originalErrorPageTouchPointVariant;
                 themeToUpdate.EmailTemplateTouchPointVariant = originalEmailTemplateTouchPointVariant;
                 await client.Brands.UpdateBrandThemeAsync(themeToUpdate, brand.Id, theme.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UploadThemeLogo()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var theme = await client.Brands.ListBrandThemes(brand.Id).FirstAsync();
+
+            try
+            {
+                var filePath = @".\Assets\brand_theme_logo.png";
+                var file = File.OpenRead(filePath);
+                var response = await client.Brands.UploadBrandThemeLogoAsync(file, brand.Id, theme.Id);
+
+                response.Url.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Brands.DeleteBrandThemeLogoAsync(brand.Id, theme.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UploadThemeFavicon()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var theme = await client.Brands.ListBrandThemes(brand.Id).FirstAsync();
+
+            try
+            {
+                var filePath = @".\Assets\brand_theme_favicon.ico";
+                var file = File.OpenRead(filePath);
+                var response = await client.Brands.UploadBrandThemeFaviconAsync(file, brand.Id, theme.Id);
+
+                response.Url.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Brands.DeleteBrandThemeFaviconAsync(brand.Id, theme.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UploadThemeBackgroundImage()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var theme = await client.Brands.ListBrandThemes(brand.Id).FirstAsync();
+
+            try
+            {
+                var filePath = @".\Assets\brand_theme_background.png";
+                var file = File.OpenRead(filePath);
+                var response = await client.Brands.UploadBrandThemeBackgroundImageAsync(file, brand.Id, theme.Id);
+
+                response.Url.Should().NotBeNullOrEmpty();
+            }
+            finally
+            {
+                await client.Brands.DeleteBrandThemeBackgroundImageAsync(brand.Id, theme.Id);
             }
         }
     }
