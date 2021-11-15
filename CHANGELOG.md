@@ -6,7 +6,7 @@ Running changelog of releases since `3.1.1`
 
 ### Features
 
-- Add ability to use pre-requested access tokens for authentiction. #508
+- Add ability to use pre-requested access tokens for authentication. #508
 
 
 ## v5.2.1
