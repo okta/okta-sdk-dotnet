@@ -166,7 +166,7 @@ var clientConfiguration = new OktaClientConfiguration
 var client = new OktaClient(clientConfiguration);
 ```
 
-It is possible to use previously requested access token for an authentication. For that set `AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `BearerToken` to the token string. It is also possible to provide a token renewing function, SDK will call the function when access token expires.
+It is possible to use previously requested access token for an authentication. For that set `AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `BearerToken` to the token string. It is also possible to provide a token renewing function, SDK will call the function when access token expires. See [Get an access token and make a request](https://developer.okta.com/docs/guides/implement-oauth-for-okta/request-access-token/) for additional information.
 
 
 ```csharp
