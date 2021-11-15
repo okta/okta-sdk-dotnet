@@ -23,7 +23,7 @@ namespace Okta.Sdk
 
         string SharedSecret { get; set; }
 
-        IAuthenticatorProviderConfigurationUserNamePlate UserNameTemplate { get; set; }
+        IAuthenticatorProviderConfigurationUserNameTemplate UserNameTemplate { get; set; }
 
     }
 }

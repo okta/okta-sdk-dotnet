@@ -45,9 +45,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
-        public IAuthenticatorProviderConfigurationUserNamePlate UserNameTemplate 
+        public IAuthenticatorProviderConfigurationUserNameTemplate UserNameTemplate 
         {
-            get => GetResourceProperty<AuthenticatorProviderConfigurationUserNamePlate>("userNameTemplate");
+            get => GetResourceProperty<AuthenticatorProviderConfigurationUserNameTemplate>("userNameTemplate");
             set => this["userNameTemplate"] = value;
         }
         

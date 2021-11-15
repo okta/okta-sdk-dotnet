@@ -46,6 +46,36 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task CreateProfileEnrollmentPolicy()
+        {
+            var client = TestClient.Create();
+
+            var policy = new Policy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"dotnet-sdk: ProfileEnrollmentPolicy {Guid.NewGuid()}".Substring(0, 50),
+                Type = PolicyType.ProfileEnrollment,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+
+            try
+            {
+                createdPolicy.Should().NotBeNull();
+                createdPolicy.Name.Should().Be(policy.Name);
+                createdPolicy.Type.Should().Be(PolicyType.ProfileEnrollment);
+                createdPolicy.Status.Should().Be("ACTIVE");
+                createdPolicy.Description.Should().Be(policy.Description);
+            }
+            finally
+            {
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
+
+        [Fact]
         public async Task GetPolicy()
         {
             var client = TestClient.Create();
@@ -431,6 +461,90 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Policies.DeletePolicyAsync(createdPolicy.Id);
             }
         }
+
+        [Fact]
+        public async Task CreateAccessPolicyPolicyRule()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
+                ClientUri = "https://example.com/client",
+                LogoUri = "https://example.com/assets/images/logo-new.png",
+                ResponseTypes = new List<OAuthResponseType>
+                {
+                    OAuthResponseType.Token,
+                    OAuthResponseType.IdToken,
+                    OAuthResponseType.Code,
+                },
+                RedirectUris = new List<string>
+                {
+                        "https://example.com/oauth2/callback",
+                        "myapp://callback",
+                },
+                PostLogoutRedirectUris = new List<string>
+                {
+                    "https://example.com/postlogout",
+                    "myapp://postlogoutcallback",
+                },
+                GrantTypes = new List<OAuthGrantType>
+                {
+                    OAuthGrantType.Implicit,
+                    OAuthGrantType.AuthorizationCode,
+                },
+                ApplicationType = OpenIdConnectApplicationType.Web,
+            });
+
+            var accessPolicyId = createdApp
+                .GetProperty<Resource>("_links")
+                .GetProperty<Resource>("accessPolicy")
+                .GetProperty<string>("href").Split('/').LastOrDefault();
+
+
+            var accessPolicy = await client.Policies.GetPolicyAsync<AccessPolicy>(accessPolicyId);
+
+            var accessPolicyRuleOptions = new AccessPolicyRule
+            {
+                Name = $"dotnet-sdk: CreateAccessPolicyRule {guid}".Substring(0, 50),
+                Type = PolicyType.AccessPolicy.ToString(),
+                Actions = new AccessPolicyRuleActions
+                {
+                      AppSignOn = new AccessPolicyRuleApplicationSignOn
+                      {
+                          Access = "DENY",
+                          VerificationMethod = new VerificationMethod
+                          {
+                              Type = "ASSURANCE",
+                              FactorMode = "1FA",
+                              ReauthenticateIn = "PT43800H",
+                          },
+                      },
+                },
+            };
+
+            var createdPolicyRule =
+                await client.Policies.AddPolicyRuleAsync<AccessPolicyRule>(accessPolicyRuleOptions, accessPolicyId);
+            try
+            {
+                createdPolicyRule.Should().NotBeNull();
+                createdPolicyRule.Name.Should().Be(accessPolicyRuleOptions.Name);
+                createdPolicyRule.Actions.Should().NotBeNull();
+                createdPolicyRule.Actions.AppSignOn.Access.Should().Be("DENY");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.Type.Should().Be("ASSURANCE");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.FactorMode.Should().Be("1FA");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
+                createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
+                createdPolicyRule.Type.Should().Be(PolicyType.AccessPolicy);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
 
         [Fact]
         public async Task CreateOktaSignOnOnPremPolicyRule()
