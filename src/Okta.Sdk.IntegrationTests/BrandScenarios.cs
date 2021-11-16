@@ -160,7 +160,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var filePath = @".\Assets\brand_theme_logo.png";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\brand_theme_logo.png");
                 var file = File.OpenRead(filePath);
                 var response = await client.Brands.UploadBrandThemeLogoAsync(file, brand.Id, theme.Id);
 
@@ -181,7 +181,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var filePath = @".\Assets\brand_theme_favicon.ico";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\brand_theme_favicon.ico");
                 var file = File.OpenRead(filePath);
                 var response = await client.Brands.UploadBrandThemeFaviconAsync(file, brand.Id, theme.Id);
 
@@ -202,7 +202,7 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var filePath = @".\Assets\brand_theme_background.png";
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\brand_theme_background.png");
                 var file = File.OpenRead(filePath);
                 var response = await client.Brands.UploadBrandThemeBackgroundImageAsync(file, brand.Id, theme.Id);
 

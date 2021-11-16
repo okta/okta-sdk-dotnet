@@ -15,8 +15,7 @@ namespace Okta.Sdk.UnitTests
             var rawResponse = "{}";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-
-            var filePath = @".\Assets\org_logo.png";
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\org_logo.png");
             var file = File.OpenRead(filePath);
             await client.Orgs.UpdateOrgLogoAsync(file);
 
