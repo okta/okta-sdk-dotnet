@@ -35,7 +35,6 @@ namespace Okta.Sdk.IntegrationTests
                 updatedOrgSettings.PhoneNumber.Should().Be("+1-555-415-1337");
                 updatedOrgSettings.Address1.Should().Be("301 Brannan St.");
                 updatedOrgSettings.Address2.Should().Be(guid.ToString());
-
             }
             finally
             {

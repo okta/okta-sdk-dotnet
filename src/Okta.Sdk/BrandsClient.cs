@@ -3,18 +3,14 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Http;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
-using Okta.Sdk.Abstractions;
 
 namespace Okta.Sdk
 {
+    /// <inheritdoc cref="IBrandsClient"/>
     public sealed partial class BrandsClient : OktaClient, IBrandsClient
     {
         /// <inheritdoc />
@@ -40,8 +36,8 @@ namespace Okta.Sdk
             return await PostAsync<ImageUploadResponse>(request, cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task<IImageUploadResponse> UploadBrandThemeFaviconAsync(FileStream file, string brandId, string themeId,
-            CancellationToken cancellationToken = default)
+        /// <inheritdoc />
+        public async Task<IImageUploadResponse> UploadBrandThemeFaviconAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default)
         {
             byte[] fileBytes = new byte[file.Length];
             await file.ReadAsync(fileBytes, 0, (int)file.Length, cancellationToken).ConfigureAwait(false);
@@ -63,8 +59,8 @@ namespace Okta.Sdk
             return await PostAsync<ImageUploadResponse>(request, cancellationToken).ConfigureAwait(false);
         }
 
-        public async Task<IImageUploadResponse> UploadBrandThemeBackgroundImageAsync(FileStream file, string brandId, string themeId,
-            CancellationToken cancellationToken = default)
+        /// <inheritdoc />
+        public async Task<IImageUploadResponse> UploadBrandThemeBackgroundImageAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default)
         {
             byte[] fileBytes = new byte[file.Length];
             await file.ReadAsync(fileBytes, 0, (int)file.Length, cancellationToken).ConfigureAwait(false);

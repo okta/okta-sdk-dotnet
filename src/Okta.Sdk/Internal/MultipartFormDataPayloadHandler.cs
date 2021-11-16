@@ -14,7 +14,9 @@ namespace Okta.Sdk.Internal
     /// <inheritdoc />
     public class MultipartFormDataPayloadHandler : PayloadHandler
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MultipartFormDataPayloadHandler"/> class.
+        /// </summary>
         public MultipartFormDataPayloadHandler()
         {
             ContentType = "multipart/form-data";
@@ -37,7 +39,6 @@ namespace Okta.Sdk.Internal
 
             var fileBytes = (byte[])httpRequest.Payload;
             MultipartFormDataContent content = new MultipartFormDataContent();
-            
             content.Add(new ByteArrayContent(fileBytes, 0, fileBytes.Length), "file", ((MultipartHttpRequest)httpRequest).FileName);
 
             return content;

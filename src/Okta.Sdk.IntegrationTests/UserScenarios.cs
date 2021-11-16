@@ -141,7 +141,6 @@ namespace Okta.Sdk.IntegrationTests
                 userRetrievedById.Profile.LastName.Should().Be("CreateUserWithPasswordImportInlineHookOptions");
                 userRetrievedById.Credentials.Provider.Type.Should().Be(AuthenticationProviderType.Import);
                 userRetrievedById.Credentials.Provider.Name.Should().Be("IMPORT");
-
             }
             finally
             {
@@ -935,7 +934,7 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeactivateOrDeleteAsync();
             }
         }
-        
+
         [Fact]
         public async Task GetLinkedObjectForUser()
         {

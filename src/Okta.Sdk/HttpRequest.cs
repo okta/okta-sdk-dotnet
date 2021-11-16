@@ -70,7 +70,7 @@ namespace Okta.Sdk
         }
 
         /// <summary>
-        /// Gets or sets the content encoding. 
+        /// Gets or sets the content encoding.
         /// </summary>
         public string ContentTransferEncoding
         {

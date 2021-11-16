@@ -1571,7 +1571,7 @@ namespace Okta.Sdk.IntegrationTests
 
                 createdIdp.Policy.Provisioning.Conditions.Suspended.Action.Should().Be("NONE");
                 createdIdp.Policy.AccountLink.Action.Should().Be("AUTO");
-                createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.subjectNameId");                
+                createdIdp.Policy.Subject.UserNameTemplate.Template.Should().Be("idpuser.subjectNameId");
                 createdIdp.Policy.Subject.MatchType.Value.Should().Be("USERNAME");
                 createdIdp.Policy.Subject.MatchAttribute.Should().BeNull();
             }

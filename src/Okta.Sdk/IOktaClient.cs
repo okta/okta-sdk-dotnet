@@ -210,6 +210,7 @@ namespace Okta.Sdk
         /// A <see cref="IProfileMappingsClient">ThreatInsightsClient</see> that interacts with the Okta ThreatInsight configuration API.
         /// </value>
         IThreatInsightsClient ThreatInsights { get; }
+
         /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
         /// </summary>

@@ -12,21 +12,19 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
+    /// <inheritdoc cref="Theme"/>
     public partial class Theme
     {
         /// <inheritdoc />
-        public Task<IImageUploadResponse> UploadBrandThemeLogoAsync(FileStream file,
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IImageUploadResponse> UploadBrandThemeLogoAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default)
             => GetClient().Brands.UploadBrandThemeLogoAsync(file, brandId, themeId, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IImageUploadResponse> UpdateBrandThemeFaviconAsync(FileStream file,
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IImageUploadResponse> UpdateBrandThemeFaviconAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default)
             => GetClient().Brands.UploadBrandThemeFaviconAsync(file, brandId, themeId, cancellationToken);
 
         /// <inheritdoc />
-        public Task<IImageUploadResponse> UpdateBrandThemeBackgroundImageAsync(FileStream file,
-            string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IImageUploadResponse> UpdateBrandThemeBackgroundImageAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default)
             => GetClient().Brands.UploadBrandThemeBackgroundImageAsync(file, brandId, themeId, cancellationToken);
     }
 }

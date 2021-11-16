@@ -497,12 +497,7 @@ namespace Okta.Sdk.IntegrationTests
                 ApplicationType = OpenIdConnectApplicationType.Web,
             });
 
-            var accessPolicyId = createdApp
-                .GetProperty<Resource>("_links")
-                .GetProperty<Resource>("accessPolicy")
-                .GetProperty<string>("href").Split('/').LastOrDefault();
-
-
+            var accessPolicyId = createdApp.GetAccessPolicyId();
             var accessPolicy = await client.Policies.GetPolicyAsync<AccessPolicy>(accessPolicyId);
 
             var accessPolicyRuleOptions = new AccessPolicyRule
@@ -545,6 +540,79 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
+        [Fact]
+        public async Task CreateProfileEnrollmentPolicyRule()
+        {
+            var client = TestClient.Create();
+
+            var policy = new Policy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"dotnet-sdk: ProfileEnrollmentPolicy {Guid.NewGuid()}".Substring(0, 50),
+                Type = PolicyType.ProfileEnrollment,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy = await client.Policies.CreatePolicyAsync(policy);
+            var defaultPolicyRule = await createdPolicy.ListPolicyRules().OfType<IProfileEnrollmentPolicyRule>().FirstOrDefaultAsync();
+            var profileAttributes = new List<IProfileEnrollmentPolicyRuleProfileAttribute>();
+            profileAttributes.Add(new ProfileEnrollmentPolicyRuleProfileAttribute
+            {
+                Name = "email",
+                Label = "Email",
+                Required = true,
+            });
+
+            defaultPolicyRule.Actions.ProfileEnrollment.Access = "ALLOW";
+            defaultPolicyRule.Actions.ProfileEnrollment.PreRegistrationInlineHooks = null;
+            defaultPolicyRule.Actions.ProfileEnrollment.UnknownUserAction = "DENY";
+            defaultPolicyRule.Actions.ProfileEnrollment.TargetGroupIds = null;
+            defaultPolicyRule.Actions.ProfileEnrollment.ActivationRequirements =
+                new ProfileEnrollmentPolicyRuleActivationRequirement
+                {
+                    EmailVerification = true,
+                };
+
+            defaultPolicyRule.Actions = new ProfileEnrollmentPolicyRuleActions
+            {
+                ProfileEnrollment = new ProfileEnrollmentPolicyRuleAction
+                {
+                    Access = "ALLOW",
+                    PreRegistrationInlineHooks = null,
+                    ProfileAttributes = profileAttributes,
+                    UnknownUserAction = "DENY",
+                    TargetGroupIds = null,
+                    ActivationRequirements = new ProfileEnrollmentPolicyRuleActivationRequirement
+                    {
+                        EmailVerification = true,
+                    },
+                },
+            };
+
+            try
+            {
+                var createdPolicyRule = await client.Policies.UpdatePolicyRuleAsync<IProfileEnrollmentPolicyRule>(defaultPolicyRule, createdPolicy.Id, defaultPolicyRule.Id);
+                createdPolicyRule.Should().NotBeNull();
+                createdPolicyRule.Name.Should().Be(defaultPolicyRule.Name);
+                createdPolicyRule.Type.Should().Be(PolicyType.ProfileEnrollment.ToString());
+                createdPolicyRule.Actions.Should().NotBeNull();
+                createdPolicyRule.Actions.ProfileEnrollment.Should().NotBeNull();
+                createdPolicyRule.Actions.ProfileEnrollment.Access.Should().Be("ALLOW");
+                createdPolicyRule.Actions.ProfileEnrollment.PreRegistrationInlineHooks.Should().BeNullOrEmpty();
+                createdPolicyRule.Actions.ProfileEnrollment.UnknownUserAction.Should().Be("DENY");
+                createdPolicyRule.Actions.ProfileEnrollment.TargetGroupIds.Should().BeNullOrEmpty();
+                createdPolicyRule.Actions.ProfileEnrollment.ActivationRequirements.EmailVerification.Should().BeTrue();
+                createdPolicyRule.Actions.ProfileEnrollment.ProfileAttributes.Should().HaveCount(1);
+                createdPolicyRule.Actions.ProfileEnrollment.ProfileAttributes.First().Name.Should().Be("email");
+                createdPolicyRule.Actions.ProfileEnrollment.ProfileAttributes.First().Label.Should().Be("Email");
+                createdPolicyRule.Actions.ProfileEnrollment.ProfileAttributes.First().Required.Should().BeTrue();
+            }
+            finally
+            {
+                await client.Policies.DeletePolicyAsync(createdPolicy.Id);
+            }
+        }
 
         [Fact]
         public async Task CreateOktaSignOnOnPremPolicyRule()
