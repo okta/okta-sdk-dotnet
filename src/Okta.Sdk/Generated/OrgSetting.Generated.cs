@@ -151,10 +151,5 @@ namespace Okta.Sdk
             CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Orgs.HideOktaUiFooterAsync(cancellationToken);
         
-        /// <inheritdoc />
-        public Task UpdateOrgLogoAsync(
-            CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Orgs.UpdateOrgLogoAsync(cancellationToken);
-        
     }
 }

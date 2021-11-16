@@ -107,6 +107,27 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public void SetMultipartFormDataContent()
+        {
+            var payloadHandler = new MultipartFormDataPayloadHandler();
+            PayloadHandler.TryRegister(payloadHandler);
+            var testHttpRequest = new TestHttpMultipartRequest
+            {
+                ContentType = "multipart/form-data", // this must match the ContentType of the MultipartFormDataPayloadHandler for this test
+                Payload = new byte[256],
+                FileName = "foo.png",
+            };
+            testHttpRequest.GetPayloadHandler().GetType().Should().Be(typeof(MultipartFormDataPayloadHandler));
+
+            var httpRequestMessage = new HttpRequestMessage();
+            payloadHandler.SetHttpRequestMessageContent(testHttpRequest, httpRequestMessage);
+            httpRequestMessage.Content.Should().NotBeNull();
+            httpRequestMessage.Content.GetType().Should().Be(typeof(MultipartFormDataContent));
+            httpRequestMessage.Content.Headers.Contains("Content-Type");
+            httpRequestMessage.Content.Headers.ContentType.ToString().Should().Contain("multipart/form-data");
+        }
+
+        [Fact]
         public void SetPemCertContent()
         {
             var pkixCertPayloadHandler = new PemFilePayloadHandler();

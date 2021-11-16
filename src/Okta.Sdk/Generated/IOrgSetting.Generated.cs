@@ -73,8 +73,5 @@ namespace Okta.Sdk
         Task<IOrgPreferences> HideFooterAsync(
             CancellationToken cancellationToken = default(CancellationToken));
 
-        Task UpdateOrgLogoAsync(
-            CancellationToken cancellationToken = default(CancellationToken));
-
     }
 }

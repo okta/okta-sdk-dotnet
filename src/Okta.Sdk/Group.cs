@@ -23,5 +23,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public Task<IGroup> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Groups.UpdateGroupAsync(this, Id, cancellationToken);
+
+        /// <inheritdoc/>
+        public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Groups.AssignRoleToGroupAsync(assignRoleRequest, Id, (bool?)null, cancellationToken);
     }
 }

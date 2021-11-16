@@ -62,13 +62,6 @@ namespace Okta.Sdk
         Task<IOrgContactUser> UpdateOrgContactUserAsync(IUserIdString userId, string contactType, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Updates the logo for your organization.
-        /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task UpdateOrgLogoAsync(CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
         /// Gets preferences of your organization.
         /// </summary>
         /// <param name="cancellationToken">The cancellation token.</param>
