@@ -166,7 +166,10 @@ var clientConfiguration = new OktaClientConfiguration
 var client = new OktaClient(clientConfiguration);
 ```
 
-It is possible to use previously requested access token for an authentication. For that set `OktaClientConfiguration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `OktaClientConfiguration.BearerToken` to the token string. To provide already generated token, it's also possible to create a custom class implementing `IOAuthTokenProvider` interface and pass the instance of the class to OktaClient constructor. 
+It is possible to use previously requested access token for an authentication. For that set `OktaClientConfiguration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `OktaClientConfiguration.BearerToken` to the token string. 
+
+To provide already generated token, it's also possible to create a custom class implementing `IOAuthTokenProvider` interface and pass the instance of the class to OktaClient constructor. 
+
 You can provide a value for `OktaClientConfiguration.BearerToken` option together with a custom `IOAuthTokenProvider` implementation. In this case value from `OktaClientConfiguration.BearerToken` will be used first and if request fails (for example when the token expires) the custom token provider will be called.
 
 
