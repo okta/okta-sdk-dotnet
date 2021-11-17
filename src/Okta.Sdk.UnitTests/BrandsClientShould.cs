@@ -22,7 +22,7 @@ namespace Okta.Sdk.UnitTests
             var rawResponse = @"{ ""url"": ""foo"" }";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\org_logo.png");
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/org_logo.png");
             var file = File.OpenRead(filePath);
             var response = await client.Brands.UploadBrandThemeLogoAsync(file, "brandId", "themeId");
 
@@ -37,7 +37,7 @@ namespace Okta.Sdk.UnitTests
             var rawResponse = @"{ ""url"": ""foo"" }";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\org_logo.png");
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/org_logo.png");
             var file = File.OpenRead(filePath);
             var response = await client.Brands.UploadBrandThemeFaviconAsync(file, "brandId", "themeId");
 
@@ -52,7 +52,7 @@ namespace Okta.Sdk.UnitTests
             var rawResponse = @"{ ""url"": ""foo"" }";
             var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
             var client = new TestableOktaClient(mockRequestExecutor);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), @".\Assets\org_logo.png");
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/org_logo.png");
             var file = File.OpenRead(filePath);
             var response = await client.Brands.UploadBrandThemeBackgroundImageAsync(file, "brandId", "themeId");
 
