@@ -13,7 +13,7 @@ namespace Okta.Sdk.Internal
     /// </summary>
     public class DefaultBearerTokenProvider : IOAuthTokenProvider
     {
-        private readonly IOAuthTokenProvider _customTokenProvider;
+        private readonly IOAuthTokenProvider _thirdPartyTokenProvider;
         private string _bearerToken;
 
         /// <summary>
@@ -29,7 +29,7 @@ namespace Okta.Sdk.Internal
             }
 
             _bearerToken = bearerToken;
-            _customTokenProvider = tokenProvider;
+            _thirdPartyTokenProvider = tokenProvider;
         }
 
         /// <inheritdoc/>
@@ -37,9 +37,9 @@ namespace Okta.Sdk.Internal
         {
             if (forceRenew || string.IsNullOrEmpty(_bearerToken))
             {
-                if (_customTokenProvider != null)
+                if (_thirdPartyTokenProvider != null)
                 {
-                    _bearerToken = await _customTokenProvider.GetAccessTokenAsync(forceRenew).ConfigureAwait(false);
+                    _bearerToken = await _thirdPartyTokenProvider.GetAccessTokenAsync(forceRenew).ConfigureAwait(false);
                 }
                 else
                 {
