@@ -150,7 +150,5 @@ namespace Okta.Sdk.IntegrationTests
                 await client.Brands.UpdateBrandThemeAsync(themeToUpdate, brand.Id, theme.Id);
             }
         }
-
-        
     }
 }
