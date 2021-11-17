@@ -99,7 +99,7 @@ namespace Okta.Sdk.Internal
                 {
                     throw new ArgumentNullException(
                         nameof(configuration.AuthorizationMode),
-                        $"{nameof(configuration.BearerToken)} configuration property should be set when AuthorizationMode.AccessToken is chosen.");
+                        $"{nameof(configuration.BearerToken)} configuration property cannot be null when AuthorizationMode.BearerToken is selected.");
                 }
             }
         }
