@@ -65,7 +65,7 @@ namespace Okta.Sdk
                                         Configuration.Proxy,
                                         logger);
 
-            IOAuthTokenProvider tokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oAuthTokenProvider);
+            var tokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oAuthTokenProvider);
             var requestExecutor = new DefaultRequestExecutor(Configuration, defaultHttpClient, logger, retryStrategy, tokenProvider);
 
             _dataStore = new DefaultDataStore(

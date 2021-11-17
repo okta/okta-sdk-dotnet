@@ -168,7 +168,7 @@ var client = new OktaClient(clientConfiguration);
 
 It is possible to use an access token you retrieved outside of the SDK for authentication. For that, set `OktaClientConfiguration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `OktaClientConfiguration.BearerToken` to the token string. 
 
-To provide already generated token, it's also possible to create a custom class implementing `IOAuthTokenProvider` interface and pass the instance of the class to OktaClient constructor. 
+In addition to passing the token via configuration, you can inject your own implementation of the `IOAuthTokenProvider` interface via the OktaClient constructor. This strategy is useful when you want to refresh a token that has been expired.
 
 You can provide a value for `OktaClientConfiguration.BearerToken` option along with a custom `IOAuthTokenProvider` implementation. In this case, the SDK will try to use the  `OktaClientConfiguration.BearerToken` first and if the request fails (for example when the token expires) then the SDK will retry with the custom token provider.
 
