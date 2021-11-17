@@ -1,4 +1,4 @@
-﻿// <copyright file="ExternalTokenProviderShould.cs" company="Okta, Inc">
+﻿// <copyright file="DefaultBearerTokenProviderShould.cs" company="Okta, Inc">
 // Copyright (c) 2020 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -18,12 +18,12 @@ using Xunit;
 
 namespace Okta.Sdk.UnitTests
 {
-    public class ExternalTokenProviderShould
+    public class DefaultBearerTokenProviderShould
     {
         [Fact]
         public async Task ReturnAccessTokenWhenRequestSuccess()
         {
-            var tokenProvider = new ExternalTokenProvider("DefaultExternallyGeneratedToken", default);
+            var tokenProvider = new DefaultBearerTokenProvider("DefaultExternallyGeneratedToken", default);
             var token = await tokenProvider.GetAccessTokenAsync();
             token.Should().Be("DefaultExternallyGeneratedToken");
         }
@@ -44,7 +44,7 @@ namespace Okta.Sdk.UnitTests
             var httpClientRequest = new HttpClient(requestMessageHandler);
             var testableCustomTokenProvider = new TestableCustomTokenProvider();
             var mockLogger = Substitute.For<ILogger>();
-            var externalTokenProvider = new ExternalTokenProvider("oldAccessToken", testableCustomTokenProvider);
+            var externalTokenProvider = new DefaultBearerTokenProvider("oldAccessToken", testableCustomTokenProvider);
             var requestExecutor = new DefaultRequestExecutor(configuration, httpClientRequest, mockLogger, oAuthTokenProvider: externalTokenProvider);
 
             testableCustomTokenProvider.TokenRefreshed.Should().BeFalse();

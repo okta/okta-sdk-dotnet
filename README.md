@@ -166,20 +166,23 @@ var clientConfiguration = new OktaClientConfiguration
 var client = new OktaClient(clientConfiguration);
 ```
 
-It is possible to use previously requested access token for an authentication. For that set `AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `BearerToken` to the token string. It is also possible to provide a token renewing function, SDK will call the function when access token expires. See [Get an access token and make a request](https://developer.okta.com/docs/guides/implement-oauth-for-okta/request-access-token/) for additional information.
+It is possible to use previously requested access token for an authentication. For that set `OktaClientConfiguration.AuthorizationMode` configuration property to `AuthorizationMode.BearerToken` and `OktaClientConfiguration.BearerToken` to the token string. To provide already generated token, it's also possible to create a custom class implementing `IOAuthTokenProvider` interface and pass the instance of the class to OktaClient constructor. 
+You can provide a value for `OktaClientConfiguration.BearerToken` option together with a custom `IOAuthTokenProvider` implementation. In this case value from `OktaClientConfiguration.BearerToken` will be used first and if request fails (for example when the token expires) the custom token provider will be called.
+
+
+ See [Get an access token and make a request](https://developer.okta.com/docs/guides/implement-oauth-for-okta/request-access-token/) for additional information.
 
 
 ```csharp
+    // myOAuthTokenProvider implements Okta.Sdk.Internal.IOAuthTokenProvider interface
+	
     var client = new OktaClient(new OktaClientConfiguration
         {
             ClientId = "{{clientId}}",
             AuthorizationMode = AuthorizationMode.BearerToken,
             BearerToken = "{{preRequestedAccessToken}}",
         },
-        oauthTokenRenewer: async () =>
-        {
-            return await GetNewToken();
-        }
+        oAuthTokenProvider: myOAuthTokenProvider
     );
 ```
 ## Usage guide
