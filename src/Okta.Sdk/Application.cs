@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Okta.Sdk
 {
-    /// <inheritdoc/>
+    /// <inheritdoc cref="Application"/>
     public partial class Application : IApplication
     {
         /// <inheritdoc/>
@@ -17,6 +17,6 @@ namespace Okta.Sdk
                 .GetProperty<Resource>("accessPolicy")?
                 .GetProperty<string>("href")?
                 .Split('/')?
-                .LastOrDefault() ?? null;
+                .LastOrDefault();
     }
 }

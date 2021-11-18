@@ -68,7 +68,6 @@ namespace Okta.Sdk.IntegrationTests
                 authenticator.Settings.AllowedFor = originalAllowedFor;
                 await client.Authenticators.UpdateAuthenticatorAsync(authenticator, authenticator.Id);
             }
-
         }
     }
 }

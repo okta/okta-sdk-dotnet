@@ -481,8 +481,8 @@ namespace Okta.Sdk.IntegrationTests
                 },
                 RedirectUris = new List<string>
                 {
-                        "https://example.com/oauth2/callback",
-                        "myapp://callback",
+                    "https://example.com/oauth2/callback",
+                    "myapp://callback",
                 },
                 PostLogoutRedirectUris = new List<string>
                 {
@@ -498,7 +498,6 @@ namespace Okta.Sdk.IntegrationTests
             });
 
             var accessPolicyId = createdApp.GetAccessPolicyId();
-            var accessPolicy = await client.Policies.GetPolicyAsync<AccessPolicy>(accessPolicyId);
 
             var accessPolicyRuleOptions = new AccessPolicyRule
             {
@@ -529,7 +528,6 @@ namespace Okta.Sdk.IntegrationTests
                 createdPolicyRule.Actions.AppSignOn.Access.Should().Be("DENY");
                 createdPolicyRule.Actions.AppSignOn.VerificationMethod.Type.Should().Be("ASSURANCE");
                 createdPolicyRule.Actions.AppSignOn.VerificationMethod.FactorMode.Should().Be("1FA");
-                createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
                 createdPolicyRule.Actions.AppSignOn.VerificationMethod.ReauthenticateIn.Should().Be("PT43800H");
                 createdPolicyRule.Type.Should().Be(PolicyType.AccessPolicy);
             }
