@@ -3,7 +3,6 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Okta.Sdk.Internal;
@@ -126,11 +125,16 @@ namespace Okta.Sdk.Configuration
         /// </summary>
         public List<string> Scopes { get; set; }
 
+        /// <summary>
+        /// Gets or sets the OAuth Access Token to use. For AuthorizationMode set to <see cref="AuthorizationMode.BearerToken"/>.
+        /// </summary>
+        public string BearerToken { get; set; }
+
         /// <inheritdoc/>
         public OktaClientConfiguration DeepClone()
             => new OktaClientConfiguration
             {
-                ConnectionTimeout = ConnectionTimeout,
+                ConnectionTimeout = this.ConnectionTimeout,
                 OktaDomain = this.OktaDomain,
                 Token = this.Token,
                 Proxy = this.Proxy?.DeepClone(),
@@ -141,6 +145,7 @@ namespace Okta.Sdk.Configuration
                 PrivateKey = this.PrivateKey,
                 ClientId = this.ClientId,
                 Scopes = this.Scopes,
+                BearerToken = this.BearerToken,
             };
     }
 }
