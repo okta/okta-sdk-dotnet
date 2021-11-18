@@ -3,14 +3,14 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
-using Microsoft.Extensions.Logging;
-using Okta.Sdk.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
 
 namespace Okta.Sdk.Internal
 {
@@ -74,7 +74,10 @@ namespace Okta.Sdk.Internal
         private async Task ApplyOAuthHeaderAsync(bool forceTokenRenew = false)
         {
             var token = await _oAuthTokenProvider.GetAccessTokenAsync(forceTokenRenew).ConfigureAwait(false);
-            _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            if (!string.IsNullOrEmpty(token))
+            {
+                _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+            }
         }
 
         private string EnsureRelativeUrl(string uri)
@@ -119,10 +122,7 @@ namespace Okta.Sdk.Internal
         {
             _logger.LogTrace($"{request.Method} {request.RequestUri}");
 
-            if (_oktaConfiguration.AuthorizationMode == AuthorizationMode.PrivateKey)
-            {
-                await ApplyOAuthHeaderAsync().ConfigureAwait(false);
-            }
+            await ApplyOAuthHeaderAsync().ConfigureAwait(false);
 
             Func<HttpRequestMessage, CancellationToken, Task<HttpResponseMessage>> operation = async (x, y) => await _httpClient.SendAsync(x, y).ConfigureAwait(false);
             HttpResponseMessage response = null;
@@ -132,7 +132,9 @@ namespace Okta.Sdk.Internal
                 _logger.LogTrace($"{(int)response.StatusCode} {request.RequestUri.PathAndQuery}");
 
                 // If OAuth token expired, get a new token and retry
-                if ((int)response.StatusCode == 401 && _oktaConfiguration.AuthorizationMode == AuthorizationMode.PrivateKey)
+                if ((int)response.StatusCode == 401 &&
+                    (_oktaConfiguration.AuthorizationMode == AuthorizationMode.PrivateKey ||
+                     _oktaConfiguration.AuthorizationMode == AuthorizationMode.BearerToken))
                 {
                     await ApplyOAuthHeaderAsync(true).ConfigureAwait(false);
 
