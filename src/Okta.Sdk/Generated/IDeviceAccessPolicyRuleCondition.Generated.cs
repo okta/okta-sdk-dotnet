@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a DeviceAccessPolicyRuleCondition resource in the Okta API.</summary>
-    public partial interface IDeviceAccessPolicyRuleCondition : IResource
+    public partial interface IDeviceAccessPolicyRuleCondition : IDevicePolicyRuleCondition
     {
         bool? Managed { get; set; }
 

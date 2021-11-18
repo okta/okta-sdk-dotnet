@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class DeviceAccessPolicyRuleCondition : Resource, IDeviceAccessPolicyRuleCondition
+    public sealed partial class DeviceAccessPolicyRuleCondition : DevicePolicyRuleCondition, IDeviceAccessPolicyRuleCondition
     {
         /// <inheritdoc/>
         public bool? Managed 
