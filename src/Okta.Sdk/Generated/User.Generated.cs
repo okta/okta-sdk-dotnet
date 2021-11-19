@@ -14,7 +14,9 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
+    [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] 
     public sealed partial class User : Resource, IUser
+    
     {
         /// <inheritdoc/>
         public DateTimeOffset? Activated => GetDateTimeProperty("activated");

@@ -2,6 +2,17 @@
 Running changelog of releases since `3.1.1`
 
 
+## v5.3.1
+
+- Add support for null values for User object. Now it's possible to remove for example the second email by setting it to null like this:
+
+```csharp
+    userProfile["secondEmail"] = null;
+```
+
+This will be included in a request payload. Previously, all null values were stripped from the payload. 
+
+
 ## v5.3.0
 
 ### Features
