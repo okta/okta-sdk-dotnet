@@ -10,7 +10,7 @@ Running changelog of releases since `3.1.1`
     userProfile["secondEmail"] = null;
 ```
 
-This will be included in a request payload. Previously, all null values were stripped from the payload. 
+This will be included in the request payload. Previously, all null values were stripped from the payload. 
 
 
 ## v5.3.0
