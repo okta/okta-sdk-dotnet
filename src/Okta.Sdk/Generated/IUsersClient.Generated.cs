@@ -263,7 +263,7 @@ namespace Okta.Sdk
         Task<IUserActivationToken> ActivateUserAsync(string userId, bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Deactivates a user.  This operation can only be performed on users that do not have a `DEPROVISIONED` status.  Deactivation of a user is an asynchronous operation.  The user will have the `transitioningToStatus` property with a value of `DEPROVISIONED` during deactivation to indicate that the user hasn't completed the asynchronous operation.  The user will have a status of `DEPROVISIONED` when the deactivation process is complete.
+        /// Deactivates a user. This operation can only be performed on users that do not have a `DEPROVISIONED` status. While the asynchronous operation (triggered by HTTP header `Prefer: respond-async`) is proceeding the user's `transitioningToStatus` property is `DEPROVISIONED`. The user's status is `DEPROVISIONED` when the deactivation process is complete.
         /// </summary>
         /// <param name="userId"></param>
         /// <param name="sendEmail"></param>
@@ -372,7 +372,7 @@ namespace Okta.Sdk
         /// <param name="disableNotifications"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IRole"/> response.</returns>
-        Task<IRole> AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IRole> AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Unassigns a role from a user.

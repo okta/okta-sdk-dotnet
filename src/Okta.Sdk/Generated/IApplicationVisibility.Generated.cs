@@ -15,6 +15,8 @@ namespace Okta.Sdk
     /// <summary>Represents a ApplicationVisibility resource in the Okta API.</summary>
     public partial interface IApplicationVisibility : IResource
     {
+        bool? AutoLaunch { get; set; }
+
         bool? AutoSubmitToolbar { get; set; }
 
         IApplicationVisibilityHide Hide { get; set; }

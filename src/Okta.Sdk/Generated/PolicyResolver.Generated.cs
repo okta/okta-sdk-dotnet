@@ -30,6 +30,11 @@ namespace Okta.Sdk.Internal
                 return typeof(Policy);
             }
             
+            if (value.Equals("ACCESS_POLICY"))
+            {
+                return typeof(AccessPolicy);
+            }
+            
             if (value.Equals("IDP_DISCOVERY"))
             {
                 return typeof(IdentityProviderPolicy);
@@ -48,6 +53,11 @@ namespace Okta.Sdk.Internal
             if (value.Equals("PASSWORD"))
             {
                 return typeof(PasswordPolicy);
+            }
+            
+            if (value.Equals("PROFILE_ENROLLMENT"))
+            {
+                return typeof(ProfileEnrollmentPolicy);
             }
             
             return typeof(Policy);

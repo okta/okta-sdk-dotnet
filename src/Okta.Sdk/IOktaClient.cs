@@ -24,6 +24,11 @@ namespace Okta.Sdk
         OktaClientConfiguration Configuration { get; }
 
         /// <summary>
+        /// Gets a <see cref="IBrandsClient">GroupSchemasClient</see> that interacts with the schemas API.
+        /// </summary>
+        IBrandsClient Brands { get; }
+
+        /// <summary>
         /// Gets a <see cref="IGroupSchemasClient">GroupSchemasClient</see> that interacts with the schemas API.
         /// </summary>
         IGroupSchemasClient GroupSchemas { get; }
@@ -205,6 +210,7 @@ namespace Okta.Sdk
         /// A <see cref="IProfileMappingsClient">ThreatInsightsClient</see> that interacts with the Okta ThreatInsight configuration API.
         /// </value>
         IThreatInsightsClient ThreatInsights { get; }
+
         /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
         /// </summary>

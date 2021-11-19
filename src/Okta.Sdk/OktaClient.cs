@@ -77,6 +77,7 @@ namespace Okta.Sdk
             PayloadHandler.TryRegister<PkixCertPayloadHandler>();
             PayloadHandler.TryRegister<PemFilePayloadHandler>();
             PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
+            PayloadHandler.TryRegister<MultipartFormDataPayloadHandler>();
         }
 
         /// <summary>
@@ -177,6 +178,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IOktaClient CreateScoped(RequestContext requestContext)
             => new OktaClient(_dataStore, Configuration, requestContext);
+
+        /// <inheritdoc/>
+        public IBrandsClient Brands => new BrandsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
         public IGroupSchemasClient GroupSchemas => new GroupSchemasClient(_dataStore, Configuration, _requestContext);

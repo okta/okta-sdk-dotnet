@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class UserIdString : Resource, IUserIdString
+    public sealed partial class UserIdString : OrgContactUser, IUserIdString
     {
         /// <inheritdoc/>
         public string UserId 

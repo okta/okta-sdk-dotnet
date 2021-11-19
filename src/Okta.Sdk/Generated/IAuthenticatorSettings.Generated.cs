@@ -17,7 +17,15 @@ namespace Okta.Sdk
     {
         AllowedForEnum AllowedFor { get; set; }
 
+        string AppInstanceId { get; set; }
+
+        IChannelBinding ChannelBinding { get; set; }
+
+        ICompliance Compliance { get; set; }
+
         int? TokenLifetimeInMinutes { get; set; }
+
+        UserVerificationEnum UserVerification { get; set; }
 
     }
 }

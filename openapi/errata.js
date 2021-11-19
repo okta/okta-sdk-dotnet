@@ -146,6 +146,7 @@ const modelErrata = [
   { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
   { path: 'UserSchema', includeNullValues: true },
   { path: 'GroupSchema', includeNullValues: true },
+  { path: 'AuthenticatorProviderConfigurationUserNamePlate', rename: 'AuthenticatorProviderConfigurationUserNameTemplate', renameReason: 'Fix typo' },
 ];
 
 const operationErrata = [
@@ -316,6 +317,10 @@ const modelMethodSkipList = [
   { path: 'User.listGroups', reason: 'Implemented as IUser.Groups' },
   { path: 'User.resetPassword', reason: 'Simplified as IUser.ResetPasswordAsync(bool)' },
   { path: 'Group.listUsers', reason: 'Implemented as IGroup.Users' },
+  { path: 'Theme.updateBrandThemeBackgroundImage', reason: 'Implemented manually' },
+  { path: 'Theme.updateBrandThemeFavicon', reason: 'Implemented manually' },
+  { path: 'Theme.uploadBrandThemeLogo', reason: 'Implemented manually' },
+  { path: 'OrgSetting.updateOrgLogo', reason: 'Implemented manually' }
 ];
 
 function shouldSkipModelMethod(fullPath) {
@@ -336,6 +341,10 @@ const operationSkipList = [
   { id: 'publishDerCert', reason: 'Operation defined manually' },
   { id: 'publishBinaryDerCert', reason: 'Operation defined manually' },
   { id: 'publishBinaryPemCert', reason: 'Operation defined manually' },
+  { id: 'uploadBrandThemeBackgroundImage', reason: 'Operation defined manually'},
+  { id: 'uploadBrandThemeFavicon', reason: 'Operation defined manually'},
+  { id: 'uploadBrandThemeLogo', reason: 'Operation defined manually'},
+  { id: 'updateOrgLogo', reason: 'Operation defined manually'}
 ];
 
 function shouldSkipOperation(operationId) {

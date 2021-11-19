@@ -30,6 +30,9 @@ namespace Okta.Sdk
         /// <summary>The security_key AuthenticatorType.</summary>
         public static AuthenticatorType SecurityKey = new AuthenticatorType("security_key");
 
+        /// <summary>The federated AuthenticatorType.</summary>
+        public static AuthenticatorType Federated = new AuthenticatorType("federated");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="AuthenticatorType"/>
         /// </summary>

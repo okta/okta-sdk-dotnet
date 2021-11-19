@@ -17,6 +17,13 @@ namespace Okta.Sdk
     public sealed partial class ApplicationCredentialsUsernameTemplate : Resource, IApplicationCredentialsUsernameTemplate
     {
         /// <inheritdoc/>
+        public string PushStatus 
+        {
+            get => GetStringProperty("pushStatus");
+            set => this["pushStatus"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string Suffix 
         {
             get => GetStringProperty("suffix");

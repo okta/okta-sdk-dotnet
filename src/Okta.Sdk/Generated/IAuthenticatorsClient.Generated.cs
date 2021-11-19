@@ -30,6 +30,15 @@ namespace Okta.Sdk
         Task<IAuthenticator> GetAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Updates an authenticator
+        /// </summary>
+        /// <param name="authenticator">The <see cref="IAuthenticator"/> resource.</param>
+        /// <param name="authenticatorId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IAuthenticator"/> response.</returns>
+        Task<IAuthenticator> UpdateAuthenticatorAsync(IAuthenticator authenticator, string authenticatorId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Success
         /// </summary>
         /// <param name="authenticatorId"></param>

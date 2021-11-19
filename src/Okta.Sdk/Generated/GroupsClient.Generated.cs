@@ -227,7 +227,7 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Role>(new HttpRequest
             {
                 Uri = "/api/v1/groups/{groupId}/roles",

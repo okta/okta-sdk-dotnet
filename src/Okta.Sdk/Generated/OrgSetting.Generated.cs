@@ -111,5 +111,45 @@ namespace Okta.Sdk
             set => this["website"] = value;
         }
         
+        /// <inheritdoc />
+        public Task<IOrgSetting> PartialUpdateAsync(IOrgSetting orgSetting, 
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.PartialUpdateOrgSettingAsync(orgSetting, cancellationToken);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IOrgContactTypeObj> GetContactTypes(
+            )
+            => GetClient().Orgs.GetOrgContactTypes();
+        
+        /// <inheritdoc />
+        public Task<IOrgContactUser> GetOrgContactUserAsync(
+            string contactType, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.GetOrgContactUserAsync(contactType, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOrgOktaSupportSettingsObj> GetSupportSettingsAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.GetOrgOktaSupportSettingsAsync(cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOrgOktaCommunicationSetting> CommunicationSettingsAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.GetOktaCommunicationSettingsAsync(cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOrgPreferences> OrgPreferencesAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.GetOrgPreferencesAsync(cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOrgPreferences> ShowFooterAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.ShowOktaUiFooterAsync(cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IOrgPreferences> HideFooterAsync(
+            CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Orgs.HideOktaUiFooterAsync(cancellationToken);
+        
     }
 }

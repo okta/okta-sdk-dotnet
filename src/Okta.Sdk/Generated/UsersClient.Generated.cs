@@ -623,7 +623,7 @@ namespace Okta.Sdk
             });
                     
         /// <inheritdoc />
-        public async Task<IRole> AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<IRole> AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Role>(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/roles",

@@ -40,6 +40,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IAuthenticatorProvider Provider 
+        {
+            get => GetResourceProperty<AuthenticatorProvider>("provider");
+            set => this["provider"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IAuthenticatorSettings Settings 
         {
             get => GetResourceProperty<AuthenticatorSettings>("settings");

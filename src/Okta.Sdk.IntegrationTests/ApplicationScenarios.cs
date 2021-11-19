@@ -1858,6 +1858,5 @@ namespace Okta.Sdk.IntegrationTests
                 await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
             }
         }
-
     }
 }
