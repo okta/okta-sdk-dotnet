@@ -4,7 +4,7 @@ Running changelog of releases since `3.1.1`
 
 ## v5.3.1
 
-- Add support for null values for User object. Now it's possible to remove for example the second email by setting it to null like this:
+- Add support for null User object property values. Now it's possible to remove properties, for example, the second email, by setting it to null like the following:
 
 ```csharp
     userProfile["secondEmail"] = null;
