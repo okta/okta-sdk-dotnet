@@ -2,6 +2,17 @@
 
 This library uses semantic versioning and follows Okta's [library version policy](https://developer.okta.com/code/library-versions/). In short, we don't make breaking changes unless the major version changes!
 
+## Migrating from 5.x to 6.x
+
+Changed default behaviour of `User` object.  Previously `null` properties were omitted from the payload for Add support for null User object property values. Now it's possible to remove properties, for example, the second email, by setting it to null like the following:
+
+```csharp
+    userProfile["secondEmail"] = null;
+```
+
+This will be included in the request payload. Previously, all null values were stripped from the payload. 
+
+
 ## Migrating from 4.x to 5.x
 
 In previous versions, null resource properties would result in a resource object with all its properties set to `null`. Now, null resource properties will result in `null` property value.

@@ -14,7 +14,7 @@ namespace Okta.Sdk.UnitTests
     public class ResourceSerializingConverterShould
     {
         [Fact]
-        public void RemoveNullPropertiesInSerialization()
+        public void KeepNullPropertiesInSerializationUserProfile()
         {
             var user = new User()
             {
@@ -22,6 +22,26 @@ namespace Okta.Sdk.UnitTests
                 {
                     FirstName = "John",
                 },
+            };
+
+            user.Profile["foo"] = "fooValue";
+            user.Profile["bar"] = null;
+            user.Profile["baz"] = new List<string>() { "1", "2" };
+
+            var serializer = new DefaultSerializer();
+            var serializedUser = serializer.Serialize(user);
+
+            serializedUser.Trim().Should().Contain("\"foo\":\"fooValue\"");
+            serializedUser.Trim().Should().Contain("\"bar\":");
+            serializedUser.Trim().Should().Contain("\"baz\":[\"1\",\"2\"]");
+        }
+
+        [Fact]
+        public void RemoveNullPropertiesInSerialization()
+        {
+            var user = new Application()
+            {
+                Profile = new Resource(),
             };
 
             user.Profile["foo"] = "fooValue";
