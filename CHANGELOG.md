@@ -2,6 +2,13 @@
 Running changelog of releases since `3.1.1`
 
 
+## v5.3.1
+
+### Features
+
+- Add a new calculated property `TransactionId` to `VerifyUserFactorResponse`. The property will be populated in Push Factor verification responses. The `TransactionId` can further be used with `GetFactorTransactionStatusAsync` operation. See [Issue a Push Factor challenge](https://developer.okta.com/docs/reference/api/factors/#issue-a-push-factor-challenge) for details. (#507)
+
+
 ## v5.3.0
 
 ### Features
