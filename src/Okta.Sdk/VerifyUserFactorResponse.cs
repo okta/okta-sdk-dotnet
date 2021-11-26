@@ -13,24 +13,21 @@ namespace Okta.Sdk
         private const string TransactionsSegmentName = "transactions";
 
         /// <inheritdoc/>
-        public string TransactionId
+        public string GetTransactionId()
         {
-            get
+            var pathSegments = GetProperty<Resource>("_links")?
+                .GetProperty<Resource>("poll")?
+                .GetProperty<string>("href")?
+                .Split('/')
+                .SkipWhile(s => !s.Equals(TransactionsSegmentName))
+                .Take(2);
+
+            if (pathSegments?.Count() == 2)
             {
-                var pathSegments = GetProperty<Resource>("_links")?
-                    .GetProperty<Resource>("poll")?
-                    .GetProperty<string>("href")?
-                    .Split('/')
-                    .SkipWhile(s => !s.Equals(TransactionsSegmentName))
-                    .Take(2);
-
-                if (pathSegments?.Count() == 2)
-                {
-                    return pathSegments.Last();
-                }
-
-                return null;
+                return pathSegments.Last();
             }
+
+            return null;
         }
     }
 }

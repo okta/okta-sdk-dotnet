@@ -9,8 +9,9 @@ namespace Okta.Sdk
     public partial interface IVerifyUserFactorResponse : IResource
     {
         /// <summary>
-        /// Gets the Transaction Id for Push Factor Verify response.
+        /// Gets a Transaction Id from _Links for Push Factor Verify response.
         /// </summary>
-        string TransactionId { get; }
+        /// <returns>The Transaction Id or null if it was not found.</returns>
+        string GetTransactionId();
     }
 }

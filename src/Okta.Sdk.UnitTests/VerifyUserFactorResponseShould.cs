@@ -46,7 +46,7 @@ namespace Okta.Sdk.UnitTests
             var client = new TestableOktaClient(mockRequestExecutor);
 
             var factorVerifyResponse = await client.UserFactors.VerifyFactorAsync("userId", "pushFactorId");
-            factorVerifyResponse.TransactionId.Should().Be("verificationTransactionId");
+            factorVerifyResponse.GetTransactionId().Should().Be("verificationTransactionId");
         }
     }
 }
