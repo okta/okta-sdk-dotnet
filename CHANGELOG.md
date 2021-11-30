@@ -6,7 +6,7 @@ Running changelog of releases since `3.1.1`
 
 ### Features
 
-- Add `GetTransactionId` function in `VerifyUserFactorResponse`. The function makes sense for Push Factor verification responses which contain this Id. The return value can further be used with `GetFactorTransactionStatusAsync` operation. See [Issue a Push Factor challenge](https://developer.okta.com/docs/reference/api/factors/#issue-a-push-factor-challenge) for details. (#507)
+- Add `VerifyUserFactorResponse.GetTransactionId` method to simplify access to the transaction ID of the `VerifyUserFactorResponse` where appropriate. The transaction ID is further used with the `GetFactorTransactionStatusAsync` operation. See [Issue a Push Factor challenge](https://developer.okta.com/docs/reference/api/factors/#issue-a-push-factor-challenge) for details. (#507)
 
 
 ## v5.3.0
