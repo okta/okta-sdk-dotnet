@@ -145,10 +145,8 @@ const modelErrata = [
   { path: 'CSRMetadataSubject', rename: 'CsrMetadataSubject', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
   { path: 'UserSchema', includeNullValues: true },
-  { path: 'GroupSchema', includeNullValues: true },
-  { path: 'User', includeNullValues: true },
-  { path: 'AuthenticatorProviderConfigurationUserNamePlate', rename: 'AuthenticatorProviderConfigurationUserNameTemplate', renameReason: 'Fix typo' },
-];
+  { path: 'GroupSchema', includeNullValues: true },  { path: 'AuthenticatorProviderConfigurationUserNamePlate', rename: 'AuthenticatorProviderConfigurationUserNameTemplate', renameReason: 'Fix typo' },
+  { path: 'User', includeNullValues: true },];
 
 const operationErrata = [
   { tag: 'User', operationId: 'createUser', queryParamName: 'nextLogin', type: 'object', typeReason: 'StringEnum\'s must be object',  default: 'null', defaultReason: 'Implicit string operator cannot be used as default parameter'},

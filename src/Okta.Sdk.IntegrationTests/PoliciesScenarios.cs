@@ -562,16 +562,6 @@ namespace Okta.Sdk.IntegrationTests
                 Required = true,
             });
 
-            defaultPolicyRule.Actions.ProfileEnrollment.Access = "ALLOW";
-            defaultPolicyRule.Actions.ProfileEnrollment.PreRegistrationInlineHooks = null;
-            defaultPolicyRule.Actions.ProfileEnrollment.UnknownUserAction = "DENY";
-            defaultPolicyRule.Actions.ProfileEnrollment.TargetGroupIds = null;
-            defaultPolicyRule.Actions.ProfileEnrollment.ActivationRequirements =
-                new ProfileEnrollmentPolicyRuleActivationRequirement
-                {
-                    EmailVerification = true,
-                };
-
             defaultPolicyRule.Actions = new ProfileEnrollmentPolicyRuleActions
             {
                 ProfileEnrollment = new ProfileEnrollmentPolicyRuleAction
