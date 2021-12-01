@@ -145,7 +145,7 @@ namespace Okta.Sdk
         /// <param name="disableNotifications"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IRole"/> response.</returns>
-        Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Unassigns a Role from a Group

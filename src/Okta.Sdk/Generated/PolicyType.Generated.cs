@@ -24,6 +24,12 @@ namespace Okta.Sdk
         /// <summary>The IDP_DISCOVERY PolicyType.</summary>
         public static PolicyType IdpDiscovery = new PolicyType("IDP_DISCOVERY");
 
+        /// <summary>The PROFILE_ENROLLMENT PolicyType.</summary>
+        public static PolicyType ProfileEnrollment = new PolicyType("PROFILE_ENROLLMENT");
+
+        /// <summary>The ACCESS_POLICY PolicyType.</summary>
+        public static PolicyType AccessPolicy = new PolicyType("ACCESS_POLICY");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="PolicyType"/>
         /// </summary>

@@ -37,14 +37,14 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                await createdUser.AddFactorAsync(new AddSecurityQuestionFactorOptions
+                var createdUserFactor = await createdUser.AddFactorAsync(new AddSecurityQuestionFactorOptions
                 {
                     Question = "disliked_food",
                     Answer = "mayonnaise",
                 });
 
                 var factors = await createdUser.ListFactors().ToArrayAsync();
-                factors.Count().Should().Be(1);
+                factors.Any(x => x.Id == createdUserFactor.Id).Should().BeTrue();
 
                 var securityQuestionFactor = await createdUser.ListFactors().OfType<ISecurityQuestionUserFactor>().FirstOrDefaultAsync();
                 securityQuestionFactor.Should().NotBeNull();
@@ -81,50 +81,16 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                await createdUser.AddFactorAsync(new AddSmsFactorOptions()
+                var createdUserFactor = await createdUser.AddFactorAsync(new AddSmsFactorOptions()
                 {
                     PhoneNumber = "+16284001133‬",
                 });
 
                 var factors = await createdUser.ListFactors().ToArrayAsync();
-                factors.Count().Should().Be(1);
-
+                factors.Any(x => x.Id == createdUserFactor.Id).Should().BeTrue();
                 var smsFactor = await createdUser.ListFactors().OfType<ISmsUserFactor>().FirstOrDefaultAsync();
                 smsFactor.Should().NotBeNull();
                 smsFactor.FactorType.Should().Be(FactorType.Sms);
-            }
-            finally
-            {
-                await createdUser.DeactivateAsync();
-                await createdUser.DeactivateOrDeleteAsync();
-            }
-        }
-
-        [Fact]
-        public async Task ListFactorsForNewUser()
-        {
-            var client = TestClient.Create();
-            var guid = Guid.NewGuid();
-
-            var profile = new UserProfile
-            {
-                FirstName = "Jack",
-                LastName = "List-Factors",
-                Email = $"jack-list-factors-dotnet-sdk-{guid}@example.com",
-                Login = $"jack-list-factors-dotnet-sdk-{guid}@example.com",
-            };
-            profile["nickName"] = "jack-list-users";
-
-            var createdUser = await client.Users.CreateUserAsync(new CreateUserWithPasswordOptions
-            {
-                Profile = profile,
-                Password = "Abcd1234",
-            });
-
-            try
-            {
-                var factors = await createdUser.Factors.ToArrayAsync();
-                factors.Count().Should().Be(0);
             }
             finally
             {
@@ -211,7 +177,7 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.DeleteFactorAsync(retrievedUserFactor.Id);
 
                 var factors = await createdUser.ListFactors().ToArrayAsync();
-                factors.Count().Should().Be(0);
+                factors.Any(x => x.Id == createdUserFactor.Id).Should().BeFalse();
             }
             finally
             {
@@ -256,7 +222,7 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.ResetFactorsAsync();
 
                 var factors = await createdUser.ListFactors().ToArrayAsync();
-                factors.Count().Should().Be(0);
+                factors.Any(x => x.Id == createdUserFactor.Id).Should().BeFalse();
             }
             finally
             {

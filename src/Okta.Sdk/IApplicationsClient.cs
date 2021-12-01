@@ -91,7 +91,7 @@ namespace Okta.Sdk
         Task<IApplication> CreateApplicationAsync(CreateSamlApplicationOptions samlApplicationOptions, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Adds a WS-Federation Passive Requestor Profile application with a SAML 2.0 token.
+        /// Adds a WS-Federation Passive Request to Profile application with a SAML 2.0 token.
         /// </summary>
         /// <param name="wsFederationApplicationOptions">The application settings helper</param>
         /// <param name="cancellationToken">The cancellation token</param>
@@ -145,8 +145,8 @@ namespace Okta.Sdk
         /// Publishes with an X.509 certificate in base64 encoded CER.
         /// </summary>
         /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
+        /// <param name="appId">The application Id.</param>
+        /// <param name="csrId">The CSR Id.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
         Task<IJsonWebKey> PublishCerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
@@ -155,8 +155,8 @@ namespace Okta.Sdk
         /// Publishes with an X.509 certificate in binary CER.
         /// </summary>
         /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
+        /// <param name="appId">The application Id.</param>
+        /// <param name="csrId">The CSR Id.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
         Task<IJsonWebKey> PublishBinaryCerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
@@ -165,8 +165,8 @@ namespace Okta.Sdk
         /// Publishes with an X.509 certificate in base64 encoded DER.
         /// </summary>
         /// <param name="base64EncodedCertificateData">The <see cref="string"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
+        /// <param name="appId">The application Id.</param>
+        /// <param name="csrId">The CSR Id.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
         Task<IJsonWebKey> PublishDerCertAsync(string base64EncodedCertificateData, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
@@ -175,8 +175,8 @@ namespace Okta.Sdk
         /// Publishes with an X.509 certificate a binary DER.
         /// </summary>
         /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
+        /// <param name="appId">The application Id.</param>
+        /// <param name="csrId">The CSR Id.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
         Task<IJsonWebKey> PublishBinaryDerCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));
@@ -185,8 +185,8 @@ namespace Okta.Sdk
         /// Publishes with an X.509 certificate in PEM format.
         /// </summary>
         /// <param name="certificate">The <see cref="byte[]"/> resource.</param>
-        /// <param name="appId"></param>
-        /// <param name="csrId"></param>
+        /// <param name="appId">The application Id.</param>
+        /// <param name="csrId">The CSR Id.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
         Task<IJsonWebKey> PublishBinaryPemCertAsync(byte[] certificate, string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken));

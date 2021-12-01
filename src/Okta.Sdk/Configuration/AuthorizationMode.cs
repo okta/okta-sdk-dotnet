@@ -11,7 +11,7 @@ namespace Okta.Sdk.Configuration
     public enum AuthorizationMode
     {
         /// <summary>
-        /// Indicates that the SDK will send a SSWS token in the authorozation header when making calls. 
+        /// Indicates that the SDK will send a SSWS token in the authorization header when making calls.
         /// </summary>
         SSWS,
 
@@ -19,5 +19,10 @@ namespace Okta.Sdk.Configuration
         /// Indicates that the SDK will request and send an access token in the authorization header when making calls.
         /// </summary>
         PrivateKey,
+
+        /// <summary>
+        /// Indicates that the SDK will use the provided access token <see cref="OktaClientConfiguration.BearerToken"/> when making calls.
+        /// </summary>
+        BearerToken,
     }
 }

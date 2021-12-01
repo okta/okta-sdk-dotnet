@@ -18,7 +18,8 @@ namespace Okta.Sdk.Internal
         /// Validates the OktaClient configuration
         /// </summary>
         /// <param name="configuration">The configuration to be validated</param>
-        public static void Validate(OktaClientConfiguration configuration)
+        /// <param name="isExternalTokenProviderDefined">If there is an external token provider to be used to retrieve BearerToken.</param>
+        public static void Validate(OktaClientConfiguration configuration, bool isExternalTokenProviderDefined = false)
         {
             if (string.IsNullOrEmpty(configuration.OktaDomain))
             {
@@ -89,6 +90,16 @@ namespace Okta.Sdk.Internal
                 if (configuration.Scopes == null || configuration.Scopes.Count == 0)
                 {
                     throw new ArgumentNullException(nameof(configuration.Scopes), "Scopes cannot be null or empty.");
+                }
+            }
+
+            if (configuration.AuthorizationMode == AuthorizationMode.BearerToken)
+            {
+                if (string.IsNullOrEmpty(configuration.BearerToken) && !isExternalTokenProviderDefined)
+                {
+                    throw new ArgumentNullException(
+                        nameof(configuration.AuthorizationMode),
+                        $"{nameof(configuration.BearerToken)} configuration property cannot be null when AuthorizationMode.BearerToken is selected.");
                 }
             }
         }

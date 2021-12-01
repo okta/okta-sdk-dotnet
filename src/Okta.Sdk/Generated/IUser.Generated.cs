@@ -46,7 +46,10 @@ namespace Okta.Sdk
             bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken));
 
         Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
-            string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
+            bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IRole> GetRoleAsync(
+            string roleId, CancellationToken cancellationToken = default(CancellationToken));
 
         Task RemoveRoleAsync(
             string roleId, CancellationToken cancellationToken = default(CancellationToken));

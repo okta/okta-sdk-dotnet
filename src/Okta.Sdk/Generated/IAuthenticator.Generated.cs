@@ -25,6 +25,8 @@ namespace Okta.Sdk
 
         string Name { get; set; }
 
+        IAuthenticatorProvider Provider { get; set; }
+
         IAuthenticatorSettings Settings { get; set; }
 
         AuthenticatorStatus Status { get; set; }

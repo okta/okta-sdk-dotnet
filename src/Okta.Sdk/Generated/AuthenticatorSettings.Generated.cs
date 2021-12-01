@@ -24,10 +24,38 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string AppInstanceId 
+        {
+            get => GetStringProperty("appInstanceId");
+            set => this["appInstanceId"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public IChannelBinding ChannelBinding 
+        {
+            get => GetResourceProperty<ChannelBinding>("channelBinding");
+            set => this["channelBinding"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public ICompliance Compliance 
+        {
+            get => GetResourceProperty<Compliance>("compliance");
+            set => this["compliance"] = value;
+        }
+        
+        /// <inheritdoc/>
         public int? TokenLifetimeInMinutes 
         {
             get => GetIntegerProperty("tokenLifetimeInMinutes");
             set => this["tokenLifetimeInMinutes"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public UserVerificationEnum UserVerification 
+        {
+            get => GetEnumProperty<UserVerificationEnum>("userVerification");
+            set => this["userVerification"] = value;
         }
         
     }

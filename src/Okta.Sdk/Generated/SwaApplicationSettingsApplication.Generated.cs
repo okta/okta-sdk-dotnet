@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public string Checkbox 
+        {
+            get => GetStringProperty("checkbox");
+            set => this["checkbox"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string LoginUrlRegex 
         {
             get => GetStringProperty("loginUrlRegex");
@@ -35,6 +42,13 @@ namespace Okta.Sdk
         {
             get => GetStringProperty("passwordField");
             set => this["passwordField"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string RedirectUrl 
+        {
+            get => GetStringProperty("redirectUrl");
+            set => this["redirectUrl"] = value;
         }
         
         /// <inheritdoc/>

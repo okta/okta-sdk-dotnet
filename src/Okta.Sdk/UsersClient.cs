@@ -211,5 +211,10 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default)
             => UpdateUserAsync(user, userId, null, cancellationToken);
+
+        /// <inheritdoc />
+        public Task<IRole> AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId,
+            string disableNotifications, CancellationToken cancellationToken = default(CancellationToken))
+            => AssignRoleToUserAsync(assignRoleRequest, userId, (bool?)null, cancellationToken);
     }
 }

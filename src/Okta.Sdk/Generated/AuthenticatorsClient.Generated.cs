@@ -51,6 +51,19 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public async Task<IAuthenticator> UpdateAuthenticatorAsync(IAuthenticator authenticator, string authenticatorId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<Authenticator>(new HttpRequest
+            {
+                Uri = "/api/v1/authenticators/{authenticatorId}",
+                Verb = HttpVerb.Put,
+                Payload = authenticator,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["authenticatorId"] = authenticatorId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public async Task<IAuthenticator> ActivateAuthenticatorAsync(string authenticatorId, CancellationToken cancellationToken = default(CancellationToken))
             => await PostAsync<Authenticator>(new HttpRequest
             {

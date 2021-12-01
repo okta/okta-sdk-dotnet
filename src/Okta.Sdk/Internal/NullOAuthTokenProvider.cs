@@ -37,7 +37,7 @@ namespace Okta.Sdk.Internal
         /// <inheritdoc/>
         public Task<string> GetAccessTokenAsync(bool forceRenew = false)
         {
-            return new Task<string>(null);
+            return Task.FromResult<string>(null);
         }
     }
 }

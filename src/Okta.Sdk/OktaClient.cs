@@ -4,10 +4,8 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
@@ -47,25 +45,28 @@ namespace Okta.Sdk
         /// configuration from an <c>okta.yaml</c> file or environment variables.
         /// </param>
         /// <param name="logger">The logging interface to use, if any.</param>
+        /// <param name="httpClient">The HTTP client to use for requests to the Okta API.</param>
+        /// <param name="retryStrategy">The retry strategy interface to use, if any.</param>
         /// <param name="serializer">The JSON serializer to use, if any. Using the <c>DefaultSerializer</c> is still strongly recommended since it has all the behavior this SDK needs to work properly.
         /// If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <see cref="DefaultSerializer"/> to check out what can be configured.
-        /// </param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null, ISerializer serializer = null)
+        /// <param name="oAuthTokenProvider">The custom token provider to renew an access token when it expires. Only works with <see cref="AuthorizationMode.BearerToken"/>.</param>
+        protected OktaClient(OktaClientConfiguration apiClientConfiguration, IOAuthTokenProvider oAuthTokenProvider, HttpClient httpClient, ILogger logger, IRetryStrategy retryStrategy, ISerializer serializer)
         {
             Configuration = GetConfigurationOrDefault(apiClientConfiguration);
-            OktaClientConfigurationValidator.Validate(Configuration);
+            OktaClientConfigurationValidator.Validate(Configuration, oAuthTokenProvider != default);
 
             logger = logger ?? NullLogger.Instance;
             serializer = serializer ?? new DefaultSerializer();
-
-            var defaultClient = DefaultHttpClient.Create(
-                Configuration.ConnectionTimeout,
-                Configuration.Proxy,
-                logger);
-
             var resourceFactory = new ResourceFactory(this, logger);
-            IOAuthTokenProvider oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
-            var requestExecutor = new DefaultRequestExecutor(Configuration, defaultClient, logger, oAuthTokenProvider: oAuthTokenProvider);
+
+            var defaultHttpClient = httpClient ??
+                                    DefaultHttpClient.Create(
+                                        Configuration.ConnectionTimeout,
+                                        Configuration.Proxy,
+                                        logger);
+
+            var tokenProvider = GetTokenProvider(Configuration, logger, resourceFactory, oAuthTokenProvider);
+            var requestExecutor = new DefaultRequestExecutor(Configuration, defaultHttpClient, logger, retryStrategy, tokenProvider);
 
             _dataStore = new DefaultDataStore(
                 requestExecutor,
@@ -76,6 +77,39 @@ namespace Okta.Sdk
             PayloadHandler.TryRegister<PkixCertPayloadHandler>();
             PayloadHandler.TryRegister<PemFilePayloadHandler>();
             PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
+            PayloadHandler.TryRegister<MultipartFormDataPayloadHandler>();
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// </summary>
+        /// <param name="apiClientConfiguration">
+        /// The client configuration. If <c>null</c>, the library will attempt to load
+        /// configuration from an <c>okta.yaml</c> file or environment variables.
+        /// </param>
+        /// <param name="logger">The logging interface to use, if any.</param>
+        /// <param name="serializer">The JSON serializer to use, if any. Using the <c>DefaultSerializer</c> is still strongly recommended since it has all the behavior this SDK needs to work properly.
+        /// If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <see cref="DefaultSerializer"/> to check out what can be configured.
+        /// <param name="oAuthTokenProvider">The custom token provider to renew an access token when it expires. Only works with <see cref="AuthorizationMode.BearerToken"/>.</param>
+        /// </param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration = null, ILogger logger = null, ISerializer serializer = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        : this (apiClientConfiguration, oAuthTokenProvider, httpClient: default, logger, retryStrategy: default, serializer)
+        {
+        }
+
+        private IOAuthTokenProvider GetTokenProvider(OktaClientConfiguration configuration, ILogger logger, ResourceFactory resourceFactory, IOAuthTokenProvider customTokenProvider)
+        {
+            switch (configuration.AuthorizationMode)
+            {
+                case AuthorizationMode.PrivateKey:
+                    return new DefaultOAuthTokenProvider(configuration, resourceFactory, logger: logger);
+                case AuthorizationMode.SSWS:
+                    return NullOAuthTokenProvider.Instance;
+                case AuthorizationMode.BearerToken:
+                    return new DefaultBearerTokenProvider(configuration.BearerToken, customTokenProvider);
+                default:
+                    throw new ArgumentException($"Token provider is not implemented for AuthorizationMode={configuration.AuthorizationMode}", nameof(configuration));
+            }
         }
 
         /// <summary>
@@ -91,27 +125,10 @@ namespace Okta.Sdk
         /// <param name="serializer">The JSON serializer to use, if any. Using the <c>DefaultSerializer</c> is still strongly recommended since it has all the behavior this SDK needs to work properly.
         /// If a custom serializer is used, the developer is responsible to add the required logic for this SDK to continue working properly. See <see cref="DefaultSerializer"/> to check out what settings can be configured.
         /// </param>
-        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null, ISerializer serializer = null)
+        /// <param name="oAuthTokenProvider">The custom token provider to renew an access token when it expires. Only works with <see cref="AuthorizationMode.BearerToken"/>.</param>
+        public OktaClient(OktaClientConfiguration apiClientConfiguration, HttpClient httpClient, ILogger logger = null, IRetryStrategy retryStrategy = null, ISerializer serializer = null, IOAuthTokenProvider oAuthTokenProvider = null)
+        : this(apiClientConfiguration, oAuthTokenProvider, httpClient, logger, retryStrategy, serializer)
         {
-            Configuration = GetConfigurationOrDefault(apiClientConfiguration);
-            OktaClientConfigurationValidator.Validate(Configuration);
-
-            logger = logger ?? NullLogger.Instance;
-            serializer = serializer ?? new DefaultSerializer();
-
-            var resourceFactory = new ResourceFactory(this, logger);
-            IOAuthTokenProvider oAuthTokenProvider = (Configuration.AuthorizationMode == AuthorizationMode.PrivateKey) ? new DefaultOAuthTokenProvider(Configuration, resourceFactory, logger: logger) : NullOAuthTokenProvider.Instance;
-            var requestExecutor = new DefaultRequestExecutor(Configuration, httpClient, logger, retryStrategy, oAuthTokenProvider);
-
-            _dataStore = new DefaultDataStore(
-                requestExecutor,
-                serializer,
-                resourceFactory,
-                logger);
-
-            PayloadHandler.TryRegister<PkixCertPayloadHandler>();
-            PayloadHandler.TryRegister<PemFilePayloadHandler>();
-            PayloadHandler.TryRegister<X509CaCertPayloadHandler>();
         }
 
         /// <summary>
@@ -161,6 +178,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IOktaClient CreateScoped(RequestContext requestContext)
             => new OktaClient(_dataStore, Configuration, requestContext);
+
+        /// <inheritdoc/>
+        public IBrandsClient Brands => new BrandsClient(_dataStore, Configuration, _requestContext);
 
         /// <inheritdoc/>
         public IGroupSchemasClient GroupSchemas => new GroupSchemasClient(_dataStore, Configuration, _requestContext);

@@ -3,6 +3,7 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -32,5 +33,15 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The updated <see cref="IGroup">Group</see>.</returns>
         Task<IGroup> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Assigns a role to a group.
+        /// </summary>
+        /// <param name="assignRoleRequest">The request.</param>
+        /// <param name="disableNotifications">The flag to disable notifications.</param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The role.</returns>
+        [Obsolete("This method is deprecated and will be removed in the next major release. Use <c>AssignRoleAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.")]
+        Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

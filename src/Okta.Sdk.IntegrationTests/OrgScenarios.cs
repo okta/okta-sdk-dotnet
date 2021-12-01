@@ -5,6 +5,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -27,22 +28,19 @@ namespace Okta.Sdk.IntegrationTests
             orgSettings.Address1 = "301 Brannan St.";
             orgSettings.Address2 = guid.ToString();
 
-            IOrgSetting updatedOrgSettings = null;
-
             try
             {
-                updatedOrgSettings = await client.Orgs.UpdateOrgSettingAsync(orgSettings);
+                var updatedOrgSettings = await client.Orgs.UpdateOrgSettingAsync(orgSettings);
                 updatedOrgSettings.PhoneNumber.Should().Be("+1-555-415-1337");
                 updatedOrgSettings.Address1.Should().Be("301 Brannan St.");
                 updatedOrgSettings.Address2.Should().Be(guid.ToString());
-
             }
             finally
             {
-                updatedOrgSettings.PhoneNumber = string.Empty;
-                updatedOrgSettings.Address1 = string.Empty;
-                updatedOrgSettings.Address2 = string.Empty;
-                await client.Orgs.UpdateOrgSettingAsync(updatedOrgSettings);
+                orgSettings.PhoneNumber = string.Empty;
+                orgSettings.Address1 = string.Empty;
+                orgSettings.Address2 = string.Empty;
+                await client.Orgs.UpdateOrgSettingAsync(orgSettings);
             }
         }
 

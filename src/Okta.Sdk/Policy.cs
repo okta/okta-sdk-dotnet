@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
+    /// <inheritdoc cref="Policy"/>
     public partial class Policy
     {
         /// <inheritdoc/>

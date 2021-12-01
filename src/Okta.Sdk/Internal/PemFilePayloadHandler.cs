@@ -8,7 +8,9 @@ namespace Okta.Sdk.Internal
     /// <inheritdoc />
     public class PemFilePayloadHandler : ByteArrayPayloadHandler
     {
-        /// <inheritdoc />
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PemFilePayloadHandler"/> class.
+        /// </summary>
         public PemFilePayloadHandler()
         {
             ContentType = "application/x-pem-file";

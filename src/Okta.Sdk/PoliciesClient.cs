@@ -160,6 +160,5 @@ namespace Okta.Sdk
 
             return await AddPolicyRuleAsync<IOktaSignOnPolicyRule>(policyRule, options.PolicyId, cancellationToken).ConfigureAwait(false);
         }
-
     }
 }

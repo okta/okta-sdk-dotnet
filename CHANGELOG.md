@@ -2,6 +2,28 @@
 Running changelog of releases since `3.1.1`
 
 
+## v5.3.1
+
+### Features
+
+- Add `VerifyUserFactorResponse.GetTransactionId` method to simplify access to the transaction ID of the `VerifyUserFactorResponse` where appropriate. The transaction ID is further used with the `GetFactorTransactionStatusAsync` operation. See [Issue a Push Factor challenge](https://developer.okta.com/docs/reference/api/factors/#issue-a-push-factor-challenge) for details. (#507)
+
+
+## v5.3.0
+
+### Features
+
+- Add ability to use pre-requested access tokens for authentication (#508)
+- Regenerate code using the [open API spec v2.9.2](https://github.com/okta/okta-management-openapi-spec/releases/tag/openapi-2.9.2)
+- Add new models and operations to support [Brands API's endpoints](https://developer.okta.com/docs/reference/api/brands/)
+- Add new models and operations to support [OIE policies](https://developer.okta.com/docs/reference/api/policy/)
+
+### Updates
+
+- `Group.AssignRoleAsync(IAssignRoleRequest assignRoleRequest, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken));` is not marked as obsolete. Use `Group.AssignRoleAsync(IAssignRoleRequest assignRoleRequest, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));` instead.
+- `UsersClient. AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken));` is not marked as obsolete. Use `UsersClient. AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken));` instead.
+
+
 ## v5.2.1
 
 ### Update

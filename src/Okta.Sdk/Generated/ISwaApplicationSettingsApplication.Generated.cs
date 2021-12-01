@@ -17,9 +17,13 @@ namespace Okta.Sdk
     {
         string ButtonField { get; set; }
 
+        string Checkbox { get; set; }
+
         string LoginUrlRegex { get; set; }
 
         string PasswordField { get; set; }
+
+        string RedirectUrl { get; set; }
 
         string Url { get; set; }
 
