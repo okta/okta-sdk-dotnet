@@ -145,7 +145,7 @@ const modelErrata = [
   { path: 'CSRMetadataSubject', rename: 'CsrMetadataSubject', renameReason: 'Pattern consistency' },
   { path: 'CSRMetadataSubjectAltNames', rename: 'CsrMetadataSubjectAltNames', renameReason: 'Pattern consistency' },
   { path: 'UserSchema', includeNullValues: true },
-  { path: 'GroupSchema', includeNullValues: true },  
+  { path: 'GroupSchema', includeNullValues: true },
   { path: 'AuthenticatorProviderConfigurationUserNamePlate', rename: 'AuthenticatorProviderConfigurationUserNameTemplate', renameReason: 'Fix typo' },
   { path: 'User', includeNullValues: true },
 ];
