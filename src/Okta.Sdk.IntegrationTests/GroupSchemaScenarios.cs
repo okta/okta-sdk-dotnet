@@ -71,7 +71,7 @@ namespace Okta.Sdk.IntegrationTests
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
 
             // Wait for job to be finished
-            Thread.Sleep(3000);
+            Thread.Sleep(6000);
 
             // Remove custom attribute
             customAttribute["groupContact"] = null;
