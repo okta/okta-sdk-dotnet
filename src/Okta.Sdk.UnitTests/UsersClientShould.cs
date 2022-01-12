@@ -655,5 +655,63 @@ namespace Okta.Sdk.UnitTests
 
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/lifecycle/reactivate?sendEmail=false");
         }
+
+        [Fact]
+        public async Task SubscribeUserToNotification()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Subscriptions.SubscribeUserSubscriptionByNotificationTypeAsync("foo", NotificationType.IwaAgent);
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/subscriptions/IWA_AGENT/subscribe");
+        }
+
+        [Fact]
+        public async Task UnsubscribeUserToNotification()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            await client.Subscriptions.UnsubscribeUserSubscriptionByNotificationTypeAsync("foo", NotificationType.IwaAgent);
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/subscriptions/IWA_AGENT/unsubscribe");
+        }
+
+        [Fact]
+        public async Task ListUserSubscriptions()
+        {
+            var rawResponse = @"[
+                                    {
+                                        ""notificationType"": ""CONNECTOR_AGENT"",
+                                        ""channels"": [
+                                            ""email""
+                                        ],
+                                        ""status"": ""subscribed"",
+                                        ""_links"": {
+                                            ""unsubscribe"": {
+                                                ""href"": ""https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT/unsubscribe"",
+                                                ""hints"": {
+                                                    ""allow"": [
+                                                        ""POST""
+                                                    ]
+                                                }
+                                            },
+                                            ""self"": {
+                                                ""href"": ""https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT""
+                                            }
+                                        }
+                                    }
+                                ]";
+
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            var subscriptions = await client.Users.ListUserSubscriptions("foo").ToListAsync();
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/subscriptions");
+            subscriptions.Should().NotBeNullOrEmpty();
+            var subscription = subscriptions.FirstOrDefault();
+            subscription.NotificationType.Should().Be(NotificationType.ConnectorAgent);
+            subscription.Status.Should().Be(SubscriptionStatus.Subscribed);
+            subscription.Channels.Should().Contain("email");
+        }
     }
 }

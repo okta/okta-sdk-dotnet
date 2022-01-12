@@ -1,4 +1,4 @@
-// <copyright file="SamlApplication.Generated.cs" company="Okta, Inc">
+// <copyright file="ProvisioningConnectionRequest.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,13 +14,13 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public partial class SamlApplication : Application, ISamlApplication
+    public sealed partial class ProvisioningConnectionRequest : Resource, IProvisioningConnectionRequest
     {
         /// <inheritdoc/>
-        public new ISamlApplicationSettings Settings 
+        public IProvisioningConnectionProfile Profile 
         {
-            get => GetResourceProperty<SamlApplicationSettings>("settings");
-            set => this["settings"] = value;
+            get => GetResourceProperty<ProvisioningConnectionProfile>("profile");
+            set => this["profile"] = value;
         }
         
     }

@@ -130,5 +130,8 @@ namespace Okta.Sdk
         Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(
             string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken));
 
+        Task UploadApplicationLogoAsync(
+            string appId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }
