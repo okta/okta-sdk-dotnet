@@ -682,7 +682,8 @@ namespace Okta.Sdk.IntegrationTests
                 Thread.Sleep(2000);
 
                 var roles = await createdUser.Roles.ToListAsync();
-                roles.Count.Should().Be(2);
+                roles.Any(x => x.Type == RoleType.SuperAdmin).Should().BeTrue();
+                roles.Any(x => x.Type == RoleType.OrgAdmin).Should().BeTrue();
 
                 var role1 = roles.FirstOrDefault(x => x.Type == RoleType.SuperAdmin);
                 var role2 = roles.FirstOrDefault(x => x.Type == RoleType.OrgAdmin);
@@ -691,7 +692,8 @@ namespace Okta.Sdk.IntegrationTests
                 await createdUser.RemoveRoleAsync(role2.Id);
 
                 roles = await createdUser.Roles.ToListAsync();
-                roles.Count.Should().Be(0);
+                roles.Any(x => x.Type == RoleType.SuperAdmin).Should().BeFalse();
+                roles.Any(x => x.Type == RoleType.OrgAdmin).Should().BeFalse();
             }
             finally
             {

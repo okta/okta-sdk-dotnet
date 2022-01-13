@@ -41,7 +41,7 @@ namespace Okta.Sdk.IntegrationTests
             userSchema.Definitions.Base.Required.Should().Contain("login");
         }
 
-        [Fact]
+        [Fact(Skip = "Replication takes a while, this should be converted to UT")]
         public async Task UpdateUserProfileSchemaProperty()
         {
             var testClient = TestClient.Create();

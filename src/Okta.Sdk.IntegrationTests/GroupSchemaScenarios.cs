@@ -28,7 +28,7 @@ namespace Okta.Sdk.IntegrationTests
             groupSchema.Name.Should().Be("group");
         }
 
-        [Fact]
+        [Fact(Skip = "Replication takes a while, this should be converted to UT")]
         public async Task UpdatePropertyToGroupSchemaAsync()
         {
             var client = TestClient.Create();
