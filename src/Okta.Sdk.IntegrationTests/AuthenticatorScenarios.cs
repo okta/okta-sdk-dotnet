@@ -52,20 +52,16 @@ namespace Okta.Sdk.IntegrationTests
             var authenticator = await client.Authenticators.ListAuthenticators().FirstOrDefaultAsync();
 
             var originalName = authenticator.Name;
-            var originalAllowedFor = authenticator.Settings.AllowedFor;
 
             authenticator.Name = originalName + "-updated";
-            authenticator.Settings.AllowedFor = AllowedForEnum.Any;
             try
             {
                 var updatedAuthenticator = await client.Authenticators.UpdateAuthenticatorAsync(authenticator, authenticator.Id);
                 updatedAuthenticator.Name.Should().Be(authenticator.Name);
-                updatedAuthenticator.Settings.AllowedFor.Should().Be(AllowedForEnum.Any);
             }
             finally
             {
                 authenticator.Name = originalName;
-                authenticator.Settings.AllowedFor = originalAllowedFor;
                 await client.Authenticators.UpdateAuthenticatorAsync(authenticator, authenticator.Id);
             }
         }
