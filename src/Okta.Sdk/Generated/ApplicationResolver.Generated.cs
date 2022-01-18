@@ -55,11 +55,6 @@ namespace Okta.Sdk.Internal
                 return typeof(OpenIdConnectApplication);
             }
             
-            if (value.Equals("ORG2ORG"))
-            {
-                return typeof(Org2OrgApplication);
-            }
-            
             if (value.Equals("SAML_1_1"))
             {
                 return typeof(SamlApplication);

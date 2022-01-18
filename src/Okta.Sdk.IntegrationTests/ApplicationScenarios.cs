@@ -1926,6 +1926,9 @@ namespace Okta.Sdk.IntegrationTests
                 newApp.SignOnMode.Should().Be(ApplicationSignOnMode.Saml2);
                 newApp.Name.Should().Be(org2orgApp.Name);
                 newApp.Label.Should().Be(org2orgApp.Label);
+
+                var retrievedApp = await oktaClient.Applications.GetApplicationAsync<IOrg2OrgApplication>(newApp.Id);
+                retrievedApp.Should().NotBeNull();
             }
             finally
             {
