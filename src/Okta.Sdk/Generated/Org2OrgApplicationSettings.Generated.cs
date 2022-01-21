@@ -14,7 +14,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public sealed partial class Org2OrgApplicationSettings : ApplicationSettings, IOrg2OrgApplicationSettings
+    public sealed partial class Org2OrgApplicationSettings : SamlApplicationSettings, IOrg2OrgApplicationSettings
     {
         /// <inheritdoc/>
         public IOrg2OrgApplicationSettingsApp App 

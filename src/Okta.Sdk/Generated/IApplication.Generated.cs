@@ -133,5 +133,11 @@ namespace Okta.Sdk
         Task UploadApplicationLogoAsync(
             string appId, CancellationToken cancellationToken = default(CancellationToken));
 
+        Task<IApplicationFeature> GetFeatureForApplicationAsync(
+            string name, CancellationToken cancellationToken = default(CancellationToken));
+
+        Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, 
+            string name, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

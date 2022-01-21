@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a Org2OrgApplicationSettings resource in the Okta API.</summary>
-    public partial interface IOrg2OrgApplicationSettings : IApplicationSettings
+    public partial interface IOrg2OrgApplicationSettings : ISamlApplicationSettings
     {
         IOrg2OrgApplicationSettingsApp App { get; set; }
 
