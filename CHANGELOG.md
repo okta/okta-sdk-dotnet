@@ -2,6 +2,13 @@
 Running changelog of releases since `3.1.1`
 
 
+## v5.3.2
+
+### Bug Fixes
+
+- Fix Unable to create OktaClient on linux build server after 5.2.1 upgrade. (#526)
+
+
 ## v5.3.1
 
 ### Features
