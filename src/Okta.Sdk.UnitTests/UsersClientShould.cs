@@ -667,7 +667,7 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
-        public async Task UnsubscribeUserToNotification()
+        public async Task UnsubscribeUserFromNotification()
         {
             var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
             var client = new TestableOktaClient(mockRequestExecutor);
