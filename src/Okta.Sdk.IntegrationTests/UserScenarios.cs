@@ -632,6 +632,7 @@ namespace Okta.Sdk.IntegrationTests
                         Type = RoleType.OrgAdmin,
                     });
 
+                Thread.Sleep(5000);
                 var roles = await createdUser.Roles.ToListAsync();
 
                 roles.FirstOrDefault(x => x.Type == RoleType.SuperAdmin).Should().NotBeNull();
