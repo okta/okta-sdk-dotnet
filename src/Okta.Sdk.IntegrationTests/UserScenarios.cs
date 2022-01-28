@@ -633,7 +633,7 @@ namespace Okta.Sdk.IntegrationTests
                     });
 
                 var roles = await createdUser.Roles.ToListAsync();
-                roles.Count.Should().Be(3);
+
                 roles.FirstOrDefault(x => x.Type == RoleType.SuperAdmin).Should().NotBeNull();
                 roles.FirstOrDefault(x => x.Type == RoleType.AppAdmin).Should().NotBeNull();
                 roles.FirstOrDefault(x => x.Type == RoleType.OrgAdmin).Should().NotBeNull();
