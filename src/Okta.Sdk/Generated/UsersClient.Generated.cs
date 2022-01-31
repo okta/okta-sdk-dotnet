@@ -828,5 +828,32 @@ namespace Okta.Sdk
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
+        /// <inheritdoc />
+        public ICollectionClient<ISubscription> ListUserSubscriptions(string userId)
+            => GetCollectionClient<ISubscription>(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/subscriptions",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                },
+            });
+                    
+        /// <inheritdoc />
+        public async Task<ISubscription> GetUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<Subscription>(new HttpRequest
+            {
+                Uri = "/api/v1/users/{userId}/subscriptions/{notificationType}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["userId"] = userId,
+                    ["notificationType"] = notificationType,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
     }
 }

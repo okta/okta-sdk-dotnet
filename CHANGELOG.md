@@ -1,6 +1,11 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.4.0
+
+- Add support for [Application provisioning connection operations](https://developer.okta.com/docs/reference/api/apps/#application-provisioning-connection-operations)
+- Add suport for [Application features operations](https://developer.okta.com/docs/reference/api/apps/#application-feature-operations)
+- Add support for [Org2Org applications](https://developer.okta.com/docs/reference/api/apps/#add-okta-org2org-application).
 
 ## v5.3.2
 

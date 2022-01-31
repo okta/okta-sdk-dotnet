@@ -239,6 +239,211 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Fact]
+        public async Task SetDefaultConnection()
+        {
+            var rawResponse = @"{
+                                    ""authScheme"": ""TOKEN"",
+                                    ""status"": ""ENABLED"",
+                                    ""_links"": {
+                                        ""self"": {
+                                            ""href"": ""https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default"",
+                                            ""hints"": {
+                                                ""allow"": [
+                                                    ""POST"",
+                                                    ""GET""
+                                                ]
+                                            }
+                                        },
+                                        ""deactivate"": {
+                                            ""href"": ""https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate"",
+                                            ""hints"": {
+                                                ""allow"": [
+                                                    ""POST""
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            var connectionProfile = new ProvisioningConnectionRequest
+            {
+                Profile = new ProvisioningConnectionProfile
+                {
+                    Token = "foo",
+                    AuthScheme = ProvisioningConnectionAuthScheme.Token,
+                },
+            };
+
+            var response = await client.Applications.SetDefaultProvisioningConnectionForApplicationAsync(connectionProfile, "bar", true);
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/bar/connections/default?activate=true");
+
+            var expectedBody = @"{""profile"":{""token"":""foo"",""authScheme"":""TOKEN""}}";
+            mockRequestExecutor.ReceivedBody.Should().Be(expectedBody);
+            response.Status.Should().Be(ProvisioningConnectionStatus.Enabled);
+            response.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.Token);
+        }
+
+        [Fact]
+        public async Task ActivateDefaultConnection()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.ActivateDefaultProvisioningConnectionForApplicationAsync("foo");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/foo/connections/default/lifecycle/activate");
+        }
+
+        [Fact]
+        public async Task DeactivateDefaultConnection()
+        {
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Applications.DeactivateDefaultProvisioningConnectionForApplicationAsync("foo");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/foo/connections/default/lifecycle/deactivate");
+        }
+
+        [Fact]
+        public async Task ListFeatures()
+        {
+            var rawResponse = @"[
+                                    {
+                                        ""name"": ""USER_PROVISIONING"",
+                                        ""status"": ""ENABLED"",
+                                        ""description"": ""User provisioning settings from Okta to a downstream application"",
+                                        ""capabilities"": {
+                                            ""create"": {
+                                                ""lifecycleCreate"": {
+                                                    ""status"": ""DISABLED""
+                                                }
+                                            },
+                                            ""update"": {
+                                                ""profile"": {
+                                                    ""status"": ""DISABLED""
+                                                },
+                                                ""lifecycleDeactivate"": {
+                                                    ""status"": ""DISABLED""
+                                                },
+                                                ""password"": {
+                                                    ""status"": ""DISABLED"",
+                                                    ""seed"": ""RANDOM"",
+                                                    ""change"": ""KEEP_EXISTING""
+                                                }
+                                            }
+                                        }
+                                    }
+                                ]";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var features = await client.Applications.ListFeaturesForApplication("foo").ToListAsync();
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/foo/features");
+            features.Should().NotBeNullOrEmpty();
+            var feature = features.FirstOrDefault(x => x.Name == "USER_PROVISIONING");
+            feature.Should().NotBeNull();
+            feature.Status.Should().Be(EnabledStatus.Enabled);
+        }
+
+        [Fact]
+        public async Task GetFeature()
+        {
+            var rawResponse = @"{
+                                        ""name"": ""USER_PROVISIONING"",
+                                        ""status"": ""ENABLED"",
+                                        ""description"": ""User provisioning settings from Okta to a downstream application"",
+                                        ""capabilities"": {
+                                            ""create"": {
+                                                ""lifecycleCreate"": {
+                                                    ""status"": ""DISABLED""
+                                                }
+                                            },
+                                            ""update"": {
+                                                ""profile"": {
+                                                    ""status"": ""DISABLED""
+                                                },
+                                                ""lifecycleDeactivate"": {
+                                                    ""status"": ""DISABLED""
+                                                },
+                                                ""password"": {
+                                                    ""status"": ""DISABLED"",
+                                                    ""seed"": ""RANDOM"",
+                                                    ""change"": ""KEEP_EXISTING""
+                                                }
+                                            }
+                                        }
+                                    }";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var feature = await client.Applications.GetFeatureForApplicationAsync("foo", "bar");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/foo/features/bar");
+            feature.Should().NotBeNull();
+            feature.Status.Should().Be(EnabledStatus.Enabled);
+            feature.Name.Should().Be("USER_PROVISIONING");
+        }
+
+        [Fact]
+        public async Task UpdateFeature()
+        {
+            var rawResponse = @"{
+                                        ""name"": ""USER_PROVISIONING"",
+                                        ""status"": ""ENABLED"",
+                                        ""description"": ""User provisioning settings from Okta to a downstream application"",
+                                        ""capabilities"": {
+                                            ""create"": {
+                                                ""lifecycleCreate"": {
+                                                    ""status"": ""DISABLED""
+                                                }
+                                            },
+                                            ""update"": {
+                                                ""profile"": {
+                                                    ""status"": ""DISABLED""
+                                                },
+                                                ""lifecycleDeactivate"": {
+                                                    ""status"": ""DISABLED""
+                                                },
+                                                ""password"": {
+                                                    ""status"": ""DISABLED"",
+                                                    ""seed"": ""RANDOM"",
+                                                    ""change"": ""KEEP_EXISTING""
+                                                }
+                                            }
+                                        }
+                                    }";
+            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            var capabilitiesObj = new CapabilitiesObject
+            {
+                Create = new CapabilitiesCreateObject
+                {
+                    LifecycleCreate = new LifecycleCreateSettingObject
+                    {
+                        Status = EnabledStatus.Disabled,
+                    },
+                },
+            };
+
+            var feature = await client.Applications.UpdateFeatureForApplicationAsync(capabilitiesObj, "foo", "bar");
+
+            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/apps/foo/features/bar");
+
+            var expectedBody = @"{""create"":{""lifecycleCreate"":{""status"":""DISABLED""}}}";
+            mockRequestExecutor.ReceivedBody.Should().Be(expectedBody);
+
+            feature.Should().NotBeNull();
+            feature.Status.Should().Be(EnabledStatus.Enabled);
+            feature.Name.Should().Be("USER_PROVISIONING");
+            feature.Capabilities.Create.LifecycleCreate.Status.Should().Be(EnabledStatus.Disabled);
+        }
+
+        [Fact]
         public async Task CallDataStorePostAsync()
         {
             var mockDataStore = Substitute.For<IDataStore>();
