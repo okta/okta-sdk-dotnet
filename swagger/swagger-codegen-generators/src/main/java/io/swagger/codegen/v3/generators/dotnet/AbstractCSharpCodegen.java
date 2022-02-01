@@ -887,6 +887,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
         return apiFileFolder() + File.separator + filename + suffix;
     }
 
+    
     @Override
     public String toApiName(String name) {
             if (name.length() == 0) {
