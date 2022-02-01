@@ -1,0 +1,72 @@
+// <copyright file="{{classname}}.Generated.cs" company="Okta, Inc">
+// Copyright (c) 2014 - present Okta, Inc. All rights reserved.
+// Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
+// </copyright>
+
+// This file was automatically generated. Don't modify it directly.
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Okta.Sdk.Configuration;
+using Okta.Sdk.Internal;
+
+namespace Okta.Sdk
+{
+    /// <inheritdoc/>
+    public sealed partial class {{classname}} : OktaClient, I{{classname}}
+    {
+        // Remove parameterless constructor
+        private {{classname}}()
+        {
+        }
+
+        internal {{classname}}(IDataStore dataStore, OktaClientConfiguration configuration, RequestContext requestContext)
+            : base(dataStore, configuration, requestContext)
+        {
+        }
+        {{#operations}}
+        {{#operation}}
+        {{#contents}}
+        
+        /// <summary>
+        /// {{summary}} {{notes}}
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        {{#parameters}}/// <param name="{{paramName}}">{{description}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}</param>
+        {{/parameters}}/// <returns>Task of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}void{{/returnType}}</returns>
+        {{#returnType}}public async Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async Task{{/returnType}} {{operationId}}Async({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}})
+        
+        {{#vendorExtensions.isReturnTypeCollection}}
+        => GetCollectionClient<{{{returnType}}}>(new HttpRequest
+        {{/vendorExtensions.isReturnTypeCollection}}
+        {{^vendorExtensions.isReturnTypeCollection}}
+        => await {{vendorExtensions.internalHttpOperation}}{{#returnType}}<{{{returnType}}}>{{/returnType}}{{^returnType}}{{/returnType}}(new HttpRequest
+        {{/vendorExtensions.isReturnTypeCollection}}
+        {
+            Uri = "{{{path}}}",
+            Verb = HttpVerb.{{httpMethod}},
+            {{#bodyParam}}Payload = {{paramName}},{{/bodyParam}}
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                {{#pathParams}}
+                ["{{baseName}}"] = {{paramName}},
+                {{/pathParams}}
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                {{#queryParams}}
+                ["{{baseName}}"] = {{paramName}},
+                {{/queryParams}}
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        {{/contents}}
+        {{/operation}}
+        {{/operations}}
+    }
+}
