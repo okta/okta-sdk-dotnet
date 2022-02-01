@@ -1,0 +1,1 @@
+{{#is this 'form-param'}}{{#isNot this 'binary'}}@Multipart(value = "{{baseName}}"{{^required}}, required = false{{/required}})  {{{dataType}}} {{paramName}}{{/isNot}}{{#is this 'binary'}} @Multipart(value = "{{baseName}}" {{^required}}, required = false{{/required}}) Attachment {{paramName}}Detail{{/is}}{{/is}}
