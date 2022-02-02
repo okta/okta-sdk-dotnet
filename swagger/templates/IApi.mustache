@@ -1,4 +1,4 @@
-// <copyright file="I{{className}}.Generated.cs" company="Okta, Inc">
+// <copyright file="I{{classname}}.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -23,8 +23,8 @@ namespace Okta.Sdk
         /// </summary>
         /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         {{#parameters}}/// <param name="{{paramName}}">{{description}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}</param>
-        {{/parameters}}/// <returns>Task of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}void{{/returnType}}</returns>
-        {{#returnType}}Task<{{{returnType}}}>{{/returnType}}{{^returnType}}Task{{/returnType}} {{operationId}}Async({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}})
+        {{/parameters}}/// {{#vendorExtensions.isReturnTypeCollection}}A collection of <see cref="I{{classname}}"/> that can be enumerated asynchronously.{{/vendorExtensions.isReturnTypeCollection}}{{^vendorExtensions.isReturnTypeCollection}} <returns>Task of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}void{{/returnType}}</returns>{{/vendorExtensions.isReturnTypeCollection}}
+        {{#vendorExtensions.isReturnTypeCollection}}{{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}{{/returnType}} {{operationId}}{{/vendorExtensions.isReturnTypeCollection}}{{^vendorExtensions.isReturnTypeCollection}}{{#returnType}}Task<{{{returnType}}}>{{/returnType}}{{^returnType}}Task{{/returnType}} {{operationId}}Async{{/vendorExtensions.isReturnTypeCollection}}({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}});
         {{/contents}}
         {{/operation}}
     }

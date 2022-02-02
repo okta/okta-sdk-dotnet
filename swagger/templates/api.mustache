@@ -31,13 +31,8 @@ namespace Okta.Sdk
         {{#operation}}
         {{#contents}}
         
-        /// <summary>
-        /// {{summary}} {{notes}}
-        /// </summary>
-        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
-        {{#parameters}}/// <param name="{{paramName}}">{{description}}{{^required}} (optional{{#defaultValue}}, default to {{.}}{{/defaultValue}}){{/required}}</param>
-        {{/parameters}}/// <returns>Task of {{#returnType}}{{returnType}}{{/returnType}}{{^returnType}}void{{/returnType}}</returns>
-        {{#returnType}}public async Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async Task{{/returnType}} {{operationId}}Async({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}})
+        /// <inheritdoc />
+        {{#vendorExtensions.isReturnTypeCollection}}public {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}{{/returnType}}{{operationId}}{{/vendorExtensions.isReturnTypeCollection}}{{^vendorExtensions.isReturnTypeCollection}}{{#returnType}}public async Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async Task{{/returnType}} {{operationId}}Async{{/vendorExtensions.isReturnTypeCollection}}({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}})
         
         {{#vendorExtensions.isReturnTypeCollection}}
         => GetCollectionClient<{{{returnType}}}>(new HttpRequest
