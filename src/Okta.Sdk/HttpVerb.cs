@@ -13,21 +13,21 @@ namespace Okta.Sdk
         /// <summary>
         /// Represents the GET method of the HTTP protocol.
         /// </summary>
-        Get,
+        GET,
 
         /// <summary>
         /// Represents the POST method of the HTTP protocol.
         /// </summary>
-        Post,
+        POST,
 
         /// <summary>
         /// Represents the PUT method of the HTTP protocol.
         /// </summary>
-        Put,
+        PUT,
 
         /// <summary>
         /// Represents the DELETE method of the HTTP protocol.
         /// </summary>
-        Delete,
+        DELETE,
     }
 }

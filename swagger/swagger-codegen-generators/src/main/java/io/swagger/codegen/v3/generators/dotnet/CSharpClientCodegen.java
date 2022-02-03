@@ -11,6 +11,7 @@ import io.swagger.codegen.v3.CodegenProperty;
 import io.swagger.codegen.v3.CodegenType;
 import io.swagger.codegen.v3.SupportingFile;
 import io.swagger.v3.oas.models.media.Schema;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -491,14 +492,31 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
             if (operations != null) {
                 List<CodegenOperation> ops = (List<CodegenOperation>) operations.get("operation");
                 for (CodegenOperation operation : ops) {
+
+//                    for (CodegenParameter parameter : operation.getAllParams()) {
+//                        LOGGER.warn("PARAMETER TYPE IS :" + parameter.getDataType() + ", Object:" +  parameter.toString());
+//                        if (!languageSpecificPrimitives.contains(parameter.getDataType())) {
+//                            // Use interfaces instead
+//                            parameter.dataType = "I" + parameter.getDataType();
+//                            LOGGER.warn("PARAMETER TYPE IS object: " + parameter.getDataType());
+//                        }
+//                        else {
+//                            LOGGER.warn("PARAMETER TYPE IS primitive");
+//                        }
+//                    }
+
                     if (operation.httpMethod != null) {
                         LOGGER.info("parsing http method {}", operation.httpMethod);
                         operation.getVendorExtensions().put("internalHttpOperation", getInternalHttpOperation(operation.httpMethod));
                     }
+                    boolean isReturnTypeCollection = operation.returnType != null && (operation.returnType.startsWith("List") ||
+                        operation.returnType.startsWith("Collection"));
+
+                    operation.getVendorExtensions().put("hasCancellationToken", !isReturnTypeCollection);
+                    operation.getVendorExtensions().put("operationHasParams", !operation.getAllParams().isEmpty());
 
                     if (operation.returnType != null) {
-                        operation.getVendorExtensions().put("isReturnTypeCollection", operation.returnType.startsWith("List") ||
-                            operation.returnType.startsWith("Collection"));
+                        operation.getVendorExtensions().put("isReturnTypeCollection", isReturnTypeCollection);
                         operation.returnContainer = operation.returnType;
                         if (this.returnICollection && (
                                 operation.returnType.startsWith("List") ||
@@ -506,7 +524,18 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
                             // NOTE: ICollection works for both List<T> and Collection<T>
                             int genericStart = operation.returnType.indexOf("<");
                             if (genericStart > 0) {
-                                operation.returnType = "ICollectionClient" + operation.returnType.substring(genericStart);
+                                operation.returnType = "ICollectionClient<I" + operation.returnType.substring(genericStart + 1);
+                                String internalCollectionReturnType = StringUtils.substringBetween(operation.returnType, "<", ">");
+                                operation.getVendorExtensions().put("internalCollectionReturnType", internalCollectionReturnType);
+                            }
+                        }
+                        else{
+                            int genericStart = operation.returnType.indexOf("<");
+                            if (genericStart > 0) {
+                                operation.returnType = "<I" +  operation.returnType.substring(genericStart + 1);
+                            }
+                            else {
+                                operation.returnType = "I" + operation.returnType;
                             }
                         }
                     }
@@ -604,6 +633,16 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
     @Override
     public void postProcessParameter(CodegenParameter parameter) {
         postProcessPattern(parameter.pattern, parameter.vendorExtensions);
+
+        if (!languageSpecificPrimitives.contains(parameter.getDataType())) {
+            // Use interfaces instead
+            parameter.dataType = "I" + parameter.getDataType();
+            LOGGER.warn("PARAMETER TYPE IS object: " + parameter.getDataType());
+        }
+        else {
+            LOGGER.warn("PARAMETER TYPE IS primitive");
+        }
+        
         super.postProcessParameter(parameter);
     }
 

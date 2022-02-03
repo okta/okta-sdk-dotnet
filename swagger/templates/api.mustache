@@ -32,10 +32,10 @@ namespace Okta.Sdk
         {{#contents}}
         
         /// <inheritdoc />
-        {{#vendorExtensions.isReturnTypeCollection}}public {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}{{/returnType}}{{operationId}}{{/vendorExtensions.isReturnTypeCollection}}{{^vendorExtensions.isReturnTypeCollection}}{{#returnType}}public async Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async Task{{/returnType}} {{operationId}}Async{{/vendorExtensions.isReturnTypeCollection}}({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}})
+        {{#vendorExtensions.isReturnTypeCollection}}public {{#returnType}}{{{returnType}}}{{/returnType}}{{^returnType}}{{/returnType}}{{operationId}}{{/vendorExtensions.isReturnTypeCollection}}{{^vendorExtensions.isReturnTypeCollection}}{{#returnType}}public async Task<{{{returnType}}}>{{/returnType}}{{^returnType}}public async Task{{/returnType}} {{operationId}}Async{{/vendorExtensions.isReturnTypeCollection}}({{#parameters}}{{{dataType}}} {{paramName}}{{^required}}{{#optionalMethodArgument}} = null{{/optionalMethodArgument}}{{/required}}{{#hasMore}}, {{/hasMore}}{{/parameters}}{{^vendorExtensions.isReturnTypeCollection}}{{#vendorExtensions.operationHasParams}},{{/vendorExtensions.operationHasParams}}CancellationToken cancellationToken = default(CancellationToken){{/vendorExtensions.isReturnTypeCollection}})
         
         {{#vendorExtensions.isReturnTypeCollection}}
-        => GetCollectionClient<{{{returnType}}}>(new HttpRequest
+        => GetCollectionClient<{{{vendorExtensions.internalCollectionReturnType}}}>(new HttpRequest
         {{/vendorExtensions.isReturnTypeCollection}}
         {{^vendorExtensions.isReturnTypeCollection}}
         => await {{vendorExtensions.internalHttpOperation}}{{#returnType}}<{{{returnType}}}>{{/returnType}}{{^returnType}}{{/returnType}}(new HttpRequest
@@ -58,7 +58,7 @@ namespace Okta.Sdk
                 ["{{baseName}}"] = {{paramName}},
                 {{/queryParams}}
             },
-        }, cancellationToken).ConfigureAwait(false);
+        }{{#vendorExtensions.hasCancellationToken}}, cancellationToken).ConfigureAwait(false);{{/vendorExtensions.hasCancellationToken}}{{^vendorExtensions.hasCancellationToken}});{{/vendorExtensions.hasCancellationToken}}
             
         {{/contents}}
         {{/operation}}
