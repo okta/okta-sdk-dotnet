@@ -38,7 +38,7 @@ namespace Okta.Sdk
         => GetCollectionClient<{{{vendorExtensions.internalCollectionReturnType}}}>(new HttpRequest
         {{/vendorExtensions.isReturnTypeCollection}}
         {{^vendorExtensions.isReturnTypeCollection}}
-        => await {{vendorExtensions.internalHttpOperation}}{{#returnType}}<{{{returnType}}}>{{/returnType}}{{^returnType}}{{/returnType}}(new HttpRequest
+        => await {{vendorExtensions.internalHttpOperation}}{{#vendorExtensions.internalReturnType}}<{{{vendorExtensions.internalReturnType}}}>{{/vendorExtensions.internalReturnType}}{{^vendorExtensions.internalReturnType}}{{/vendorExtensions.internalReturnType}}(new HttpRequest
         {{/vendorExtensions.isReturnTypeCollection}}
         {
             Uri = "{{{path}}}",
