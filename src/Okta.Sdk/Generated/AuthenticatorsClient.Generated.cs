@@ -33,7 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IAuthenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
             });
                     
@@ -42,7 +42,7 @@ namespace Okta.Sdk
             => await GetAsync<Authenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators/{authenticatorId}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -55,7 +55,7 @@ namespace Okta.Sdk
             => await PutAsync<Authenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators/{authenticatorId}",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.PUT,
                 Payload = authenticator,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -68,7 +68,7 @@ namespace Okta.Sdk
             => await PostAsync<Authenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators/{authenticatorId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -81,7 +81,7 @@ namespace Okta.Sdk
             => await PostAsync<Authenticator>(new HttpRequest
             {
                 Uri = "/api/v1/authenticators/{authenticatorId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

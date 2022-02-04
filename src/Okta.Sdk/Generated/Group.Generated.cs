@@ -50,11 +50,15 @@ namespace Okta.Sdk
         public ICollectionClient<IApplication> ListApplications(
             string after = null, int? limit = 20)
             => GetClient().Groups.ListAssignedApplicationsForGroup(Id, after, limit);
-        
+
         /// <inheritdoc />
-        public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
-            bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+        public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest,
+            string disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Groups.AssignRoleToGroupAsync(assignRoleRequest, Id, disableNotifications, cancellationToken);
-        
+
+        public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, bool? disableNotifications = null, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

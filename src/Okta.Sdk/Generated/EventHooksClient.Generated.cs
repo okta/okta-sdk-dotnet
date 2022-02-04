@@ -29,100 +29,161 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IEventHook> ListEventHooks()
-            => GetCollectionClient<IEventHook>(new HttpRequest
+        public async Task<IEventHook> ActivateEventHookAsync(string eventHookId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<EventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/activate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks",
-                Verb = HttpVerb.Get,
-                
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IEventHook> CreateEventHookAsync(IEventHook eventHook, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<EventHook>(new HttpRequest
+                ["eventHookId"] = eventHookId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks",
-                Verb = HttpVerb.Post,
-                Payload = eventHook,
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<IEventHook> CreateEventHookAsync(IEventHook body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<EventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks/{eventHookId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IEventHook> GetEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<EventHook>(new HttpRequest
+        public async Task<IEventHook> DeactivateEventHookAsync(string eventHookId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<EventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/deactivate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks/{eventHookId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["eventHookId"] = eventHookId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IEventHook> UpdateEventHookAsync(IEventHook eventHook, string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<EventHook>(new HttpRequest
+        public async Task DeleteEventHookAsync(string eventHookId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks/{eventHookId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks/{eventHookId}",
-                Verb = HttpVerb.Put,
-                Payload = eventHook,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["eventHookId"] = eventHookId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IEventHook> ActivateEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<EventHook>(new HttpRequest
+        public async Task<IEventHook> GetEventHookAsync(string eventHookId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<EventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks/{eventHookId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["eventHookId"] = eventHookId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IEventHook> DeactivateEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<EventHook>(new HttpRequest
+        public ICollectionClient<IEventHook>ListEventHooks()
+        
+        => GetCollectionClient<IEventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task<IEventHook> VerifyEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<EventHook>(new HttpRequest
-            {
-                Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/verify",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["eventHookId"] = eventHookId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<IEventHook> UpdateEventHookAsync(IEventHook body, string eventHookId,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await PutAsync<EventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks/{eventHookId}",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["eventHookId"] = eventHookId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        
+        /// <inheritdoc />
+        public async Task<IEventHook> VerifyEventHookAsync(string eventHookId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<EventHook>(new HttpRequest
+        {
+            Uri = "/api/v1/eventHooks/{eventHookId}/lifecycle/verify",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["eventHookId"] = eventHookId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

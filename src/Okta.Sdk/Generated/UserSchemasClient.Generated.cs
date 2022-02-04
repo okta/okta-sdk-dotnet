@@ -29,56 +29,83 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public async Task<IUserSchema> GetApplicationUserSchemaAsync(string appInstanceId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<UserSchema>(new HttpRequest
+        public async Task<IUserSchema> GetApplicationUserSchemaAsync(string appInstanceId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<UserSchema>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/apps/{appInstanceId}/default",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/schemas/apps/{appInstanceId}/default",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appInstanceId"] = appInstanceId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appInstanceId"] = appInstanceId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserSchema> UpdateApplicationUserProfileAsync(IUserSchema body, string appInstanceId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<UserSchema>(new HttpRequest
+        public async Task<IUserSchema> GetUserSchemaAsync(string schemaId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<UserSchema>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/user/{schemaId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/schemas/apps/{appInstanceId}/default",
-                Verb = HttpVerb.Post,
-                Payload = body,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appInstanceId"] = appInstanceId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["schemaId"] = schemaId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserSchema> GetUserSchemaAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<UserSchema>(new HttpRequest
+        public async Task<IUserSchema> UpdateApplicationUserProfileAsync(string appInstanceId, IUserSchema body = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<UserSchema>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/apps/{appInstanceId}/default",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/schemas/user/{schemaId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["schemaId"] = schemaId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appInstanceId"] = appInstanceId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserSchema> UpdateUserProfileAsync(IUserSchema userSchema, string schemaId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<UserSchema>(new HttpRequest
-            {
-                Uri = "/api/v1/meta/schemas/user/{schemaId}",
-                Verb = HttpVerb.Post,
-                Payload = userSchema,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["schemaId"] = schemaId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<IUserSchema> UpdateUserProfileAsync(IUserSchema body, string schemaId,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await PostAsync<UserSchema>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/user/{schemaId}",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["schemaId"] = schemaId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

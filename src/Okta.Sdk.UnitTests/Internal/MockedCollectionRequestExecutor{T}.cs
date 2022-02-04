@@ -52,13 +52,13 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             switch (request.Verb)
             {
-                case HttpVerb.Get:
+                case HttpVerb.GET:
                     return GetAsync(request.Uri, request.Headers, cancellationToken);
-                case HttpVerb.Post:
+                case HttpVerb.POST:
                     return PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
-                case HttpVerb.Put:
+                case HttpVerb.PUT:
                     return PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
-                case HttpVerb.Delete:
+                case HttpVerb.DELETE:
                     return DeleteAsync(request.Uri, request.Headers, cancellationToken);
                 default:
                     return GetAsync(request.Uri, request.Headers, cancellationToken);

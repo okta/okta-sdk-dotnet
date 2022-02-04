@@ -19,8 +19,8 @@ namespace Okta.Sdk
 
         string Token { get; set; }
 
-        Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, 
-            string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken));
+        //Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, 
+        //    string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

@@ -19,14 +19,14 @@ namespace Okta.Sdk
 
         ProvisioningConnectionStatus Status { get; set; }
 
-        Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken));
+        //Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task ActivateDefaultProvisioningConnectionForApplicationAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken));
+        //Task ActivateDefaultProvisioningConnectionForApplicationAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task DeactivateDefaultProvisioningConnectionForApplicationAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken));
+        //Task DeactivateDefaultProvisioningConnectionForApplicationAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken));
 
     }
 }

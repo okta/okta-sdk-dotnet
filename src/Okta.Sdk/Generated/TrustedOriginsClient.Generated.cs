@@ -29,94 +29,145 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<ITrustedOrigin> ListOrigins(string q = null, string filter = null, string after = null, int? limit = -1)
-            => GetCollectionClient<ITrustedOrigin>(new HttpRequest
+        public async Task<ITrustedOrigin> ActivateOriginAsync(string trustedOriginId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<TrustedOrigin>(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/trustedOrigins",
-                Verb = HttpVerb.Get,
-                
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["q"] = q,
-                    ["filter"] = filter,
-                    ["after"] = after,
-                    ["limit"] = limit,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<ITrustedOrigin> CreateOriginAsync(ITrustedOrigin trustedOrigin, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<TrustedOrigin>(new HttpRequest
+                ["trustedOriginId"] = trustedOriginId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/trustedOrigins",
-                Verb = HttpVerb.Post,
-                Payload = trustedOrigin,
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<ITrustedOrigin> CreateOriginAsync(ITrustedOrigin body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<TrustedOrigin>(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["trustedOriginId"] = trustedOriginId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<TrustedOrigin>(new HttpRequest
+        public async Task<ITrustedOrigin> DeactivateOriginAsync(string trustedOriginId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<TrustedOrigin>(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["trustedOriginId"] = trustedOriginId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["trustedOriginId"] = trustedOriginId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ITrustedOrigin> UpdateOriginAsync(ITrustedOrigin trustedOrigin, string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<TrustedOrigin>(new HttpRequest
+        public async Task DeleteOriginAsync(string trustedOriginId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
-                Verb = HttpVerb.Put,
-                Payload = trustedOrigin,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["trustedOriginId"] = trustedOriginId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["trustedOriginId"] = trustedOriginId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ITrustedOrigin> ActivateOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<TrustedOrigin>(new HttpRequest
+        public async Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<TrustedOrigin>(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["trustedOriginId"] = trustedOriginId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["trustedOriginId"] = trustedOriginId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ITrustedOrigin> DeactivateOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<TrustedOrigin>(new HttpRequest
-            {
-                Uri = "/api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["trustedOriginId"] = trustedOriginId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public ICollectionClient<ITrustedOrigin>ListOrigins(string q = null, string filter = null, string after = null, int? limit = null)
         
+        => GetCollectionClient<ITrustedOrigin>(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["q"] = q,
+                ["filter"] = filter,
+                ["after"] = after,
+                ["limit"] = limit,
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public async Task<ITrustedOrigin> UpdateOriginAsync(ITrustedOrigin body, string trustedOriginId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PutAsync<TrustedOrigin>(new HttpRequest
+        {
+            Uri = "/api/v1/trustedOrigins/{trustedOriginId}",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["trustedOriginId"] = trustedOriginId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

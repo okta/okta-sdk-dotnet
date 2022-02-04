@@ -17,10 +17,10 @@ namespace Okta.Sdk.Internal
     {
         private readonly Dictionary<HttpVerb, HttpMethod> _httpMethods = new Dictionary<HttpVerb, HttpMethod>
         {
-            { HttpVerb.Get, HttpMethod.Get },
-            { HttpVerb.Post, HttpMethod.Post },
-            { HttpVerb.Put, HttpMethod.Put },
-            { HttpVerb.Delete, HttpMethod.Delete },
+            { HttpVerb.GET, HttpMethod.Get },
+            { HttpVerb.POST, HttpMethod.Post },
+            { HttpVerb.PUT, HttpMethod.Put },
+            { HttpVerb.DELETE, HttpMethod.Delete },
         };
 
         /// <summary>

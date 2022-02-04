@@ -29,46 +29,66 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IProfileMapping> ListProfileMappings(string after = null, int? limit = -1, string sourceId = null, string targetId = "")
-            => GetCollectionClient<IProfileMapping>(new HttpRequest
+        public async Task<IProfileMapping> GetProfileMappingAsync(string mappingId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<ProfileMapping>(new HttpRequest
+        {
+            Uri = "/api/v1/mappings/{mappingId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/mappings",
-                Verb = HttpVerb.Get,
-                
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["after"] = after,
-                    ["limit"] = limit,
-                    ["sourceId"] = sourceId,
-                    ["targetId"] = targetId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IProfileMapping> GetProfileMappingAsync(string mappingId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<ProfileMapping>(new HttpRequest
+                ["mappingId"] = mappingId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/mappings/{mappingId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["mappingId"] = mappingId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IProfileMapping> UpdateProfileMappingAsync(IProfileMapping profileMapping, string mappingId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ProfileMapping>(new HttpRequest
-            {
-                Uri = "/api/v1/mappings/{mappingId}",
-                Verb = HttpVerb.Post,
-                Payload = profileMapping,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["mappingId"] = mappingId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public ICollectionClient<IProfileMapping>ListProfileMappings(string after = null, int? limit = null, string sourceId = null, string targetId = null)
         
+        => GetCollectionClient<IProfileMapping>(new HttpRequest
+        {
+            Uri = "/api/v1/mappings",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["after"] = after,
+                ["limit"] = limit,
+                ["sourceId"] = sourceId,
+                ["targetId"] = targetId,
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public async Task<IProfileMapping> UpdateProfileMappingAsync(IProfileMapping body, string mappingId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<ProfileMapping>(new HttpRequest
+        {
+            Uri = "/api/v1/mappings/{mappingId}",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["mappingId"] = mappingId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

@@ -24,7 +24,7 @@ namespace Okta.Sdk
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/logo",
                 Payload = fileBytes,
                 ContentType = "multipart/form-data",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 FileName = file.Name,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -47,7 +47,7 @@ namespace Okta.Sdk
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/favicon",
                 Payload = fileBytes,
                 ContentType = "multipart/form-data",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 FileName = file.Name,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -70,7 +70,7 @@ namespace Okta.Sdk
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/background-image",
                 Payload = fileBytes,
                 ContentType = "multipart/form-data",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 FileName = file.Name,
                 PathParameters = new Dictionary<string, object>()
                 {

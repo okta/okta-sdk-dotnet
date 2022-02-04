@@ -23,7 +23,7 @@ namespace Okta.Sdk
                 Uri = "/api/v1/org/logo",
                 Payload = fileBytes,
                 ContentType = "multipart/form-data",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 FileName = file.Name,
             };
 

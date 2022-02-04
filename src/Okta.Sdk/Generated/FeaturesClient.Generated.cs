@@ -29,70 +29,104 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IFeature> ListFeatures()
-            => GetCollectionClient<IFeature>(new HttpRequest
+        public async Task<IFeature> GetFeatureAsync(string featureId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<Feature>(new HttpRequest
+        {
+            Uri = "/api/v1/features/{featureId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/features",
-                Verb = HttpVerb.Get,
-                
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IFeature> GetFeatureAsync(string featureId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Feature>(new HttpRequest
+                ["featureId"] = featureId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/features/{featureId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["featureId"] = featureId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IFeature> ListFeatureDependencies(string featureId)
-            => GetCollectionClient<IFeature>(new HttpRequest
-            {
-                Uri = "/api/v1/features/{featureId}/dependencies",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["featureId"] = featureId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public ICollectionClient<IFeature> ListFeatureDependents(string featureId)
-            => GetCollectionClient<IFeature>(new HttpRequest
-            {
-                Uri = "/api/v1/features/{featureId}/dependents",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["featureId"] = featureId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IFeature> UpdateFeatureLifecycleAsync(string featureId, string lifecycle, string mode = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Feature>(new HttpRequest
-            {
-                Uri = "/api/v1/features/{featureId}/{lifecycle}",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["featureId"] = featureId,
-                    ["lifecycle"] = lifecycle,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["mode"] = mode,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public ICollectionClient<IFeature>ListFeatureDependencies(string featureId)
         
+        => GetCollectionClient<IFeature>(new HttpRequest
+        {
+            Uri = "/api/v1/features/{featureId}/dependencies",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["featureId"] = featureId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public ICollectionClient<IFeature>ListFeatureDependents(string featureId)
+        
+        => GetCollectionClient<IFeature>(new HttpRequest
+        {
+            Uri = "/api/v1/features/{featureId}/dependents",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["featureId"] = featureId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public ICollectionClient<IFeature>ListFeatures()
+        
+        => GetCollectionClient<IFeature>(new HttpRequest
+        {
+            Uri = "/api/v1/features",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public async Task<IFeature> UpdateFeatureLifecycleAsync(string featureId, string lifecycle, string mode = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<Feature>(new HttpRequest
+        {
+            Uri = "/api/v1/features/{featureId}/{lifecycle}",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["featureId"] = featureId,
+                ["lifecycle"] = lifecycle,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["mode"] = mode,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

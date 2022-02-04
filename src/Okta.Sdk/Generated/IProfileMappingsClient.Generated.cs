@@ -12,35 +12,37 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta ProfileMapping resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IProfileMappingsClient
     {
         /// <summary>
-        /// Enumerates Profile Mappings in your organization with pagination.
+        /// Get Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
-        /// <param name="after"></param>
-        /// <param name="limit"></param>
-        /// <param name="sourceId"></param>
-        /// <param name="targetId"></param>
-        /// <returns>A collection of <see cref="IProfileMapping"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IProfileMapping> ListProfileMappings(string after = null, int? limit = -1, string sourceId = null, string targetId = "");
-
-        /// <summary>
-        /// Fetches a single Profile Mapping referenced by its ID.
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
+        ///  <returns>Task of IProfileMapping</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IProfileMapping"/> response.</returns>
         Task<IProfileMapping> GetProfileMappingAsync(string mappingId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
+        ///  Enumerates Profile Mappings in your organization with pagination.
         /// </summary>
-        /// <param name="profileMapping">The <see cref="IProfileMapping"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="after"> (optional)</param>
+        /// <param name="limit"> (optional, default to -1)</param>
+        /// <param name="sourceId"> (optional)</param>
+        /// <param name="targetId"> (optional)</param>
+        /// A collection of <see cref="IProfileMappingsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<IProfileMapping> ListProfileMappings(string after = null, int? limit = null, string sourceId = null, string targetId = null);
+        /// <summary>
+        /// Update Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
         /// <param name="mappingId"></param>
+        ///  <returns>Task of IProfileMapping</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IProfileMapping"/> response.</returns>
-        Task<IProfileMapping> UpdateProfileMappingAsync(IProfileMapping profileMapping, string mappingId, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IProfileMapping> UpdateProfileMappingAsync(IProfileMapping body, string mappingId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

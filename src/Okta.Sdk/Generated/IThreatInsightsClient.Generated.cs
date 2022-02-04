@@ -12,23 +12,24 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta ThreatInsight resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IThreatInsightsClient
     {
         /// <summary>
-        /// Gets current ThreatInsight configuration
+        ///  Gets current ThreatInsight configuration
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        ///  <returns>Task of IThreatInsightConfiguration</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IThreatInsightConfiguration"/> response.</returns>
-        Task<IThreatInsightConfiguration> GetCurrentConfigurationAsync(CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IThreatInsightConfiguration> GetCurrentConfigurationAsync( CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates ThreatInsight configuration
+        ///  Updates ThreatInsight configuration
         /// </summary>
-        /// <param name="threatInsightConfiguration">The <see cref="IThreatInsightConfiguration"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of IThreatInsightConfiguration</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IThreatInsightConfiguration"/> response.</returns>
-        Task<IThreatInsightConfiguration> UpdateConfigurationAsync(IThreatInsightConfiguration threatInsightConfiguration, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IThreatInsightConfiguration> UpdateConfigurationAsync(IThreatInsightConfiguration body, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

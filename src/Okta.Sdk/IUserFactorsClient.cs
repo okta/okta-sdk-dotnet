@@ -93,16 +93,6 @@ namespace Okta.Sdk
         Task<IUserFactor> AddFactorAsync(string userId, AddCustomHotpFactorOptions hotpFactorOptions, CancellationToken cancellationToken = default);
 
         /// <summary>
-        /// Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
-        /// </summary>
-        /// <param name="userId">The user ID.</param>
-        /// <param name="factorId">The factor ID.</param>
-        /// <param name="templateId">The template ID.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IVerifyUserFactorResponse"/> response.</returns>
-        Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = null, CancellationToken cancellationToken = default);
-
-        /// <summary>
         /// The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
         /// <param name="userId">The user ID.</param>

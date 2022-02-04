@@ -43,11 +43,16 @@ namespace Okta.Sdk
             get => GetEnumProperty<EnabledStatus>("status");
             set => this["status"] = value;
         }
-        
+
+        public ICollectionClient<IApplicationFeature> ListFeaturesForApplication(string appId)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <inheritdoc />
-        public ICollectionClient<IApplicationFeature> ListFeaturesForApplication(
-            string appId)
-            => GetClient().Applications.ListFeaturesForApplication(appId);
-        
+        //public ICollectionClient<IApplicationFeature> ListFeaturesForApplication(
+        //    string appId)
+        //    => GetClient().Applications.ListFeaturesForApplication(appId);
+
     }
 }

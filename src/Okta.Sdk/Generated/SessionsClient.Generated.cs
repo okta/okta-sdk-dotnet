@@ -29,52 +29,82 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public async Task<ISession> CreateSessionAsync(ICreateSessionRequest createSessionRequest, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Session>(new HttpRequest
+        public async Task<ISession> CreateSessionAsync(ICreateSessionRequest body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<Session>(new HttpRequest
+        {
+            Uri = "/api/v1/sessions",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/sessions",
-                Verb = HttpVerb.Post,
-                Payload = createSessionRequest,
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task EndSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task EndSessionAsync(string sessionId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/sessions/{sessionId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/sessions/{sessionId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["sessionId"] = sessionId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["sessionId"] = sessionId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ISession> GetSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Session>(new HttpRequest
+        public async Task<ISession> GetSessionAsync(string sessionId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<Session>(new HttpRequest
+        {
+            Uri = "/api/v1/sessions/{sessionId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/sessions/{sessionId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["sessionId"] = sessionId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["sessionId"] = sessionId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ISession> RefreshSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Session>(new HttpRequest
-            {
-                Uri = "/api/v1/sessions/{sessionId}/lifecycle/refresh",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["sessionId"] = sessionId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<ISession> RefreshSessionAsync(string sessionId,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await PostAsync<Session>(new HttpRequest
+        {
+            Uri = "/api/v1/sessions/{sessionId}/lifecycle/refresh",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["sessionId"] = sessionId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

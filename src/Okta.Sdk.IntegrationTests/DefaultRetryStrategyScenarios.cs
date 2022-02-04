@@ -40,7 +40,7 @@ namespace Okta.Sdk.IntegrationTests
                     var log = oktaClient.Logs
                         .GetLogs(
                             q: $"eventType eq \"user.lifecycle.create\" and target.id eq \"{t.Trim()}\"",
-                            since: DateTime.Now.Add(TimeSpan.FromDays(-180d)).ToString("yyyy-MM-dd"))
+                            since: DateTime.Now.Add(TimeSpan.FromDays(-180d)))
                         .Select(ev => ev.Actor.AlternateId)
                         .FirstOrDefaultAsync();
                     try

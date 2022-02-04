@@ -235,11 +235,7 @@ namespace Okta.Sdk
         }
 
         /// <inheritdoc/>
-        public Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = null, CancellationToken cancellationToken = default)
-            => VerifyFactorAsync(null, userId, factorId, templateId, null, cancellationToken);
-
-        /// <inheritdoc/>
         public Task<IUserFactor> ActivateFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => ActivateFactorAsync(null, userId, factorId, cancellationToken);
+            => ActivateFactorAsync(userId, factorId, null, cancellationToken);
     }
 }

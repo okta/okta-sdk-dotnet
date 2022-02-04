@@ -16,10 +16,10 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             VerbExecutionCounts = new Dictionary<HttpVerb, int>
             {
-                { HttpVerb.Get, 0 },
-                { HttpVerb.Post, 0 },
-                { HttpVerb.Put, 0 },
-                { HttpVerb.Delete, 0 },
+                { HttpVerb.GET, 0 },
+                { HttpVerb.POST, 0 },
+                { HttpVerb.PUT, 0 },
+                { HttpVerb.DELETE, 0 },
             };
         }
 
@@ -31,13 +31,13 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             switch (request.Verb)
             {
-                case HttpVerb.Get:
+                case HttpVerb.GET:
                     return GetAsync(request.Uri, request.Headers, cancellationToken);
-                case HttpVerb.Post:
+                case HttpVerb.POST:
                     return PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
-                case HttpVerb.Put:
+                case HttpVerb.PUT:
                     return PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken);
-                case HttpVerb.Delete:
+                case HttpVerb.DELETE:
                     return DeleteAsync(request.Uri, request.Headers, cancellationToken);
                 default:
                     return GetAsync(request.Uri, request.Headers, cancellationToken);
@@ -46,7 +46,7 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public Task<HttpResponse<string>> GetAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-            VerbExecutionCounts[HttpVerb.Get] += 1;
+            VerbExecutionCounts[HttpVerb.GET] += 1;
             return Task.FromResult(GetTestResponse());
         }
 
@@ -62,19 +62,19 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public Task<HttpResponse<string>> PostAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
-            VerbExecutionCounts[HttpVerb.Post] += 1;
+            VerbExecutionCounts[HttpVerb.POST] += 1;
             return Task.FromResult(GetTestResponse());
         }
 
         public Task<HttpResponse<string>> PutAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, string body, CancellationToken cancellationToken)
         {
-            VerbExecutionCounts[HttpVerb.Put] += 1;
+            VerbExecutionCounts[HttpVerb.PUT] += 1;
             return Task.FromResult(GetTestResponse());
         }
 
         public Task<HttpResponse<string>> DeleteAsync(string href, IEnumerable<KeyValuePair<string, string>> headers, CancellationToken cancellationToken)
         {
-            VerbExecutionCounts[HttpVerb.Delete] += 1;
+            VerbExecutionCounts[HttpVerb.DELETE] += 1;
             return Task.FromResult(GetTestResponse());
         }
 

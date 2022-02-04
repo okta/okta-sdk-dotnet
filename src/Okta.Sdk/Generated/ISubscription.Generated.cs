@@ -27,11 +27,11 @@ namespace Okta.Sdk
         Task<ISubscription> GetRoleSubscriptionByNotificationTypeAsync(
             string roleTypeOrRoleId, string notificationType, CancellationToken cancellationToken = default(CancellationToken));
 
-        Task<ISubscription> GetUserSubscriptionByNotificationTypeAsync(
-            string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken));
+        //Task<ISubscription> GetUserSubscriptionByNotificationTypeAsync(
+        //    string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken));
 
-        ICollectionClient<ISubscription> ListUserSubscriptions(
-            string userId);
+        //ICollectionClient<ISubscription> ListUserSubscriptions(
+        //    string userId);
 
         Task SubscribeUserSubscriptionByNotificationTypeAsync(
             string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken));

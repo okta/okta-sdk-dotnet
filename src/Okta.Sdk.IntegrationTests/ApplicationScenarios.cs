@@ -1859,37 +1859,38 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
-        public async Task GetDefaultProvisioningConnection()
-        {
-            var oktaClient = TestClient.Create();
-            var guid = Guid.NewGuid();
+        // NOT PORTED TO OAS3 YET
+        //[Fact]
+        //public async Task GetDefaultProvisioningConnection()
+        //{
+        //    var oktaClient = TestClient.Create();
+        //    var guid = Guid.NewGuid();
 
-            var appCreateOptions = new CreateOpenIdConnectApplication
-            {
-                Label = $"dotnet-sdk: {nameof(UpdateApplicationProfile)} {guid}",
-                Activate = true,
-                ResponseTypes = new[] { OAuthResponseType.Code },
-                GrantTypes = new[] { OAuthGrantType.AuthorizationCode, OAuthGrantType.ClientCredentials },
-                ApplicationType = OpenIdConnectApplicationType.Service,
-                RedirectUris = new[] { "https://example.com" },
-            };
+        //    var appCreateOptions = new CreateOpenIdConnectApplication
+        //    {
+        //        Label = $"dotnet-sdk: {nameof(UpdateApplicationProfile)} {guid}",
+        //        Activate = true,
+        //        ResponseTypes = new[] { OAuthResponseType.Code },
+        //        GrantTypes = new[] { OAuthGrantType.AuthorizationCode, OAuthGrantType.ClientCredentials },
+        //        ApplicationType = OpenIdConnectApplicationType.Service,
+        //        RedirectUris = new[] { "https://example.com" },
+        //    };
 
-            var newApp = await oktaClient.Applications.CreateApplicationAsync(appCreateOptions);
+        //    var newApp = await oktaClient.Applications.CreateApplicationAsync(appCreateOptions);
 
-            try
-            {
-                var connection = await oktaClient.Applications.GetDefaultProvisioningConnectionForApplicationAsync(newApp.Id);
-                connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.Unknown);
-                connection.Status.Should().Be(ProvisioningConnectionStatus.Unknown);
-            }
-            finally
-            {
-                // Remove App
-                await oktaClient.Applications.DeactivateApplicationAsync(newApp.Id);
-                await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
-            }
-        }
+        //    try
+        //    {
+        //        var connection = await oktaClient.Applications.GetDefaultProvisioningConnectionForApplicationAsync(newApp.Id);
+        //        connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.Unknown);
+        //        connection.Status.Should().Be(ProvisioningConnectionStatus.Unknown);
+        //    }
+        //    finally
+        //    {
+        //        // Remove App
+        //        await oktaClient.Applications.DeactivateApplicationAsync(newApp.Id);
+        //        await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
+        //    }
+        //}
 
         [Fact]
         public async Task CreateOrg2OrgApplication()

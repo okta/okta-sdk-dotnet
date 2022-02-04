@@ -31,9 +31,9 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, 
-            string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.SetDefaultProvisioningConnectionForApplicationAsync(profile, appId, activate, cancellationToken);
+        //public Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, 
+        //    string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.SetDefaultProvisioningConnectionForApplicationAsync(profile, appId, activate, cancellationToken);
         
     }
 }

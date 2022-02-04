@@ -12,17 +12,17 @@ namespace Okta.Sdk.UnitTests
 {
     public class DomainsClientShould
     {
-        [Fact]
-        public async Task VerifyDomain()
-        {
-            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
-            var client = new TestableOktaClient(mockRequestExecutor);
+        //[Fact]
+        //public async Task VerifyDomain()
+        //{
+        //    var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+        //    var client = new TestableOktaClient(mockRequestExecutor);
 
-            var domainsClient = client.Domains;
-            await domainsClient.VerifyDomainAsync("domainid");
+        //    var domainsClient = client.Domains;
+        //    await domainsClient.VerifyDomainAsync("domainid");
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/domains/domainid/verify");
-        }
+        //    mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/domains/domainid/verify");
+        //}
 
         [Fact]
         public async Task CreateCertificate()

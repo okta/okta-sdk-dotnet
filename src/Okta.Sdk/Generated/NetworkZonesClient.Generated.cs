@@ -29,93 +29,144 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<INetworkZone> ListNetworkZones(string after = null, int? limit = -1, string filter = null)
-            => GetCollectionClient<INetworkZone>(new HttpRequest
+        public async Task<INetworkZone> ActivateNetworkZoneAsync(string zoneId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<NetworkZone>(new HttpRequest
+        {
+            Uri = "/api/v1/zones/{zoneId}/lifecycle/activate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/zones",
-                Verb = HttpVerb.Get,
-                
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["after"] = after,
-                    ["limit"] = limit,
-                    ["filter"] = filter,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<INetworkZone> CreateNetworkZoneAsync(INetworkZone zone, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<NetworkZone>(new HttpRequest
+                ["zoneId"] = zoneId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/zones",
-                Verb = HttpVerb.Post,
-                Payload = zone,
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<INetworkZone> CreateNetworkZoneAsync(INetworkZone body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<NetworkZone>(new HttpRequest
+        {
+            Uri = "/api/v1/zones",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/zones/{zoneId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["zoneId"] = zoneId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<INetworkZone> GetNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<NetworkZone>(new HttpRequest
+        public async Task<INetworkZone> DeactivateNetworkZoneAsync(string zoneId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<NetworkZone>(new HttpRequest
+        {
+            Uri = "/api/v1/zones/{zoneId}/lifecycle/deactivate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/zones/{zoneId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["zoneId"] = zoneId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["zoneId"] = zoneId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<INetworkZone> UpdateNetworkZoneAsync(INetworkZone zone, string zoneId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<NetworkZone>(new HttpRequest
+        public async Task DeleteNetworkZoneAsync(string zoneId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/zones/{zoneId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/zones/{zoneId}",
-                Verb = HttpVerb.Put,
-                Payload = zone,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["zoneId"] = zoneId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["zoneId"] = zoneId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<INetworkZone> ActivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<NetworkZone>(new HttpRequest
+        public async Task<INetworkZone> GetNetworkZoneAsync(string zoneId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<NetworkZone>(new HttpRequest
+        {
+            Uri = "/api/v1/zones/{zoneId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/zones/{zoneId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["zoneId"] = zoneId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["zoneId"] = zoneId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<INetworkZone> DeactivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<NetworkZone>(new HttpRequest
-            {
-                Uri = "/api/v1/zones/{zoneId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["zoneId"] = zoneId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public ICollectionClient<INetworkZone>ListNetworkZones(string after = null, int? limit = null, string filter = null)
         
+        => GetCollectionClient<INetworkZone>(new HttpRequest
+        {
+            Uri = "/api/v1/zones",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["after"] = after,
+                ["limit"] = limit,
+                ["filter"] = filter,
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public async Task<INetworkZone> UpdateNetworkZoneAsync(INetworkZone body, string zoneId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PutAsync<NetworkZone>(new HttpRequest
+        {
+            Uri = "/api/v1/zones/{zoneId}",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["zoneId"] = zoneId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

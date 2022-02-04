@@ -29,74 +29,121 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
+        public async Task CreateCertificateAsync(IDomainCertificate body, string domainId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PutAsync(new HttpRequest
+        {
+            Uri = "/api/v1/domains/{domainId}/certificate",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["domainId"] = domainId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        
+        ///// <inheritdoc />
+        //public async Task<IDomainResponse> CreateDomainAsync(IDomain body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        //=> await PostAsync<DomainResponse>(new HttpRequest
+        //{
+        //    Uri = "/api/v1/domains",
+        //    Verb = HttpVerb.POST,
+        //    Payload = body,
+            
+        //    PathParameters = new Dictionary<string, object>()
+        //    {
+        //    },
+            
+        //    QueryParameters = new Dictionary<string, object>()
+        //    {
+        //    },
+        //}, cancellationToken).ConfigureAwait(false);
+            
+        
+        /// <inheritdoc />
+        public async Task DeleteDomainAsync(string domainId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/domains/{domainId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["domainId"] = domainId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        
+        ///// <inheritdoc />
+        //public async Task<IDomainResponse> GetDomainAsync(string domainId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        //=> await GetAsync<DomainResponse>(new HttpRequest
+        //{
+        //    Uri = "/api/v1/domains/{domainId}",
+        //    Verb = HttpVerb.GET,
+            
+            
+        //    PathParameters = new Dictionary<string, object>()
+        //    {
+        //        ["domainId"] = domainId,
+        //    },
+            
+        //    QueryParameters = new Dictionary<string, object>()
+        //    {
+        //    },
+        //}, cancellationToken).ConfigureAwait(false);
+            
+        
+        /// <inheritdoc />
         public async Task<IDomainListResponse> ListDomainsAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<DomainListResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/domains",
-                Verb = HttpVerb.Get,
-                
-                }, cancellationToken).ConfigureAwait(false);
         
-        /// <inheritdoc />
-        public async Task<IDomain> CreateDomainAsync(IDomain domain, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Domain>(new HttpRequest
+        => await GetAsync<DomainListResponse>(new HttpRequest
+        {
+            Uri = "/api/v1/domains",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/domains",
-                Verb = HttpVerb.Post,
-                Payload = domain,
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task DeleteDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/domains/{domainId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["domainId"] = domainId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
-        /// <inheritdoc />
-        public async Task<IDomain> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Domain>(new HttpRequest
-            {
-                Uri = "/api/v1/domains/{domainId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["domainId"] = domainId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        ///// <inheritdoc />
+        //public async Task<IDomainResponse> VerifyDomainAsync(string domainId,CancellationToken cancellationToken = default(CancellationToken))
         
-        /// <inheritdoc />
-        public async Task CreateCertificateAsync(IDomainCertificate certificate, string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync(new HttpRequest
-            {
-                Uri = "/api/v1/domains/{domainId}/certificate",
-                Verb = HttpVerb.Put,
-                Payload = certificate,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["domainId"] = domainId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
-        /// <inheritdoc />
-        public async Task<IDomain> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Domain>(new HttpRequest
-            {
-                Uri = "/api/v1/domains/{domainId}/verify",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["domainId"] = domainId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
-        
+        //=> await PostAsync<DomainResponse>(new HttpRequest
+        //{
+        //    Uri = "/api/v1/domains/{domainId}/verify",
+        //    Verb = HttpVerb.POST,
+            
+            
+        //    PathParameters = new Dictionary<string, object>()
+        //    {
+        //        ["domainId"] = domainId,
+        //    },
+            
+        //    QueryParameters = new Dictionary<string, object>()
+        //    {
+        //    },
+        //}, cancellationToken).ConfigureAwait(false);
+            
     }
 }

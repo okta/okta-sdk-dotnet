@@ -29,74 +29,121 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IUserType> ListUserTypes()
-            => GetCollectionClient<IUserType>(new HttpRequest
+        public async Task<IUserType> CreateUserTypeAsync(IUserType body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<UserType>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/types/user",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/types/user",
-                Verb = HttpVerb.Get,
-                
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IUserType> CreateUserTypeAsync(IUserType userType, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<UserType>(new HttpRequest
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/types/user",
-                Verb = HttpVerb.Post,
-                Payload = userType,
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task DeleteUserTypeAsync(string typeId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/meta/types/user/{typeId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/types/user/{typeId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["typeId"] = typeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["typeId"] = typeId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserType> GetUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<UserType>(new HttpRequest
+        public async Task<IUserType> GetUserTypeAsync(string typeId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<UserType>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/types/user/{typeId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/types/user/{typeId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["typeId"] = typeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["typeId"] = typeId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserType> UpdateUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<UserType>(new HttpRequest
+        public ICollectionClient<IUserType>ListUserTypes()
+        
+        => GetCollectionClient<IUserType>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/types/user",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/types/user/{typeId}",
-                Verb = HttpVerb.Post,
-                Payload = userType,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["typeId"] = typeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task<IUserType> ReplaceUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<UserType>(new HttpRequest
-            {
-                Uri = "/api/v1/meta/types/user/{typeId}",
-                Verb = HttpVerb.Put,
-                Payload = userType,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["typeId"] = typeId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<IUserType> ReplaceUserTypeAsync(IUserType body, string typeId,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await PutAsync<UserType>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/types/user/{typeId}",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["typeId"] = typeId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        
+        /// <inheritdoc />
+        public async Task<IUserType> UpdateUserTypeAsync(IUserType body, string typeId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<UserType>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/types/user/{typeId}",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["typeId"] = typeId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

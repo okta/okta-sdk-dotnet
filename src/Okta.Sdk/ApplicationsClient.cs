@@ -55,7 +55,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, basicAuthApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: basicAuthApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <inheritdoc />
@@ -64,7 +64,7 @@ namespace Okta.Sdk
                 new HttpRequest
                 {
                     Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
-                    Verb = HttpVerb.Post,
+                    Verb = HttpVerb.POST,
                     Payload = base64EncodedCertificateData,
                     ContentType = "application/pkix-cert",
                     PathParameters = new Dictionary<string, object>()
@@ -80,7 +80,7 @@ namespace Okta.Sdk
                 new HttpRequest
                 {
                     Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
-                    Verb = HttpVerb.Post,
+                    Verb = HttpVerb.POST,
                     Payload = certificate,
                     ContentType = "application/pkix-cert",
                     PathParameters = new Dictionary<string, object>()
@@ -96,7 +96,7 @@ namespace Okta.Sdk
                 new HttpRequest
                 {
                     Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
-                    Verb = HttpVerb.Post,
+                    Verb = HttpVerb.POST,
                     Payload = base64EncodedCertificateData,
                     ContentType = "application/pkix-cert",
                     PathParameters = new Dictionary<string, object>()
@@ -112,7 +112,7 @@ namespace Okta.Sdk
                 new HttpRequest
                 {
                     Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
-                    Verb = HttpVerb.Post,
+                    Verb = HttpVerb.POST,
                     Payload = certificate,
                     ContentType = "application/x-x509-ca-cert",
                     PathParameters = new Dictionary<string, object>()
@@ -128,7 +128,7 @@ namespace Okta.Sdk
                 new HttpRequest
                 {
                     Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
-                    Verb = HttpVerb.Post,
+                    Verb = HttpVerb.POST,
                     Payload = certificate,
                     ContentType = "application/x-pem-file",
                     PathParameters = new Dictionary<string, object>()
@@ -166,7 +166,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, bookmarkApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: bookmarkApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -200,7 +200,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, swaApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: swaApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -238,7 +238,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, swaNoPluginApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: swaNoPluginApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -274,7 +274,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, swaThreeFieldApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: swaThreeFieldApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -314,7 +314,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, swaCustomApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: swaCustomApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -373,7 +373,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, samlApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: samlApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -414,7 +414,7 @@ namespace Okta.Sdk
                 },
             };
 
-            return CreateApplicationAsync(app, wsFederationApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: wsFederationApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -474,7 +474,7 @@ namespace Okta.Sdk
                 };
             }
 
-            return CreateApplicationAsync(app, openIdApplicationOptions.Activate, cancellationToken);
+            return CreateApplicationAsync(app, activate: openIdApplicationOptions.Activate, cancellationToken: cancellationToken);
         }
 
         /// <summary>
@@ -490,7 +490,7 @@ namespace Okta.Sdk
                 Priority = options.Priority,
             };
 
-            return CreateApplicationGroupAssignmentAsync(appGroup, options.ApplicationId, options.GroupId, cancellationToken);
+            return CreateApplicationGroupAssignmentAsync(options.ApplicationId, options.GroupId, appGroup, cancellationToken);
         }
 
         /// <summary>

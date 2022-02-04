@@ -12,71 +12,73 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta EventHook resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IEventHooksClient
     {
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
-        /// <returns>A collection of <see cref="IEventHook"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IEventHook> ListEventHooks();
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="eventHook">The <see cref="IEventHook"/> resource.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEventHook"/> response.</returns>
-        Task<IEventHook> CreateEventHookAsync(IEventHook eventHook, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
+        ///  <returns>Task of IEventHook</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="eventHookId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEventHook"/> response.</returns>
-        Task<IEventHook> GetEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="eventHook">The <see cref="IEventHook"/> resource.</param>
-        /// <param name="eventHookId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEventHook"/> response.</returns>
-        Task<IEventHook> UpdateEventHookAsync(IEventHook eventHook, string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="eventHookId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEventHook"/> response.</returns>
         Task<IEventHook> ActivateEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
-        /// <param name="eventHookId"></param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of IEventHook</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEventHook"/> response.</returns>
+        Task<IEventHook> CreateEventHookAsync(IEventHook body, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="eventHookId"></param>
+        ///  <returns>Task of IEventHook</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
         Task<IEventHook> DeactivateEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
+        ///  <returns>Task of void</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEventHook"/> response.</returns>
+        Task DeleteEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="eventHookId"></param>
+        ///  <returns>Task of IEventHook</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<IEventHook> GetEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// A collection of <see cref="IEventHooksClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<IEventHook> ListEventHooks();
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="eventHookId"></param>
+        ///  <returns>Task of IEventHook</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<IEventHook> UpdateEventHookAsync(IEventHook body, string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="eventHookId"></param>
+        ///  <returns>Task of IEventHook</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
         Task<IEventHook> VerifyEventHookAsync(string eventHookId, CancellationToken cancellationToken = default(CancellationToken));
-
     }
 }
+

@@ -52,12 +52,12 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public Task<IUserFactor> ActivateAsync(IActivateFactorRequest body, 
             string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.ActivateFactorAsync(body, userId, Id, cancellationToken);
+            => GetClient().UserFactors.ActivateFactorAsync(userId, Id, body, cancellationToken);
         
         /// <inheritdoc />
         public Task<IVerifyUserFactorResponse> VerifyAsync(IVerifyFactorRequest body, 
             string userId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().UserFactors.VerifyFactorAsync(body, userId, Id, templateId, tokenLifetimeSeconds, cancellationToken);
+            => GetClient().UserFactors.VerifyFactorAsync(userId, Id, body, null, null, null, templateId, tokenLifetimeSeconds, cancellationToken);
         
     }
 }

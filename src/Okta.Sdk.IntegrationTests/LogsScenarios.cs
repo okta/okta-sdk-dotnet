@@ -115,8 +115,8 @@ namespace Okta.Sdk.IntegrationTests
 
             try
             {
-                var until = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
-                var since = DateTime.UtcNow.AddDays(-1).ToString("yyyy-MM-ddTHH:mm:ssZ");
+                var until = DateTime.UtcNow;
+                var since = DateTime.UtcNow.AddDays(-1);
                 var logs = await client.Logs.GetLogs(until, since).ToListAsync();
 
                 logs.Should().NotBeNullOrEmpty();

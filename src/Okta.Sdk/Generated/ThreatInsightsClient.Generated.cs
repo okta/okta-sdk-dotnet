@@ -30,21 +30,40 @@ namespace Okta.Sdk
         
         /// <inheritdoc />
         public async Task<IThreatInsightConfiguration> GetCurrentConfigurationAsync(CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<ThreatInsightConfiguration>(new HttpRequest
+        
+        => await GetAsync<ThreatInsightConfiguration>(new HttpRequest
+        {
+            Uri = "/api/v1/threats/configuration",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/threats/configuration",
-                Verb = HttpVerb.Get,
-                
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IThreatInsightConfiguration> UpdateConfigurationAsync(IThreatInsightConfiguration threatInsightConfiguration, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ThreatInsightConfiguration>(new HttpRequest
-            {
-                Uri = "/api/v1/threats/configuration",
-                Verb = HttpVerb.Post,
-                Payload = threatInsightConfiguration,
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<IThreatInsightConfiguration> UpdateConfigurationAsync(IThreatInsightConfiguration body,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await PostAsync<ThreatInsightConfiguration>(new HttpRequest
+        {
+            Uri = "/api/v1/threats/configuration",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

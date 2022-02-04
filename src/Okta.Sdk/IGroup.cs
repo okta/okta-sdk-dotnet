@@ -41,7 +41,7 @@ namespace Okta.Sdk
         /// <param name="disableNotifications">The flag to disable notifications.</param>
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The role.</returns>
-        [Obsolete("This method is deprecated and will be removed in the next major release. Use <c>AssignRoleAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.")]
-        Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken));
+        //[Obsolete("This method is deprecated and will be removed in the next major release. Use <c>AssignRoleAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.")]
+        //Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

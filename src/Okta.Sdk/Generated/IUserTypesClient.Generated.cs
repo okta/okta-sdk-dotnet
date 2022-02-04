@@ -12,56 +12,58 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta UserType resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IUserTypesClient
     {
         /// <summary>
-        /// Fetches all User Types in your org
+        ///  Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
-        /// <returns>A collection of <see cref="IUserType"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IUserType> ListUserTypes();
-
-        /// <summary>
-        /// Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
-        /// </summary>
-        /// <param name="userType">The <see cref="IUserType"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of IUserType</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserType"/> response.</returns>
-        Task<IUserType> CreateUserTypeAsync(IUserType userType, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IUserType> CreateUserTypeAsync(IUserType body, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
+        ///  Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
+        ///  <returns>Task of void</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeleteUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type.
+        ///  Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
+        ///  <returns>Task of IUserType</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserType"/> response.</returns>
         Task<IUserType> GetUserTypeAsync(string typeId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Updates an existing User Type
+        ///  Fetches all User Types in your org
         /// </summary>
-        /// <param name="userType">The <see cref="IUserType"/> resource.</param>
-        /// <param name="typeId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserType"/> response.</returns>
-        Task<IUserType> UpdateUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken));
-
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// A collection of <see cref="IUserTypesClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<IUserType> ListUserTypes();
         /// <summary>
-        /// Replace an existing User Type
+        ///  Replace an existing User Type
         /// </summary>
-        /// <param name="userType">The <see cref="IUserType"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
         /// <param name="typeId"></param>
+        ///  <returns>Task of IUserType</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserType"/> response.</returns>
-        Task<IUserType> ReplaceUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IUserType> ReplaceUserTypeAsync(IUserType body, string typeId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Updates an existing User Type
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="typeId"></param>
+        ///  <returns>Task of IUserType</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<IUserType> UpdateUserTypeAsync(IUserType body, string typeId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

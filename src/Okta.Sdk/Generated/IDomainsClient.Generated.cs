@@ -12,56 +12,57 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta Domain resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IDomainsClient
     {
         /// <summary>
-        /// List all verified custom Domains for the org.
+        /// Create Certificate Creates the Certificate for the Domain.
         /// </summary>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IDomainListResponse"/> response.</returns>
-        Task<IDomainListResponse> ListDomainsAsync(CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Creates your domain.
-        /// </summary>
-        /// <param name="domain">The <see cref="IDomain"/> resource.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IDomain"/> response.</returns>
-        Task<IDomain> CreateDomainAsync(IDomain domain, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Deletes a Domain by `id`.
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
         /// <param name="domainId"></param>
+        ///  <returns>Task of void</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task CreateCertificateAsync(IDomainCertificate body, string domainId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Create Domain Creates your domain.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of IDomainResponse</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        //Task<IDomainResponse> CreateDomainAsync(IDomain body, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Delete Domain Deletes a Domain by &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="domainId"></param>
+        ///  <returns>Task of void</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
         Task DeleteDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Fetches a Domain by `id`.
+        /// Get Domain Fetches a Domain by &#x60;id&#x60;.
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="domainId"></param>
+        ///  <returns>Task of IDomainResponse</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IDomain"/> response.</returns>
-        Task<IDomain> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
-
+        //Task<IDomainResponse> GetDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Creates the Certificate for the Domain.
+        /// List Domains List all verified custom Domains for the org.
         /// </summary>
-        /// <param name="certificate">The <see cref="IDomainCertificate"/> resource.</param>
-        /// <param name="domainId"></param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        ///  <returns>Task of IDomainListResponse</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task CreateCertificateAsync(IDomainCertificate certificate, string domainId, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IDomainListResponse> ListDomainsAsync( CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Verifies the Domain by `id`.
+        /// Verify Domain Verifies the Domain by &#x60;id&#x60;.
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="domainId"></param>
+        ///  <returns>Task of IDomainResponse</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IDomain"/> response.</returns>
-        Task<IDomain> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
-
+        //Task<IDomainResponse> VerifyDomainAsync(string domainId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

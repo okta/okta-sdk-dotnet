@@ -122,7 +122,7 @@ namespace Okta.Sdk
         /// <inheritdoc />
         public Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(IApplicationGroupAssignment applicationGroupAssignment, 
             string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.CreateApplicationGroupAssignmentAsync(applicationGroupAssignment, Id, groupId, cancellationToken);
+            => GetClient().Applications.CreateApplicationGroupAssignmentAsync(Id, groupId, applicationGroupAssignment, cancellationToken);
         
         /// <inheritdoc />
         public Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(
@@ -238,21 +238,36 @@ namespace Okta.Sdk
         public Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(
             string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.GetScopeConsentGrantAsync(Id, grantId, expand, cancellationToken);
-        
+
+        public Task UploadApplicationLogoAsync(string appId, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IApplicationFeature> GetFeatureForApplicationAsync(string name, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, string name, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <inheritdoc />
-        public Task UploadApplicationLogoAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.UploadApplicationLogoAsync(appId, cancellationToken);
-        
-        /// <inheritdoc />
-        public Task<IApplicationFeature> GetFeatureForApplicationAsync(
-            string name, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.GetFeatureForApplicationAsync(Id, name, cancellationToken);
-        
-        /// <inheritdoc />
-        public Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, 
-            string name, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.UpdateFeatureForApplicationAsync(capabilities, Id, name, cancellationToken);
-        
+        //public Task UploadApplicationLogoAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.UploadApplicationLogoAsync(appId, cancellationToken);
+
+        ///// <inheritdoc />
+        //public Task<IApplicationFeature> GetFeatureForApplicationAsync(
+        //    string name, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.GetFeatureForApplicationAsync(Id, name, cancellationToken);
+
+        ///// <inheritdoc />
+        //public Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, 
+        //    string name, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.UpdateFeatureForApplicationAsync(capabilities, Id, name, cancellationToken);
+
     }
 }

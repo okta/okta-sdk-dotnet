@@ -12,67 +12,69 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta TrustedOrigin resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface ITrustedOriginsClient
     {
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
-        /// <param name="q"></param>
-        /// <param name="filter"></param>
-        /// <param name="after"></param>
-        /// <param name="limit"></param>
-        /// <returns>A collection of <see cref="ITrustedOrigin"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<ITrustedOrigin> ListOrigins(string q = null, string filter = null, string after = null, int? limit = -1);
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="trustedOrigin">The <see cref="ITrustedOrigin"/> resource.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
-        Task<ITrustedOrigin> CreateOriginAsync(ITrustedOrigin trustedOrigin, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="trustedOriginId"></param>
+        ///  <returns>Task of ITrustedOrigin</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
-        Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="trustedOrigin">The <see cref="ITrustedOrigin"/> resource.</param>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
-        Task<ITrustedOrigin> UpdateOriginAsync(ITrustedOrigin trustedOrigin, string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="trustedOriginId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
         Task<ITrustedOrigin> ActivateOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
-        /// <param name="trustedOriginId"></param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of ITrustedOrigin</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ITrustedOrigin"/> response.</returns>
+        Task<ITrustedOrigin> CreateOriginAsync(ITrustedOrigin body, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="trustedOriginId"></param>
+        ///  <returns>Task of ITrustedOrigin</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
         Task<ITrustedOrigin> DeactivateOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
-
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="trustedOriginId"></param>
+        ///  <returns>Task of void</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="trustedOriginId"></param>
+        ///  <returns>Task of ITrustedOrigin</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="q"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="after"> (optional)</param>
+        /// <param name="limit"> (optional, default to -1)</param>
+        /// A collection of <see cref="ITrustedOriginsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<ITrustedOrigin> ListOrigins(string q = null, string filter = null, string after = null, int? limit = null);
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="trustedOriginId"></param>
+        ///  <returns>Task of ITrustedOrigin</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<ITrustedOrigin> UpdateOriginAsync(ITrustedOrigin body, string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

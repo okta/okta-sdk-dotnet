@@ -29,607 +29,705 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IApplication> ListApplications(string q = null, string after = null, int? limit = -1, string filter = null, string expand = null, bool? includeNonDeleted = false)
-            => GetCollectionClient<IApplication>(new HttpRequest
+        public async Task ActivateApplicationAsync(string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/lifecycle/activate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps",
-                Verb = HttpVerb.Get,
-                
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["q"] = q,
-                    ["after"] = after,
-                    ["limit"] = limit,
-                    ["filter"] = filter,
-                    ["expand"] = expand,
-                    ["includeNonDeleted"] = includeNonDeleted,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IApplication> CreateApplicationAsync(IApplication application, bool? activate = true, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Application>(new HttpRequest
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps",
-                Verb = HttpVerb.Post,
-                Payload = application,
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["activate"] = activate,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<IAppUser> AssignUserToApplicationAsync(IAppUser body, string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<AppUser>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/users",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IApplication> GetApplicationAsync(string appId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Application>(new HttpRequest
+        public async Task<IJsonWebKey> CloneApplicationKeyAsync(string appId, string keyId, string targetAid,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<JsonWebKey>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/keys/{keyId}/clone",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["keyId"] = keyId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["targetAid"] = targetAid,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IApplication> UpdateApplicationAsync(IApplication application, string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<Application>(new HttpRequest
+        public async Task<IApplication> CreateApplicationAsync(IApplication body, string oktaAccessGatewayAgent = null, bool? activate = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<Application>(new HttpRequest
+        {
+            Uri = "/api/v1/apps",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}",
-                Verb = HttpVerb.Put,
-                Payload = application,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["activate"] = activate,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<ProvisioningConnection>(new HttpRequest
+        public async Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(string appId, string groupId, IApplicationGroupAssignment body = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PutAsync<ApplicationGroupAssignment>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/groups/{groupId}",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/connections/default",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["groupId"] = groupId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<ProvisioningConnection>(new HttpRequest
+        public async Task DeactivateApplicationAsync(string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/lifecycle/deactivate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/connections/default",
-                Verb = HttpVerb.Post,
-                Payload = profile,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["activate"] = activate,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task ActivateDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public async Task DeleteApplicationAsync(string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/connections/default/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeactivateDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public async Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/groups/{groupId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/connections/default/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["groupId"] = groupId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<ICsr> ListCsrsForApplication(string appId)
-            => GetCollectionClient<ICsr>(new HttpRequest
+        public async Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/users/{userId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/csrs",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata metadata, string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<Csr>(new HttpRequest
+                ["appId"] = appId,
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/csrs",
-                Verb = HttpVerb.Post,
-                Payload = metadata,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["sendEmail"] = sendEmail,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task RevokeCsrFromApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<IJsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<JsonWebKey>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/keys/generate",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["csrId"] = csrId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["validityYears"] = validityYears,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<Csr>(new HttpRequest
+        public async Task<ICsr> GenerateCsrForApplicationAsync(ICsrMetadata body, string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<Csr>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/csrs",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["csrId"] = csrId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IJsonWebKey> ListApplicationKeys(string appId)
-            => GetCollectionClient<IJsonWebKey>(new HttpRequest
+        public async Task<IApplication> GetApplicationAsync(string appId, string expand = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<Application>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/keys",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IJsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<JsonWebKey>(new HttpRequest
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/keys/generate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["validityYears"] = validityYears,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["expand"] = expand,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> GetApplicationKeyAsync(string appId, string keyId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<JsonWebKey>(new HttpRequest
+        public async Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string appId, string groupId, string expand = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<ApplicationGroupAssignment>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/groups/{groupId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/keys/{keyId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["keyId"] = keyId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["groupId"] = groupId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["expand"] = expand,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IJsonWebKey> CloneApplicationKeyAsync(string appId, string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<JsonWebKey>(new HttpRequest
+        public async Task<IJsonWebKey> GetApplicationKeyAsync(string appId, string keyId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<JsonWebKey>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/keys/{keyId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/credentials/keys/{keyId}/clone",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["keyId"] = keyId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["targetAid"] = targetAid,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["keyId"] = keyId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IApplicationFeature> ListFeaturesForApplication(string appId)
-            => GetCollectionClient<IApplicationFeature>(new HttpRequest
+        public async Task<IAppUser> GetApplicationUserAsync(string appId, string userId, string expand = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<AppUser>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/users/{userId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/features",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IApplicationFeature> GetFeatureForApplicationAsync(string appId, string name, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<ApplicationFeature>(new HttpRequest
+                ["appId"] = appId,
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/features/{name}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["name"] = name,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["expand"] = expand,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, string appId, string name, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<ApplicationFeature>(new HttpRequest
+        public async Task<ICsr> GetCsrForApplicationAsync(string appId, string csrId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<Csr>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/features/{name}",
-                Verb = HttpVerb.Put,
-                Payload = capabilities,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["name"] = name,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["csrId"] = csrId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IOAuth2ScopeConsentGrant> ListScopeConsentGrants(string appId, string expand = null)
-            => GetCollectionClient<IOAuth2ScopeConsentGrant>(new HttpRequest
+        public async Task<IOAuth2Token> GetOAuth2TokenForApplicationAsync(string appId, string tokenId, string expand = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<OAuth2Token>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/tokens/{tokenId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/grants",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IOAuth2ScopeConsentGrant> GrantConsentToScopeAsync(IOAuth2ScopeConsentGrant oAuth2ScopeConsentGrant, string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<OAuth2ScopeConsentGrant>(new HttpRequest
+                ["appId"] = appId,
+                ["tokenId"] = tokenId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/grants",
-                Verb = HttpVerb.Post,
-                Payload = oAuth2ScopeConsentGrant,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["expand"] = expand,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task RevokeScopeConsentGrantAsync(string appId, string grantId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(string appId, string grantId, string expand = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<OAuth2ScopeConsentGrant>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/grants/{grantId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/grants/{grantId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["grantId"] = grantId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["grantId"] = grantId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["expand"] = expand,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IOAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(string appId, string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<OAuth2ScopeConsentGrant>(new HttpRequest
+        public async Task<IOAuth2ScopeConsentGrant> GrantConsentToScopeAsync(IOAuth2ScopeConsentGrant body, string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<OAuth2ScopeConsentGrant>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/grants",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/grants/{grantId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["grantId"] = grantId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = -1, string expand = null)
-            => GetCollectionClient<IApplicationGroupAssignment>(new HttpRequest
+        public ICollectionClient<IApplicationGroupAssignment>ListApplicationGroupAssignments(string appId, string q = null, string after = null, int? limit = null, string expand = null)
+        
+        => GetCollectionClient<IApplicationGroupAssignment>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/groups",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/groups",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["q"] = q,
-                    ["after"] = after,
-                    ["limit"] = limit,
-                    ["expand"] = expand,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/groups/{groupId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["groupId"] = groupId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["q"] = q,
+                ["after"] = after,
+                ["limit"] = limit,
+                ["expand"] = expand,
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task<IApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string appId, string groupId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<ApplicationGroupAssignment>(new HttpRequest
+        public ICollectionClient<IJsonWebKey>ListApplicationKeys(string appId)
+        
+        => GetCollectionClient<IJsonWebKey>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/keys",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/groups/{groupId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["groupId"] = groupId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task<IApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(IApplicationGroupAssignment applicationGroupAssignment, string appId, string groupId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PutAsync<ApplicationGroupAssignment>(new HttpRequest
+        public ICollectionClient<IAppUser>ListApplicationUsers(string appId, string q = null, string queryScope = null, string after = null, int? limit = null, string filter = null, string expand = null)
+        
+        => GetCollectionClient<IAppUser>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/users",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/groups/{groupId}",
-                Verb = HttpVerb.Put,
-                Payload = applicationGroupAssignment,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["groupId"] = groupId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["q"] = q,
+                ["query_scope"] = queryScope,
+                ["after"] = after,
+                ["limit"] = limit,
+                ["filter"] = filter,
+                ["expand"] = expand,
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task ActivateApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public ICollectionClient<IApplication>ListApplications(string q = null, string after = null, int? limit = null, string filter = null, string expand = null, bool? includeNonDeleted = null)
+        
+        => GetCollectionClient<IApplication>(new HttpRequest
+        {
+            Uri = "/api/v1/apps",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["q"] = q,
+                ["after"] = after,
+                ["limit"] = limit,
+                ["filter"] = filter,
+                ["expand"] = expand,
+                ["includeNonDeleted"] = includeNonDeleted,
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task DeactivateApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public ICollectionClient<ICsr>ListCsrsForApplication(string appId)
+        
+        => GetCollectionClient<ICsr>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/csrs",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/lifecycle/deactivate",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task UploadApplicationLogoAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync(new HttpRequest
+        public ICollectionClient<IOAuth2Token>ListOAuth2TokensForApplication(string appId, string expand = null, string after = null, int? limit = null)
+        
+        => GetCollectionClient<IOAuth2Token>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/tokens",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/logo",
-                Verb = HttpVerb.Post,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["expand"] = expand,
+                ["after"] = after,
+                ["limit"] = limit,
+            },
+        });
+            
         
         /// <inheritdoc />
-        public async Task RevokeOAuth2TokensForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public ICollectionClient<IOAuth2ScopeConsentGrant>ListScopeConsentGrants(string appId, string expand = null)
+        
+        => GetCollectionClient<IOAuth2ScopeConsentGrant>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/grants",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/tokens",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["expand"] = expand,
+            },
+        });
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IOAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = null, string after = null, int? limit = 20)
-            => GetCollectionClient<IOAuth2Token>(new HttpRequest
+        public async Task<IJsonWebKey> PublishCsrFromApplicationAsync(string appId, string csrId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<JsonWebKey>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish",
+            Verb = HttpVerb.POST,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/tokens",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                    ["after"] = after,
-                    ["limit"] = limit,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+                ["appId"] = appId,
+                ["csrId"] = csrId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/tokens/{tokenId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["tokenId"] = tokenId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IOAuth2Token> GetOAuth2TokenForApplicationAsync(string appId, string tokenId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<OAuth2Token>(new HttpRequest
+        public async Task RevokeCsrFromApplicationAsync(string appId, string csrId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/credentials/csrs/{csrId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/tokens/{tokenId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["tokenId"] = tokenId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["csrId"] = csrId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IAppUser> ListApplicationUsers(string appId, string q = null, string query_scope = null, string after = null, int? limit = -1, string filter = null, string expand = null)
-            => GetCollectionClient<IAppUser>(new HttpRequest
+        public async Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/tokens/{tokenId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/users",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["q"] = q,
-                    ["query_scope"] = query_scope,
-                    ["after"] = after,
-                    ["limit"] = limit,
-                    ["filter"] = filter,
-                    ["expand"] = expand,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IAppUser> AssignUserToApplicationAsync(IAppUser appUser, string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<AppUser>(new HttpRequest
+                ["appId"] = appId,
+                ["tokenId"] = tokenId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/users",
-                Verb = HttpVerb.Post,
-                Payload = appUser,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = false, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task RevokeOAuth2TokensForApplicationAsync(string appId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/tokens",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/users/{userId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["sendEmail"] = sendEmail,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IAppUser> GetApplicationUserAsync(string appId, string userId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<AppUser>(new HttpRequest
+        public async Task RevokeScopeConsentGrantAsync(string appId, string grantId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/grants/{grantId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/apps/{appId}/users/{userId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["expand"] = expand,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["appId"] = appId,
+                ["grantId"] = grantId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IAppUser> UpdateApplicationUserAsync(IAppUser appUser, string appId, string userId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<AppUser>(new HttpRequest
-            {
-                Uri = "/api/v1/apps/{appId}/users/{userId}",
-                Verb = HttpVerb.Post,
-                Payload = appUser,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["appId"] = appId,
-                    ["userId"] = userId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<IApplication> UpdateApplicationAsync(IApplication body, string appId,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await PutAsync<Application>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}",
+            Verb = HttpVerb.PUT,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["appId"] = appId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        
+        /// <inheritdoc />
+        public async Task<IAppUser> UpdateApplicationUserAsync(IAppUser body, string appId, string userId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<AppUser>(new HttpRequest
+        {
+            Uri = "/api/v1/apps/{appId}/users/{userId}",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["appId"] = appId,
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

@@ -88,10 +88,10 @@ namespace Okta.Sdk.UnitTests
         }
 
         [Theory]
-        [InlineData(HttpVerb.Get)]
-        [InlineData(HttpVerb.Post)]
-        [InlineData(HttpVerb.Put)]
-        [InlineData(HttpVerb.Delete)]
+        [InlineData(HttpVerb.GET)]
+        [InlineData(HttpVerb.POST)]
+        [InlineData(HttpVerb.PUT)]
+        [InlineData(HttpVerb.DELETE)]
         public async Task ExecuteMethodBasedOnVerb(HttpVerb verb)
         {
             var httpClientRequest = new HttpClient();

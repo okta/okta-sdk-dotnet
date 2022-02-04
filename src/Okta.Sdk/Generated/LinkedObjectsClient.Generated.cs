@@ -29,48 +29,81 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<ILinkedObject> ListLinkedObjectDefinitions()
-            => GetCollectionClient<ILinkedObject>(new HttpRequest
+        public async Task<ILinkedObject> AddLinkedObjectDefinitionAsync(ILinkedObject body,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<LinkedObject>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/user/linkedObjects",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/schemas/user/linkedObjects",
-                Verb = HttpVerb.Get,
-                
-            });
-                    
-        /// <inheritdoc />
-        public async Task<ILinkedObject> AddLinkedObjectDefinitionAsync(ILinkedObject linkedObject, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<LinkedObject>(new HttpRequest
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/schemas/user/linkedObjects",
-                Verb = HttpVerb.Post,
-                Payload = linkedObject,
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
+        public async Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["linkedObjectName"] = linkedObjectName,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["linkedObjectName"] = linkedObjectName,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<LinkedObject>(new HttpRequest
-            {
-                Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["linkedObjectName"] = linkedObjectName,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public async Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName,CancellationToken cancellationToken = default(CancellationToken))
         
+        => await GetAsync<LinkedObject>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/user/linkedObjects/{linkedObjectName}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["linkedObjectName"] = linkedObjectName,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
+        
+        /// <inheritdoc />
+        public ICollectionClient<ILinkedObject>ListLinkedObjectDefinitions()
+        
+        => GetCollectionClient<ILinkedObject>(new HttpRequest
+        {
+            Uri = "/api/v1/meta/schemas/user/linkedObjects",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
     }
 }

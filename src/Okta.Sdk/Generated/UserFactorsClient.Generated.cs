@@ -29,139 +29,195 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IUserFactor> ListFactors(string userId)
-            => GetCollectionClient<IUserFactor>(new HttpRequest
+        public async Task<IUserFactor> ActivateFactorAsync(string userId, string factorId, IActivateFactorRequest body = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<UserFactor>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<UserFactor>(new HttpRequest
+                ["userId"] = userId,
+                ["factorId"] = factorId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors",
-                Verb = HttpVerb.Post,
-                Payload = body,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["updatePhone"] = updatePhone,
-                    ["templateId"] = templateId,
-                    ["tokenLifetimeSeconds"] = tokenLifetimeSeconds,
-                    ["activate"] = activate,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public ICollectionClient<IUserFactor> ListSupportedFactors(string userId)
-            => GetCollectionClient<IUserFactor>(new HttpRequest
+        public async Task DeleteFactorAsync(string userId, string factorId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await DeleteAsync(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/{factorId}",
+            Verb = HttpVerb.DELETE,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors/catalog",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId)
-            => GetCollectionClient<ISecurityQuestion>(new HttpRequest
+                ["userId"] = userId,
+                ["factorId"] = factorId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors/questions",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                },
-            });
-                    
-        /// <inheritdoc />
-        public async Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await DeleteAsync(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/factors/{factorId}",
-                Verb = HttpVerb.Delete,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["factorId"] = factorId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<UserFactor>(new HttpRequest
+        public async Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = null, string templateId = null, int? tokenLifetimeSeconds = null, bool? activate = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<UserFactor>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors/{factorId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["factorId"] = factorId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["updatePhone"] = updatePhone,
+                ["templateId"] = templateId,
+                ["tokenLifetimeSeconds"] = tokenLifetimeSeconds,
+                ["activate"] = activate,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<UserFactor>(new HttpRequest
+        public async Task<IUserFactor> GetFactorAsync(string userId, string factorId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<UserFactor>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/{factorId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors/{factorId}/lifecycle/activate",
-                Verb = HttpVerb.Post,
-                Payload = body,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["factorId"] = factorId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["userId"] = userId,
+                ["factorId"] = factorId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IVerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, CancellationToken cancellationToken = default(CancellationToken))
-            => await GetAsync<VerifyUserFactorResponse>(new HttpRequest
+        public async Task<IVerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await GetAsync<VerifyUserFactorResponse>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId}",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
             {
-                Uri = "/api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId}",
-                Verb = HttpVerb.Get,
-                
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["factorId"] = factorId,
-                    ["transactionId"] = transactionId,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+                ["userId"] = userId,
+                ["factorId"] = factorId,
+                ["transactionId"] = transactionId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
         
         /// <inheritdoc />
-        public async Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest body, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<VerifyUserFactorResponse>(new HttpRequest
-            {
-                Uri = "/api/v1/users/{userId}/factors/{factorId}/verify",
-                Verb = HttpVerb.Post,
-                Payload = body,
-                PathParameters = new Dictionary<string, object>()
-                {
-                    ["userId"] = userId,
-                    ["factorId"] = factorId,
-                },
-                QueryParameters = new Dictionary<string, object>()
-                {
-                    ["templateId"] = templateId,
-                    ["tokenLifetimeSeconds"] = tokenLifetimeSeconds,
-                },
-                }, cancellationToken).ConfigureAwait(false);
+        public ICollectionClient<IUserFactor>ListFactors(string userId)
         
+        => GetCollectionClient<IUserFactor>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public ICollectionClient<IUserFactor>ListSupportedFactors(string userId)
+        
+        => GetCollectionClient<IUserFactor>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/catalog",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public ICollectionClient<ISecurityQuestion>ListSupportedSecurityQuestions(string userId)
+        
+        => GetCollectionClient<ISecurityQuestion>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/questions",
+            Verb = HttpVerb.GET,
+            
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["userId"] = userId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+            },
+        });
+            
+        
+        /// <inheritdoc />
+        public async Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, IVerifyFactorRequest body = null, string xForwardedFor = null, string userAgent = null, string acceptLanguage = null, string templateId = null, int? tokenLifetimeSeconds = null,CancellationToken cancellationToken = default(CancellationToken))
+        
+        => await PostAsync<VerifyUserFactorResponse>(new HttpRequest
+        {
+            Uri = "/api/v1/users/{userId}/factors/{factorId}/verify",
+            Verb = HttpVerb.POST,
+            Payload = body,
+            
+            PathParameters = new Dictionary<string, object>()
+            {
+                ["userId"] = userId,
+                ["factorId"] = factorId,
+            },
+            
+            QueryParameters = new Dictionary<string, object>()
+            {
+                ["templateId"] = templateId,
+                ["tokenLifetimeSeconds"] = tokenLifetimeSeconds,
+            },
+        }, cancellationToken).ConfigureAwait(false);
+            
     }
 }

@@ -30,20 +30,20 @@ namespace Okta.Sdk
             set => this["status"] = value;
         }
         
-        /// <inheritdoc />
-        public Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.GetDefaultProvisioningConnectionForApplicationAsync(appId, cancellationToken);
+        ///// <inheritdoc />
+        //public Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.GetDefaultProvisioningConnectionForApplicationAsync(appId, cancellationToken);
         
-        /// <inheritdoc />
-        public Task ActivateDefaultProvisioningConnectionForApplicationAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.ActivateDefaultProvisioningConnectionForApplicationAsync(appId, cancellationToken);
+        ///// <inheritdoc />
+        //public Task ActivateDefaultProvisioningConnectionForApplicationAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.ActivateDefaultProvisioningConnectionForApplicationAsync(appId, cancellationToken);
         
-        /// <inheritdoc />
-        public Task DeactivateDefaultProvisioningConnectionForApplicationAsync(
-            string appId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Applications.DeactivateDefaultProvisioningConnectionForApplicationAsync(appId, cancellationToken);
+        ///// <inheritdoc />
+        //public Task DeactivateDefaultProvisioningConnectionForApplicationAsync(
+        //    string appId, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Applications.DeactivateDefaultProvisioningConnectionForApplicationAsync(appId, cancellationToken);
         
     }
 }

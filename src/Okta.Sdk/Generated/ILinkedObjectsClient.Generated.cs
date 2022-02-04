@@ -12,38 +12,40 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta LinkedObject resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface ILinkedObjectsClient
     {
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
-        /// <returns>A collection of <see cref="ILinkedObject"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<ILinkedObject> ListLinkedObjectDefinitions();
-
-        /// <summary>
-        /// Success
-        /// </summary>
-        /// <param name="linkedObject">The <see cref="ILinkedObject"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of ILinkedObject</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ILinkedObject"/> response.</returns>
-        Task<ILinkedObject> AddLinkedObjectDefinitionAsync(ILinkedObject linkedObject, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<ILinkedObject> AddLinkedObjectDefinitionAsync(ILinkedObject body, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
+        ///  <returns>Task of void</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Success
+        ///  Success
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
+        ///  <returns>Task of ILinkedObject</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ILinkedObject"/> response.</returns>
         Task<ILinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, CancellationToken cancellationToken = default(CancellationToken));
-
+        /// <summary>
+        ///  Success
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// A collection of <see cref="ILinkedObjectsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<ILinkedObject> ListLinkedObjectDefinitions();
     }
 }
+

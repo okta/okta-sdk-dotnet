@@ -33,7 +33,7 @@ namespace Okta.Sdk
             => await GetAsync<OrgSetting>(new HttpRequest
             {
                 Uri = "/api/v1/org",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -42,7 +42,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgSetting>(new HttpRequest
             {
                 Uri = "/api/v1/org",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 Payload = orgSetting,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -51,7 +51,7 @@ namespace Okta.Sdk
             => await PutAsync<OrgSetting>(new HttpRequest
             {
                 Uri = "/api/v1/org",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.PUT,
                 Payload = orgSetting,
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -60,7 +60,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IOrgContactTypeObj>(new HttpRequest
             {
                 Uri = "/api/v1/org/contacts",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
             });
                     
@@ -69,7 +69,7 @@ namespace Okta.Sdk
             => await GetAsync<OrgContactUser>(new HttpRequest
             {
                 Uri = "/api/v1/org/contacts/{contactType}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -82,7 +82,7 @@ namespace Okta.Sdk
             => await PutAsync<OrgContactUser>(new HttpRequest
             {
                 Uri = "/api/v1/org/contacts/{contactType}",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.PUT,
                 Payload = userId,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -95,7 +95,7 @@ namespace Okta.Sdk
             => await GetAsync<OrgPreferences>(new HttpRequest
             {
                 Uri = "/api/v1/org/preferences",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -104,7 +104,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgPreferences>(new HttpRequest
             {
                 Uri = "/api/v1/org/preferences/hideEndUserFooter",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -113,7 +113,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgPreferences>(new HttpRequest
             {
                 Uri = "/api/v1/org/preferences/showEndUserFooter",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -122,7 +122,7 @@ namespace Okta.Sdk
             => await GetAsync<OrgOktaCommunicationSetting>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaCommunication",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -131,7 +131,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgOktaCommunicationSetting>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaCommunication/optIn",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -140,7 +140,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgOktaCommunicationSetting>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaCommunication/optOut",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -149,7 +149,7 @@ namespace Okta.Sdk
             => await GetAsync<OrgOktaSupportSettingsObj>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaSupport",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -158,7 +158,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgOktaSupportSettingsObj>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaSupport/extend",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -167,7 +167,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgOktaSupportSettingsObj>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaSupport/grant",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -176,7 +176,7 @@ namespace Okta.Sdk
             => await PostAsync<OrgOktaSupportSettingsObj>(new HttpRequest
             {
                 Uri = "/api/v1/org/privacy/oktaSupport/revoke",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 }, cancellationToken).ConfigureAwait(false);
         

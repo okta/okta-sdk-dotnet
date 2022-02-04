@@ -181,13 +181,13 @@ namespace Okta.Sdk.Internal
         {
             switch (request.Verb)
             {
-                case HttpVerb.Get:
+                case HttpVerb.GET:
                     return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
-                case HttpVerb.Post:
+                case HttpVerb.POST:
                     return await PostAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
-                case HttpVerb.Put:
+                case HttpVerb.PUT:
                     return await PutAsync(request.Uri, request.Headers, request.GetBody(), cancellationToken).ConfigureAwait(false);
-                case HttpVerb.Delete:
+                case HttpVerb.DELETE:
                     return await DeleteAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);
                 default:
                     return await GetAsync(request.Uri, request.Headers, cancellationToken).ConfigureAwait(false);

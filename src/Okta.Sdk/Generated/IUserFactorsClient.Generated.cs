@@ -12,92 +12,99 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta UserFactor resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IUserFactorsClient
     {
         /// <summary>
-        /// Enumerates all the enrolled factors for the specified user
+        /// Activate Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
-        /// <param name="userId"></param>
-        /// <returns>A collection of <see cref="IUserFactor"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IUserFactor> ListFactors(string userId);
-
-        /// <summary>
-        /// Enrolls a user with a supported factor.
-        /// </summary>
-        /// <param name="body">The <see cref="IUserFactor"/> resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="updatePhone"></param>
-        /// <param name="templateId">id of SMS template (only for SMS factor)</param>
-        /// <param name="tokenLifetimeSeconds"></param>
-        /// <param name="activate"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserFactor"/> response.</returns>
-        Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Enumerates all the supported factors that can be enrolled for the specified user
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns>A collection of <see cref="IUserFactor"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<IUserFactor> ListSupportedFactors(string userId);
-
-        /// <summary>
-        /// Enumerates all available security questions for a user's `question` factor
-        /// </summary>
-        /// <param name="userId"></param>
-        /// <returns>A collection of <see cref="ISecurityQuestion"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId);
-
-        /// <summary>
-        /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
+        /// <param name="body"> (optional)</param>
+        ///  <returns>Task of IUserFactor</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task<IUserFactor> ActivateFactorAsync(string userId, string factorId, IActivateFactorRequest body = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// <param name="factorId"></param>
+        ///  <returns>Task of void</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
         Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Fetches a factor for the specified user
+        /// Enroll Factor Enrolls a user with a supported factor.
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body">Factor</param>
+        /// <param name="userId"></param>
+        /// <param name="updatePhone"> (optional, default to false)</param>
+        /// <param name="templateId">id of SMS template (only for SMS factor) (optional)</param>
+        /// <param name="tokenLifetimeSeconds"> (optional, default to 300)</param>
+        /// <param name="activate"> (optional, default to false)</param>
+        ///  <returns>Task of IUserFactor</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = null, string templateId = null, int? tokenLifetimeSeconds = null, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Fetches a factor for the specified user
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
+        ///  <returns>Task of IUserFactor</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserFactor"/> response.</returns>
         Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
+        ///  Polls factors verification transaction for status.
         /// </summary>
-        /// <param name="body">The <see cref="IActivateFactorRequest"/> resource.</param>
-        /// <param name="userId"></param>
-        /// <param name="factorId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserFactor"/> response.</returns>
-        Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Polls factors verification transaction for status.
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
         /// <param name="transactionId"></param>
+        ///  <returns>Task of IVerifyUserFactorResponse</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IVerifyUserFactorResponse"/> response.</returns>
         Task<IVerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Verifies an OTP for a `token` or `token:hardware` factor
+        ///  Enumerates all the enrolled factors for the specified user
         /// </summary>
-        /// <param name="body">The <see cref="IVerifyFactorRequest"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// A collection of <see cref="IUserFactorsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<IUserFactor> ListFactors(string userId);
+        /// <summary>
+        ///  Enumerates all the supported factors that can be enrolled for the specified user
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// A collection of <see cref="IUserFactorsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<IUserFactor> ListSupportedFactors(string userId);
+        /// <summary>
+        ///  Enumerates all available security questions for a user&#x27;s &#x60;question&#x60; factor
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="userId"></param>
+        /// A collection of <see cref="IUserFactorsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId);
+        /// <summary>
+        /// Verify MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <param name="factorId"></param>
-        /// <param name="templateId"></param>
-        /// <param name="tokenLifetimeSeconds"></param>
+        /// <param name="body"> (optional)</param>
+        /// <param name="xForwardedFor"> (optional)</param>
+        /// <param name="userAgent"> (optional)</param>
+        /// <param name="acceptLanguage"> (optional)</param>
+        /// <param name="templateId"> (optional)</param>
+        /// <param name="tokenLifetimeSeconds"> (optional, default to 300)</param>
+        ///  <returns>Task of IVerifyUserFactorResponse</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IVerifyUserFactorResponse"/> response.</returns>
-        Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest body, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, IVerifyFactorRequest body = null, string xForwardedFor = null, string userAgent = null, string acceptLanguage = null, string templateId = null, int? tokenLifetimeSeconds = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

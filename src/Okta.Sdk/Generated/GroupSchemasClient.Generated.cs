@@ -33,7 +33,7 @@ namespace Okta.Sdk
             => await GetAsync<GroupSchema>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/group/default",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -42,7 +42,7 @@ namespace Okta.Sdk
             => await PostAsync<GroupSchema>(new HttpRequest
             {
                 Uri = "/api/v1/meta/schemas/group/default",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 Payload = body,
                 }, cancellationToken).ConfigureAwait(false);
         

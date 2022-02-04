@@ -64,25 +64,25 @@ namespace Okta.Sdk
             set => this["type"] = value;
         }
         
-        /// <inheritdoc />
-        public Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, 
-            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ForgotPasswordSetNewPasswordAsync(user, Id, sendEmail, cancellationToken);
+        ///// <inheritdoc />
+        //public Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, 
+        //    bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Users.ForgotPasswordSetNewPasswordAsync(user, Id, sendEmail, cancellationToken);
         
-        /// <inheritdoc />
-        public Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
-            bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.ForgotPasswordGenerateOneTimeTokenAsync(Id, sendEmail, cancellationToken);
+        ///// <inheritdoc />
+        //public Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(
+        //    bool? sendEmail = true, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Users.ForgotPasswordGenerateOneTimeTokenAsync(Id, sendEmail, cancellationToken);
         
         /// <inheritdoc />
         public Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, 
             bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.AssignRoleToUserAsync(assignRoleRequest, Id, disableNotifications, cancellationToken);
+            => GetClient().Users.AssignRoleToUserAsync(assignRoleRequest, Id, disableNotifications.ToString(), cancellationToken);
         
         /// <inheritdoc />
-        public Task<IRole> GetRoleAsync(
-            string roleId, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.GetUserRoleAsync(Id, roleId, cancellationToken);
+        //public Task<IRole> GetRoleAsync(
+        //    string roleId, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Users.GetUserRoleAsync(Id, roleId, cancellationToken);
         
         /// <inheritdoc />
         public Task RemoveRoleAsync(
@@ -263,6 +263,20 @@ namespace Okta.Sdk
         public Task RemoveLinkedObjectAsync(
             string relationshipName, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Users.RemoveLinkedObjectForUserAsync(Id, relationshipName, cancellationToken);
-        
+
+        public Task<IForgotPasswordResponse> ForgotPasswordSetNewPasswordAsync(IUserCredentials user, bool? sendEmail = true, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IForgotPasswordResponse> ForgotPasswordGenerateOneTimeTokenAsync(bool? sendEmail = true, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<IRole> GetRoleAsync(string roleId, CancellationToken cancellationToken = default)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

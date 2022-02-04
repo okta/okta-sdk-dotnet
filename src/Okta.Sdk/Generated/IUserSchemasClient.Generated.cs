@@ -12,42 +12,43 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta UserSchema resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface IUserSchemasClient
     {
         /// <summary>
-        /// Fetches the Schema for an App User
+        /// Fetches the Schema for an App User Fetches the Schema for an App User
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
+        ///  <returns>Task of IUserSchema</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserSchema"/> response.</returns>
         Task<IUserSchema> GetApplicationUserSchemaAsync(string appInstanceId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema.
+        /// Fetches the schema for a Schema Id. Fetches the schema for a Schema Id.
         /// </summary>
-        /// <param name="body">The <see cref="IUserSchema"/> resource.</param>
-        /// <param name="appInstanceId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserSchema"/> response.</returns>
-        Task<IUserSchema> UpdateApplicationUserProfileAsync(IUserSchema body, string appInstanceId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Fetches the schema for a Schema Id.
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
+        ///  <returns>Task of IUserSchema</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserSchema"/> response.</returns>
         Task<IUserSchema> GetUserSchemaAsync(string schemaId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Partial updates on the User Profile properties of the user schema.
+        /// Partial updates on the User Profile properties of the Application User Schema. Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
-        /// <param name="userSchema">The <see cref="IUserSchema"/> resource.</param>
-        /// <param name="schemaId"></param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="appInstanceId"></param>
+        /// <param name="body"> (optional)</param>
+        ///  <returns>Task of IUserSchema</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IUserSchema"/> response.</returns>
-        Task<IUserSchema> UpdateUserProfileAsync(IUserSchema userSchema, string schemaId, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<IUserSchema> UpdateApplicationUserProfileAsync(string appInstanceId, IUserSchema body = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        ///  Partial updates on the User Profile properties of the user schema.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="schemaId"></param>
+        ///  <returns>Task of IUserSchema</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<IUserSchema> UpdateUserProfileAsync(IUserSchema body, string schemaId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

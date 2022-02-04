@@ -12,57 +12,59 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta Template resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface ITemplatesClient
     {
         /// <summary>
-        /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
+        /// Add SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
-        /// <param name="templateType"></param>
-        /// <returns>A collection of <see cref="ISmsTemplate"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<ISmsTemplate> ListSmsTemplates(SmsTemplateType templateType = null);
-
-        /// <summary>
-        /// Adds a new custom SMS template to your organization.
-        /// </summary>
-        /// <param name="smsTemplate">The <see cref="ISmsTemplate"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of ISmsTemplate</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
-        Task<ISmsTemplate> CreateSmsTemplateAsync(ISmsTemplate smsTemplate, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<ISmsTemplate> CreateSmsTemplateAsync(ISmsTemplate body, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Removes an SMS template.
+        /// Remove SMS Template Removes an SMS template.
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
+        ///  <returns>Task of void</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeleteSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Fetches a specific template by `id`
+        /// Get SMS Template Fetches a specific template by &#x60;id&#x60;
         /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
+        ///  <returns>Task of ISmsTemplate</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
         Task<ISmsTemplate> GetSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Updates only some of the SMS template properties:
+        /// List SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
         /// </summary>
-        /// <param name="smsTemplate">The <see cref="ISmsTemplate"/> resource.</param>
-        /// <param name="templateId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
-        Task<ISmsTemplate> PartialUpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken));
-
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="templateType"> (optional)</param>
+        /// A collection of <see cref="ITemplatesClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<ISmsTemplate> ListSmsTemplates(string templateType = null);
         /// <summary>
-        /// Updates the SMS template.
+        /// Partial SMS Template Update Updates only some of the SMS template properties:
         /// </summary>
-        /// <param name="smsTemplate">The <see cref="ISmsTemplate"/> resource.</param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
         /// <param name="templateId"></param>
+        ///  <returns>Task of ISmsTemplate</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="ISmsTemplate"/> response.</returns>
-        Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken));
-
+        Task<ISmsTemplate> PartialUpdateSmsTemplateAsync(ISmsTemplate body, string templateId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Update SMS Template Updates the SMS template.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="templateId"></param>
+        ///  <returns>Task of ISmsTemplate</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate body, string templateId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

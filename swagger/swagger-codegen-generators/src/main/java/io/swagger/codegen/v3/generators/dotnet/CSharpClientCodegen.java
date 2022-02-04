@@ -533,8 +533,10 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
                             int genericStart = operation.returnType.indexOf("<");
                             if (genericStart > 0) {
                                 operation.returnType = "<I" +  operation.returnType.substring(genericStart + 1);
+                                operation.getVendorExtensions().put("internalReturnType", StringUtils.substringBetween(operation.returnType, "<", ">"));
                             }
                             else {
+                                operation.getVendorExtensions().put("internalReturnType", operation.returnType);
                                 operation.returnType = "I" + operation.returnType;
                             }
                         }
@@ -642,7 +644,7 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
         else {
             LOGGER.warn("PARAMETER TYPE IS primitive");
         }
-        
+
         super.postProcessParameter(parameter);
     }
 

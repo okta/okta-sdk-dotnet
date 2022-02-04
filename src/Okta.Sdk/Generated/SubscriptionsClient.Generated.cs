@@ -33,7 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<ISubscription>(new HttpRequest
             {
                 Uri = "/api/v1/roles/{roleTypeOrRoleId}/subscriptions",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -46,7 +46,7 @@ namespace Okta.Sdk
             => await GetAsync<Subscription>(new HttpRequest
             {
                 Uri = "/api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -60,7 +60,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/subscribe",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -74,7 +74,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/unsubscribe",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -88,7 +88,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/subscriptions/{notificationType}/subscribe",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -102,7 +102,7 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/users/{userId}/subscriptions/{notificationType}/unsubscribe",
-                Verb = HttpVerb.Post,
+                Verb = HttpVerb.POST,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

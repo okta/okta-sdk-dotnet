@@ -172,7 +172,7 @@ namespace Okta.Sdk.UnitTests
                 },
             };
 
-            var updatedUserSchema = await client.UserSchemas.UpdateApplicationUserProfileAsync(userSchema, "foo");
+            var updatedUserSchema = await client.UserSchemas.UpdateApplicationUserProfileAsync("foo", userSchema);
 
             var retrievedCustomAttribute = updatedUserSchema.Definitions.Custom.Properties.GetProperty<UserSchemaAttribute>("twitterUserName");
             retrievedCustomAttribute.Title.Should().Be("Twitter username");

@@ -33,7 +33,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IBrand>(new HttpRequest
             {
                 Uri = "/api/v1/brands",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
             });
                     
@@ -42,7 +42,7 @@ namespace Okta.Sdk
             => await GetAsync<Brand>(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -55,7 +55,7 @@ namespace Okta.Sdk
             => await PutAsync<Brand>(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.PUT,
                 Payload = brand,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -68,7 +68,7 @@ namespace Okta.Sdk
             => GetCollectionClient<IThemeResponse>(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -81,7 +81,7 @@ namespace Okta.Sdk
             => await GetAsync<ThemeResponse>(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}",
-                Verb = HttpVerb.Get,
+                Verb = HttpVerb.GET,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -95,7 +95,7 @@ namespace Okta.Sdk
             => await PutAsync<ThemeResponse>(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}",
-                Verb = HttpVerb.Put,
+                Verb = HttpVerb.PUT,
                 Payload = theme,
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -109,7 +109,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/background-image",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.DELETE,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -123,7 +123,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/favicon",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.DELETE,
                 
                 PathParameters = new Dictionary<string, object>()
                 {
@@ -137,7 +137,7 @@ namespace Okta.Sdk
             => await DeleteAsync(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/themes/{themeId}/logo",
-                Verb = HttpVerb.Delete,
+                Verb = HttpVerb.DELETE,
                 
                 PathParameters = new Dictionary<string, object>()
                 {

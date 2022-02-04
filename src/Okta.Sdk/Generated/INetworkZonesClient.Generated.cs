@@ -12,66 +12,68 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta NetworkZone resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface INetworkZonesClient
     {
         /// <summary>
-        /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+        /// Activate Network Zone Activate Network Zone
         /// </summary>
-        /// <param name="after">Specifies the pagination cursor for the next page of network zones</param>
-        /// <param name="limit">Specifies the number of results for a page</param>
-        /// <param name="filter">Filters zones by usage or id expression</param>
-        /// <returns>A collection of <see cref="INetworkZone"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<INetworkZone> ListNetworkZones(string after = null, int? limit = -1, string filter = null);
-
-        /// <summary>
-        /// Adds a new network zone to your Okta organization.
-        /// </summary>
-        /// <param name="zone">The <see cref="INetworkZone"/> resource.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="INetworkZone"/> response.</returns>
-        Task<INetworkZone> CreateNetworkZoneAsync(INetworkZone zone, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Removes network zone.
-        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
+        ///  <returns>Task of INetworkZone</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>A Task that represents the asynchronous operation.</returns>
-        Task DeleteNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Fetches a network zone from your Okta organization by `id`.
-        /// </summary>
-        /// <param name="zoneId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="INetworkZone"/> response.</returns>
-        Task<INetworkZone> GetNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Updates a network zone in your organization.
-        /// </summary>
-        /// <param name="zone">The <see cref="INetworkZone"/> resource.</param>
-        /// <param name="zoneId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="INetworkZone"/> response.</returns>
-        Task<INetworkZone> UpdateNetworkZoneAsync(INetworkZone zone, string zoneId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Activate Network Zone
-        /// </summary>
-        /// <param name="zoneId"></param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="INetworkZone"/> response.</returns>
         Task<INetworkZone> ActivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
-
         /// <summary>
-        /// Deactivates a network zone.
+        /// Add Network Zone Adds a new network zone to your Okta organization.
         /// </summary>
-        /// <param name="zoneId"></param>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        ///  <returns>Task of INetworkZone</returns>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="INetworkZone"/> response.</returns>
+        Task<INetworkZone> CreateNetworkZoneAsync(INetworkZone body, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Deactivate Network Zone Deactivates a network zone.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="zoneId"></param>
+        ///  <returns>Task of INetworkZone</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
         Task<INetworkZone> DeactivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
-
+        /// <summary>
+        /// Delete Network Zone Removes network zone.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="zoneId"></param>
+        ///  <returns>Task of void</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task DeleteNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// Get Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="zoneId"></param>
+        ///  <returns>Task of INetworkZone</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<INetworkZone> GetNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken));
+        /// <summary>
+        /// List Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
+        /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
+        /// <param name="filter">Filters zones by usage or id expression (optional)</param>
+        /// A collection of <see cref="INetworkZonesClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<INetworkZone> ListNetworkZones(string after = null, int? limit = null, string filter = null);
+        /// <summary>
+        /// Update Network Zone Updates a network zone in your organization.
+        /// </summary>
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="body"></param>
+        /// <param name="zoneId"></param>
+        ///  <returns>Task of INetworkZone</returns>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        Task<INetworkZone> UpdateNetworkZoneAsync(INetworkZone body, string zoneId, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
+

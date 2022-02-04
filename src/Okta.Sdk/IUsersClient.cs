@@ -123,16 +123,5 @@ namespace Okta.Sdk
         /// <returns>The <see cref="IUser"/> response.</returns>
         /// <remarks>Explicit overload to support backward compatibility.</remarks>
         Task<IUser> UpdateUserAsync(IUser user, string userId, CancellationToken cancellationToken = default(CancellationToken));
-
-        /// <summary>
-        /// Assigns a role to a user.
-        /// </summary>
-        /// <param name="assignRoleRequest">The <see cref="IAssignRoleRequest"/> resource.</param>
-        /// <param name="userId">the user Id.</param>
-        /// <param name="disableNotifications">The flag to disable notifications.</param>
-        /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IRole"/> response.</returns>
-        [Obsolete("This method is deprecated and will be removed in the next major release. Use <c>AssignRoleToUserAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.")]
-        Task<IRole> AssignRoleToUserAsync(IAssignRoleRequest assignRoleRequest, string userId, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -676,42 +676,42 @@ namespace Okta.Sdk.UnitTests
             mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/subscriptions/IWA_AGENT/unsubscribe");
         }
 
-        [Fact]
-        public async Task ListUserSubscriptions()
-        {
-            var rawResponse = @"[
-                                    {
-                                        ""notificationType"": ""CONNECTOR_AGENT"",
-                                        ""channels"": [
-                                            ""email""
-                                        ],
-                                        ""status"": ""subscribed"",
-                                        ""_links"": {
-                                            ""unsubscribe"": {
-                                                ""href"": ""https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT/unsubscribe"",
-                                                ""hints"": {
-                                                    ""allow"": [
-                                                        ""POST""
-                                                    ]
-                                                }
-                                            },
-                                            ""self"": {
-                                                ""href"": ""https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT""
-                                            }
-                                        }
-                                    }
-                                ]";
+        //[Fact]
+        //public async Task ListUserSubscriptions()
+        //{
+        //    var rawResponse = @"[
+        //                            {
+        //                                ""notificationType"": ""CONNECTOR_AGENT"",
+        //                                ""channels"": [
+        //                                    ""email""
+        //                                ],
+        //                                ""status"": ""subscribed"",
+        //                                ""_links"": {
+        //                                    ""unsubscribe"": {
+        //                                        ""href"": ""https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT/unsubscribe"",
+        //                                        ""hints"": {
+        //                                            ""allow"": [
+        //                                                ""POST""
+        //                                            ]
+        //                                        }
+        //                                    },
+        //                                    ""self"": {
+        //                                        ""href"": ""https://${yourOktaDomain}/api/v1/users/00uuk0UVgUXjkIbPL0g3/subscriptions/CONNECTOR_AGENT""
+        //                                    }
+        //                                }
+        //                            }
+        //                        ]";
 
-            var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
-            var client = new TestableOktaClient(mockRequestExecutor);
-            var subscriptions = await client.Users.ListUserSubscriptions("foo").ToListAsync();
+        //    var mockRequestExecutor = new MockedStringRequestExecutor(rawResponse);
+        //    var client = new TestableOktaClient(mockRequestExecutor);
+        //    var subscriptions = await client.Users.ListUserSubscriptions("foo").ToListAsync();
 
-            mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/subscriptions");
-            subscriptions.Should().NotBeNullOrEmpty();
-            var subscription = subscriptions.FirstOrDefault();
-            subscription.NotificationType.Should().Be(NotificationType.ConnectorAgent);
-            subscription.Status.Should().Be(SubscriptionStatus.Subscribed);
-            subscription.Channels.Should().Contain("email");
-        }
+        //    mockRequestExecutor.ReceivedHref.Should().Be("/api/v1/users/foo/subscriptions");
+        //    subscriptions.Should().NotBeNullOrEmpty();
+        //    var subscription = subscriptions.FirstOrDefault();
+        //    subscription.NotificationType.Should().Be(NotificationType.ConnectorAgent);
+        //    subscription.Status.Should().Be(SubscriptionStatus.Subscribed);
+        //    subscription.Channels.Should().Contain("email");
+        //}
     }
 }

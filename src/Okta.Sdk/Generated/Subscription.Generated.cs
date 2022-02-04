@@ -47,15 +47,15 @@ namespace Okta.Sdk
             string roleTypeOrRoleId, string notificationType, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Subscriptions.GetRoleSubscriptionByNotificationTypeAsync(roleTypeOrRoleId, notificationType, cancellationToken);
         
-        /// <inheritdoc />
-        public Task<ISubscription> GetUserSubscriptionByNotificationTypeAsync(
-            string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken))
-            => GetClient().Users.GetUserSubscriptionByNotificationTypeAsync(userId, notificationType, cancellationToken);
+        ///// <inheritdoc />
+        //public Task<ISubscription> GetUserSubscriptionByNotificationTypeAsync(
+        //    string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken))
+        //    => GetClient().Users.GetUserSubscriptionByNotificationTypeAsync(userId, notificationType, cancellationToken);
         
-        /// <inheritdoc />
-        public ICollectionClient<ISubscription> ListUserSubscriptions(
-            string userId)
-            => GetClient().Users.ListUserSubscriptions(userId);
+        ///// <inheritdoc />
+        //public ICollectionClient<ISubscription> ListUserSubscriptions(
+        //    string userId)
+        //    => GetClient().Users.ListUserSubscriptions(userId);
         
         /// <inheritdoc />
         public Task SubscribeUserSubscriptionByNotificationTypeAsync(

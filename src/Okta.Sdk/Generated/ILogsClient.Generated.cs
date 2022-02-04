@@ -12,21 +12,23 @@ using System.Threading.Tasks;
 
 namespace Okta.Sdk
 {
-    /// <summary>A client that works with Okta Log resources.</summary>
+    /// <summary>A client that works with Okta resources.</summary>
     public partial interface ILogsClient
     {
         /// <summary>
-        /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+        /// Fetch a list of events from your Okta organization system log. The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>
-        /// <param name="since"></param>
-        /// <param name="until"></param>
-        /// <param name="filter"></param>
-        /// <param name="q"></param>
-        /// <param name="limit"></param>
-        /// <param name="sortOrder"></param>
-        /// <param name="after"></param>
-        /// <returns>A collection of <see cref="ILogEvent"/> that can be enumerated asynchronously.</returns>
-        ICollectionClient<ILogEvent> GetLogs(string since = null, string until = null, string filter = null, string q = null, int? limit = 100, string sortOrder = "ASCENDING", string after = null);
-
+        /// <exception cref="OktaException">Thrown when fails to make API call</exception>
+        /// <param name="since"> (optional)</param>
+        /// <param name="until"> (optional)</param>
+        /// <param name="filter"> (optional)</param>
+        /// <param name="q"> (optional)</param>
+        /// <param name="limit"> (optional, default to 100)</param>
+        /// <param name="sortOrder"> (optional, default to ASCENDING)</param>
+        /// <param name="after"> (optional)</param>
+        /// A collection of <see cref="ILogsClient"/> that can be enumerated asynchronously.
+        
+        ICollectionClient<ILogEvent> GetLogs(DateTime? since = null, DateTime? until = null, string filter = null, string q = null, int? limit = null, string sortOrder = null, string after = null);
     }
 }
+
