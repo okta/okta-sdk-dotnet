@@ -5,7 +5,7 @@ Running changelog of releases since `3.1.1`
 
 ### Bug Fixes
 
-- Fix Api call not retried on token expiration (PrivateKey mode) (#535)
+- Fix the issue "SDK doesn't retry a call to the server when the token has expired" (PrivateKey mode) (#535)
 
 
 ## v5.4.0
