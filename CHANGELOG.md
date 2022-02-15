@@ -1,7 +1,7 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
-## v5.5.0
+## v5.4.1
 
 ### Bug Fixes
 
