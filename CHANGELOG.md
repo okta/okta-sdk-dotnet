@@ -1,6 +1,13 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.4.1
+
+### Bug Fixes
+
+- Fix the issue "SDK doesn't retry a call to the server when the token has expired" (PrivateKey mode) (#535)
+
+
 ## v5.4.0
 
 - Add support for [Application provisioning connection operations](https://developer.okta.com/docs/reference/api/apps/#application-provisioning-connection-operations)

@@ -139,7 +139,9 @@ namespace Okta.Sdk.Internal
                     await ApplyOAuthHeaderAsync(true).ConfigureAwait(false);
 
                     // Sending same request twice cause failures
-                    var clonedRequest = await HttpRequestMessageHelper.CloneHttpRequestMessageAsync(request).ConfigureAwait(false);
+                    var clonedRequest = await HttpRequestMessageHelper
+                        .CloneHttpRequestMessageAsync(request, skipAuthorizationHeader: true)
+                        .ConfigureAwait(false);
 
                     using (response = await _retryStrategy.WaitAndRetryAsync(clonedRequest, cancellationToken, operation).ConfigureAwait(false))
                     {
