@@ -64,6 +64,182 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public ICollectionClient<IEmailTemplate> ListEmailTemplates(string brandId, string after = null, int? limit = 20)
+            => GetCollectionClient<IEmailTemplate>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["after"] = after,
+                    ["limit"] = limit,
+                },
+            });
+                    
+        /// <inheritdoc />
+        public async Task<IEmailTemplate> GetEmailTemplateAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<EmailTemplate>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteEmailTemplateCustomizationsAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IEmailTemplateCustomization> ListEmailTemplateCustomizations(string brandId, string templateName)
+            => GetCollectionClient<IEmailTemplateCustomization>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+            });
+                    
+        /// <inheritdoc />
+        public async Task<IEmailTemplateCustomization> CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<EmailTemplateCustomization>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations",
+                Verb = HttpVerb.Post,
+                Payload = customization,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeleteEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+            => await DeleteAsync(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}",
+                Verb = HttpVerb.Delete,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                    ["customizationId"] = customizationId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IEmailTemplateCustomization> GetEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<EmailTemplateCustomization>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                    ["customizationId"] = customizationId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IEmailTemplateCustomization> UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<EmailTemplateCustomization>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}",
+                Verb = HttpVerb.Put,
+                Payload = customization,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                    ["customizationId"] = customizationId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IEmailTemplateContent> GetEmailTemplateCustomizationPreviewAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<EmailTemplateContent>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                    ["customizationId"] = customizationId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IEmailTemplateContent> GetEmailTemplateDefaultContentAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<EmailTemplateContent>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/default-content",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IEmailTemplateContent> GetEmailTemplateDefaultContentPreviewAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<EmailTemplateContent>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IEmailTemplateContent> SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<EmailTemplateContent>(new HttpRequest
+            {
+                Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/test",
+                Verb = HttpVerb.Post,
+                Payload = customization,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["brandId"] = brandId,
+                    ["templateName"] = templateName,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public ICollectionClient<IThemeResponse> ListBrandThemes(string brandId)
             => GetCollectionClient<IThemeResponse>(new HttpRequest
             {
