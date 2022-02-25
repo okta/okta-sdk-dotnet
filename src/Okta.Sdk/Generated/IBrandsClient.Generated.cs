@@ -143,7 +143,7 @@ namespace Okta.Sdk
         Task<IEmailTemplateContent> GetEmailTemplateDefaultContentPreviewAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
-        /// Send a test email to the current users primary and secondary email addresses. The email content is selected based on the following priority: &mdash;  An email customization specifically for the users locale. &mdash;  The default language of email customizations. &mdash;  The email templates default content.
+        /// Send a test email to the current users primary and secondary email addresses. The email content is selected based on the following priority: An email customization specifically for the users locale. The default language of email customizations. The email templates default content.
         /// </summary>
         /// <param name="customization">The <see cref="IEmailTemplateTestRequest"/> resource.</param>
         /// <param name="brandId"></param>
