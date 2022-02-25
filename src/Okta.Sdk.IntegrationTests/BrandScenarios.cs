@@ -3,13 +3,10 @@
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
 
+using FluentAssertions;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using FluentAssertions;
-using FluentAssertions.Extensions;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
@@ -149,6 +146,236 @@ namespace Okta.Sdk.IntegrationTests
                 themeToUpdate.EmailTemplateTouchPointVariant = originalEmailTemplateTouchPointVariant;
                 await client.Brands.UpdateBrandThemeAsync(themeToUpdate, brand.Id, theme.Id);
             }
+        }
+
+        [Fact]
+        public async Task ListEmailTemplates()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+
+            var emailTemplates = await client.Brands.ListEmailTemplates(brand.Id).ToArrayAsync();
+
+            emailTemplates.Should().NotBeNull();
+            emailTemplates.First().Name.Should().NotBeNullOrEmpty();
+        }
+
+        [Fact]
+        public async Task GetEmailTemplate()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var retrievedEmailTemplate = await client.Brands.GetEmailTemplateAsync(brand.Id, emailTemplate.Name);
+
+            retrievedEmailTemplate.Should().NotBeNull();
+            retrievedEmailTemplate.Name.Should().Be(emailTemplate.Name);
+        }
+
+        [Fact]
+        public async Task ListEmailTemplateCustomizations()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var emailTemplateCustomizations = await client.Brands.ListEmailTemplateCustomizations(brand.Id, emailTemplate.Name).ToArrayAsync();
+
+            emailTemplateCustomizations.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task CreateEmailTemplateCustomaization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(CreateEmailTemplateCustomaization)}";
+            var testSubject = $"Test Subject - {nameof(CreateEmailTemplateCustomaization)}";
+            var testLanguage = "en";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Body.Should().Be(testBody);
+            emailTemplateCustomization.Subject.Should().Be(testSubject);
+            emailTemplateCustomization.Language.Should().Be(testLanguage);
+
+            await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+        }
+
+        [Fact]
+        public async Task DeleteEmailTemplateCustomization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(DeleteEmailTemplateCustomization)}";
+            var testSubject = $"Test Subject - {nameof(DeleteEmailTemplateCustomization)}";
+            var testLanguage = "en";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Id.Should().NotBeNullOrWhiteSpace();
+
+            await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+
+            var retrieved = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            retrieved.Should().BeNull();
+
+            /*  The above validation may or may not work depending on Api behavior; it may throw an exception if the EmailTemplateCustomization is not found.
+             *  waiting on fix for OKTA-465356 to validate.
+
+            var stillExists = await client.Brands.ListEmailTemplateCustomizations(brand.Id, emailTemplate.Name).AnyAsync(emailTemplateCustomization => emailTemplateCustomization.Id == emailTemplateCustomization.Id);
+            stillExists.Should().BeFalse();
+            */
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateCustomization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(GetEmailTemplateCustomization)}";
+            var testSubject = $"Test Subject - {nameof(GetEmailTemplateCustomization)}";
+            var testLanguage = "en";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Id.Should().NotBeNullOrWhiteSpace();
+
+            var retrievedEmailTemplateCustomization = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+
+            retrievedEmailTemplateCustomization.Should().NotBeNull();
+            retrievedEmailTemplateCustomization.Body.Should().Be(testBody);
+            retrievedEmailTemplateCustomization.Subject.Should().Be(testSubject);
+            retrievedEmailTemplateCustomization.Language.Should().Be(testLanguage);
+
+            await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, retrievedEmailTemplateCustomization.Id);
+        }
+
+        [Fact]
+        public async Task UpdateEmailTemplateCustomization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(UpdateEmailTemplateCustomization)}";
+            var testSubject = $"Test Subject - {nameof(UpdateEmailTemplateCustomization)}";
+            var testLanguage = "en";
+
+            var updatedBody = $"Updated Customization - {nameof(UpdateEmailTemplateCustomization)}";
+            var updatedSubject = $"Updated Subject - {nameof(UpdateEmailTemplateCustomization)}";
+            var updatedLanguage = "fr";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Id.Should().NotBeNullOrWhiteSpace();
+
+            var emailTemplateCustomizationUpdateRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = updatedBody,
+                Subject = updatedSubject,
+                Language = updatedLanguage,
+            };
+
+            var updatedEmailTemplateCustomization = await client.Brands.UpdateEmailTemplateCustomizationAsync(emailTemplateCustomizationUpdateRequest, brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            updatedEmailTemplateCustomization.Should().NotBeNull();
+            updatedEmailTemplateCustomization.Body.Should().Be(updatedBody);
+            updatedEmailTemplateCustomization.Subject.Should().Be(updatedSubject);
+            updatedEmailTemplateCustomization.Language.Should().Be(updatedLanguage);
+
+            var retrievedEmailTemplateCustomization = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+
+            retrievedEmailTemplateCustomization.Should().NotBeNull();
+            retrievedEmailTemplateCustomization.Body.Should().Be(updatedBody);
+            retrievedEmailTemplateCustomization.Subject.Should().Be(updatedSubject);
+            retrievedEmailTemplateCustomization.Language.Should().Be(updatedLanguage);
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateCustomizationPreview()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(GetEmailTemplateCustomizationPreview)}";
+            var testSubject = $"Test Subject - {nameof(GetEmailTemplateCustomizationPreview)}";
+            var testLanguage = "en";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            var emailTemplateCustomizationPreview = await client.Brands.GetEmailTemplateCustomizationPreviewAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            emailTemplateCustomizationPreview.Should().NotBeNull();
+            emailTemplateCustomizationPreview.FromAddress.Should().NotBeNullOrEmpty();
+            emailTemplateCustomizationPreview.FromName.Should().NotBeNullOrEmpty();
+            emailTemplateCustomizationPreview.Body.Should().Be(testBody);
+            emailTemplateCustomizationPreview.Subject.Should().Be(testSubject);
+
+            await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateDefaultContent()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var emailTemplateCustomizationContent = await client.Brands.GetEmailTemplateDefaultContentAsync(brand.Id, emailTemplate.Name);
+            emailTemplateCustomizationContent.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateDefaultContentPreview()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var emailTemplateCustomizationPreview = await client.Brands.GetEmailTemplateDefaultContentPreviewAsync(brand.Id, emailTemplate.Name);
+            emailTemplateCustomizationPreview.Should().NotBeNull();
+            emailTemplateCustomizationPreview.FromAddress.Should().NotBeNullOrEmpty();
+            emailTemplateCustomizationPreview.FromName.Should().NotBeNullOrEmpty();
         }
     }
 }
