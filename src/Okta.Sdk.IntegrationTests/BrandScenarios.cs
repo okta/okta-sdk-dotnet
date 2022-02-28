@@ -322,6 +322,8 @@ namespace Okta.Sdk.IntegrationTests
             retrievedEmailTemplateCustomization.Body.Should().Be(updatedBody);
             retrievedEmailTemplateCustomization.Subject.Should().Be(updatedSubject);
             retrievedEmailTemplateCustomization.Language.Should().Be(updatedLanguage);
+
+            await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, updatedEmailTemplateCustomization.Id);
         }
 
         [Fact]
