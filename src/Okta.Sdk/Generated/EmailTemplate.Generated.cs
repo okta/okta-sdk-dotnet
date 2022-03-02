@@ -70,7 +70,7 @@ namespace Okta.Sdk
             => GetClient().Brands.GetEmailTemplateDefaultContentPreviewAsync(brandId, templateName, cancellationToken);
         
         /// <inheritdoc />
-        public Task<IEmailTemplateContent> SendTestEmailAsync(IEmailTemplateTestRequest customization, 
+        public Task SendTestEmailAsync(IEmailTemplateTestRequest customization, 
             string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Brands.SendTestEmailAsync(customization, brandId, templateName, cancellationToken);
         

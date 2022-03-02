@@ -226,8 +226,8 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
-        public async Task<IEmailTemplateContent> SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
-            => await PostAsync<EmailTemplateContent>(new HttpRequest
+        public async Task SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/brands/{brandId}/templates/email/{templateName}/test",
                 Verb = HttpVerb.Post,

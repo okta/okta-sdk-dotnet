@@ -149,8 +149,8 @@ namespace Okta.Sdk
         /// <param name="brandId"></param>
         /// <param name="templateName"></param>
         /// <param name="cancellationToken">The cancellation token.</param>
-        /// <returns>The <see cref="IEmailTemplateContent"/> response.</returns>
-        Task<IEmailTemplateContent> SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// List all the themes in your brand

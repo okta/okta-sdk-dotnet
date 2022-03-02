@@ -75,17 +75,12 @@ namespace Okta.Sdk.UnitTests
                 CustomizationId = testCustomizationId,
             };
 
-            var response = await client.Brands.SendTestEmailAsync(emailTemplateTestRequest, testBrandId, testTemplateName);
+            await client.Brands.SendTestEmailAsync(emailTemplateTestRequest, testBrandId, testTemplateName);
 
             mockRequestExecutor.ReceivedBody.Should().NotBeNullOrEmpty();
             mockRequestExecutor.ReceivedHttpVerbs.Count.Should().Be(1);
             mockRequestExecutor.ReceivedHttpVerbs[0].Should().Be(HttpVerb.Post);
-            mockRequestExecutor.ReceivedHref.Should().Be($"/api/v1/brands/{testBrandId}/templates/email/{testTemplateName}/test");
-            response.Should().NotBeNull();
-            response.Body.Should().Be("test body");
-            response.FromAddress.Should().Be("test fromAddress");
-            response.FromName.Should().Be("test fromName");
-            response.Subject.Should().Be("test subject");
+            mockRequestExecutor.ReceivedHref.Should().Be($"/api/v1/brands/{testBrandId}/templates/email/{testTemplateName}/test");            
         }
 
 
