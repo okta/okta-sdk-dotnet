@@ -283,7 +283,7 @@ namespace Okta.Sdk.IntegrationTests
             var client = TestClient.Create();
             var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
             var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
-            var testBody = $"Test Customization - {nameof(UpdateEmailTemplateCustomization)}";
+            var testBody = $"Test Customization - {nameof(UpdateEmailTemplateCustomization)} " + "${activationLink} ${activationToken}";
             var testSubject = $"Test Subject - {nameof(UpdateEmailTemplateCustomization)}";
             var testLanguage = "en";
 
