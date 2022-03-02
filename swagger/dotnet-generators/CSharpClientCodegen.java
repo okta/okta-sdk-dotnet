@@ -493,18 +493,6 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
                 List<CodegenOperation> ops = (List<CodegenOperation>) operations.get("operation");
                 for (CodegenOperation operation : ops) {
 
-//                    for (CodegenParameter parameter : operation.getAllParams()) {
-//                        LOGGER.warn("PARAMETER TYPE IS :" + parameter.getDataType() + ", Object:" +  parameter.toString());
-//                        if (!languageSpecificPrimitives.contains(parameter.getDataType())) {
-//                            // Use interfaces instead
-//                            parameter.dataType = "I" + parameter.getDataType();
-//                            LOGGER.warn("PARAMETER TYPE IS object: " + parameter.getDataType());
-//                        }
-//                        else {
-//                            LOGGER.warn("PARAMETER TYPE IS primitive");
-//                        }
-//                    }
-
                     if (operation.httpMethod != null) {
                         LOGGER.info("parsing http method {}", operation.httpMethod);
                         operation.getVendorExtensions().put("internalHttpOperation", getInternalHttpOperation(operation.httpMethod));
@@ -567,9 +555,39 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
         this.optionalAssemblyInfoFlag = flag;
     }
 
+    /* Check the property type and returns  the internal GetResource<> logic*/
+    private String getInternalPropertyForModel(CodegenProperty property) {
+
+        LOGGER.info("Property DataType ", property.getDatatype());
+        if (property.getIsEnum()) {
+            return "GetEnumProperty<" + property.datatype + ">(\"" + property.baseName + "\")";
+        }
+
+        if (property.getIsArrayModel()) {
+            return "GetArrayProperty<" + property.datatype + ">(\"" + property.baseName + "\")";
+        }
+
+        switch (property.getDatatype()) {
+            case "string":
+                return "GetStringProperty(\"" + property.baseName + "\")";
+            case "bool?":
+                return "GetBooleanProperty(\"" + property.baseName + "\")";
+            case "DateTimeOffset?":
+            case "DateTime?":
+                return "GetDateTimeProperty(\"" + property.baseName + "\")";
+            case "int?":
+                return "GetIntegerProperty(\"" + property.baseName + "\")";
+            case "double?":
+                return "GetDoubleProperty(\"" + property.baseName + "\")";
+            default:
+                return "GetResourceProperty<" + property.datatype + ">(\"" + property.baseName + "\")";
+        }
+    }
+
     @Override
     public CodegenModel fromModel(String name, Schema schema, Map<String, Schema> allDefinitions) {
         CodegenModel codegenModel = super.fromModel(name, schema, allDefinitions);
+
         if (allDefinitions != null && codegenModel != null && codegenModel.parent != null) {
             final Schema parentModel = allDefinitions.get(toModelName(codegenModel.parent));
             if (parentModel != null) {
@@ -651,6 +669,7 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
     @Override
     public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
         postProcessPattern(property.pattern, property.vendorExtensions);
+        property.getVendorExtensions().put("getterLiteral", getInternalPropertyForModel(property));
         super.postProcessModelProperty(model, property);
     }
 

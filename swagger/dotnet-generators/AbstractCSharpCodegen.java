@@ -82,6 +82,9 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
 
     protected Set<String> collectionTypes;
     protected Set<String> mapTypes;
+    // Custom for dotnet
+    protected Map<String, String> instantiationTypesForOperations;
+    protected Map<String, String> typeMappingForOperations;
 
     protected Logger LOGGER = LoggerFactory.getLogger(AbstractCSharpCodegen.class);
 
@@ -184,6 +187,9 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
         typeMapping.put("map", "Dictionary");
         typeMapping.put("object", "Object");
         typeMapping.put("uuid", "Guid?");
+
+        instantiationTypesForOperations = new HashMap<String, String>(instantiationTypes);
+        typeMappingForOperations = new HashMap<String, String>(typeMapping);
     }
 
     public void setReturnICollection(boolean returnICollection) {
@@ -197,11 +203,16 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
     public void setUseCollection(boolean useCollection) {
         this.useCollection = useCollection;
         if (useCollection) {
-            typeMapping.put("array", "CollectionClient");
-            typeMapping.put("list", "CollectionClient");
+            //typeMapping.put("array", "CollectionClient");
+            //typeMapping.put("list", "CollectionClient");
+            typeMappingForOperations.put("array", "CollectionClient");
+            typeMappingForOperations.put("list", "CollectionClient");
+            instantiationTypesForOperations.put("array", "CollectionClient");
+            instantiationTypesForOperations.put("list", "CollectionClient");
 
-            instantiationTypes.put("array", "CollectionClient");
-            instantiationTypes.put("list", "CollectionClient");
+            // Collection client should be only applicable for operations and not model props
+            //instantiationTypes.put("array", "CollectionClient");
+            //instantiationTypes.put("list", "CollectionClient");
         }
     }
 
@@ -551,7 +562,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
                         if (this.collectionTypes.contains(typeMapping)) {
                             operation.getVendorExtensions().put(CodegenConstants.IS_LIST_CONTAINER_EXT_NAME, Boolean.TRUE);
                             operation.returnContainer = operation.returnType;
-                            if (this.returnICollection && (
+                            if (/*this.returnICollection && */(
                                     typeMapping.startsWith("List") ||
                                             typeMapping.startsWith("Collection"))) {
                                 // NOTE: ICollection works for both List<T> and Collection<T>
@@ -887,7 +898,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
         return apiFileFolder() + File.separator + filename + suffix;
     }
 
-    
+
     @Override
     public String toApiName(String name) {
             if (name.length() == 0) {
