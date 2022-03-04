@@ -69,6 +69,7 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
         super();
         supportsInheritance = true;
         modelTemplateFiles.put("model.mustache", ".generated.cs");
+        modelTemplateFiles.put("IModel.mustache", ".generated.cs");
         apiTemplateFiles.put("api.mustache", ".generated.cs");
         apiTemplateFiles.put("IApi.mustache", ".generated.cs");
 
@@ -653,16 +654,6 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
     @Override
     public void postProcessParameter(CodegenParameter parameter) {
         postProcessPattern(parameter.pattern, parameter.vendorExtensions);
-
-        if (!languageSpecificPrimitives.contains(parameter.getDataType())) {
-            // Use interfaces instead
-            parameter.dataType = "I" + parameter.getDataType();
-            LOGGER.warn("PARAMETER TYPE IS object: " + parameter.getDataType());
-        }
-        else {
-            LOGGER.warn("PARAMETER TYPE IS primitive");
-        }
-
         super.postProcessParameter(parameter);
     }
 
@@ -670,6 +661,10 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
     public void postProcessModelProperty(CodegenModel model, CodegenProperty property) {
         postProcessPattern(property.pattern, property.vendorExtensions);
         property.getVendorExtensions().put("getterLiteral", getInternalPropertyForModel(property));
+
+        if ((property.getIsObject() || property.getIsArrayModel())  && !property.getIsEnum()) {
+            property.datatype = interfacePrefix + property.datatype;
+        }
         super.postProcessModelProperty(model, property);
     }
 

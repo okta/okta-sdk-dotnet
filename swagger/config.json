@@ -1,5 +1,6 @@
 {
     "useCollection":"true",
     "returnICollection":"true",
-    "excludeTests":"true"
+    "excludeTests":"true",
+    "useDateTimeOffset":"true"
 }
