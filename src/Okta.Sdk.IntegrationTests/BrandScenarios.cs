@@ -148,7 +148,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "OKTA-465356")]
         public async Task ListEmailTemplates()
         {
             var client = TestClient.Create();
