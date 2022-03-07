@@ -148,16 +148,16 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact(Skip = "OKTA-465356")]
+        [Fact]
         public async Task ListEmailTemplates()
         {
             var client = TestClient.Create();
             var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
 
-            var emailTemplates = await client.Brands.ListEmailTemplates(brand.Id).ToArrayAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstAsync();
 
-            emailTemplates.Should().NotBeNull();
-            emailTemplates.First().Name.Should().NotBeNullOrEmpty();
+            emailTemplate.Should().NotBeNull();
+            emailTemplate.Name.Should().NotBeNullOrEmpty();
         }
 
         [Fact]
