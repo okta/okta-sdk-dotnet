@@ -558,8 +558,6 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
 
     /* Check the property type and returns  the internal GetResource<> logic*/
     private String getInternalPropertyForModel(CodegenProperty property) {
-
-        LOGGER.info("Property DataType ", property.getDatatype());
         if (property.getIsEnum()) {
             return "GetEnumProperty<" + property.datatype + ">(\"" + property.baseName + "\")";
         }

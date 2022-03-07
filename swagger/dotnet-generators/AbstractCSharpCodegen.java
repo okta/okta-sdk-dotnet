@@ -620,7 +620,13 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
     @Override
     public String toModelFilename(String name) {
         // should be the same as the model name
-        return toModelName(name);
+        String modelName = toModelName(name);
+        // If model already exists, then we should generate the interface
+        String filename = modelFileFolder() + File.separator + modelName + ".generated.cs";
+        if (new File(filename).exists()) {
+            modelName = interfacePrefix + modelName;
+        }
+        return modelName;
     }
 
     @Override

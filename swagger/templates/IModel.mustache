@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 namespace Okta.Sdk
 {
     /// <summary>Represents a {{classname}} resource in the Okta API.</summary>
-    public partial interface I{{classname}}
+    public partial interface I{{classname}} {{#parent}} : I{{{parent}}} {{/parent}} {{^parent}}: IResource {{/parent}} 
     {
         {{#vars}}
         {{{datatype}}} {{name}} { get;{{^isReadOnly}} set;{{/isReadOnly}} }

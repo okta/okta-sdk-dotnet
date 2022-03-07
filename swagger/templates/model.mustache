@@ -19,7 +19,7 @@ namespace Okta.Sdk {
   /// <summary>
   /// {{description}}
   /// </summary>
-  public partial class {{classname}}{{#parent}} : {{{parent}}},{{/parent}} {{^parent}}:{{/parent}} I{{classname}} {
+  public partial class {{classname}}{{#parent}} : {{{parent}}},{{/parent}} {{^parent}}: Resource, {{/parent}} I{{classname}} {
     {{#vars}}
     /// <summary>
     /// {{^description}}Gets or Sets {{{name}}}{{/description}}{{#description}}{{{description}}}{{/description}}
