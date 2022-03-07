@@ -154,7 +154,7 @@ namespace Okta.Sdk.IntegrationTests
             var client = TestClient.Create();
             var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
 
-            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
 
             emailTemplate.Should().NotBeNull();
             emailTemplate.Name.Should().NotBeNullOrEmpty();
@@ -240,7 +240,7 @@ namespace Okta.Sdk.IntegrationTests
 
             await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
 
-            var exceptionThrown = false;
+            var exceptionWasThrown = false;
             try
             {
                 var retrieved = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
@@ -248,10 +248,10 @@ namespace Okta.Sdk.IntegrationTests
             catch (OktaApiException apiException)
             {
                 apiException.StatusCode.Should().Be(404);
-                exceptionThrown = true;
+                exceptionWasThrown = true;
             }
 
-            exceptionThrown.Should().BeTrue();
+            exceptionWasThrown.Should().BeTrue();
         }
 
         [Fact]
