@@ -566,6 +566,10 @@ public class CSharpClientCodegen extends AbstractCSharpCodegen {
             return "GetArrayProperty<" + property.datatype + ">(\"" + property.baseName + "\")";
         }
 
+        if (property.baseName.equalsIgnoreCase("_links") || property.baseName.equalsIgnoreCase("_embedded")) {
+            return "GetProperty<Resource>(\"" + property.baseName + "\")";
+        }
+
         switch (property.getDatatype()) {
             case "string":
                 return "GetStringProperty(\"" + property.baseName + "\")";

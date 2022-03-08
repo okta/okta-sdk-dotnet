@@ -19,7 +19,8 @@ namespace Okta.Sdk {
   /// <summary>
   /// {{description}}
   /// </summary>
-  public partial class {{classname}}{{#parent}} : {{{parent}}},{{/parent}} {{^parent}}: Resource, {{/parent}} I{{classname}} {
+  {{! check for x-okta-send-null-value to include [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] }}
+  public {{^parent}}sealed{{/parent}} partial class {{classname}}{{#parent}} : {{{parent}}},{{/parent}} {{^parent}}: Resource, {{/parent}} I{{classname}} {
     {{#vars}}
     /// <summary>
     /// {{^description}}Gets or Sets {{{name}}}{{/description}}{{#description}}{{{description}}}{{/description}}
