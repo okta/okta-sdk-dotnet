@@ -295,3 +295,4 @@ tools/**
 docs/_site
 docs/temp
 _templates
+/swagger/generate.bat

@@ -15,17 +15,18 @@ using Okta.Sdk.Internal;
 {{#models}}
 {{#model}}
 namespace Okta.Sdk {
-
+  {{! Pure Classes }}
+  {{^isEnum}}
+  {{! check for x-okta-send-null-value to include [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] }}
   /// <summary>
   /// {{description}}
   /// </summary>
-  {{! check for x-okta-send-null-value to include [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] }}
   public {{^parent}}sealed{{/parent}} partial class {{classname}}{{#parent}} : {{{parent}}},{{/parent}} {{^parent}}: Resource, {{/parent}} I{{classname}} {
     {{#vars}}
     /// <summary>
     /// {{^description}}Gets or Sets {{{name}}}{{/description}}{{#description}}{{{description}}}{{/description}}
     /// </summary>{{#description}}
-    /// <value>{{{description}}}</value>{{/description}}-
+    /// <value>{{{description}}}</value>{{/description}}
     public {{{datatype}}} {{name}} 
     {
       {{#vendorExtensions.getterLiteral}}
@@ -37,7 +38,39 @@ namespace Okta.Sdk {
     }  
 
     {{/vars}}
-}
-{{/model}}
-{{/models}}
+  }
+  {{/isEnum}}
+  {{! Enums }}
+  {{#isEnum}}
+    /// <summary>
+    /// An enumeration of {{classname}} values in the Okta API.
+    /// </summary>
+    public sealed class {{classname}} : StringEnum
+    {
+        {{#allowableValues}}
+        {{#enumVars}}
+        /// <summary>
+        /// Enum {{name}} for {{#value}}{{{value}}}{{/value}}{{^value}}null{{/value}}
+        /// </summary>
+        public static {{classname}} {{enumMemberName}} = new {{enumMemberName}}("{{value}}");
+        {{/enumVars}}
+        {{/allowableValues}}
+        /// <summary>
+        /// Implicit operator declaration to accept and convert a string value as a <see cref="{{memberName}}"/>
+        /// </summary>
+        /// <param name="value">The value to use</param>
+        public static implicit operator {{classname}}(string value) => new {{classname}}(value);
+
+        /// <summary>
+        /// Creates a new <see cref="{{classname}}"/> instance.
+        /// </summary>
+        /// <param name="value">The value to use.</param>
+        public {{classname}}(string value)
+            : base(value)
+        {
+        }
+      }
+  {{/isEnum}}
+  {{/model}}
+  {{/models}}
 }

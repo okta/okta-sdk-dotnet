@@ -2,6 +2,7 @@ package io.swagger.codegen.v3.generators.dotnet;
 
 import com.github.jknack.handlebars.Handlebars;
 import com.github.jknack.handlebars.Lambda;
+import com.google.common.base.CaseFormat;
 import com.google.common.collect.ImmutableMap;
 import io.swagger.codegen.v3.CodegenConstants;
 import io.swagger.codegen.v3.CodegenContent;
@@ -482,6 +483,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
                     List<Map<String, String>> enumVars = (ArrayList<Map<String, String>>)model.allowableValues.get("enumVars");
                     List<Map<String, Object>> newEnumVars = new ArrayList<Map<String, Object>>();
                     for (Map<String, String> enumVar : enumVars) {
+                        enumVar.put("enumMemberName", CaseFormat.UPPER_UNDERSCORE.to(CaseFormat.UPPER_CAMEL, (enumVar.get("value"))));
                         Map<String, Object> mixedVars = new HashMap<String, Object>();
                         mixedVars.putAll(enumVar);
 
