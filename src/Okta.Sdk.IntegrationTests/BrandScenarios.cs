@@ -204,14 +204,19 @@ namespace Okta.Sdk.IntegrationTests
             };
 
             var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
-            emailTemplateCustomization.Should().NotBeNull();
-            emailTemplateCustomization.Body.Should().Be(testBody);
-            emailTemplateCustomization.Subject.Should().Be(testSubject);
-            emailTemplateCustomization.Language.Should().Be(testLanguage);
-
-            if ((bool)!emailTemplateCustomization.IsDefault)
+            try
             {
-                await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+                emailTemplateCustomization.Should().NotBeNull();
+                emailTemplateCustomization.Body.Should().Be(testBody);
+                emailTemplateCustomization.Subject.Should().Be(testSubject);
+                emailTemplateCustomization.Language.Should().Be(testLanguage);
+            }
+            finally
+            {
+                if ((bool)!emailTemplateCustomization.IsDefault)
+                {
+                    await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+                }
             }
         }
 
@@ -279,14 +284,19 @@ namespace Okta.Sdk.IntegrationTests
 
             var retrievedEmailTemplateCustomization = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
 
-            retrievedEmailTemplateCustomization.Should().NotBeNull();
-            retrievedEmailTemplateCustomization.Body.Should().Be(testBody);
-            retrievedEmailTemplateCustomization.Subject.Should().Be(testSubject);
-            retrievedEmailTemplateCustomization.Language.Should().Be(testLanguage);
-
-            if ((bool)!retrievedEmailTemplateCustomization.IsDefault)
+            try
             {
-                await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, retrievedEmailTemplateCustomization.Id);
+                retrievedEmailTemplateCustomization.Should().NotBeNull();
+                retrievedEmailTemplateCustomization.Body.Should().Be(testBody);
+                retrievedEmailTemplateCustomization.Subject.Should().Be(testSubject);
+                retrievedEmailTemplateCustomization.Language.Should().Be(testLanguage);
+            }
+            finally
+            {
+                if ((bool)!retrievedEmailTemplateCustomization.IsDefault)
+                {
+                    await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, retrievedEmailTemplateCustomization.Id);
+                }
             }
         }
 
