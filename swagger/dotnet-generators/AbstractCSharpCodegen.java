@@ -86,6 +86,9 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
     // Custom for dotnet
     protected Map<String, String> instantiationTypesForOperations;
     protected Map<String, String> typeMappingForOperations;
+    protected Set<String> filesToRemoveAfterGeneration;
+    protected String fileSuffix = ".generated.cs";
+    protected String deleteFileSuffix = ".DELETE";
 
     protected Logger LOGGER = LoggerFactory.getLogger(AbstractCSharpCodegen.class);
 
@@ -191,6 +194,7 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
 
         instantiationTypesForOperations = new HashMap<String, String>(instantiationTypes);
         typeMappingForOperations = new HashMap<String, String>(typeMapping);
+        filesToRemoveAfterGeneration = new HashSet<String>();
     }
 
     public void setReturnICollection(boolean returnICollection) {
@@ -390,6 +394,11 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
         for (Object _mo : models) {
             Map<String, Object> mo = (Map<String, Object>) _mo;
             CodegenModel cm = (CodegenModel) mo.get("model");
+            if (cm.getIsEnum()) {
+                String fileToRemove = interfacePrefix + toModelName(cm.name);
+                LOGGER.info("Adding " + fileToRemove + " to a list to be deleted later.");
+                filesToRemoveAfterGeneration.add(fileToRemove);
+            }
             for (CodegenProperty var : cm.vars) {
                 // check to see if model name is same as the property name
                 // which will result in compilation error
@@ -623,10 +632,15 @@ public abstract class AbstractCSharpCodegen extends DefaultCodegenConfig {
     public String toModelFilename(String name) {
         // should be the same as the model name
         String modelName = toModelName(name);
-        // If model already exists, then we should generate the interface
-        String filename = modelFileFolder() + File.separator + modelName + ".generated.cs";
+
+        // The template "model" is generated before than "IModel". If the model file already exists, then we should generate the interface.
+        String filename = modelFileFolder() + File.separator + modelName + fileSuffix;
         if (new File(filename).exists()) {
             modelName = interfacePrefix + modelName;
+        }
+
+        if (filesToRemoveAfterGeneration.contains(modelName)) {
+            modelName = modelName + deleteFileSuffix;
         }
         return modelName;
     }

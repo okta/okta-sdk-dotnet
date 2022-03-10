@@ -43,15 +43,17 @@ We have customized the following templates:
 
 * api.mustache
 * IApi.mustache
+* model.mustache (includes enums)
+* IModel.mustache
 
 
 ### General customizations
 
 * We return `CollectionClient` instead of `List` or `Collection` to be consistent with the existing SDK pattern.
-* Unlike the default Swagger generator, we generate interfaces in separate files.
+* Unlike the default Swagger generator, we generate interfaces and enums in separate files.
 * Operations return interfaces instead of classes when applicable
 * Operations receive interfaces instead of classes when applicable
-* Files are generated with the `.generated.cs` suffix
+* Files are generated with the `.generated.cs` suffix, or `.DELETE.generated.cs` if the file should be deleted after the generation process.
 
 ### Vendor Extensions
 
@@ -63,6 +65,7 @@ We added the following vendor extensions to facilitate the template generation.
 * `isReturnTypeCollection` - Indicate if an operation should return a `CollectionClient`
 * `internalHttpOperation` - Indicate what internal method should be called based on the Http method (POST -> PostAsync)
 
+For `enumVars` we added an additional property called `enumMemberName` which has the enum name after being formatted following current SDK patterns. For example, the enum value `SAML_2_0` is renamed to `Saml20`.
  
 ## Contributing
  
