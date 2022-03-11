@@ -1,4 +1,4 @@
-// <copyright file="SamlApplicationSettings.Generated.cs" company="Okta, Inc">
+// <copyright file="LifecycleCreateSettingObject.Generated.cs" company="Okta, Inc">
 // Copyright (c) 2014 - present Okta, Inc. All rights reserved.
 // Licensed under the Apache 2.0 license. See the LICENSE file in the project root for full license information.
 // </copyright>
@@ -14,13 +14,13 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk
 {
     /// <inheritdoc/>
-    public partial class SamlApplicationSettings : ApplicationSettings, ISamlApplicationSettings
+    public sealed partial class LifecycleCreateSettingObject : Resource, ILifecycleCreateSettingObject
     {
         /// <inheritdoc/>
-        public ISamlApplicationSettingsSignOn SignOn 
+        public EnabledStatus Status 
         {
-            get => GetResourceProperty<SamlApplicationSettingsSignOn>("signOn");
-            set => this["signOn"] = value;
+            get => GetEnumProperty<EnabledStatus>("status");
+            set => this["status"] = value;
         }
         
     }

@@ -19,8 +19,9 @@ namespace Okta.Sdk.Internal
         /// Clones the passed request.
         /// </summary>
         /// <param name="request">The request to clone.</param>
+        /// <param name="skipAuthorizationHeader">Don't copy the Authorization header. The header will be then set accordingly to HttpClient's defaults.</param>
         /// <returns>The cloned request.</returns>
-        public static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage request)
+        public static async Task<HttpRequestMessage> CloneHttpRequestMessageAsync(HttpRequestMessage request, bool skipAuthorizationHeader = false)
         {
             HttpRequestMessage clonedRequest = new HttpRequestMessage(request.Method, request.RequestUri);
 
@@ -52,6 +53,12 @@ namespace Okta.Sdk.Internal
             foreach (KeyValuePair<string, IEnumerable<string>> header in request.Headers)
             {
                 clonedRequest.Headers.TryAddWithoutValidation(header.Key, header.Value);
+            }
+
+            // Remove the old Authorization header if requested.
+            if (skipAuthorizationHeader)
+            {
+                clonedRequest.Headers.Authorization = null;
             }
 
             return clonedRequest;

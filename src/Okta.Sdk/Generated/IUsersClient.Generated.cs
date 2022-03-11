@@ -492,5 +492,21 @@ namespace Okta.Sdk
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task ClearUserSessionsAsync(string userId, bool? oauthTokens = false, CancellationToken cancellationToken = default(CancellationToken));
 
+        /// <summary>
+        /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <returns>A collection of <see cref="ISubscription"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<ISubscription> ListUserSubscriptions(string userId);
+
+        /// <summary>
+        /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// </summary>
+        /// <param name="userId"></param>
+        /// <param name="notificationType"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="ISubscription"/> response.</returns>
+        Task<ISubscription> GetUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

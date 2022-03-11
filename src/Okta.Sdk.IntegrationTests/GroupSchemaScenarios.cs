@@ -28,7 +28,7 @@ namespace Okta.Sdk.IntegrationTests
             groupSchema.Name.Should().Be("group");
         }
 
-        [Fact]
+        [Fact(Skip = "Replication takes a while, this should be converted to UT")]
         public async Task UpdatePropertyToGroupSchemaAsync()
         {
             var client = TestClient.Create();
@@ -71,7 +71,7 @@ namespace Okta.Sdk.IntegrationTests
             retrievedCustomAttribute.Permissions.FirstOrDefault().Action.Should().Be("READ_WRITE");
 
             // Wait for job to be finished
-            Thread.Sleep(3000);
+            Thread.Sleep(6000);
 
             // Remove custom attribute
             customAttribute["groupContact"] = null;

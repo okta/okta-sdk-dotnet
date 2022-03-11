@@ -1858,5 +1858,84 @@ namespace Okta.Sdk.IntegrationTests
                 await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
             }
         }
+
+        [Fact]
+        public async Task GetDefaultProvisioningConnection()
+        {
+            var oktaClient = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var appCreateOptions = new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: {nameof(UpdateApplicationProfile)} {guid}",
+                Activate = true,
+                ResponseTypes = new[] { OAuthResponseType.Code },
+                GrantTypes = new[] { OAuthGrantType.AuthorizationCode, OAuthGrantType.ClientCredentials },
+                ApplicationType = OpenIdConnectApplicationType.Service,
+                RedirectUris = new[] { "https://example.com" },
+            };
+
+            var newApp = await oktaClient.Applications.CreateApplicationAsync(appCreateOptions);
+
+            try
+            {
+                var connection = await oktaClient.Applications.GetDefaultProvisioningConnectionForApplicationAsync(newApp.Id);
+                connection.AuthScheme.Should().Be(ProvisioningConnectionAuthScheme.Unknown);
+                connection.Status.Should().Be(ProvisioningConnectionStatus.Unknown);
+            }
+            finally
+            {
+                // Remove App
+                await oktaClient.Applications.DeactivateApplicationAsync(newApp.Id);
+                await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task CreateOrg2OrgApplication()
+        {
+            var oktaClient = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var org2orgApp = new Org2OrgApplication
+            {
+                Label = $"dotnet-sdk: okta_org2org {guid}",
+                SignOnMode = ApplicationSignOnMode.Saml2,
+                Name = "okta_org2org",
+                Settings = new Org2OrgApplicationSettings
+                {
+                    App = new Org2OrgApplicationSettingsApp
+                    {
+                        AcsUrl = "https://example.okta.com/sso/saml2/exampleid",
+                        AudRestriction = "https://www.okta.com/saml2/service-provider/exampleid",
+                        BaseUrl = "https://example.okta.com",
+                    },
+                },
+                Visibility = new ApplicationVisibility
+                {
+                    AutoLaunch = true,
+                    AutoSubmitToolbar = true,
+                },
+            };
+
+            var newApp = await oktaClient.Applications.CreateApplicationAsync(org2orgApp);
+
+            try
+            {
+                newApp.Id.Should().NotBeNullOrEmpty();
+                newApp.SignOnMode.Should().Be(ApplicationSignOnMode.Saml2);
+                newApp.Name.Should().Be(org2orgApp.Name);
+                newApp.Label.Should().Be(org2orgApp.Label);
+
+                var retrievedApp = await oktaClient.Applications.GetApplicationAsync<IOrg2OrgApplication>(newApp.Id);
+                retrievedApp.Should().NotBeNull();
+            }
+            finally
+            {
+                // Remove App
+                await oktaClient.Applications.DeactivateApplicationAsync(newApp.Id);
+                await oktaClient.Applications.DeleteApplicationAsync(newApp.Id);
+            }
+        }
     }
 }
