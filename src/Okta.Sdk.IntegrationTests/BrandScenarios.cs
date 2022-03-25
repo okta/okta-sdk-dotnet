@@ -4,12 +4,9 @@
 // </copyright>
 
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
-using FluentAssertions.Extensions;
 using Xunit;
 
 namespace Okta.Sdk.IntegrationTests
@@ -149,6 +146,265 @@ namespace Okta.Sdk.IntegrationTests
                 themeToUpdate.EmailTemplateTouchPointVariant = originalEmailTemplateTouchPointVariant;
                 await client.Brands.UpdateBrandThemeAsync(themeToUpdate, brand.Id, theme.Id);
             }
+        }
+
+        [Fact]
+        public async Task ListEmailTemplates()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            emailTemplate.Should().NotBeNull();
+            emailTemplate.Name.Should().NotBeNullOrEmpty();
+        }
+
+        [Fact]
+        public async Task GetEmailTemplate()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var retrievedEmailTemplate = await client.Brands.GetEmailTemplateAsync(brand.Id, emailTemplate.Name);
+
+            retrievedEmailTemplate.Should().NotBeNull();
+            retrievedEmailTemplate.Name.Should().Be(emailTemplate.Name);
+        }
+
+        [Fact]
+        public async Task ListEmailTemplateCustomizations()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var emailTemplateCustomizations = await client.Brands.ListEmailTemplateCustomizations(brand.Id, emailTemplate.Name).ToArrayAsync();
+
+            emailTemplateCustomizations.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task CreateEmailTemplateCustomaization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(CreateEmailTemplateCustomaization)}" + "${activationLink} ${activationToken}";
+            var testSubject = $"Test Subject - {nameof(CreateEmailTemplateCustomaization)}";
+            var testLanguage = "fr";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+                IsDefault = false,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+            try
+            {
+                emailTemplateCustomization.Should().NotBeNull();
+                emailTemplateCustomization.Body.Should().Be(testBody);
+                emailTemplateCustomization.Subject.Should().Be(testSubject);
+                emailTemplateCustomization.Language.Should().Be(testLanguage);
+            }
+            finally
+            {
+                if ((bool)!emailTemplateCustomization.IsDefault)
+                {
+                    await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+                }
+            }
+        }
+
+        [Fact]
+        public async Task DeleteEmailTemplateCustomization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(DeleteEmailTemplateCustomization)}" + "${activationLink} ${activationToken}";
+            var testSubject = $"Test Subject - {nameof(DeleteEmailTemplateCustomization)}";
+            var testLanguage = "cs";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+                IsDefault = false,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Id.Should().NotBeNullOrWhiteSpace();
+
+            await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+
+            var exceptionWasThrown = false;
+            try
+            {
+                var retrieved = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            }
+            catch (OktaApiException apiException)
+            {
+                apiException.StatusCode.Should().Be(404);
+                exceptionWasThrown = true;
+            }
+
+            exceptionWasThrown.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateCustomization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(GetEmailTemplateCustomization)}" + "${activationLink} ${activationToken}";
+            var testSubject = $"Test Subject - {nameof(GetEmailTemplateCustomization)}";
+            var testLanguage = "fr";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+                IsDefault = false,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Id.Should().NotBeNullOrWhiteSpace();
+
+            var retrievedEmailTemplateCustomization = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+
+            try
+            {
+                retrievedEmailTemplateCustomization.Should().NotBeNull();
+                retrievedEmailTemplateCustomization.Body.Should().Be(testBody);
+                retrievedEmailTemplateCustomization.Subject.Should().Be(testSubject);
+                retrievedEmailTemplateCustomization.Language.Should().Be(testLanguage);
+            }
+            finally
+            {
+                if ((bool)!retrievedEmailTemplateCustomization.IsDefault)
+                {
+                    await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, retrievedEmailTemplateCustomization.Id);
+                }
+            }
+        }
+
+        [Fact]
+        public async Task UpdateEmailTemplateCustomization()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(UpdateEmailTemplateCustomization)} " + "${activationLink} ${activationToken}";
+            var testSubject = $"Test Subject - {nameof(UpdateEmailTemplateCustomization)}";
+            var testLanguage = "ja";
+
+            var updatedBody = $"Updated Customization - {nameof(UpdateEmailTemplateCustomization)}" + "${activationLink} ${activationToken}";
+            var updatedSubject = $"Updated Subject - {nameof(UpdateEmailTemplateCustomization)}";
+            var updatedLanguage = "fr";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+                IsDefault = false,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            emailTemplateCustomization.Should().NotBeNull();
+            emailTemplateCustomization.Id.Should().NotBeNullOrWhiteSpace();
+
+            var emailTemplateCustomizationUpdateRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = updatedBody,
+                Subject = updatedSubject,
+                Language = updatedLanguage,
+                IsDefault = false,
+            };
+
+            var updatedEmailTemplateCustomization = await client.Brands.UpdateEmailTemplateCustomizationAsync(emailTemplateCustomizationUpdateRequest, brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            updatedEmailTemplateCustomization.Should().NotBeNull();
+            updatedEmailTemplateCustomization.Body.Should().Be(updatedBody);
+            updatedEmailTemplateCustomization.Subject.Should().Be(updatedSubject);
+            updatedEmailTemplateCustomization.Language.Should().Be(updatedLanguage);
+
+            var retrievedEmailTemplateCustomization = await client.Brands.GetEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+
+            retrievedEmailTemplateCustomization.Should().NotBeNull();
+            retrievedEmailTemplateCustomization.Body.Should().Be(updatedBody);
+            retrievedEmailTemplateCustomization.Subject.Should().Be(updatedSubject);
+            retrievedEmailTemplateCustomization.Language.Should().Be(updatedLanguage);
+
+            if ((bool)!updatedEmailTemplateCustomization.IsDefault)
+            {
+                await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, updatedEmailTemplateCustomization.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateCustomizationPreview()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+            var testBody = $"Test Customization - {nameof(GetEmailTemplateCustomizationPreview)}" + "${activationLink} ${activationToken}";
+            var testSubject = $"Test Subject - {nameof(GetEmailTemplateCustomizationPreview)}";
+            var testLanguage = "uk";
+
+            var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
+            {
+                Body = testBody,
+                Subject = testSubject,
+                Language = testLanguage,
+                IsDefault = false,
+            };
+
+            var emailTemplateCustomization = await client.Brands.CreateEmailTemplateCustomizationAsync(emailTemplateCustomizationRequest, brand.Id, emailTemplate.Name);
+
+            var emailTemplateCustomizationPreview = await client.Brands.GetEmailTemplateCustomizationPreviewAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            emailTemplateCustomizationPreview.Should().NotBeNull();
+            emailTemplateCustomizationPreview.Body.Should().NotBeNull();
+            emailTemplateCustomizationPreview.Subject.Should().NotBeNull();
+
+            if ((bool)!emailTemplateCustomization.IsDefault)
+            {
+                await client.Brands.DeleteEmailTemplateCustomizationAsync(brand.Id, emailTemplate.Name, emailTemplateCustomization.Id);
+            }
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateDefaultContent()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var emailTemplateCustomizationContent = await client.Brands.GetEmailTemplateDefaultContentAsync(brand.Id, emailTemplate.Name);
+            emailTemplateCustomizationContent.Should().NotBeNull();
+        }
+
+        [Fact]
+        public async Task GetEmailTemplateDefaultContentPreview()
+        {
+            var client = TestClient.Create();
+            var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
+            var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
+
+            var emailTemplateCustomizationPreview = await client.Brands.GetEmailTemplateDefaultContentPreviewAsync(brand.Id, emailTemplate.Name);
+            emailTemplateCustomizationPreview.Should().NotBeNull();
         }
     }
 }

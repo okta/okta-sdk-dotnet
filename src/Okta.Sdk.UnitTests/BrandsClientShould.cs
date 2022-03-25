@@ -60,5 +60,43 @@ namespace Okta.Sdk.UnitTests
             mockRequestExecutor.ReceivedBody.Should().NotBeNullOrEmpty();
             response.Url.Should().Be("foo");
         }
+
+        [Fact]
+        public async Task SendTestEmail()
+        {
+            var testBrandId = Guid.NewGuid().ToString();
+            var testCustomizationId = Guid.NewGuid().ToString();
+            var testTemplateName = $"test-template-name-{Guid.NewGuid()}";
+            var testResponse = @"{ ""body"": ""test body"", ""fromAddress"": ""test fromAddress"", ""fromName"": ""test fromName"", ""subject"": ""test subject"" }";
+            var mockRequestExecutor = new MockedStringRequestExecutor(testResponse);
+            var client = new TestableOktaClient(mockRequestExecutor);
+            var emailTemplateTestRequest = new EmailTemplateTestRequest
+            {
+                CustomizationId = testCustomizationId,
+            };
+
+            await client.Brands.SendTestEmailAsync(emailTemplateTestRequest, testBrandId, testTemplateName);
+
+            mockRequestExecutor.ReceivedBody.Should().NotBeNullOrEmpty();
+            mockRequestExecutor.ReceivedHttpVerbs.Count.Should().Be(1);
+            mockRequestExecutor.ReceivedHttpVerbs[0].Should().Be(HttpVerb.Post);
+            mockRequestExecutor.ReceivedHref.Should().Be($"/api/v1/brands/{testBrandId}/templates/email/{testTemplateName}/test");            
+        }
+
+
+        [Fact]
+        public async Task DeleteEmailTemplateCustomizations()
+        {
+            var testBrandId = Guid.NewGuid().ToString();
+            var testTemplateName = $"test-template-name-{Guid.NewGuid()}";
+            var mockRequestExecutor = new MockedStringRequestExecutor(string.Empty);
+            var client = new TestableOktaClient(mockRequestExecutor);
+
+            await client.Brands.DeleteEmailTemplateCustomizationsAsync(testBrandId, testTemplateName);
+
+            mockRequestExecutor.ReceivedHref.Should().Be($"/api/v1/brands/{testBrandId}/templates/email/{testTemplateName}/customizations");
+            mockRequestExecutor.ReceivedHttpVerbs.Count.Should().Be(1);
+            mockRequestExecutor.ReceivedHttpVerbs[0].Should().Be(HttpVerb.Delete);
+        }
     }
 }
