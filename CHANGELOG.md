@@ -1,6 +1,10 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## v5.5.0
+
+- Add support for [Email template operations](https://developer.okta.com/docs/reference/api/brands/#email-template-operations).
+
 ## v5.4.1
 
 ### Bug Fixes
