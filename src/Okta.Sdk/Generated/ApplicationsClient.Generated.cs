@@ -103,6 +103,62 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public async Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<ProvisioningConnection>(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/connections/default",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync<ProvisioningConnection>(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/connections/default",
+                Verb = HttpVerb.Post,
+                Payload = profile,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+                QueryParameters = new Dictionary<string, object>()
+                {
+                    ["activate"] = activate,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task ActivateDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/connections/default/lifecycle/activate",
+                Verb = HttpVerb.Post,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task DeactivateDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/connections/default/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public ICollectionClient<ICsr> ListCsrsForApplication(string appId)
             => GetCollectionClient<ICsr>(new HttpRequest
             {
@@ -215,6 +271,47 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["targetAid"] = targetAid,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public ICollectionClient<IApplicationFeature> ListFeaturesForApplication(string appId)
+            => GetCollectionClient<IApplicationFeature>(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/features",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+            });
+                    
+        /// <inheritdoc />
+        public async Task<IApplicationFeature> GetFeatureForApplicationAsync(string appId, string name, CancellationToken cancellationToken = default(CancellationToken))
+            => await GetAsync<ApplicationFeature>(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/features/{name}",
+                Verb = HttpVerb.Get,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["name"] = name,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, string appId, string name, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync<ApplicationFeature>(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/features/{name}",
+                Verb = HttpVerb.Put,
+                Payload = capabilities,
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["name"] = name,
                 },
                 }, cancellationToken).ConfigureAwait(false);
         
@@ -364,6 +461,19 @@ namespace Okta.Sdk
             => await PostAsync(new HttpRequest
             {
                 Uri = "/api/v1/apps/{appId}/lifecycle/deactivate",
+                Verb = HttpVerb.Post,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
+        public async Task UploadApplicationLogoAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PostAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/logo",
                 Verb = HttpVerb.Post,
                 
                 PathParameters = new Dictionary<string, object>()

@@ -24,6 +24,13 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc/>
+        public IIdpPolicyRuleAction Idp 
+        {
+            get => GetResourceProperty<IdpPolicyRuleAction>("idp");
+            set => this["idp"] = value;
+        }
+        
+        /// <inheritdoc/>
         public IPasswordPolicyRuleAction PasswordChange 
         {
             get => GetResourceProperty<PasswordPolicyRuleAction>("passwordChange");

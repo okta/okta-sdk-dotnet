@@ -23,12 +23,15 @@ namespace Okta.Sdk.UnitTests.Internal
 
         public IEnumerable<KeyValuePair<string, string>> ReceivedHeaders { get; set; }
 
+        public List<HttpVerb> ReceivedHttpVerbs { get; set; }
+
         public string OktaDomain => throw new NotImplementedException();
 
         public MockedStringRequestExecutor(string returnThis, int statusCode = 200)
         {
             _returnThis = returnThis;
             _statusCode = statusCode;
+            ReceivedHttpVerbs = new List<HttpVerb>();
         }
 
         public Task<HttpResponse<string>> ExecuteRequestAsync(HttpRequest request, CancellationToken cancellationToken)
@@ -52,6 +55,7 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             ReceivedHref = href;
             ReceivedHeaders = headers;
+            ReceivedHttpVerbs.Add(HttpVerb.Get);
 
             return Task.FromResult(new HttpResponse<string>
             {
@@ -76,6 +80,7 @@ namespace Okta.Sdk.UnitTests.Internal
             ReceivedHref = href;
             ReceivedHeaders = headers;
             ReceivedBody = body;
+            ReceivedHttpVerbs.Add(HttpVerb.Post);
 
             return Task.FromResult(new HttpResponse<string>
             {
@@ -89,6 +94,7 @@ namespace Okta.Sdk.UnitTests.Internal
             ReceivedHref = href;
             ReceivedHeaders = headers;
             ReceivedBody = body;
+            ReceivedHttpVerbs.Add(HttpVerb.Put);
 
             return Task.FromResult(new HttpResponse<string>
             {
@@ -101,6 +107,7 @@ namespace Okta.Sdk.UnitTests.Internal
         {
             ReceivedHref = href;
             ReceivedHeaders = headers;
+            ReceivedHttpVerbs.Add(HttpVerb.Delete);
 
             return Task.FromResult(new HttpResponse<string>
             {

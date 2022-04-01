@@ -17,6 +17,8 @@ namespace Okta.Sdk
     {
         IPolicyRuleActionsEnroll Enroll { get; set; }
 
+        IIdpPolicyRuleAction Idp { get; set; }
+
         IPasswordPolicyRuleAction PasswordChange { get; set; }
 
         IPasswordPolicyRuleAction SelfServicePasswordReset { get; set; }

@@ -239,5 +239,20 @@ namespace Okta.Sdk
             string grantId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.GetScopeConsentGrantAsync(Id, grantId, expand, cancellationToken);
         
+        /// <inheritdoc />
+        public Task UploadApplicationLogoAsync(
+            string appId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.UploadApplicationLogoAsync(appId, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IApplicationFeature> GetFeatureForApplicationAsync(
+            string name, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.GetFeatureForApplicationAsync(Id, name, cancellationToken);
+        
+        /// <inheritdoc />
+        public Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, 
+            string name, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.UpdateFeatureForApplicationAsync(capabilities, Id, name, cancellationToken);
+        
     }
 }

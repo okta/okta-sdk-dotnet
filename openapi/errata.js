@@ -38,6 +38,12 @@ const propertyErrata = [
     type: 'string',
     typeReason: 'Spec does not define type for this property'
    },
+   {
+    path: 'Org2OrgApplication.name',
+    hidesBaseMember: true,
+    type: 'string',
+    typeReason: 'Spec does not define type for this property'
+   },
    { path: 'BookmarkApplication.settings', hidesBaseMember: true },
    { path: 'BookmarkApplicationSettings.app', hidesBaseMember: true },
 

@@ -39,6 +39,120 @@ namespace Okta.Sdk
         Task<IBrand> UpdateBrandAsync(IBrand brand, string brandId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// List email templates in your organization with pagination.
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="after">Specifies the pagination cursor for the next page of email templates.</param>
+        /// <param name="limit">Specifies the number of results returned (maximum 200)</param>
+        /// <returns>A collection of <see cref="IEmailTemplate"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IEmailTemplate> ListEmailTemplates(string brandId, string after = null, int? limit = 20);
+
+        /// <summary>
+        /// Fetch an email template by templateName
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplate"/> response.</returns>
+        Task<IEmailTemplate> GetEmailTemplateAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete all customizations for an email template. Also known as “Reset to Default”.
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteEmailTemplateCustomizationsAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List all email customizations for an email template
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <returns>A collection of <see cref="IEmailTemplateCustomization"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IEmailTemplateCustomization> ListEmailTemplateCustomizations(string brandId, string templateName);
+
+        /// <summary>
+        /// Create an email customization
+        /// </summary>
+        /// <param name="customization">The <see cref="IEmailTemplateCustomizationRequest"/> resource.</param>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplateCustomization"/> response.</returns>
+        Task<IEmailTemplateCustomization> CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Delete an email customization
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="customizationId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeleteEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Fetch an email customization by id.
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="customizationId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplateCustomization"/> response.</returns>
+        Task<IEmailTemplateCustomization> GetEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update an email customization
+        /// </summary>
+        /// <param name="customization">The <see cref="IEmailTemplateCustomizationRequest"/> resource.</param>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="customizationId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplateCustomization"/> response.</returns>
+        Task<IEmailTemplateCustomization> UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Get a preview of an email template customization.
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="customizationId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplateContent"/> response.</returns>
+        Task<IEmailTemplateContent> GetEmailTemplateCustomizationPreviewAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Fetch the default content for an email template.
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplateContent"/> response.</returns>
+        Task<IEmailTemplateContent> GetEmailTemplateDefaultContentAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Fetch a preview of an email template's default content by populating velocity references with the current user's environment.
+        /// </summary>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IEmailTemplateContent"/> response.</returns>
+        Task<IEmailTemplateContent> GetEmailTemplateDefaultContentPreviewAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Send a test email to the current users primary and secondary email addresses. The email content is selected based on the following priority: An email customization specifically for the users locale. The default language of email customizations. The email templates default content.
+        /// </summary>
+        /// <param name="customization">The <see cref="IEmailTemplateTestRequest"/> resource.</param>
+        /// <param name="brandId"></param>
+        /// <param name="templateName"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// List all the themes in your brand
         /// </summary>
         /// <param name="brandId"></param>

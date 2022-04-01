@@ -63,6 +63,40 @@ namespace Okta.Sdk
         Task<IApplication> UpdateApplicationAsync(IApplication application, string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Get default Provisioning Connection for application
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IProvisioningConnection"/> response.</returns>
+        Task<IProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Set default Provisioning Connection for application
+        /// </summary>
+        /// <param name="profile">The <see cref="IProvisioningConnectionRequest"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="activate"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IProvisioningConnection"/> response.</returns>
+        Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Activates the default Provisioning Connection for an application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task ActivateDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Deactivates the default Provisioning Connection for an application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task DeactivateDefaultProvisioningConnectionForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <param name="appId"></param>
@@ -130,6 +164,32 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>The <see cref="IJsonWebKey"/> response.</returns>
         Task<IJsonWebKey> CloneApplicationKeyAsync(string appId, string keyId, string targetAid, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// List Features for application
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <returns>A collection of <see cref="IApplicationFeature"/> that can be enumerated asynchronously.</returns>
+        ICollectionClient<IApplicationFeature> ListFeaturesForApplication(string appId);
+
+        /// <summary>
+        /// Fetches a Feature object for an application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="name"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IApplicationFeature"/> response.</returns>
+        Task<IApplicationFeature> GetFeatureForApplicationAsync(string appId, string name, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Updates a Feature object for an application.
+        /// </summary>
+        /// <param name="capabilities">The <see cref="ICapabilitiesObject"/> resource.</param>
+        /// <param name="appId"></param>
+        /// <param name="name"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>The <see cref="IApplicationFeature"/> response.</returns>
+        Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, string appId, string name, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Lists all scope consent grants for the application
@@ -222,6 +282,14 @@ namespace Okta.Sdk
         /// <param name="cancellationToken">The cancellation token.</param>
         /// <returns>A Task that represents the asynchronous operation.</returns>
         Task DeactivateApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
+        /// Update the logo for an application.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task UploadApplicationLogoAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
         /// Revokes all tokens for the specified application

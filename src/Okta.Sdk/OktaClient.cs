@@ -254,6 +254,9 @@ namespace Okta.Sdk
         /// <inheritdoc/>
         public IUserSchemasClient UserSchemas => new UserSchemasClient(_dataStore, Configuration, _requestContext);
 
+        /// <inheritdoc/>
+        public ISubscriptionsClient Subscriptions => new SubscriptionsClient(_dataStore, Configuration, _requestContext);
+
         /// <summary>
         /// Creates a new <see cref="CollectionClient{T}"/> given an initial HTTP request.
         /// </summary>

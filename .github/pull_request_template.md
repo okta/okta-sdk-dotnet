@@ -1,32 +1,39 @@
 <!-- 
-Before creating an issue or submitting a PR, please check that your issue is not already fixed in the latest stable version and that a similar issue or PR is not reported already (also check closed issues).
+Thank you for submitting a pull request! A few things to know first:
+
+- Before creating an issue or submitting a PR, please check that your issue is not already fixed in the latest stable version and that a similar issue or PR is not reported already (also check closed issues).
+- For us to be able to merge your PR, you must first fill out a CLA. Information on our CLA process can be found at https://developer.okta.com/cla
+- For faster reviews and merging, please fill out all sections of this template completely
+- Your title should be concise and explain what the PR does
+- Follow the single responsibility principal with your PR. This PR should adjust a single set of changes. If it is larger than that, please submit multiple PR's
+- Please use this template for your PR, so we can understand the purpose. PR's that do not use this template will be closed
 -->
 
-<!--
-Please help us process GitHub Issues faster by providing the following information.
+## Summary
+<!-- Be concise with your summary, but explain what changed -->
 
-Note: If you have a question about your entire application or use case, please post it on the Okta Developer Forum (https://devforum.okta.com) instead. For urgent issues contact support@okta.com. Issues in this repository are reserved for bug reports and feature requests.
--->
+<!-- Include the below line. If there is no issue associated with this PR, please use N/A -->
+Fixes #
 
+## Type of PR
+<!-- Multiple selections are ok -->
+- [ ] Bug Fix (non-breaking fixes to existing functionality)
+- [ ] New Feature (non-breaking changes that add new functionality)
+- [ ] Documentation update
+- [ ] Test Updates
+- [ ] Other (Please describe the type)
 
-## Issue \#
-<!-- Reference any existing issue(s) here. -->
+## Test Information
+<!-- Please fill out all information -->
+- [ ] My PR required test updates <!-- If you can honestly answer no to this, you may skip this section -->
 
+.NET Version:
+Os Version:
 
-## Code
-<!-- If possible, commit unit tests separately from the implementation to simplify validation. -->
-- [ ] Unit test(s)
-- [ ] Implementation
-
-
-## Current behavior
-<!-- Describe what behavior is changing, if any. -->
-
-
-## Desired behavior
-<!-- Describe what the desired behavior is. -->
-
-
-## Additional Context
-<!-- Describe the motivation or the concrete use case. -->
+## Signoff
+- [ ] I have submitted a CLA for this PR
+- [ ] Each commit message explains what the commit does
+- [ ] I have updated documentation to explain what my PR does
+- [ ] My code is covered by tests if required
+- [ ] I checked StyleCop warnings on my code
 

@@ -207,9 +207,17 @@ namespace Okta.Sdk
         /// Gets a <see cref="IThreatInsightsClient">ThreatInsightsClient</see> Okta ThreatInsight configuration API.
         /// </summary>
         /// <value>
-        /// A <see cref="IProfileMappingsClient">ThreatInsightsClient</see> that interacts with the Okta ThreatInsight configuration API.
+        /// A <see cref="IThreatInsightsClient">ThreatInsightsClient</see> that interacts with the Okta ThreatInsight configuration API.
         /// </value>
         IThreatInsightsClient ThreatInsights { get; }
+
+        /// <summary>
+        /// Gets a <see cref="ISubscriptionsClient">SubscriptionsClient</see> Okta Subscriptions API.
+        /// </summary>
+        /// <value>
+        /// A <see cref="ISubscriptionsClient">SubscriptionsClient</see> that interacts with the Okta Subscriptions API.
+        /// </value>
+        ISubscriptionsClient Subscriptions { get; }
 
         /// <summary>
         /// Creates a new <see cref="IOktaClient">OktaClient</see> scoped to the given request context.
