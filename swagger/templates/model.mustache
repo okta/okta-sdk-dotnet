@@ -17,7 +17,7 @@ using Okta.Sdk.Internal;
 namespace Okta.Sdk {
   {{! Pure Classes }}
   {{^isEnum}}
-  {{! check for x-okta-send-null-value to include [ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)] }}
+  {{#vendorExtensions.x-okta-allow-null-property-value-for-updates}}[ResourceObject(NullValueHandling = ResourceNullValueHandling.Include)]{{/vendorExtensions.x-okta-allow-null-property-value-for-updates}} 
   /// <summary>
   /// {{description}}
   /// </summary>
