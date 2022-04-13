@@ -292,6 +292,15 @@ namespace Okta.Sdk
         Task UploadApplicationLogoAsync(string appId, CancellationToken cancellationToken = default(CancellationToken));
 
         /// <summary>
+        /// Assign an application to a specific policy. This unassigns the application from its currently assigned policy.
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <param name="policyId"></param>
+        /// <param name="cancellationToken">The cancellation token.</param>
+        /// <returns>A Task that represents the asynchronous operation.</returns>
+        Task UpdateApplicationPolicyAsync(string appId, string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
+        /// <summary>
         /// Revokes all tokens for the specified application
         /// </summary>
         /// <param name="appId"></param>

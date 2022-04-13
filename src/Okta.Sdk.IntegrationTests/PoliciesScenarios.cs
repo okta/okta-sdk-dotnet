@@ -539,6 +539,82 @@ namespace Okta.Sdk.IntegrationTests
         }
 
         [Fact]
+        public async Task AssignApplicationToPolicy()
+        {
+            var client = TestClient.Create();
+            var guid = Guid.NewGuid();
+
+            var createdApp = await client.Applications.CreateApplicationAsync(new CreateOpenIdConnectApplication
+            {
+                Label = $"dotnet-sdk: AddOpenIdConnectApp {guid}",
+                ClientUri = "https://example.com/client",
+                LogoUri = "https://example.com/assets/images/logo-new.png",
+                ResponseTypes = new List<OAuthResponseType>
+                {
+                    OAuthResponseType.Token,
+                    OAuthResponseType.IdToken,
+                    OAuthResponseType.Code,
+                },
+                RedirectUris = new List<string>
+                {
+                    "https://example.com/oauth2/callback",
+                    "myapp://callback",
+                },
+                PostLogoutRedirectUris = new List<string>
+                {
+                    "https://example.com/postlogout",
+                    "myapp://postlogoutcallback",
+                },
+                GrantTypes = new List<OAuthGrantType>
+                {
+                    OAuthGrantType.Implicit,
+                    OAuthGrantType.AuthorizationCode,
+                },
+                ApplicationType = OpenIdConnectApplicationType.Web,
+            });
+
+            var policy1 = new Policy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"dotnet-sdk: AccessPolicy {Guid.NewGuid()}".Substring(0, 50),
+                Type = PolicyType.AccessPolicy,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy1 = await client.Policies.CreatePolicyAsync(policy1);
+
+            var policy2 = new Policy()
+            {
+                // Name has a maximum of 50 chars
+                Name = $"dotnet-sdk: AccessPolicy {Guid.NewGuid()}".Substring(0, 50),
+                Type = PolicyType.AccessPolicy,
+                Status = "ACTIVE",
+                Description = "The default policy applies in all situations if no other policy applies.",
+            };
+
+            var createdPolicy2 = await client.Policies.CreatePolicyAsync(policy2);
+
+            try
+            {
+                await createdApp.UpdateApplicationPolicyAsync(createdPolicy1.Id);
+                var updatedApp = await client.Applications.GetApplicationAsync(createdApp.Id);
+                updatedApp.GetAccessPolicyId().Should().Be(createdPolicy1.Id);
+
+                await createdApp.UpdateApplicationPolicyAsync(createdPolicy2.Id);
+                updatedApp = await client.Applications.GetApplicationAsync(createdApp.Id);
+                updatedApp.GetAccessPolicyId().Should().Be(createdPolicy2.Id);
+            }
+            finally
+            {
+                await client.Applications.DeactivateApplicationAsync(createdApp.Id);
+                await client.Applications.DeleteApplicationAsync(createdApp.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy1.Id);
+                await client.Policies.DeletePolicyAsync(createdPolicy2.Id);
+            }
+        }
+
+        [Fact]
         public async Task CreateProfileEnrollmentPolicyRule()
         {
             var client = TestClient.Create();

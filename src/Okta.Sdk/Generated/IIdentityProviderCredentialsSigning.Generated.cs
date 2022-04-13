@@ -17,5 +17,9 @@ namespace Okta.Sdk
     {
         string Kid { get; set; }
 
+        string PrivateKey { get; set; }
+
+        string TeamId { get; set; }
+
     }
 }

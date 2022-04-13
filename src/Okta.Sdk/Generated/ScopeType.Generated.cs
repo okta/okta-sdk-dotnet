@@ -18,6 +18,9 @@ namespace Okta.Sdk
         /// <summary>The REDIRECT ScopeType.</summary>
         public static ScopeType Redirect = new ScopeType("REDIRECT");
 
+        /// <summary>The IFRAME_EMBED ScopeType.</summary>
+        public static ScopeType IframeEmbed = new ScopeType("IFRAME_EMBED");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="ScopeType"/>
         /// </summary>
