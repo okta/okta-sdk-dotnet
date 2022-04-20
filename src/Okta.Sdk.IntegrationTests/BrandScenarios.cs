@@ -185,14 +185,14 @@ namespace Okta.Sdk.IntegrationTests
             emailTemplateCustomizations.Should().NotBeNull();
         }
 
-        [Fact]
-        public async Task CreateEmailTemplateCustomaization()
+        [Fact(Skip = "Skip until OKTA-491199 is fixed")]
+        public async Task CreateEmailTemplateCustomization()
         {
             var client = TestClient.Create();
             var brand = await client.Brands.ListBrands().FirstOrDefaultAsync();
             var emailTemplate = await client.Brands.ListEmailTemplates(brand.Id).FirstOrDefaultAsync();
-            var testBody = $"Test Customization - {nameof(CreateEmailTemplateCustomaization)}" + "${activationLink} ${activationToken}";
-            var testSubject = $"Test Subject - {nameof(CreateEmailTemplateCustomaization)}";
+            var testBody = $"\"<!DOCTYPE html><html>...${{activationLink}}...</html>\"";
+            var testSubject = $"Test Subject - {nameof(CreateEmailTemplateCustomization)}";
             var testLanguage = "fr";
 
             var emailTemplateCustomizationRequest = new EmailTemplateCustomizationRequest()
@@ -220,7 +220,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Skip until OKTA-491199 is fixed")]
         public async Task DeleteEmailTemplateCustomization()
         {
             var client = TestClient.Create();
@@ -259,7 +259,7 @@ namespace Okta.Sdk.IntegrationTests
             exceptionWasThrown.Should().BeTrue();
         }
 
-        [Fact]
+        [Fact(Skip = "Skip until OKTA-491199 is fixed")]
         public async Task GetEmailTemplateCustomization()
         {
             var client = TestClient.Create();
@@ -300,7 +300,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Skip until OKTA-491199 is fixed")]
         public async Task UpdateEmailTemplateCustomization()
         {
             var client = TestClient.Create();
@@ -354,7 +354,7 @@ namespace Okta.Sdk.IntegrationTests
             }
         }
 
-        [Fact]
+        [Fact(Skip = "Skip until OKTA-491199 is fixed")]
         public async Task GetEmailTemplateCustomizationPreview()
         {
             var client = TestClient.Create();
@@ -396,7 +396,7 @@ namespace Okta.Sdk.IntegrationTests
             emailTemplateCustomizationContent.Should().NotBeNull();
         }
 
-        [Fact]
+        [Fact(Skip = "Skip until OKTA-491199 is fixed")]
         public async Task GetEmailTemplateDefaultContentPreview()
         {
             var client = TestClient.Create();

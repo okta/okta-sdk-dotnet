@@ -254,5 +254,10 @@ namespace Okta.Sdk
             string name, CancellationToken cancellationToken = default(CancellationToken))
             => GetClient().Applications.UpdateFeatureForApplicationAsync(capabilities, Id, name, cancellationToken);
         
+        /// <inheritdoc />
+        public Task UpdateApplicationPolicyAsync(
+            string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => GetClient().Applications.UpdateApplicationPolicyAsync(Id, policyId, cancellationToken);
+        
     }
 }

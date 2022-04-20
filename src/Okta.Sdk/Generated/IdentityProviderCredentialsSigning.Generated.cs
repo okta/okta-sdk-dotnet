@@ -23,5 +23,19 @@ namespace Okta.Sdk
             set => this["kid"] = value;
         }
         
+        /// <inheritdoc/>
+        public string PrivateKey 
+        {
+            get => GetStringProperty("privateKey");
+            set => this["privateKey"] = value;
+        }
+        
+        /// <inheritdoc/>
+        public string TeamId 
+        {
+            get => GetStringProperty("teamId");
+            set => this["teamId"] = value;
+        }
+        
     }
 }

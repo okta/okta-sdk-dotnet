@@ -33,6 +33,9 @@ namespace Okta.Sdk
         /// <summary>The YUBIKEY LogCredentialProvider.</summary>
         public static LogCredentialProvider Yubikey = new LogCredentialProvider("YUBIKEY");
 
+        /// <summary>The APPLE LogCredentialProvider.</summary>
+        public static LogCredentialProvider Apple = new LogCredentialProvider("APPLE");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="LogCredentialProvider"/>
         /// </summary>

@@ -36,6 +36,9 @@ namespace Okta.Sdk
         /// <summary>The CUSTOM FactorProvider.</summary>
         public static FactorProvider Custom = new FactorProvider("CUSTOM");
 
+        /// <summary>The APPLE FactorProvider.</summary>
+        public static FactorProvider Apple = new FactorProvider("APPLE");
+
         /// <summary>
         /// Implicit operator declaration to accept and convert a string value as a <see cref="FactorProvider"/>
         /// </summary>
