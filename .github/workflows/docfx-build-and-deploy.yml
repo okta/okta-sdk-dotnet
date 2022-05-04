@@ -26,7 +26,7 @@ jobs:
       #run: choco install --verbose docfx
     
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore src/Okta.Sdk
     
     - name: DocFX Build
       working-directory: docs
