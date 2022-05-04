@@ -20,10 +20,10 @@ jobs:
         dotnet-version: 3.1.24
         
     - name: Setup DocFX
-      # uses: crazy-max/ghaction-chocolatey@v1
-      # with:
-      # args: install docfx
-      run: choco install --verbose docfx
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+       args: install docfx
+      #run: choco install --verbose docfx
     
     - name: Install dependencies
       run: dotnet restore
