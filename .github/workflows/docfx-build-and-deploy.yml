@@ -31,7 +31,7 @@ jobs:
     - name: DocFX Build
       working-directory: docs
       run: docfx docfx.json
-      continue-on-error: false
+      continue-on-error: true
     
     - name: Deploy Docs to Github Pages
       uses: peaceiris/actions-gh-pages@v3
