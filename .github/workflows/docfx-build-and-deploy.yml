@@ -22,7 +22,7 @@ jobs:
     - name: Setup DocFX
       uses: crazy-max/ghaction-chocolatey@v1
       with:
-       args: install docfx
+       args: install docfx --version=2.51
       #run: choco install --verbose docfx
     
     - name: Install dependencies
