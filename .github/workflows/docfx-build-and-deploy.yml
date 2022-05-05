@@ -18,6 +18,12 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.101
+        
+    - name: Setup DocFX
+      uses: crazy-max/ghaction-chocolatey@v1
+      with:
+       args: install docfx --version=2.51
+      #run: choco install --verbose docfx
     
     - name: Install dependencies
       run: dotnet restore src/Okta.Sdk
@@ -29,7 +35,7 @@ jobs:
     
     - name: List files after docs build
       run: dir docs
-    # Publish generated site using GitHub Pages
+
     - name: Deploy Docs to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
