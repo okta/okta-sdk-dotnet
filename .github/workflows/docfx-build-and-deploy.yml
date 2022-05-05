@@ -22,10 +22,11 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/Okta.Sdk
     
-    - uses: nikeee/docfx-action@v1.0.0
-      name: Build Documentation
-      with:
-        args: docs/docfx.json
+    - name: DocFX Build
+      working-directory: docs
+      run: docfx docfx.json
+      continue-on-error: false
+    
     - name: List files after docs build
       run: dir docs
     # Publish generated site using GitHub Pages
