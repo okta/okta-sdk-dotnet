@@ -38,7 +38,7 @@ namespace Okta.Sdk
         private readonly RequestContext _requestContext;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// Initializes a new instance of the OktaClient class.
         /// </summary>
         /// <param name="apiClientConfiguration">
         /// The client configuration. If <c>null</c>, the library will attempt to load
@@ -81,7 +81,7 @@ namespace Okta.Sdk
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// Initializes a new instance of the OktaClient class.
         /// </summary>
         /// <param name="apiClientConfiguration">
         /// The client configuration. If <c>null</c>, the library will attempt to load
@@ -113,7 +113,7 @@ namespace Okta.Sdk
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OktaClient"/> class using the specified <see cref="HttpClient"/>.
+        /// /// Initializes a new instance of the OktaClient class. class using the specified <see cref="HttpClient"/>.
         /// </summary>
         /// <param name="apiClientConfiguration">
         /// The client configuration. If <c>null</c>, the library will attempt to load
@@ -132,7 +132,7 @@ namespace Okta.Sdk
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="OktaClient"/> class.
+        /// Initializes a new instance of the OktaClient class.
         /// </summary>
         /// <param name="dataStore">The <see cref="IDataStore">DataStore</see> to use.</param>
         /// <param name="configuration">The client configuration.</param>
