@@ -1,0 +1,823 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  commentId: T:Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  id: CreateSwaThreeFieldApplicationOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl
+  - Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  langs:
+  - csharp
+  - vb
+  name: CreateSwaThreeFieldApplicationOptions
+  nameWithType: CreateSwaThreeFieldApplicationOptions
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateSwaThreeFieldApplicationOptions
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nHelper class for SWA 3 field application settings\n"
+  example: []
+  syntax:
+    content: public sealed class CreateSwaThreeFieldApplicationOptions
+    content.vb: Public NotInheritable Class CreateSwaThreeFieldApplicationOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label
+  id: Label
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: CreateSwaThreeFieldApplicationOptions.Label
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Label
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a label\n"
+  example: []
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  id: ButtonSelector
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: ButtonSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ButtonSelector
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a button selector\n"
+  example: []
+  syntax:
+    content: public string ButtonSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ButtonSelector As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  id: PasswordSelector
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: PasswordSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PasswordSelector
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a password selector\n"
+  example: []
+  syntax:
+    content: public string PasswordSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PasswordSelector As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  id: UserNameSelector
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: UserNameSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserNameSelector
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a username selector\n"
+  example: []
+  syntax:
+    content: public string UserNameSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserNameSelector As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl
+  id: TargetUrl
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: TargetUrl
+  nameWithType: CreateSwaThreeFieldApplicationOptions.TargetUrl
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: TargetUrl
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a target url\n"
+  example: []
+  syntax:
+    content: public string TargetUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property TargetUrl As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  id: ExtraFieldSelector
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: ExtraFieldSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExtraFieldSelector
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an extra field selector\n"
+  example: []
+  syntax:
+    content: public string ExtraFieldSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExtraFieldSelector As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  id: ExtraFieldValue
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: ExtraFieldValue
+  nameWithType: CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExtraFieldValue
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an extra field value\n"
+  example: []
+  syntax:
+    content: public string ExtraFieldValue { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ExtraFieldValue As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  id: LoginUrlRegex
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: LoginUrlRegex
+  nameWithType: CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LoginUrlRegex
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 50
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a login url regex\n"
+  example: []
+  syntax:
+    content: public string LoginUrlRegex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property LoginUrlRegex As String
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate
+  commentId: P:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate
+  id: Activate
+  parent: Okta.Sdk.CreateSwaThreeFieldApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Activate
+  nameWithType: CreateSwaThreeFieldApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Activate
+    path: ../src/Okta.Sdk/CreateSwaThreeFieldApplicationOptions.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an activate flag value\n"
+  example: []
+  syntax:
+    content: public bool? Activate { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property Activate As Boolean?
+  overload: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label
+  name: Label
+  nameWithType: CreateSwaThreeFieldApplicationOptions.Label
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  name: ButtonSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.ButtonSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ButtonSelector
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  name: PasswordSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.PasswordSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.PasswordSelector
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  name: UserNameSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.UserNameSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.UserNameSelector
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl
+  name: TargetUrl
+  nameWithType: CreateSwaThreeFieldApplicationOptions.TargetUrl
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.TargetUrl
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  name: ExtraFieldSelector
+  nameWithType: CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldSelector
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  name: ExtraFieldValue
+  nameWithType: CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.ExtraFieldValue
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  name: LoginUrlRegex
+  nameWithType: CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.LoginUrlRegex
+- uid: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate*
+  commentId: Overload:Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate
+  name: Activate
+  nameWithType: CreateSwaThreeFieldApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateSwaThreeFieldApplicationOptions.Activate
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

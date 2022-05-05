@@ -1,0 +1,596 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IProvisioningConnectionProfile
+  commentId: T:Okta.Sdk.IProvisioningConnectionProfile
+  id: IProvisioningConnectionProfile
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IProvisioningConnectionProfile.AuthScheme
+  - Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(Okta.Sdk.IProvisioningConnectionRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Okta.Sdk.IProvisioningConnectionProfile.Token
+  langs:
+  - csharp
+  - vb
+  name: IProvisioningConnectionProfile
+  nameWithType: IProvisioningConnectionProfile
+  fullName: Okta.Sdk.IProvisioningConnectionProfile
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IProvisioningConnectionProfile
+    path: ../src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a ProvisioningConnectionProfile resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IProvisioningConnectionProfile : IResource'
+    content.vb: >-
+      Public Interface IProvisioningConnectionProfile
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IProvisioningConnectionProfile.AuthScheme
+  commentId: P:Okta.Sdk.IProvisioningConnectionProfile.AuthScheme
+  id: AuthScheme
+  parent: Okta.Sdk.IProvisioningConnectionProfile
+  langs:
+  - csharp
+  - vb
+  name: AuthScheme
+  nameWithType: IProvisioningConnectionProfile.AuthScheme
+  fullName: Okta.Sdk.IProvisioningConnectionProfile.AuthScheme
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthScheme
+    path: ../src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ProvisioningConnectionAuthScheme AuthScheme { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ProvisioningConnectionAuthScheme
+    content.vb: Property AuthScheme As ProvisioningConnectionAuthScheme
+  overload: Okta.Sdk.IProvisioningConnectionProfile.AuthScheme*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProvisioningConnectionProfile.Token
+  commentId: P:Okta.Sdk.IProvisioningConnectionProfile.Token
+  id: Token
+  parent: Okta.Sdk.IProvisioningConnectionProfile
+  langs:
+  - csharp
+  - vb
+  name: Token
+  nameWithType: IProvisioningConnectionProfile.Token
+  fullName: Okta.Sdk.IProvisioningConnectionProfile.Token
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Token
+    path: ../src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Token { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Token As String
+  overload: Okta.Sdk.IProvisioningConnectionProfile.Token*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(Okta.Sdk.IProvisioningConnectionRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(Okta.Sdk.IProvisioningConnectionRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: SetDefaultProvisioningConnectionForApplicationAsync(Okta.Sdk.IProvisioningConnectionRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IProvisioningConnectionProfile
+  langs:
+  - csharp
+  - vb
+  name: SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest, String, Nullable<Boolean>, CancellationToken)
+  nameWithType: IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest, String, Nullable<Boolean>, CancellationToken)
+  fullName: Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(Okta.Sdk.IProvisioningConnectionRequest, System.String, System.Nullable<System.Boolean>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SetDefaultProvisioningConnectionForApplicationAsync
+    path: ../src/Okta.Sdk/Generated/IProvisioningConnectionProfile.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest profile, string appId, bool? activate = null, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: profile
+      type: Okta.Sdk.IProvisioningConnectionRequest
+    - id: appId
+      type: System.String
+    - id: activate
+      type: System.Nullable{System.Boolean}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IProvisioningConnection}
+    content.vb: Function SetDefaultProvisioningConnectionForApplicationAsync(profile As IProvisioningConnectionRequest, appId As String, activate As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of IProvisioningConnection)
+  overload: Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync*
+  nameWithType.vb: IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest, String, Nullable(Of Boolean), CancellationToken)
+  fullName.vb: Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync(Okta.Sdk.IProvisioningConnectionRequest, System.String, System.Nullable(Of System.Boolean), System.Threading.CancellationToken)
+  name.vb: SetDefaultProvisioningConnectionForApplicationAsync(IProvisioningConnectionRequest, String, Nullable(Of Boolean), CancellationToken)
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IProvisioningConnectionProfile.AuthScheme*
+  commentId: Overload:Okta.Sdk.IProvisioningConnectionProfile.AuthScheme
+  name: AuthScheme
+  nameWithType: IProvisioningConnectionProfile.AuthScheme
+  fullName: Okta.Sdk.IProvisioningConnectionProfile.AuthScheme
+- uid: Okta.Sdk.ProvisioningConnectionAuthScheme
+  commentId: T:Okta.Sdk.ProvisioningConnectionAuthScheme
+  parent: Okta.Sdk
+  name: ProvisioningConnectionAuthScheme
+  nameWithType: ProvisioningConnectionAuthScheme
+  fullName: Okta.Sdk.ProvisioningConnectionAuthScheme
+- uid: Okta.Sdk.IProvisioningConnectionProfile.Token*
+  commentId: Overload:Okta.Sdk.IProvisioningConnectionProfile.Token
+  name: Token
+  nameWithType: IProvisioningConnectionProfile.Token
+  fullName: Okta.Sdk.IProvisioningConnectionProfile.Token
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync*
+  commentId: Overload:Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync
+  name: SetDefaultProvisioningConnectionForApplicationAsync
+  nameWithType: IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync
+  fullName: Okta.Sdk.IProvisioningConnectionProfile.SetDefaultProvisioningConnectionForApplicationAsync
+- uid: Okta.Sdk.IProvisioningConnectionRequest
+  commentId: T:Okta.Sdk.IProvisioningConnectionRequest
+  parent: Okta.Sdk
+  name: IProvisioningConnectionRequest
+  nameWithType: IProvisioningConnectionRequest
+  fullName: Okta.Sdk.IProvisioningConnectionRequest
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IProvisioningConnection}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IProvisioningConnection}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IProvisioningConnection>
+  nameWithType: Task<IProvisioningConnection>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IProvisioningConnection>
+  nameWithType.vb: Task(Of IProvisioningConnection)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IProvisioningConnection)
+  name.vb: Task(Of IProvisioningConnection)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IProvisioningConnection
+    name: IProvisioningConnection
+    nameWithType: IProvisioningConnection
+    fullName: Okta.Sdk.IProvisioningConnection
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IProvisioningConnection
+    name: IProvisioningConnection
+    nameWithType: IProvisioningConnection
+    fullName: Okta.Sdk.IProvisioningConnection
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

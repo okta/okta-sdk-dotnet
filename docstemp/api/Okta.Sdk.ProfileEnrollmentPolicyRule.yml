@@ -1,0 +1,1243 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ProfileEnrollmentPolicyRule
+  commentId: T:Okta.Sdk.ProfileEnrollmentPolicyRule
+  id: ProfileEnrollmentPolicyRule
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ProfileEnrollmentPolicyRule.Actions
+  - Okta.Sdk.ProfileEnrollmentPolicyRule.Name
+  langs:
+  - csharp
+  - vb
+  name: ProfileEnrollmentPolicyRule
+  nameWithType: ProfileEnrollmentPolicyRule
+  fullName: Okta.Sdk.ProfileEnrollmentPolicyRule
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ProfileEnrollmentPolicyRule.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ProfileEnrollmentPolicyRule
+    path: ../src/Okta.Sdk/Generated/ProfileEnrollmentPolicyRule.Generated.cs
+    startLine: 16
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: 'public sealed class ProfileEnrollmentPolicyRule : PolicyRule, IProfileEnrollmentPolicyRule, IPolicyRule, IResource'
+    content.vb: >-
+      Public NotInheritable Class ProfileEnrollmentPolicyRule
+
+          Inherits PolicyRule
+
+          Implements IProfileEnrollmentPolicyRule, IPolicyRule, IResource
+  inheritance:
+  - System.Object
+  - Okta.Sdk.Resource
+  - Okta.Sdk.PolicyRule
+  implements:
+  - Okta.Sdk.IProfileEnrollmentPolicyRule
+  - Okta.Sdk.IPolicyRule
+  - Okta.Sdk.IResource
+  inheritedMembers:
+  - Okta.Sdk.PolicyRule.Conditions
+  - Okta.Sdk.PolicyRule.Created
+  - Okta.Sdk.PolicyRule.Id
+  - Okta.Sdk.PolicyRule.LastUpdated
+  - Okta.Sdk.PolicyRule.Priority
+  - Okta.Sdk.PolicyRule.Status
+  - Okta.Sdk.PolicyRule.System
+  - Okta.Sdk.PolicyRule.Type
+  - Okta.Sdk.PolicyRule.ActivateAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.PolicyRule.DeactivateAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.Resource.GetClient
+  - Okta.Sdk.Resource.GetData
+  - Okta.Sdk.Resource.Item(System.String)
+  - Okta.Sdk.Resource.GetProperty``1(System.String)
+  - Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.Resource.GetStringProperty(System.String)
+  - Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  - Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  - Okta.Sdk.Resource.GetLongProperty(System.String)
+  - Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  - Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  - Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  - Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.ProfileEnrollmentPolicyRule.Actions
+  commentId: P:Okta.Sdk.ProfileEnrollmentPolicyRule.Actions
+  id: Actions
+  parent: Okta.Sdk.ProfileEnrollmentPolicyRule
+  langs:
+  - csharp
+  - vb
+  name: Actions
+  nameWithType: ProfileEnrollmentPolicyRule.Actions
+  fullName: Okta.Sdk.ProfileEnrollmentPolicyRule.Actions
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ProfileEnrollmentPolicyRule.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Actions
+    path: ../src/Okta.Sdk/Generated/ProfileEnrollmentPolicyRule.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IProfileEnrollmentPolicyRuleActions Actions { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProfileEnrollmentPolicyRuleActions
+    content.vb: Public Property Actions As IProfileEnrollmentPolicyRuleActions
+  overload: Okta.Sdk.ProfileEnrollmentPolicyRule.Actions*
+  implements:
+  - Okta.Sdk.IProfileEnrollmentPolicyRule.Actions
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.ProfileEnrollmentPolicyRule.Name
+  commentId: P:Okta.Sdk.ProfileEnrollmentPolicyRule.Name
+  id: Name
+  parent: Okta.Sdk.ProfileEnrollmentPolicyRule
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ProfileEnrollmentPolicyRule.Name
+  fullName: Okta.Sdk.ProfileEnrollmentPolicyRule.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ProfileEnrollmentPolicyRule.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/ProfileEnrollmentPolicyRule.Generated.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Okta.Sdk.ProfileEnrollmentPolicyRule.Name*
+  implements:
+  - Okta.Sdk.IProfileEnrollmentPolicyRule.Name
+  - Okta.Sdk.IPolicyRule.Name
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource
+- uid: Okta.Sdk.PolicyRule
+  commentId: T:Okta.Sdk.PolicyRule
+  parent: Okta.Sdk
+  name: PolicyRule
+  nameWithType: PolicyRule
+  fullName: Okta.Sdk.PolicyRule
+- uid: Okta.Sdk.IProfileEnrollmentPolicyRule
+  commentId: T:Okta.Sdk.IProfileEnrollmentPolicyRule
+  parent: Okta.Sdk
+  name: IProfileEnrollmentPolicyRule
+  nameWithType: IProfileEnrollmentPolicyRule
+  fullName: Okta.Sdk.IProfileEnrollmentPolicyRule
+- uid: Okta.Sdk.IPolicyRule
+  commentId: T:Okta.Sdk.IPolicyRule
+  parent: Okta.Sdk
+  name: IPolicyRule
+  nameWithType: IPolicyRule
+  fullName: Okta.Sdk.IPolicyRule
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.PolicyRule.Conditions
+  commentId: P:Okta.Sdk.PolicyRule.Conditions
+  parent: Okta.Sdk.PolicyRule
+  name: Conditions
+  nameWithType: PolicyRule.Conditions
+  fullName: Okta.Sdk.PolicyRule.Conditions
+- uid: Okta.Sdk.PolicyRule.Created
+  commentId: P:Okta.Sdk.PolicyRule.Created
+  parent: Okta.Sdk.PolicyRule
+  name: Created
+  nameWithType: PolicyRule.Created
+  fullName: Okta.Sdk.PolicyRule.Created
+- uid: Okta.Sdk.PolicyRule.Id
+  commentId: P:Okta.Sdk.PolicyRule.Id
+  parent: Okta.Sdk.PolicyRule
+  name: Id
+  nameWithType: PolicyRule.Id
+  fullName: Okta.Sdk.PolicyRule.Id
+- uid: Okta.Sdk.PolicyRule.LastUpdated
+  commentId: P:Okta.Sdk.PolicyRule.LastUpdated
+  parent: Okta.Sdk.PolicyRule
+  name: LastUpdated
+  nameWithType: PolicyRule.LastUpdated
+  fullName: Okta.Sdk.PolicyRule.LastUpdated
+- uid: Okta.Sdk.PolicyRule.Priority
+  commentId: P:Okta.Sdk.PolicyRule.Priority
+  parent: Okta.Sdk.PolicyRule
+  name: Priority
+  nameWithType: PolicyRule.Priority
+  fullName: Okta.Sdk.PolicyRule.Priority
+- uid: Okta.Sdk.PolicyRule.Status
+  commentId: P:Okta.Sdk.PolicyRule.Status
+  parent: Okta.Sdk.PolicyRule
+  name: Status
+  nameWithType: PolicyRule.Status
+  fullName: Okta.Sdk.PolicyRule.Status
+- uid: Okta.Sdk.PolicyRule.System
+  commentId: P:Okta.Sdk.PolicyRule.System
+  parent: Okta.Sdk.PolicyRule
+  name: System
+  nameWithType: PolicyRule.System
+  fullName: Okta.Sdk.PolicyRule.System
+- uid: Okta.Sdk.PolicyRule.Type
+  commentId: P:Okta.Sdk.PolicyRule.Type
+  parent: Okta.Sdk.PolicyRule
+  name: Type
+  nameWithType: PolicyRule.Type
+  fullName: Okta.Sdk.PolicyRule.Type
+- uid: Okta.Sdk.PolicyRule.ActivateAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.PolicyRule.ActivateAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.PolicyRule
+  isExternal: true
+  name: ActivateAsync(String, CancellationToken)
+  nameWithType: PolicyRule.ActivateAsync(String, CancellationToken)
+  fullName: Okta.Sdk.PolicyRule.ActivateAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.PolicyRule.ActivateAsync(System.String,System.Threading.CancellationToken)
+    name: ActivateAsync
+    nameWithType: PolicyRule.ActivateAsync
+    fullName: Okta.Sdk.PolicyRule.ActivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.PolicyRule.ActivateAsync(System.String,System.Threading.CancellationToken)
+    name: ActivateAsync
+    nameWithType: PolicyRule.ActivateAsync
+    fullName: Okta.Sdk.PolicyRule.ActivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.PolicyRule.DeactivateAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.PolicyRule.DeactivateAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.PolicyRule
+  isExternal: true
+  name: DeactivateAsync(String, CancellationToken)
+  nameWithType: PolicyRule.DeactivateAsync(String, CancellationToken)
+  fullName: Okta.Sdk.PolicyRule.DeactivateAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.PolicyRule.DeactivateAsync(System.String,System.Threading.CancellationToken)
+    name: DeactivateAsync
+    nameWithType: PolicyRule.DeactivateAsync
+    fullName: Okta.Sdk.PolicyRule.DeactivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.PolicyRule.DeactivateAsync(System.String,System.Threading.CancellationToken)
+    name: DeactivateAsync
+    nameWithType: PolicyRule.DeactivateAsync
+    fullName: Okta.Sdk.PolicyRule.DeactivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetClient
+  commentId: M:Okta.Sdk.Resource.GetClient
+  parent: Okta.Sdk.Resource
+  name: GetClient()
+  nameWithType: Resource.GetClient()
+  fullName: Okta.Sdk.Resource.GetClient()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetData
+  commentId: M:Okta.Sdk.Resource.GetData
+  parent: Okta.Sdk.Resource
+  name: GetData()
+  nameWithType: Resource.GetData()
+  fullName: Okta.Sdk.Resource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.Item(System.String)
+  commentId: P:Okta.Sdk.Resource.Item(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: Item[String]
+  nameWithType: Resource.Item[String]
+  fullName: Okta.Sdk.Resource.Item[System.String]
+  nameWithType.vb: Resource.Item(String)
+  fullName.vb: Okta.Sdk.Resource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: Resource.GetProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetProperty<T>(System.String)
+  nameWithType.vb: Resource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: Resource.GetProperty<T>
+    fullName: Okta.Sdk.Resource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: Resource.GetProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: Resource.SetProperty(String, Object)
+  fullName: Okta.Sdk.Resource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetStringProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetStringProperty(String)
+  nameWithType: Resource.GetStringProperty(String)
+  fullName: Okta.Sdk.Resource.GetStringProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetBooleanProperty(String)
+  nameWithType: Resource.GetBooleanProperty(String)
+  fullName: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetIntegerProperty(String)
+  nameWithType: Resource.GetIntegerProperty(String)
+  fullName: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetLongProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetLongProperty(String)
+  nameWithType: Resource.GetLongProperty(String)
+  fullName: Okta.Sdk.Resource.GetLongProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDoubleProperty(String)
+  nameWithType: Resource.GetDoubleProperty(String)
+  fullName: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDateTimeProperty(String)
+  nameWithType: Resource.GetDateTimeProperty(String)
+  fullName: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: Resource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: Resource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: Resource.GetArrayProperty<T>
+    fullName: Okta.Sdk.Resource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: Resource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetEnumProperty<TEnum>(String)
+  nameWithType: Resource.GetEnumProperty<TEnum>(String)
+  fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>(System.String)
+  nameWithType.vb: Resource.GetEnumProperty(Of TEnum)(String)
+  fullName.vb: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)(System.String)
+  name.vb: GetEnumProperty(Of TEnum)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty<TEnum>
+    nameWithType: Resource.GetEnumProperty<TEnum>
+    fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty(Of TEnum)
+    nameWithType: Resource.GetEnumProperty(Of TEnum)
+    fullName: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetResourceProperty<T>(String)
+  nameWithType: Resource.GetResourceProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetResourceProperty<T>(System.String)
+  nameWithType.vb: Resource.GetResourceProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetResourceProperty(Of T)(System.String)
+  name.vb: GetResourceProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty<T>
+    nameWithType: Resource.GetResourceProperty<T>
+    fullName: Okta.Sdk.Resource.GetResourceProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty(Of T)
+    nameWithType: Resource.GetResourceProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetResourceProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ProfileEnrollmentPolicyRule.Actions*
+  commentId: Overload:Okta.Sdk.ProfileEnrollmentPolicyRule.Actions
+  name: Actions
+  nameWithType: ProfileEnrollmentPolicyRule.Actions
+  fullName: Okta.Sdk.ProfileEnrollmentPolicyRule.Actions
+- uid: Okta.Sdk.IProfileEnrollmentPolicyRule.Actions
+  commentId: P:Okta.Sdk.IProfileEnrollmentPolicyRule.Actions
+  parent: Okta.Sdk.IProfileEnrollmentPolicyRule
+  name: Actions
+  nameWithType: IProfileEnrollmentPolicyRule.Actions
+  fullName: Okta.Sdk.IProfileEnrollmentPolicyRule.Actions
+- uid: Okta.Sdk.IProfileEnrollmentPolicyRuleActions
+  commentId: T:Okta.Sdk.IProfileEnrollmentPolicyRuleActions
+  parent: Okta.Sdk
+  name: IProfileEnrollmentPolicyRuleActions
+  nameWithType: IProfileEnrollmentPolicyRuleActions
+  fullName: Okta.Sdk.IProfileEnrollmentPolicyRuleActions
+- uid: Okta.Sdk.ProfileEnrollmentPolicyRule.Name*
+  commentId: Overload:Okta.Sdk.ProfileEnrollmentPolicyRule.Name
+  name: Name
+  nameWithType: ProfileEnrollmentPolicyRule.Name
+  fullName: Okta.Sdk.ProfileEnrollmentPolicyRule.Name
+- uid: Okta.Sdk.IProfileEnrollmentPolicyRule.Name
+  commentId: P:Okta.Sdk.IProfileEnrollmentPolicyRule.Name
+  parent: Okta.Sdk.IProfileEnrollmentPolicyRule
+  name: Name
+  nameWithType: IProfileEnrollmentPolicyRule.Name
+  fullName: Okta.Sdk.IProfileEnrollmentPolicyRule.Name
+- uid: Okta.Sdk.IPolicyRule.Name
+  commentId: P:Okta.Sdk.IPolicyRule.Name
+  parent: Okta.Sdk.IPolicyRule
+  name: Name
+  nameWithType: IPolicyRule.Name
+  fullName: Okta.Sdk.IPolicyRule.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

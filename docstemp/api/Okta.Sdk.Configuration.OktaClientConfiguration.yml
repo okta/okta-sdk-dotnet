@@ -1,0 +1,1396 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration
+  commentId: T:Okta.Sdk.Configuration.OktaClientConfiguration
+  id: OktaClientConfiguration
+  parent: Okta.Sdk.Configuration
+  children:
+  - Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode
+  - Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken
+  - Okta.Sdk.Configuration.OktaClientConfiguration.ClientId
+  - Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout
+  - Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone
+  - Okta.Sdk.Configuration.OktaClientConfiguration.DefaultConnectionTimeout
+  - Okta.Sdk.Configuration.OktaClientConfiguration.DefaultMaxRetries
+  - Okta.Sdk.Configuration.OktaClientConfiguration.DefaultRequestTimeout
+  - Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck
+  - Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries
+  - Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain
+  - Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey
+  - Okta.Sdk.Configuration.OktaClientConfiguration.Proxy
+  - Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout
+  - Okta.Sdk.Configuration.OktaClientConfiguration.Scopes
+  - Okta.Sdk.Configuration.OktaClientConfiguration.Token
+  langs:
+  - csharp
+  - vb
+  name: OktaClientConfiguration
+  nameWithType: OktaClientConfiguration
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OktaClientConfiguration
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 14
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nConfiguration for an <xref href=\"Okta.Sdk.IOktaClient?text=OktaClient\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: 'public sealed class OktaClientConfiguration : IDeepCloneable<OktaClientConfiguration>'
+    content.vb: >-
+      Public NotInheritable Class OktaClientConfiguration
+
+          Implements IDeepCloneable(Of OktaClientConfiguration)
+  inheritance:
+  - System.Object
+  implements:
+  - Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DefaultConnectionTimeout
+  commentId: F:Okta.Sdk.Configuration.OktaClientConfiguration.DefaultConnectionTimeout
+  id: DefaultConnectionTimeout
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DefaultConnectionTimeout
+  nameWithType: OktaClientConfiguration.DefaultConnectionTimeout
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DefaultConnectionTimeout
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DefaultConnectionTimeout
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nThe default HTTP connection timeout in seconds.\n"
+  example: []
+  syntax:
+    content: public const int DefaultConnectionTimeout = 30
+    return:
+      type: System.Int32
+    content.vb: Public Const DefaultConnectionTimeout As Integer = 30
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DefaultMaxRetries
+  commentId: F:Okta.Sdk.Configuration.OktaClientConfiguration.DefaultMaxRetries
+  id: DefaultMaxRetries
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DefaultMaxRetries
+  nameWithType: OktaClientConfiguration.DefaultMaxRetries
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DefaultMaxRetries
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DefaultMaxRetries
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nThe default number of times to retry\n"
+  example: []
+  syntax:
+    content: public const int DefaultMaxRetries = 2
+    return:
+      type: System.Int32
+    content.vb: Public Const DefaultMaxRetries As Integer = 2
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DefaultRequestTimeout
+  commentId: F:Okta.Sdk.Configuration.OktaClientConfiguration.DefaultRequestTimeout
+  id: DefaultRequestTimeout
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DefaultRequestTimeout
+  nameWithType: OktaClientConfiguration.DefaultRequestTimeout
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DefaultRequestTimeout
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DefaultRequestTimeout
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nThe default request timeout in seconds\n"
+  example: []
+  syntax:
+    content: public const int DefaultRequestTimeout = 0
+    return:
+      type: System.Int32
+    content.vb: Public Const DefaultRequestTimeout As Integer = 0
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout
+  id: ConnectionTimeout
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ConnectionTimeout
+  nameWithType: OktaClientConfiguration.ConnectionTimeout
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ConnectionTimeout
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the HTTP connection timeout in seconds. If <code>null</code>, the default timeout is used.\n"
+  example: []
+  syntax:
+    content: public int? ConnectionTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+      description: "\nThe HTTP connection timeout in seconds.\n"
+    content.vb: Public Property ConnectionTimeout As Integer?
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout
+  id: RequestTimeout
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: RequestTimeout
+  nameWithType: OktaClientConfiguration.RequestTimeout
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RequestTimeout
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means &quot;no timeout&quot;.\n"
+  example: []
+  syntax:
+    content: public int? RequestTimeout { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+      description: "\nThe request timeout in seconds.\n"
+    content.vb: Public Property RequestTimeout As Integer?
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries
+  id: MaxRetries
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: MaxRetries
+  nameWithType: OktaClientConfiguration.MaxRetries
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MaxRetries
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the number of times to retry\n"
+  example: []
+  syntax:
+    content: public int? MaxRetries { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+      description: "\nThe number of times to retry\n"
+    content.vb: Public Property MaxRetries As Integer?
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain
+  id: OktaDomain
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: OktaDomain
+  nameWithType: OktaClientConfiguration.OktaDomain
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OktaDomain
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 66
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the Okta Organization URL to use.\n"
+  remarks: "\nThis URL is typically in the form <code>https://dev-12345.oktapreview.com</code>. If your Okta domain includes <code>-admin</code>, remove it.\n"
+  example: []
+  syntax:
+    content: public string OktaDomain { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe Okta Organization URL to use.\n"
+    content.vb: Public Property OktaDomain As String
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.Proxy
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.Proxy
+  id: Proxy
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Proxy
+  nameWithType: OktaClientConfiguration.Proxy
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.Proxy
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Proxy
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 74
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the optional proxy to use for HTTP connections. If <code>null</code>, the default system proxy is used, if any.\n"
+  example: []
+  syntax:
+    content: public ProxyConfiguration Proxy { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.Configuration.ProxyConfiguration
+      description: "\nThe proxy to use for HTTP connections.\n"
+    content.vb: Public Property Proxy As ProxyConfiguration
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.Proxy*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.Token
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.Token
+  id: Token
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Token
+  nameWithType: OktaClientConfiguration.Token
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.Token
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Token
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 83
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the Okta API token.\n"
+  remarks: An API token can be generated from the Okta developer dashboard.
+  example: []
+  syntax:
+    content: public string Token { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe Okta API token.\n"
+    content.vb: Public Property Token As String
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.Token*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck
+  id: DisableHttpsCheck
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DisableHttpsCheck
+  nameWithType: OktaClientConfiguration.DisableHttpsCheck
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DisableHttpsCheck
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 89
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the flag to disable https check.\nThis allows for insecure configurations and is NOT recommended for production use.\n"
+  example: []
+  syntax:
+    content: public bool DisableHttpsCheck { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property DisableHttpsCheck As Boolean
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode
+  id: AuthorizationMode
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationMode
+  nameWithType: OktaClientConfiguration.AuthorizationMode
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthorizationMode
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 110
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the authorization mode.\n"
+  example: []
+  syntax:
+    content: public AuthorizationMode AuthorizationMode { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.Configuration.AuthorizationMode
+    content.vb: Public Property AuthorizationMode As AuthorizationMode
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey
+  id: PrivateKey
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: PrivateKey
+  nameWithType: OktaClientConfiguration.PrivateKey
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PrivateKey
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 115
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the private key. Required when AuthorizationMode is equal to PrivateKey.\n"
+  example: []
+  syntax:
+    content: public JsonWebKeyConfiguration PrivateKey { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.Configuration.JsonWebKeyConfiguration
+    content.vb: Public Property PrivateKey As JsonWebKeyConfiguration
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.ClientId
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.ClientId
+  id: ClientId
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: ClientId
+  nameWithType: OktaClientConfiguration.ClientId
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.ClientId
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ClientId
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 120
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the client id. Required when AuthorizationMode is equal to PrivateKey.\n"
+  example: []
+  syntax:
+    content: public string ClientId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ClientId As String
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.ClientId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.Scopes
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.Scopes
+  id: Scopes
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: Scopes
+  nameWithType: OktaClientConfiguration.Scopes
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.Scopes
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Scopes
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 125
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the Okta scopes\n"
+  example: []
+  syntax:
+    content: public List<string> Scopes { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.List{System.String}
+    content.vb: Public Property Scopes As List(Of String)
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.Scopes*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken
+  commentId: P:Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken
+  id: BearerToken
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: BearerToken
+  nameWithType: OktaClientConfiguration.BearerToken
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: BearerToken
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 130
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  summary: "\nGets or sets the OAuth Access Token to use. For AuthorizationMode set to <xref href=\"Okta.Sdk.Configuration.AuthorizationMode.BearerToken\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: public string BearerToken { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property BearerToken As String
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone
+  commentId: M:Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone
+  id: DeepClone
+  parent: Okta.Sdk.Configuration.OktaClientConfiguration
+  langs:
+  - csharp
+  - vb
+  name: DeepClone()
+  nameWithType: OktaClientConfiguration.DeepClone()
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeepClone
+    path: ../src/Okta.Sdk/Configuration/OktaClientConfiguration.cs
+    startLine: 133
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Configuration
+  example: []
+  syntax:
+    content: public OktaClientConfiguration DeepClone()
+    return:
+      type: Okta.Sdk.Configuration.OktaClientConfiguration
+    content.vb: Public Function DeepClone As OktaClientConfiguration
+  overload: Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone*
+  implements:
+  - Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}.DeepClone
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk.IOktaClient
+  commentId: T:Okta.Sdk.IOktaClient
+  parent: Okta.Sdk
+  name: IOktaClient
+  nameWithType: IOktaClient
+  fullName: Okta.Sdk.IOktaClient
+- uid: Okta.Sdk.Configuration
+  commentId: N:Okta.Sdk.Configuration
+  name: Okta.Sdk.Configuration
+  nameWithType: Okta.Sdk.Configuration
+  fullName: Okta.Sdk.Configuration
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}
+  commentId: T:Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}
+  parent: Okta.Sdk.Internal
+  definition: Okta.Sdk.Internal.IDeepCloneable`1
+  name: IDeepCloneable<OktaClientConfiguration>
+  nameWithType: IDeepCloneable<OktaClientConfiguration>
+  fullName: Okta.Sdk.Internal.IDeepCloneable<Okta.Sdk.Configuration.OktaClientConfiguration>
+  nameWithType.vb: IDeepCloneable(Of OktaClientConfiguration)
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of Okta.Sdk.Configuration.OktaClientConfiguration)
+  name.vb: IDeepCloneable(Of OktaClientConfiguration)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1
+    name: IDeepCloneable
+    nameWithType: IDeepCloneable
+    fullName: Okta.Sdk.Internal.IDeepCloneable
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.Configuration.OktaClientConfiguration
+    name: OktaClientConfiguration
+    nameWithType: OktaClientConfiguration
+    fullName: Okta.Sdk.Configuration.OktaClientConfiguration
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1
+    name: IDeepCloneable
+    nameWithType: IDeepCloneable
+    fullName: Okta.Sdk.Internal.IDeepCloneable
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.Configuration.OktaClientConfiguration
+    name: OktaClientConfiguration
+    nameWithType: OktaClientConfiguration
+    fullName: Okta.Sdk.Configuration.OktaClientConfiguration
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.Internal.IDeepCloneable`1
+  commentId: T:Okta.Sdk.Internal.IDeepCloneable`1
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Okta.Sdk.Internal.IDeepCloneable<T>
+  nameWithType.vb: IDeepCloneable(Of T)
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1
+    name: IDeepCloneable
+    nameWithType: IDeepCloneable
+    fullName: Okta.Sdk.Internal.IDeepCloneable
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1
+    name: IDeepCloneable
+    nameWithType: IDeepCloneable
+    fullName: Okta.Sdk.Internal.IDeepCloneable
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: System.Int32
+  commentId: T:System.Int32
+  parent: System
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout
+  name: ConnectionTimeout
+  nameWithType: OktaClientConfiguration.ConnectionTimeout
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.ConnectionTimeout
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout
+  name: RequestTimeout
+  nameWithType: OktaClientConfiguration.RequestTimeout
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.RequestTimeout
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries
+  name: MaxRetries
+  nameWithType: OktaClientConfiguration.MaxRetries
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.MaxRetries
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain
+  name: OktaDomain
+  nameWithType: OktaClientConfiguration.OktaDomain
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.OktaDomain
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.Proxy*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.Proxy
+  name: Proxy
+  nameWithType: OktaClientConfiguration.Proxy
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.Proxy
+- uid: Okta.Sdk.Configuration.ProxyConfiguration
+  commentId: T:Okta.Sdk.Configuration.ProxyConfiguration
+  parent: Okta.Sdk.Configuration
+  name: ProxyConfiguration
+  nameWithType: ProxyConfiguration
+  fullName: Okta.Sdk.Configuration.ProxyConfiguration
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.Token*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.Token
+  name: Token
+  nameWithType: OktaClientConfiguration.Token
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.Token
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck
+  name: DisableHttpsCheck
+  nameWithType: OktaClientConfiguration.DisableHttpsCheck
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DisableHttpsCheck
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode
+  name: AuthorizationMode
+  nameWithType: OktaClientConfiguration.AuthorizationMode
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.AuthorizationMode
+- uid: Okta.Sdk.Configuration.AuthorizationMode
+  commentId: T:Okta.Sdk.Configuration.AuthorizationMode
+  parent: Okta.Sdk.Configuration
+  name: AuthorizationMode
+  nameWithType: AuthorizationMode
+  fullName: Okta.Sdk.Configuration.AuthorizationMode
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey
+  name: PrivateKey
+  nameWithType: OktaClientConfiguration.PrivateKey
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.PrivateKey
+- uid: Okta.Sdk.Configuration.JsonWebKeyConfiguration
+  commentId: T:Okta.Sdk.Configuration.JsonWebKeyConfiguration
+  parent: Okta.Sdk.Configuration
+  name: JsonWebKeyConfiguration
+  nameWithType: JsonWebKeyConfiguration
+  fullName: Okta.Sdk.Configuration.JsonWebKeyConfiguration
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.ClientId*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.ClientId
+  name: ClientId
+  nameWithType: OktaClientConfiguration.ClientId
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.ClientId
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.Scopes*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.Scopes
+  name: Scopes
+  nameWithType: OktaClientConfiguration.Scopes
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.Scopes
+- uid: System.Collections.Generic.List{System.String}
+  commentId: T:System.Collections.Generic.List{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.List`1
+  name: List<String>
+  nameWithType: List<String>
+  fullName: System.Collections.Generic.List<System.String>
+  nameWithType.vb: List(Of String)
+  fullName.vb: System.Collections.Generic.List(Of System.String)
+  name.vb: List(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.List`1
+  commentId: T:System.Collections.Generic.List`1
+  isExternal: true
+  name: List<T>
+  nameWithType: List<T>
+  fullName: System.Collections.Generic.List<T>
+  nameWithType.vb: List(Of T)
+  fullName.vb: System.Collections.Generic.List(Of T)
+  name.vb: List(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.List`1
+    name: List
+    nameWithType: List
+    fullName: System.Collections.Generic.List
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.Configuration.AuthorizationMode.BearerToken
+  commentId: F:Okta.Sdk.Configuration.AuthorizationMode.BearerToken
+  isExternal: true
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken
+  name: BearerToken
+  nameWithType: OktaClientConfiguration.BearerToken
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.BearerToken
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone*
+  commentId: Overload:Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone
+  name: DeepClone
+  nameWithType: OktaClientConfiguration.DeepClone
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration.DeepClone
+- uid: Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}.DeepClone
+  commentId: M:Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}.DeepClone
+  parent: Okta.Sdk.Internal.IDeepCloneable{Okta.Sdk.Configuration.OktaClientConfiguration}
+  definition: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  name: DeepClone()
+  nameWithType: IDeepCloneable<OktaClientConfiguration>.DeepClone()
+  fullName: Okta.Sdk.Internal.IDeepCloneable<Okta.Sdk.Configuration.OktaClientConfiguration>.DeepClone()
+  nameWithType.vb: IDeepCloneable(Of OktaClientConfiguration).DeepClone()
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of Okta.Sdk.Configuration.OktaClientConfiguration).DeepClone()
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+    name: DeepClone
+    nameWithType: IDeepCloneable<OktaClientConfiguration>.DeepClone
+    fullName: Okta.Sdk.Internal.IDeepCloneable<Okta.Sdk.Configuration.OktaClientConfiguration>.DeepClone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+    name: DeepClone
+    nameWithType: IDeepCloneable(Of OktaClientConfiguration).DeepClone
+    fullName: Okta.Sdk.Internal.IDeepCloneable(Of Okta.Sdk.Configuration.OktaClientConfiguration).DeepClone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration
+  commentId: T:Okta.Sdk.Configuration.OktaClientConfiguration
+  parent: Okta.Sdk.Configuration
+  name: OktaClientConfiguration
+  nameWithType: OktaClientConfiguration
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration
+- uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  commentId: M:Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  name: DeepClone()
+  nameWithType: IDeepCloneable<T>.DeepClone()
+  fullName: Okta.Sdk.Internal.IDeepCloneable<T>.DeepClone()
+  nameWithType.vb: IDeepCloneable(Of T).DeepClone()
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of T).DeepClone()
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+    name: DeepClone
+    nameWithType: IDeepCloneable<T>.DeepClone
+    fullName: Okta.Sdk.Internal.IDeepCloneable<T>.DeepClone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+    name: DeepClone
+    nameWithType: IDeepCloneable(Of T).DeepClone
+    fullName: Okta.Sdk.Internal.IDeepCloneable(Of T).DeepClone
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )

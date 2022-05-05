@@ -1,0 +1,1866 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IBrandsClient
+  commentId: T:Okta.Sdk.IBrandsClient
+  id: IBrandsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetBrandAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetBrandThemeAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.ListBrands
+  - Okta.Sdk.IBrandsClient.ListBrandThemes(System.String)
+  - Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations(System.String,System.String)
+  - Okta.Sdk.IBrandsClient.ListEmailTemplates(System.String,System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.IBrandsClient.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.UpdateBrandAsync(Okta.Sdk.IBrand,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync(Okta.Sdk.ITheme,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IBrandsClient
+  nameWithType: IBrandsClient
+  fullName: Okta.Sdk.IBrandsClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/IBrandsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IBrandsClient
+    path: ../src/Okta.Sdk/IBrandsClient.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta Brand resources.
+  example: []
+  syntax:
+    content: public interface IBrandsClient
+    content.vb: Public Interface IBrandsClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IBrandsClient.ListBrands
+  commentId: M:Okta.Sdk.IBrandsClient.ListBrands
+  id: ListBrands
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: ListBrands()
+  nameWithType: IBrandsClient.ListBrands()
+  fullName: Okta.Sdk.IBrandsClient.ListBrands()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListBrands
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nList all the brands in your org.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IBrand> ListBrands()
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IBrand}
+      description: A collection of <xref href="Okta.Sdk.IBrand" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListBrands As ICollectionClient(Of IBrand)
+  overload: Okta.Sdk.IBrandsClient.ListBrands*
+- uid: Okta.Sdk.IBrandsClient.GetBrandAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetBrandAsync(System.String,System.Threading.CancellationToken)
+  id: GetBrandAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetBrandAsync(String, CancellationToken)
+  nameWithType: IBrandsClient.GetBrandAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetBrandAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetBrandAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a brand by `brandId`\n"
+  example: []
+  syntax:
+    content: Task<IBrand> GetBrandAsync(string brandId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IBrand}
+      description: The <xref href="Okta.Sdk.IBrand" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetBrandAsync(brandId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IBrand)
+  overload: Okta.Sdk.IBrandsClient.GetBrandAsync*
+- uid: Okta.Sdk.IBrandsClient.UpdateBrandAsync(Okta.Sdk.IBrand,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.UpdateBrandAsync(Okta.Sdk.IBrand,System.String,System.Threading.CancellationToken)
+  id: UpdateBrandAsync(Okta.Sdk.IBrand,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateBrandAsync(IBrand, String, CancellationToken)
+  nameWithType: IBrandsClient.UpdateBrandAsync(IBrand, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.UpdateBrandAsync(Okta.Sdk.IBrand, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateBrandAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates a brand by `brandId`\n"
+  example: []
+  syntax:
+    content: Task<IBrand> UpdateBrandAsync(IBrand brand, string brandId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brand
+      type: Okta.Sdk.IBrand
+      description: The <xref href="Okta.Sdk.IBrand" data-throw-if-not-resolved="false"></xref> resource.
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IBrand}
+      description: The <xref href="Okta.Sdk.IBrand" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateBrandAsync(brand As IBrand, brandId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IBrand)
+  overload: Okta.Sdk.IBrandsClient.UpdateBrandAsync*
+- uid: Okta.Sdk.IBrandsClient.ListEmailTemplates(System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.IBrandsClient.ListEmailTemplates(System.String,System.String,System.Nullable{System.Int32})
+  id: ListEmailTemplates(System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: ListEmailTemplates(String, String, Nullable<Int32>)
+  nameWithType: IBrandsClient.ListEmailTemplates(String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.IBrandsClient.ListEmailTemplates(System.String, System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListEmailTemplates
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nList email templates in your organization with pagination.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IEmailTemplate> ListEmailTemplates(string brandId, string after = null, int? limit = 20)
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: after
+      type: System.String
+      description: Specifies the pagination cursor for the next page of email templates.
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Specifies the number of results returned (maximum 200)
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplate}
+      description: A collection of <xref href="Okta.Sdk.IEmailTemplate" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListEmailTemplates(brandId As String, after As String = Nothing, limit As Integer? = 20) As ICollectionClient(Of IEmailTemplate)
+  overload: Okta.Sdk.IBrandsClient.ListEmailTemplates*
+  nameWithType.vb: IBrandsClient.ListEmailTemplates(String, String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.IBrandsClient.ListEmailTemplates(System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListEmailTemplates(String, String, Nullable(Of Int32))
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.GetEmailTemplateAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 56
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetch an email template by templateName\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplate> GetEmailTemplateAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplate}
+      description: The <xref href="Okta.Sdk.IEmailTemplate" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetEmailTemplateAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplate)
+  overload: Okta.Sdk.IBrandsClient.GetEmailTemplateAsync*
+- uid: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteEmailTemplateCustomizationsAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.DeleteEmailTemplateCustomizationsAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteEmailTemplateCustomizationsAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDelete all customizations for an email template. Also known as “Reset to Default”.\n"
+  example: []
+  syntax:
+    content: Task DeleteEmailTemplateCustomizationsAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteEmailTemplateCustomizationsAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync*
+- uid: Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations(System.String,System.String)
+  commentId: M:Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations(System.String,System.String)
+  id: ListEmailTemplateCustomizations(System.String,System.String)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: ListEmailTemplateCustomizations(String, String)
+  nameWithType: IBrandsClient.ListEmailTemplateCustomizations(String, String)
+  fullName: Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListEmailTemplateCustomizations
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 73
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nList all email customizations for an email template\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IEmailTemplateCustomization> ListEmailTemplateCustomizations(string brandId, string templateName)
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplateCustomization}
+      description: A collection of <xref href="Okta.Sdk.IEmailTemplateCustomization" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListEmailTemplateCustomizations(brandId As String, templateName As String) As ICollectionClient(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations*
+- uid: Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  id: CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, CancellationToken)
+  nameWithType: IBrandsClient.CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 83
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nCreate an email customization\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplateCustomization> CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: customization
+      type: Okta.Sdk.IEmailTemplateCustomizationRequest
+      description: The <xref href="Okta.Sdk.IEmailTemplateCustomizationRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+      description: The <xref href="Okta.Sdk.IEmailTemplateCustomization" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateEmailTemplateCustomizationAsync(customization As IEmailTemplateCustomizationRequest, brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  nameWithType: IBrandsClient.DeleteEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 93
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDelete an email customization\n"
+  example: []
+  syntax:
+    content: Task DeleteEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: customizationId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteEmailTemplateCustomizationAsync(brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  nameWithType: IBrandsClient.GetEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 103
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetch an email customization by id.\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplateCustomization> GetEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: customizationId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+      description: The <xref href="Okta.Sdk.IEmailTemplateCustomization" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetEmailTemplateCustomizationAsync(brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, String, CancellationToken)
+  nameWithType: IBrandsClient.UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest, System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 114
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdate an email customization\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplateCustomization> UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: customization
+      type: Okta.Sdk.IEmailTemplateCustomizationRequest
+      description: The <xref href="Okta.Sdk.IEmailTemplateCustomizationRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: customizationId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+      description: The <xref href="Okta.Sdk.IEmailTemplateCustomization" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateEmailTemplateCustomizationAsync(customization As IEmailTemplateCustomizationRequest, brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateCustomizationPreviewAsync(String, String, String, CancellationToken)
+  nameWithType: IBrandsClient.GetEmailTemplateCustomizationPreviewAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateCustomizationPreviewAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 124
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGet a preview of an email template customization.\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplateContent> GetEmailTemplateCustomizationPreviewAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: customizationId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+      description: The <xref href="Okta.Sdk.IEmailTemplateContent" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetEmailTemplateCustomizationPreviewAsync(brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateContent)
+  overload: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync*
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateDefaultContentAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.GetEmailTemplateDefaultContentAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateDefaultContentAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 133
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetch the default content for an email template.\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplateContent> GetEmailTemplateDefaultContentAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+      description: The <xref href="Okta.Sdk.IEmailTemplateContent" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetEmailTemplateDefaultContentAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateContent)
+  overload: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync*
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateDefaultContentPreviewAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateDefaultContentPreviewAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 142
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetch a preview of an email template&apos;s default content by populating velocity references with the current user&apos;s environment.\n"
+  example: []
+  syntax:
+    content: Task<IEmailTemplateContent> GetEmailTemplateDefaultContentPreviewAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+      description: The <xref href="Okta.Sdk.IEmailTemplateContent" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetEmailTemplateDefaultContentPreviewAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateContent)
+  overload: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync*
+- uid: Okta.Sdk.IBrandsClient.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  id: SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: SendTestEmailAsync(IEmailTemplateTestRequest, String, String, CancellationToken)
+  nameWithType: IBrandsClient.SendTestEmailAsync(IEmailTemplateTestRequest, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SendTestEmailAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 152
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSend a test email to the current users primary and secondary email addresses. The email content is selected based on the following priority: An email customization specifically for the users locale. The default language of email customizations. The email templates default content.\n"
+  example: []
+  syntax:
+    content: Task SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: customization
+      type: Okta.Sdk.IEmailTemplateTestRequest
+      description: The <xref href="Okta.Sdk.IEmailTemplateTestRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: templateName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function SendTestEmailAsync(customization As IEmailTemplateTestRequest, brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IBrandsClient.SendTestEmailAsync*
+- uid: Okta.Sdk.IBrandsClient.ListBrandThemes(System.String)
+  commentId: M:Okta.Sdk.IBrandsClient.ListBrandThemes(System.String)
+  id: ListBrandThemes(System.String)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: ListBrandThemes(String)
+  nameWithType: IBrandsClient.ListBrandThemes(String)
+  fullName: Okta.Sdk.IBrandsClient.ListBrandThemes(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListBrandThemes
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 159
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nList all the themes in your brand\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IThemeResponse> ListBrandThemes(string brandId)
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IThemeResponse}
+      description: A collection of <xref href="Okta.Sdk.IThemeResponse" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListBrandThemes(brandId As String) As ICollectionClient(Of IThemeResponse)
+  overload: Okta.Sdk.IBrandsClient.ListBrandThemes*
+- uid: Okta.Sdk.IBrandsClient.GetBrandThemeAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.GetBrandThemeAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetBrandThemeAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: GetBrandThemeAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.GetBrandThemeAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.GetBrandThemeAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetBrandThemeAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 168
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a theme for a brand\n"
+  example: []
+  syntax:
+    content: Task<IThemeResponse> GetBrandThemeAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: themeId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IThemeResponse}
+      description: The <xref href="Okta.Sdk.IThemeResponse" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetBrandThemeAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IThemeResponse)
+  overload: Okta.Sdk.IBrandsClient.GetBrandThemeAsync*
+- uid: Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync(Okta.Sdk.ITheme,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync(Okta.Sdk.ITheme,System.String,System.String,System.Threading.CancellationToken)
+  id: UpdateBrandThemeAsync(Okta.Sdk.ITheme,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateBrandThemeAsync(ITheme, String, String, CancellationToken)
+  nameWithType: IBrandsClient.UpdateBrandThemeAsync(ITheme, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync(Okta.Sdk.ITheme, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateBrandThemeAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 178
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates a theme for a brand\n"
+  example: []
+  syntax:
+    content: Task<IThemeResponse> UpdateBrandThemeAsync(ITheme theme, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: theme
+      type: Okta.Sdk.ITheme
+      description: The <xref href="Okta.Sdk.ITheme" data-throw-if-not-resolved="false"></xref> resource.
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: themeId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IThemeResponse}
+      description: The <xref href="Okta.Sdk.IThemeResponse" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateBrandThemeAsync(theme As ITheme, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IThemeResponse)
+  overload: Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync*
+- uid: Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteBrandThemeBackgroundImageAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.DeleteBrandThemeBackgroundImageAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteBrandThemeBackgroundImageAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 187
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes a Theme background image\n"
+  example: []
+  syntax:
+    content: Task DeleteBrandThemeBackgroundImageAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: themeId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteBrandThemeBackgroundImageAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync*
+- uid: Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteBrandThemeFaviconAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.DeleteBrandThemeFaviconAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteBrandThemeFaviconAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 196
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes a Theme favicon. The org then uses the Okta default favicon.\n"
+  example: []
+  syntax:
+    content: Task DeleteBrandThemeFaviconAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: themeId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteBrandThemeFaviconAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync*
+- uid: Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteBrandThemeLogoAsync(String, String, CancellationToken)
+  nameWithType: IBrandsClient.DeleteBrandThemeLogoAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteBrandThemeLogoAsync
+    path: ../src/Okta.Sdk/Generated/IBrandsClient.Generated.cs
+    startLine: 205
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes a Theme logo. The org then uses the Okta default logo.\n"
+  example: []
+  syntax:
+    content: Task DeleteBrandThemeLogoAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+      description: ''
+    - id: themeId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteBrandThemeLogoAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync*
+- uid: Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  id: UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: UploadBrandThemeLogoAsync(FileStream, String, String, CancellationToken)
+  nameWithType: IBrandsClient.UploadBrandThemeLogoAsync(FileStream, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync(System.IO.FileStream, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IBrandsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UploadBrandThemeLogoAsync
+    path: ../src/Okta.Sdk/IBrandsClient.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the logo for your Theme\n"
+  example: []
+  syntax:
+    content: Task<IImageUploadResponse> UploadBrandThemeLogoAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file.
+    - id: brandId
+      type: System.String
+      description: The brand Id.
+    - id: themeId
+      type: System.String
+      description: The theme Id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+      description: A <xref href="Okta.Sdk.IImageUploadResponse" data-throw-if-not-resolved="false"></xref>
+    content.vb: Function UploadBrandThemeLogoAsync(file As FileStream, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IImageUploadResponse)
+  overload: Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync*
+- uid: Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  id: UploadBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: UploadBrandThemeFaviconAsync(FileStream, String, String, CancellationToken)
+  nameWithType: IBrandsClient.UploadBrandThemeFaviconAsync(FileStream, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync(System.IO.FileStream, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IBrandsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UploadBrandThemeFaviconAsync
+    path: ../src/Okta.Sdk/IBrandsClient.cs
+    startLine: 32
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the favicon for your Theme\n"
+  example: []
+  syntax:
+    content: Task<IImageUploadResponse> UploadBrandThemeFaviconAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file.
+    - id: brandId
+      type: System.String
+      description: The brand Id.
+    - id: themeId
+      type: System.String
+      description: The theme Id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+      description: A <xref href="Okta.Sdk.IImageUploadResponse" data-throw-if-not-resolved="false"></xref>
+    content.vb: Function UploadBrandThemeFaviconAsync(file As FileStream, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IImageUploadResponse)
+  overload: Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync*
+- uid: Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  id: UploadBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IBrandsClient
+  langs:
+  - csharp
+  - vb
+  name: UploadBrandThemeBackgroundImageAsync(FileStream, String, String, CancellationToken)
+  nameWithType: IBrandsClient.UploadBrandThemeBackgroundImageAsync(FileStream, String, String, CancellationToken)
+  fullName: Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync(System.IO.FileStream, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IBrandsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UploadBrandThemeBackgroundImageAsync
+    path: ../src/Okta.Sdk/IBrandsClient.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the background image for your Theme\n"
+  example: []
+  syntax:
+    content: Task<IImageUploadResponse> UploadBrandThemeBackgroundImageAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file.
+    - id: brandId
+      type: System.String
+      description: The brand Id.
+    - id: themeId
+      type: System.String
+      description: The theme Id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+      description: A <xref href="Okta.Sdk.IImageUploadResponse" data-throw-if-not-resolved="false"></xref>
+    content.vb: Function UploadBrandThemeBackgroundImageAsync(file As FileStream, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IImageUploadResponse)
+  overload: Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync*
+references:
+- uid: Okta.Sdk.IBrandsClient
+  commentId: T:Okta.Sdk.IBrandsClient
+  parent: Okta.Sdk
+  name: IBrandsClient
+  nameWithType: IBrandsClient
+  fullName: Okta.Sdk.IBrandsClient
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IBrand
+  commentId: T:Okta.Sdk.IBrand
+  parent: Okta.Sdk
+  name: IBrand
+  nameWithType: IBrand
+  fullName: Okta.Sdk.IBrand
+- uid: Okta.Sdk.IBrandsClient.ListBrands*
+  commentId: Overload:Okta.Sdk.IBrandsClient.ListBrands
+  name: ListBrands
+  nameWithType: IBrandsClient.ListBrands
+  fullName: Okta.Sdk.IBrandsClient.ListBrands
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IBrand}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IBrand}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IBrand>
+  nameWithType: ICollectionClient<IBrand>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IBrand>
+  nameWithType.vb: ICollectionClient(Of IBrand)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IBrand)
+  name.vb: ICollectionClient(Of IBrand)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IBrand
+    name: IBrand
+    nameWithType: IBrand
+    fullName: Okta.Sdk.IBrand
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IBrand
+    name: IBrand
+    nameWithType: IBrand
+    fullName: Okta.Sdk.IBrand
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IBrandsClient.GetBrandAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetBrandAsync
+  name: GetBrandAsync
+  nameWithType: IBrandsClient.GetBrandAsync
+  fullName: Okta.Sdk.IBrandsClient.GetBrandAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IBrand}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IBrand}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IBrand>
+  nameWithType: Task<IBrand>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IBrand>
+  nameWithType.vb: Task(Of IBrand)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IBrand)
+  name.vb: Task(Of IBrand)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IBrand
+    name: IBrand
+    nameWithType: IBrand
+    fullName: Okta.Sdk.IBrand
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IBrand
+    name: IBrand
+    nameWithType: IBrand
+    fullName: Okta.Sdk.IBrand
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IBrandsClient.UpdateBrandAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.UpdateBrandAsync
+  name: UpdateBrandAsync
+  nameWithType: IBrandsClient.UpdateBrandAsync
+  fullName: Okta.Sdk.IBrandsClient.UpdateBrandAsync
+- uid: Okta.Sdk.IEmailTemplate
+  commentId: T:Okta.Sdk.IEmailTemplate
+  parent: Okta.Sdk
+  name: IEmailTemplate
+  nameWithType: IEmailTemplate
+  fullName: Okta.Sdk.IEmailTemplate
+- uid: Okta.Sdk.IBrandsClient.ListEmailTemplates*
+  commentId: Overload:Okta.Sdk.IBrandsClient.ListEmailTemplates
+  name: ListEmailTemplates
+  nameWithType: IBrandsClient.ListEmailTemplates
+  fullName: Okta.Sdk.IBrandsClient.ListEmailTemplates
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplate}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplate}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IEmailTemplate>
+  nameWithType: ICollectionClient<IEmailTemplate>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IEmailTemplate>
+  nameWithType.vb: ICollectionClient(Of IEmailTemplate)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IEmailTemplate)
+  name.vb: ICollectionClient(Of IEmailTemplate)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplate
+    name: IEmailTemplate
+    nameWithType: IEmailTemplate
+    fullName: Okta.Sdk.IEmailTemplate
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplate
+    name: IEmailTemplate
+    nameWithType: IEmailTemplate
+    fullName: Okta.Sdk.IEmailTemplate
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetEmailTemplateAsync
+  name: GetEmailTemplateAsync
+  nameWithType: IBrandsClient.GetEmailTemplateAsync
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplate}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplate}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEmailTemplate>
+  nameWithType: Task<IEmailTemplate>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IEmailTemplate>
+  nameWithType.vb: Task(Of IEmailTemplate)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IEmailTemplate)
+  name.vb: Task(Of IEmailTemplate)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplate
+    name: IEmailTemplate
+    nameWithType: IEmailTemplate
+    fullName: Okta.Sdk.IEmailTemplate
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplate
+    name: IEmailTemplate
+    nameWithType: IEmailTemplate
+    fullName: Okta.Sdk.IEmailTemplate
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync
+  name: DeleteEmailTemplateCustomizationsAsync
+  nameWithType: IBrandsClient.DeleteEmailTemplateCustomizationsAsync
+  fullName: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationsAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.IEmailTemplateCustomization
+  commentId: T:Okta.Sdk.IEmailTemplateCustomization
+  parent: Okta.Sdk
+  name: IEmailTemplateCustomization
+  nameWithType: IEmailTemplateCustomization
+  fullName: Okta.Sdk.IEmailTemplateCustomization
+- uid: Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations*
+  commentId: Overload:Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations
+  name: ListEmailTemplateCustomizations
+  nameWithType: IBrandsClient.ListEmailTemplateCustomizations
+  fullName: Okta.Sdk.IBrandsClient.ListEmailTemplateCustomizations
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplateCustomization}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplateCustomization}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IEmailTemplateCustomization>
+  nameWithType: ICollectionClient<IEmailTemplateCustomization>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IEmailTemplateCustomization>
+  nameWithType.vb: ICollectionClient(Of IEmailTemplateCustomization)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IEmailTemplateCustomization)
+  name.vb: ICollectionClient(Of IEmailTemplateCustomization)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IEmailTemplateCustomizationRequest
+  commentId: T:Okta.Sdk.IEmailTemplateCustomizationRequest
+  parent: Okta.Sdk
+  name: IEmailTemplateCustomizationRequest
+  nameWithType: IEmailTemplateCustomizationRequest
+  fullName: Okta.Sdk.IEmailTemplateCustomizationRequest
+- uid: Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync
+  name: CreateEmailTemplateCustomizationAsync
+  nameWithType: IBrandsClient.CreateEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IBrandsClient.CreateEmailTemplateCustomizationAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEmailTemplateCustomization>
+  nameWithType: Task<IEmailTemplateCustomization>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IEmailTemplateCustomization>
+  nameWithType.vb: Task(Of IEmailTemplateCustomization)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IEmailTemplateCustomization)
+  name.vb: Task(Of IEmailTemplateCustomization)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync
+  name: DeleteEmailTemplateCustomizationAsync
+  nameWithType: IBrandsClient.DeleteEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IBrandsClient.DeleteEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync
+  name: GetEmailTemplateCustomizationAsync
+  nameWithType: IBrandsClient.GetEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync
+  name: UpdateEmailTemplateCustomizationAsync
+  nameWithType: IBrandsClient.UpdateEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IBrandsClient.UpdateEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IEmailTemplateContent
+  commentId: T:Okta.Sdk.IEmailTemplateContent
+  parent: Okta.Sdk
+  name: IEmailTemplateContent
+  nameWithType: IEmailTemplateContent
+  fullName: Okta.Sdk.IEmailTemplateContent
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync
+  name: GetEmailTemplateCustomizationPreviewAsync
+  nameWithType: IBrandsClient.GetEmailTemplateCustomizationPreviewAsync
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateCustomizationPreviewAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEmailTemplateContent>
+  nameWithType: Task<IEmailTemplateContent>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IEmailTemplateContent>
+  nameWithType.vb: Task(Of IEmailTemplateContent)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IEmailTemplateContent)
+  name.vb: Task(Of IEmailTemplateContent)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplateContent
+    name: IEmailTemplateContent
+    nameWithType: IEmailTemplateContent
+    fullName: Okta.Sdk.IEmailTemplateContent
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplateContent
+    name: IEmailTemplateContent
+    nameWithType: IEmailTemplateContent
+    fullName: Okta.Sdk.IEmailTemplateContent
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync
+  name: GetEmailTemplateDefaultContentAsync
+  nameWithType: IBrandsClient.GetEmailTemplateDefaultContentAsync
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentAsync
+- uid: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync
+  name: GetEmailTemplateDefaultContentPreviewAsync
+  nameWithType: IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync
+  fullName: Okta.Sdk.IBrandsClient.GetEmailTemplateDefaultContentPreviewAsync
+- uid: Okta.Sdk.IEmailTemplateTestRequest
+  commentId: T:Okta.Sdk.IEmailTemplateTestRequest
+  parent: Okta.Sdk
+  name: IEmailTemplateTestRequest
+  nameWithType: IEmailTemplateTestRequest
+  fullName: Okta.Sdk.IEmailTemplateTestRequest
+- uid: Okta.Sdk.IBrandsClient.SendTestEmailAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.SendTestEmailAsync
+  name: SendTestEmailAsync
+  nameWithType: IBrandsClient.SendTestEmailAsync
+  fullName: Okta.Sdk.IBrandsClient.SendTestEmailAsync
+- uid: Okta.Sdk.IThemeResponse
+  commentId: T:Okta.Sdk.IThemeResponse
+  parent: Okta.Sdk
+  name: IThemeResponse
+  nameWithType: IThemeResponse
+  fullName: Okta.Sdk.IThemeResponse
+- uid: Okta.Sdk.IBrandsClient.ListBrandThemes*
+  commentId: Overload:Okta.Sdk.IBrandsClient.ListBrandThemes
+  name: ListBrandThemes
+  nameWithType: IBrandsClient.ListBrandThemes
+  fullName: Okta.Sdk.IBrandsClient.ListBrandThemes
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IThemeResponse}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IThemeResponse}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IThemeResponse>
+  nameWithType: ICollectionClient<IThemeResponse>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IThemeResponse>
+  nameWithType.vb: ICollectionClient(Of IThemeResponse)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IThemeResponse)
+  name.vb: ICollectionClient(Of IThemeResponse)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IThemeResponse
+    name: IThemeResponse
+    nameWithType: IThemeResponse
+    fullName: Okta.Sdk.IThemeResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IThemeResponse
+    name: IThemeResponse
+    nameWithType: IThemeResponse
+    fullName: Okta.Sdk.IThemeResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IBrandsClient.GetBrandThemeAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.GetBrandThemeAsync
+  name: GetBrandThemeAsync
+  nameWithType: IBrandsClient.GetBrandThemeAsync
+  fullName: Okta.Sdk.IBrandsClient.GetBrandThemeAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IThemeResponse}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IThemeResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IThemeResponse>
+  nameWithType: Task<IThemeResponse>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IThemeResponse>
+  nameWithType.vb: Task(Of IThemeResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IThemeResponse)
+  name.vb: Task(Of IThemeResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IThemeResponse
+    name: IThemeResponse
+    nameWithType: IThemeResponse
+    fullName: Okta.Sdk.IThemeResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IThemeResponse
+    name: IThemeResponse
+    nameWithType: IThemeResponse
+    fullName: Okta.Sdk.IThemeResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ITheme
+  commentId: T:Okta.Sdk.ITheme
+  parent: Okta.Sdk
+  name: ITheme
+  nameWithType: ITheme
+  fullName: Okta.Sdk.ITheme
+- uid: Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync
+  name: UpdateBrandThemeAsync
+  nameWithType: IBrandsClient.UpdateBrandThemeAsync
+  fullName: Okta.Sdk.IBrandsClient.UpdateBrandThemeAsync
+- uid: Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync
+  name: DeleteBrandThemeBackgroundImageAsync
+  nameWithType: IBrandsClient.DeleteBrandThemeBackgroundImageAsync
+  fullName: Okta.Sdk.IBrandsClient.DeleteBrandThemeBackgroundImageAsync
+- uid: Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync
+  name: DeleteBrandThemeFaviconAsync
+  nameWithType: IBrandsClient.DeleteBrandThemeFaviconAsync
+  fullName: Okta.Sdk.IBrandsClient.DeleteBrandThemeFaviconAsync
+- uid: Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync
+  name: DeleteBrandThemeLogoAsync
+  nameWithType: IBrandsClient.DeleteBrandThemeLogoAsync
+  fullName: Okta.Sdk.IBrandsClient.DeleteBrandThemeLogoAsync
+- uid: Okta.Sdk.IImageUploadResponse
+  commentId: T:Okta.Sdk.IImageUploadResponse
+  parent: Okta.Sdk
+  name: IImageUploadResponse
+  nameWithType: IImageUploadResponse
+  fullName: Okta.Sdk.IImageUploadResponse
+- uid: Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync
+  name: UploadBrandThemeLogoAsync
+  nameWithType: IBrandsClient.UploadBrandThemeLogoAsync
+  fullName: Okta.Sdk.IBrandsClient.UploadBrandThemeLogoAsync
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IImageUploadResponse>
+  nameWithType: Task<IImageUploadResponse>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IImageUploadResponse>
+  nameWithType.vb: Task(Of IImageUploadResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IImageUploadResponse)
+  name.vb: Task(Of IImageUploadResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IImageUploadResponse
+    name: IImageUploadResponse
+    nameWithType: IImageUploadResponse
+    fullName: Okta.Sdk.IImageUploadResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IImageUploadResponse
+    name: IImageUploadResponse
+    nameWithType: IImageUploadResponse
+    fullName: Okta.Sdk.IImageUploadResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync
+  name: UploadBrandThemeFaviconAsync
+  nameWithType: IBrandsClient.UploadBrandThemeFaviconAsync
+  fullName: Okta.Sdk.IBrandsClient.UploadBrandThemeFaviconAsync
+- uid: Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync*
+  commentId: Overload:Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync
+  name: UploadBrandThemeBackgroundImageAsync
+  nameWithType: IBrandsClient.UploadBrandThemeBackgroundImageAsync
+  fullName: Okta.Sdk.IBrandsClient.UploadBrandThemeBackgroundImageAsync

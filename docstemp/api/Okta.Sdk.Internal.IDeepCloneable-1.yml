@@ -1,0 +1,99 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.IDeepCloneable`1
+  commentId: T:Okta.Sdk.Internal.IDeepCloneable`1
+  id: IDeepCloneable`1
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  langs:
+  - csharp
+  - vb
+  name: IDeepCloneable<T>
+  nameWithType: IDeepCloneable<T>
+  fullName: Okta.Sdk.Internal.IDeepCloneable<T>
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/IDeepCloneable.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IDeepCloneable
+    path: ../src/Okta.Sdk/Internal/IDeepCloneable.cs
+    startLine: 11
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nAn object that can be deep cloned.\n"
+  example: []
+  syntax:
+    content: public interface IDeepCloneable<T>
+    typeParameters:
+    - id: T
+      description: The type.
+    content.vb: Public Interface IDeepCloneable(Of T)
+  nameWithType.vb: IDeepCloneable(Of T)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of T)
+  name.vb: IDeepCloneable(Of T)
+- uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  commentId: M:Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  id: DeepClone
+  parent: Okta.Sdk.Internal.IDeepCloneable`1
+  langs:
+  - csharp
+  - vb
+  name: DeepClone()
+  nameWithType: IDeepCloneable<T>.DeepClone()
+  fullName: Okta.Sdk.Internal.IDeepCloneable<T>.DeepClone()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/IDeepCloneable.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeepClone
+    path: ../src/Okta.Sdk/Internal/IDeepCloneable.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nReturns a deep clone (copy) of this object.\n"
+  example: []
+  syntax:
+    content: T DeepClone()
+    return:
+      type: '{T}'
+      description: A deep clone (copy) of this object.
+    content.vb: Function DeepClone As T
+  overload: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone*
+  nameWithType.vb: IDeepCloneable(Of T).DeepClone()
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of T).DeepClone()
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: Okta.Sdk.Internal.IDeepCloneable`1.DeepClone*
+  commentId: Overload:Okta.Sdk.Internal.IDeepCloneable`1.DeepClone
+  name: DeepClone
+  nameWithType: IDeepCloneable<T>.DeepClone
+  fullName: Okta.Sdk.Internal.IDeepCloneable<T>.DeepClone
+  nameWithType.vb: IDeepCloneable(Of T).DeepClone
+  fullName.vb: Okta.Sdk.Internal.IDeepCloneable(Of T).DeepClone
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T

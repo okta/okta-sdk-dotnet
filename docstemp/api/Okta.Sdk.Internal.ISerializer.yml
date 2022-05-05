@@ -1,0 +1,423 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.ISerializer
+  commentId: T:Okta.Sdk.Internal.ISerializer
+  id: ISerializer
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.ISerializer.Deserialize(System.String)
+  - Okta.Sdk.Internal.ISerializer.DeserializeArray(System.String)
+  - Okta.Sdk.Internal.ISerializer.Serialize(System.Object)
+  langs:
+  - csharp
+  - vb
+  name: ISerializer
+  nameWithType: ISerializer
+  fullName: Okta.Sdk.Internal.ISerializer
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ISerializer.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ISerializer
+    path: ../src/Okta.Sdk/Internal/ISerializer.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nA low-level abstraction over a JSON serializer/deserializer.\n"
+  example: []
+  syntax:
+    content: public interface ISerializer
+    content.vb: Public Interface ISerializer
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.Internal.ISerializer.Serialize(System.Object)
+  commentId: M:Okta.Sdk.Internal.ISerializer.Serialize(System.Object)
+  id: Serialize(System.Object)
+  parent: Okta.Sdk.Internal.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: Serialize(Object)
+  nameWithType: ISerializer.Serialize(Object)
+  fullName: Okta.Sdk.Internal.ISerializer.Serialize(System.Object)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ISerializer.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Serialize
+    path: ../src/Okta.Sdk/Internal/ISerializer.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nSerializes the given object to a string.\n"
+  example: []
+  syntax:
+    content: string Serialize(object model)
+    parameters:
+    - id: model
+      type: System.Object
+      description: The object to serialize.
+    return:
+      type: System.String
+      description: A JSON representation of <code data-dev-comment-type="paramref" class="paramref">model</code>.
+    content.vb: Function Serialize(model As Object) As String
+  overload: Okta.Sdk.Internal.ISerializer.Serialize*
+- uid: Okta.Sdk.Internal.ISerializer.Deserialize(System.String)
+  commentId: M:Okta.Sdk.Internal.ISerializer.Deserialize(System.String)
+  id: Deserialize(System.String)
+  parent: Okta.Sdk.Internal.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: Deserialize(String)
+  nameWithType: ISerializer.Deserialize(String)
+  fullName: Okta.Sdk.Internal.ISerializer.Deserialize(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ISerializer.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Deserialize
+    path: ../src/Okta.Sdk/Internal/ISerializer.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nDeserializes the given JSON string to a .NET dictionary.\n"
+  example: []
+  syntax:
+    content: IDictionary<string, object> Deserialize(string json)
+    parameters:
+    - id: json
+      type: System.String
+      description: The JSON to deserialize.
+    return:
+      type: System.Collections.Generic.IDictionary{System.String,System.Object}
+      description: A .NET dictionary containing the keys and values in the JSON object.
+    content.vb: Function Deserialize(json As String) As IDictionary(Of String, Object)
+  overload: Okta.Sdk.Internal.ISerializer.Deserialize*
+- uid: Okta.Sdk.Internal.ISerializer.DeserializeArray(System.String)
+  commentId: M:Okta.Sdk.Internal.ISerializer.DeserializeArray(System.String)
+  id: DeserializeArray(System.String)
+  parent: Okta.Sdk.Internal.ISerializer
+  langs:
+  - csharp
+  - vb
+  name: DeserializeArray(String)
+  nameWithType: ISerializer.DeserializeArray(String)
+  fullName: Okta.Sdk.Internal.ISerializer.DeserializeArray(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ISerializer.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeserializeArray
+    path: ../src/Okta.Sdk/Internal/ISerializer.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nDeserializes the given JSON string to an array of .NET dictionaries.\n"
+  example: []
+  syntax:
+    content: IEnumerable<IDictionary<string, object>> DeserializeArray(string json)
+    parameters:
+    - id: json
+      type: System.String
+      description: The JSON array to deserialize.
+    return:
+      type: System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{System.String,System.Object}}
+      description: An array of .NET dictionaries containing the keys and values in each item of the JSON array.
+    content.vb: Function DeserializeArray(json As String) As IEnumerable(Of IDictionary(Of String, Object))
+  overload: Okta.Sdk.Internal.ISerializer.DeserializeArray*
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: Okta.Sdk.Internal.ISerializer.Serialize*
+  commentId: Overload:Okta.Sdk.Internal.ISerializer.Serialize
+  name: Serialize
+  nameWithType: ISerializer.Serialize
+  fullName: Okta.Sdk.Internal.ISerializer.Serialize
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.Internal.ISerializer.Deserialize*
+  commentId: Overload:Okta.Sdk.Internal.ISerializer.Deserialize
+  name: Deserialize
+  nameWithType: ISerializer.Deserialize
+  fullName: Okta.Sdk.Internal.ISerializer.Deserialize
+- uid: System.Collections.Generic.IDictionary{System.String,System.Object}
+  commentId: T:System.Collections.Generic.IDictionary{System.String,System.Object}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IDictionary`2
+  name: IDictionary<String, Object>
+  nameWithType: IDictionary<String, Object>
+  fullName: System.Collections.Generic.IDictionary<System.String, System.Object>
+  nameWithType.vb: IDictionary(Of String, Object)
+  fullName.vb: System.Collections.Generic.IDictionary(Of System.String, System.Object)
+  name.vb: IDictionary(Of String, Object)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: System.Collections.Generic.IDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: System.Collections.Generic.IDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IDictionary`2
+  commentId: T:System.Collections.Generic.IDictionary`2
+  isExternal: true
+  name: IDictionary<TKey, TValue>
+  nameWithType: IDictionary<TKey, TValue>
+  fullName: System.Collections.Generic.IDictionary<TKey, TValue>
+  nameWithType.vb: IDictionary(Of TKey, TValue)
+  fullName.vb: System.Collections.Generic.IDictionary(Of TKey, TValue)
+  name.vb: IDictionary(Of TKey, TValue)
+  spec.csharp:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: System.Collections.Generic.IDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: System.Collections.Generic.IDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TKey
+    nameWithType: TKey
+    fullName: TKey
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: TValue
+    nameWithType: TValue
+    fullName: TValue
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.Internal.ISerializer.DeserializeArray*
+  commentId: Overload:Okta.Sdk.Internal.ISerializer.DeserializeArray
+  name: DeserializeArray
+  nameWithType: ISerializer.DeserializeArray
+  fullName: Okta.Sdk.Internal.ISerializer.DeserializeArray
+- uid: System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{System.String,System.Object}}
+  commentId: T:System.Collections.Generic.IEnumerable{System.Collections.Generic.IDictionary{System.String,System.Object}}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IEnumerable`1
+  name: IEnumerable<IDictionary<String, Object>>
+  nameWithType: IEnumerable<IDictionary<String, Object>>
+  fullName: System.Collections.Generic.IEnumerable<System.Collections.Generic.IDictionary<System.String, System.Object>>
+  nameWithType.vb: IEnumerable(Of IDictionary(Of String, Object))
+  fullName.vb: System.Collections.Generic.IEnumerable(Of System.Collections.Generic.IDictionary(Of System.String, System.Object))
+  name.vb: IEnumerable(Of IDictionary(Of String, Object))
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: System.Collections.Generic.IDictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Collections.Generic.IDictionary`2
+    name: IDictionary
+    nameWithType: IDictionary
+    fullName: System.Collections.Generic.IDictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IEnumerable`1
+  commentId: T:System.Collections.Generic.IEnumerable`1
+  isExternal: true
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: System.Collections.Generic.IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: System.Collections.Generic.IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )

@@ -1,0 +1,680 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.DefaultProxy
+  commentId: T:Okta.Sdk.Internal.DefaultProxy
+  id: DefaultProxy
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.DefaultProxy.#ctor(Okta.Sdk.Configuration.ProxyConfiguration,Microsoft.Extensions.Logging.ILogger)
+  - Okta.Sdk.Internal.DefaultProxy.Credentials
+  - Okta.Sdk.Internal.DefaultProxy.GetProxy(System.Uri)
+  - Okta.Sdk.Internal.DefaultProxy.IsBypassed(System.Uri)
+  langs:
+  - csharp
+  - vb
+  name: DefaultProxy
+  nameWithType: DefaultProxy
+  fullName: Okta.Sdk.Internal.DefaultProxy
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultProxy.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DefaultProxy
+    path: ../src/Okta.Sdk/Internal/DefaultProxy.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nA simple implementation of <xref href=\"System.Net.IWebProxy\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  example: []
+  syntax:
+    content: 'public sealed class DefaultProxy : IWebProxy'
+    content.vb: >-
+      Public NotInheritable Class DefaultProxy
+
+          Implements IWebProxy
+  inheritance:
+  - System.Object
+  implements:
+  - System.Net.IWebProxy
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.Internal.DefaultProxy.#ctor(Okta.Sdk.Configuration.ProxyConfiguration,Microsoft.Extensions.Logging.ILogger)
+  commentId: M:Okta.Sdk.Internal.DefaultProxy.#ctor(Okta.Sdk.Configuration.ProxyConfiguration,Microsoft.Extensions.Logging.ILogger)
+  id: '#ctor(Okta.Sdk.Configuration.ProxyConfiguration,Microsoft.Extensions.Logging.ILogger)'
+  parent: Okta.Sdk.Internal.DefaultProxy
+  langs:
+  - csharp
+  - vb
+  name: DefaultProxy(ProxyConfiguration, ILogger)
+  nameWithType: DefaultProxy.DefaultProxy(ProxyConfiguration, ILogger)
+  fullName: Okta.Sdk.Internal.DefaultProxy.DefaultProxy(Okta.Sdk.Configuration.ProxyConfiguration, Microsoft.Extensions.Logging.ILogger)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultProxy.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/Internal/DefaultProxy.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nInitializes a new instance of the <xref href=\"Okta.Sdk.Internal.DefaultProxy\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public DefaultProxy(ProxyConfiguration proxyConfiguration, ILogger logger)
+    parameters:
+    - id: proxyConfiguration
+      type: Okta.Sdk.Configuration.ProxyConfiguration
+      description: The proxy configuration to use.
+    - id: logger
+      type: Microsoft.Extensions.Logging.ILogger
+      description: The logging interface.
+    content.vb: Public Sub New(proxyConfiguration As ProxyConfiguration, logger As ILogger)
+  overload: Okta.Sdk.Internal.DefaultProxy.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Internal.DefaultProxy.Credentials
+  commentId: P:Okta.Sdk.Internal.DefaultProxy.Credentials
+  id: Credentials
+  parent: Okta.Sdk.Internal.DefaultProxy
+  langs:
+  - csharp
+  - vb
+  name: Credentials
+  nameWithType: DefaultProxy.Credentials
+  fullName: Okta.Sdk.Internal.DefaultProxy.Credentials
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultProxy.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Credentials
+    path: ../src/Okta.Sdk/Internal/DefaultProxy.cs
+    startLine: 51
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public ICredentials Credentials { get; set; }
+    parameters: []
+    return:
+      type: System.Net.ICredentials
+    content.vb: Public Property Credentials As ICredentials
+  overload: Okta.Sdk.Internal.DefaultProxy.Credentials*
+  implements:
+  - System.Net.IWebProxy.Credentials
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Internal.DefaultProxy.GetProxy(System.Uri)
+  commentId: M:Okta.Sdk.Internal.DefaultProxy.GetProxy(System.Uri)
+  id: GetProxy(System.Uri)
+  parent: Okta.Sdk.Internal.DefaultProxy
+  langs:
+  - csharp
+  - vb
+  name: GetProxy(Uri)
+  nameWithType: DefaultProxy.GetProxy(Uri)
+  fullName: Okta.Sdk.Internal.DefaultProxy.GetProxy(System.Uri)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultProxy.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetProxy
+    path: ../src/Okta.Sdk/Internal/DefaultProxy.cs
+    startLine: 58
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public Uri GetProxy(Uri destination)
+    parameters:
+    - id: destination
+      type: System.Uri
+    return:
+      type: System.Uri
+    content.vb: Public Function GetProxy(destination As Uri) As Uri
+  overload: Okta.Sdk.Internal.DefaultProxy.GetProxy*
+  implements:
+  - System.Net.IWebProxy.GetProxy(System.Uri)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Internal.DefaultProxy.IsBypassed(System.Uri)
+  commentId: M:Okta.Sdk.Internal.DefaultProxy.IsBypassed(System.Uri)
+  id: IsBypassed(System.Uri)
+  parent: Okta.Sdk.Internal.DefaultProxy
+  langs:
+  - csharp
+  - vb
+  name: IsBypassed(Uri)
+  nameWithType: DefaultProxy.IsBypassed(Uri)
+  fullName: Okta.Sdk.Internal.DefaultProxy.IsBypassed(System.Uri)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultProxy.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IsBypassed
+    path: ../src/Okta.Sdk/Internal/DefaultProxy.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public bool IsBypassed(Uri host)
+    parameters:
+    - id: host
+      type: System.Uri
+    return:
+      type: System.Boolean
+    content.vb: Public Function IsBypassed(host As Uri) As Boolean
+  overload: Okta.Sdk.Internal.DefaultProxy.IsBypassed*
+  implements:
+  - System.Net.IWebProxy.IsBypassed(System.Uri)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: System.Net.IWebProxy
+  commentId: T:System.Net.IWebProxy
+  parent: System.Net
+  isExternal: true
+  name: IWebProxy
+  nameWithType: IWebProxy
+  fullName: System.Net.IWebProxy
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Net
+  commentId: N:System.Net
+  isExternal: true
+  name: System.Net
+  nameWithType: System.Net
+  fullName: System.Net
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.Internal.DefaultProxy
+  commentId: T:Okta.Sdk.Internal.DefaultProxy
+  name: DefaultProxy
+  nameWithType: DefaultProxy
+  fullName: Okta.Sdk.Internal.DefaultProxy
+- uid: Okta.Sdk.Internal.DefaultProxy.#ctor*
+  commentId: Overload:Okta.Sdk.Internal.DefaultProxy.#ctor
+  name: DefaultProxy
+  nameWithType: DefaultProxy.DefaultProxy
+  fullName: Okta.Sdk.Internal.DefaultProxy.DefaultProxy
+- uid: Okta.Sdk.Configuration.ProxyConfiguration
+  commentId: T:Okta.Sdk.Configuration.ProxyConfiguration
+  parent: Okta.Sdk.Configuration
+  name: ProxyConfiguration
+  nameWithType: ProxyConfiguration
+  fullName: Okta.Sdk.Configuration.ProxyConfiguration
+- uid: Microsoft.Extensions.Logging.ILogger
+  commentId: T:Microsoft.Extensions.Logging.ILogger
+  parent: Microsoft.Extensions.Logging
+  isExternal: true
+  name: ILogger
+  nameWithType: ILogger
+  fullName: Microsoft.Extensions.Logging.ILogger
+- uid: Okta.Sdk.Configuration
+  commentId: N:Okta.Sdk.Configuration
+  name: Okta.Sdk.Configuration
+  nameWithType: Okta.Sdk.Configuration
+  fullName: Okta.Sdk.Configuration
+- uid: Microsoft.Extensions.Logging
+  commentId: N:Microsoft.Extensions.Logging
+  isExternal: true
+  name: Microsoft.Extensions.Logging
+  nameWithType: Microsoft.Extensions.Logging
+  fullName: Microsoft.Extensions.Logging
+- uid: Okta.Sdk.Internal.DefaultProxy.Credentials*
+  commentId: Overload:Okta.Sdk.Internal.DefaultProxy.Credentials
+  name: Credentials
+  nameWithType: DefaultProxy.Credentials
+  fullName: Okta.Sdk.Internal.DefaultProxy.Credentials
+- uid: System.Net.IWebProxy.Credentials
+  commentId: P:System.Net.IWebProxy.Credentials
+  parent: System.Net.IWebProxy
+  isExternal: true
+  name: Credentials
+  nameWithType: IWebProxy.Credentials
+  fullName: System.Net.IWebProxy.Credentials
+- uid: System.Net.ICredentials
+  commentId: T:System.Net.ICredentials
+  parent: System.Net
+  isExternal: true
+  name: ICredentials
+  nameWithType: ICredentials
+  fullName: System.Net.ICredentials
+- uid: Okta.Sdk.Internal.DefaultProxy.GetProxy*
+  commentId: Overload:Okta.Sdk.Internal.DefaultProxy.GetProxy
+  name: GetProxy
+  nameWithType: DefaultProxy.GetProxy
+  fullName: Okta.Sdk.Internal.DefaultProxy.GetProxy
+- uid: System.Net.IWebProxy.GetProxy(System.Uri)
+  commentId: M:System.Net.IWebProxy.GetProxy(System.Uri)
+  parent: System.Net.IWebProxy
+  isExternal: true
+  name: GetProxy(Uri)
+  nameWithType: IWebProxy.GetProxy(Uri)
+  fullName: System.Net.IWebProxy.GetProxy(System.Uri)
+  spec.csharp:
+  - uid: System.Net.IWebProxy.GetProxy(System.Uri)
+    name: GetProxy
+    nameWithType: IWebProxy.GetProxy
+    fullName: System.Net.IWebProxy.GetProxy
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Uri
+    name: Uri
+    nameWithType: Uri
+    fullName: System.Uri
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Net.IWebProxy.GetProxy(System.Uri)
+    name: GetProxy
+    nameWithType: IWebProxy.GetProxy
+    fullName: System.Net.IWebProxy.GetProxy
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Uri
+    name: Uri
+    nameWithType: Uri
+    fullName: System.Uri
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Uri
+  commentId: T:System.Uri
+  parent: System
+  isExternal: true
+  name: Uri
+  nameWithType: Uri
+  fullName: System.Uri
+- uid: Okta.Sdk.Internal.DefaultProxy.IsBypassed*
+  commentId: Overload:Okta.Sdk.Internal.DefaultProxy.IsBypassed
+  name: IsBypassed
+  nameWithType: DefaultProxy.IsBypassed
+  fullName: Okta.Sdk.Internal.DefaultProxy.IsBypassed
+- uid: System.Net.IWebProxy.IsBypassed(System.Uri)
+  commentId: M:System.Net.IWebProxy.IsBypassed(System.Uri)
+  parent: System.Net.IWebProxy
+  isExternal: true
+  name: IsBypassed(Uri)
+  nameWithType: IWebProxy.IsBypassed(Uri)
+  fullName: System.Net.IWebProxy.IsBypassed(System.Uri)
+  spec.csharp:
+  - uid: System.Net.IWebProxy.IsBypassed(System.Uri)
+    name: IsBypassed
+    nameWithType: IWebProxy.IsBypassed
+    fullName: System.Net.IWebProxy.IsBypassed
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Uri
+    name: Uri
+    nameWithType: Uri
+    fullName: System.Uri
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Net.IWebProxy.IsBypassed(System.Uri)
+    name: IsBypassed
+    nameWithType: IWebProxy.IsBypassed
+    fullName: System.Net.IWebProxy.IsBypassed
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Uri
+    name: Uri
+    nameWithType: Uri
+    fullName: System.Uri
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

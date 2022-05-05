@@ -1,0 +1,2182 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.NetworkZone
+  commentId: T:Okta.Sdk.NetworkZone
+  id: NetworkZone
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.NetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.NetworkZone.Asns
+  - Okta.Sdk.NetworkZone.Created
+  - Okta.Sdk.NetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.NetworkZone.Gateways
+  - Okta.Sdk.NetworkZone.Id
+  - Okta.Sdk.NetworkZone.LastUpdated
+  - Okta.Sdk.NetworkZone.Locations
+  - Okta.Sdk.NetworkZone.Name
+  - Okta.Sdk.NetworkZone.Proxies
+  - Okta.Sdk.NetworkZone.ProxyType
+  - Okta.Sdk.NetworkZone.Status
+  - Okta.Sdk.NetworkZone.System
+  - Okta.Sdk.NetworkZone.Type
+  - Okta.Sdk.NetworkZone.Usage
+  langs:
+  - csharp
+  - vb
+  name: NetworkZone
+  nameWithType: NetworkZone
+  fullName: Okta.Sdk.NetworkZone
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NetworkZone
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 16
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: 'public sealed class NetworkZone : Resource, INetworkZone, IResource'
+    content.vb: >-
+      Public NotInheritable Class NetworkZone
+
+          Inherits Resource
+
+          Implements INetworkZone, IResource
+  inheritance:
+  - System.Object
+  - Okta.Sdk.Resource
+  implements:
+  - Okta.Sdk.INetworkZone
+  - Okta.Sdk.IResource
+  inheritedMembers:
+  - Okta.Sdk.Resource.GetClient
+  - Okta.Sdk.Resource.GetData
+  - Okta.Sdk.Resource.Item(System.String)
+  - Okta.Sdk.Resource.GetProperty``1(System.String)
+  - Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.Resource.GetStringProperty(System.String)
+  - Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  - Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  - Okta.Sdk.Resource.GetLongProperty(System.String)
+  - Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  - Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  - Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  - Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.NetworkZone.Asns
+  commentId: P:Okta.Sdk.NetworkZone.Asns
+  id: Asns
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Asns
+  nameWithType: NetworkZone.Asns
+  fullName: Okta.Sdk.NetworkZone.Asns
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Asns
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IList<string> Asns { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property Asns As IList(Of String)
+  overload: Okta.Sdk.NetworkZone.Asns*
+  implements:
+  - Okta.Sdk.INetworkZone.Asns
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Created
+  commentId: P:Okta.Sdk.NetworkZone.Created
+  id: Created
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: NetworkZone.Created
+  fullName: Okta.Sdk.NetworkZone.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: Public ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.NetworkZone.Created*
+  implements:
+  - Okta.Sdk.INetworkZone.Created
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.NetworkZone.Gateways
+  commentId: P:Okta.Sdk.NetworkZone.Gateways
+  id: Gateways
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Gateways
+  nameWithType: NetworkZone.Gateways
+  fullName: Okta.Sdk.NetworkZone.Gateways
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Gateways
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IList<INetworkZoneAddress> Gateways { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.INetworkZoneAddress}
+    content.vb: Public Property Gateways As IList(Of INetworkZoneAddress)
+  overload: Okta.Sdk.NetworkZone.Gateways*
+  implements:
+  - Okta.Sdk.INetworkZone.Gateways
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Id
+  commentId: P:Okta.Sdk.NetworkZone.Id
+  id: Id
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: NetworkZone.Id
+  fullName: Okta.Sdk.NetworkZone.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 36
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Id As String
+  overload: Okta.Sdk.NetworkZone.Id*
+  implements:
+  - Okta.Sdk.INetworkZone.Id
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.NetworkZone.LastUpdated
+  commentId: P:Okta.Sdk.NetworkZone.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: NetworkZone.LastUpdated
+  fullName: Okta.Sdk.NetworkZone.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: Public ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.NetworkZone.LastUpdated*
+  implements:
+  - Okta.Sdk.INetworkZone.LastUpdated
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.NetworkZone.Locations
+  commentId: P:Okta.Sdk.NetworkZone.Locations
+  id: Locations
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Locations
+  nameWithType: NetworkZone.Locations
+  fullName: Okta.Sdk.NetworkZone.Locations
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Locations
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IList<INetworkZoneLocation> Locations { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.INetworkZoneLocation}
+    content.vb: Public Property Locations As IList(Of INetworkZoneLocation)
+  overload: Okta.Sdk.NetworkZone.Locations*
+  implements:
+  - Okta.Sdk.INetworkZone.Locations
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Name
+  commentId: P:Okta.Sdk.NetworkZone.Name
+  id: Name
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: NetworkZone.Name
+  fullName: Okta.Sdk.NetworkZone.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 49
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Okta.Sdk.NetworkZone.Name*
+  implements:
+  - Okta.Sdk.INetworkZone.Name
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Proxies
+  commentId: P:Okta.Sdk.NetworkZone.Proxies
+  id: Proxies
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Proxies
+  nameWithType: NetworkZone.Proxies
+  fullName: Okta.Sdk.NetworkZone.Proxies
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Proxies
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 56
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IList<INetworkZoneAddress> Proxies { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.INetworkZoneAddress}
+    content.vb: Public Property Proxies As IList(Of INetworkZoneAddress)
+  overload: Okta.Sdk.NetworkZone.Proxies*
+  implements:
+  - Okta.Sdk.INetworkZone.Proxies
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.ProxyType
+  commentId: P:Okta.Sdk.NetworkZone.ProxyType
+  id: ProxyType
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: ProxyType
+  nameWithType: NetworkZone.ProxyType
+  fullName: Okta.Sdk.NetworkZone.ProxyType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ProxyType
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 63
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string ProxyType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ProxyType As String
+  overload: Okta.Sdk.NetworkZone.ProxyType*
+  implements:
+  - Okta.Sdk.INetworkZone.ProxyType
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Status
+  commentId: P:Okta.Sdk.NetworkZone.Status
+  id: Status
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: NetworkZone.Status
+  fullName: Okta.Sdk.NetworkZone.Status
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Status
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 70
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public NetworkZoneStatus Status { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.NetworkZoneStatus
+    content.vb: Public Property Status As NetworkZoneStatus
+  overload: Okta.Sdk.NetworkZone.Status*
+  implements:
+  - Okta.Sdk.INetworkZone.Status
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.System
+  commentId: P:Okta.Sdk.NetworkZone.System
+  id: System
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: System
+  nameWithType: NetworkZone.System
+  fullName: Okta.Sdk.NetworkZone.System
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: System
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 77
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public bool? System { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property System As Boolean?
+  overload: Okta.Sdk.NetworkZone.System*
+  implements:
+  - Okta.Sdk.INetworkZone.System
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Type
+  commentId: P:Okta.Sdk.NetworkZone.Type
+  id: Type
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: NetworkZone.Type
+  fullName: Okta.Sdk.NetworkZone.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 84
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public NetworkZoneType Type { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.NetworkZoneType
+    content.vb: Public Property Type As NetworkZoneType
+  overload: Okta.Sdk.NetworkZone.Type*
+  implements:
+  - Okta.Sdk.INetworkZone.Type
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.Usage
+  commentId: P:Okta.Sdk.NetworkZone.Usage
+  id: Usage
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: Usage
+  nameWithType: NetworkZone.Usage
+  fullName: Okta.Sdk.NetworkZone.Usage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Usage
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 91
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public NetworkZoneUsage Usage { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.NetworkZoneUsage
+    content.vb: Public Property Usage As NetworkZoneUsage
+  overload: Okta.Sdk.NetworkZone.Usage*
+  implements:
+  - Okta.Sdk.INetworkZone.Usage
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.NetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  id: ActivateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: ActivateAsync(CancellationToken)
+  nameWithType: NetworkZone.ActivateAsync(CancellationToken)
+  fullName: Okta.Sdk.NetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateAsync
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 98
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public Task<INetworkZone> ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+    content.vb: Public Function ActivateAsync(cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.NetworkZone.ActivateAsync*
+  implements:
+  - Okta.Sdk.INetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.NetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.NetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  id: DeactivateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.NetworkZone
+  langs:
+  - csharp
+  - vb
+  name: DeactivateAsync(CancellationToken)
+  nameWithType: NetworkZone.DeactivateAsync(CancellationToken)
+  fullName: Okta.Sdk.NetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeactivateAsync
+    path: ../src/Okta.Sdk/Generated/NetworkZone.Generated.cs
+    startLine: 103
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public Task<INetworkZone> DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+    content.vb: Public Function DeactivateAsync(cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.NetworkZone.DeactivateAsync*
+  implements:
+  - Okta.Sdk.INetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource
+- uid: Okta.Sdk.INetworkZone
+  commentId: T:Okta.Sdk.INetworkZone
+  parent: Okta.Sdk
+  name: INetworkZone
+  nameWithType: INetworkZone
+  fullName: Okta.Sdk.INetworkZone
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.Resource.GetClient
+  commentId: M:Okta.Sdk.Resource.GetClient
+  parent: Okta.Sdk.Resource
+  name: GetClient()
+  nameWithType: Resource.GetClient()
+  fullName: Okta.Sdk.Resource.GetClient()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetData
+  commentId: M:Okta.Sdk.Resource.GetData
+  parent: Okta.Sdk.Resource
+  name: GetData()
+  nameWithType: Resource.GetData()
+  fullName: Okta.Sdk.Resource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.Item(System.String)
+  commentId: P:Okta.Sdk.Resource.Item(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: Item[String]
+  nameWithType: Resource.Item[String]
+  fullName: Okta.Sdk.Resource.Item[System.String]
+  nameWithType.vb: Resource.Item(String)
+  fullName.vb: Okta.Sdk.Resource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: Resource.GetProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetProperty<T>(System.String)
+  nameWithType.vb: Resource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: Resource.GetProperty<T>
+    fullName: Okta.Sdk.Resource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: Resource.GetProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: Resource.SetProperty(String, Object)
+  fullName: Okta.Sdk.Resource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetStringProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetStringProperty(String)
+  nameWithType: Resource.GetStringProperty(String)
+  fullName: Okta.Sdk.Resource.GetStringProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetBooleanProperty(String)
+  nameWithType: Resource.GetBooleanProperty(String)
+  fullName: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetIntegerProperty(String)
+  nameWithType: Resource.GetIntegerProperty(String)
+  fullName: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetLongProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetLongProperty(String)
+  nameWithType: Resource.GetLongProperty(String)
+  fullName: Okta.Sdk.Resource.GetLongProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDoubleProperty(String)
+  nameWithType: Resource.GetDoubleProperty(String)
+  fullName: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDateTimeProperty(String)
+  nameWithType: Resource.GetDateTimeProperty(String)
+  fullName: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: Resource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: Resource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: Resource.GetArrayProperty<T>
+    fullName: Okta.Sdk.Resource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: Resource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetEnumProperty<TEnum>(String)
+  nameWithType: Resource.GetEnumProperty<TEnum>(String)
+  fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>(System.String)
+  nameWithType.vb: Resource.GetEnumProperty(Of TEnum)(String)
+  fullName.vb: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)(System.String)
+  name.vb: GetEnumProperty(Of TEnum)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty<TEnum>
+    nameWithType: Resource.GetEnumProperty<TEnum>
+    fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty(Of TEnum)
+    nameWithType: Resource.GetEnumProperty(Of TEnum)
+    fullName: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetResourceProperty<T>(String)
+  nameWithType: Resource.GetResourceProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetResourceProperty<T>(System.String)
+  nameWithType.vb: Resource.GetResourceProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetResourceProperty(Of T)(System.String)
+  name.vb: GetResourceProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty<T>
+    nameWithType: Resource.GetResourceProperty<T>
+    fullName: Okta.Sdk.Resource.GetResourceProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty(Of T)
+    nameWithType: Resource.GetResourceProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetResourceProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.NetworkZone.Asns*
+  commentId: Overload:Okta.Sdk.NetworkZone.Asns
+  name: Asns
+  nameWithType: NetworkZone.Asns
+  fullName: Okta.Sdk.NetworkZone.Asns
+- uid: Okta.Sdk.INetworkZone.Asns
+  commentId: P:Okta.Sdk.INetworkZone.Asns
+  parent: Okta.Sdk.INetworkZone
+  name: Asns
+  nameWithType: INetworkZone.Asns
+  fullName: Okta.Sdk.INetworkZone.Asns
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.NetworkZone.Created*
+  commentId: Overload:Okta.Sdk.NetworkZone.Created
+  name: Created
+  nameWithType: NetworkZone.Created
+  fullName: Okta.Sdk.NetworkZone.Created
+- uid: Okta.Sdk.INetworkZone.Created
+  commentId: P:Okta.Sdk.INetworkZone.Created
+  parent: Okta.Sdk.INetworkZone
+  name: Created
+  nameWithType: INetworkZone.Created
+  fullName: Okta.Sdk.INetworkZone.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.NetworkZone.Gateways*
+  commentId: Overload:Okta.Sdk.NetworkZone.Gateways
+  name: Gateways
+  nameWithType: NetworkZone.Gateways
+  fullName: Okta.Sdk.NetworkZone.Gateways
+- uid: Okta.Sdk.INetworkZone.Gateways
+  commentId: P:Okta.Sdk.INetworkZone.Gateways
+  parent: Okta.Sdk.INetworkZone
+  name: Gateways
+  nameWithType: INetworkZone.Gateways
+  fullName: Okta.Sdk.INetworkZone.Gateways
+- uid: System.Collections.Generic.IList{Okta.Sdk.INetworkZoneAddress}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.INetworkZoneAddress}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<INetworkZoneAddress>
+  nameWithType: IList<INetworkZoneAddress>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.INetworkZoneAddress>
+  nameWithType.vb: IList(Of INetworkZoneAddress)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.INetworkZoneAddress)
+  name.vb: IList(Of INetworkZoneAddress)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.INetworkZoneAddress
+    name: INetworkZoneAddress
+    nameWithType: INetworkZoneAddress
+    fullName: Okta.Sdk.INetworkZoneAddress
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.INetworkZoneAddress
+    name: INetworkZoneAddress
+    nameWithType: INetworkZoneAddress
+    fullName: Okta.Sdk.INetworkZoneAddress
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.NetworkZone.Id*
+  commentId: Overload:Okta.Sdk.NetworkZone.Id
+  name: Id
+  nameWithType: NetworkZone.Id
+  fullName: Okta.Sdk.NetworkZone.Id
+- uid: Okta.Sdk.INetworkZone.Id
+  commentId: P:Okta.Sdk.INetworkZone.Id
+  parent: Okta.Sdk.INetworkZone
+  name: Id
+  nameWithType: INetworkZone.Id
+  fullName: Okta.Sdk.INetworkZone.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.NetworkZone.LastUpdated*
+  commentId: Overload:Okta.Sdk.NetworkZone.LastUpdated
+  name: LastUpdated
+  nameWithType: NetworkZone.LastUpdated
+  fullName: Okta.Sdk.NetworkZone.LastUpdated
+- uid: Okta.Sdk.INetworkZone.LastUpdated
+  commentId: P:Okta.Sdk.INetworkZone.LastUpdated
+  parent: Okta.Sdk.INetworkZone
+  name: LastUpdated
+  nameWithType: INetworkZone.LastUpdated
+  fullName: Okta.Sdk.INetworkZone.LastUpdated
+- uid: Okta.Sdk.NetworkZone.Locations*
+  commentId: Overload:Okta.Sdk.NetworkZone.Locations
+  name: Locations
+  nameWithType: NetworkZone.Locations
+  fullName: Okta.Sdk.NetworkZone.Locations
+- uid: Okta.Sdk.INetworkZone.Locations
+  commentId: P:Okta.Sdk.INetworkZone.Locations
+  parent: Okta.Sdk.INetworkZone
+  name: Locations
+  nameWithType: INetworkZone.Locations
+  fullName: Okta.Sdk.INetworkZone.Locations
+- uid: System.Collections.Generic.IList{Okta.Sdk.INetworkZoneLocation}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.INetworkZoneLocation}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<INetworkZoneLocation>
+  nameWithType: IList<INetworkZoneLocation>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.INetworkZoneLocation>
+  nameWithType.vb: IList(Of INetworkZoneLocation)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.INetworkZoneLocation)
+  name.vb: IList(Of INetworkZoneLocation)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.INetworkZoneLocation
+    name: INetworkZoneLocation
+    nameWithType: INetworkZoneLocation
+    fullName: Okta.Sdk.INetworkZoneLocation
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.INetworkZoneLocation
+    name: INetworkZoneLocation
+    nameWithType: INetworkZoneLocation
+    fullName: Okta.Sdk.INetworkZoneLocation
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.NetworkZone.Name*
+  commentId: Overload:Okta.Sdk.NetworkZone.Name
+  name: Name
+  nameWithType: NetworkZone.Name
+  fullName: Okta.Sdk.NetworkZone.Name
+- uid: Okta.Sdk.INetworkZone.Name
+  commentId: P:Okta.Sdk.INetworkZone.Name
+  parent: Okta.Sdk.INetworkZone
+  name: Name
+  nameWithType: INetworkZone.Name
+  fullName: Okta.Sdk.INetworkZone.Name
+- uid: Okta.Sdk.NetworkZone.Proxies*
+  commentId: Overload:Okta.Sdk.NetworkZone.Proxies
+  name: Proxies
+  nameWithType: NetworkZone.Proxies
+  fullName: Okta.Sdk.NetworkZone.Proxies
+- uid: Okta.Sdk.INetworkZone.Proxies
+  commentId: P:Okta.Sdk.INetworkZone.Proxies
+  parent: Okta.Sdk.INetworkZone
+  name: Proxies
+  nameWithType: INetworkZone.Proxies
+  fullName: Okta.Sdk.INetworkZone.Proxies
+- uid: Okta.Sdk.NetworkZone.ProxyType*
+  commentId: Overload:Okta.Sdk.NetworkZone.ProxyType
+  name: ProxyType
+  nameWithType: NetworkZone.ProxyType
+  fullName: Okta.Sdk.NetworkZone.ProxyType
+- uid: Okta.Sdk.INetworkZone.ProxyType
+  commentId: P:Okta.Sdk.INetworkZone.ProxyType
+  parent: Okta.Sdk.INetworkZone
+  name: ProxyType
+  nameWithType: INetworkZone.ProxyType
+  fullName: Okta.Sdk.INetworkZone.ProxyType
+- uid: Okta.Sdk.NetworkZone.Status*
+  commentId: Overload:Okta.Sdk.NetworkZone.Status
+  name: Status
+  nameWithType: NetworkZone.Status
+  fullName: Okta.Sdk.NetworkZone.Status
+- uid: Okta.Sdk.INetworkZone.Status
+  commentId: P:Okta.Sdk.INetworkZone.Status
+  parent: Okta.Sdk.INetworkZone
+  name: Status
+  nameWithType: INetworkZone.Status
+  fullName: Okta.Sdk.INetworkZone.Status
+- uid: Okta.Sdk.NetworkZoneStatus
+  commentId: T:Okta.Sdk.NetworkZoneStatus
+  parent: Okta.Sdk
+  name: NetworkZoneStatus
+  nameWithType: NetworkZoneStatus
+  fullName: Okta.Sdk.NetworkZoneStatus
+- uid: Okta.Sdk.NetworkZone.System*
+  commentId: Overload:Okta.Sdk.NetworkZone.System
+  name: System
+  nameWithType: NetworkZone.System
+  fullName: Okta.Sdk.NetworkZone.System
+- uid: Okta.Sdk.INetworkZone.System
+  commentId: P:Okta.Sdk.INetworkZone.System
+  parent: Okta.Sdk.INetworkZone
+  name: System
+  nameWithType: INetworkZone.System
+  fullName: Okta.Sdk.INetworkZone.System
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.NetworkZone.Type*
+  commentId: Overload:Okta.Sdk.NetworkZone.Type
+  name: Type
+  nameWithType: NetworkZone.Type
+  fullName: Okta.Sdk.NetworkZone.Type
+- uid: Okta.Sdk.INetworkZone.Type
+  commentId: P:Okta.Sdk.INetworkZone.Type
+  parent: Okta.Sdk.INetworkZone
+  name: Type
+  nameWithType: INetworkZone.Type
+  fullName: Okta.Sdk.INetworkZone.Type
+- uid: Okta.Sdk.NetworkZoneType
+  commentId: T:Okta.Sdk.NetworkZoneType
+  parent: Okta.Sdk
+  name: NetworkZoneType
+  nameWithType: NetworkZoneType
+  fullName: Okta.Sdk.NetworkZoneType
+- uid: Okta.Sdk.NetworkZone.Usage*
+  commentId: Overload:Okta.Sdk.NetworkZone.Usage
+  name: Usage
+  nameWithType: NetworkZone.Usage
+  fullName: Okta.Sdk.NetworkZone.Usage
+- uid: Okta.Sdk.INetworkZone.Usage
+  commentId: P:Okta.Sdk.INetworkZone.Usage
+  parent: Okta.Sdk.INetworkZone
+  name: Usage
+  nameWithType: INetworkZone.Usage
+  fullName: Okta.Sdk.INetworkZone.Usage
+- uid: Okta.Sdk.NetworkZoneUsage
+  commentId: T:Okta.Sdk.NetworkZoneUsage
+  parent: Okta.Sdk
+  name: NetworkZoneUsage
+  nameWithType: NetworkZoneUsage
+  fullName: Okta.Sdk.NetworkZoneUsage
+- uid: Okta.Sdk.NetworkZone.ActivateAsync*
+  commentId: Overload:Okta.Sdk.NetworkZone.ActivateAsync
+  name: ActivateAsync
+  nameWithType: NetworkZone.ActivateAsync
+  fullName: Okta.Sdk.NetworkZone.ActivateAsync
+- uid: Okta.Sdk.INetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZone
+  isExternal: true
+  name: ActivateAsync(CancellationToken)
+  nameWithType: INetworkZone.ActivateAsync(CancellationToken)
+  fullName: Okta.Sdk.INetworkZone.ActivateAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.INetworkZone.ActivateAsync(System.Threading.CancellationToken)
+    name: ActivateAsync
+    nameWithType: INetworkZone.ActivateAsync
+    fullName: Okta.Sdk.INetworkZone.ActivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.INetworkZone.ActivateAsync(System.Threading.CancellationToken)
+    name: ActivateAsync
+    nameWithType: INetworkZone.ActivateAsync
+    fullName: Okta.Sdk.INetworkZone.ActivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<INetworkZone>
+  nameWithType: Task<INetworkZone>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.INetworkZone>
+  nameWithType.vb: Task(Of INetworkZone)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.INetworkZone)
+  name.vb: Task(Of INetworkZone)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.INetworkZone
+    name: INetworkZone
+    nameWithType: INetworkZone
+    fullName: Okta.Sdk.INetworkZone
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.INetworkZone
+    name: INetworkZone
+    nameWithType: INetworkZone
+    fullName: Okta.Sdk.INetworkZone
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.NetworkZone.DeactivateAsync*
+  commentId: Overload:Okta.Sdk.NetworkZone.DeactivateAsync
+  name: DeactivateAsync
+  nameWithType: NetworkZone.DeactivateAsync
+  fullName: Okta.Sdk.NetworkZone.DeactivateAsync
+- uid: Okta.Sdk.INetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZone
+  isExternal: true
+  name: DeactivateAsync(CancellationToken)
+  nameWithType: INetworkZone.DeactivateAsync(CancellationToken)
+  fullName: Okta.Sdk.INetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.INetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+    name: DeactivateAsync
+    nameWithType: INetworkZone.DeactivateAsync
+    fullName: Okta.Sdk.INetworkZone.DeactivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.INetworkZone.DeactivateAsync(System.Threading.CancellationToken)
+    name: DeactivateAsync
+    nameWithType: INetworkZone.DeactivateAsync
+    fullName: Okta.Sdk.INetworkZone.DeactivateAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

@@ -1,0 +1,583 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IVerifyFactorRequest
+  commentId: T:Okta.Sdk.IVerifyFactorRequest
+  id: IVerifyFactorRequest
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IVerifyFactorRequest.ActivationToken
+  - Okta.Sdk.IVerifyFactorRequest.Answer
+  - Okta.Sdk.IVerifyFactorRequest.Attestation
+  - Okta.Sdk.IVerifyFactorRequest.ClientData
+  - Okta.Sdk.IVerifyFactorRequest.NextPassCode
+  - Okta.Sdk.IVerifyFactorRequest.PassCode
+  - Okta.Sdk.IVerifyFactorRequest.RegistrationData
+  - Okta.Sdk.IVerifyFactorRequest.StateToken
+  langs:
+  - csharp
+  - vb
+  name: IVerifyFactorRequest
+  nameWithType: IVerifyFactorRequest
+  fullName: Okta.Sdk.IVerifyFactorRequest
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IVerifyFactorRequest
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a VerifyFactorRequest resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IVerifyFactorRequest : IResource'
+    content.vb: >-
+      Public Interface IVerifyFactorRequest
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IVerifyFactorRequest.ActivationToken
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.ActivationToken
+  id: ActivationToken
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: ActivationToken
+  nameWithType: IVerifyFactorRequest.ActivationToken
+  fullName: Okta.Sdk.IVerifyFactorRequest.ActivationToken
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivationToken
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ActivationToken { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ActivationToken As String
+  overload: Okta.Sdk.IVerifyFactorRequest.ActivationToken*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.Answer
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.Answer
+  id: Answer
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: Answer
+  nameWithType: IVerifyFactorRequest.Answer
+  fullName: Okta.Sdk.IVerifyFactorRequest.Answer
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Answer
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Answer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Answer As String
+  overload: Okta.Sdk.IVerifyFactorRequest.Answer*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.Attestation
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.Attestation
+  id: Attestation
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: Attestation
+  nameWithType: IVerifyFactorRequest.Attestation
+  fullName: Okta.Sdk.IVerifyFactorRequest.Attestation
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Attestation
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Attestation { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Attestation As String
+  overload: Okta.Sdk.IVerifyFactorRequest.Attestation*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.ClientData
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.ClientData
+  id: ClientData
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: ClientData
+  nameWithType: IVerifyFactorRequest.ClientData
+  fullName: Okta.Sdk.IVerifyFactorRequest.ClientData
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ClientData
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ClientData { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ClientData As String
+  overload: Okta.Sdk.IVerifyFactorRequest.ClientData*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.NextPassCode
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.NextPassCode
+  id: NextPassCode
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: NextPassCode
+  nameWithType: IVerifyFactorRequest.NextPassCode
+  fullName: Okta.Sdk.IVerifyFactorRequest.NextPassCode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NextPassCode
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string NextPassCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property NextPassCode As String
+  overload: Okta.Sdk.IVerifyFactorRequest.NextPassCode*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.PassCode
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.PassCode
+  id: PassCode
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: PassCode
+  nameWithType: IVerifyFactorRequest.PassCode
+  fullName: Okta.Sdk.IVerifyFactorRequest.PassCode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PassCode
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PassCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PassCode As String
+  overload: Okta.Sdk.IVerifyFactorRequest.PassCode*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.RegistrationData
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.RegistrationData
+  id: RegistrationData
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: RegistrationData
+  nameWithType: IVerifyFactorRequest.RegistrationData
+  fullName: Okta.Sdk.IVerifyFactorRequest.RegistrationData
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RegistrationData
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string RegistrationData { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property RegistrationData As String
+  overload: Okta.Sdk.IVerifyFactorRequest.RegistrationData*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IVerifyFactorRequest.StateToken
+  commentId: P:Okta.Sdk.IVerifyFactorRequest.StateToken
+  id: StateToken
+  parent: Okta.Sdk.IVerifyFactorRequest
+  langs:
+  - csharp
+  - vb
+  name: StateToken
+  nameWithType: IVerifyFactorRequest.StateToken
+  fullName: Okta.Sdk.IVerifyFactorRequest.StateToken
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: StateToken
+    path: ../src/Okta.Sdk/Generated/IVerifyFactorRequest.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string StateToken { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property StateToken As String
+  overload: Okta.Sdk.IVerifyFactorRequest.StateToken*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IVerifyFactorRequest.ActivationToken*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.ActivationToken
+  name: ActivationToken
+  nameWithType: IVerifyFactorRequest.ActivationToken
+  fullName: Okta.Sdk.IVerifyFactorRequest.ActivationToken
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IVerifyFactorRequest.Answer*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.Answer
+  name: Answer
+  nameWithType: IVerifyFactorRequest.Answer
+  fullName: Okta.Sdk.IVerifyFactorRequest.Answer
+- uid: Okta.Sdk.IVerifyFactorRequest.Attestation*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.Attestation
+  name: Attestation
+  nameWithType: IVerifyFactorRequest.Attestation
+  fullName: Okta.Sdk.IVerifyFactorRequest.Attestation
+- uid: Okta.Sdk.IVerifyFactorRequest.ClientData*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.ClientData
+  name: ClientData
+  nameWithType: IVerifyFactorRequest.ClientData
+  fullName: Okta.Sdk.IVerifyFactorRequest.ClientData
+- uid: Okta.Sdk.IVerifyFactorRequest.NextPassCode*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.NextPassCode
+  name: NextPassCode
+  nameWithType: IVerifyFactorRequest.NextPassCode
+  fullName: Okta.Sdk.IVerifyFactorRequest.NextPassCode
+- uid: Okta.Sdk.IVerifyFactorRequest.PassCode*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.PassCode
+  name: PassCode
+  nameWithType: IVerifyFactorRequest.PassCode
+  fullName: Okta.Sdk.IVerifyFactorRequest.PassCode
+- uid: Okta.Sdk.IVerifyFactorRequest.RegistrationData*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.RegistrationData
+  name: RegistrationData
+  nameWithType: IVerifyFactorRequest.RegistrationData
+  fullName: Okta.Sdk.IVerifyFactorRequest.RegistrationData
+- uid: Okta.Sdk.IVerifyFactorRequest.StateToken*
+  commentId: Overload:Okta.Sdk.IVerifyFactorRequest.StateToken
+  name: StateToken
+  nameWithType: IVerifyFactorRequest.StateToken
+  fullName: Okta.Sdk.IVerifyFactorRequest.StateToken

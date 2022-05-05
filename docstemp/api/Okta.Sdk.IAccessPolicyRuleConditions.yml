@@ -1,0 +1,544 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IAccessPolicyRuleConditions
+  commentId: T:Okta.Sdk.IAccessPolicyRuleConditions
+  id: IAccessPolicyRuleConditions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IAccessPolicyRuleConditions.Device
+  - Okta.Sdk.IAccessPolicyRuleConditions.ElCondition
+  - Okta.Sdk.IAccessPolicyRuleConditions.UserType
+  langs:
+  - csharp
+  - vb
+  name: IAccessPolicyRuleConditions
+  nameWithType: IAccessPolicyRuleConditions
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IAccessPolicyRuleConditions
+    path: ../src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a AccessPolicyRuleConditions resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IAccessPolicyRuleConditions : IPolicyRuleConditions, IResource'
+    content.vb: >-
+      Public Interface IAccessPolicyRuleConditions
+
+          Inherits IPolicyRuleConditions
+  inheritedMembers:
+  - Okta.Sdk.IPolicyRuleConditions.App
+  - Okta.Sdk.IPolicyRuleConditions.Apps
+  - Okta.Sdk.IPolicyRuleConditions.AuthContext
+  - Okta.Sdk.IPolicyRuleConditions.AuthProvider
+  - Okta.Sdk.IPolicyRuleConditions.BeforeScheduledAction
+  - Okta.Sdk.IPolicyRuleConditions.Clients
+  - Okta.Sdk.IPolicyRuleConditions.Context
+  - Okta.Sdk.IPolicyRuleConditions.GrantTypes
+  - Okta.Sdk.IPolicyRuleConditions.Groups
+  - Okta.Sdk.IPolicyRuleConditions.IdentityProvider
+  - Okta.Sdk.IPolicyRuleConditions.MdmEnrollment
+  - Okta.Sdk.IPolicyRuleConditions.Network
+  - Okta.Sdk.IPolicyRuleConditions.People
+  - Okta.Sdk.IPolicyRuleConditions.Platform
+  - Okta.Sdk.IPolicyRuleConditions.Risk
+  - Okta.Sdk.IPolicyRuleConditions.RiskScore
+  - Okta.Sdk.IPolicyRuleConditions.Scopes
+  - Okta.Sdk.IPolicyRuleConditions.UserIdentifier
+  - Okta.Sdk.IPolicyRuleConditions.UserStatus
+  - Okta.Sdk.IPolicyRuleConditions.Users
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IAccessPolicyRuleConditions.Device
+  commentId: P:Okta.Sdk.IAccessPolicyRuleConditions.Device
+  id: Device
+  parent: Okta.Sdk.IAccessPolicyRuleConditions
+  langs:
+  - csharp
+  - vb
+  name: Device
+  nameWithType: IAccessPolicyRuleConditions.Device
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions.Device
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Device
+    path: ../src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IDeviceAccessPolicyRuleCondition Device { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IDeviceAccessPolicyRuleCondition
+    content.vb: Property Device As IDeviceAccessPolicyRuleCondition
+  overload: Okta.Sdk.IAccessPolicyRuleConditions.Device*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IAccessPolicyRuleConditions.ElCondition
+  commentId: P:Okta.Sdk.IAccessPolicyRuleConditions.ElCondition
+  id: ElCondition
+  parent: Okta.Sdk.IAccessPolicyRuleConditions
+  langs:
+  - csharp
+  - vb
+  name: ElCondition
+  nameWithType: IAccessPolicyRuleConditions.ElCondition
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions.ElCondition
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ElCondition
+    path: ../src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IAccessPolicyRuleCustomCondition ElCondition { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IAccessPolicyRuleCustomCondition
+    content.vb: Property ElCondition As IAccessPolicyRuleCustomCondition
+  overload: Okta.Sdk.IAccessPolicyRuleConditions.ElCondition*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IAccessPolicyRuleConditions.UserType
+  commentId: P:Okta.Sdk.IAccessPolicyRuleConditions.UserType
+  id: UserType
+  parent: Okta.Sdk.IAccessPolicyRuleConditions
+  langs:
+  - csharp
+  - vb
+  name: UserType
+  nameWithType: IAccessPolicyRuleConditions.UserType
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions.UserType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserType
+    path: ../src/Okta.Sdk/Generated/IAccessPolicyRuleConditions.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IUserTypeCondition UserType { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserTypeCondition
+    content.vb: Property UserType As IUserTypeCondition
+  overload: Okta.Sdk.IAccessPolicyRuleConditions.UserType*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IPolicyRuleConditions.App
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.App
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: App
+  nameWithType: IPolicyRuleConditions.App
+  fullName: Okta.Sdk.IPolicyRuleConditions.App
+- uid: Okta.Sdk.IPolicyRuleConditions.Apps
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Apps
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Apps
+  nameWithType: IPolicyRuleConditions.Apps
+  fullName: Okta.Sdk.IPolicyRuleConditions.Apps
+- uid: Okta.Sdk.IPolicyRuleConditions.AuthContext
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.AuthContext
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: AuthContext
+  nameWithType: IPolicyRuleConditions.AuthContext
+  fullName: Okta.Sdk.IPolicyRuleConditions.AuthContext
+- uid: Okta.Sdk.IPolicyRuleConditions.AuthProvider
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.AuthProvider
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: AuthProvider
+  nameWithType: IPolicyRuleConditions.AuthProvider
+  fullName: Okta.Sdk.IPolicyRuleConditions.AuthProvider
+- uid: Okta.Sdk.IPolicyRuleConditions.BeforeScheduledAction
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.BeforeScheduledAction
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: BeforeScheduledAction
+  nameWithType: IPolicyRuleConditions.BeforeScheduledAction
+  fullName: Okta.Sdk.IPolicyRuleConditions.BeforeScheduledAction
+- uid: Okta.Sdk.IPolicyRuleConditions.Clients
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Clients
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Clients
+  nameWithType: IPolicyRuleConditions.Clients
+  fullName: Okta.Sdk.IPolicyRuleConditions.Clients
+- uid: Okta.Sdk.IPolicyRuleConditions.Context
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Context
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Context
+  nameWithType: IPolicyRuleConditions.Context
+  fullName: Okta.Sdk.IPolicyRuleConditions.Context
+- uid: Okta.Sdk.IPolicyRuleConditions.GrantTypes
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.GrantTypes
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: GrantTypes
+  nameWithType: IPolicyRuleConditions.GrantTypes
+  fullName: Okta.Sdk.IPolicyRuleConditions.GrantTypes
+- uid: Okta.Sdk.IPolicyRuleConditions.Groups
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Groups
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Groups
+  nameWithType: IPolicyRuleConditions.Groups
+  fullName: Okta.Sdk.IPolicyRuleConditions.Groups
+- uid: Okta.Sdk.IPolicyRuleConditions.IdentityProvider
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.IdentityProvider
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: IdentityProvider
+  nameWithType: IPolicyRuleConditions.IdentityProvider
+  fullName: Okta.Sdk.IPolicyRuleConditions.IdentityProvider
+- uid: Okta.Sdk.IPolicyRuleConditions.MdmEnrollment
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.MdmEnrollment
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: MdmEnrollment
+  nameWithType: IPolicyRuleConditions.MdmEnrollment
+  fullName: Okta.Sdk.IPolicyRuleConditions.MdmEnrollment
+- uid: Okta.Sdk.IPolicyRuleConditions.Network
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Network
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Network
+  nameWithType: IPolicyRuleConditions.Network
+  fullName: Okta.Sdk.IPolicyRuleConditions.Network
+- uid: Okta.Sdk.IPolicyRuleConditions.People
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.People
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: People
+  nameWithType: IPolicyRuleConditions.People
+  fullName: Okta.Sdk.IPolicyRuleConditions.People
+- uid: Okta.Sdk.IPolicyRuleConditions.Platform
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Platform
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Platform
+  nameWithType: IPolicyRuleConditions.Platform
+  fullName: Okta.Sdk.IPolicyRuleConditions.Platform
+- uid: Okta.Sdk.IPolicyRuleConditions.Risk
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Risk
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Risk
+  nameWithType: IPolicyRuleConditions.Risk
+  fullName: Okta.Sdk.IPolicyRuleConditions.Risk
+- uid: Okta.Sdk.IPolicyRuleConditions.RiskScore
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.RiskScore
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: RiskScore
+  nameWithType: IPolicyRuleConditions.RiskScore
+  fullName: Okta.Sdk.IPolicyRuleConditions.RiskScore
+- uid: Okta.Sdk.IPolicyRuleConditions.Scopes
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Scopes
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Scopes
+  nameWithType: IPolicyRuleConditions.Scopes
+  fullName: Okta.Sdk.IPolicyRuleConditions.Scopes
+- uid: Okta.Sdk.IPolicyRuleConditions.UserIdentifier
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.UserIdentifier
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: UserIdentifier
+  nameWithType: IPolicyRuleConditions.UserIdentifier
+  fullName: Okta.Sdk.IPolicyRuleConditions.UserIdentifier
+- uid: Okta.Sdk.IPolicyRuleConditions.UserStatus
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.UserStatus
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: UserStatus
+  nameWithType: IPolicyRuleConditions.UserStatus
+  fullName: Okta.Sdk.IPolicyRuleConditions.UserStatus
+- uid: Okta.Sdk.IPolicyRuleConditions.Users
+  commentId: P:Okta.Sdk.IPolicyRuleConditions.Users
+  parent: Okta.Sdk.IPolicyRuleConditions
+  name: Users
+  nameWithType: IPolicyRuleConditions.Users
+  fullName: Okta.Sdk.IPolicyRuleConditions.Users
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IPolicyRuleConditions
+  commentId: T:Okta.Sdk.IPolicyRuleConditions
+  parent: Okta.Sdk
+  name: IPolicyRuleConditions
+  nameWithType: IPolicyRuleConditions
+  fullName: Okta.Sdk.IPolicyRuleConditions
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IAccessPolicyRuleConditions.Device*
+  commentId: Overload:Okta.Sdk.IAccessPolicyRuleConditions.Device
+  name: Device
+  nameWithType: IAccessPolicyRuleConditions.Device
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions.Device
+- uid: Okta.Sdk.IDeviceAccessPolicyRuleCondition
+  commentId: T:Okta.Sdk.IDeviceAccessPolicyRuleCondition
+  parent: Okta.Sdk
+  name: IDeviceAccessPolicyRuleCondition
+  nameWithType: IDeviceAccessPolicyRuleCondition
+  fullName: Okta.Sdk.IDeviceAccessPolicyRuleCondition
+- uid: Okta.Sdk.IAccessPolicyRuleConditions.ElCondition*
+  commentId: Overload:Okta.Sdk.IAccessPolicyRuleConditions.ElCondition
+  name: ElCondition
+  nameWithType: IAccessPolicyRuleConditions.ElCondition
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions.ElCondition
+- uid: Okta.Sdk.IAccessPolicyRuleCustomCondition
+  commentId: T:Okta.Sdk.IAccessPolicyRuleCustomCondition
+  parent: Okta.Sdk
+  name: IAccessPolicyRuleCustomCondition
+  nameWithType: IAccessPolicyRuleCustomCondition
+  fullName: Okta.Sdk.IAccessPolicyRuleCustomCondition
+- uid: Okta.Sdk.IAccessPolicyRuleConditions.UserType*
+  commentId: Overload:Okta.Sdk.IAccessPolicyRuleConditions.UserType
+  name: UserType
+  nameWithType: IAccessPolicyRuleConditions.UserType
+  fullName: Okta.Sdk.IAccessPolicyRuleConditions.UserType
+- uid: Okta.Sdk.IUserTypeCondition
+  commentId: T:Okta.Sdk.IUserTypeCondition
+  parent: Okta.Sdk
+  name: IUserTypeCondition
+  nameWithType: IUserTypeCondition
+  fullName: Okta.Sdk.IUserTypeCondition

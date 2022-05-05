@@ -1,0 +1,1457 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IUserProfile
+  commentId: T:Okta.Sdk.IUserProfile
+  id: IUserProfile
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IUserProfile.City
+  - Okta.Sdk.IUserProfile.CostCenter
+  - Okta.Sdk.IUserProfile.CountryCode
+  - Okta.Sdk.IUserProfile.Department
+  - Okta.Sdk.IUserProfile.DisplayName
+  - Okta.Sdk.IUserProfile.Division
+  - Okta.Sdk.IUserProfile.Email
+  - Okta.Sdk.IUserProfile.EmployeeNumber
+  - Okta.Sdk.IUserProfile.FirstName
+  - Okta.Sdk.IUserProfile.HonorificPrefix
+  - Okta.Sdk.IUserProfile.HonorificSuffix
+  - Okta.Sdk.IUserProfile.LastName
+  - Okta.Sdk.IUserProfile.Locale
+  - Okta.Sdk.IUserProfile.Login
+  - Okta.Sdk.IUserProfile.Manager
+  - Okta.Sdk.IUserProfile.ManagerId
+  - Okta.Sdk.IUserProfile.MiddleName
+  - Okta.Sdk.IUserProfile.MobilePhone
+  - Okta.Sdk.IUserProfile.NickName
+  - Okta.Sdk.IUserProfile.Organization
+  - Okta.Sdk.IUserProfile.PostalAddress
+  - Okta.Sdk.IUserProfile.PreferredLanguage
+  - Okta.Sdk.IUserProfile.PrimaryPhone
+  - Okta.Sdk.IUserProfile.ProfileUrl
+  - Okta.Sdk.IUserProfile.SecondEmail
+  - Okta.Sdk.IUserProfile.State
+  - Okta.Sdk.IUserProfile.StreetAddress
+  - Okta.Sdk.IUserProfile.Timezone
+  - Okta.Sdk.IUserProfile.Title
+  - Okta.Sdk.IUserProfile.UserType
+  - Okta.Sdk.IUserProfile.ZipCode
+  langs:
+  - csharp
+  - vb
+  name: IUserProfile
+  nameWithType: IUserProfile
+  fullName: Okta.Sdk.IUserProfile
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IUserProfile
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a UserProfile resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IUserProfile : IResource'
+    content.vb: >-
+      Public Interface IUserProfile
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IUserProfile.City
+  commentId: P:Okta.Sdk.IUserProfile.City
+  id: City
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: City
+  nameWithType: IUserProfile.City
+  fullName: Okta.Sdk.IUserProfile.City
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: City
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string City { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property City As String
+  overload: Okta.Sdk.IUserProfile.City*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.CostCenter
+  commentId: P:Okta.Sdk.IUserProfile.CostCenter
+  id: CostCenter
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: CostCenter
+  nameWithType: IUserProfile.CostCenter
+  fullName: Okta.Sdk.IUserProfile.CostCenter
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CostCenter
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string CostCenter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CostCenter As String
+  overload: Okta.Sdk.IUserProfile.CostCenter*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.CountryCode
+  commentId: P:Okta.Sdk.IUserProfile.CountryCode
+  id: CountryCode
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: CountryCode
+  nameWithType: IUserProfile.CountryCode
+  fullName: Okta.Sdk.IUserProfile.CountryCode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CountryCode
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string CountryCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CountryCode As String
+  overload: Okta.Sdk.IUserProfile.CountryCode*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Department
+  commentId: P:Okta.Sdk.IUserProfile.Department
+  id: Department
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Department
+  nameWithType: IUserProfile.Department
+  fullName: Okta.Sdk.IUserProfile.Department
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Department
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Department { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Department As String
+  overload: Okta.Sdk.IUserProfile.Department*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.DisplayName
+  commentId: P:Okta.Sdk.IUserProfile.DisplayName
+  id: DisplayName
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: IUserProfile.DisplayName
+  fullName: Okta.Sdk.IUserProfile.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DisplayName
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DisplayName As String
+  overload: Okta.Sdk.IUserProfile.DisplayName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Division
+  commentId: P:Okta.Sdk.IUserProfile.Division
+  id: Division
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Division
+  nameWithType: IUserProfile.Division
+  fullName: Okta.Sdk.IUserProfile.Division
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Division
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Division { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Division As String
+  overload: Okta.Sdk.IUserProfile.Division*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Email
+  commentId: P:Okta.Sdk.IUserProfile.Email
+  id: Email
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: IUserProfile.Email
+  fullName: Okta.Sdk.IUserProfile.Email
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Email
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Email { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Email As String
+  overload: Okta.Sdk.IUserProfile.Email*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.EmployeeNumber
+  commentId: P:Okta.Sdk.IUserProfile.EmployeeNumber
+  id: EmployeeNumber
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: EmployeeNumber
+  nameWithType: IUserProfile.EmployeeNumber
+  fullName: Okta.Sdk.IUserProfile.EmployeeNumber
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EmployeeNumber
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string EmployeeNumber { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property EmployeeNumber As String
+  overload: Okta.Sdk.IUserProfile.EmployeeNumber*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.FirstName
+  commentId: P:Okta.Sdk.IUserProfile.FirstName
+  id: FirstName
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: FirstName
+  nameWithType: IUserProfile.FirstName
+  fullName: Okta.Sdk.IUserProfile.FirstName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: FirstName
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string FirstName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property FirstName As String
+  overload: Okta.Sdk.IUserProfile.FirstName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.HonorificPrefix
+  commentId: P:Okta.Sdk.IUserProfile.HonorificPrefix
+  id: HonorificPrefix
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: HonorificPrefix
+  nameWithType: IUserProfile.HonorificPrefix
+  fullName: Okta.Sdk.IUserProfile.HonorificPrefix
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HonorificPrefix
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string HonorificPrefix { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property HonorificPrefix As String
+  overload: Okta.Sdk.IUserProfile.HonorificPrefix*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.HonorificSuffix
+  commentId: P:Okta.Sdk.IUserProfile.HonorificSuffix
+  id: HonorificSuffix
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: HonorificSuffix
+  nameWithType: IUserProfile.HonorificSuffix
+  fullName: Okta.Sdk.IUserProfile.HonorificSuffix
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HonorificSuffix
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 37
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string HonorificSuffix { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property HonorificSuffix As String
+  overload: Okta.Sdk.IUserProfile.HonorificSuffix*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.LastName
+  commentId: P:Okta.Sdk.IUserProfile.LastName
+  id: LastName
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: LastName
+  nameWithType: IUserProfile.LastName
+  fullName: Okta.Sdk.IUserProfile.LastName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastName
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string LastName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property LastName As String
+  overload: Okta.Sdk.IUserProfile.LastName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Locale
+  commentId: P:Okta.Sdk.IUserProfile.Locale
+  id: Locale
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Locale
+  nameWithType: IUserProfile.Locale
+  fullName: Okta.Sdk.IUserProfile.Locale
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Locale
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 41
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Locale { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Locale As String
+  overload: Okta.Sdk.IUserProfile.Locale*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Login
+  commentId: P:Okta.Sdk.IUserProfile.Login
+  id: Login
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Login
+  nameWithType: IUserProfile.Login
+  fullName: Okta.Sdk.IUserProfile.Login
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Login
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Login { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Login As String
+  overload: Okta.Sdk.IUserProfile.Login*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Manager
+  commentId: P:Okta.Sdk.IUserProfile.Manager
+  id: Manager
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Manager
+  nameWithType: IUserProfile.Manager
+  fullName: Okta.Sdk.IUserProfile.Manager
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Manager
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Manager { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Manager As String
+  overload: Okta.Sdk.IUserProfile.Manager*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.ManagerId
+  commentId: P:Okta.Sdk.IUserProfile.ManagerId
+  id: ManagerId
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: ManagerId
+  nameWithType: IUserProfile.ManagerId
+  fullName: Okta.Sdk.IUserProfile.ManagerId
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ManagerId
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ManagerId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ManagerId As String
+  overload: Okta.Sdk.IUserProfile.ManagerId*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.MiddleName
+  commentId: P:Okta.Sdk.IUserProfile.MiddleName
+  id: MiddleName
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: MiddleName
+  nameWithType: IUserProfile.MiddleName
+  fullName: Okta.Sdk.IUserProfile.MiddleName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MiddleName
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 49
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string MiddleName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property MiddleName As String
+  overload: Okta.Sdk.IUserProfile.MiddleName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.MobilePhone
+  commentId: P:Okta.Sdk.IUserProfile.MobilePhone
+  id: MobilePhone
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: MobilePhone
+  nameWithType: IUserProfile.MobilePhone
+  fullName: Okta.Sdk.IUserProfile.MobilePhone
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MobilePhone
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 51
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string MobilePhone { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property MobilePhone As String
+  overload: Okta.Sdk.IUserProfile.MobilePhone*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.NickName
+  commentId: P:Okta.Sdk.IUserProfile.NickName
+  id: NickName
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: NickName
+  nameWithType: IUserProfile.NickName
+  fullName: Okta.Sdk.IUserProfile.NickName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NickName
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 53
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string NickName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property NickName As String
+  overload: Okta.Sdk.IUserProfile.NickName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Organization
+  commentId: P:Okta.Sdk.IUserProfile.Organization
+  id: Organization
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Organization
+  nameWithType: IUserProfile.Organization
+  fullName: Okta.Sdk.IUserProfile.Organization
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Organization
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Organization { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Organization As String
+  overload: Okta.Sdk.IUserProfile.Organization*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.PostalAddress
+  commentId: P:Okta.Sdk.IUserProfile.PostalAddress
+  id: PostalAddress
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: PostalAddress
+  nameWithType: IUserProfile.PostalAddress
+  fullName: Okta.Sdk.IUserProfile.PostalAddress
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PostalAddress
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 57
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PostalAddress { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PostalAddress As String
+  overload: Okta.Sdk.IUserProfile.PostalAddress*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.PreferredLanguage
+  commentId: P:Okta.Sdk.IUserProfile.PreferredLanguage
+  id: PreferredLanguage
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: PreferredLanguage
+  nameWithType: IUserProfile.PreferredLanguage
+  fullName: Okta.Sdk.IUserProfile.PreferredLanguage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PreferredLanguage
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 59
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PreferredLanguage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PreferredLanguage As String
+  overload: Okta.Sdk.IUserProfile.PreferredLanguage*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.PrimaryPhone
+  commentId: P:Okta.Sdk.IUserProfile.PrimaryPhone
+  id: PrimaryPhone
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: PrimaryPhone
+  nameWithType: IUserProfile.PrimaryPhone
+  fullName: Okta.Sdk.IUserProfile.PrimaryPhone
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PrimaryPhone
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PrimaryPhone { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PrimaryPhone As String
+  overload: Okta.Sdk.IUserProfile.PrimaryPhone*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.ProfileUrl
+  commentId: P:Okta.Sdk.IUserProfile.ProfileUrl
+  id: ProfileUrl
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: ProfileUrl
+  nameWithType: IUserProfile.ProfileUrl
+  fullName: Okta.Sdk.IUserProfile.ProfileUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ProfileUrl
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 63
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ProfileUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ProfileUrl As String
+  overload: Okta.Sdk.IUserProfile.ProfileUrl*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.SecondEmail
+  commentId: P:Okta.Sdk.IUserProfile.SecondEmail
+  id: SecondEmail
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: SecondEmail
+  nameWithType: IUserProfile.SecondEmail
+  fullName: Okta.Sdk.IUserProfile.SecondEmail
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SecondEmail
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SecondEmail { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SecondEmail As String
+  overload: Okta.Sdk.IUserProfile.SecondEmail*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.State
+  commentId: P:Okta.Sdk.IUserProfile.State
+  id: State
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: IUserProfile.State
+  fullName: Okta.Sdk.IUserProfile.State
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: State
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 67
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string State { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property State As String
+  overload: Okta.Sdk.IUserProfile.State*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.StreetAddress
+  commentId: P:Okta.Sdk.IUserProfile.StreetAddress
+  id: StreetAddress
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: StreetAddress
+  nameWithType: IUserProfile.StreetAddress
+  fullName: Okta.Sdk.IUserProfile.StreetAddress
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: StreetAddress
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 69
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string StreetAddress { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property StreetAddress As String
+  overload: Okta.Sdk.IUserProfile.StreetAddress*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Timezone
+  commentId: P:Okta.Sdk.IUserProfile.Timezone
+  id: Timezone
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Timezone
+  nameWithType: IUserProfile.Timezone
+  fullName: Okta.Sdk.IUserProfile.Timezone
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Timezone
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 71
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Timezone { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Timezone As String
+  overload: Okta.Sdk.IUserProfile.Timezone*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.Title
+  commentId: P:Okta.Sdk.IUserProfile.Title
+  id: Title
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: IUserProfile.Title
+  fullName: Okta.Sdk.IUserProfile.Title
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Title
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 73
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Title As String
+  overload: Okta.Sdk.IUserProfile.Title*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.UserType
+  commentId: P:Okta.Sdk.IUserProfile.UserType
+  id: UserType
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: UserType
+  nameWithType: IUserProfile.UserType
+  fullName: Okta.Sdk.IUserProfile.UserType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserType
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 75
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string UserType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property UserType As String
+  overload: Okta.Sdk.IUserProfile.UserType*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserProfile.ZipCode
+  commentId: P:Okta.Sdk.IUserProfile.ZipCode
+  id: ZipCode
+  parent: Okta.Sdk.IUserProfile
+  langs:
+  - csharp
+  - vb
+  name: ZipCode
+  nameWithType: IUserProfile.ZipCode
+  fullName: Okta.Sdk.IUserProfile.ZipCode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ZipCode
+    path: ../src/Okta.Sdk/Generated/IUserProfile.Generated.cs
+    startLine: 77
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ZipCode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ZipCode As String
+  overload: Okta.Sdk.IUserProfile.ZipCode*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IUserProfile.City*
+  commentId: Overload:Okta.Sdk.IUserProfile.City
+  name: City
+  nameWithType: IUserProfile.City
+  fullName: Okta.Sdk.IUserProfile.City
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IUserProfile.CostCenter*
+  commentId: Overload:Okta.Sdk.IUserProfile.CostCenter
+  name: CostCenter
+  nameWithType: IUserProfile.CostCenter
+  fullName: Okta.Sdk.IUserProfile.CostCenter
+- uid: Okta.Sdk.IUserProfile.CountryCode*
+  commentId: Overload:Okta.Sdk.IUserProfile.CountryCode
+  name: CountryCode
+  nameWithType: IUserProfile.CountryCode
+  fullName: Okta.Sdk.IUserProfile.CountryCode
+- uid: Okta.Sdk.IUserProfile.Department*
+  commentId: Overload:Okta.Sdk.IUserProfile.Department
+  name: Department
+  nameWithType: IUserProfile.Department
+  fullName: Okta.Sdk.IUserProfile.Department
+- uid: Okta.Sdk.IUserProfile.DisplayName*
+  commentId: Overload:Okta.Sdk.IUserProfile.DisplayName
+  name: DisplayName
+  nameWithType: IUserProfile.DisplayName
+  fullName: Okta.Sdk.IUserProfile.DisplayName
+- uid: Okta.Sdk.IUserProfile.Division*
+  commentId: Overload:Okta.Sdk.IUserProfile.Division
+  name: Division
+  nameWithType: IUserProfile.Division
+  fullName: Okta.Sdk.IUserProfile.Division
+- uid: Okta.Sdk.IUserProfile.Email*
+  commentId: Overload:Okta.Sdk.IUserProfile.Email
+  name: Email
+  nameWithType: IUserProfile.Email
+  fullName: Okta.Sdk.IUserProfile.Email
+- uid: Okta.Sdk.IUserProfile.EmployeeNumber*
+  commentId: Overload:Okta.Sdk.IUserProfile.EmployeeNumber
+  name: EmployeeNumber
+  nameWithType: IUserProfile.EmployeeNumber
+  fullName: Okta.Sdk.IUserProfile.EmployeeNumber
+- uid: Okta.Sdk.IUserProfile.FirstName*
+  commentId: Overload:Okta.Sdk.IUserProfile.FirstName
+  name: FirstName
+  nameWithType: IUserProfile.FirstName
+  fullName: Okta.Sdk.IUserProfile.FirstName
+- uid: Okta.Sdk.IUserProfile.HonorificPrefix*
+  commentId: Overload:Okta.Sdk.IUserProfile.HonorificPrefix
+  name: HonorificPrefix
+  nameWithType: IUserProfile.HonorificPrefix
+  fullName: Okta.Sdk.IUserProfile.HonorificPrefix
+- uid: Okta.Sdk.IUserProfile.HonorificSuffix*
+  commentId: Overload:Okta.Sdk.IUserProfile.HonorificSuffix
+  name: HonorificSuffix
+  nameWithType: IUserProfile.HonorificSuffix
+  fullName: Okta.Sdk.IUserProfile.HonorificSuffix
+- uid: Okta.Sdk.IUserProfile.LastName*
+  commentId: Overload:Okta.Sdk.IUserProfile.LastName
+  name: LastName
+  nameWithType: IUserProfile.LastName
+  fullName: Okta.Sdk.IUserProfile.LastName
+- uid: Okta.Sdk.IUserProfile.Locale*
+  commentId: Overload:Okta.Sdk.IUserProfile.Locale
+  name: Locale
+  nameWithType: IUserProfile.Locale
+  fullName: Okta.Sdk.IUserProfile.Locale
+- uid: Okta.Sdk.IUserProfile.Login*
+  commentId: Overload:Okta.Sdk.IUserProfile.Login
+  name: Login
+  nameWithType: IUserProfile.Login
+  fullName: Okta.Sdk.IUserProfile.Login
+- uid: Okta.Sdk.IUserProfile.Manager*
+  commentId: Overload:Okta.Sdk.IUserProfile.Manager
+  name: Manager
+  nameWithType: IUserProfile.Manager
+  fullName: Okta.Sdk.IUserProfile.Manager
+- uid: Okta.Sdk.IUserProfile.ManagerId*
+  commentId: Overload:Okta.Sdk.IUserProfile.ManagerId
+  name: ManagerId
+  nameWithType: IUserProfile.ManagerId
+  fullName: Okta.Sdk.IUserProfile.ManagerId
+- uid: Okta.Sdk.IUserProfile.MiddleName*
+  commentId: Overload:Okta.Sdk.IUserProfile.MiddleName
+  name: MiddleName
+  nameWithType: IUserProfile.MiddleName
+  fullName: Okta.Sdk.IUserProfile.MiddleName
+- uid: Okta.Sdk.IUserProfile.MobilePhone*
+  commentId: Overload:Okta.Sdk.IUserProfile.MobilePhone
+  name: MobilePhone
+  nameWithType: IUserProfile.MobilePhone
+  fullName: Okta.Sdk.IUserProfile.MobilePhone
+- uid: Okta.Sdk.IUserProfile.NickName*
+  commentId: Overload:Okta.Sdk.IUserProfile.NickName
+  name: NickName
+  nameWithType: IUserProfile.NickName
+  fullName: Okta.Sdk.IUserProfile.NickName
+- uid: Okta.Sdk.IUserProfile.Organization*
+  commentId: Overload:Okta.Sdk.IUserProfile.Organization
+  name: Organization
+  nameWithType: IUserProfile.Organization
+  fullName: Okta.Sdk.IUserProfile.Organization
+- uid: Okta.Sdk.IUserProfile.PostalAddress*
+  commentId: Overload:Okta.Sdk.IUserProfile.PostalAddress
+  name: PostalAddress
+  nameWithType: IUserProfile.PostalAddress
+  fullName: Okta.Sdk.IUserProfile.PostalAddress
+- uid: Okta.Sdk.IUserProfile.PreferredLanguage*
+  commentId: Overload:Okta.Sdk.IUserProfile.PreferredLanguage
+  name: PreferredLanguage
+  nameWithType: IUserProfile.PreferredLanguage
+  fullName: Okta.Sdk.IUserProfile.PreferredLanguage
+- uid: Okta.Sdk.IUserProfile.PrimaryPhone*
+  commentId: Overload:Okta.Sdk.IUserProfile.PrimaryPhone
+  name: PrimaryPhone
+  nameWithType: IUserProfile.PrimaryPhone
+  fullName: Okta.Sdk.IUserProfile.PrimaryPhone
+- uid: Okta.Sdk.IUserProfile.ProfileUrl*
+  commentId: Overload:Okta.Sdk.IUserProfile.ProfileUrl
+  name: ProfileUrl
+  nameWithType: IUserProfile.ProfileUrl
+  fullName: Okta.Sdk.IUserProfile.ProfileUrl
+- uid: Okta.Sdk.IUserProfile.SecondEmail*
+  commentId: Overload:Okta.Sdk.IUserProfile.SecondEmail
+  name: SecondEmail
+  nameWithType: IUserProfile.SecondEmail
+  fullName: Okta.Sdk.IUserProfile.SecondEmail
+- uid: Okta.Sdk.IUserProfile.State*
+  commentId: Overload:Okta.Sdk.IUserProfile.State
+  name: State
+  nameWithType: IUserProfile.State
+  fullName: Okta.Sdk.IUserProfile.State
+- uid: Okta.Sdk.IUserProfile.StreetAddress*
+  commentId: Overload:Okta.Sdk.IUserProfile.StreetAddress
+  name: StreetAddress
+  nameWithType: IUserProfile.StreetAddress
+  fullName: Okta.Sdk.IUserProfile.StreetAddress
+- uid: Okta.Sdk.IUserProfile.Timezone*
+  commentId: Overload:Okta.Sdk.IUserProfile.Timezone
+  name: Timezone
+  nameWithType: IUserProfile.Timezone
+  fullName: Okta.Sdk.IUserProfile.Timezone
+- uid: Okta.Sdk.IUserProfile.Title*
+  commentId: Overload:Okta.Sdk.IUserProfile.Title
+  name: Title
+  nameWithType: IUserProfile.Title
+  fullName: Okta.Sdk.IUserProfile.Title
+- uid: Okta.Sdk.IUserProfile.UserType*
+  commentId: Overload:Okta.Sdk.IUserProfile.UserType
+  name: UserType
+  nameWithType: IUserProfile.UserType
+  fullName: Okta.Sdk.IUserProfile.UserType
+- uid: Okta.Sdk.IUserProfile.ZipCode*
+  commentId: Overload:Okta.Sdk.IUserProfile.ZipCode
+  name: ZipCode
+  nameWithType: IUserProfile.ZipCode
+  fullName: Okta.Sdk.IUserProfile.ZipCode

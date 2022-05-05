@@ -1,0 +1,1423 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions
+  commentId: T:Okta.Sdk.AddSignOnPolicyRuleOptions
+  id: AddSignOnPolicyRuleOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.#ctor(System.String)
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.Name
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  - Okta.Sdk.AddSignOnPolicyRuleOptions.Type
+  langs:
+  - csharp
+  - vb
+  name: AddSignOnPolicyRuleOptions
+  nameWithType: AddSignOnPolicyRuleOptions
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddSignOnPolicyRuleOptions
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nHelper class for sign on rule options\n"
+  example: []
+  syntax:
+    content: public sealed class AddSignOnPolicyRuleOptions
+    content.vb: Public NotInheritable Class AddSignOnPolicyRuleOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.Type
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.Type
+  id: Type
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: AddSignOnPolicyRuleOptions.Type
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a type of a policy\n"
+  example: []
+  syntax:
+    content: public string Type { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Type As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.Type*
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId
+  id: PolicyId
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: PolicyId
+  nameWithType: AddSignOnPolicyRuleOptions.PolicyId
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PolicyId
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an identifier of the policy\n"
+  example: []
+  syntax:
+    content: public string PolicyId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PolicyId As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.Name
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.Name
+  id: Name
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: AddSignOnPolicyRuleOptions.Name
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a name of the rule\n"
+  example: []
+  syntax:
+    content: public string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Name As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.Name*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess
+  id: SignonActionAccess
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonActionAccess
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionAccess
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonActionAccess
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public string SignonActionAccess { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SignonActionAccess As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  id: SignonActionRequireFactor
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonActionRequireFactor
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonActionRequireFactor
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public bool? SignonActionRequireFactor { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property SignonActionRequireFactor As Boolean?
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  id: SignonActionRememberDeviceByDefault
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonActionRememberDeviceByDefault
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonActionRememberDeviceByDefault
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public bool? SignonActionRememberDeviceByDefault { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property SignonActionRememberDeviceByDefault As Boolean?
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  id: SignonActionFactorPromptMode
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonActionFactorPromptMode
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonActionFactorPromptMode
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 51
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public string SignonActionFactorPromptMode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SignonActionFactorPromptMode As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  id: SignonActionFactorLifetime
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonActionFactorLifetime
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonActionFactorLifetime
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 57
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public int? SignonActionFactorLifetime { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property SignonActionFactorLifetime As Integer?
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  id: SignonSessionUsePersistentCookie
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonSessionUsePersistentCookie
+  nameWithType: AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonSessionUsePersistentCookie
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 63
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public bool? SignonSessionUsePersistentCookie { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Public Property SignonSessionUsePersistentCookie As Boolean?
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  id: SignonSessionMaxSessionIdleMinutes
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonSessionMaxSessionIdleMinutes
+  nameWithType: AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonSessionMaxSessionIdleMinutes
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 69
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public int? SignonSessionMaxSessionIdleMinutes { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property SignonSessionMaxSessionIdleMinutes As Integer?
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  id: SignonSessionMaxSessionLifetimeMinutes
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: SignonSessionMaxSessionLifetimeMinutes
+  nameWithType: AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignonSessionMaxSessionLifetimeMinutes
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 75
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public int? SignonSessionMaxSessionLifetimeMinutes { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Int32}
+    content.vb: Public Property SignonSessionMaxSessionLifetimeMinutes As Integer?
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  id: AuthContextConditionAuthType
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: AuthContextConditionAuthType
+  nameWithType: AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthContextConditionAuthType
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 81
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: public string AuthContextConditionAuthType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthContextConditionAuthType As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  id: NetworkConditionConnection
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: NetworkConditionConnection
+  nameWithType: AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NetworkConditionConnection
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 87
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a network selection mode\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public string NetworkConditionConnection { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NetworkConditionConnection As String
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  id: NetworkConditionInclude
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: NetworkConditionInclude
+  nameWithType: AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NetworkConditionInclude
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 93
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the zones to include\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public IList<string> NetworkConditionInclude { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property NetworkConditionInclude As IList(Of String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  id: NetworkConditionExclude
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: NetworkConditionExclude
+  nameWithType: AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NetworkConditionExclude
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 99
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the zones to exclude\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#network-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public IList<string> NetworkConditionExclude { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property NetworkConditionExclude As IList(Of String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  id: PeopleConditionExcludeUsers
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: PeopleConditionExcludeUsers
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PeopleConditionExcludeUsers
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 105
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a list of users to be excluded\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public IList<string> PeopleConditionExcludeUsers { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property PeopleConditionExcludeUsers As IList(Of String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  id: PeopleConditionIncludeUsers
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: PeopleConditionIncludeUsers
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PeopleConditionIncludeUsers
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 111
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a list of users to be included\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public IList<string> PeopleConditionIncludeUsers { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property PeopleConditionIncludeUsers As IList(Of String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  id: PeopleConditionExcludeGroups
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: PeopleConditionExcludeGroups
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PeopleConditionExcludeGroups
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 117
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a list of groups whose users to be excluded\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public IList<string> PeopleConditionExcludeGroups { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property PeopleConditionExcludeGroups As IList(Of String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  commentId: P:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  id: PeopleConditionIncludeGroups
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: PeopleConditionIncludeGroups
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PeopleConditionIncludeGroups
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 123
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a list of groups whose users to be included\n"
+  remarks: See <a href="https://developer.okta.com/docs/reference/api/policy/#people-condition-object">the API documentation on policy objects.</a>
+  example: []
+  syntax:
+    content: public IList<string> PeopleConditionIncludeGroups { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Public Property PeopleConditionIncludeGroups As IList(Of String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.#ctor(System.String)
+  commentId: M:Okta.Sdk.AddSignOnPolicyRuleOptions.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Okta.Sdk.AddSignOnPolicyRuleOptions
+  langs:
+  - csharp
+  - vb
+  name: AddSignOnPolicyRuleOptions(String)
+  nameWithType: AddSignOnPolicyRuleOptions.AddSignOnPolicyRuleOptions(String)
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.AddSignOnPolicyRuleOptions(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/AddSignOnPolicyRuleOptions.cs
+    startLine: 129
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nInitializes a new instance of the <xref href=\"Okta.Sdk.AddSignOnPolicyRuleOptions\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public AddSignOnPolicyRuleOptions(string policyId)
+    parameters:
+    - id: policyId
+      type: System.String
+      description: SignOn policy id
+    content.vb: Public Sub New(policyId As String)
+  overload: Okta.Sdk.AddSignOnPolicyRuleOptions.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.Type*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.Type
+  name: Type
+  nameWithType: AddSignOnPolicyRuleOptions.Type
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId
+  name: PolicyId
+  nameWithType: AddSignOnPolicyRuleOptions.PolicyId
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PolicyId
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.Name*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.Name
+  name: Name
+  nameWithType: AddSignOnPolicyRuleOptions.Name
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.Name
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess
+  name: SignonActionAccess
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionAccess
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionAccess
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  name: SignonActionRequireFactor
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRequireFactor
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  name: SignonActionRememberDeviceByDefault
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionRememberDeviceByDefault
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  name: SignonActionFactorPromptMode
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorPromptMode
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  name: SignonActionFactorLifetime
+  nameWithType: AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonActionFactorLifetime
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  name: SignonSessionUsePersistentCookie
+  nameWithType: AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionUsePersistentCookie
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  name: SignonSessionMaxSessionIdleMinutes
+  nameWithType: AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionIdleMinutes
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  name: SignonSessionMaxSessionLifetimeMinutes
+  nameWithType: AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.SignonSessionMaxSessionLifetimeMinutes
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  name: AuthContextConditionAuthType
+  nameWithType: AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.AuthContextConditionAuthType
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  name: NetworkConditionConnection
+  nameWithType: AddSignOnPolicyRuleOptions.NetworkConditionConnection
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionConnection
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  name: NetworkConditionInclude
+  nameWithType: AddSignOnPolicyRuleOptions.NetworkConditionInclude
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionInclude
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  name: NetworkConditionExclude
+  nameWithType: AddSignOnPolicyRuleOptions.NetworkConditionExclude
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.NetworkConditionExclude
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  name: PeopleConditionExcludeUsers
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeUsers
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  name: PeopleConditionIncludeUsers
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeUsers
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  name: PeopleConditionExcludeGroups
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionExcludeGroups
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  name: PeopleConditionIncludeGroups
+  nameWithType: AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.PeopleConditionIncludeGroups
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions
+  commentId: T:Okta.Sdk.AddSignOnPolicyRuleOptions
+  parent: Okta.Sdk
+  name: AddSignOnPolicyRuleOptions
+  nameWithType: AddSignOnPolicyRuleOptions
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions
+- uid: Okta.Sdk.AddSignOnPolicyRuleOptions.#ctor*
+  commentId: Overload:Okta.Sdk.AddSignOnPolicyRuleOptions.#ctor
+  name: AddSignOnPolicyRuleOptions
+  nameWithType: AddSignOnPolicyRuleOptions.AddSignOnPolicyRuleOptions
+  fullName: Okta.Sdk.AddSignOnPolicyRuleOptions.AddSignOnPolicyRuleOptions

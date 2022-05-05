@@ -1,0 +1,2313 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IGroupsClient
+  commentId: T:Okta.Sdk.IGroupsClient
+  id: IGroupsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.AddUserToGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.CreateGroupOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.IGroup,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.CreateGroupRuleAsync(Okta.Sdk.IGroupRule,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.DeleteGroupAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.GetGroupAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.GetGroupRuleAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.GetRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(System.String,System.String,System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup(System.String,System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.IGroupsClient.ListGroupAssignedRoles(System.String,System.String)
+  - Okta.Sdk.IGroupsClient.ListGroupRules(System.Nullable{System.Int32},System.String,System.String,System.String)
+  - Okta.Sdk.IGroupsClient.ListGroups(System.String,System.String,System.String,System.Nullable{System.Int32},System.String)
+  - Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole(System.String,System.String,System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.IGroupsClient.ListGroupUsers(System.String,System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync(Okta.Sdk.IGroupRule,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IGroupsClient
+  nameWithType: IGroupsClient
+  fullName: Okta.Sdk.IGroupsClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroupsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IGroupsClient
+    path: ../src/Okta.Sdk/IGroupsClient.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta Group resources.
+  example: []
+  syntax:
+    content: 'public interface IGroupsClient : IAsyncEnumerable<IGroup>'
+    content.vb: >-
+      Public Interface IGroupsClient
+
+          Inherits IAsyncEnumerable(Of IGroup)
+  inheritedMembers:
+  - System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IGroup}.GetAsyncEnumerator(System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IGroupsClient.ListGroups(System.String,System.String,System.String,System.Nullable{System.Int32},System.String)
+  commentId: M:Okta.Sdk.IGroupsClient.ListGroups(System.String,System.String,System.String,System.Nullable{System.Int32},System.String)
+  id: ListGroups(System.String,System.String,System.String,System.Nullable{System.Int32},System.String)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListGroups(String, String, String, Nullable<Int32>, String)
+  nameWithType: IGroupsClient.ListGroups(String, String, String, Nullable<Int32>, String)
+  fullName: Okta.Sdk.IGroupsClient.ListGroups(System.String, System.String, System.String, System.Nullable<System.Int32>, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListGroups
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IGroup> ListGroups(string q = null, string search = null, string after = null, int? limit = 10000, string expand = null)
+    parameters:
+    - id: q
+      type: System.String
+      description: Searches the name property of groups for matching value
+    - id: search
+      type: System.String
+      description: Filter expression for groups
+    - id: after
+      type: System.String
+      description: Specifies the pagination cursor for the next page of groups
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Specifies the number of group results in a page
+    - id: expand
+      type: System.String
+      description: If specified, it causes additional metadata to be included in the response.
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IGroup}
+      description: A collection of <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListGroups(q As String = Nothing, search As String = Nothing, after As String = Nothing, limit As Integer? = 10000, expand As String = Nothing) As ICollectionClient(Of IGroup)
+  overload: Okta.Sdk.IGroupsClient.ListGroups*
+  nameWithType.vb: IGroupsClient.ListGroups(String, String, String, Nullable(Of Int32), String)
+  fullName.vb: Okta.Sdk.IGroupsClient.ListGroups(System.String, System.String, System.String, System.Nullable(Of System.Int32), System.String)
+  name.vb: ListGroups(String, String, String, Nullable(Of Int32), String)
+- uid: Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.IGroup,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.IGroup,System.Threading.CancellationToken)
+  id: CreateGroupAsync(Okta.Sdk.IGroup,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGroupAsync(IGroup, CancellationToken)
+  nameWithType: IGroupsClient.CreateGroupAsync(IGroup, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.IGroup, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 34
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAdds a new group with `OKTA_GROUP` type to your organization.\n"
+  example: []
+  syntax:
+    content: Task<IGroup> CreateGroupAsync(IGroup group, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: group
+      type: Okta.Sdk.IGroup
+      description: The <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+      description: The <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateGroupAsync(group As IGroup, cancellationToken As CancellationToken = Nothing) As Task(Of IGroup)
+  overload: Okta.Sdk.IGroupsClient.CreateGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.ListGroupRules(System.Nullable{System.Int32},System.String,System.String,System.String)
+  commentId: M:Okta.Sdk.IGroupsClient.ListGroupRules(System.Nullable{System.Int32},System.String,System.String,System.String)
+  id: ListGroupRules(System.Nullable{System.Int32},System.String,System.String,System.String)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListGroupRules(Nullable<Int32>, String, String, String)
+  nameWithType: IGroupsClient.ListGroupRules(Nullable<Int32>, String, String, String)
+  fullName: Okta.Sdk.IGroupsClient.ListGroupRules(System.Nullable<System.Int32>, System.String, System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListGroupRules
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 44
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nLists all group rules for your organization.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IGroupRule> ListGroupRules(int? limit = 50, string after = null, string search = null, string expand = null)
+    parameters:
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Specifies the number of rule results in a page
+    - id: after
+      type: System.String
+      description: Specifies the pagination cursor for the next page of rules
+    - id: search
+      type: System.String
+      description: Specifies the keyword to search fules for
+    - id: expand
+      type: System.String
+      description: If specified as `groupIdToGroupNameMap`, then show group names
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IGroupRule}
+      description: A collection of <xref href="Okta.Sdk.IGroupRule" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListGroupRules(limit As Integer? = 50, after As String = Nothing, search As String = Nothing, expand As String = Nothing) As ICollectionClient(Of IGroupRule)
+  overload: Okta.Sdk.IGroupsClient.ListGroupRules*
+  nameWithType.vb: IGroupsClient.ListGroupRules(Nullable(Of Int32), String, String, String)
+  fullName.vb: Okta.Sdk.IGroupsClient.ListGroupRules(System.Nullable(Of System.Int32), System.String, System.String, System.String)
+  name.vb: ListGroupRules(Nullable(Of Int32), String, String, String)
+- uid: Okta.Sdk.IGroupsClient.CreateGroupRuleAsync(Okta.Sdk.IGroupRule,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.CreateGroupRuleAsync(Okta.Sdk.IGroupRule,System.Threading.CancellationToken)
+  id: CreateGroupRuleAsync(Okta.Sdk.IGroupRule,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGroupRuleAsync(IGroupRule, CancellationToken)
+  nameWithType: IGroupsClient.CreateGroupRuleAsync(IGroupRule, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.CreateGroupRuleAsync(Okta.Sdk.IGroupRule, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateGroupRuleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 52
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nCreates a group rule to dynamically add users to the specified group if they match the condition\n"
+  example: []
+  syntax:
+    content: Task<IGroupRule> CreateGroupRuleAsync(IGroupRule groupRule, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupRule
+      type: Okta.Sdk.IGroupRule
+      description: The <xref href="Okta.Sdk.IGroupRule" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroupRule}
+      description: The <xref href="Okta.Sdk.IGroupRule" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateGroupRuleAsync(groupRule As IGroupRule, cancellationToken As CancellationToken = Nothing) As Task(Of IGroupRule)
+  overload: Okta.Sdk.IGroupsClient.CreateGroupRuleAsync*
+- uid: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: DeleteGroupRuleAsync(System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteGroupRuleAsync(String, Nullable<Boolean>, CancellationToken)
+  nameWithType: IGroupsClient.DeleteGroupRuleAsync(String, Nullable<Boolean>, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String, System.Nullable<System.Boolean>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteGroupRuleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemoves a specific group rule by id from your organization\n"
+  example: []
+  syntax:
+    content: Task DeleteGroupRuleAsync(string ruleId, bool? removeUsers = null, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: ruleId
+      type: System.String
+      description: ''
+    - id: removeUsers
+      type: System.Nullable{System.Boolean}
+      description: Indicates whether to keep or remove users from groups assigned by this rule.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteGroupRuleAsync(ruleId As String, removeUsers As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync*
+  nameWithType.vb: IGroupsClient.DeleteGroupRuleAsync(String, Nullable(Of Boolean), CancellationToken)
+  fullName.vb: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String, System.Nullable(Of System.Boolean), System.Threading.CancellationToken)
+  name.vb: DeleteGroupRuleAsync(String, Nullable(Of Boolean), CancellationToken)
+- uid: Okta.Sdk.IGroupsClient.GetGroupRuleAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.GetGroupRuleAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetGroupRuleAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: GetGroupRuleAsync(String, String, CancellationToken)
+  nameWithType: IGroupsClient.GetGroupRuleAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.GetGroupRuleAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetGroupRuleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 70
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a specific group rule by id from your organization\n"
+  example: []
+  syntax:
+    content: Task<IGroupRule> GetGroupRuleAsync(string ruleId, string expand = null, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: ruleId
+      type: System.String
+      description: ''
+    - id: expand
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroupRule}
+      description: The <xref href="Okta.Sdk.IGroupRule" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetGroupRuleAsync(ruleId As String, expand As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of IGroupRule)
+  overload: Okta.Sdk.IGroupsClient.GetGroupRuleAsync*
+- uid: Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync(Okta.Sdk.IGroupRule,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync(Okta.Sdk.IGroupRule,System.String,System.Threading.CancellationToken)
+  id: UpdateGroupRuleAsync(Okta.Sdk.IGroupRule,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateGroupRuleAsync(IGroupRule, String, CancellationToken)
+  nameWithType: IGroupsClient.UpdateGroupRuleAsync(IGroupRule, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync(Okta.Sdk.IGroupRule, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateGroupRuleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 79
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates a group rule. Only `INACTIVE` rules can be updated.\n"
+  example: []
+  syntax:
+    content: Task<IGroupRule> UpdateGroupRuleAsync(IGroupRule groupRule, string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupRule
+      type: Okta.Sdk.IGroupRule
+      description: The <xref href="Okta.Sdk.IGroupRule" data-throw-if-not-resolved="false"></xref> resource.
+    - id: ruleId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroupRule}
+      description: The <xref href="Okta.Sdk.IGroupRule" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateGroupRuleAsync(groupRule As IGroupRule, ruleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IGroupRule)
+  overload: Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync*
+- uid: Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  id: ActivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateGroupRuleAsync(String, CancellationToken)
+  nameWithType: IGroupsClient.ActivateGroupRuleAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateGroupRuleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 87
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nActivates a specific group rule by id from your organization\n"
+  example: []
+  syntax:
+    content: Task ActivateGroupRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: ruleId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function ActivateGroupRuleAsync(ruleId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync*
+- uid: Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  id: DeactivateGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateGroupRuleAsync(String, CancellationToken)
+  nameWithType: IGroupsClient.DeactivateGroupRuleAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeactivateGroupRuleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 95
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeactivates a specific group rule by id from your organization\n"
+  example: []
+  syntax:
+    content: Task DeactivateGroupRuleAsync(string ruleId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: ruleId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeactivateGroupRuleAsync(ruleId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync*
+- uid: Okta.Sdk.IGroupsClient.DeleteGroupAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.DeleteGroupAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteGroupAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteGroupAsync(String, CancellationToken)
+  nameWithType: IGroupsClient.DeleteGroupAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.DeleteGroupAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 103
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemoves a group with `OKTA_GROUP` type from your organization.\n"
+  example: []
+  syntax:
+    content: Task DeleteGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteGroupAsync(groupId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.DeleteGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.GetGroupAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.GetGroupAsync(System.String,System.Threading.CancellationToken)
+  id: GetGroupAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: GetGroupAsync(String, CancellationToken)
+  nameWithType: IGroupsClient.GetGroupAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.GetGroupAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 111
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a group from your organization.\n"
+  example: []
+  syntax:
+    content: Task<IGroup> GetGroupAsync(string groupId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+      description: The <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetGroupAsync(groupId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IGroup)
+  overload: Okta.Sdk.IGroupsClient.GetGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+  id: UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateGroupAsync(IGroup, String, CancellationToken)
+  nameWithType: IGroupsClient.UpdateGroupAsync(IGroup, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 120
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the profile for a group with `OKTA_GROUP` type from your organization.\n"
+  example: []
+  syntax:
+    content: Task<IGroup> UpdateGroupAsync(IGroup group, string groupId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: group
+      type: Okta.Sdk.IGroup
+      description: The <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> resource.
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+      description: The <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateGroupAsync(group As IGroup, groupId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IGroup)
+  overload: Okta.Sdk.IGroupsClient.UpdateGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup(System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup(System.String,System.String,System.Nullable{System.Int32})
+  id: ListAssignedApplicationsForGroup(System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListAssignedApplicationsForGroup(String, String, Nullable<Int32>)
+  nameWithType: IGroupsClient.ListAssignedApplicationsForGroup(String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup(System.String, System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListAssignedApplicationsForGroup
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 129
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates all applications that are assigned to a group.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IApplication> ListAssignedApplicationsForGroup(string groupId, string after = null, int? limit = 20)
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: after
+      type: System.String
+      description: Specifies the pagination cursor for the next page of apps
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Specifies the number of app results for a page
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IApplication}
+      description: A collection of <xref href="Okta.Sdk.IApplication" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListAssignedApplicationsForGroup(groupId As String, after As String = Nothing, limit As Integer? = 20) As ICollectionClient(Of IApplication)
+  overload: Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup*
+  nameWithType.vb: IGroupsClient.ListAssignedApplicationsForGroup(String, String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup(System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListAssignedApplicationsForGroup(String, String, Nullable(Of Int32))
+- uid: Okta.Sdk.IGroupsClient.ListGroupAssignedRoles(System.String,System.String)
+  commentId: M:Okta.Sdk.IGroupsClient.ListGroupAssignedRoles(System.String,System.String)
+  id: ListGroupAssignedRoles(System.String,System.String)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListGroupAssignedRoles(String, String)
+  nameWithType: IGroupsClient.ListGroupAssignedRoles(String, String)
+  fullName: Okta.Sdk.IGroupsClient.ListGroupAssignedRoles(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListGroupAssignedRoles
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 137
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IRole> ListGroupAssignedRoles(string groupId, string expand = null)
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: expand
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IRole}
+      description: A collection of <xref href="Okta.Sdk.IRole" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListGroupAssignedRoles(groupId As String, expand As String = Nothing) As ICollectionClient(Of IRole)
+  overload: Okta.Sdk.IGroupsClient.ListGroupAssignedRoles*
+- uid: Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: AssignRoleToGroupAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: AssignRoleToGroupAsync(IAssignRoleRequest, String, Nullable<Boolean>, CancellationToken)
+  nameWithType: IGroupsClient.AssignRoleToGroupAsync(IAssignRoleRequest, String, Nullable<Boolean>, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync(Okta.Sdk.IAssignRoleRequest, System.String, System.Nullable<System.Boolean>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AssignRoleToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 147
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAssigns a Role to a Group\n"
+  example: []
+  syntax:
+    content: Task<IRole> AssignRoleToGroupAsync(IAssignRoleRequest assignRoleRequest, string groupId, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: assignRoleRequest
+      type: Okta.Sdk.IAssignRoleRequest
+      description: The <xref href="Okta.Sdk.IAssignRoleRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: disableNotifications
+      type: System.Nullable{System.Boolean}
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IRole}
+      description: The <xref href="Okta.Sdk.IRole" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function AssignRoleToGroupAsync(assignRoleRequest As IAssignRoleRequest, groupId As String, disableNotifications As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of IRole)
+  overload: Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync*
+  nameWithType.vb: IGroupsClient.AssignRoleToGroupAsync(IAssignRoleRequest, String, Nullable(Of Boolean), CancellationToken)
+  fullName.vb: Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync(Okta.Sdk.IAssignRoleRequest, System.String, System.Nullable(Of System.Boolean), System.Threading.CancellationToken)
+  name.vb: AssignRoleToGroupAsync(IAssignRoleRequest, String, Nullable(Of Boolean), CancellationToken)
+- uid: Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: RemoveRoleFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: RemoveRoleFromGroupAsync(String, String, CancellationToken)
+  nameWithType: IGroupsClient.RemoveRoleFromGroupAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RemoveRoleFromGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 156
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUnassigns a Role from a Group\n"
+  example: []
+  syntax:
+    content: Task RemoveRoleFromGroupAsync(string groupId, string roleId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function RemoveRoleFromGroupAsync(groupId As String, roleId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.GetRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.GetRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: GetRoleAsync(String, String, CancellationToken)
+  nameWithType: IGroupsClient.GetRoleAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.GetRoleAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetRoleAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 165
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: Task<IRole> GetRoleAsync(string groupId, string roleId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IRole}
+      description: The <xref href="Okta.Sdk.IRole" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetRoleAsync(groupId As String, roleId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IRole)
+  overload: Okta.Sdk.IGroupsClient.GetRoleAsync*
+- uid: Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(System.String,System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(System.String,System.String,System.String,System.Nullable{System.Int32})
+  id: ListApplicationTargetsForApplicationAdministratorRoleForGroup(System.String,System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListApplicationTargetsForApplicationAdministratorRoleForGroup(String, String, String, Nullable<Int32>)
+  nameWithType: IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(String, String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(System.String, System.String, System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListApplicationTargetsForApplicationAdministratorRoleForGroup
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 175
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nLists all App targets for an `APP_ADMIN` Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<ICatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = null, int? limit = 20)
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: after
+      type: System.String
+      description: ''
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.ICatalogApplication}
+      description: A collection of <xref href="Okta.Sdk.ICatalogApplication" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListApplicationTargetsForApplicationAdministratorRoleForGroup(groupId As String, roleId As String, after As String = Nothing, limit As Integer? = 20) As ICollectionClient(Of ICatalogApplication)
+  overload: Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup*
+  nameWithType.vb: IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(String, String, String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup(System.String, System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListApplicationTargetsForApplicationAdministratorRoleForGroup(String, String, String, Nullable(Of Int32))
+- uid: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(String, String, String, CancellationToken)
+  nameWithType: IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 185
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: appName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(groupId As String, roleId As String, appName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: AddApplicationTargetToAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: AddApplicationTargetToAdminRoleGivenToGroupAsync(String, String, String, CancellationToken)
+  nameWithType: IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddApplicationTargetToAdminRoleGivenToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 195
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: Task AddApplicationTargetToAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: appName
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function AddApplicationTargetToAdminRoleGivenToGroupAsync(groupId As String, roleId As String, appName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(String, String, String, String, CancellationToken)
+  nameWithType: IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(String, String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(System.String, System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 206
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemove App Instance Target to App Administrator Role given to a Group\n"
+  example: []
+  syntax:
+    content: Task RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: appName
+      type: System.String
+      description: ''
+    - id: applicationId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(groupId As String, roleId As String, appName As String, applicationId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(System.String,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(String, String, String, String, CancellationToken)
+  nameWithType: IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(String, String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(System.String, System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 217
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAdd App Instance Target to App Administrator Role given to a Group\n"
+  example: []
+  syntax:
+    content: Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: appName
+      type: System.String
+      description: ''
+    - id: applicationId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(groupId As String, roleId As String, appName As String, applicationId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole(System.String,System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole(System.String,System.String,System.String,System.Nullable{System.Int32})
+  id: ListGroupTargetsForGroupRole(System.String,System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListGroupTargetsForGroupRole(String, String, String, Nullable<Int32>)
+  nameWithType: IGroupsClient.ListGroupTargetsForGroupRole(String, String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole(System.String, System.String, System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListGroupTargetsForGroupRole
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 227
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IGroup> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = null, int? limit = 20)
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: after
+      type: System.String
+      description: ''
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IGroup}
+      description: A collection of <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListGroupTargetsForGroupRole(groupId As String, roleId As String, after As String = Nothing, limit As Integer? = 20) As ICollectionClient(Of IGroup)
+  overload: Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole*
+  nameWithType.vb: IGroupsClient.ListGroupTargetsForGroupRole(String, String, String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole(System.String, System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListGroupTargetsForGroupRole(String, String, String, Nullable(Of Int32))
+- uid: Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(String, String, String, CancellationToken)
+  nameWithType: IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 237
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\n\n"
+  example: []
+  syntax:
+    content: Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: targetGroupId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(groupId As String, roleId As String, targetGroupId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: AddGroupTargetToGroupAdministratorRoleForGroupAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: AddGroupTargetToGroupAdministratorRoleForGroupAsync(String, String, String, CancellationToken)
+  nameWithType: IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddGroupTargetToGroupAdministratorRoleForGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 247
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\n\n"
+  example: []
+  syntax:
+    content: Task AddGroupTargetToGroupAdministratorRoleForGroupAsync(string groupId, string roleId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: roleId
+      type: System.String
+      description: ''
+    - id: targetGroupId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function AddGroupTargetToGroupAdministratorRoleForGroupAsync(groupId As String, roleId As String, targetGroupId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.ListGroupUsers(System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.IGroupsClient.ListGroupUsers(System.String,System.String,System.Nullable{System.Int32})
+  id: ListGroupUsers(System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: ListGroupUsers(String, String, Nullable<Int32>)
+  nameWithType: IGroupsClient.ListGroupUsers(String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.IGroupsClient.ListGroupUsers(System.String, System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListGroupUsers
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 256
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates all users that are a member of a group.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IUser> ListGroupUsers(string groupId, string after = null, int? limit = 1000)
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: after
+      type: System.String
+      description: Specifies the pagination cursor for the next page of users
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Specifies the number of user results in a page
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IUser}
+      description: A collection of <xref href="Okta.Sdk.IUser" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListGroupUsers(groupId As String, after As String = Nothing, limit As Integer? = 1000) As ICollectionClient(Of IUser)
+  overload: Okta.Sdk.IGroupsClient.ListGroupUsers*
+  nameWithType.vb: IGroupsClient.ListGroupUsers(String, String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.IGroupsClient.ListGroupUsers(System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListGroupUsers(String, String, Nullable(Of Int32))
+- uid: Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: RemoveUserFromGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: RemoveUserFromGroupAsync(String, String, CancellationToken)
+  nameWithType: IGroupsClient.RemoveUserFromGroupAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RemoveUserFromGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 265
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemoves a user from a group with &apos;OKTA_GROUP&apos; type.\n"
+  example: []
+  syntax:
+    content: Task RemoveUserFromGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: userId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function RemoveUserFromGroupAsync(groupId As String, userId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.AddUserToGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.AddUserToGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: AddUserToGroupAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: AddUserToGroupAsync(String, String, CancellationToken)
+  nameWithType: IGroupsClient.AddUserToGroupAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.AddUserToGroupAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddUserToGroupAsync
+    path: ../src/Okta.Sdk/Generated/IGroupsClient.Generated.cs
+    startLine: 274
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAdds a user to a group with &apos;OKTA_GROUP&apos; type.\n"
+  example: []
+  syntax:
+    content: Task AddUserToGroupAsync(string groupId, string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+      description: ''
+    - id: userId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function AddUserToGroupAsync(groupId As String, userId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroupsClient.AddUserToGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.CreateGroupOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.CreateGroupOptions,System.Threading.CancellationToken)
+  id: CreateGroupAsync(Okta.Sdk.CreateGroupOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: CreateGroupAsync(CreateGroupOptions, CancellationToken)
+  nameWithType: IGroupsClient.CreateGroupAsync(CreateGroupOptions, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.CreateGroupAsync(Okta.Sdk.CreateGroupOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroupsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateGroupAsync
+    path: ../src/Okta.Sdk/IGroupsClient.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAdds a new group with `OKTA_GROUP` type to your organization.\n"
+  example: []
+  syntax:
+    content: Task<IGroup> CreateGroupAsync(CreateGroupOptions options, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: options
+      type: Okta.Sdk.CreateGroupOptions
+      description: The options for this Create Group request.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+      description: The <xref href="Okta.Sdk.IGroup" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateGroupAsync(options As CreateGroupOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IGroup)
+  overload: Okta.Sdk.IGroupsClient.CreateGroupAsync*
+- uid: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteGroupRuleAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteGroupRuleAsync(String, CancellationToken)
+  nameWithType: IGroupsClient.DeleteGroupRuleAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroupsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteGroupRuleAsync
+    path: ../src/Okta.Sdk/IGroupsClient.cs
+    startLine: 28
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemoves a specific group rule by id from your organization\n"
+  example: []
+  syntax:
+    content: Task DeleteGroupRuleAsync(string ruleId, CancellationToken cancellationToken)
+    parameters:
+    - id: ruleId
+      type: System.String
+      description: Id of the group rule
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteGroupRuleAsync(ruleId As String, cancellationToken As CancellationToken) As Task
+  overload: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IGroup}.GetAsyncEnumerator(System.Threading.CancellationToken)
+  commentId: M:System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IGroup}.GetAsyncEnumerator(System.Threading.CancellationToken)
+  parent: System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IGroup}
+  definition: System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+  name: GetAsyncEnumerator(CancellationToken)
+  nameWithType: IAsyncEnumerable<IGroup>.GetAsyncEnumerator(CancellationToken)
+  fullName: System.Collections.Generic.IAsyncEnumerable<Okta.Sdk.IGroup>.GetAsyncEnumerator(System.Threading.CancellationToken)
+  nameWithType.vb: IAsyncEnumerable(Of IGroup).GetAsyncEnumerator(CancellationToken)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of Okta.Sdk.IGroup).GetAsyncEnumerator(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+    name: GetAsyncEnumerator
+    nameWithType: IAsyncEnumerable<IGroup>.GetAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerable<Okta.Sdk.IGroup>.GetAsyncEnumerator
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+    name: GetAsyncEnumerator
+    nameWithType: IAsyncEnumerable(Of IGroup).GetAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerable(Of Okta.Sdk.IGroup).GetAsyncEnumerator
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+  commentId: M:System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+  isExternal: true
+  name: GetAsyncEnumerator(CancellationToken)
+  nameWithType: IAsyncEnumerable<T>.GetAsyncEnumerator(CancellationToken)
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>.GetAsyncEnumerator(System.Threading.CancellationToken)
+  nameWithType.vb: IAsyncEnumerable(Of T).GetAsyncEnumerator(CancellationToken)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T).GetAsyncEnumerator(System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+    name: GetAsyncEnumerator
+    nameWithType: IAsyncEnumerable<T>.GetAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerable<T>.GetAsyncEnumerator
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1.GetAsyncEnumerator(System.Threading.CancellationToken)
+    name: GetAsyncEnumerator
+    nameWithType: IAsyncEnumerable(Of T).GetAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerable(Of T).GetAsyncEnumerator
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IGroup}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IGroup}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
+  name: IAsyncEnumerable<IGroup>
+  nameWithType: IAsyncEnumerable<IGroup>
+  fullName: System.Collections.Generic.IAsyncEnumerable<Okta.Sdk.IGroup>
+  nameWithType.vb: IAsyncEnumerable(Of IGroup)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of Okta.Sdk.IGroup)
+  name.vb: IAsyncEnumerable(Of IGroup)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
+  isExternal: true
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.IGroup
+  commentId: T:Okta.Sdk.IGroup
+  parent: Okta.Sdk
+  name: IGroup
+  nameWithType: IGroup
+  fullName: Okta.Sdk.IGroup
+- uid: Okta.Sdk.IGroupsClient.ListGroups*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListGroups
+  name: ListGroups
+  nameWithType: IGroupsClient.ListGroups
+  fullName: Okta.Sdk.IGroupsClient.ListGroups
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IGroup}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IGroup}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IGroup>
+  nameWithType: ICollectionClient<IGroup>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IGroup>
+  nameWithType.vb: ICollectionClient(Of IGroup)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IGroup)
+  name.vb: ICollectionClient(Of IGroup)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient.CreateGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.CreateGroupAsync
+  name: CreateGroupAsync
+  nameWithType: IGroupsClient.CreateGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.CreateGroupAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IGroup>
+  nameWithType: Task<IGroup>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IGroup>
+  nameWithType.vb: Task(Of IGroup)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IGroup)
+  name.vb: Task(Of IGroup)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IGroupRule
+  commentId: T:Okta.Sdk.IGroupRule
+  parent: Okta.Sdk
+  name: IGroupRule
+  nameWithType: IGroupRule
+  fullName: Okta.Sdk.IGroupRule
+- uid: Okta.Sdk.IGroupsClient.ListGroupRules*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListGroupRules
+  name: ListGroupRules
+  nameWithType: IGroupsClient.ListGroupRules
+  fullName: Okta.Sdk.IGroupsClient.ListGroupRules
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IGroupRule}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IGroupRule}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IGroupRule>
+  nameWithType: ICollectionClient<IGroupRule>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IGroupRule>
+  nameWithType.vb: ICollectionClient(Of IGroupRule)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IGroupRule)
+  name.vb: ICollectionClient(Of IGroupRule)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroupRule
+    name: IGroupRule
+    nameWithType: IGroupRule
+    fullName: Okta.Sdk.IGroupRule
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroupRule
+    name: IGroupRule
+    nameWithType: IGroupRule
+    fullName: Okta.Sdk.IGroupRule
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient.CreateGroupRuleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.CreateGroupRuleAsync
+  name: CreateGroupRuleAsync
+  nameWithType: IGroupsClient.CreateGroupRuleAsync
+  fullName: Okta.Sdk.IGroupsClient.CreateGroupRuleAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IGroupRule}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IGroupRule}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IGroupRule>
+  nameWithType: Task<IGroupRule>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IGroupRule>
+  nameWithType.vb: Task(Of IGroupRule)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IGroupRule)
+  name.vb: Task(Of IGroupRule)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroupRule
+    name: IGroupRule
+    nameWithType: IGroupRule
+    fullName: Okta.Sdk.IGroupRule
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroupRule
+    name: IGroupRule
+    nameWithType: IGroupRule
+    fullName: Okta.Sdk.IGroupRule
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync
+  name: DeleteGroupRuleAsync
+  nameWithType: IGroupsClient.DeleteGroupRuleAsync
+  fullName: Okta.Sdk.IGroupsClient.DeleteGroupRuleAsync
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.IGroupsClient.GetGroupRuleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.GetGroupRuleAsync
+  name: GetGroupRuleAsync
+  nameWithType: IGroupsClient.GetGroupRuleAsync
+  fullName: Okta.Sdk.IGroupsClient.GetGroupRuleAsync
+- uid: Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync
+  name: UpdateGroupRuleAsync
+  nameWithType: IGroupsClient.UpdateGroupRuleAsync
+  fullName: Okta.Sdk.IGroupsClient.UpdateGroupRuleAsync
+- uid: Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync
+  name: ActivateGroupRuleAsync
+  nameWithType: IGroupsClient.ActivateGroupRuleAsync
+  fullName: Okta.Sdk.IGroupsClient.ActivateGroupRuleAsync
+- uid: Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync
+  name: DeactivateGroupRuleAsync
+  nameWithType: IGroupsClient.DeactivateGroupRuleAsync
+  fullName: Okta.Sdk.IGroupsClient.DeactivateGroupRuleAsync
+- uid: Okta.Sdk.IGroupsClient.DeleteGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.DeleteGroupAsync
+  name: DeleteGroupAsync
+  nameWithType: IGroupsClient.DeleteGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.DeleteGroupAsync
+- uid: Okta.Sdk.IGroupsClient.GetGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.GetGroupAsync
+  name: GetGroupAsync
+  nameWithType: IGroupsClient.GetGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.GetGroupAsync
+- uid: Okta.Sdk.IGroupsClient.UpdateGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.UpdateGroupAsync
+  name: UpdateGroupAsync
+  nameWithType: IGroupsClient.UpdateGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.UpdateGroupAsync
+- uid: Okta.Sdk.IApplication
+  commentId: T:Okta.Sdk.IApplication
+  parent: Okta.Sdk
+  name: IApplication
+  nameWithType: IApplication
+  fullName: Okta.Sdk.IApplication
+- uid: Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup
+  name: ListAssignedApplicationsForGroup
+  nameWithType: IGroupsClient.ListAssignedApplicationsForGroup
+  fullName: Okta.Sdk.IGroupsClient.ListAssignedApplicationsForGroup
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IApplication}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IApplication}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IApplication>
+  nameWithType: ICollectionClient<IApplication>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IApplication>
+  nameWithType.vb: ICollectionClient(Of IApplication)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IApplication)
+  name.vb: ICollectionClient(Of IApplication)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IApplication
+    name: IApplication
+    nameWithType: IApplication
+    fullName: Okta.Sdk.IApplication
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IApplication
+    name: IApplication
+    nameWithType: IApplication
+    fullName: Okta.Sdk.IApplication
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IRole
+  commentId: T:Okta.Sdk.IRole
+  parent: Okta.Sdk
+  name: IRole
+  nameWithType: IRole
+  fullName: Okta.Sdk.IRole
+- uid: Okta.Sdk.IGroupsClient.ListGroupAssignedRoles*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListGroupAssignedRoles
+  name: ListGroupAssignedRoles
+  nameWithType: IGroupsClient.ListGroupAssignedRoles
+  fullName: Okta.Sdk.IGroupsClient.ListGroupAssignedRoles
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IRole}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IRole}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IRole>
+  nameWithType: ICollectionClient<IRole>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IRole>
+  nameWithType.vb: ICollectionClient(Of IRole)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IRole)
+  name.vb: ICollectionClient(Of IRole)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Okta.Sdk.IRole
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Okta.Sdk.IRole
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IAssignRoleRequest
+  commentId: T:Okta.Sdk.IAssignRoleRequest
+  parent: Okta.Sdk
+  name: IAssignRoleRequest
+  nameWithType: IAssignRoleRequest
+  fullName: Okta.Sdk.IAssignRoleRequest
+- uid: Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync
+  name: AssignRoleToGroupAsync
+  nameWithType: IGroupsClient.AssignRoleToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.AssignRoleToGroupAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IRole}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IRole}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IRole>
+  nameWithType: Task<IRole>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IRole>
+  nameWithType.vb: Task(Of IRole)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IRole)
+  name.vb: Task(Of IRole)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Okta.Sdk.IRole
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Okta.Sdk.IRole
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync
+  name: RemoveRoleFromGroupAsync
+  nameWithType: IGroupsClient.RemoveRoleFromGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.RemoveRoleFromGroupAsync
+- uid: Okta.Sdk.IGroupsClient.GetRoleAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.GetRoleAsync
+  name: GetRoleAsync
+  nameWithType: IGroupsClient.GetRoleAsync
+  fullName: Okta.Sdk.IGroupsClient.GetRoleAsync
+- uid: Okta.Sdk.ICatalogApplication
+  commentId: T:Okta.Sdk.ICatalogApplication
+  parent: Okta.Sdk
+  name: ICatalogApplication
+  nameWithType: ICatalogApplication
+  fullName: Okta.Sdk.ICatalogApplication
+- uid: Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup
+  name: ListApplicationTargetsForApplicationAdministratorRoleForGroup
+  nameWithType: IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup
+  fullName: Okta.Sdk.IGroupsClient.ListApplicationTargetsForApplicationAdministratorRoleForGroup
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.ICatalogApplication}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.ICatalogApplication}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<ICatalogApplication>
+  nameWithType: ICollectionClient<ICatalogApplication>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.ICatalogApplication>
+  nameWithType.vb: ICollectionClient(Of ICatalogApplication)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.ICatalogApplication)
+  name.vb: ICollectionClient(Of ICatalogApplication)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ICatalogApplication
+    name: ICatalogApplication
+    nameWithType: ICatalogApplication
+    fullName: Okta.Sdk.ICatalogApplication
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ICatalogApplication
+    name: ICatalogApplication
+    nameWithType: ICatalogApplication
+    fullName: Okta.Sdk.ICatalogApplication
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync
+  name: RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync
+  nameWithType: IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync
+- uid: Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync
+  name: AddApplicationTargetToAdminRoleGivenToGroupAsync
+  nameWithType: IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.AddApplicationTargetToAdminRoleGivenToGroupAsync
+- uid: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync
+  name: RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync
+  nameWithType: IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync
+- uid: Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync
+  name: AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync
+  nameWithType: IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync
+- uid: Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole
+  name: ListGroupTargetsForGroupRole
+  nameWithType: IGroupsClient.ListGroupTargetsForGroupRole
+  fullName: Okta.Sdk.IGroupsClient.ListGroupTargetsForGroupRole
+- uid: Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync
+  name: RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync
+  nameWithType: IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync
+- uid: Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync
+  name: AddGroupTargetToGroupAdministratorRoleForGroupAsync
+  nameWithType: IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.AddGroupTargetToGroupAdministratorRoleForGroupAsync
+- uid: Okta.Sdk.IUser
+  commentId: T:Okta.Sdk.IUser
+  parent: Okta.Sdk
+  name: IUser
+  nameWithType: IUser
+  fullName: Okta.Sdk.IUser
+- uid: Okta.Sdk.IGroupsClient.ListGroupUsers*
+  commentId: Overload:Okta.Sdk.IGroupsClient.ListGroupUsers
+  name: ListGroupUsers
+  nameWithType: IGroupsClient.ListGroupUsers
+  fullName: Okta.Sdk.IGroupsClient.ListGroupUsers
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IUser}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IUser}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IUser>
+  nameWithType: ICollectionClient<IUser>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IUser>
+  nameWithType.vb: ICollectionClient(Of IUser)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IUser)
+  name.vb: ICollectionClient(Of IUser)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Okta.Sdk.IUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Okta.Sdk.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync
+  name: RemoveUserFromGroupAsync
+  nameWithType: IGroupsClient.RemoveUserFromGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.RemoveUserFromGroupAsync
+- uid: Okta.Sdk.IGroupsClient.AddUserToGroupAsync*
+  commentId: Overload:Okta.Sdk.IGroupsClient.AddUserToGroupAsync
+  name: AddUserToGroupAsync
+  nameWithType: IGroupsClient.AddUserToGroupAsync
+  fullName: Okta.Sdk.IGroupsClient.AddUserToGroupAsync
+- uid: Okta.Sdk.CreateGroupOptions
+  commentId: T:Okta.Sdk.CreateGroupOptions
+  parent: Okta.Sdk
+  name: CreateGroupOptions
+  nameWithType: CreateGroupOptions
+  fullName: Okta.Sdk.CreateGroupOptions

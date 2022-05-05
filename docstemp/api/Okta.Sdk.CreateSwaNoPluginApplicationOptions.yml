@@ -1,0 +1,833 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  commentId: T:Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  id: CreateSwaNoPluginApplicationOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url
+  - Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField
+  langs:
+  - csharp
+  - vb
+  name: CreateSwaNoPluginApplicationOptions
+  nameWithType: CreateSwaNoPluginApplicationOptions
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateSwaNoPluginApplicationOptions
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nHelper class for SWA no-plugin application settings\n"
+  example: []
+  syntax:
+    content: public sealed class CreateSwaNoPluginApplicationOptions
+    content.vb: Public NotInheritable Class CreateSwaNoPluginApplicationOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label
+  id: Label
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: CreateSwaNoPluginApplicationOptions.Label
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Label
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a label\n"
+  example: []
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url
+  id: Url
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: CreateSwaNoPluginApplicationOptions.Url
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Url
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a url\n"
+  example: []
+  syntax:
+    content: public string Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Url As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField
+  id: PasswordField
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: PasswordField
+  nameWithType: CreateSwaNoPluginApplicationOptions.PasswordField
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PasswordField
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a password field\n"
+  example: []
+  syntax:
+    content: public string PasswordField { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property PasswordField As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField
+  id: UsernameField
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: UsernameField
+  nameWithType: CreateSwaNoPluginApplicationOptions.UsernameField
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UsernameField
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a username field\n"
+  example: []
+  syntax:
+    content: public string UsernameField { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UsernameField As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1
+  id: OptionalField1
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: OptionalField1
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField1
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptionalField1
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an OptionalField1\n"
+  example: []
+  syntax:
+    content: public string OptionalField1 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OptionalField1 As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  id: OptionalField1Value
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: OptionalField1Value
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptionalField1Value
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an OptionalField1 value\n"
+  example: []
+  syntax:
+    content: public string OptionalField1Value { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OptionalField1Value As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2
+  id: OptionalField2
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: OptionalField2
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField2
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptionalField2
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an OptionalField2\n"
+  example: []
+  syntax:
+    content: public string OptionalField2 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OptionalField2 As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  id: OptionalField2Value
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: OptionalField2Value
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptionalField2Value
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 50
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an OptionalField2 value\n"
+  example: []
+  syntax:
+    content: public string OptionalField2Value { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OptionalField2Value As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3
+  id: OptionalField3
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: OptionalField3
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField3
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptionalField3
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an OptionalField3\n"
+  example: []
+  syntax:
+    content: public string OptionalField3 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OptionalField3 As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  id: OptionalField3Value
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: OptionalField3Value
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptionalField3Value
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 60
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an OptionalField3 value\n"
+  example: []
+  syntax:
+    content: public string OptionalField3Value { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property OptionalField3Value As String
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate
+  commentId: P:Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate
+  id: Activate
+  parent: Okta.Sdk.CreateSwaNoPluginApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Activate
+  nameWithType: CreateSwaNoPluginApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Activate
+    path: ../src/Okta.Sdk/CreateSwaNoPluginApplicationOptions.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an activate flag value\n"
+  example: []
+  syntax:
+    content: public bool Activate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Activate As Boolean
+  overload: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label
+  name: Label
+  nameWithType: CreateSwaNoPluginApplicationOptions.Label
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url
+  name: Url
+  nameWithType: CreateSwaNoPluginApplicationOptions.Url
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Url
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField
+  name: PasswordField
+  nameWithType: CreateSwaNoPluginApplicationOptions.PasswordField
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.PasswordField
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField
+  name: UsernameField
+  nameWithType: CreateSwaNoPluginApplicationOptions.UsernameField
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.UsernameField
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1
+  name: OptionalField1
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField1
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  name: OptionalField1Value
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField1Value
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField1Value
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2
+  name: OptionalField2
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField2
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  name: OptionalField2Value
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField2Value
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField2Value
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3
+  name: OptionalField3
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField3
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  name: OptionalField3Value
+  nameWithType: CreateSwaNoPluginApplicationOptions.OptionalField3Value
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.OptionalField3Value
+- uid: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate*
+  commentId: Overload:Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate
+  name: Activate
+  nameWithType: CreateSwaNoPluginApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateSwaNoPluginApplicationOptions.Activate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

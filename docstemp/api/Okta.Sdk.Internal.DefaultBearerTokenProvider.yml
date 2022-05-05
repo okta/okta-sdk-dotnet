@@ -1,0 +1,592 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.DefaultBearerTokenProvider
+  commentId: T:Okta.Sdk.Internal.DefaultBearerTokenProvider
+  id: DefaultBearerTokenProvider
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.DefaultBearerTokenProvider.#ctor(System.String,Okta.Sdk.Internal.IOAuthTokenProvider)
+  - Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync(System.Boolean)
+  langs:
+  - csharp
+  - vb
+  name: DefaultBearerTokenProvider
+  nameWithType: DefaultBearerTokenProvider
+  fullName: Okta.Sdk.Internal.DefaultBearerTokenProvider
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultBearerTokenProvider.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DefaultBearerTokenProvider
+    path: ../src/Okta.Sdk/Internal/DefaultBearerTokenProvider.cs
+    startLine: 13
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nExternal Token Provider.\n"
+  example: []
+  syntax:
+    content: 'public class DefaultBearerTokenProvider : IOAuthTokenProvider'
+    content.vb: >-
+      Public Class DefaultBearerTokenProvider
+
+          Implements IOAuthTokenProvider
+  inheritance:
+  - System.Object
+  implements:
+  - Okta.Sdk.Internal.IOAuthTokenProvider
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Okta.Sdk.Internal.DefaultBearerTokenProvider.#ctor(System.String,Okta.Sdk.Internal.IOAuthTokenProvider)
+  commentId: M:Okta.Sdk.Internal.DefaultBearerTokenProvider.#ctor(System.String,Okta.Sdk.Internal.IOAuthTokenProvider)
+  id: '#ctor(System.String,Okta.Sdk.Internal.IOAuthTokenProvider)'
+  parent: Okta.Sdk.Internal.DefaultBearerTokenProvider
+  langs:
+  - csharp
+  - vb
+  name: DefaultBearerTokenProvider(String, IOAuthTokenProvider)
+  nameWithType: DefaultBearerTokenProvider.DefaultBearerTokenProvider(String, IOAuthTokenProvider)
+  fullName: Okta.Sdk.Internal.DefaultBearerTokenProvider.DefaultBearerTokenProvider(System.String, Okta.Sdk.Internal.IOAuthTokenProvider)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultBearerTokenProvider.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/Internal/DefaultBearerTokenProvider.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nInitializes a new instance of the <xref href=\"Okta.Sdk.Internal.DefaultBearerTokenProvider\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public DefaultBearerTokenProvider(string bearerToken, IOAuthTokenProvider tokenProvider)
+    parameters:
+    - id: bearerToken
+      type: System.String
+      description: The token.
+    - id: tokenProvider
+      type: Okta.Sdk.Internal.IOAuthTokenProvider
+      description: Optional custom token provider.
+    content.vb: Public Sub New(bearerToken As String, tokenProvider As IOAuthTokenProvider)
+  overload: Okta.Sdk.Internal.DefaultBearerTokenProvider.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync(System.Boolean)
+  commentId: M:Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync(System.Boolean)
+  id: GetAccessTokenAsync(System.Boolean)
+  parent: Okta.Sdk.Internal.DefaultBearerTokenProvider
+  langs:
+  - csharp
+  - vb
+  name: GetAccessTokenAsync(Boolean)
+  nameWithType: DefaultBearerTokenProvider.GetAccessTokenAsync(Boolean)
+  fullName: Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync(System.Boolean)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/DefaultBearerTokenProvider.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetAccessTokenAsync
+    path: ../src/Okta.Sdk/Internal/DefaultBearerTokenProvider.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public async Task<string> GetAccessTokenAsync(bool forceRenew = false)
+    parameters:
+    - id: forceRenew
+      type: System.Boolean
+    return:
+      type: System.Threading.Tasks.Task{System.String}
+    content.vb: Public Function GetAccessTokenAsync(forceRenew As Boolean = False) As Task(Of String)
+  overload: Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync*
+  implements:
+  - Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync(System.Boolean)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Internal.IOAuthTokenProvider
+  commentId: T:Okta.Sdk.Internal.IOAuthTokenProvider
+  parent: Okta.Sdk.Internal
+  name: IOAuthTokenProvider
+  nameWithType: IOAuthTokenProvider
+  fullName: Okta.Sdk.Internal.IOAuthTokenProvider
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.Internal.DefaultBearerTokenProvider
+  commentId: T:Okta.Sdk.Internal.DefaultBearerTokenProvider
+  name: DefaultBearerTokenProvider
+  nameWithType: DefaultBearerTokenProvider
+  fullName: Okta.Sdk.Internal.DefaultBearerTokenProvider
+- uid: Okta.Sdk.Internal.DefaultBearerTokenProvider.#ctor*
+  commentId: Overload:Okta.Sdk.Internal.DefaultBearerTokenProvider.#ctor
+  name: DefaultBearerTokenProvider
+  nameWithType: DefaultBearerTokenProvider.DefaultBearerTokenProvider
+  fullName: Okta.Sdk.Internal.DefaultBearerTokenProvider.DefaultBearerTokenProvider
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync*
+  commentId: Overload:Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync
+  name: GetAccessTokenAsync
+  nameWithType: DefaultBearerTokenProvider.GetAccessTokenAsync
+  fullName: Okta.Sdk.Internal.DefaultBearerTokenProvider.GetAccessTokenAsync
+- uid: Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync(System.Boolean)
+  commentId: M:Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync(System.Boolean)
+  parent: Okta.Sdk.Internal.IOAuthTokenProvider
+  isExternal: true
+  name: GetAccessTokenAsync(Boolean)
+  nameWithType: IOAuthTokenProvider.GetAccessTokenAsync(Boolean)
+  fullName: Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync(System.Boolean)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync(System.Boolean)
+    name: GetAccessTokenAsync
+    nameWithType: IOAuthTokenProvider.GetAccessTokenAsync
+    fullName: Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync(System.Boolean)
+    name: GetAccessTokenAsync
+    nameWithType: IOAuthTokenProvider.GetAccessTokenAsync
+    fullName: Okta.Sdk.Internal.IOAuthTokenProvider.GetAccessTokenAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Threading.Tasks.Task{System.String}
+  commentId: T:System.Threading.Tasks.Task{System.String}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<String>
+  nameWithType: Task<String>
+  fullName: System.Threading.Tasks.Task<System.String>
+  nameWithType.vb: Task(Of String)
+  fullName.vb: System.Threading.Tasks.Task(Of System.String)
+  name.vb: Task(Of String)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

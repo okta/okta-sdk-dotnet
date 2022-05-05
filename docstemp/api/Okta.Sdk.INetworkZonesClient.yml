@@ -1,0 +1,644 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.INetworkZonesClient
+  commentId: T:Okta.Sdk.INetworkZonesClient
+  id: INetworkZonesClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.Threading.CancellationToken)
+  - Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.INetworkZonesClient.ListNetworkZones(System.String,System.Nullable{System.Int32},System.String)
+  - Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: INetworkZonesClient
+  nameWithType: INetworkZonesClient
+  fullName: Okta.Sdk.INetworkZonesClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: INetworkZonesClient
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta NetworkZone resources.
+  example: []
+  syntax:
+    content: public interface INetworkZonesClient
+    content.vb: Public Interface INetworkZonesClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.INetworkZonesClient.ListNetworkZones(System.String,System.Nullable{System.Int32},System.String)
+  commentId: M:Okta.Sdk.INetworkZonesClient.ListNetworkZones(System.String,System.Nullable{System.Int32},System.String)
+  id: ListNetworkZones(System.String,System.Nullable{System.Int32},System.String)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: ListNetworkZones(String, Nullable<Int32>, String)
+  nameWithType: INetworkZonesClient.ListNetworkZones(String, Nullable<Int32>, String)
+  fullName: Okta.Sdk.INetworkZonesClient.ListNetworkZones(System.String, System.Nullable<System.Int32>, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListNetworkZones
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 24
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<INetworkZone> ListNetworkZones(string after = null, int? limit = -1, string filter = null)
+    parameters:
+    - id: after
+      type: System.String
+      description: Specifies the pagination cursor for the next page of network zones
+    - id: limit
+      type: System.Nullable{System.Int32}
+      description: Specifies the number of results for a page
+    - id: filter
+      type: System.String
+      description: Filters zones by usage or id expression
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.INetworkZone}
+      description: A collection of <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListNetworkZones(after As String = Nothing, limit As Integer? = -1, filter As String = Nothing) As ICollectionClient(Of INetworkZone)
+  overload: Okta.Sdk.INetworkZonesClient.ListNetworkZones*
+  nameWithType.vb: INetworkZonesClient.ListNetworkZones(String, Nullable(Of Int32), String)
+  fullName.vb: Okta.Sdk.INetworkZonesClient.ListNetworkZones(System.String, System.Nullable(Of System.Int32), System.String)
+  name.vb: ListNetworkZones(String, Nullable(Of Int32), String)
+- uid: Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.Threading.CancellationToken)
+  id: CreateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: CreateNetworkZoneAsync(INetworkZone, CancellationToken)
+  nameWithType: INetworkZonesClient.CreateNetworkZoneAsync(INetworkZone, CancellationToken)
+  fullName: Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync(Okta.Sdk.INetworkZone, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateNetworkZoneAsync
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 32
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAdds a new network zone to your Okta organization.\n"
+  example: []
+  syntax:
+    content: Task<INetworkZone> CreateNetworkZoneAsync(INetworkZone zone, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: zone
+      type: Okta.Sdk.INetworkZone
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateNetworkZoneAsync(zone As INetworkZone, cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync*
+- uid: Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteNetworkZoneAsync(String, CancellationToken)
+  nameWithType: INetworkZonesClient.DeleteNetworkZoneAsync(String, CancellationToken)
+  fullName: Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteNetworkZoneAsync
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemoves network zone.\n"
+  example: []
+  syntax:
+    content: Task DeleteNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: zoneId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteNetworkZoneAsync(zoneId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync*
+- uid: Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  id: GetNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: GetNetworkZoneAsync(String, CancellationToken)
+  nameWithType: INetworkZonesClient.GetNetworkZoneAsync(String, CancellationToken)
+  fullName: Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetNetworkZoneAsync
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 48
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a network zone from your Okta organization by `id`.\n"
+  example: []
+  syntax:
+    content: Task<INetworkZone> GetNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: zoneId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetNetworkZoneAsync(zoneId As String, cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync*
+- uid: Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.String,System.Threading.CancellationToken)
+  id: UpdateNetworkZoneAsync(Okta.Sdk.INetworkZone,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateNetworkZoneAsync(INetworkZone, String, CancellationToken)
+  nameWithType: INetworkZonesClient.UpdateNetworkZoneAsync(INetworkZone, String, CancellationToken)
+  fullName: Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync(Okta.Sdk.INetworkZone, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateNetworkZoneAsync
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 57
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates a network zone in your organization.\n"
+  example: []
+  syntax:
+    content: Task<INetworkZone> UpdateNetworkZoneAsync(INetworkZone zone, string zoneId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: zone
+      type: Okta.Sdk.INetworkZone
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> resource.
+    - id: zoneId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateNetworkZoneAsync(zone As INetworkZone, zoneId As String, cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync*
+- uid: Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  id: ActivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateNetworkZoneAsync(String, CancellationToken)
+  nameWithType: INetworkZonesClient.ActivateNetworkZoneAsync(String, CancellationToken)
+  fullName: Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateNetworkZoneAsync
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nActivate Network Zone\n"
+  example: []
+  syntax:
+    content: Task<INetworkZone> ActivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: zoneId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ActivateNetworkZoneAsync(zoneId As String, cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync*
+- uid: Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  id: DeactivateNetworkZoneAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.INetworkZonesClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateNetworkZoneAsync(String, CancellationToken)
+  nameWithType: INetworkZonesClient.DeactivateNetworkZoneAsync(String, CancellationToken)
+  fullName: Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeactivateNetworkZoneAsync
+    path: ../src/Okta.Sdk/Generated/INetworkZonesClient.Generated.cs
+    startLine: 73
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeactivates a network zone.\n"
+  example: []
+  syntax:
+    content: Task<INetworkZone> DeactivateNetworkZoneAsync(string zoneId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: zoneId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+      description: The <xref href="Okta.Sdk.INetworkZone" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function DeactivateNetworkZoneAsync(zoneId As String, cancellationToken As CancellationToken = Nothing) As Task(Of INetworkZone)
+  overload: Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.INetworkZone
+  commentId: T:Okta.Sdk.INetworkZone
+  parent: Okta.Sdk
+  name: INetworkZone
+  nameWithType: INetworkZone
+  fullName: Okta.Sdk.INetworkZone
+- uid: Okta.Sdk.INetworkZonesClient.ListNetworkZones*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.ListNetworkZones
+  name: ListNetworkZones
+  nameWithType: INetworkZonesClient.ListNetworkZones
+  fullName: Okta.Sdk.INetworkZonesClient.ListNetworkZones
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.INetworkZone}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.INetworkZone}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<INetworkZone>
+  nameWithType: ICollectionClient<INetworkZone>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.INetworkZone>
+  nameWithType.vb: ICollectionClient(Of INetworkZone)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.INetworkZone)
+  name.vb: ICollectionClient(Of INetworkZone)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.INetworkZone
+    name: INetworkZone
+    nameWithType: INetworkZone
+    fullName: Okta.Sdk.INetworkZone
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.INetworkZone
+    name: INetworkZone
+    nameWithType: INetworkZone
+    fullName: Okta.Sdk.INetworkZone
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync
+  name: CreateNetworkZoneAsync
+  nameWithType: INetworkZonesClient.CreateNetworkZoneAsync
+  fullName: Okta.Sdk.INetworkZonesClient.CreateNetworkZoneAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.INetworkZone}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<INetworkZone>
+  nameWithType: Task<INetworkZone>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.INetworkZone>
+  nameWithType.vb: Task(Of INetworkZone)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.INetworkZone)
+  name.vb: Task(Of INetworkZone)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.INetworkZone
+    name: INetworkZone
+    nameWithType: INetworkZone
+    fullName: Okta.Sdk.INetworkZone
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.INetworkZone
+    name: INetworkZone
+    nameWithType: INetworkZone
+    fullName: Okta.Sdk.INetworkZone
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync
+  name: DeleteNetworkZoneAsync
+  nameWithType: INetworkZonesClient.DeleteNetworkZoneAsync
+  fullName: Okta.Sdk.INetworkZonesClient.DeleteNetworkZoneAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync
+  name: GetNetworkZoneAsync
+  nameWithType: INetworkZonesClient.GetNetworkZoneAsync
+  fullName: Okta.Sdk.INetworkZonesClient.GetNetworkZoneAsync
+- uid: Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync
+  name: UpdateNetworkZoneAsync
+  nameWithType: INetworkZonesClient.UpdateNetworkZoneAsync
+  fullName: Okta.Sdk.INetworkZonesClient.UpdateNetworkZoneAsync
+- uid: Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync
+  name: ActivateNetworkZoneAsync
+  nameWithType: INetworkZonesClient.ActivateNetworkZoneAsync
+  fullName: Okta.Sdk.INetworkZonesClient.ActivateNetworkZoneAsync
+- uid: Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync*
+  commentId: Overload:Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync
+  name: DeactivateNetworkZoneAsync
+  nameWithType: INetworkZonesClient.DeactivateNetworkZoneAsync
+  fullName: Okta.Sdk.INetworkZonesClient.DeactivateNetworkZoneAsync

@@ -1,0 +1,708 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IProtocol
+  commentId: T:Okta.Sdk.IProtocol
+  id: IProtocol
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IProtocol.Algorithms
+  - Okta.Sdk.IProtocol.Credentials
+  - Okta.Sdk.IProtocol.Endpoints
+  - Okta.Sdk.IProtocol.Issuer
+  - Okta.Sdk.IProtocol.RelayState
+  - Okta.Sdk.IProtocol.Scopes
+  - Okta.Sdk.IProtocol.Settings
+  - Okta.Sdk.IProtocol.Type
+  langs:
+  - csharp
+  - vb
+  name: IProtocol
+  nameWithType: IProtocol
+  fullName: Okta.Sdk.IProtocol
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IProtocol
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a Protocol resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IProtocol : IResource'
+    content.vb: >-
+      Public Interface IProtocol
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IProtocol.Algorithms
+  commentId: P:Okta.Sdk.IProtocol.Algorithms
+  id: Algorithms
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Algorithms
+  nameWithType: IProtocol.Algorithms
+  fullName: Okta.Sdk.IProtocol.Algorithms
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Algorithms
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IProtocolAlgorithms Algorithms { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProtocolAlgorithms
+    content.vb: Property Algorithms As IProtocolAlgorithms
+  overload: Okta.Sdk.IProtocol.Algorithms*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.Credentials
+  commentId: P:Okta.Sdk.IProtocol.Credentials
+  id: Credentials
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Credentials
+  nameWithType: IProtocol.Credentials
+  fullName: Okta.Sdk.IProtocol.Credentials
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Credentials
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IIdentityProviderCredentials Credentials { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IIdentityProviderCredentials
+    content.vb: Property Credentials As IIdentityProviderCredentials
+  overload: Okta.Sdk.IProtocol.Credentials*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.Endpoints
+  commentId: P:Okta.Sdk.IProtocol.Endpoints
+  id: Endpoints
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Endpoints
+  nameWithType: IProtocol.Endpoints
+  fullName: Okta.Sdk.IProtocol.Endpoints
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Endpoints
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IProtocolEndpoints Endpoints { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProtocolEndpoints
+    content.vb: Property Endpoints As IProtocolEndpoints
+  overload: Okta.Sdk.IProtocol.Endpoints*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.Issuer
+  commentId: P:Okta.Sdk.IProtocol.Issuer
+  id: Issuer
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Issuer
+  nameWithType: IProtocol.Issuer
+  fullName: Okta.Sdk.IProtocol.Issuer
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Issuer
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IProtocolEndpoint Issuer { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProtocolEndpoint
+    content.vb: Property Issuer As IProtocolEndpoint
+  overload: Okta.Sdk.IProtocol.Issuer*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.RelayState
+  commentId: P:Okta.Sdk.IProtocol.RelayState
+  id: RelayState
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: RelayState
+  nameWithType: IProtocol.RelayState
+  fullName: Okta.Sdk.IProtocol.RelayState
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RelayState
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IProtocolRelayState RelayState { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProtocolRelayState
+    content.vb: Property RelayState As IProtocolRelayState
+  overload: Okta.Sdk.IProtocol.RelayState*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.Scopes
+  commentId: P:Okta.Sdk.IProtocol.Scopes
+  id: Scopes
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Scopes
+  nameWithType: IProtocol.Scopes
+  fullName: Okta.Sdk.IProtocol.Scopes
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Scopes
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<string> Scopes { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Property Scopes As IList(Of String)
+  overload: Okta.Sdk.IProtocol.Scopes*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.Settings
+  commentId: P:Okta.Sdk.IProtocol.Settings
+  id: Settings
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Settings
+  nameWithType: IProtocol.Settings
+  fullName: Okta.Sdk.IProtocol.Settings
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Settings
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IProtocolSettings Settings { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProtocolSettings
+    content.vb: Property Settings As IProtocolSettings
+  overload: Okta.Sdk.IProtocol.Settings*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IProtocol.Type
+  commentId: P:Okta.Sdk.IProtocol.Type
+  id: Type
+  parent: Okta.Sdk.IProtocol
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IProtocol.Type
+  fullName: Okta.Sdk.IProtocol.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IProtocol.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/IProtocol.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Type { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Type As String
+  overload: Okta.Sdk.IProtocol.Type*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IProtocol.Algorithms*
+  commentId: Overload:Okta.Sdk.IProtocol.Algorithms
+  name: Algorithms
+  nameWithType: IProtocol.Algorithms
+  fullName: Okta.Sdk.IProtocol.Algorithms
+- uid: Okta.Sdk.IProtocolAlgorithms
+  commentId: T:Okta.Sdk.IProtocolAlgorithms
+  parent: Okta.Sdk
+  name: IProtocolAlgorithms
+  nameWithType: IProtocolAlgorithms
+  fullName: Okta.Sdk.IProtocolAlgorithms
+- uid: Okta.Sdk.IProtocol.Credentials*
+  commentId: Overload:Okta.Sdk.IProtocol.Credentials
+  name: Credentials
+  nameWithType: IProtocol.Credentials
+  fullName: Okta.Sdk.IProtocol.Credentials
+- uid: Okta.Sdk.IIdentityProviderCredentials
+  commentId: T:Okta.Sdk.IIdentityProviderCredentials
+  parent: Okta.Sdk
+  name: IIdentityProviderCredentials
+  nameWithType: IIdentityProviderCredentials
+  fullName: Okta.Sdk.IIdentityProviderCredentials
+- uid: Okta.Sdk.IProtocol.Endpoints*
+  commentId: Overload:Okta.Sdk.IProtocol.Endpoints
+  name: Endpoints
+  nameWithType: IProtocol.Endpoints
+  fullName: Okta.Sdk.IProtocol.Endpoints
+- uid: Okta.Sdk.IProtocolEndpoints
+  commentId: T:Okta.Sdk.IProtocolEndpoints
+  parent: Okta.Sdk
+  name: IProtocolEndpoints
+  nameWithType: IProtocolEndpoints
+  fullName: Okta.Sdk.IProtocolEndpoints
+- uid: Okta.Sdk.IProtocol.Issuer*
+  commentId: Overload:Okta.Sdk.IProtocol.Issuer
+  name: Issuer
+  nameWithType: IProtocol.Issuer
+  fullName: Okta.Sdk.IProtocol.Issuer
+- uid: Okta.Sdk.IProtocolEndpoint
+  commentId: T:Okta.Sdk.IProtocolEndpoint
+  parent: Okta.Sdk
+  name: IProtocolEndpoint
+  nameWithType: IProtocolEndpoint
+  fullName: Okta.Sdk.IProtocolEndpoint
+- uid: Okta.Sdk.IProtocol.RelayState*
+  commentId: Overload:Okta.Sdk.IProtocol.RelayState
+  name: RelayState
+  nameWithType: IProtocol.RelayState
+  fullName: Okta.Sdk.IProtocol.RelayState
+- uid: Okta.Sdk.IProtocolRelayState
+  commentId: T:Okta.Sdk.IProtocolRelayState
+  parent: Okta.Sdk
+  name: IProtocolRelayState
+  nameWithType: IProtocolRelayState
+  fullName: Okta.Sdk.IProtocolRelayState
+- uid: Okta.Sdk.IProtocol.Scopes*
+  commentId: Overload:Okta.Sdk.IProtocol.Scopes
+  name: Scopes
+  nameWithType: IProtocol.Scopes
+  fullName: Okta.Sdk.IProtocol.Scopes
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.IProtocol.Settings*
+  commentId: Overload:Okta.Sdk.IProtocol.Settings
+  name: Settings
+  nameWithType: IProtocol.Settings
+  fullName: Okta.Sdk.IProtocol.Settings
+- uid: Okta.Sdk.IProtocolSettings
+  commentId: T:Okta.Sdk.IProtocolSettings
+  parent: Okta.Sdk
+  name: IProtocolSettings
+  nameWithType: IProtocolSettings
+  fullName: Okta.Sdk.IProtocolSettings
+- uid: Okta.Sdk.IProtocol.Type*
+  commentId: Overload:Okta.Sdk.IProtocol.Type
+  name: Type
+  nameWithType: IProtocol.Type
+  fullName: Okta.Sdk.IProtocol.Type
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

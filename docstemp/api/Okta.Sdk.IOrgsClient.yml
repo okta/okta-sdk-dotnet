@@ -1,0 +1,1178 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IOrgsClient
+  commentId: T:Okta.Sdk.IOrgsClient
+  id: IOrgsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.GetOrgContactTypes
+  - Okta.Sdk.IOrgsClient.GetOrgContactUserAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.GetOrgSettingsAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.GrantOktaSupportAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync(Okta.Sdk.IUserIdString,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync(System.IO.FileStream,System.Threading.CancellationToken)
+  - Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IOrgsClient
+  nameWithType: IOrgsClient
+  fullName: Okta.Sdk.IOrgsClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/IOrgsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IOrgsClient
+    path: ../src/Okta.Sdk/IOrgsClient.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta Org resources.
+  example: []
+  syntax:
+    content: public interface IOrgsClient
+    content.vb: Public Interface IOrgsClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IOrgsClient.GetOrgSettingsAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.GetOrgSettingsAsync(System.Threading.CancellationToken)
+  id: GetOrgSettingsAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOrgSettingsAsync(CancellationToken)
+  nameWithType: IOrgsClient.GetOrgSettingsAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.GetOrgSettingsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOrgSettingsAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGet settings of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgSetting> GetOrgSettingsAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgSetting}
+      description: The <xref href="Okta.Sdk.IOrgSetting" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetOrgSettingsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgSetting)
+  overload: Okta.Sdk.IOrgsClient.GetOrgSettingsAsync*
+- uid: Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  id: PartialUpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: PartialUpdateOrgSettingAsync(IOrgSetting, CancellationToken)
+  nameWithType: IOrgsClient.PartialUpdateOrgSettingAsync(IOrgSetting, CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync(Okta.Sdk.IOrgSetting, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PartialUpdateOrgSettingAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPartial update settings of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgSetting> PartialUpdateOrgSettingAsync(IOrgSetting orgSetting, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: orgSetting
+      type: Okta.Sdk.IOrgSetting
+      description: The <xref href="Okta.Sdk.IOrgSetting" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgSetting}
+      description: The <xref href="Okta.Sdk.IOrgSetting" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function PartialUpdateOrgSettingAsync(orgSetting As IOrgSetting, cancellationToken As CancellationToken = Nothing) As Task(Of IOrgSetting)
+  overload: Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync*
+- uid: Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  id: UpdateOrgSettingAsync(Okta.Sdk.IOrgSetting,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateOrgSettingAsync(IOrgSetting, CancellationToken)
+  nameWithType: IOrgsClient.UpdateOrgSettingAsync(IOrgSetting, CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync(Okta.Sdk.IOrgSetting, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateOrgSettingAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdate settings of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgSetting> UpdateOrgSettingAsync(IOrgSetting orgSetting, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: orgSetting
+      type: Okta.Sdk.IOrgSetting
+      description: The <xref href="Okta.Sdk.IOrgSetting" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgSetting}
+      description: The <xref href="Okta.Sdk.IOrgSetting" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateOrgSettingAsync(orgSetting As IOrgSetting, cancellationToken As CancellationToken = Nothing) As Task(Of IOrgSetting)
+  overload: Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync*
+- uid: Okta.Sdk.IOrgsClient.GetOrgContactTypes
+  commentId: M:Okta.Sdk.IOrgsClient.GetOrgContactTypes
+  id: GetOrgContactTypes
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOrgContactTypes()
+  nameWithType: IOrgsClient.GetOrgContactTypes()
+  fullName: Okta.Sdk.IOrgsClient.GetOrgContactTypes()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOrgContactTypes
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 44
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets Contact Types of your organization.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IOrgContactTypeObj> GetOrgContactTypes()
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IOrgContactTypeObj}
+      description: A collection of <xref href="Okta.Sdk.IOrgContactTypeObj" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function GetOrgContactTypes As ICollectionClient(Of IOrgContactTypeObj)
+  overload: Okta.Sdk.IOrgsClient.GetOrgContactTypes*
+- uid: Okta.Sdk.IOrgsClient.GetOrgContactUserAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.GetOrgContactUserAsync(System.String,System.Threading.CancellationToken)
+  id: GetOrgContactUserAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOrgContactUserAsync(String, CancellationToken)
+  nameWithType: IOrgsClient.GetOrgContactUserAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.GetOrgContactUserAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOrgContactUserAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 52
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRetrieves the URL of the User associated with the specified Contact Type.\n"
+  example: []
+  syntax:
+    content: Task<IOrgContactUser> GetOrgContactUserAsync(string contactType, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: contactType
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgContactUser}
+      description: The <xref href="Okta.Sdk.IOrgContactUser" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetOrgContactUserAsync(contactType As String, cancellationToken As CancellationToken = Nothing) As Task(Of IOrgContactUser)
+  overload: Okta.Sdk.IOrgsClient.GetOrgContactUserAsync*
+- uid: Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync(Okta.Sdk.IUserIdString,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync(Okta.Sdk.IUserIdString,System.String,System.Threading.CancellationToken)
+  id: UpdateOrgContactUserAsync(Okta.Sdk.IUserIdString,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateOrgContactUserAsync(IUserIdString, String, CancellationToken)
+  nameWithType: IOrgsClient.UpdateOrgContactUserAsync(IUserIdString, String, CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync(Okta.Sdk.IUserIdString, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateOrgContactUserAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the User associated with the specified Contact Type.\n"
+  example: []
+  syntax:
+    content: Task<IOrgContactUser> UpdateOrgContactUserAsync(IUserIdString userId, string contactType, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: Okta.Sdk.IUserIdString
+      description: The <xref href="Okta.Sdk.IUserIdString" data-throw-if-not-resolved="false"></xref> resource.
+    - id: contactType
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgContactUser}
+      description: The <xref href="Okta.Sdk.IOrgContactUser" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateOrgContactUserAsync(userId As IUserIdString, contactType As String, cancellationToken As CancellationToken = Nothing) As Task(Of IOrgContactUser)
+  overload: Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync*
+- uid: Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync(System.Threading.CancellationToken)
+  id: GetOrgPreferencesAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOrgPreferencesAsync(CancellationToken)
+  nameWithType: IOrgsClient.GetOrgPreferencesAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOrgPreferencesAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 68
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets preferences of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgPreferences> GetOrgPreferencesAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgPreferences}
+      description: The <xref href="Okta.Sdk.IOrgPreferences" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetOrgPreferencesAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgPreferences)
+  overload: Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync*
+- uid: Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync(System.Threading.CancellationToken)
+  id: HideOktaUiFooterAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: HideOktaUiFooterAsync(CancellationToken)
+  nameWithType: IOrgsClient.HideOktaUiFooterAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HideOktaUiFooterAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 75
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nHide the Okta UI footer for all end users of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgPreferences> HideOktaUiFooterAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgPreferences}
+      description: The <xref href="Okta.Sdk.IOrgPreferences" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function HideOktaUiFooterAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgPreferences)
+  overload: Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync*
+- uid: Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync(System.Threading.CancellationToken)
+  id: ShowOktaUiFooterAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: ShowOktaUiFooterAsync(CancellationToken)
+  nameWithType: IOrgsClient.ShowOktaUiFooterAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ShowOktaUiFooterAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 82
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nMakes the Okta UI footer visible for all end users of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgPreferences> ShowOktaUiFooterAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgPreferences}
+      description: The <xref href="Okta.Sdk.IOrgPreferences" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ShowOktaUiFooterAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgPreferences)
+  overload: Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync*
+- uid: Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken)
+  id: GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOktaCommunicationSettingsAsync(CancellationToken)
+  nameWithType: IOrgsClient.GetOktaCommunicationSettingsAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOktaCommunicationSettingsAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 89
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets Okta Communication Settings of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaCommunicationSetting> GetOktaCommunicationSettingsAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaCommunicationSetting}
+      description: The <xref href="Okta.Sdk.IOrgOktaCommunicationSetting" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetOktaCommunicationSettingsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaCommunicationSetting)
+  overload: Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync*
+- uid: Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  id: OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: OptInUsersToOktaCommunicationEmailsAsync(CancellationToken)
+  nameWithType: IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptInUsersToOktaCommunicationEmailsAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 96
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nOpts in all users of this org to Okta Communication emails.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaCommunicationSetting> OptInUsersToOktaCommunicationEmailsAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaCommunicationSetting}
+      description: The <xref href="Okta.Sdk.IOrgOktaCommunicationSetting" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function OptInUsersToOktaCommunicationEmailsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaCommunicationSetting)
+  overload: Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync*
+- uid: Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  id: OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: OptOutUsersFromOktaCommunicationEmailsAsync(CancellationToken)
+  nameWithType: IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OptOutUsersFromOktaCommunicationEmailsAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 103
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nOpts out all users of this org from Okta Communication emails.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaCommunicationSetting> OptOutUsersFromOktaCommunicationEmailsAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaCommunicationSetting}
+      description: The <xref href="Okta.Sdk.IOrgOktaCommunicationSetting" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function OptOutUsersFromOktaCommunicationEmailsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaCommunicationSetting)
+  overload: Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync*
+- uid: Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken)
+  id: GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOrgOktaSupportSettingsAsync(CancellationToken)
+  nameWithType: IOrgsClient.GetOrgOktaSupportSettingsAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOrgOktaSupportSettingsAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 110
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets Okta Support Settings of your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaSupportSettingsObj> GetOrgOktaSupportSettingsAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaSupportSettingsObj}
+      description: The <xref href="Okta.Sdk.IOrgOktaSupportSettingsObj" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetOrgOktaSupportSettingsAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaSupportSettingsObj)
+  overload: Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync*
+- uid: Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync(System.Threading.CancellationToken)
+  id: ExtendOktaSupportAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: ExtendOktaSupportAsync(CancellationToken)
+  nameWithType: IOrgsClient.ExtendOktaSupportAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExtendOktaSupportAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 117
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nExtends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaSupportSettingsObj> ExtendOktaSupportAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaSupportSettingsObj}
+      description: The <xref href="Okta.Sdk.IOrgOktaSupportSettingsObj" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ExtendOktaSupportAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaSupportSettingsObj)
+  overload: Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync*
+- uid: Okta.Sdk.IOrgsClient.GrantOktaSupportAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.GrantOktaSupportAsync(System.Threading.CancellationToken)
+  id: GrantOktaSupportAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: GrantOktaSupportAsync(CancellationToken)
+  nameWithType: IOrgsClient.GrantOktaSupportAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.GrantOktaSupportAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GrantOktaSupportAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 124
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnables you to temporarily allow Okta Support to access your org as an administrator for eight hours.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaSupportSettingsObj> GrantOktaSupportAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaSupportSettingsObj}
+      description: The <xref href="Okta.Sdk.IOrgOktaSupportSettingsObj" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GrantOktaSupportAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaSupportSettingsObj)
+  overload: Okta.Sdk.IOrgsClient.GrantOktaSupportAsync*
+- uid: Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync(System.Threading.CancellationToken)
+  id: RevokeOktaSupportAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: RevokeOktaSupportAsync(CancellationToken)
+  nameWithType: IOrgsClient.RevokeOktaSupportAsync(CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RevokeOktaSupportAsync
+    path: ../src/Okta.Sdk/Generated/IOrgsClient.Generated.cs
+    startLine: 131
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRevokes Okta Support access to your organization.\n"
+  example: []
+  syntax:
+    content: Task<IOrgOktaSupportSettingsObj> RevokeOktaSupportAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaSupportSettingsObj}
+      description: The <xref href="Okta.Sdk.IOrgOktaSupportSettingsObj" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function RevokeOktaSupportAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IOrgOktaSupportSettingsObj)
+  overload: Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync*
+- uid: Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync(System.IO.FileStream,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync(System.IO.FileStream,System.Threading.CancellationToken)
+  id: UpdateOrgLogoAsync(System.IO.FileStream,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOrgsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateOrgLogoAsync(FileStream, CancellationToken)
+  nameWithType: IOrgsClient.UpdateOrgLogoAsync(FileStream, CancellationToken)
+  fullName: Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync(System.IO.FileStream, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOrgsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateOrgLogoAsync
+    path: ../src/Okta.Sdk/IOrgsClient.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates an org logo.\n"
+  example: []
+  syntax:
+    content: Task UpdateOrgLogoAsync(FileStream file, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A task.
+    content.vb: Function UpdateOrgLogoAsync(file As FileStream, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync*
+references:
+- uid: Okta.Sdk.IOrgsClient
+  commentId: T:Okta.Sdk.IOrgsClient
+  parent: Okta.Sdk
+  name: IOrgsClient
+  nameWithType: IOrgsClient
+  fullName: Okta.Sdk.IOrgsClient
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IOrgSetting
+  commentId: T:Okta.Sdk.IOrgSetting
+  parent: Okta.Sdk
+  name: IOrgSetting
+  nameWithType: IOrgSetting
+  fullName: Okta.Sdk.IOrgSetting
+- uid: Okta.Sdk.IOrgsClient.GetOrgSettingsAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GetOrgSettingsAsync
+  name: GetOrgSettingsAsync
+  nameWithType: IOrgsClient.GetOrgSettingsAsync
+  fullName: Okta.Sdk.IOrgsClient.GetOrgSettingsAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IOrgSetting}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IOrgSetting}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IOrgSetting>
+  nameWithType: Task<IOrgSetting>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IOrgSetting>
+  nameWithType.vb: Task(Of IOrgSetting)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IOrgSetting)
+  name.vb: Task(Of IOrgSetting)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IOrgSetting
+    name: IOrgSetting
+    nameWithType: IOrgSetting
+    fullName: Okta.Sdk.IOrgSetting
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IOrgSetting
+    name: IOrgSetting
+    nameWithType: IOrgSetting
+    fullName: Okta.Sdk.IOrgSetting
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync
+  name: PartialUpdateOrgSettingAsync
+  nameWithType: IOrgsClient.PartialUpdateOrgSettingAsync
+  fullName: Okta.Sdk.IOrgsClient.PartialUpdateOrgSettingAsync
+- uid: Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync
+  name: UpdateOrgSettingAsync
+  nameWithType: IOrgsClient.UpdateOrgSettingAsync
+  fullName: Okta.Sdk.IOrgsClient.UpdateOrgSettingAsync
+- uid: Okta.Sdk.IOrgContactTypeObj
+  commentId: T:Okta.Sdk.IOrgContactTypeObj
+  parent: Okta.Sdk
+  name: IOrgContactTypeObj
+  nameWithType: IOrgContactTypeObj
+  fullName: Okta.Sdk.IOrgContactTypeObj
+- uid: Okta.Sdk.IOrgsClient.GetOrgContactTypes*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GetOrgContactTypes
+  name: GetOrgContactTypes
+  nameWithType: IOrgsClient.GetOrgContactTypes
+  fullName: Okta.Sdk.IOrgsClient.GetOrgContactTypes
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IOrgContactTypeObj}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IOrgContactTypeObj}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IOrgContactTypeObj>
+  nameWithType: ICollectionClient<IOrgContactTypeObj>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IOrgContactTypeObj>
+  nameWithType.vb: ICollectionClient(Of IOrgContactTypeObj)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IOrgContactTypeObj)
+  name.vb: ICollectionClient(Of IOrgContactTypeObj)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IOrgContactTypeObj
+    name: IOrgContactTypeObj
+    nameWithType: IOrgContactTypeObj
+    fullName: Okta.Sdk.IOrgContactTypeObj
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IOrgContactTypeObj
+    name: IOrgContactTypeObj
+    nameWithType: IOrgContactTypeObj
+    fullName: Okta.Sdk.IOrgContactTypeObj
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IOrgContactUser
+  commentId: T:Okta.Sdk.IOrgContactUser
+  parent: Okta.Sdk
+  name: IOrgContactUser
+  nameWithType: IOrgContactUser
+  fullName: Okta.Sdk.IOrgContactUser
+- uid: Okta.Sdk.IOrgsClient.GetOrgContactUserAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GetOrgContactUserAsync
+  name: GetOrgContactUserAsync
+  nameWithType: IOrgsClient.GetOrgContactUserAsync
+  fullName: Okta.Sdk.IOrgsClient.GetOrgContactUserAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IOrgContactUser}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IOrgContactUser}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IOrgContactUser>
+  nameWithType: Task<IOrgContactUser>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IOrgContactUser>
+  nameWithType.vb: Task(Of IOrgContactUser)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IOrgContactUser)
+  name.vb: Task(Of IOrgContactUser)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IOrgContactUser
+    name: IOrgContactUser
+    nameWithType: IOrgContactUser
+    fullName: Okta.Sdk.IOrgContactUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IOrgContactUser
+    name: IOrgContactUser
+    nameWithType: IOrgContactUser
+    fullName: Okta.Sdk.IOrgContactUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IUserIdString
+  commentId: T:Okta.Sdk.IUserIdString
+  parent: Okta.Sdk
+  name: IUserIdString
+  nameWithType: IUserIdString
+  fullName: Okta.Sdk.IUserIdString
+- uid: Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync
+  name: UpdateOrgContactUserAsync
+  nameWithType: IOrgsClient.UpdateOrgContactUserAsync
+  fullName: Okta.Sdk.IOrgsClient.UpdateOrgContactUserAsync
+- uid: Okta.Sdk.IOrgPreferences
+  commentId: T:Okta.Sdk.IOrgPreferences
+  parent: Okta.Sdk
+  name: IOrgPreferences
+  nameWithType: IOrgPreferences
+  fullName: Okta.Sdk.IOrgPreferences
+- uid: Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync
+  name: GetOrgPreferencesAsync
+  nameWithType: IOrgsClient.GetOrgPreferencesAsync
+  fullName: Okta.Sdk.IOrgsClient.GetOrgPreferencesAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IOrgPreferences}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IOrgPreferences}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IOrgPreferences>
+  nameWithType: Task<IOrgPreferences>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IOrgPreferences>
+  nameWithType.vb: Task(Of IOrgPreferences)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IOrgPreferences)
+  name.vb: Task(Of IOrgPreferences)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IOrgPreferences
+    name: IOrgPreferences
+    nameWithType: IOrgPreferences
+    fullName: Okta.Sdk.IOrgPreferences
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IOrgPreferences
+    name: IOrgPreferences
+    nameWithType: IOrgPreferences
+    fullName: Okta.Sdk.IOrgPreferences
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync
+  name: HideOktaUiFooterAsync
+  nameWithType: IOrgsClient.HideOktaUiFooterAsync
+  fullName: Okta.Sdk.IOrgsClient.HideOktaUiFooterAsync
+- uid: Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync
+  name: ShowOktaUiFooterAsync
+  nameWithType: IOrgsClient.ShowOktaUiFooterAsync
+  fullName: Okta.Sdk.IOrgsClient.ShowOktaUiFooterAsync
+- uid: Okta.Sdk.IOrgOktaCommunicationSetting
+  commentId: T:Okta.Sdk.IOrgOktaCommunicationSetting
+  parent: Okta.Sdk
+  name: IOrgOktaCommunicationSetting
+  nameWithType: IOrgOktaCommunicationSetting
+  fullName: Okta.Sdk.IOrgOktaCommunicationSetting
+- uid: Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync
+  name: GetOktaCommunicationSettingsAsync
+  nameWithType: IOrgsClient.GetOktaCommunicationSettingsAsync
+  fullName: Okta.Sdk.IOrgsClient.GetOktaCommunicationSettingsAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaCommunicationSetting}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaCommunicationSetting}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IOrgOktaCommunicationSetting>
+  nameWithType: Task<IOrgOktaCommunicationSetting>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IOrgOktaCommunicationSetting>
+  nameWithType.vb: Task(Of IOrgOktaCommunicationSetting)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IOrgOktaCommunicationSetting)
+  name.vb: Task(Of IOrgOktaCommunicationSetting)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IOrgOktaCommunicationSetting
+    name: IOrgOktaCommunicationSetting
+    nameWithType: IOrgOktaCommunicationSetting
+    fullName: Okta.Sdk.IOrgOktaCommunicationSetting
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IOrgOktaCommunicationSetting
+    name: IOrgOktaCommunicationSetting
+    nameWithType: IOrgOktaCommunicationSetting
+    fullName: Okta.Sdk.IOrgOktaCommunicationSetting
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync
+  name: OptInUsersToOktaCommunicationEmailsAsync
+  nameWithType: IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync
+  fullName: Okta.Sdk.IOrgsClient.OptInUsersToOktaCommunicationEmailsAsync
+- uid: Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync
+  name: OptOutUsersFromOktaCommunicationEmailsAsync
+  nameWithType: IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync
+  fullName: Okta.Sdk.IOrgsClient.OptOutUsersFromOktaCommunicationEmailsAsync
+- uid: Okta.Sdk.IOrgOktaSupportSettingsObj
+  commentId: T:Okta.Sdk.IOrgOktaSupportSettingsObj
+  parent: Okta.Sdk
+  name: IOrgOktaSupportSettingsObj
+  nameWithType: IOrgOktaSupportSettingsObj
+  fullName: Okta.Sdk.IOrgOktaSupportSettingsObj
+- uid: Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync
+  name: GetOrgOktaSupportSettingsAsync
+  nameWithType: IOrgsClient.GetOrgOktaSupportSettingsAsync
+  fullName: Okta.Sdk.IOrgsClient.GetOrgOktaSupportSettingsAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaSupportSettingsObj}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IOrgOktaSupportSettingsObj}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IOrgOktaSupportSettingsObj>
+  nameWithType: Task<IOrgOktaSupportSettingsObj>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IOrgOktaSupportSettingsObj>
+  nameWithType.vb: Task(Of IOrgOktaSupportSettingsObj)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IOrgOktaSupportSettingsObj)
+  name.vb: Task(Of IOrgOktaSupportSettingsObj)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IOrgOktaSupportSettingsObj
+    name: IOrgOktaSupportSettingsObj
+    nameWithType: IOrgOktaSupportSettingsObj
+    fullName: Okta.Sdk.IOrgOktaSupportSettingsObj
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IOrgOktaSupportSettingsObj
+    name: IOrgOktaSupportSettingsObj
+    nameWithType: IOrgOktaSupportSettingsObj
+    fullName: Okta.Sdk.IOrgOktaSupportSettingsObj
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync
+  name: ExtendOktaSupportAsync
+  nameWithType: IOrgsClient.ExtendOktaSupportAsync
+  fullName: Okta.Sdk.IOrgsClient.ExtendOktaSupportAsync
+- uid: Okta.Sdk.IOrgsClient.GrantOktaSupportAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.GrantOktaSupportAsync
+  name: GrantOktaSupportAsync
+  nameWithType: IOrgsClient.GrantOktaSupportAsync
+  fullName: Okta.Sdk.IOrgsClient.GrantOktaSupportAsync
+- uid: Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync
+  name: RevokeOktaSupportAsync
+  nameWithType: IOrgsClient.RevokeOktaSupportAsync
+  fullName: Okta.Sdk.IOrgsClient.RevokeOktaSupportAsync
+- uid: Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync*
+  commentId: Overload:Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync
+  name: UpdateOrgLogoAsync
+  nameWithType: IOrgsClient.UpdateOrgLogoAsync
+  fullName: Okta.Sdk.IOrgsClient.UpdateOrgLogoAsync
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO

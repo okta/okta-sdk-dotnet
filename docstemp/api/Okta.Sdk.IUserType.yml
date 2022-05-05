@@ -1,0 +1,900 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IUserType
+  commentId: T:Okta.Sdk.IUserType
+  id: IUserType
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IUserType.Created
+  - Okta.Sdk.IUserType.CreatedBy
+  - Okta.Sdk.IUserType.Default
+  - Okta.Sdk.IUserType.Description
+  - Okta.Sdk.IUserType.DisplayName
+  - Okta.Sdk.IUserType.Id
+  - Okta.Sdk.IUserType.LastUpdated
+  - Okta.Sdk.IUserType.LastUpdatedBy
+  - Okta.Sdk.IUserType.Name
+  - Okta.Sdk.IUserType.ReplaceUserTypeAsync(Okta.Sdk.IUserType,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IUserType
+  nameWithType: IUserType
+  fullName: Okta.Sdk.IUserType
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IUserType
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a UserType resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IUserType : IResource'
+    content.vb: >-
+      Public Interface IUserType
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IUserType.Created
+  commentId: P:Okta.Sdk.IUserType.Created
+  id: Created
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IUserType.Created
+  fullName: Okta.Sdk.IUserType.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.IUserType.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IUserType.CreatedBy
+  commentId: P:Okta.Sdk.IUserType.CreatedBy
+  id: CreatedBy
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: CreatedBy
+  nameWithType: IUserType.CreatedBy
+  fullName: Okta.Sdk.IUserType.CreatedBy
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreatedBy
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string CreatedBy { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property CreatedBy As String
+  overload: Okta.Sdk.IUserType.CreatedBy*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IUserType.Default
+  commentId: P:Okta.Sdk.IUserType.Default
+  id: Default
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: Default
+  nameWithType: IUserType.Default
+  fullName: Okta.Sdk.IUserType.Default
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Default
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? Default { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: ReadOnly Property Default As Boolean?
+  overload: Okta.Sdk.IUserType.Default*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IUserType.Description
+  commentId: P:Okta.Sdk.IUserType.Description
+  id: Description
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IUserType.Description
+  fullName: Okta.Sdk.IUserType.Description
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Description
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Description As String
+  overload: Okta.Sdk.IUserType.Description*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserType.DisplayName
+  commentId: P:Okta.Sdk.IUserType.DisplayName
+  id: DisplayName
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: IUserType.DisplayName
+  fullName: Okta.Sdk.IUserType.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DisplayName
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string DisplayName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DisplayName As String
+  overload: Okta.Sdk.IUserType.DisplayName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserType.Id
+  commentId: P:Okta.Sdk.IUserType.Id
+  id: Id
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IUserType.Id
+  fullName: Okta.Sdk.IUserType.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Id As String
+  overload: Okta.Sdk.IUserType.Id*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserType.LastUpdated
+  commentId: P:Okta.Sdk.IUserType.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IUserType.LastUpdated
+  fullName: Okta.Sdk.IUserType.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IUserType.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IUserType.LastUpdatedBy
+  commentId: P:Okta.Sdk.IUserType.LastUpdatedBy
+  id: LastUpdatedBy
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: LastUpdatedBy
+  nameWithType: IUserType.LastUpdatedBy
+  fullName: Okta.Sdk.IUserType.LastUpdatedBy
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdatedBy
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string LastUpdatedBy { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property LastUpdatedBy As String
+  overload: Okta.Sdk.IUserType.LastUpdatedBy*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IUserType.Name
+  commentId: P:Okta.Sdk.IUserType.Name
+  id: Name
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IUserType.Name
+  fullName: Okta.Sdk.IUserType.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: Okta.Sdk.IUserType.Name*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IUserType.ReplaceUserTypeAsync(Okta.Sdk.IUserType,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserType.ReplaceUserTypeAsync(Okta.Sdk.IUserType,System.String,System.Threading.CancellationToken)
+  id: ReplaceUserTypeAsync(Okta.Sdk.IUserType,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserType
+  langs:
+  - csharp
+  - vb
+  name: ReplaceUserTypeAsync(IUserType, String, CancellationToken)
+  nameWithType: IUserType.ReplaceUserTypeAsync(IUserType, String, CancellationToken)
+  fullName: Okta.Sdk.IUserType.ReplaceUserTypeAsync(Okta.Sdk.IUserType, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ReplaceUserTypeAsync
+    path: ../src/Okta.Sdk/Generated/IUserType.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IUserType> ReplaceUserTypeAsync(IUserType userType, string typeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userType
+      type: Okta.Sdk.IUserType
+    - id: typeId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserType}
+    content.vb: Function ReplaceUserTypeAsync(userType As IUserType, typeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IUserType)
+  overload: Okta.Sdk.IUserType.ReplaceUserTypeAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IUserType.Created*
+  commentId: Overload:Okta.Sdk.IUserType.Created
+  name: Created
+  nameWithType: IUserType.Created
+  fullName: Okta.Sdk.IUserType.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IUserType.CreatedBy*
+  commentId: Overload:Okta.Sdk.IUserType.CreatedBy
+  name: CreatedBy
+  nameWithType: IUserType.CreatedBy
+  fullName: Okta.Sdk.IUserType.CreatedBy
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.IUserType.Default*
+  commentId: Overload:Okta.Sdk.IUserType.Default
+  name: Default
+  nameWithType: IUserType.Default
+  fullName: Okta.Sdk.IUserType.Default
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IUserType.Description*
+  commentId: Overload:Okta.Sdk.IUserType.Description
+  name: Description
+  nameWithType: IUserType.Description
+  fullName: Okta.Sdk.IUserType.Description
+- uid: Okta.Sdk.IUserType.DisplayName*
+  commentId: Overload:Okta.Sdk.IUserType.DisplayName
+  name: DisplayName
+  nameWithType: IUserType.DisplayName
+  fullName: Okta.Sdk.IUserType.DisplayName
+- uid: Okta.Sdk.IUserType.Id*
+  commentId: Overload:Okta.Sdk.IUserType.Id
+  name: Id
+  nameWithType: IUserType.Id
+  fullName: Okta.Sdk.IUserType.Id
+- uid: Okta.Sdk.IUserType.LastUpdated*
+  commentId: Overload:Okta.Sdk.IUserType.LastUpdated
+  name: LastUpdated
+  nameWithType: IUserType.LastUpdated
+  fullName: Okta.Sdk.IUserType.LastUpdated
+- uid: Okta.Sdk.IUserType.LastUpdatedBy*
+  commentId: Overload:Okta.Sdk.IUserType.LastUpdatedBy
+  name: LastUpdatedBy
+  nameWithType: IUserType.LastUpdatedBy
+  fullName: Okta.Sdk.IUserType.LastUpdatedBy
+- uid: Okta.Sdk.IUserType.Name*
+  commentId: Overload:Okta.Sdk.IUserType.Name
+  name: Name
+  nameWithType: IUserType.Name
+  fullName: Okta.Sdk.IUserType.Name
+- uid: Okta.Sdk.IUserType.ReplaceUserTypeAsync*
+  commentId: Overload:Okta.Sdk.IUserType.ReplaceUserTypeAsync
+  name: ReplaceUserTypeAsync
+  nameWithType: IUserType.ReplaceUserTypeAsync
+  fullName: Okta.Sdk.IUserType.ReplaceUserTypeAsync
+- uid: Okta.Sdk.IUserType
+  commentId: T:Okta.Sdk.IUserType
+  parent: Okta.Sdk
+  name: IUserType
+  nameWithType: IUserType
+  fullName: Okta.Sdk.IUserType
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IUserType}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IUserType}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IUserType>
+  nameWithType: Task<IUserType>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IUserType>
+  nameWithType.vb: Task(Of IUserType)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IUserType)
+  name.vb: Task(Of IUserType)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IUserType
+    name: IUserType
+    nameWithType: IUserType
+    fullName: Okta.Sdk.IUserType
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IUserType
+    name: IUserType
+    nameWithType: IUserType
+    fullName: Okta.Sdk.IUserType
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

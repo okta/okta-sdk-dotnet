@@ -1,0 +1,1060 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IEmailTemplate
+  commentId: T:Okta.Sdk.IEmailTemplate
+  id: IEmailTemplate
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations(System.String,System.String)
+  - Okta.Sdk.IEmailTemplate.Name
+  - Okta.Sdk.IEmailTemplate.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IEmailTemplate
+  nameWithType: IEmailTemplate
+  fullName: Okta.Sdk.IEmailTemplate
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IEmailTemplate
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a EmailTemplate resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IEmailTemplate : IResource'
+    content.vb: >-
+      Public Interface IEmailTemplate
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IEmailTemplate.Name
+  commentId: P:Okta.Sdk.IEmailTemplate.Name
+  id: Name
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IEmailTemplate.Name
+  fullName: Okta.Sdk.IEmailTemplate.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: Okta.Sdk.IEmailTemplate.Name*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateAsync(String, String, CancellationToken)
+  nameWithType: IEmailTemplate.GetEmailTemplateAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplate> GetEmailTemplateAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplate}
+    content.vb: Function GetEmailTemplateAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplate)
+  overload: Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync*
+- uid: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteEmailTemplateCustomizationsAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: DeleteEmailTemplateCustomizationsAsync(String, String, CancellationToken)
+  nameWithType: IEmailTemplate.DeleteEmailTemplateCustomizationsAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteEmailTemplateCustomizationsAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task DeleteEmailTemplateCustomizationsAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteEmailTemplateCustomizationsAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync*
+- uid: Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations(System.String,System.String)
+  commentId: M:Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations(System.String,System.String)
+  id: ListEmailTemplateCustomizations(System.String,System.String)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: ListEmailTemplateCustomizations(String, String)
+  nameWithType: IEmailTemplate.ListEmailTemplateCustomizations(String, String)
+  fullName: Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations(System.String, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListEmailTemplateCustomizations
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ICollectionClient<IEmailTemplateCustomization> ListEmailTemplateCustomizations(string brandId, string templateName)
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplateCustomization}
+    content.vb: Function ListEmailTemplateCustomizations(brandId As String, templateName As String) As ICollectionClient(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations*
+- uid: Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  id: CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, CancellationToken)
+  nameWithType: IEmailTemplate.CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 28
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplateCustomization> CreateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: customization
+      type: Okta.Sdk.IEmailTemplateCustomizationRequest
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+    content.vb: Function CreateEmailTemplateCustomizationAsync(customization As IEmailTemplateCustomizationRequest, brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: DeleteEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  nameWithType: IEmailTemplate.DeleteEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task DeleteEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: customizationId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteEmailTemplateCustomizationAsync(brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateCustomizationAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  nameWithType: IEmailTemplate.GetEmailTemplateCustomizationAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 34
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplateCustomization> GetEmailTemplateCustomizationAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: customizationId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+    content.vb: Function GetEmailTemplateCustomizationAsync(brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest,System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, String, CancellationToken)
+  nameWithType: IEmailTemplate.UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest, String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync(Okta.Sdk.IEmailTemplateCustomizationRequest, System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateEmailTemplateCustomizationAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 37
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplateCustomization> UpdateEmailTemplateCustomizationAsync(IEmailTemplateCustomizationRequest customization, string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: customization
+      type: Okta.Sdk.IEmailTemplateCustomizationRequest
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: customizationId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+    content.vb: Function UpdateEmailTemplateCustomizationAsync(customization As IEmailTemplateCustomizationRequest, brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateCustomization)
+  overload: Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync*
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateCustomizationPreviewAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateCustomizationPreviewAsync(String, String, String, CancellationToken)
+  nameWithType: IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateCustomizationPreviewAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplateContent> GetEmailTemplateCustomizationPreviewAsync(string brandId, string templateName, string customizationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: customizationId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+    content.vb: Function GetEmailTemplateCustomizationPreviewAsync(brandId As String, templateName As String, customizationId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateContent)
+  overload: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync*
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateDefaultContentAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateDefaultContentAsync(String, String, CancellationToken)
+  nameWithType: IEmailTemplate.GetEmailTemplateDefaultContentAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateDefaultContentAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplateContent> GetEmailTemplateDefaultContentAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+    content.vb: Function GetEmailTemplateDefaultContentAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateContent)
+  overload: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync*
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetEmailTemplateDefaultContentPreviewAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: GetEmailTemplateDefaultContentPreviewAsync(String, String, CancellationToken)
+  nameWithType: IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetEmailTemplateDefaultContentPreviewAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 46
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IEmailTemplateContent> GetEmailTemplateDefaultContentPreviewAsync(string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+    content.vb: Function GetEmailTemplateDefaultContentPreviewAsync(brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task(Of IEmailTemplateContent)
+  overload: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync*
+- uid: Okta.Sdk.IEmailTemplate.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IEmailTemplate.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  id: SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IEmailTemplate
+  langs:
+  - csharp
+  - vb
+  name: SendTestEmailAsync(IEmailTemplateTestRequest, String, String, CancellationToken)
+  nameWithType: IEmailTemplate.SendTestEmailAsync(IEmailTemplateTestRequest, String, String, CancellationToken)
+  fullName: Okta.Sdk.IEmailTemplate.SendTestEmailAsync(Okta.Sdk.IEmailTemplateTestRequest, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SendTestEmailAsync
+    path: ../src/Okta.Sdk/Generated/IEmailTemplate.Generated.cs
+    startLine: 49
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task SendTestEmailAsync(IEmailTemplateTestRequest customization, string brandId, string templateName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: customization
+      type: Okta.Sdk.IEmailTemplateTestRequest
+    - id: brandId
+      type: System.String
+    - id: templateName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function SendTestEmailAsync(customization As IEmailTemplateTestRequest, brandId As String, templateName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IEmailTemplate.SendTestEmailAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IEmailTemplate.Name*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.Name
+  name: Name
+  nameWithType: IEmailTemplate.Name
+  fullName: Okta.Sdk.IEmailTemplate.Name
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync
+  name: GetEmailTemplateAsync
+  nameWithType: IEmailTemplate.GetEmailTemplateAsync
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplate}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplate}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEmailTemplate>
+  nameWithType: Task<IEmailTemplate>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IEmailTemplate>
+  nameWithType.vb: Task(Of IEmailTemplate)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IEmailTemplate)
+  name.vb: Task(Of IEmailTemplate)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplate
+    name: IEmailTemplate
+    nameWithType: IEmailTemplate
+    fullName: Okta.Sdk.IEmailTemplate
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplate
+    name: IEmailTemplate
+    nameWithType: IEmailTemplate
+    fullName: Okta.Sdk.IEmailTemplate
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync
+  name: DeleteEmailTemplateCustomizationsAsync
+  nameWithType: IEmailTemplate.DeleteEmailTemplateCustomizationsAsync
+  fullName: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationsAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations
+  name: ListEmailTemplateCustomizations
+  nameWithType: IEmailTemplate.ListEmailTemplateCustomizations
+  fullName: Okta.Sdk.IEmailTemplate.ListEmailTemplateCustomizations
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplateCustomization}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IEmailTemplateCustomization}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IEmailTemplateCustomization>
+  nameWithType: ICollectionClient<IEmailTemplateCustomization>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IEmailTemplateCustomization>
+  nameWithType.vb: ICollectionClient(Of IEmailTemplateCustomization)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IEmailTemplateCustomization)
+  name.vb: ICollectionClient(Of IEmailTemplateCustomization)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync
+  name: CreateEmailTemplateCustomizationAsync
+  nameWithType: IEmailTemplate.CreateEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IEmailTemplate.CreateEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IEmailTemplateCustomizationRequest
+  commentId: T:Okta.Sdk.IEmailTemplateCustomizationRequest
+  parent: Okta.Sdk
+  name: IEmailTemplateCustomizationRequest
+  nameWithType: IEmailTemplateCustomizationRequest
+  fullName: Okta.Sdk.IEmailTemplateCustomizationRequest
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateCustomization}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEmailTemplateCustomization>
+  nameWithType: Task<IEmailTemplateCustomization>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IEmailTemplateCustomization>
+  nameWithType.vb: Task(Of IEmailTemplateCustomization)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IEmailTemplateCustomization)
+  name.vb: Task(Of IEmailTemplateCustomization)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplateCustomization
+    name: IEmailTemplateCustomization
+    nameWithType: IEmailTemplateCustomization
+    fullName: Okta.Sdk.IEmailTemplateCustomization
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync
+  name: DeleteEmailTemplateCustomizationAsync
+  nameWithType: IEmailTemplate.DeleteEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IEmailTemplate.DeleteEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync
+  name: GetEmailTemplateCustomizationAsync
+  nameWithType: IEmailTemplate.GetEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync
+  name: UpdateEmailTemplateCustomizationAsync
+  nameWithType: IEmailTemplate.UpdateEmailTemplateCustomizationAsync
+  fullName: Okta.Sdk.IEmailTemplate.UpdateEmailTemplateCustomizationAsync
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync
+  name: GetEmailTemplateCustomizationPreviewAsync
+  nameWithType: IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateCustomizationPreviewAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IEmailTemplateContent}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IEmailTemplateContent>
+  nameWithType: Task<IEmailTemplateContent>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IEmailTemplateContent>
+  nameWithType.vb: Task(Of IEmailTemplateContent)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IEmailTemplateContent)
+  name.vb: Task(Of IEmailTemplateContent)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IEmailTemplateContent
+    name: IEmailTemplateContent
+    nameWithType: IEmailTemplateContent
+    fullName: Okta.Sdk.IEmailTemplateContent
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IEmailTemplateContent
+    name: IEmailTemplateContent
+    nameWithType: IEmailTemplateContent
+    fullName: Okta.Sdk.IEmailTemplateContent
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync
+  name: GetEmailTemplateDefaultContentAsync
+  nameWithType: IEmailTemplate.GetEmailTemplateDefaultContentAsync
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentAsync
+- uid: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync
+  name: GetEmailTemplateDefaultContentPreviewAsync
+  nameWithType: IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync
+  fullName: Okta.Sdk.IEmailTemplate.GetEmailTemplateDefaultContentPreviewAsync
+- uid: Okta.Sdk.IEmailTemplate.SendTestEmailAsync*
+  commentId: Overload:Okta.Sdk.IEmailTemplate.SendTestEmailAsync
+  name: SendTestEmailAsync
+  nameWithType: IEmailTemplate.SendTestEmailAsync
+  fullName: Okta.Sdk.IEmailTemplate.SendTestEmailAsync
+- uid: Okta.Sdk.IEmailTemplateTestRequest
+  commentId: T:Okta.Sdk.IEmailTemplateTestRequest
+  parent: Okta.Sdk
+  name: IEmailTemplateTestRequest
+  nameWithType: IEmailTemplateTestRequest
+  fullName: Okta.Sdk.IEmailTemplateTestRequest

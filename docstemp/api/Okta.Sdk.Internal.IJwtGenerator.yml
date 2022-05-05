@@ -1,0 +1,92 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.IJwtGenerator
+  commentId: T:Okta.Sdk.Internal.IJwtGenerator
+  id: IJwtGenerator
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT
+  langs:
+  - csharp
+  - vb
+  name: IJwtGenerator
+  nameWithType: IJwtGenerator
+  fullName: Okta.Sdk.Internal.IJwtGenerator
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/IJwtGenerator.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IJwtGenerator
+    path: ../src/Okta.Sdk/Internal/IJwtGenerator.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nInterface for JWT generators.\n"
+  example: []
+  syntax:
+    content: public interface IJwtGenerator
+    content.vb: Public Interface IJwtGenerator
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT
+  commentId: M:Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT
+  id: GenerateSignedJWT
+  parent: Okta.Sdk.Internal.IJwtGenerator
+  langs:
+  - csharp
+  - vb
+  name: GenerateSignedJWT()
+  nameWithType: IJwtGenerator.GenerateSignedJWT()
+  fullName: Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/IJwtGenerator.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GenerateSignedJWT
+    path: ../src/Okta.Sdk/Internal/IJwtGenerator.cs
+    startLine: 16
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nGenerates a signed JWT.\n"
+  example: []
+  syntax:
+    content: string GenerateSignedJWT()
+    return:
+      type: System.String
+      description: The generated signed JWT.
+    content.vb: Function GenerateSignedJWT As String
+  overload: Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT*
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT*
+  commentId: Overload:Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT
+  name: GenerateSignedJWT
+  nameWithType: IJwtGenerator.GenerateSignedJWT
+  fullName: Okta.Sdk.Internal.IJwtGenerator.GenerateSignedJWT
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System

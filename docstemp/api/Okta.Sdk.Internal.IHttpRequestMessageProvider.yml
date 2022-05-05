@@ -1,0 +1,123 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.IHttpRequestMessageProvider
+  commentId: T:Okta.Sdk.Internal.IHttpRequestMessageProvider
+  id: IHttpRequestMessageProvider
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage(Okta.Sdk.HttpRequest,System.String)
+  langs:
+  - csharp
+  - vb
+  name: IHttpRequestMessageProvider
+  nameWithType: IHttpRequestMessageProvider
+  fullName: Okta.Sdk.Internal.IHttpRequestMessageProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/IHttpRequestMessageProvider.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IHttpRequestMessageProvider
+    path: ../src/Okta.Sdk/Internal/IHttpRequestMessageProvider.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nThis interface is responsible for creating the corresponding request message.\n"
+  example: []
+  syntax:
+    content: public interface IHttpRequestMessageProvider
+    content.vb: Public Interface IHttpRequestMessageProvider
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage(Okta.Sdk.HttpRequest,System.String)
+  commentId: M:Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage(Okta.Sdk.HttpRequest,System.String)
+  id: CreateHttpRequestMessage(Okta.Sdk.HttpRequest,System.String)
+  parent: Okta.Sdk.Internal.IHttpRequestMessageProvider
+  langs:
+  - csharp
+  - vb
+  name: CreateHttpRequestMessage(HttpRequest, String)
+  nameWithType: IHttpRequestMessageProvider.CreateHttpRequestMessage(HttpRequest, String)
+  fullName: Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage(Okta.Sdk.HttpRequest, System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/IHttpRequestMessageProvider.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateHttpRequestMessage
+    path: ../src/Okta.Sdk/Internal/IHttpRequestMessageProvider.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nCreates an HttpRequestMessage instance.\n"
+  example: []
+  syntax:
+    content: HttpRequestMessage CreateHttpRequestMessage(HttpRequest request, string relativePath)
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request.
+    - id: relativePath
+      type: System.String
+      description: The relative path.
+    return:
+      type: System.Net.Http.HttpRequestMessage
+      description: An HttpRequestMessage instance
+    content.vb: Function CreateHttpRequestMessage(request As HttpRequest, relativePath As String) As HttpRequestMessage
+  overload: Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage*
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage*
+  commentId: Overload:Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage
+  name: CreateHttpRequestMessage
+  nameWithType: IHttpRequestMessageProvider.CreateHttpRequestMessage
+  fullName: Okta.Sdk.Internal.IHttpRequestMessageProvider.CreateHttpRequestMessage
+- uid: Okta.Sdk.HttpRequest
+  commentId: T:Okta.Sdk.HttpRequest
+  parent: Okta.Sdk
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: Okta.Sdk.HttpRequest
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Net.Http.HttpRequestMessage
+  commentId: T:System.Net.Http.HttpRequestMessage
+  parent: System.Net.Http
+  isExternal: true
+  name: HttpRequestMessage
+  nameWithType: HttpRequestMessage
+  fullName: System.Net.Http.HttpRequestMessage
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http

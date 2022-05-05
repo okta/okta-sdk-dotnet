@@ -1,0 +1,2497 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.UserSchemaBaseProperties
+  commentId: T:Okta.Sdk.UserSchemaBaseProperties
+  id: UserSchemaBaseProperties
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.UserSchemaBaseProperties.City
+  - Okta.Sdk.UserSchemaBaseProperties.CostCenter
+  - Okta.Sdk.UserSchemaBaseProperties.CountryCode
+  - Okta.Sdk.UserSchemaBaseProperties.Department
+  - Okta.Sdk.UserSchemaBaseProperties.DisplayName
+  - Okta.Sdk.UserSchemaBaseProperties.Division
+  - Okta.Sdk.UserSchemaBaseProperties.Email
+  - Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber
+  - Okta.Sdk.UserSchemaBaseProperties.FirstName
+  - Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix
+  - Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix
+  - Okta.Sdk.UserSchemaBaseProperties.LastName
+  - Okta.Sdk.UserSchemaBaseProperties.Locale
+  - Okta.Sdk.UserSchemaBaseProperties.Login
+  - Okta.Sdk.UserSchemaBaseProperties.Manager
+  - Okta.Sdk.UserSchemaBaseProperties.ManagerId
+  - Okta.Sdk.UserSchemaBaseProperties.MiddleName
+  - Okta.Sdk.UserSchemaBaseProperties.MobilePhone
+  - Okta.Sdk.UserSchemaBaseProperties.NickName
+  - Okta.Sdk.UserSchemaBaseProperties.Organization
+  - Okta.Sdk.UserSchemaBaseProperties.PostalAddress
+  - Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage
+  - Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone
+  - Okta.Sdk.UserSchemaBaseProperties.ProfileUrl
+  - Okta.Sdk.UserSchemaBaseProperties.SecondEmail
+  - Okta.Sdk.UserSchemaBaseProperties.State
+  - Okta.Sdk.UserSchemaBaseProperties.StreetAddress
+  - Okta.Sdk.UserSchemaBaseProperties.Timezone
+  - Okta.Sdk.UserSchemaBaseProperties.Title
+  - Okta.Sdk.UserSchemaBaseProperties.UserType
+  - Okta.Sdk.UserSchemaBaseProperties.ZipCode
+  langs:
+  - csharp
+  - vb
+  name: UserSchemaBaseProperties
+  nameWithType: UserSchemaBaseProperties
+  fullName: Okta.Sdk.UserSchemaBaseProperties
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserSchemaBaseProperties
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 16
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: 'public sealed class UserSchemaBaseProperties : Resource, IUserSchemaBaseProperties, IResource'
+    content.vb: >-
+      Public NotInheritable Class UserSchemaBaseProperties
+
+          Inherits Resource
+
+          Implements IUserSchemaBaseProperties, IResource
+  inheritance:
+  - System.Object
+  - Okta.Sdk.Resource
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties
+  - Okta.Sdk.IResource
+  inheritedMembers:
+  - Okta.Sdk.Resource.GetClient
+  - Okta.Sdk.Resource.GetData
+  - Okta.Sdk.Resource.Item(System.String)
+  - Okta.Sdk.Resource.GetProperty``1(System.String)
+  - Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.Resource.GetStringProperty(System.String)
+  - Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  - Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  - Okta.Sdk.Resource.GetLongProperty(System.String)
+  - Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  - Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  - Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  - Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.UserSchemaBaseProperties.City
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.City
+  id: City
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: City
+  nameWithType: UserSchemaBaseProperties.City
+  fullName: Okta.Sdk.UserSchemaBaseProperties.City
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: City
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute City { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property City As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.City*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.City
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.CostCenter
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.CostCenter
+  id: CostCenter
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: CostCenter
+  nameWithType: UserSchemaBaseProperties.CostCenter
+  fullName: Okta.Sdk.UserSchemaBaseProperties.CostCenter
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CostCenter
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute CostCenter { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property CostCenter As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.CostCenter*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.CostCenter
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.CountryCode
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.CountryCode
+  id: CountryCode
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: CountryCode
+  nameWithType: UserSchemaBaseProperties.CountryCode
+  fullName: Okta.Sdk.UserSchemaBaseProperties.CountryCode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CountryCode
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute CountryCode { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property CountryCode As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.CountryCode*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.CountryCode
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Department
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Department
+  id: Department
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Department
+  nameWithType: UserSchemaBaseProperties.Department
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Department
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Department
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Department { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Department As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Department*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Department
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.DisplayName
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.DisplayName
+  id: DisplayName
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: DisplayName
+  nameWithType: UserSchemaBaseProperties.DisplayName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.DisplayName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DisplayName
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute DisplayName { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property DisplayName As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.DisplayName*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.DisplayName
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Division
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Division
+  id: Division
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Division
+  nameWithType: UserSchemaBaseProperties.Division
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Division
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Division
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 54
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Division { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Division As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Division*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Division
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Email
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Email
+  id: Email
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Email
+  nameWithType: UserSchemaBaseProperties.Email
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Email
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Email
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Email { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Email As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Email*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Email
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber
+  id: EmployeeNumber
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: EmployeeNumber
+  nameWithType: UserSchemaBaseProperties.EmployeeNumber
+  fullName: Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EmployeeNumber
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 68
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute EmployeeNumber { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property EmployeeNumber As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.EmployeeNumber
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.FirstName
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.FirstName
+  id: FirstName
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: FirstName
+  nameWithType: UserSchemaBaseProperties.FirstName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.FirstName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: FirstName
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 75
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute FirstName { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property FirstName As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.FirstName*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.FirstName
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix
+  id: HonorificPrefix
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: HonorificPrefix
+  nameWithType: UserSchemaBaseProperties.HonorificPrefix
+  fullName: Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HonorificPrefix
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 82
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute HonorificPrefix { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property HonorificPrefix As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.HonorificPrefix
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix
+  id: HonorificSuffix
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: HonorificSuffix
+  nameWithType: UserSchemaBaseProperties.HonorificSuffix
+  fullName: Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HonorificSuffix
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 89
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute HonorificSuffix { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property HonorificSuffix As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.HonorificSuffix
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.LastName
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.LastName
+  id: LastName
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: LastName
+  nameWithType: UserSchemaBaseProperties.LastName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.LastName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastName
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 96
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute LastName { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property LastName As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.LastName*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.LastName
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Locale
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Locale
+  id: Locale
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Locale
+  nameWithType: UserSchemaBaseProperties.Locale
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Locale
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Locale
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 103
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Locale { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Locale As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Locale*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Locale
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Login
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Login
+  id: Login
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Login
+  nameWithType: UserSchemaBaseProperties.Login
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Login
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Login
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 110
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Login { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Login As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Login*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Login
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Manager
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Manager
+  id: Manager
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Manager
+  nameWithType: UserSchemaBaseProperties.Manager
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Manager
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Manager
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 117
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Manager { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Manager As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Manager*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Manager
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.ManagerId
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.ManagerId
+  id: ManagerId
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: ManagerId
+  nameWithType: UserSchemaBaseProperties.ManagerId
+  fullName: Okta.Sdk.UserSchemaBaseProperties.ManagerId
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ManagerId
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 124
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute ManagerId { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property ManagerId As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.ManagerId*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.ManagerId
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.MiddleName
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.MiddleName
+  id: MiddleName
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: MiddleName
+  nameWithType: UserSchemaBaseProperties.MiddleName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.MiddleName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MiddleName
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 131
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute MiddleName { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property MiddleName As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.MiddleName*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.MiddleName
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.MobilePhone
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.MobilePhone
+  id: MobilePhone
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: MobilePhone
+  nameWithType: UserSchemaBaseProperties.MobilePhone
+  fullName: Okta.Sdk.UserSchemaBaseProperties.MobilePhone
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MobilePhone
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 138
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute MobilePhone { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property MobilePhone As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.MobilePhone*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.MobilePhone
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.NickName
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.NickName
+  id: NickName
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: NickName
+  nameWithType: UserSchemaBaseProperties.NickName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.NickName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NickName
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 145
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute NickName { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property NickName As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.NickName*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.NickName
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Organization
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Organization
+  id: Organization
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Organization
+  nameWithType: UserSchemaBaseProperties.Organization
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Organization
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Organization
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 152
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Organization { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Organization As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Organization*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Organization
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.PostalAddress
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.PostalAddress
+  id: PostalAddress
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: PostalAddress
+  nameWithType: UserSchemaBaseProperties.PostalAddress
+  fullName: Okta.Sdk.UserSchemaBaseProperties.PostalAddress
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PostalAddress
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 159
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute PostalAddress { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property PostalAddress As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.PostalAddress*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.PostalAddress
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage
+  id: PreferredLanguage
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: PreferredLanguage
+  nameWithType: UserSchemaBaseProperties.PreferredLanguage
+  fullName: Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PreferredLanguage
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 166
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute PreferredLanguage { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property PreferredLanguage As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.PreferredLanguage
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone
+  id: PrimaryPhone
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: PrimaryPhone
+  nameWithType: UserSchemaBaseProperties.PrimaryPhone
+  fullName: Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PrimaryPhone
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 173
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute PrimaryPhone { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property PrimaryPhone As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.PrimaryPhone
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.ProfileUrl
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.ProfileUrl
+  id: ProfileUrl
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: ProfileUrl
+  nameWithType: UserSchemaBaseProperties.ProfileUrl
+  fullName: Okta.Sdk.UserSchemaBaseProperties.ProfileUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ProfileUrl
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 180
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute ProfileUrl { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property ProfileUrl As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.ProfileUrl*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.ProfileUrl
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.SecondEmail
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.SecondEmail
+  id: SecondEmail
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: SecondEmail
+  nameWithType: UserSchemaBaseProperties.SecondEmail
+  fullName: Okta.Sdk.UserSchemaBaseProperties.SecondEmail
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SecondEmail
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 187
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute SecondEmail { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property SecondEmail As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.SecondEmail*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.SecondEmail
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.State
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.State
+  id: State
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: State
+  nameWithType: UserSchemaBaseProperties.State
+  fullName: Okta.Sdk.UserSchemaBaseProperties.State
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: State
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 194
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute State { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property State As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.State*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.State
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.StreetAddress
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.StreetAddress
+  id: StreetAddress
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: StreetAddress
+  nameWithType: UserSchemaBaseProperties.StreetAddress
+  fullName: Okta.Sdk.UserSchemaBaseProperties.StreetAddress
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: StreetAddress
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 201
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute StreetAddress { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property StreetAddress As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.StreetAddress*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.StreetAddress
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Timezone
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Timezone
+  id: Timezone
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Timezone
+  nameWithType: UserSchemaBaseProperties.Timezone
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Timezone
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Timezone
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 208
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Timezone { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Timezone As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Timezone*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Timezone
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.Title
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.Title
+  id: Title
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: UserSchemaBaseProperties.Title
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Title
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Title
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 215
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute Title { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property Title As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.Title*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.Title
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.UserType
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.UserType
+  id: UserType
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: UserType
+  nameWithType: UserSchemaBaseProperties.UserType
+  fullName: Okta.Sdk.UserSchemaBaseProperties.UserType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserType
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 222
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute UserType { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property UserType As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.UserType*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.UserType
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.UserSchemaBaseProperties.ZipCode
+  commentId: P:Okta.Sdk.UserSchemaBaseProperties.ZipCode
+  id: ZipCode
+  parent: Okta.Sdk.UserSchemaBaseProperties
+  langs:
+  - csharp
+  - vb
+  name: ZipCode
+  nameWithType: UserSchemaBaseProperties.ZipCode
+  fullName: Okta.Sdk.UserSchemaBaseProperties.ZipCode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ZipCode
+    path: ../src/Okta.Sdk/Generated/UserSchemaBaseProperties.Generated.cs
+    startLine: 229
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IUserSchemaAttribute ZipCode { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaAttribute
+    content.vb: Public Property ZipCode As IUserSchemaAttribute
+  overload: Okta.Sdk.UserSchemaBaseProperties.ZipCode*
+  implements:
+  - Okta.Sdk.IUserSchemaBaseProperties.ZipCode
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource
+- uid: Okta.Sdk.IUserSchemaBaseProperties
+  commentId: T:Okta.Sdk.IUserSchemaBaseProperties
+  parent: Okta.Sdk
+  name: IUserSchemaBaseProperties
+  nameWithType: IUserSchemaBaseProperties
+  fullName: Okta.Sdk.IUserSchemaBaseProperties
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.Resource.GetClient
+  commentId: M:Okta.Sdk.Resource.GetClient
+  parent: Okta.Sdk.Resource
+  name: GetClient()
+  nameWithType: Resource.GetClient()
+  fullName: Okta.Sdk.Resource.GetClient()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetData
+  commentId: M:Okta.Sdk.Resource.GetData
+  parent: Okta.Sdk.Resource
+  name: GetData()
+  nameWithType: Resource.GetData()
+  fullName: Okta.Sdk.Resource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.Item(System.String)
+  commentId: P:Okta.Sdk.Resource.Item(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: Item[String]
+  nameWithType: Resource.Item[String]
+  fullName: Okta.Sdk.Resource.Item[System.String]
+  nameWithType.vb: Resource.Item(String)
+  fullName.vb: Okta.Sdk.Resource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: Resource.GetProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetProperty<T>(System.String)
+  nameWithType.vb: Resource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: Resource.GetProperty<T>
+    fullName: Okta.Sdk.Resource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: Resource.GetProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: Resource.SetProperty(String, Object)
+  fullName: Okta.Sdk.Resource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetStringProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetStringProperty(String)
+  nameWithType: Resource.GetStringProperty(String)
+  fullName: Okta.Sdk.Resource.GetStringProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetBooleanProperty(String)
+  nameWithType: Resource.GetBooleanProperty(String)
+  fullName: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetIntegerProperty(String)
+  nameWithType: Resource.GetIntegerProperty(String)
+  fullName: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetLongProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetLongProperty(String)
+  nameWithType: Resource.GetLongProperty(String)
+  fullName: Okta.Sdk.Resource.GetLongProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDoubleProperty(String)
+  nameWithType: Resource.GetDoubleProperty(String)
+  fullName: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDateTimeProperty(String)
+  nameWithType: Resource.GetDateTimeProperty(String)
+  fullName: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: Resource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: Resource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: Resource.GetArrayProperty<T>
+    fullName: Okta.Sdk.Resource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: Resource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetEnumProperty<TEnum>(String)
+  nameWithType: Resource.GetEnumProperty<TEnum>(String)
+  fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>(System.String)
+  nameWithType.vb: Resource.GetEnumProperty(Of TEnum)(String)
+  fullName.vb: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)(System.String)
+  name.vb: GetEnumProperty(Of TEnum)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty<TEnum>
+    nameWithType: Resource.GetEnumProperty<TEnum>
+    fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty(Of TEnum)
+    nameWithType: Resource.GetEnumProperty(Of TEnum)
+    fullName: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetResourceProperty<T>(String)
+  nameWithType: Resource.GetResourceProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetResourceProperty<T>(System.String)
+  nameWithType.vb: Resource.GetResourceProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetResourceProperty(Of T)(System.String)
+  name.vb: GetResourceProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty<T>
+    nameWithType: Resource.GetResourceProperty<T>
+    fullName: Okta.Sdk.Resource.GetResourceProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty(Of T)
+    nameWithType: Resource.GetResourceProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetResourceProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.UserSchemaBaseProperties.City*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.City
+  name: City
+  nameWithType: UserSchemaBaseProperties.City
+  fullName: Okta.Sdk.UserSchemaBaseProperties.City
+- uid: Okta.Sdk.IUserSchemaBaseProperties.City
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.City
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: City
+  nameWithType: IUserSchemaBaseProperties.City
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.City
+- uid: Okta.Sdk.IUserSchemaAttribute
+  commentId: T:Okta.Sdk.IUserSchemaAttribute
+  parent: Okta.Sdk
+  name: IUserSchemaAttribute
+  nameWithType: IUserSchemaAttribute
+  fullName: Okta.Sdk.IUserSchemaAttribute
+- uid: Okta.Sdk.UserSchemaBaseProperties.CostCenter*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.CostCenter
+  name: CostCenter
+  nameWithType: UserSchemaBaseProperties.CostCenter
+  fullName: Okta.Sdk.UserSchemaBaseProperties.CostCenter
+- uid: Okta.Sdk.IUserSchemaBaseProperties.CostCenter
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.CostCenter
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: CostCenter
+  nameWithType: IUserSchemaBaseProperties.CostCenter
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.CostCenter
+- uid: Okta.Sdk.UserSchemaBaseProperties.CountryCode*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.CountryCode
+  name: CountryCode
+  nameWithType: UserSchemaBaseProperties.CountryCode
+  fullName: Okta.Sdk.UserSchemaBaseProperties.CountryCode
+- uid: Okta.Sdk.IUserSchemaBaseProperties.CountryCode
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.CountryCode
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: CountryCode
+  nameWithType: IUserSchemaBaseProperties.CountryCode
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.CountryCode
+- uid: Okta.Sdk.UserSchemaBaseProperties.Department*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Department
+  name: Department
+  nameWithType: UserSchemaBaseProperties.Department
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Department
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Department
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Department
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Department
+  nameWithType: IUserSchemaBaseProperties.Department
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Department
+- uid: Okta.Sdk.UserSchemaBaseProperties.DisplayName*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.DisplayName
+  name: DisplayName
+  nameWithType: UserSchemaBaseProperties.DisplayName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.DisplayName
+- uid: Okta.Sdk.IUserSchemaBaseProperties.DisplayName
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.DisplayName
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: DisplayName
+  nameWithType: IUserSchemaBaseProperties.DisplayName
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.DisplayName
+- uid: Okta.Sdk.UserSchemaBaseProperties.Division*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Division
+  name: Division
+  nameWithType: UserSchemaBaseProperties.Division
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Division
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Division
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Division
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Division
+  nameWithType: IUserSchemaBaseProperties.Division
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Division
+- uid: Okta.Sdk.UserSchemaBaseProperties.Email*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Email
+  name: Email
+  nameWithType: UserSchemaBaseProperties.Email
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Email
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Email
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Email
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Email
+  nameWithType: IUserSchemaBaseProperties.Email
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Email
+- uid: Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber
+  name: EmployeeNumber
+  nameWithType: UserSchemaBaseProperties.EmployeeNumber
+  fullName: Okta.Sdk.UserSchemaBaseProperties.EmployeeNumber
+- uid: Okta.Sdk.IUserSchemaBaseProperties.EmployeeNumber
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.EmployeeNumber
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: EmployeeNumber
+  nameWithType: IUserSchemaBaseProperties.EmployeeNumber
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.EmployeeNumber
+- uid: Okta.Sdk.UserSchemaBaseProperties.FirstName*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.FirstName
+  name: FirstName
+  nameWithType: UserSchemaBaseProperties.FirstName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.FirstName
+- uid: Okta.Sdk.IUserSchemaBaseProperties.FirstName
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.FirstName
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: FirstName
+  nameWithType: IUserSchemaBaseProperties.FirstName
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.FirstName
+- uid: Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix
+  name: HonorificPrefix
+  nameWithType: UserSchemaBaseProperties.HonorificPrefix
+  fullName: Okta.Sdk.UserSchemaBaseProperties.HonorificPrefix
+- uid: Okta.Sdk.IUserSchemaBaseProperties.HonorificPrefix
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.HonorificPrefix
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: HonorificPrefix
+  nameWithType: IUserSchemaBaseProperties.HonorificPrefix
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.HonorificPrefix
+- uid: Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix
+  name: HonorificSuffix
+  nameWithType: UserSchemaBaseProperties.HonorificSuffix
+  fullName: Okta.Sdk.UserSchemaBaseProperties.HonorificSuffix
+- uid: Okta.Sdk.IUserSchemaBaseProperties.HonorificSuffix
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.HonorificSuffix
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: HonorificSuffix
+  nameWithType: IUserSchemaBaseProperties.HonorificSuffix
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.HonorificSuffix
+- uid: Okta.Sdk.UserSchemaBaseProperties.LastName*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.LastName
+  name: LastName
+  nameWithType: UserSchemaBaseProperties.LastName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.LastName
+- uid: Okta.Sdk.IUserSchemaBaseProperties.LastName
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.LastName
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: LastName
+  nameWithType: IUserSchemaBaseProperties.LastName
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.LastName
+- uid: Okta.Sdk.UserSchemaBaseProperties.Locale*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Locale
+  name: Locale
+  nameWithType: UserSchemaBaseProperties.Locale
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Locale
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Locale
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Locale
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Locale
+  nameWithType: IUserSchemaBaseProperties.Locale
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Locale
+- uid: Okta.Sdk.UserSchemaBaseProperties.Login*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Login
+  name: Login
+  nameWithType: UserSchemaBaseProperties.Login
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Login
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Login
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Login
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Login
+  nameWithType: IUserSchemaBaseProperties.Login
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Login
+- uid: Okta.Sdk.UserSchemaBaseProperties.Manager*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Manager
+  name: Manager
+  nameWithType: UserSchemaBaseProperties.Manager
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Manager
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Manager
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Manager
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Manager
+  nameWithType: IUserSchemaBaseProperties.Manager
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Manager
+- uid: Okta.Sdk.UserSchemaBaseProperties.ManagerId*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.ManagerId
+  name: ManagerId
+  nameWithType: UserSchemaBaseProperties.ManagerId
+  fullName: Okta.Sdk.UserSchemaBaseProperties.ManagerId
+- uid: Okta.Sdk.IUserSchemaBaseProperties.ManagerId
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.ManagerId
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: ManagerId
+  nameWithType: IUserSchemaBaseProperties.ManagerId
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.ManagerId
+- uid: Okta.Sdk.UserSchemaBaseProperties.MiddleName*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.MiddleName
+  name: MiddleName
+  nameWithType: UserSchemaBaseProperties.MiddleName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.MiddleName
+- uid: Okta.Sdk.IUserSchemaBaseProperties.MiddleName
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.MiddleName
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: MiddleName
+  nameWithType: IUserSchemaBaseProperties.MiddleName
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.MiddleName
+- uid: Okta.Sdk.UserSchemaBaseProperties.MobilePhone*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.MobilePhone
+  name: MobilePhone
+  nameWithType: UserSchemaBaseProperties.MobilePhone
+  fullName: Okta.Sdk.UserSchemaBaseProperties.MobilePhone
+- uid: Okta.Sdk.IUserSchemaBaseProperties.MobilePhone
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.MobilePhone
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: MobilePhone
+  nameWithType: IUserSchemaBaseProperties.MobilePhone
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.MobilePhone
+- uid: Okta.Sdk.UserSchemaBaseProperties.NickName*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.NickName
+  name: NickName
+  nameWithType: UserSchemaBaseProperties.NickName
+  fullName: Okta.Sdk.UserSchemaBaseProperties.NickName
+- uid: Okta.Sdk.IUserSchemaBaseProperties.NickName
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.NickName
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: NickName
+  nameWithType: IUserSchemaBaseProperties.NickName
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.NickName
+- uid: Okta.Sdk.UserSchemaBaseProperties.Organization*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Organization
+  name: Organization
+  nameWithType: UserSchemaBaseProperties.Organization
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Organization
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Organization
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Organization
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Organization
+  nameWithType: IUserSchemaBaseProperties.Organization
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Organization
+- uid: Okta.Sdk.UserSchemaBaseProperties.PostalAddress*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.PostalAddress
+  name: PostalAddress
+  nameWithType: UserSchemaBaseProperties.PostalAddress
+  fullName: Okta.Sdk.UserSchemaBaseProperties.PostalAddress
+- uid: Okta.Sdk.IUserSchemaBaseProperties.PostalAddress
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.PostalAddress
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: PostalAddress
+  nameWithType: IUserSchemaBaseProperties.PostalAddress
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.PostalAddress
+- uid: Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage
+  name: PreferredLanguage
+  nameWithType: UserSchemaBaseProperties.PreferredLanguage
+  fullName: Okta.Sdk.UserSchemaBaseProperties.PreferredLanguage
+- uid: Okta.Sdk.IUserSchemaBaseProperties.PreferredLanguage
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.PreferredLanguage
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: PreferredLanguage
+  nameWithType: IUserSchemaBaseProperties.PreferredLanguage
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.PreferredLanguage
+- uid: Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone
+  name: PrimaryPhone
+  nameWithType: UserSchemaBaseProperties.PrimaryPhone
+  fullName: Okta.Sdk.UserSchemaBaseProperties.PrimaryPhone
+- uid: Okta.Sdk.IUserSchemaBaseProperties.PrimaryPhone
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.PrimaryPhone
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: PrimaryPhone
+  nameWithType: IUserSchemaBaseProperties.PrimaryPhone
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.PrimaryPhone
+- uid: Okta.Sdk.UserSchemaBaseProperties.ProfileUrl*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.ProfileUrl
+  name: ProfileUrl
+  nameWithType: UserSchemaBaseProperties.ProfileUrl
+  fullName: Okta.Sdk.UserSchemaBaseProperties.ProfileUrl
+- uid: Okta.Sdk.IUserSchemaBaseProperties.ProfileUrl
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.ProfileUrl
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: ProfileUrl
+  nameWithType: IUserSchemaBaseProperties.ProfileUrl
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.ProfileUrl
+- uid: Okta.Sdk.UserSchemaBaseProperties.SecondEmail*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.SecondEmail
+  name: SecondEmail
+  nameWithType: UserSchemaBaseProperties.SecondEmail
+  fullName: Okta.Sdk.UserSchemaBaseProperties.SecondEmail
+- uid: Okta.Sdk.IUserSchemaBaseProperties.SecondEmail
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.SecondEmail
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: SecondEmail
+  nameWithType: IUserSchemaBaseProperties.SecondEmail
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.SecondEmail
+- uid: Okta.Sdk.UserSchemaBaseProperties.State*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.State
+  name: State
+  nameWithType: UserSchemaBaseProperties.State
+  fullName: Okta.Sdk.UserSchemaBaseProperties.State
+- uid: Okta.Sdk.IUserSchemaBaseProperties.State
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.State
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: State
+  nameWithType: IUserSchemaBaseProperties.State
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.State
+- uid: Okta.Sdk.UserSchemaBaseProperties.StreetAddress*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.StreetAddress
+  name: StreetAddress
+  nameWithType: UserSchemaBaseProperties.StreetAddress
+  fullName: Okta.Sdk.UserSchemaBaseProperties.StreetAddress
+- uid: Okta.Sdk.IUserSchemaBaseProperties.StreetAddress
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.StreetAddress
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: StreetAddress
+  nameWithType: IUserSchemaBaseProperties.StreetAddress
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.StreetAddress
+- uid: Okta.Sdk.UserSchemaBaseProperties.Timezone*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Timezone
+  name: Timezone
+  nameWithType: UserSchemaBaseProperties.Timezone
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Timezone
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Timezone
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Timezone
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Timezone
+  nameWithType: IUserSchemaBaseProperties.Timezone
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Timezone
+- uid: Okta.Sdk.UserSchemaBaseProperties.Title*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.Title
+  name: Title
+  nameWithType: UserSchemaBaseProperties.Title
+  fullName: Okta.Sdk.UserSchemaBaseProperties.Title
+- uid: Okta.Sdk.IUserSchemaBaseProperties.Title
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.Title
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: Title
+  nameWithType: IUserSchemaBaseProperties.Title
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.Title
+- uid: Okta.Sdk.UserSchemaBaseProperties.UserType*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.UserType
+  name: UserType
+  nameWithType: UserSchemaBaseProperties.UserType
+  fullName: Okta.Sdk.UserSchemaBaseProperties.UserType
+- uid: Okta.Sdk.IUserSchemaBaseProperties.UserType
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.UserType
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: UserType
+  nameWithType: IUserSchemaBaseProperties.UserType
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.UserType
+- uid: Okta.Sdk.UserSchemaBaseProperties.ZipCode*
+  commentId: Overload:Okta.Sdk.UserSchemaBaseProperties.ZipCode
+  name: ZipCode
+  nameWithType: UserSchemaBaseProperties.ZipCode
+  fullName: Okta.Sdk.UserSchemaBaseProperties.ZipCode
+- uid: Okta.Sdk.IUserSchemaBaseProperties.ZipCode
+  commentId: P:Okta.Sdk.IUserSchemaBaseProperties.ZipCode
+  parent: Okta.Sdk.IUserSchemaBaseProperties
+  name: ZipCode
+  nameWithType: IUserSchemaBaseProperties.ZipCode
+  fullName: Okta.Sdk.IUserSchemaBaseProperties.ZipCode

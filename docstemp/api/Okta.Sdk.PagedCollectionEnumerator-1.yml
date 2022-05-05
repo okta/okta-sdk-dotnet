@@ -1,0 +1,887 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.PagedCollectionEnumerator`1
+  commentId: T:Okta.Sdk.PagedCollectionEnumerator`1
+  id: PagedCollectionEnumerator`1
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.PagedCollectionEnumerator`1.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)
+  - Okta.Sdk.PagedCollectionEnumerator`1.CurrentPage
+  - Okta.Sdk.PagedCollectionEnumerator`1.MoveNextAsync
+  langs:
+  - csharp
+  - vb
+  name: PagedCollectionEnumerator<T>
+  nameWithType: PagedCollectionEnumerator<T>
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PagedCollectionEnumerator
+    path: ../src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+    startLine: 14
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: 'public class PagedCollectionEnumerator<T> : IPagedCollectionEnumerator<T> where T : IResource'
+    typeParameters:
+    - id: T
+    content.vb: >-
+      Public Class PagedCollectionEnumerator(Of T As IResource)
+
+          Implements IPagedCollectionEnumerator(Of T)
+  inheritance:
+  - System.Object
+  implements:
+  - Okta.Sdk.IPagedCollectionEnumerator{{T}}
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: PagedCollectionEnumerator(Of T)
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T)
+  name.vb: PagedCollectionEnumerator(Of T)
+- uid: Okta.Sdk.PagedCollectionEnumerator`1.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.PagedCollectionEnumerator`1.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)
+  id: '#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)'
+  parent: Okta.Sdk.PagedCollectionEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: PagedCollectionEnumerator(IDataStore, HttpRequest, RequestContext, CancellationToken)
+  nameWithType: PagedCollectionEnumerator<T>.PagedCollectionEnumerator(IDataStore, HttpRequest, RequestContext, CancellationToken)
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>.PagedCollectionEnumerator(Okta.Sdk.Internal.IDataStore, Okta.Sdk.HttpRequest, Okta.Sdk.RequestContext, System.Threading.CancellationToken)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nInitializes a new instance of the <xref href=\"Okta.Sdk.PagedCollectionEnumerator%601\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public PagedCollectionEnumerator(IDataStore dataStore, HttpRequest initialRequest, RequestContext requestContext, CancellationToken cancellationToken)
+    parameters:
+    - id: dataStore
+      type: Okta.Sdk.Internal.IDataStore
+      description: The <xref href="Okta.Sdk.Internal.IDataStore?text=DataStore" data-throw-if-not-resolved="false"></xref> to use.
+    - id: initialRequest
+      type: Okta.Sdk.HttpRequest
+      description: The initial HTTP request options.
+    - id: requestContext
+      type: Okta.Sdk.RequestContext
+      description: The request context.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The rcancellation token.
+    content.vb: Public Sub New(dataStore As IDataStore, initialRequest As HttpRequest, requestContext As RequestContext, cancellationToken As CancellationToken)
+  overload: Okta.Sdk.PagedCollectionEnumerator`1.#ctor*
+  nameWithType.vb: PagedCollectionEnumerator(Of T).PagedCollectionEnumerator(IDataStore, HttpRequest, RequestContext, CancellationToken)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T).PagedCollectionEnumerator(Okta.Sdk.Internal.IDataStore, Okta.Sdk.HttpRequest, Okta.Sdk.RequestContext, System.Threading.CancellationToken)
+- uid: Okta.Sdk.PagedCollectionEnumerator`1.CurrentPage
+  commentId: P:Okta.Sdk.PagedCollectionEnumerator`1.CurrentPage
+  id: CurrentPage
+  parent: Okta.Sdk.PagedCollectionEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: CurrentPage
+  nameWithType: PagedCollectionEnumerator<T>.CurrentPage
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>.CurrentPage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CurrentPage
+    path: ../src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public CollectionPage<T> CurrentPage { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.CollectionPage{{T}}
+    content.vb: Public ReadOnly Property CurrentPage As CollectionPage(Of T)
+  overload: Okta.Sdk.PagedCollectionEnumerator`1.CurrentPage*
+  implements:
+  - Okta.Sdk.IPagedCollectionEnumerator{{T}}.CurrentPage
+  nameWithType.vb: PagedCollectionEnumerator(Of T).CurrentPage
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T).CurrentPage
+- uid: Okta.Sdk.PagedCollectionEnumerator`1.MoveNextAsync
+  commentId: M:Okta.Sdk.PagedCollectionEnumerator`1.MoveNextAsync
+  id: MoveNextAsync
+  parent: Okta.Sdk.PagedCollectionEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: MoveNextAsync()
+  nameWithType: PagedCollectionEnumerator<T>.MoveNextAsync()
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>.MoveNextAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MoveNextAsync
+    path: ../src/Okta.Sdk/PagedCollectionEnumerator{T}.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task<bool> MoveNextAsync()
+    return:
+      type: System.Threading.Tasks.Task{System.Boolean}
+    content.vb: Public Function MoveNextAsync As Task(Of Boolean)
+  overload: Okta.Sdk.PagedCollectionEnumerator`1.MoveNextAsync*
+  implements:
+  - Okta.Sdk.IPagedCollectionEnumerator{{T}}.MoveNextAsync
+  nameWithType.vb: PagedCollectionEnumerator(Of T).MoveNextAsync()
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T).MoveNextAsync()
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.IPagedCollectionEnumerator{{T}}
+  commentId: T:Okta.Sdk.IPagedCollectionEnumerator{`0}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.IPagedCollectionEnumerator`1
+  name: IPagedCollectionEnumerator<T>
+  nameWithType: IPagedCollectionEnumerator<T>
+  fullName: Okta.Sdk.IPagedCollectionEnumerator<T>
+  nameWithType.vb: IPagedCollectionEnumerator(Of T)
+  fullName.vb: Okta.Sdk.IPagedCollectionEnumerator(Of T)
+  name.vb: IPagedCollectionEnumerator(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1
+    name: IPagedCollectionEnumerator
+    nameWithType: IPagedCollectionEnumerator
+    fullName: Okta.Sdk.IPagedCollectionEnumerator
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1
+    name: IPagedCollectionEnumerator
+    nameWithType: IPagedCollectionEnumerator
+    fullName: Okta.Sdk.IPagedCollectionEnumerator
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IPagedCollectionEnumerator`1
+  commentId: T:Okta.Sdk.IPagedCollectionEnumerator`1
+  name: IPagedCollectionEnumerator<T>
+  nameWithType: IPagedCollectionEnumerator<T>
+  fullName: Okta.Sdk.IPagedCollectionEnumerator<T>
+  nameWithType.vb: IPagedCollectionEnumerator(Of T)
+  fullName.vb: Okta.Sdk.IPagedCollectionEnumerator(Of T)
+  name.vb: IPagedCollectionEnumerator(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1
+    name: IPagedCollectionEnumerator
+    nameWithType: IPagedCollectionEnumerator
+    fullName: Okta.Sdk.IPagedCollectionEnumerator
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1
+    name: IPagedCollectionEnumerator
+    nameWithType: IPagedCollectionEnumerator
+    fullName: Okta.Sdk.IPagedCollectionEnumerator
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.PagedCollectionEnumerator`1
+  commentId: T:Okta.Sdk.PagedCollectionEnumerator`1
+  name: PagedCollectionEnumerator<T>
+  nameWithType: PagedCollectionEnumerator<T>
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>
+  nameWithType.vb: PagedCollectionEnumerator(Of T)
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T)
+  name.vb: PagedCollectionEnumerator(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.PagedCollectionEnumerator`1
+    name: PagedCollectionEnumerator
+    nameWithType: PagedCollectionEnumerator
+    fullName: Okta.Sdk.PagedCollectionEnumerator
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.PagedCollectionEnumerator`1
+    name: PagedCollectionEnumerator
+    nameWithType: PagedCollectionEnumerator
+    fullName: Okta.Sdk.PagedCollectionEnumerator
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.IDataStore
+  commentId: T:Okta.Sdk.Internal.IDataStore
+  parent: Okta.Sdk.Internal
+  name: IDataStore
+  nameWithType: IDataStore
+  fullName: Okta.Sdk.Internal.IDataStore
+- uid: Okta.Sdk.PagedCollectionEnumerator`1.#ctor*
+  commentId: Overload:Okta.Sdk.PagedCollectionEnumerator`1.#ctor
+  name: PagedCollectionEnumerator
+  nameWithType: PagedCollectionEnumerator<T>.PagedCollectionEnumerator
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>.PagedCollectionEnumerator
+  nameWithType.vb: PagedCollectionEnumerator(Of T).PagedCollectionEnumerator
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T).PagedCollectionEnumerator
+- uid: Okta.Sdk.HttpRequest
+  commentId: T:Okta.Sdk.HttpRequest
+  parent: Okta.Sdk
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: Okta.Sdk.HttpRequest
+- uid: Okta.Sdk.RequestContext
+  commentId: T:Okta.Sdk.RequestContext
+  parent: Okta.Sdk
+  name: RequestContext
+  nameWithType: RequestContext
+  fullName: Okta.Sdk.RequestContext
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: Okta.Sdk.PagedCollectionEnumerator`1.CurrentPage*
+  commentId: Overload:Okta.Sdk.PagedCollectionEnumerator`1.CurrentPage
+  name: CurrentPage
+  nameWithType: PagedCollectionEnumerator<T>.CurrentPage
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>.CurrentPage
+  nameWithType.vb: PagedCollectionEnumerator(Of T).CurrentPage
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T).CurrentPage
+- uid: Okta.Sdk.IPagedCollectionEnumerator{{T}}.CurrentPage
+  commentId: P:Okta.Sdk.IPagedCollectionEnumerator{`0}.CurrentPage
+  parent: Okta.Sdk.IPagedCollectionEnumerator{{T}}
+  definition: Okta.Sdk.IPagedCollectionEnumerator`1.CurrentPage
+  name: CurrentPage
+  nameWithType: IPagedCollectionEnumerator<T>.CurrentPage
+  fullName: Okta.Sdk.IPagedCollectionEnumerator<T>.CurrentPage
+  nameWithType.vb: IPagedCollectionEnumerator(Of T).CurrentPage
+  fullName.vb: Okta.Sdk.IPagedCollectionEnumerator(Of T).CurrentPage
+- uid: Okta.Sdk.CollectionPage{{T}}
+  commentId: T:Okta.Sdk.CollectionPage{`0}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.CollectionPage`1
+  name: CollectionPage<T>
+  nameWithType: CollectionPage<T>
+  fullName: Okta.Sdk.CollectionPage<T>
+  nameWithType.vb: CollectionPage(Of T)
+  fullName.vb: Okta.Sdk.CollectionPage(Of T)
+  name.vb: CollectionPage(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.CollectionPage`1
+    name: CollectionPage
+    nameWithType: CollectionPage
+    fullName: Okta.Sdk.CollectionPage
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.CollectionPage`1
+    name: CollectionPage
+    nameWithType: CollectionPage
+    fullName: Okta.Sdk.CollectionPage
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IPagedCollectionEnumerator`1.CurrentPage
+  commentId: P:Okta.Sdk.IPagedCollectionEnumerator`1.CurrentPage
+  name: CurrentPage
+  nameWithType: IPagedCollectionEnumerator<T>.CurrentPage
+  fullName: Okta.Sdk.IPagedCollectionEnumerator<T>.CurrentPage
+  nameWithType.vb: IPagedCollectionEnumerator(Of T).CurrentPage
+  fullName.vb: Okta.Sdk.IPagedCollectionEnumerator(Of T).CurrentPage
+- uid: Okta.Sdk.CollectionPage`1
+  commentId: T:Okta.Sdk.CollectionPage`1
+  name: CollectionPage<T>
+  nameWithType: CollectionPage<T>
+  fullName: Okta.Sdk.CollectionPage<T>
+  nameWithType.vb: CollectionPage(Of T)
+  fullName.vb: Okta.Sdk.CollectionPage(Of T)
+  name.vb: CollectionPage(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.CollectionPage`1
+    name: CollectionPage
+    nameWithType: CollectionPage
+    fullName: Okta.Sdk.CollectionPage
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.CollectionPage`1
+    name: CollectionPage
+    nameWithType: CollectionPage
+    fullName: Okta.Sdk.CollectionPage
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.PagedCollectionEnumerator`1.MoveNextAsync*
+  commentId: Overload:Okta.Sdk.PagedCollectionEnumerator`1.MoveNextAsync
+  name: MoveNextAsync
+  nameWithType: PagedCollectionEnumerator<T>.MoveNextAsync
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>.MoveNextAsync
+  nameWithType.vb: PagedCollectionEnumerator(Of T).MoveNextAsync
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T).MoveNextAsync
+- uid: Okta.Sdk.IPagedCollectionEnumerator{{T}}.MoveNextAsync
+  commentId: M:Okta.Sdk.IPagedCollectionEnumerator{`0}.MoveNextAsync
+  parent: Okta.Sdk.IPagedCollectionEnumerator{{T}}
+  definition: Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+  name: MoveNextAsync()
+  nameWithType: IPagedCollectionEnumerator<T>.MoveNextAsync()
+  fullName: Okta.Sdk.IPagedCollectionEnumerator<T>.MoveNextAsync()
+  nameWithType.vb: IPagedCollectionEnumerator(Of T).MoveNextAsync()
+  fullName.vb: Okta.Sdk.IPagedCollectionEnumerator(Of T).MoveNextAsync()
+  spec.csharp:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IPagedCollectionEnumerator<T>.MoveNextAsync
+    fullName: Okta.Sdk.IPagedCollectionEnumerator<T>.MoveNextAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IPagedCollectionEnumerator(Of T).MoveNextAsync
+    fullName: Okta.Sdk.IPagedCollectionEnumerator(Of T).MoveNextAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task{System.Boolean}
+  commentId: T:System.Threading.Tasks.Task{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<Boolean>
+  nameWithType: Task<Boolean>
+  fullName: System.Threading.Tasks.Task<System.Boolean>
+  nameWithType.vb: Task(Of Boolean)
+  fullName.vb: System.Threading.Tasks.Task(Of System.Boolean)
+  name.vb: Task(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+  commentId: M:Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+  name: MoveNextAsync()
+  nameWithType: IPagedCollectionEnumerator<T>.MoveNextAsync()
+  fullName: Okta.Sdk.IPagedCollectionEnumerator<T>.MoveNextAsync()
+  nameWithType.vb: IPagedCollectionEnumerator(Of T).MoveNextAsync()
+  fullName.vb: Okta.Sdk.IPagedCollectionEnumerator(Of T).MoveNextAsync()
+  spec.csharp:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IPagedCollectionEnumerator<T>.MoveNextAsync
+    fullName: Okta.Sdk.IPagedCollectionEnumerator<T>.MoveNextAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IPagedCollectionEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IPagedCollectionEnumerator(Of T).MoveNextAsync
+    fullName: Okta.Sdk.IPagedCollectionEnumerator(Of T).MoveNextAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks

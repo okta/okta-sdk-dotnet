@@ -1,0 +1,532 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions
+  commentId: T:Okta.Sdk.CreateBasicAuthApplicationOptions
+  id: CreateBasicAuthApplicationOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.CreateBasicAuthApplicationOptions.Activate
+  - Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl
+  - Okta.Sdk.CreateBasicAuthApplicationOptions.Label
+  - Okta.Sdk.CreateBasicAuthApplicationOptions.Url
+  langs:
+  - csharp
+  - vb
+  name: CreateBasicAuthApplicationOptions
+  nameWithType: CreateBasicAuthApplicationOptions
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateBasicAuthApplicationOptions
+    path: ../src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nHelper class for basic authentication application settings\n"
+  example: []
+  syntax:
+    content: public sealed class CreateBasicAuthApplicationOptions
+    content.vb: Public NotInheritable Class CreateBasicAuthApplicationOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.Label
+  commentId: P:Okta.Sdk.CreateBasicAuthApplicationOptions.Label
+  id: Label
+  parent: Okta.Sdk.CreateBasicAuthApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: CreateBasicAuthApplicationOptions.Label
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.Label
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Label
+    path: ../src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a label\n"
+  example: []
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: Okta.Sdk.CreateBasicAuthApplicationOptions.Label*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.Url
+  commentId: P:Okta.Sdk.CreateBasicAuthApplicationOptions.Url
+  id: Url
+  parent: Okta.Sdk.CreateBasicAuthApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Url
+  nameWithType: CreateBasicAuthApplicationOptions.Url
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.Url
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Url
+    path: ../src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an url\n"
+  example: []
+  syntax:
+    content: public string Url { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Url As String
+  overload: Okta.Sdk.CreateBasicAuthApplicationOptions.Url*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl
+  commentId: P:Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl
+  id: AuthUrl
+  parent: Okta.Sdk.CreateBasicAuthApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: AuthUrl
+  nameWithType: CreateBasicAuthApplicationOptions.AuthUrl
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthUrl
+    path: ../src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an Auth url\n"
+  example: []
+  syntax:
+    content: public string AuthUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthUrl As String
+  overload: Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.Activate
+  commentId: P:Okta.Sdk.CreateBasicAuthApplicationOptions.Activate
+  id: Activate
+  parent: Okta.Sdk.CreateBasicAuthApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Activate
+  nameWithType: CreateBasicAuthApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.Activate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Activate
+    path: ../src/Okta.Sdk/CreateBasicAuthApplicationOptions.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an Activate flag value\n"
+  example: []
+  syntax:
+    content: public bool Activate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Activate As Boolean
+  overload: Okta.Sdk.CreateBasicAuthApplicationOptions.Activate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.Label*
+  commentId: Overload:Okta.Sdk.CreateBasicAuthApplicationOptions.Label
+  name: Label
+  nameWithType: CreateBasicAuthApplicationOptions.Label
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.Url*
+  commentId: Overload:Okta.Sdk.CreateBasicAuthApplicationOptions.Url
+  name: Url
+  nameWithType: CreateBasicAuthApplicationOptions.Url
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.Url
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl*
+  commentId: Overload:Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl
+  name: AuthUrl
+  nameWithType: CreateBasicAuthApplicationOptions.AuthUrl
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.AuthUrl
+- uid: Okta.Sdk.CreateBasicAuthApplicationOptions.Activate*
+  commentId: Overload:Okta.Sdk.CreateBasicAuthApplicationOptions.Activate
+  name: Activate
+  nameWithType: CreateBasicAuthApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateBasicAuthApplicationOptions.Activate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean

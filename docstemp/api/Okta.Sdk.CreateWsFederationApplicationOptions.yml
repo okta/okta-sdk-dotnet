@@ -1,0 +1,962 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions
+  commentId: T:Okta.Sdk.CreateWsFederationApplicationOptions
+  id: CreateWsFederationApplicationOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.CreateWsFederationApplicationOptions.Activate
+  - Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements
+  - Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction
+  - Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  - Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter
+  - Okta.Sdk.CreateWsFederationApplicationOptions.GroupName
+  - Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat
+  - Okta.Sdk.CreateWsFederationApplicationOptions.Label
+  - Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat
+  - Okta.Sdk.CreateWsFederationApplicationOptions.Realm
+  - Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl
+  - Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute
+  - Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride
+  - Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl
+  langs:
+  - csharp
+  - vb
+  name: CreateWsFederationApplicationOptions
+  nameWithType: CreateWsFederationApplicationOptions
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateWsFederationApplicationOptions
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nHelper class for WS federation application settings\n"
+  example: []
+  syntax:
+    content: public sealed class CreateWsFederationApplicationOptions
+    content.vb: Public NotInheritable Class CreateWsFederationApplicationOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.Label
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.Label
+  id: Label
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: CreateWsFederationApplicationOptions.Label
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.Label
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Label
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a label\n"
+  example: []
+  syntax:
+    content: public string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Label As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.Label*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.Activate
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.Activate
+  id: Activate
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Activate
+  nameWithType: CreateWsFederationApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.Activate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Activate
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an activate flag value\n"
+  example: []
+  syntax:
+    content: public bool Activate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property Activate As Boolean
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.Activate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction
+  id: AudienceRestriction
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: AudienceRestriction
+  nameWithType: CreateWsFederationApplicationOptions.AudienceRestriction
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AudienceRestriction
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an audience restriction\n"
+  example: []
+  syntax:
+    content: public string AudienceRestriction { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AudienceRestriction As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.GroupName
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.GroupName
+  id: GroupName
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: GroupName
+  nameWithType: CreateWsFederationApplicationOptions.GroupName
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.GroupName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GroupName
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a group name\n"
+  example: []
+  syntax:
+    content: public string GroupName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property GroupName As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.GroupName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat
+  id: GroupValueFormat
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: GroupValueFormat
+  nameWithType: CreateWsFederationApplicationOptions.GroupValueFormat
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GroupValueFormat
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a group value format\n"
+  example: []
+  syntax:
+    content: public string GroupValueFormat { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property GroupValueFormat As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.Realm
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.Realm
+  id: Realm
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Realm
+  nameWithType: CreateWsFederationApplicationOptions.Realm
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.Realm
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Realm
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a realm\n"
+  example: []
+  syntax:
+    content: public string Realm { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Realm As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.Realm*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl
+  id: WReplyUrl
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: WReplyUrl
+  nameWithType: CreateWsFederationApplicationOptions.WReplyUrl
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: WReplyUrl
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a reply url\n"
+  example: []
+  syntax:
+    content: public string WReplyUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property WReplyUrl As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements
+  id: AttributeStatements
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: AttributeStatements
+  nameWithType: CreateWsFederationApplicationOptions.AttributeStatements
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AttributeStatements
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 50
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an attribute statement\n"
+  example: []
+  syntax:
+    content: public string AttributeStatements { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AttributeStatements As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat
+  id: NameIdFormat
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: NameIdFormat
+  nameWithType: CreateWsFederationApplicationOptions.NameIdFormat
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NameIdFormat
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a name id format\n"
+  example: []
+  syntax:
+    content: public string NameIdFormat { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property NameIdFormat As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  id: AuthenticationContextClassName
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationContextClassName
+  nameWithType: CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthenticationContextClassName
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 60
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an authentication context class name\n"
+  example: []
+  syntax:
+    content: public string AuthenticationContextClassName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property AuthenticationContextClassName As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl
+  id: SiteUrl
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: SiteUrl
+  nameWithType: CreateWsFederationApplicationOptions.SiteUrl
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SiteUrl
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a site url\n"
+  example: []
+  syntax:
+    content: public string SiteUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property SiteUrl As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride
+  id: WReplyOverride
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: WReplyOverride
+  nameWithType: CreateWsFederationApplicationOptions.WReplyOverride
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: WReplyOverride
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 70
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a reply override flag value\n"
+  example: []
+  syntax:
+    content: public bool WReplyOverride { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+    content.vb: Public Property WReplyOverride As Boolean
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter
+  id: GroupFilter
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: GroupFilter
+  nameWithType: CreateWsFederationApplicationOptions.GroupFilter
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GroupFilter
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 75
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a group filter\n"
+  example: []
+  syntax:
+    content: public string GroupFilter { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property GroupFilter As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute
+  commentId: P:Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute
+  id: UsernameAttribute
+  parent: Okta.Sdk.CreateWsFederationApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: UsernameAttribute
+  nameWithType: CreateWsFederationApplicationOptions.UsernameAttribute
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UsernameAttribute
+    path: ../src/Okta.Sdk/CreateWsFederationApplicationOptions.cs
+    startLine: 80
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a username attribute\n"
+  example: []
+  syntax:
+    content: public string UsernameAttribute { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UsernameAttribute As String
+  overload: Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.Label*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.Label
+  name: Label
+  nameWithType: CreateWsFederationApplicationOptions.Label
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.Activate*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.Activate
+  name: Activate
+  nameWithType: CreateWsFederationApplicationOptions.Activate
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.Activate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction
+  name: AudienceRestriction
+  nameWithType: CreateWsFederationApplicationOptions.AudienceRestriction
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.AudienceRestriction
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.GroupName*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.GroupName
+  name: GroupName
+  nameWithType: CreateWsFederationApplicationOptions.GroupName
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.GroupName
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat
+  name: GroupValueFormat
+  nameWithType: CreateWsFederationApplicationOptions.GroupValueFormat
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.GroupValueFormat
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.Realm*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.Realm
+  name: Realm
+  nameWithType: CreateWsFederationApplicationOptions.Realm
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.Realm
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl
+  name: WReplyUrl
+  nameWithType: CreateWsFederationApplicationOptions.WReplyUrl
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyUrl
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements
+  name: AttributeStatements
+  nameWithType: CreateWsFederationApplicationOptions.AttributeStatements
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.AttributeStatements
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat
+  name: NameIdFormat
+  nameWithType: CreateWsFederationApplicationOptions.NameIdFormat
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.NameIdFormat
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  name: AuthenticationContextClassName
+  nameWithType: CreateWsFederationApplicationOptions.AuthenticationContextClassName
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.AuthenticationContextClassName
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl
+  name: SiteUrl
+  nameWithType: CreateWsFederationApplicationOptions.SiteUrl
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.SiteUrl
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride
+  name: WReplyOverride
+  nameWithType: CreateWsFederationApplicationOptions.WReplyOverride
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.WReplyOverride
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter
+  name: GroupFilter
+  nameWithType: CreateWsFederationApplicationOptions.GroupFilter
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.GroupFilter
+- uid: Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute*
+  commentId: Overload:Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute
+  name: UsernameAttribute
+  nameWithType: CreateWsFederationApplicationOptions.UsernameAttribute
+  fullName: Okta.Sdk.CreateWsFederationApplicationOptions.UsernameAttribute

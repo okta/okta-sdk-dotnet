@@ -1,0 +1,517 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ITemplatesClient
+  commentId: T:Okta.Sdk.ITemplatesClient
+  id: ITemplatesClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.Threading.CancellationToken)
+  - Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITemplatesClient.ListSmsTemplates(Okta.Sdk.SmsTemplateType)
+  - Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ITemplatesClient
+  nameWithType: ITemplatesClient
+  fullName: Okta.Sdk.ITemplatesClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ITemplatesClient
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta Template resources.
+  example: []
+  syntax:
+    content: public interface ITemplatesClient
+    content.vb: Public Interface ITemplatesClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ITemplatesClient.ListSmsTemplates(Okta.Sdk.SmsTemplateType)
+  commentId: M:Okta.Sdk.ITemplatesClient.ListSmsTemplates(Okta.Sdk.SmsTemplateType)
+  id: ListSmsTemplates(Okta.Sdk.SmsTemplateType)
+  parent: Okta.Sdk.ITemplatesClient
+  langs:
+  - csharp
+  - vb
+  name: ListSmsTemplates(SmsTemplateType)
+  nameWithType: ITemplatesClient.ListSmsTemplates(SmsTemplateType)
+  fullName: Okta.Sdk.ITemplatesClient.ListSmsTemplates(Okta.Sdk.SmsTemplateType)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListSmsTemplates
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.\n"
+  example: []
+  syntax:
+    content: ICollectionClient<ISmsTemplate> ListSmsTemplates(SmsTemplateType templateType = null)
+    parameters:
+    - id: templateType
+      type: Okta.Sdk.SmsTemplateType
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.ISmsTemplate}
+      description: A collection of <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListSmsTemplates(templateType As SmsTemplateType = Nothing) As ICollectionClient(Of ISmsTemplate)
+  overload: Okta.Sdk.ITemplatesClient.ListSmsTemplates*
+- uid: Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.Threading.CancellationToken)
+  id: CreateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITemplatesClient
+  langs:
+  - csharp
+  - vb
+  name: CreateSmsTemplateAsync(ISmsTemplate, CancellationToken)
+  nameWithType: ITemplatesClient.CreateSmsTemplateAsync(ISmsTemplate, CancellationToken)
+  fullName: Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync(Okta.Sdk.ISmsTemplate, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateSmsTemplateAsync
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAdds a new custom SMS template to your organization.\n"
+  example: []
+  syntax:
+    content: Task<ISmsTemplate> CreateSmsTemplateAsync(ISmsTemplate smsTemplate, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: smsTemplate
+      type: Okta.Sdk.ISmsTemplate
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISmsTemplate}
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateSmsTemplateAsync(smsTemplate As ISmsTemplate, cancellationToken As CancellationToken = Nothing) As Task(Of ISmsTemplate)
+  overload: Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync*
+- uid: Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITemplatesClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteSmsTemplateAsync(String, CancellationToken)
+  nameWithType: ITemplatesClient.DeleteSmsTemplateAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteSmsTemplateAsync
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nRemoves an SMS template.\n"
+  example: []
+  syntax:
+    content: Task DeleteSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: templateId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteSmsTemplateAsync(templateId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync*
+- uid: Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  id: GetSmsTemplateAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITemplatesClient
+  langs:
+  - csharp
+  - vb
+  name: GetSmsTemplateAsync(String, CancellationToken)
+  nameWithType: ITemplatesClient.GetSmsTemplateAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetSmsTemplateAsync
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 46
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a specific template by `id`\n"
+  example: []
+  syntax:
+    content: Task<ISmsTemplate> GetSmsTemplateAsync(string templateId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: templateId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISmsTemplate}
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetSmsTemplateAsync(templateId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ISmsTemplate)
+  overload: Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync*
+- uid: Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  id: PartialUpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITemplatesClient
+  langs:
+  - csharp
+  - vb
+  name: PartialUpdateSmsTemplateAsync(ISmsTemplate, String, CancellationToken)
+  nameWithType: ITemplatesClient.PartialUpdateSmsTemplateAsync(ISmsTemplate, String, CancellationToken)
+  fullName: Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PartialUpdateSmsTemplateAsync
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates only some of the SMS template properties:\n"
+  example: []
+  syntax:
+    content: Task<ISmsTemplate> PartialUpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: smsTemplate
+      type: Okta.Sdk.ISmsTemplate
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> resource.
+    - id: templateId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISmsTemplate}
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function PartialUpdateSmsTemplateAsync(smsTemplate As ISmsTemplate, templateId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ISmsTemplate)
+  overload: Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync*
+- uid: Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  id: UpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITemplatesClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateSmsTemplateAsync(ISmsTemplate, String, CancellationToken)
+  nameWithType: ITemplatesClient.UpdateSmsTemplateAsync(ISmsTemplate, String, CancellationToken)
+  fullName: Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync(Okta.Sdk.ISmsTemplate, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateSmsTemplateAsync
+    path: ../src/Okta.Sdk/Generated/ITemplatesClient.Generated.cs
+    startLine: 64
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the SMS template.\n"
+  example: []
+  syntax:
+    content: Task<ISmsTemplate> UpdateSmsTemplateAsync(ISmsTemplate smsTemplate, string templateId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: smsTemplate
+      type: Okta.Sdk.ISmsTemplate
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> resource.
+    - id: templateId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISmsTemplate}
+      description: The <xref href="Okta.Sdk.ISmsTemplate" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateSmsTemplateAsync(smsTemplate As ISmsTemplate, templateId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ISmsTemplate)
+  overload: Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.ISmsTemplate
+  commentId: T:Okta.Sdk.ISmsTemplate
+  parent: Okta.Sdk
+  name: ISmsTemplate
+  nameWithType: ISmsTemplate
+  fullName: Okta.Sdk.ISmsTemplate
+- uid: Okta.Sdk.ITemplatesClient.ListSmsTemplates*
+  commentId: Overload:Okta.Sdk.ITemplatesClient.ListSmsTemplates
+  name: ListSmsTemplates
+  nameWithType: ITemplatesClient.ListSmsTemplates
+  fullName: Okta.Sdk.ITemplatesClient.ListSmsTemplates
+- uid: Okta.Sdk.SmsTemplateType
+  commentId: T:Okta.Sdk.SmsTemplateType
+  parent: Okta.Sdk
+  name: SmsTemplateType
+  nameWithType: SmsTemplateType
+  fullName: Okta.Sdk.SmsTemplateType
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.ISmsTemplate}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.ISmsTemplate}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<ISmsTemplate>
+  nameWithType: ICollectionClient<ISmsTemplate>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.ISmsTemplate>
+  nameWithType.vb: ICollectionClient(Of ISmsTemplate)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.ISmsTemplate)
+  name.vb: ICollectionClient(Of ISmsTemplate)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISmsTemplate
+    name: ISmsTemplate
+    nameWithType: ISmsTemplate
+    fullName: Okta.Sdk.ISmsTemplate
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISmsTemplate
+    name: ISmsTemplate
+    nameWithType: ISmsTemplate
+    fullName: Okta.Sdk.ISmsTemplate
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync*
+  commentId: Overload:Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync
+  name: CreateSmsTemplateAsync
+  nameWithType: ITemplatesClient.CreateSmsTemplateAsync
+  fullName: Okta.Sdk.ITemplatesClient.CreateSmsTemplateAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.ISmsTemplate}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.ISmsTemplate}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ISmsTemplate>
+  nameWithType: Task<ISmsTemplate>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.ISmsTemplate>
+  nameWithType.vb: Task(Of ISmsTemplate)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.ISmsTemplate)
+  name.vb: Task(Of ISmsTemplate)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISmsTemplate
+    name: ISmsTemplate
+    nameWithType: ISmsTemplate
+    fullName: Okta.Sdk.ISmsTemplate
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISmsTemplate
+    name: ISmsTemplate
+    nameWithType: ISmsTemplate
+    fullName: Okta.Sdk.ISmsTemplate
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync*
+  commentId: Overload:Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync
+  name: DeleteSmsTemplateAsync
+  nameWithType: ITemplatesClient.DeleteSmsTemplateAsync
+  fullName: Okta.Sdk.ITemplatesClient.DeleteSmsTemplateAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync*
+  commentId: Overload:Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync
+  name: GetSmsTemplateAsync
+  nameWithType: ITemplatesClient.GetSmsTemplateAsync
+  fullName: Okta.Sdk.ITemplatesClient.GetSmsTemplateAsync
+- uid: Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync*
+  commentId: Overload:Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync
+  name: PartialUpdateSmsTemplateAsync
+  nameWithType: ITemplatesClient.PartialUpdateSmsTemplateAsync
+  fullName: Okta.Sdk.ITemplatesClient.PartialUpdateSmsTemplateAsync
+- uid: Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync*
+  commentId: Overload:Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync
+  name: UpdateSmsTemplateAsync
+  nameWithType: ITemplatesClient.UpdateSmsTemplateAsync
+  fullName: Okta.Sdk.ITemplatesClient.UpdateSmsTemplateAsync

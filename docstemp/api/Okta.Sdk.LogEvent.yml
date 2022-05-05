@@ -1,0 +1,1972 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.LogEvent
+  commentId: T:Okta.Sdk.LogEvent
+  id: LogEvent
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.LogEvent.Actor
+  - Okta.Sdk.LogEvent.AuthenticationContext
+  - Okta.Sdk.LogEvent.ClientInfo
+  - Okta.Sdk.LogEvent.DebugContext
+  - Okta.Sdk.LogEvent.DisplayMessage
+  - Okta.Sdk.LogEvent.EventType
+  - Okta.Sdk.LogEvent.LegacyEventType
+  - Okta.Sdk.LogEvent.Outcome
+  - Okta.Sdk.LogEvent.Published
+  - Okta.Sdk.LogEvent.Request
+  - Okta.Sdk.LogEvent.SecurityContext
+  - Okta.Sdk.LogEvent.Severity
+  - Okta.Sdk.LogEvent.Target
+  - Okta.Sdk.LogEvent.Transaction
+  - Okta.Sdk.LogEvent.Uuid
+  - Okta.Sdk.LogEvent.Version
+  langs:
+  - csharp
+  - vb
+  name: LogEvent
+  nameWithType: LogEvent
+  fullName: Okta.Sdk.LogEvent
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LogEvent
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 16
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: 'public sealed class LogEvent : Resource, ILogEvent, IResource'
+    content.vb: >-
+      Public NotInheritable Class LogEvent
+
+          Inherits Resource
+
+          Implements ILogEvent, IResource
+  inheritance:
+  - System.Object
+  - Okta.Sdk.Resource
+  implements:
+  - Okta.Sdk.ILogEvent
+  - Okta.Sdk.IResource
+  inheritedMembers:
+  - Okta.Sdk.Resource.GetClient
+  - Okta.Sdk.Resource.GetData
+  - Okta.Sdk.Resource.Item(System.String)
+  - Okta.Sdk.Resource.GetProperty``1(System.String)
+  - Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.Resource.GetStringProperty(System.String)
+  - Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  - Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  - Okta.Sdk.Resource.GetLongProperty(System.String)
+  - Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  - Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  - Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  - Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.LogEvent.Actor
+  commentId: P:Okta.Sdk.LogEvent.Actor
+  id: Actor
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Actor
+  nameWithType: LogEvent.Actor
+  fullName: Okta.Sdk.LogEvent.Actor
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Actor
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogActor Actor { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogActor
+    content.vb: Public ReadOnly Property Actor As ILogActor
+  overload: Okta.Sdk.LogEvent.Actor*
+  implements:
+  - Okta.Sdk.ILogEvent.Actor
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.AuthenticationContext
+  commentId: P:Okta.Sdk.LogEvent.AuthenticationContext
+  id: AuthenticationContext
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationContext
+  nameWithType: LogEvent.AuthenticationContext
+  fullName: Okta.Sdk.LogEvent.AuthenticationContext
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthenticationContext
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogAuthenticationContext AuthenticationContext { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogAuthenticationContext
+    content.vb: Public ReadOnly Property AuthenticationContext As ILogAuthenticationContext
+  overload: Okta.Sdk.LogEvent.AuthenticationContext*
+  implements:
+  - Okta.Sdk.ILogEvent.AuthenticationContext
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.ClientInfo
+  commentId: P:Okta.Sdk.LogEvent.ClientInfo
+  id: ClientInfo
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: ClientInfo
+  nameWithType: LogEvent.ClientInfo
+  fullName: Okta.Sdk.LogEvent.ClientInfo
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ClientInfo
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogClientInfo ClientInfo { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogClientInfo
+    content.vb: Public ReadOnly Property ClientInfo As ILogClientInfo
+  overload: Okta.Sdk.LogEvent.ClientInfo*
+  implements:
+  - Okta.Sdk.ILogEvent.ClientInfo
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.DebugContext
+  commentId: P:Okta.Sdk.LogEvent.DebugContext
+  id: DebugContext
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: DebugContext
+  nameWithType: LogEvent.DebugContext
+  fullName: Okta.Sdk.LogEvent.DebugContext
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DebugContext
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 28
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogDebugContext DebugContext { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogDebugContext
+    content.vb: Public ReadOnly Property DebugContext As ILogDebugContext
+  overload: Okta.Sdk.LogEvent.DebugContext*
+  implements:
+  - Okta.Sdk.ILogEvent.DebugContext
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.DisplayMessage
+  commentId: P:Okta.Sdk.LogEvent.DisplayMessage
+  id: DisplayMessage
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: DisplayMessage
+  nameWithType: LogEvent.DisplayMessage
+  fullName: Okta.Sdk.LogEvent.DisplayMessage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DisplayMessage
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string DisplayMessage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property DisplayMessage As String
+  overload: Okta.Sdk.LogEvent.DisplayMessage*
+  implements:
+  - Okta.Sdk.ILogEvent.DisplayMessage
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.EventType
+  commentId: P:Okta.Sdk.LogEvent.EventType
+  id: EventType
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: EventType
+  nameWithType: LogEvent.EventType
+  fullName: Okta.Sdk.LogEvent.EventType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EventType
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 34
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string EventType { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property EventType As String
+  overload: Okta.Sdk.LogEvent.EventType*
+  implements:
+  - Okta.Sdk.ILogEvent.EventType
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.LegacyEventType
+  commentId: P:Okta.Sdk.LogEvent.LegacyEventType
+  id: LegacyEventType
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: LegacyEventType
+  nameWithType: LogEvent.LegacyEventType
+  fullName: Okta.Sdk.LogEvent.LegacyEventType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LegacyEventType
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 37
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string LegacyEventType { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property LegacyEventType As String
+  overload: Okta.Sdk.LogEvent.LegacyEventType*
+  implements:
+  - Okta.Sdk.ILogEvent.LegacyEventType
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Outcome
+  commentId: P:Okta.Sdk.LogEvent.Outcome
+  id: Outcome
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Outcome
+  nameWithType: LogEvent.Outcome
+  fullName: Okta.Sdk.LogEvent.Outcome
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Outcome
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogOutcome Outcome { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogOutcome
+    content.vb: Public ReadOnly Property Outcome As ILogOutcome
+  overload: Okta.Sdk.LogEvent.Outcome*
+  implements:
+  - Okta.Sdk.ILogEvent.Outcome
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Published
+  commentId: P:Okta.Sdk.LogEvent.Published
+  id: Published
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Published
+  nameWithType: LogEvent.Published
+  fullName: Okta.Sdk.LogEvent.Published
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Published
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public DateTimeOffset? Published { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: Public ReadOnly Property Published As DateTimeOffset?
+  overload: Okta.Sdk.LogEvent.Published*
+  implements:
+  - Okta.Sdk.ILogEvent.Published
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Request
+  commentId: P:Okta.Sdk.LogEvent.Request
+  id: Request
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Request
+  nameWithType: LogEvent.Request
+  fullName: Okta.Sdk.LogEvent.Request
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Request
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 46
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogRequest Request { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogRequest
+    content.vb: Public ReadOnly Property Request As ILogRequest
+  overload: Okta.Sdk.LogEvent.Request*
+  implements:
+  - Okta.Sdk.ILogEvent.Request
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.SecurityContext
+  commentId: P:Okta.Sdk.LogEvent.SecurityContext
+  id: SecurityContext
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: SecurityContext
+  nameWithType: LogEvent.SecurityContext
+  fullName: Okta.Sdk.LogEvent.SecurityContext
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SecurityContext
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 49
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogSecurityContext SecurityContext { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogSecurityContext
+    content.vb: Public ReadOnly Property SecurityContext As ILogSecurityContext
+  overload: Okta.Sdk.LogEvent.SecurityContext*
+  implements:
+  - Okta.Sdk.ILogEvent.SecurityContext
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Severity
+  commentId: P:Okta.Sdk.LogEvent.Severity
+  id: Severity
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Severity
+  nameWithType: LogEvent.Severity
+  fullName: Okta.Sdk.LogEvent.Severity
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Severity
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 52
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public LogSeverity Severity { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.LogSeverity
+    content.vb: Public ReadOnly Property Severity As LogSeverity
+  overload: Okta.Sdk.LogEvent.Severity*
+  implements:
+  - Okta.Sdk.ILogEvent.Severity
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Target
+  commentId: P:Okta.Sdk.LogEvent.Target
+  id: Target
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Target
+  nameWithType: LogEvent.Target
+  fullName: Okta.Sdk.LogEvent.Target
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Target
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public IList<ILogTarget> Target { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.ILogTarget}
+    content.vb: Public ReadOnly Property Target As IList(Of ILogTarget)
+  overload: Okta.Sdk.LogEvent.Target*
+  implements:
+  - Okta.Sdk.ILogEvent.Target
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Transaction
+  commentId: P:Okta.Sdk.LogEvent.Transaction
+  id: Transaction
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Transaction
+  nameWithType: LogEvent.Transaction
+  fullName: Okta.Sdk.LogEvent.Transaction
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Transaction
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 58
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ILogTransaction Transaction { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogTransaction
+    content.vb: Public ReadOnly Property Transaction As ILogTransaction
+  overload: Okta.Sdk.LogEvent.Transaction*
+  implements:
+  - Okta.Sdk.ILogEvent.Transaction
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Uuid
+  commentId: P:Okta.Sdk.LogEvent.Uuid
+  id: Uuid
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Uuid
+  nameWithType: LogEvent.Uuid
+  fullName: Okta.Sdk.LogEvent.Uuid
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Uuid
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string Uuid { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Uuid As String
+  overload: Okta.Sdk.LogEvent.Uuid*
+  implements:
+  - Okta.Sdk.ILogEvent.Uuid
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+- uid: Okta.Sdk.LogEvent.Version
+  commentId: P:Okta.Sdk.LogEvent.Version
+  id: Version
+  parent: Okta.Sdk.LogEvent
+  langs:
+  - csharp
+  - vb
+  name: Version
+  nameWithType: LogEvent.Version
+  fullName: Okta.Sdk.LogEvent.Version
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/LogEvent.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Version
+    path: ../src/Okta.Sdk/Generated/LogEvent.Generated.cs
+    startLine: 64
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public string Version { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public ReadOnly Property Version As String
+  overload: Okta.Sdk.LogEvent.Version*
+  implements:
+  - Okta.Sdk.ILogEvent.Version
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource
+- uid: Okta.Sdk.ILogEvent
+  commentId: T:Okta.Sdk.ILogEvent
+  parent: Okta.Sdk
+  name: ILogEvent
+  nameWithType: ILogEvent
+  fullName: Okta.Sdk.ILogEvent
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.Resource.GetClient
+  commentId: M:Okta.Sdk.Resource.GetClient
+  parent: Okta.Sdk.Resource
+  name: GetClient()
+  nameWithType: Resource.GetClient()
+  fullName: Okta.Sdk.Resource.GetClient()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetClient
+    name: GetClient
+    nameWithType: Resource.GetClient
+    fullName: Okta.Sdk.Resource.GetClient
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetData
+  commentId: M:Okta.Sdk.Resource.GetData
+  parent: Okta.Sdk.Resource
+  name: GetData()
+  nameWithType: Resource.GetData()
+  fullName: Okta.Sdk.Resource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetData
+    name: GetData
+    nameWithType: Resource.GetData
+    fullName: Okta.Sdk.Resource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.Item(System.String)
+  commentId: P:Okta.Sdk.Resource.Item(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: Item[String]
+  nameWithType: Resource.Item[String]
+  fullName: Okta.Sdk.Resource.Item[System.String]
+  nameWithType.vb: Resource.Item(String)
+  fullName.vb: Okta.Sdk.Resource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.Resource.Item(System.String)
+    name: Item
+    nameWithType: Resource.Item
+    fullName: Okta.Sdk.Resource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: Resource.GetProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetProperty<T>(System.String)
+  nameWithType.vb: Resource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: Resource.GetProperty<T>
+    fullName: Okta.Sdk.Resource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: Resource.GetProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: Resource.SetProperty(String, Object)
+  fullName: Okta.Sdk.Resource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: Resource.SetProperty
+    fullName: Okta.Sdk.Resource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetStringProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetStringProperty(String)
+  nameWithType: Resource.GetStringProperty(String)
+  fullName: Okta.Sdk.Resource.GetStringProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetStringProperty(System.String)
+    name: GetStringProperty
+    nameWithType: Resource.GetStringProperty
+    fullName: Okta.Sdk.Resource.GetStringProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetBooleanProperty(String)
+  nameWithType: Resource.GetBooleanProperty(String)
+  fullName: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetBooleanProperty(System.String)
+    name: GetBooleanProperty
+    nameWithType: Resource.GetBooleanProperty
+    fullName: Okta.Sdk.Resource.GetBooleanProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetIntegerProperty(String)
+  nameWithType: Resource.GetIntegerProperty(String)
+  fullName: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetIntegerProperty(System.String)
+    name: GetIntegerProperty
+    nameWithType: Resource.GetIntegerProperty
+    fullName: Okta.Sdk.Resource.GetIntegerProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetLongProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetLongProperty(String)
+  nameWithType: Resource.GetLongProperty(String)
+  fullName: Okta.Sdk.Resource.GetLongProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetLongProperty(System.String)
+    name: GetLongProperty
+    nameWithType: Resource.GetLongProperty
+    fullName: Okta.Sdk.Resource.GetLongProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDoubleProperty(String)
+  nameWithType: Resource.GetDoubleProperty(String)
+  fullName: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDoubleProperty(System.String)
+    name: GetDoubleProperty
+    nameWithType: Resource.GetDoubleProperty
+    fullName: Okta.Sdk.Resource.GetDoubleProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  commentId: M:Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetDateTimeProperty(String)
+  nameWithType: Resource.GetDateTimeProperty(String)
+  fullName: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetDateTimeProperty(System.String)
+    name: GetDateTimeProperty
+    nameWithType: Resource.GetDateTimeProperty
+    fullName: Okta.Sdk.Resource.GetDateTimeProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: Resource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: Resource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: Resource.GetArrayProperty<T>
+    fullName: Okta.Sdk.Resource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: Resource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetEnumProperty<TEnum>(String)
+  nameWithType: Resource.GetEnumProperty<TEnum>(String)
+  fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>(System.String)
+  nameWithType.vb: Resource.GetEnumProperty(Of TEnum)(String)
+  fullName.vb: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)(System.String)
+  name.vb: GetEnumProperty(Of TEnum)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty<TEnum>
+    nameWithType: Resource.GetEnumProperty<TEnum>
+    fullName: Okta.Sdk.Resource.GetEnumProperty<TEnum>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetEnumProperty``1(System.String)
+    name: GetEnumProperty(Of TEnum)
+    nameWithType: Resource.GetEnumProperty(Of TEnum)
+    fullName: Okta.Sdk.Resource.GetEnumProperty(Of TEnum)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  commentId: M:Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+  parent: Okta.Sdk.Resource
+  isExternal: true
+  name: GetResourceProperty<T>(String)
+  nameWithType: Resource.GetResourceProperty<T>(String)
+  fullName: Okta.Sdk.Resource.GetResourceProperty<T>(System.String)
+  nameWithType.vb: Resource.GetResourceProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.Resource.GetResourceProperty(Of T)(System.String)
+  name.vb: GetResourceProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty<T>
+    nameWithType: Resource.GetResourceProperty<T>
+    fullName: Okta.Sdk.Resource.GetResourceProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Resource.GetResourceProperty``1(System.String)
+    name: GetResourceProperty(Of T)
+    nameWithType: Resource.GetResourceProperty(Of T)
+    fullName: Okta.Sdk.Resource.GetResourceProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.LogEvent.Actor*
+  commentId: Overload:Okta.Sdk.LogEvent.Actor
+  name: Actor
+  nameWithType: LogEvent.Actor
+  fullName: Okta.Sdk.LogEvent.Actor
+- uid: Okta.Sdk.ILogEvent.Actor
+  commentId: P:Okta.Sdk.ILogEvent.Actor
+  parent: Okta.Sdk.ILogEvent
+  name: Actor
+  nameWithType: ILogEvent.Actor
+  fullName: Okta.Sdk.ILogEvent.Actor
+- uid: Okta.Sdk.ILogActor
+  commentId: T:Okta.Sdk.ILogActor
+  parent: Okta.Sdk
+  name: ILogActor
+  nameWithType: ILogActor
+  fullName: Okta.Sdk.ILogActor
+- uid: Okta.Sdk.LogEvent.AuthenticationContext*
+  commentId: Overload:Okta.Sdk.LogEvent.AuthenticationContext
+  name: AuthenticationContext
+  nameWithType: LogEvent.AuthenticationContext
+  fullName: Okta.Sdk.LogEvent.AuthenticationContext
+- uid: Okta.Sdk.ILogEvent.AuthenticationContext
+  commentId: P:Okta.Sdk.ILogEvent.AuthenticationContext
+  parent: Okta.Sdk.ILogEvent
+  name: AuthenticationContext
+  nameWithType: ILogEvent.AuthenticationContext
+  fullName: Okta.Sdk.ILogEvent.AuthenticationContext
+- uid: Okta.Sdk.ILogAuthenticationContext
+  commentId: T:Okta.Sdk.ILogAuthenticationContext
+  parent: Okta.Sdk
+  name: ILogAuthenticationContext
+  nameWithType: ILogAuthenticationContext
+  fullName: Okta.Sdk.ILogAuthenticationContext
+- uid: Okta.Sdk.LogEvent.ClientInfo*
+  commentId: Overload:Okta.Sdk.LogEvent.ClientInfo
+  name: ClientInfo
+  nameWithType: LogEvent.ClientInfo
+  fullName: Okta.Sdk.LogEvent.ClientInfo
+- uid: Okta.Sdk.ILogEvent.ClientInfo
+  commentId: P:Okta.Sdk.ILogEvent.ClientInfo
+  parent: Okta.Sdk.ILogEvent
+  name: ClientInfo
+  nameWithType: ILogEvent.ClientInfo
+  fullName: Okta.Sdk.ILogEvent.ClientInfo
+- uid: Okta.Sdk.ILogClientInfo
+  commentId: T:Okta.Sdk.ILogClientInfo
+  parent: Okta.Sdk
+  name: ILogClientInfo
+  nameWithType: ILogClientInfo
+  fullName: Okta.Sdk.ILogClientInfo
+- uid: Okta.Sdk.LogEvent.DebugContext*
+  commentId: Overload:Okta.Sdk.LogEvent.DebugContext
+  name: DebugContext
+  nameWithType: LogEvent.DebugContext
+  fullName: Okta.Sdk.LogEvent.DebugContext
+- uid: Okta.Sdk.ILogEvent.DebugContext
+  commentId: P:Okta.Sdk.ILogEvent.DebugContext
+  parent: Okta.Sdk.ILogEvent
+  name: DebugContext
+  nameWithType: ILogEvent.DebugContext
+  fullName: Okta.Sdk.ILogEvent.DebugContext
+- uid: Okta.Sdk.ILogDebugContext
+  commentId: T:Okta.Sdk.ILogDebugContext
+  parent: Okta.Sdk
+  name: ILogDebugContext
+  nameWithType: ILogDebugContext
+  fullName: Okta.Sdk.ILogDebugContext
+- uid: Okta.Sdk.LogEvent.DisplayMessage*
+  commentId: Overload:Okta.Sdk.LogEvent.DisplayMessage
+  name: DisplayMessage
+  nameWithType: LogEvent.DisplayMessage
+  fullName: Okta.Sdk.LogEvent.DisplayMessage
+- uid: Okta.Sdk.ILogEvent.DisplayMessage
+  commentId: P:Okta.Sdk.ILogEvent.DisplayMessage
+  parent: Okta.Sdk.ILogEvent
+  name: DisplayMessage
+  nameWithType: ILogEvent.DisplayMessage
+  fullName: Okta.Sdk.ILogEvent.DisplayMessage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.LogEvent.EventType*
+  commentId: Overload:Okta.Sdk.LogEvent.EventType
+  name: EventType
+  nameWithType: LogEvent.EventType
+  fullName: Okta.Sdk.LogEvent.EventType
+- uid: Okta.Sdk.ILogEvent.EventType
+  commentId: P:Okta.Sdk.ILogEvent.EventType
+  parent: Okta.Sdk.ILogEvent
+  name: EventType
+  nameWithType: ILogEvent.EventType
+  fullName: Okta.Sdk.ILogEvent.EventType
+- uid: Okta.Sdk.LogEvent.LegacyEventType*
+  commentId: Overload:Okta.Sdk.LogEvent.LegacyEventType
+  name: LegacyEventType
+  nameWithType: LogEvent.LegacyEventType
+  fullName: Okta.Sdk.LogEvent.LegacyEventType
+- uid: Okta.Sdk.ILogEvent.LegacyEventType
+  commentId: P:Okta.Sdk.ILogEvent.LegacyEventType
+  parent: Okta.Sdk.ILogEvent
+  name: LegacyEventType
+  nameWithType: ILogEvent.LegacyEventType
+  fullName: Okta.Sdk.ILogEvent.LegacyEventType
+- uid: Okta.Sdk.LogEvent.Outcome*
+  commentId: Overload:Okta.Sdk.LogEvent.Outcome
+  name: Outcome
+  nameWithType: LogEvent.Outcome
+  fullName: Okta.Sdk.LogEvent.Outcome
+- uid: Okta.Sdk.ILogEvent.Outcome
+  commentId: P:Okta.Sdk.ILogEvent.Outcome
+  parent: Okta.Sdk.ILogEvent
+  name: Outcome
+  nameWithType: ILogEvent.Outcome
+  fullName: Okta.Sdk.ILogEvent.Outcome
+- uid: Okta.Sdk.ILogOutcome
+  commentId: T:Okta.Sdk.ILogOutcome
+  parent: Okta.Sdk
+  name: ILogOutcome
+  nameWithType: ILogOutcome
+  fullName: Okta.Sdk.ILogOutcome
+- uid: Okta.Sdk.LogEvent.Published*
+  commentId: Overload:Okta.Sdk.LogEvent.Published
+  name: Published
+  nameWithType: LogEvent.Published
+  fullName: Okta.Sdk.LogEvent.Published
+- uid: Okta.Sdk.ILogEvent.Published
+  commentId: P:Okta.Sdk.ILogEvent.Published
+  parent: Okta.Sdk.ILogEvent
+  name: Published
+  nameWithType: ILogEvent.Published
+  fullName: Okta.Sdk.ILogEvent.Published
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.LogEvent.Request*
+  commentId: Overload:Okta.Sdk.LogEvent.Request
+  name: Request
+  nameWithType: LogEvent.Request
+  fullName: Okta.Sdk.LogEvent.Request
+- uid: Okta.Sdk.ILogEvent.Request
+  commentId: P:Okta.Sdk.ILogEvent.Request
+  parent: Okta.Sdk.ILogEvent
+  name: Request
+  nameWithType: ILogEvent.Request
+  fullName: Okta.Sdk.ILogEvent.Request
+- uid: Okta.Sdk.ILogRequest
+  commentId: T:Okta.Sdk.ILogRequest
+  parent: Okta.Sdk
+  name: ILogRequest
+  nameWithType: ILogRequest
+  fullName: Okta.Sdk.ILogRequest
+- uid: Okta.Sdk.LogEvent.SecurityContext*
+  commentId: Overload:Okta.Sdk.LogEvent.SecurityContext
+  name: SecurityContext
+  nameWithType: LogEvent.SecurityContext
+  fullName: Okta.Sdk.LogEvent.SecurityContext
+- uid: Okta.Sdk.ILogEvent.SecurityContext
+  commentId: P:Okta.Sdk.ILogEvent.SecurityContext
+  parent: Okta.Sdk.ILogEvent
+  name: SecurityContext
+  nameWithType: ILogEvent.SecurityContext
+  fullName: Okta.Sdk.ILogEvent.SecurityContext
+- uid: Okta.Sdk.ILogSecurityContext
+  commentId: T:Okta.Sdk.ILogSecurityContext
+  parent: Okta.Sdk
+  name: ILogSecurityContext
+  nameWithType: ILogSecurityContext
+  fullName: Okta.Sdk.ILogSecurityContext
+- uid: Okta.Sdk.LogEvent.Severity*
+  commentId: Overload:Okta.Sdk.LogEvent.Severity
+  name: Severity
+  nameWithType: LogEvent.Severity
+  fullName: Okta.Sdk.LogEvent.Severity
+- uid: Okta.Sdk.ILogEvent.Severity
+  commentId: P:Okta.Sdk.ILogEvent.Severity
+  parent: Okta.Sdk.ILogEvent
+  name: Severity
+  nameWithType: ILogEvent.Severity
+  fullName: Okta.Sdk.ILogEvent.Severity
+- uid: Okta.Sdk.LogSeverity
+  commentId: T:Okta.Sdk.LogSeverity
+  parent: Okta.Sdk
+  name: LogSeverity
+  nameWithType: LogSeverity
+  fullName: Okta.Sdk.LogSeverity
+- uid: Okta.Sdk.LogEvent.Target*
+  commentId: Overload:Okta.Sdk.LogEvent.Target
+  name: Target
+  nameWithType: LogEvent.Target
+  fullName: Okta.Sdk.LogEvent.Target
+- uid: Okta.Sdk.ILogEvent.Target
+  commentId: P:Okta.Sdk.ILogEvent.Target
+  parent: Okta.Sdk.ILogEvent
+  name: Target
+  nameWithType: ILogEvent.Target
+  fullName: Okta.Sdk.ILogEvent.Target
+- uid: System.Collections.Generic.IList{Okta.Sdk.ILogTarget}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.ILogTarget}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<ILogTarget>
+  nameWithType: IList<ILogTarget>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.ILogTarget>
+  nameWithType.vb: IList(Of ILogTarget)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.ILogTarget)
+  name.vb: IList(Of ILogTarget)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ILogTarget
+    name: ILogTarget
+    nameWithType: ILogTarget
+    fullName: Okta.Sdk.ILogTarget
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ILogTarget
+    name: ILogTarget
+    nameWithType: ILogTarget
+    fullName: Okta.Sdk.ILogTarget
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.LogEvent.Transaction*
+  commentId: Overload:Okta.Sdk.LogEvent.Transaction
+  name: Transaction
+  nameWithType: LogEvent.Transaction
+  fullName: Okta.Sdk.LogEvent.Transaction
+- uid: Okta.Sdk.ILogEvent.Transaction
+  commentId: P:Okta.Sdk.ILogEvent.Transaction
+  parent: Okta.Sdk.ILogEvent
+  name: Transaction
+  nameWithType: ILogEvent.Transaction
+  fullName: Okta.Sdk.ILogEvent.Transaction
+- uid: Okta.Sdk.ILogTransaction
+  commentId: T:Okta.Sdk.ILogTransaction
+  parent: Okta.Sdk
+  name: ILogTransaction
+  nameWithType: ILogTransaction
+  fullName: Okta.Sdk.ILogTransaction
+- uid: Okta.Sdk.LogEvent.Uuid*
+  commentId: Overload:Okta.Sdk.LogEvent.Uuid
+  name: Uuid
+  nameWithType: LogEvent.Uuid
+  fullName: Okta.Sdk.LogEvent.Uuid
+- uid: Okta.Sdk.ILogEvent.Uuid
+  commentId: P:Okta.Sdk.ILogEvent.Uuid
+  parent: Okta.Sdk.ILogEvent
+  name: Uuid
+  nameWithType: ILogEvent.Uuid
+  fullName: Okta.Sdk.ILogEvent.Uuid
+- uid: Okta.Sdk.LogEvent.Version*
+  commentId: Overload:Okta.Sdk.LogEvent.Version
+  name: Version
+  nameWithType: LogEvent.Version
+  fullName: Okta.Sdk.LogEvent.Version
+- uid: Okta.Sdk.ILogEvent.Version
+  commentId: P:Okta.Sdk.ILogEvent.Version
+  parent: Okta.Sdk.ILogEvent
+  name: Version
+  nameWithType: ILogEvent.Version
+  fullName: Okta.Sdk.ILogEvent.Version

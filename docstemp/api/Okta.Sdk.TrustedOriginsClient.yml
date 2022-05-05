@@ -1,0 +1,2533 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.TrustedOriginsClient
+  commentId: T:Okta.Sdk.TrustedOriginsClient
+  id: TrustedOriginsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.TrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  - Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.TrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.TrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: TrustedOriginsClient
+  nameWithType: TrustedOriginsClient
+  fullName: Okta.Sdk.TrustedOriginsClient
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: TrustedOriginsClient
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 18
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: 'public sealed class TrustedOriginsClient : OktaClient, IOktaClient, ITrustedOriginsClient'
+    content.vb: >-
+      Public NotInheritable Class TrustedOriginsClient
+
+          Inherits OktaClient
+
+          Implements IOktaClient, ITrustedOriginsClient
+  inheritance:
+  - System.Object
+  - Okta.Sdk.OktaClient
+  implements:
+  - Okta.Sdk.IOktaClient
+  - Okta.Sdk.ITrustedOriginsClient
+  inheritedMembers:
+  - Okta.Sdk.OktaClient.Configuration
+  - Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  - Okta.Sdk.OktaClient.Brands
+  - Okta.Sdk.OktaClient.GroupSchemas
+  - Okta.Sdk.OktaClient.Authenticators
+  - Okta.Sdk.OktaClient.Orgs
+  - Okta.Sdk.OktaClient.UserTypes
+  - Okta.Sdk.OktaClient.Users
+  - Okta.Sdk.OktaClient.UserFactors
+  - Okta.Sdk.OktaClient.Groups
+  - Okta.Sdk.OktaClient.Applications
+  - Okta.Sdk.OktaClient.Sessions
+  - Okta.Sdk.OktaClient.AuthorizationServers
+  - Okta.Sdk.OktaClient.Logs
+  - Okta.Sdk.OktaClient.Policies
+  - Okta.Sdk.OktaClient.EventHooks
+  - Okta.Sdk.OktaClient.InlineHooks
+  - Okta.Sdk.OktaClient.LinkedObjects
+  - Okta.Sdk.OktaClient.TrustedOrigins
+  - Okta.Sdk.OktaClient.Features
+  - Okta.Sdk.OktaClient.Templates
+  - Okta.Sdk.OktaClient.NetworkZones
+  - Okta.Sdk.OktaClient.Domains
+  - Okta.Sdk.OktaClient.ProfileMappings
+  - Okta.Sdk.OktaClient.ThreatInsights
+  - Okta.Sdk.OktaClient.IdentityProviders
+  - Okta.Sdk.OktaClient.UserSchemas
+  - Okta.Sdk.OktaClient.Subscriptions
+  - Okta.Sdk.OktaClient.GetCollectionClient``1(Okta.Sdk.HttpRequest)
+  - Okta.Sdk.OktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.GetCollection``1(System.String)
+  - Okta.Sdk.OktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+  - Okta.Sdk.OktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.TrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.TrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  id: ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: ListOrigins(String, String, String, Nullable<Int32>)
+  nameWithType: TrustedOriginsClient.ListOrigins(String, String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.TrustedOriginsClient.ListOrigins(System.String, System.String, System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListOrigins
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public ICollectionClient<ITrustedOrigin> ListOrigins(string q = null, string filter = null, string after = null, int? limit = -1)
+    parameters:
+    - id: q
+      type: System.String
+    - id: filter
+      type: System.String
+    - id: after
+      type: System.String
+    - id: limit
+      type: System.Nullable{System.Int32}
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.ITrustedOrigin}
+    content.vb: Public Function ListOrigins(q As String = Nothing, filter As String = Nothing, after As String = Nothing, limit As Integer? = -1) As ICollectionClient(Of ITrustedOrigin)
+  overload: Okta.Sdk.TrustedOriginsClient.ListOrigins*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  nameWithType.vb: TrustedOriginsClient.ListOrigins(String, String, String, Nullable(Of Int32))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Okta.Sdk.TrustedOriginsClient.ListOrigins(System.String, System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListOrigins(String, String, String, Nullable(Of Int32))
+- uid: Okta.Sdk.TrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.TrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  id: CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: CreateOriginAsync(ITrustedOrigin, CancellationToken)
+  nameWithType: TrustedOriginsClient.CreateOriginAsync(ITrustedOrigin, CancellationToken)
+  fullName: Okta.Sdk.TrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateOriginAsync
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task<ITrustedOrigin> CreateOriginAsync(ITrustedOrigin trustedOrigin, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: trustedOrigin
+      type: Okta.Sdk.ITrustedOrigin
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+    content.vb: Public Function CreateOriginAsync(trustedOrigin As ITrustedOrigin, cancellationToken As CancellationToken = Nothing) As Task(Of ITrustedOrigin)
+  overload: Okta.Sdk.TrustedOriginsClient.CreateOriginAsync*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteOriginAsync(String, CancellationToken)
+  nameWithType: TrustedOriginsClient.DeleteOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteOriginAsync
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 56
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task DeleteOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: trustedOriginId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Public Function DeleteOriginAsync(trustedOriginId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.TrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.TrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+  id: GetOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: GetOriginAsync(String, CancellationToken)
+  nameWithType: TrustedOriginsClient.GetOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.TrustedOriginsClient.GetOriginAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetOriginAsync
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 69
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task<ITrustedOrigin> GetOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: trustedOriginId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+    content.vb: Public Function GetOriginAsync(trustedOriginId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ITrustedOrigin)
+  overload: Okta.Sdk.TrustedOriginsClient.GetOriginAsync*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  id: UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateOriginAsync(ITrustedOrigin, String, CancellationToken)
+  nameWithType: TrustedOriginsClient.UpdateOriginAsync(ITrustedOrigin, String, CancellationToken)
+  fullName: Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateOriginAsync
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 82
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task<ITrustedOrigin> UpdateOriginAsync(ITrustedOrigin trustedOrigin, string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: trustedOrigin
+      type: Okta.Sdk.ITrustedOrigin
+    - id: trustedOriginId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+    content.vb: Public Function UpdateOriginAsync(trustedOrigin As ITrustedOrigin, trustedOriginId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ITrustedOrigin)
+  overload: Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  id: ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateOriginAsync(String, CancellationToken)
+  nameWithType: TrustedOriginsClient.ActivateOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateOriginAsync
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 95
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task<ITrustedOrigin> ActivateOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: trustedOriginId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+    content.vb: Public Function ActivateOriginAsync(trustedOriginId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ITrustedOrigin)
+  overload: Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  id: DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.TrustedOriginsClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateOriginAsync(String, CancellationToken)
+  nameWithType: TrustedOriginsClient.DeactivateOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeactivateOriginAsync
+    path: ../src/Okta.Sdk/Generated/TrustedOriginsClient.Generated.cs
+    startLine: 108
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  example: []
+  syntax:
+    content: public async Task<ITrustedOrigin> DeactivateOriginAsync(string trustedOriginId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: trustedOriginId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+    content.vb: Public Function DeactivateOriginAsync(trustedOriginId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ITrustedOrigin)
+  overload: Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync*
+  implements:
+  - Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.OktaClient
+  commentId: T:Okta.Sdk.OktaClient
+  parent: Okta.Sdk
+  name: OktaClient
+  nameWithType: OktaClient
+  fullName: Okta.Sdk.OktaClient
+- uid: Okta.Sdk.IOktaClient
+  commentId: T:Okta.Sdk.IOktaClient
+  parent: Okta.Sdk
+  name: IOktaClient
+  nameWithType: IOktaClient
+  fullName: Okta.Sdk.IOktaClient
+- uid: Okta.Sdk.ITrustedOriginsClient
+  commentId: T:Okta.Sdk.ITrustedOriginsClient
+  parent: Okta.Sdk
+  name: ITrustedOriginsClient
+  nameWithType: ITrustedOriginsClient
+  fullName: Okta.Sdk.ITrustedOriginsClient
+- uid: Okta.Sdk.OktaClient.Configuration
+  commentId: P:Okta.Sdk.OktaClient.Configuration
+  parent: Okta.Sdk.OktaClient
+  name: Configuration
+  nameWithType: OktaClient.Configuration
+  fullName: Okta.Sdk.OktaClient.Configuration
+- uid: Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  commentId: M:Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  parent: Okta.Sdk.OktaClient
+  name: CreateScoped(RequestContext)
+  nameWithType: OktaClient.CreateScoped(RequestContext)
+  fullName: Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)
+    name: CreateScoped
+    nameWithType: OktaClient.CreateScoped
+    fullName: Okta.Sdk.OktaClient.CreateScoped
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.RequestContext
+    name: RequestContext
+    nameWithType: RequestContext
+    fullName: Okta.Sdk.RequestContext
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.CreateScoped(Okta.Sdk.RequestContext)
+    name: CreateScoped
+    nameWithType: OktaClient.CreateScoped
+    fullName: Okta.Sdk.OktaClient.CreateScoped
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.RequestContext
+    name: RequestContext
+    nameWithType: RequestContext
+    fullName: Okta.Sdk.RequestContext
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.Brands
+  commentId: P:Okta.Sdk.OktaClient.Brands
+  parent: Okta.Sdk.OktaClient
+  name: Brands
+  nameWithType: OktaClient.Brands
+  fullName: Okta.Sdk.OktaClient.Brands
+- uid: Okta.Sdk.OktaClient.GroupSchemas
+  commentId: P:Okta.Sdk.OktaClient.GroupSchemas
+  parent: Okta.Sdk.OktaClient
+  name: GroupSchemas
+  nameWithType: OktaClient.GroupSchemas
+  fullName: Okta.Sdk.OktaClient.GroupSchemas
+- uid: Okta.Sdk.OktaClient.Authenticators
+  commentId: P:Okta.Sdk.OktaClient.Authenticators
+  parent: Okta.Sdk.OktaClient
+  name: Authenticators
+  nameWithType: OktaClient.Authenticators
+  fullName: Okta.Sdk.OktaClient.Authenticators
+- uid: Okta.Sdk.OktaClient.Orgs
+  commentId: P:Okta.Sdk.OktaClient.Orgs
+  parent: Okta.Sdk.OktaClient
+  name: Orgs
+  nameWithType: OktaClient.Orgs
+  fullName: Okta.Sdk.OktaClient.Orgs
+- uid: Okta.Sdk.OktaClient.UserTypes
+  commentId: P:Okta.Sdk.OktaClient.UserTypes
+  parent: Okta.Sdk.OktaClient
+  name: UserTypes
+  nameWithType: OktaClient.UserTypes
+  fullName: Okta.Sdk.OktaClient.UserTypes
+- uid: Okta.Sdk.OktaClient.Users
+  commentId: P:Okta.Sdk.OktaClient.Users
+  parent: Okta.Sdk.OktaClient
+  name: Users
+  nameWithType: OktaClient.Users
+  fullName: Okta.Sdk.OktaClient.Users
+- uid: Okta.Sdk.OktaClient.UserFactors
+  commentId: P:Okta.Sdk.OktaClient.UserFactors
+  parent: Okta.Sdk.OktaClient
+  name: UserFactors
+  nameWithType: OktaClient.UserFactors
+  fullName: Okta.Sdk.OktaClient.UserFactors
+- uid: Okta.Sdk.OktaClient.Groups
+  commentId: P:Okta.Sdk.OktaClient.Groups
+  parent: Okta.Sdk.OktaClient
+  name: Groups
+  nameWithType: OktaClient.Groups
+  fullName: Okta.Sdk.OktaClient.Groups
+- uid: Okta.Sdk.OktaClient.Applications
+  commentId: P:Okta.Sdk.OktaClient.Applications
+  parent: Okta.Sdk.OktaClient
+  name: Applications
+  nameWithType: OktaClient.Applications
+  fullName: Okta.Sdk.OktaClient.Applications
+- uid: Okta.Sdk.OktaClient.Sessions
+  commentId: P:Okta.Sdk.OktaClient.Sessions
+  parent: Okta.Sdk.OktaClient
+  name: Sessions
+  nameWithType: OktaClient.Sessions
+  fullName: Okta.Sdk.OktaClient.Sessions
+- uid: Okta.Sdk.OktaClient.AuthorizationServers
+  commentId: P:Okta.Sdk.OktaClient.AuthorizationServers
+  parent: Okta.Sdk.OktaClient
+  name: AuthorizationServers
+  nameWithType: OktaClient.AuthorizationServers
+  fullName: Okta.Sdk.OktaClient.AuthorizationServers
+- uid: Okta.Sdk.OktaClient.Logs
+  commentId: P:Okta.Sdk.OktaClient.Logs
+  parent: Okta.Sdk.OktaClient
+  name: Logs
+  nameWithType: OktaClient.Logs
+  fullName: Okta.Sdk.OktaClient.Logs
+- uid: Okta.Sdk.OktaClient.Policies
+  commentId: P:Okta.Sdk.OktaClient.Policies
+  parent: Okta.Sdk.OktaClient
+  name: Policies
+  nameWithType: OktaClient.Policies
+  fullName: Okta.Sdk.OktaClient.Policies
+- uid: Okta.Sdk.OktaClient.EventHooks
+  commentId: P:Okta.Sdk.OktaClient.EventHooks
+  parent: Okta.Sdk.OktaClient
+  name: EventHooks
+  nameWithType: OktaClient.EventHooks
+  fullName: Okta.Sdk.OktaClient.EventHooks
+- uid: Okta.Sdk.OktaClient.InlineHooks
+  commentId: P:Okta.Sdk.OktaClient.InlineHooks
+  parent: Okta.Sdk.OktaClient
+  name: InlineHooks
+  nameWithType: OktaClient.InlineHooks
+  fullName: Okta.Sdk.OktaClient.InlineHooks
+- uid: Okta.Sdk.OktaClient.LinkedObjects
+  commentId: P:Okta.Sdk.OktaClient.LinkedObjects
+  parent: Okta.Sdk.OktaClient
+  name: LinkedObjects
+  nameWithType: OktaClient.LinkedObjects
+  fullName: Okta.Sdk.OktaClient.LinkedObjects
+- uid: Okta.Sdk.OktaClient.TrustedOrigins
+  commentId: P:Okta.Sdk.OktaClient.TrustedOrigins
+  parent: Okta.Sdk.OktaClient
+  name: TrustedOrigins
+  nameWithType: OktaClient.TrustedOrigins
+  fullName: Okta.Sdk.OktaClient.TrustedOrigins
+- uid: Okta.Sdk.OktaClient.Features
+  commentId: P:Okta.Sdk.OktaClient.Features
+  parent: Okta.Sdk.OktaClient
+  name: Features
+  nameWithType: OktaClient.Features
+  fullName: Okta.Sdk.OktaClient.Features
+- uid: Okta.Sdk.OktaClient.Templates
+  commentId: P:Okta.Sdk.OktaClient.Templates
+  parent: Okta.Sdk.OktaClient
+  name: Templates
+  nameWithType: OktaClient.Templates
+  fullName: Okta.Sdk.OktaClient.Templates
+- uid: Okta.Sdk.OktaClient.NetworkZones
+  commentId: P:Okta.Sdk.OktaClient.NetworkZones
+  parent: Okta.Sdk.OktaClient
+  name: NetworkZones
+  nameWithType: OktaClient.NetworkZones
+  fullName: Okta.Sdk.OktaClient.NetworkZones
+- uid: Okta.Sdk.OktaClient.Domains
+  commentId: P:Okta.Sdk.OktaClient.Domains
+  parent: Okta.Sdk.OktaClient
+  name: Domains
+  nameWithType: OktaClient.Domains
+  fullName: Okta.Sdk.OktaClient.Domains
+- uid: Okta.Sdk.OktaClient.ProfileMappings
+  commentId: P:Okta.Sdk.OktaClient.ProfileMappings
+  parent: Okta.Sdk.OktaClient
+  name: ProfileMappings
+  nameWithType: OktaClient.ProfileMappings
+  fullName: Okta.Sdk.OktaClient.ProfileMappings
+- uid: Okta.Sdk.OktaClient.ThreatInsights
+  commentId: P:Okta.Sdk.OktaClient.ThreatInsights
+  parent: Okta.Sdk.OktaClient
+  name: ThreatInsights
+  nameWithType: OktaClient.ThreatInsights
+  fullName: Okta.Sdk.OktaClient.ThreatInsights
+- uid: Okta.Sdk.OktaClient.IdentityProviders
+  commentId: P:Okta.Sdk.OktaClient.IdentityProviders
+  parent: Okta.Sdk.OktaClient
+  name: IdentityProviders
+  nameWithType: OktaClient.IdentityProviders
+  fullName: Okta.Sdk.OktaClient.IdentityProviders
+- uid: Okta.Sdk.OktaClient.UserSchemas
+  commentId: P:Okta.Sdk.OktaClient.UserSchemas
+  parent: Okta.Sdk.OktaClient
+  name: UserSchemas
+  nameWithType: OktaClient.UserSchemas
+  fullName: Okta.Sdk.OktaClient.UserSchemas
+- uid: Okta.Sdk.OktaClient.Subscriptions
+  commentId: P:Okta.Sdk.OktaClient.Subscriptions
+  parent: Okta.Sdk.OktaClient
+  name: Subscriptions
+  nameWithType: OktaClient.Subscriptions
+  fullName: Okta.Sdk.OktaClient.Subscriptions
+- uid: Okta.Sdk.OktaClient.GetCollectionClient``1(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.OktaClient.GetCollectionClient``1(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.OktaClient
+  name: GetCollectionClient<T>(HttpRequest)
+  nameWithType: OktaClient.GetCollectionClient<T>(HttpRequest)
+  fullName: Okta.Sdk.OktaClient.GetCollectionClient<T>(Okta.Sdk.HttpRequest)
+  nameWithType.vb: OktaClient.GetCollectionClient(Of T)(HttpRequest)
+  fullName.vb: Okta.Sdk.OktaClient.GetCollectionClient(Of T)(Okta.Sdk.HttpRequest)
+  name.vb: GetCollectionClient(Of T)(HttpRequest)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.GetCollectionClient``1(Okta.Sdk.HttpRequest)
+    name: GetCollectionClient<T>
+    nameWithType: OktaClient.GetCollectionClient<T>
+    fullName: Okta.Sdk.OktaClient.GetCollectionClient<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.GetCollectionClient``1(Okta.Sdk.HttpRequest)
+    name: GetCollectionClient(Of T)
+    nameWithType: OktaClient.GetCollectionClient(Of T)
+    fullName: Okta.Sdk.OktaClient.GetCollectionClient(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: GetAsync<T>(String, CancellationToken)
+  nameWithType: OktaClient.GetAsync<T>(String, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.GetAsync<T>(System.String, System.Threading.CancellationToken)
+  nameWithType.vb: OktaClient.GetAsync(Of T)(String, CancellationToken)
+  fullName.vb: Okta.Sdk.OktaClient.GetAsync(Of T)(System.String, System.Threading.CancellationToken)
+  name.vb: GetAsync(Of T)(String, CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+    name: GetAsync<T>
+    nameWithType: OktaClient.GetAsync<T>
+    fullName: Okta.Sdk.OktaClient.GetAsync<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+    name: GetAsync(Of T)
+    nameWithType: OktaClient.GetAsync(Of T)
+    fullName: Okta.Sdk.OktaClient.GetAsync(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: GetAsync<T>(HttpRequest, CancellationToken)
+  nameWithType: OktaClient.GetAsync<T>(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.GetAsync<T>(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  nameWithType.vb: OktaClient.GetAsync(Of T)(HttpRequest, CancellationToken)
+  fullName.vb: Okta.Sdk.OktaClient.GetAsync(Of T)(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  name.vb: GetAsync(Of T)(HttpRequest, CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: GetAsync<T>
+    nameWithType: OktaClient.GetAsync<T>
+    fullName: Okta.Sdk.OktaClient.GetAsync<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: GetAsync(Of T)
+    nameWithType: OktaClient.GetAsync(Of T)
+    fullName: Okta.Sdk.OktaClient.GetAsync(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.GetCollection``1(System.String)
+  commentId: M:Okta.Sdk.OktaClient.GetCollection``1(System.String)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: GetCollection<T>(String)
+  nameWithType: OktaClient.GetCollection<T>(String)
+  fullName: Okta.Sdk.OktaClient.GetCollection<T>(System.String)
+  nameWithType.vb: OktaClient.GetCollection(Of T)(String)
+  fullName.vb: Okta.Sdk.OktaClient.GetCollection(Of T)(System.String)
+  name.vb: GetCollection(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.GetCollection``1(System.String)
+    name: GetCollection<T>
+    nameWithType: OktaClient.GetCollection<T>
+    fullName: Okta.Sdk.OktaClient.GetCollection<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.GetCollection``1(System.String)
+    name: GetCollection(Of T)
+    nameWithType: OktaClient.GetCollection(Of T)
+    fullName: Okta.Sdk.OktaClient.GetCollection(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.OktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.OktaClient
+  name: GetCollection<T>(HttpRequest)
+  nameWithType: OktaClient.GetCollection<T>(HttpRequest)
+  fullName: Okta.Sdk.OktaClient.GetCollection<T>(Okta.Sdk.HttpRequest)
+  nameWithType.vb: OktaClient.GetCollection(Of T)(HttpRequest)
+  fullName.vb: Okta.Sdk.OktaClient.GetCollection(Of T)(Okta.Sdk.HttpRequest)
+  name.vb: GetCollection(Of T)(HttpRequest)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+    name: GetCollection<T>
+    nameWithType: OktaClient.GetCollection<T>
+    fullName: Okta.Sdk.OktaClient.GetCollection<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+    name: GetCollection(Of T)
+    nameWithType: OktaClient.GetCollection(Of T)
+    fullName: Okta.Sdk.OktaClient.GetCollection(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PostAsync(String, Object, CancellationToken)
+  nameWithType: OktaClient.PostAsync(String, Object, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PostAsync(System.String, System.Object, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+    name: PostAsync
+    nameWithType: OktaClient.PostAsync
+    fullName: Okta.Sdk.OktaClient.PostAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+    name: PostAsync
+    nameWithType: OktaClient.PostAsync
+    fullName: Okta.Sdk.OktaClient.PostAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PostAsync<TResponse>(String, Object, CancellationToken)
+  nameWithType: OktaClient.PostAsync<TResponse>(String, Object, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PostAsync<TResponse>(System.String, System.Object, System.Threading.CancellationToken)
+  nameWithType.vb: OktaClient.PostAsync(Of TResponse)(String, Object, CancellationToken)
+  fullName.vb: Okta.Sdk.OktaClient.PostAsync(Of TResponse)(System.String, System.Object, System.Threading.CancellationToken)
+  name.vb: PostAsync(Of TResponse)(String, Object, CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+    name: PostAsync<TResponse>
+    nameWithType: OktaClient.PostAsync<TResponse>
+    fullName: Okta.Sdk.OktaClient.PostAsync<TResponse>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+    name: PostAsync(Of TResponse)
+    nameWithType: OktaClient.PostAsync(Of TResponse)
+    fullName: Okta.Sdk.OktaClient.PostAsync(Of TResponse)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PostAsync(HttpRequest, CancellationToken)
+  nameWithType: OktaClient.PostAsync(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PostAsync
+    nameWithType: OktaClient.PostAsync
+    fullName: Okta.Sdk.OktaClient.PostAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PostAsync
+    nameWithType: OktaClient.PostAsync
+    fullName: Okta.Sdk.OktaClient.PostAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PostAsync<TResponse>(HttpRequest, CancellationToken)
+  nameWithType: OktaClient.PostAsync<TResponse>(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PostAsync<TResponse>(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  nameWithType.vb: OktaClient.PostAsync(Of TResponse)(HttpRequest, CancellationToken)
+  fullName.vb: Okta.Sdk.OktaClient.PostAsync(Of TResponse)(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  name.vb: PostAsync(Of TResponse)(HttpRequest, CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PostAsync<TResponse>
+    nameWithType: OktaClient.PostAsync<TResponse>
+    fullName: Okta.Sdk.OktaClient.PostAsync<TResponse>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PostAsync(Of TResponse)
+    nameWithType: OktaClient.PostAsync(Of TResponse)
+    fullName: Okta.Sdk.OktaClient.PostAsync(Of TResponse)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PutAsync(String, Object, CancellationToken)
+  nameWithType: OktaClient.PutAsync(String, Object, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PutAsync(System.String, System.Object, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+    name: PutAsync
+    nameWithType: OktaClient.PutAsync
+    fullName: Okta.Sdk.OktaClient.PutAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+    name: PutAsync
+    nameWithType: OktaClient.PutAsync
+    fullName: Okta.Sdk.OktaClient.PutAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PutAsync<TResponse>(String, Object, CancellationToken)
+  nameWithType: OktaClient.PutAsync<TResponse>(String, Object, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PutAsync<TResponse>(System.String, System.Object, System.Threading.CancellationToken)
+  nameWithType.vb: OktaClient.PutAsync(Of TResponse)(String, Object, CancellationToken)
+  fullName.vb: Okta.Sdk.OktaClient.PutAsync(Of TResponse)(System.String, System.Object, System.Threading.CancellationToken)
+  name.vb: PutAsync(Of TResponse)(String, Object, CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+    name: PutAsync<TResponse>
+    nameWithType: OktaClient.PutAsync<TResponse>
+    fullName: Okta.Sdk.OktaClient.PutAsync<TResponse>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+    name: PutAsync(Of TResponse)
+    nameWithType: OktaClient.PutAsync(Of TResponse)
+    fullName: Okta.Sdk.OktaClient.PutAsync(Of TResponse)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PutAsync(HttpRequest, CancellationToken)
+  nameWithType: OktaClient.PutAsync(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PutAsync
+    nameWithType: OktaClient.PutAsync
+    fullName: Okta.Sdk.OktaClient.PutAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PutAsync
+    nameWithType: OktaClient.PutAsync
+    fullName: Okta.Sdk.OktaClient.PutAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: PutAsync<TResponse>(HttpRequest, CancellationToken)
+  nameWithType: OktaClient.PutAsync<TResponse>(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.PutAsync<TResponse>(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  nameWithType.vb: OktaClient.PutAsync(Of TResponse)(HttpRequest, CancellationToken)
+  fullName.vb: Okta.Sdk.OktaClient.PutAsync(Of TResponse)(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  name.vb: PutAsync(Of TResponse)(HttpRequest, CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PutAsync<TResponse>
+    nameWithType: OktaClient.PutAsync<TResponse>
+    fullName: Okta.Sdk.OktaClient.PutAsync<TResponse>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: PutAsync(Of TResponse)
+    nameWithType: OktaClient.PutAsync(Of TResponse)
+    fullName: Okta.Sdk.OktaClient.PutAsync(Of TResponse)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: DeleteAsync(String, CancellationToken)
+  nameWithType: OktaClient.DeleteAsync(String, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.DeleteAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+    name: DeleteAsync
+    nameWithType: OktaClient.DeleteAsync
+    fullName: Okta.Sdk.OktaClient.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+    name: DeleteAsync
+    nameWithType: OktaClient.DeleteAsync
+    fullName: Okta.Sdk.OktaClient.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.OktaClient
+  isExternal: true
+  name: DeleteAsync(HttpRequest, CancellationToken)
+  nameWithType: OktaClient.DeleteAsync(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: DeleteAsync
+    nameWithType: OktaClient.DeleteAsync
+    fullName: Okta.Sdk.OktaClient.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.OktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+    name: DeleteAsync
+    nameWithType: OktaClient.DeleteAsync
+    fullName: Okta.Sdk.OktaClient.DeleteAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.TrustedOriginsClient.ListOrigins*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.ListOrigins
+  name: ListOrigins
+  nameWithType: TrustedOriginsClient.ListOrigins
+  fullName: Okta.Sdk.TrustedOriginsClient.ListOrigins
+- uid: Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: ListOrigins(String, String, String, Nullable<Int32>)
+  nameWithType: ITrustedOriginsClient.ListOrigins(String, String, String, Nullable<Int32>)
+  fullName: Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String, System.String, System.String, System.Nullable<System.Int32>)
+  nameWithType.vb: ITrustedOriginsClient.ListOrigins(String, String, String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String, System.String, System.String, System.Nullable(Of System.Int32))
+  name.vb: ListOrigins(String, String, String, Nullable(Of Int32))
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+    name: ListOrigins
+    nameWithType: ITrustedOriginsClient.ListOrigins
+    fullName: Okta.Sdk.ITrustedOriginsClient.ListOrigins
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.ListOrigins(System.String,System.String,System.String,System.Nullable{System.Int32})
+    name: ListOrigins
+    nameWithType: ITrustedOriginsClient.ListOrigins
+    fullName: Okta.Sdk.ITrustedOriginsClient.ListOrigins
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.ITrustedOrigin}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.ITrustedOrigin}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<ITrustedOrigin>
+  nameWithType: ICollectionClient<ITrustedOrigin>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.ITrustedOrigin>
+  nameWithType.vb: ICollectionClient(Of ITrustedOrigin)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.ITrustedOrigin)
+  name.vb: ICollectionClient(Of ITrustedOrigin)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.TrustedOriginsClient.CreateOriginAsync*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.CreateOriginAsync
+  name: CreateOriginAsync
+  nameWithType: TrustedOriginsClient.CreateOriginAsync
+  fullName: Okta.Sdk.TrustedOriginsClient.CreateOriginAsync
+- uid: Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: CreateOriginAsync(ITrustedOrigin, CancellationToken)
+  nameWithType: ITrustedOriginsClient.CreateOriginAsync(ITrustedOrigin, CancellationToken)
+  fullName: Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+    name: CreateOriginAsync
+    nameWithType: ITrustedOriginsClient.CreateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync(Okta.Sdk.ITrustedOrigin,System.Threading.CancellationToken)
+    name: CreateOriginAsync
+    nameWithType: ITrustedOriginsClient.CreateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.CreateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ITrustedOrigin
+  commentId: T:Okta.Sdk.ITrustedOrigin
+  parent: Okta.Sdk
+  name: ITrustedOrigin
+  nameWithType: ITrustedOrigin
+  fullName: Okta.Sdk.ITrustedOrigin
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.ITrustedOrigin}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ITrustedOrigin>
+  nameWithType: Task<ITrustedOrigin>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.ITrustedOrigin>
+  nameWithType.vb: Task(Of ITrustedOrigin)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.ITrustedOrigin)
+  name.vb: Task(Of ITrustedOrigin)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync
+  name: DeleteOriginAsync
+  nameWithType: TrustedOriginsClient.DeleteOriginAsync
+  fullName: Okta.Sdk.TrustedOriginsClient.DeleteOriginAsync
+- uid: Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: DeleteOriginAsync(String, CancellationToken)
+  nameWithType: ITrustedOriginsClient.DeleteOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+    name: DeleteOriginAsync
+    nameWithType: ITrustedOriginsClient.DeleteOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync(System.String,System.Threading.CancellationToken)
+    name: DeleteOriginAsync
+    nameWithType: ITrustedOriginsClient.DeleteOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.DeleteOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.TrustedOriginsClient.GetOriginAsync*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.GetOriginAsync
+  name: GetOriginAsync
+  nameWithType: TrustedOriginsClient.GetOriginAsync
+  fullName: Okta.Sdk.TrustedOriginsClient.GetOriginAsync
+- uid: Okta.Sdk.ITrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: GetOriginAsync(String, CancellationToken)
+  nameWithType: ITrustedOriginsClient.GetOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ITrustedOriginsClient.GetOriginAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+    name: GetOriginAsync
+    nameWithType: ITrustedOriginsClient.GetOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.GetOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.GetOriginAsync(System.String,System.Threading.CancellationToken)
+    name: GetOriginAsync
+    nameWithType: ITrustedOriginsClient.GetOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.GetOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync
+  name: UpdateOriginAsync
+  nameWithType: TrustedOriginsClient.UpdateOriginAsync
+  fullName: Okta.Sdk.TrustedOriginsClient.UpdateOriginAsync
+- uid: Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: UpdateOriginAsync(ITrustedOrigin, String, CancellationToken)
+  nameWithType: ITrustedOriginsClient.UpdateOriginAsync(ITrustedOrigin, String, CancellationToken)
+  fullName: Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin, System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+    name: UpdateOriginAsync
+    nameWithType: ITrustedOriginsClient.UpdateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync(Okta.Sdk.ITrustedOrigin,System.String,System.Threading.CancellationToken)
+    name: UpdateOriginAsync
+    nameWithType: ITrustedOriginsClient.UpdateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.UpdateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.ITrustedOrigin
+    name: ITrustedOrigin
+    nameWithType: ITrustedOrigin
+    fullName: Okta.Sdk.ITrustedOrigin
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync
+  name: ActivateOriginAsync
+  nameWithType: TrustedOriginsClient.ActivateOriginAsync
+  fullName: Okta.Sdk.TrustedOriginsClient.ActivateOriginAsync
+- uid: Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: ActivateOriginAsync(String, CancellationToken)
+  nameWithType: ITrustedOriginsClient.ActivateOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+    name: ActivateOriginAsync
+    nameWithType: ITrustedOriginsClient.ActivateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync(System.String,System.Threading.CancellationToken)
+    name: ActivateOriginAsync
+    nameWithType: ITrustedOriginsClient.ActivateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.ActivateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync*
+  commentId: Overload:Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync
+  name: DeactivateOriginAsync
+  nameWithType: TrustedOriginsClient.DeactivateOriginAsync
+  fullName: Okta.Sdk.TrustedOriginsClient.DeactivateOriginAsync
+- uid: Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITrustedOriginsClient
+  isExternal: true
+  name: DeactivateOriginAsync(String, CancellationToken)
+  nameWithType: ITrustedOriginsClient.DeactivateOriginAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync(System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+    name: DeactivateOriginAsync
+    nameWithType: ITrustedOriginsClient.DeactivateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync(System.String,System.Threading.CancellationToken)
+    name: DeactivateOriginAsync
+    nameWithType: ITrustedOriginsClient.DeactivateOriginAsync
+    fullName: Okta.Sdk.ITrustedOriginsClient.DeactivateOriginAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )

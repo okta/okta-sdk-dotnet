@@ -1,0 +1,545 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  commentId: T:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  id: ISwaThreeFieldApplicationSettingsApplication
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  - Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  langs:
+  - csharp
+  - vb
+  name: ISwaThreeFieldApplicationSettingsApplication
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ISwaThreeFieldApplicationSettingsApplication
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a SwaThreeFieldApplicationSettingsApplication resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface ISwaThreeFieldApplicationSettingsApplication : IApplicationSettingsApplication, IResource'
+    content.vb: >-
+      Public Interface ISwaThreeFieldApplicationSettingsApplication
+
+          Inherits IApplicationSettingsApplication
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  id: ButtonSelector
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: ButtonSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ButtonSelector
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ButtonSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ButtonSelector As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  id: ExtraFieldSelector
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: ExtraFieldSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExtraFieldSelector
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ExtraFieldSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ExtraFieldSelector As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  id: ExtraFieldValue
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: ExtraFieldValue
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExtraFieldValue
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string ExtraFieldValue { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property ExtraFieldValue As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  id: LoginUrlRegex
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: LoginUrlRegex
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LoginUrlRegex
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string LoginUrlRegex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property LoginUrlRegex As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  id: PasswordSelector
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: PasswordSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PasswordSelector
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PasswordSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PasswordSelector As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  id: TargetUrl
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: TargetUrl
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: TargetUrl
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string TargetUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property TargetUrl As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  commentId: P:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  id: UserNameSelector
+  parent: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication
+  langs:
+  - csharp
+  - vb
+  name: UserNameSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserNameSelector
+    path: ../src/Okta.Sdk/Generated/ISwaThreeFieldApplicationSettingsApplication.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string UserNameSelector { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property UserNameSelector As String
+  overload: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  name: ButtonSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ButtonSelector
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  name: ExtraFieldSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldSelector
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  name: ExtraFieldValue
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.ExtraFieldValue
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  name: LoginUrlRegex
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.LoginUrlRegex
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  name: PasswordSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.PasswordSelector
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  name: TargetUrl
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.TargetUrl
+- uid: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector*
+  commentId: Overload:Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  name: UserNameSelector
+  nameWithType: ISwaThreeFieldApplicationSettingsApplication.UserNameSelector
+  fullName: Okta.Sdk.ISwaThreeFieldApplicationSettingsApplication.UserNameSelector

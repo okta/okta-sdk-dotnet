@@ -1,0 +1,675 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IEmailTemplateCustomization
+  commentId: T:Okta.Sdk.IEmailTemplateCustomization
+  id: IEmailTemplateCustomization
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IEmailTemplateCustomization.Body
+  - Okta.Sdk.IEmailTemplateCustomization.Created
+  - Okta.Sdk.IEmailTemplateCustomization.Id
+  - Okta.Sdk.IEmailTemplateCustomization.IsDefault
+  - Okta.Sdk.IEmailTemplateCustomization.Language
+  - Okta.Sdk.IEmailTemplateCustomization.LastUpdated
+  - Okta.Sdk.IEmailTemplateCustomization.Subject
+  langs:
+  - csharp
+  - vb
+  name: IEmailTemplateCustomization
+  nameWithType: IEmailTemplateCustomization
+  fullName: Okta.Sdk.IEmailTemplateCustomization
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IEmailTemplateCustomization
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a EmailTemplateCustomization resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IEmailTemplateCustomization : IResource'
+    content.vb: >-
+      Public Interface IEmailTemplateCustomization
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IEmailTemplateCustomization.Body
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.Body
+  id: Body
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: Body
+  nameWithType: IEmailTemplateCustomization.Body
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Body
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Body
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Body { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Body As String
+  overload: Okta.Sdk.IEmailTemplateCustomization.Body*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IEmailTemplateCustomization.Created
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.Created
+  id: Created
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IEmailTemplateCustomization.Created
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.IEmailTemplateCustomization.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IEmailTemplateCustomization.Id
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.Id
+  id: Id
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IEmailTemplateCustomization.Id
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Id As String
+  overload: Okta.Sdk.IEmailTemplateCustomization.Id*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IEmailTemplateCustomization.IsDefault
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.IsDefault
+  id: IsDefault
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: IsDefault
+  nameWithType: IEmailTemplateCustomization.IsDefault
+  fullName: Okta.Sdk.IEmailTemplateCustomization.IsDefault
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IsDefault
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? IsDefault { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property IsDefault As Boolean?
+  overload: Okta.Sdk.IEmailTemplateCustomization.IsDefault*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IEmailTemplateCustomization.Language
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.Language
+  id: Language
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: Language
+  nameWithType: IEmailTemplateCustomization.Language
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Language
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Language
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Language { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Language As String
+  overload: Okta.Sdk.IEmailTemplateCustomization.Language*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IEmailTemplateCustomization.LastUpdated
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IEmailTemplateCustomization.LastUpdated
+  fullName: Okta.Sdk.IEmailTemplateCustomization.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IEmailTemplateCustomization.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IEmailTemplateCustomization.Subject
+  commentId: P:Okta.Sdk.IEmailTemplateCustomization.Subject
+  id: Subject
+  parent: Okta.Sdk.IEmailTemplateCustomization
+  langs:
+  - csharp
+  - vb
+  name: Subject
+  nameWithType: IEmailTemplateCustomization.Subject
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Subject
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Subject
+    path: ../src/Okta.Sdk/Generated/IEmailTemplateCustomization.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Subject { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Subject As String
+  overload: Okta.Sdk.IEmailTemplateCustomization.Subject*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IEmailTemplateCustomization.Body*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.Body
+  name: Body
+  nameWithType: IEmailTemplateCustomization.Body
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Body
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IEmailTemplateCustomization.Created*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.Created
+  name: Created
+  nameWithType: IEmailTemplateCustomization.Created
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IEmailTemplateCustomization.Id*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.Id
+  name: Id
+  nameWithType: IEmailTemplateCustomization.Id
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Id
+- uid: Okta.Sdk.IEmailTemplateCustomization.IsDefault*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.IsDefault
+  name: IsDefault
+  nameWithType: IEmailTemplateCustomization.IsDefault
+  fullName: Okta.Sdk.IEmailTemplateCustomization.IsDefault
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IEmailTemplateCustomization.Language*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.Language
+  name: Language
+  nameWithType: IEmailTemplateCustomization.Language
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Language
+- uid: Okta.Sdk.IEmailTemplateCustomization.LastUpdated*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.LastUpdated
+  name: LastUpdated
+  nameWithType: IEmailTemplateCustomization.LastUpdated
+  fullName: Okta.Sdk.IEmailTemplateCustomization.LastUpdated
+- uid: Okta.Sdk.IEmailTemplateCustomization.Subject*
+  commentId: Overload:Okta.Sdk.IEmailTemplateCustomization.Subject
+  name: Subject
+  nameWithType: IEmailTemplateCustomization.Subject
+  fullName: Okta.Sdk.IEmailTemplateCustomization.Subject

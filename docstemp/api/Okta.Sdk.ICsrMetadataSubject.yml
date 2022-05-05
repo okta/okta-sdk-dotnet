@@ -1,0 +1,507 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ICsrMetadataSubject
+  commentId: T:Okta.Sdk.ICsrMetadataSubject
+  id: ICsrMetadataSubject
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ICsrMetadataSubject.CommonName
+  - Okta.Sdk.ICsrMetadataSubject.CountryName
+  - Okta.Sdk.ICsrMetadataSubject.LocalityName
+  - Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName
+  - Okta.Sdk.ICsrMetadataSubject.OrganizationName
+  - Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName
+  langs:
+  - csharp
+  - vb
+  name: ICsrMetadataSubject
+  nameWithType: ICsrMetadataSubject
+  fullName: Okta.Sdk.ICsrMetadataSubject
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ICsrMetadataSubject
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a CsrMetadataSubject resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface ICsrMetadataSubject : IResource'
+    content.vb: >-
+      Public Interface ICsrMetadataSubject
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ICsrMetadataSubject.CommonName
+  commentId: P:Okta.Sdk.ICsrMetadataSubject.CommonName
+  id: CommonName
+  parent: Okta.Sdk.ICsrMetadataSubject
+  langs:
+  - csharp
+  - vb
+  name: CommonName
+  nameWithType: ICsrMetadataSubject.CommonName
+  fullName: Okta.Sdk.ICsrMetadataSubject.CommonName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CommonName
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string CommonName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CommonName As String
+  overload: Okta.Sdk.ICsrMetadataSubject.CommonName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ICsrMetadataSubject.CountryName
+  commentId: P:Okta.Sdk.ICsrMetadataSubject.CountryName
+  id: CountryName
+  parent: Okta.Sdk.ICsrMetadataSubject
+  langs:
+  - csharp
+  - vb
+  name: CountryName
+  nameWithType: ICsrMetadataSubject.CountryName
+  fullName: Okta.Sdk.ICsrMetadataSubject.CountryName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CountryName
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string CountryName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CountryName As String
+  overload: Okta.Sdk.ICsrMetadataSubject.CountryName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ICsrMetadataSubject.LocalityName
+  commentId: P:Okta.Sdk.ICsrMetadataSubject.LocalityName
+  id: LocalityName
+  parent: Okta.Sdk.ICsrMetadataSubject
+  langs:
+  - csharp
+  - vb
+  name: LocalityName
+  nameWithType: ICsrMetadataSubject.LocalityName
+  fullName: Okta.Sdk.ICsrMetadataSubject.LocalityName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LocalityName
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string LocalityName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property LocalityName As String
+  overload: Okta.Sdk.ICsrMetadataSubject.LocalityName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ICsrMetadataSubject.OrganizationName
+  commentId: P:Okta.Sdk.ICsrMetadataSubject.OrganizationName
+  id: OrganizationName
+  parent: Okta.Sdk.ICsrMetadataSubject
+  langs:
+  - csharp
+  - vb
+  name: OrganizationName
+  nameWithType: ICsrMetadataSubject.OrganizationName
+  fullName: Okta.Sdk.ICsrMetadataSubject.OrganizationName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OrganizationName
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string OrganizationName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property OrganizationName As String
+  overload: Okta.Sdk.ICsrMetadataSubject.OrganizationName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName
+  commentId: P:Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName
+  id: OrganizationalUnitName
+  parent: Okta.Sdk.ICsrMetadataSubject
+  langs:
+  - csharp
+  - vb
+  name: OrganizationalUnitName
+  nameWithType: ICsrMetadataSubject.OrganizationalUnitName
+  fullName: Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OrganizationalUnitName
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string OrganizationalUnitName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property OrganizationalUnitName As String
+  overload: Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName
+  commentId: P:Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName
+  id: StateOrProvinceName
+  parent: Okta.Sdk.ICsrMetadataSubject
+  langs:
+  - csharp
+  - vb
+  name: StateOrProvinceName
+  nameWithType: ICsrMetadataSubject.StateOrProvinceName
+  fullName: Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: StateOrProvinceName
+    path: ../src/Okta.Sdk/Generated/ICsrMetadataSubject.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string StateOrProvinceName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property StateOrProvinceName As String
+  overload: Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.ICsrMetadataSubject.CommonName*
+  commentId: Overload:Okta.Sdk.ICsrMetadataSubject.CommonName
+  name: CommonName
+  nameWithType: ICsrMetadataSubject.CommonName
+  fullName: Okta.Sdk.ICsrMetadataSubject.CommonName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ICsrMetadataSubject.CountryName*
+  commentId: Overload:Okta.Sdk.ICsrMetadataSubject.CountryName
+  name: CountryName
+  nameWithType: ICsrMetadataSubject.CountryName
+  fullName: Okta.Sdk.ICsrMetadataSubject.CountryName
+- uid: Okta.Sdk.ICsrMetadataSubject.LocalityName*
+  commentId: Overload:Okta.Sdk.ICsrMetadataSubject.LocalityName
+  name: LocalityName
+  nameWithType: ICsrMetadataSubject.LocalityName
+  fullName: Okta.Sdk.ICsrMetadataSubject.LocalityName
+- uid: Okta.Sdk.ICsrMetadataSubject.OrganizationName*
+  commentId: Overload:Okta.Sdk.ICsrMetadataSubject.OrganizationName
+  name: OrganizationName
+  nameWithType: ICsrMetadataSubject.OrganizationName
+  fullName: Okta.Sdk.ICsrMetadataSubject.OrganizationName
+- uid: Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName*
+  commentId: Overload:Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName
+  name: OrganizationalUnitName
+  nameWithType: ICsrMetadataSubject.OrganizationalUnitName
+  fullName: Okta.Sdk.ICsrMetadataSubject.OrganizationalUnitName
+- uid: Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName*
+  commentId: Overload:Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName
+  name: StateOrProvinceName
+  nameWithType: ICsrMetadataSubject.StateOrProvinceName
+  fullName: Okta.Sdk.ICsrMetadataSubject.StateOrProvinceName

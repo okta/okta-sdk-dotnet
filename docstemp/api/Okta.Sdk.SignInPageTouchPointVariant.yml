@@ -1,0 +1,664 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.SignInPageTouchPointVariant
+  commentId: T:Okta.Sdk.SignInPageTouchPointVariant
+  id: SignInPageTouchPointVariant
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.SignInPageTouchPointVariant.#ctor(System.String)
+  - Okta.Sdk.SignInPageTouchPointVariant.BackgroundImage
+  - Okta.Sdk.SignInPageTouchPointVariant.BackgroundSecondaryColor
+  - Okta.Sdk.SignInPageTouchPointVariant.OktaDefault
+  - Okta.Sdk.SignInPageTouchPointVariant.op_Implicit(System.String)~Okta.Sdk.SignInPageTouchPointVariant
+  langs:
+  - csharp
+  - vb
+  name: SignInPageTouchPointVariant
+  nameWithType: SignInPageTouchPointVariant
+  fullName: Okta.Sdk.SignInPageTouchPointVariant
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignInPageTouchPointVariant
+    path: ../src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAn enumeration of SignInPageTouchPointVariant values in the Okta API.\n"
+  example: []
+  syntax:
+    content: 'public sealed class SignInPageTouchPointVariant : StringEnum, IComparable'
+    content.vb: >-
+      Public NotInheritable Class SignInPageTouchPointVariant
+
+          Inherits StringEnum
+
+          Implements IComparable
+  inheritance:
+  - System.Object
+  - Okta.Sdk.StringEnum
+  implements:
+  - System.IComparable
+  inheritedMembers:
+  - Okta.Sdk.StringEnum.Value
+  - Okta.Sdk.StringEnum.ToString
+  - Okta.Sdk.StringEnum.Equals(System.Object)
+  - Okta.Sdk.StringEnum.GetHashCode
+  - Okta.Sdk.StringEnum.CompareTo(System.Object)
+  - Okta.Sdk.StringEnum.Create``1(System.String)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.SignInPageTouchPointVariant.OktaDefault
+  commentId: F:Okta.Sdk.SignInPageTouchPointVariant.OktaDefault
+  id: OktaDefault
+  parent: Okta.Sdk.SignInPageTouchPointVariant
+  langs:
+  - csharp
+  - vb
+  name: OktaDefault
+  nameWithType: SignInPageTouchPointVariant.OktaDefault
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.OktaDefault
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OktaDefault
+    path: ../src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The OKTA_DEFAULT SignInPageTouchPointVariant.
+  example: []
+  syntax:
+    content: public static SignInPageTouchPointVariant OktaDefault
+    return:
+      type: Okta.Sdk.SignInPageTouchPointVariant
+    content.vb: Public Shared OktaDefault As SignInPageTouchPointVariant
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.SignInPageTouchPointVariant.BackgroundSecondaryColor
+  commentId: F:Okta.Sdk.SignInPageTouchPointVariant.BackgroundSecondaryColor
+  id: BackgroundSecondaryColor
+  parent: Okta.Sdk.SignInPageTouchPointVariant
+  langs:
+  - csharp
+  - vb
+  name: BackgroundSecondaryColor
+  nameWithType: SignInPageTouchPointVariant.BackgroundSecondaryColor
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.BackgroundSecondaryColor
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: BackgroundSecondaryColor
+    path: ../src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+    startLine: 18
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The BACKGROUND_SECONDARY_COLOR SignInPageTouchPointVariant.
+  example: []
+  syntax:
+    content: public static SignInPageTouchPointVariant BackgroundSecondaryColor
+    return:
+      type: Okta.Sdk.SignInPageTouchPointVariant
+    content.vb: Public Shared BackgroundSecondaryColor As SignInPageTouchPointVariant
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.SignInPageTouchPointVariant.BackgroundImage
+  commentId: F:Okta.Sdk.SignInPageTouchPointVariant.BackgroundImage
+  id: BackgroundImage
+  parent: Okta.Sdk.SignInPageTouchPointVariant
+  langs:
+  - csharp
+  - vb
+  name: BackgroundImage
+  nameWithType: SignInPageTouchPointVariant.BackgroundImage
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.BackgroundImage
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: BackgroundImage
+    path: ../src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The BACKGROUND_IMAGE SignInPageTouchPointVariant.
+  example: []
+  syntax:
+    content: public static SignInPageTouchPointVariant BackgroundImage
+    return:
+      type: Okta.Sdk.SignInPageTouchPointVariant
+    content.vb: Public Shared BackgroundImage As SignInPageTouchPointVariant
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.SignInPageTouchPointVariant.op_Implicit(System.String)~Okta.Sdk.SignInPageTouchPointVariant
+  commentId: M:Okta.Sdk.SignInPageTouchPointVariant.op_Implicit(System.String)~Okta.Sdk.SignInPageTouchPointVariant
+  id: op_Implicit(System.String)~Okta.Sdk.SignInPageTouchPointVariant
+  parent: Okta.Sdk.SignInPageTouchPointVariant
+  langs:
+  - csharp
+  - vb
+  name: Implicit(String to SignInPageTouchPointVariant)
+  nameWithType: SignInPageTouchPointVariant.Implicit(String to SignInPageTouchPointVariant)
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.Implicit(System.String to Okta.Sdk.SignInPageTouchPointVariant)
+  type: Operator
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: op_Implicit
+    path: ../src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nImplicit operator declaration to accept and convert a string value as a <xref href=\"Okta.Sdk.SignInPageTouchPointVariant\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static implicit operator SignInPageTouchPointVariant(string value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value to use
+    return:
+      type: Okta.Sdk.SignInPageTouchPointVariant
+    content.vb: Public Shared Widening Operator CType(value As String) As SignInPageTouchPointVariant
+  overload: Okta.Sdk.SignInPageTouchPointVariant.op_Implicit*
+  nameWithType.vb: SignInPageTouchPointVariant.Widening(String to SignInPageTouchPointVariant)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Okta.Sdk.SignInPageTouchPointVariant.Widening(System.String to Okta.Sdk.SignInPageTouchPointVariant)
+  name.vb: Widening(String to SignInPageTouchPointVariant)
+- uid: Okta.Sdk.SignInPageTouchPointVariant.#ctor(System.String)
+  commentId: M:Okta.Sdk.SignInPageTouchPointVariant.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Okta.Sdk.SignInPageTouchPointVariant
+  langs:
+  - csharp
+  - vb
+  name: SignInPageTouchPointVariant(String)
+  nameWithType: SignInPageTouchPointVariant.SignInPageTouchPointVariant(String)
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.SignInPageTouchPointVariant(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/Generated/SignInPageTouchPointVariant.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nCreates a new <xref href=\"Okta.Sdk.SignInPageTouchPointVariant\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
+  syntax:
+    content: public SignInPageTouchPointVariant(string value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value to use.
+    content.vb: Public Sub New(value As String)
+  overload: Okta.Sdk.SignInPageTouchPointVariant.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.StringEnum
+  commentId: T:Okta.Sdk.StringEnum
+  parent: Okta.Sdk
+  name: StringEnum
+  nameWithType: StringEnum
+  fullName: Okta.Sdk.StringEnum
+- uid: System.IComparable
+  commentId: T:System.IComparable
+  parent: System
+  isExternal: true
+  name: IComparable
+  nameWithType: IComparable
+  fullName: System.IComparable
+- uid: Okta.Sdk.StringEnum.Value
+  commentId: P:Okta.Sdk.StringEnum.Value
+  parent: Okta.Sdk.StringEnum
+  name: Value
+  nameWithType: StringEnum.Value
+  fullName: Okta.Sdk.StringEnum.Value
+- uid: Okta.Sdk.StringEnum.ToString
+  commentId: M:Okta.Sdk.StringEnum.ToString
+  parent: Okta.Sdk.StringEnum
+  name: ToString()
+  nameWithType: StringEnum.ToString()
+  fullName: Okta.Sdk.StringEnum.ToString()
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.ToString
+    name: ToString
+    nameWithType: StringEnum.ToString
+    fullName: Okta.Sdk.StringEnum.ToString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.ToString
+    name: ToString
+    nameWithType: StringEnum.ToString
+    fullName: Okta.Sdk.StringEnum.ToString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.Equals(System.Object)
+  commentId: M:Okta.Sdk.StringEnum.Equals(System.Object)
+  parent: Okta.Sdk.StringEnum
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: StringEnum.Equals(Object)
+  fullName: Okta.Sdk.StringEnum.Equals(System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.Equals(System.Object)
+    name: Equals
+    nameWithType: StringEnum.Equals
+    fullName: Okta.Sdk.StringEnum.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.Equals(System.Object)
+    name: Equals
+    nameWithType: StringEnum.Equals
+    fullName: Okta.Sdk.StringEnum.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.GetHashCode
+  commentId: M:Okta.Sdk.StringEnum.GetHashCode
+  parent: Okta.Sdk.StringEnum
+  name: GetHashCode()
+  nameWithType: StringEnum.GetHashCode()
+  fullName: Okta.Sdk.StringEnum.GetHashCode()
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.GetHashCode
+    name: GetHashCode
+    nameWithType: StringEnum.GetHashCode
+    fullName: Okta.Sdk.StringEnum.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.GetHashCode
+    name: GetHashCode
+    nameWithType: StringEnum.GetHashCode
+    fullName: Okta.Sdk.StringEnum.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.CompareTo(System.Object)
+  commentId: M:Okta.Sdk.StringEnum.CompareTo(System.Object)
+  parent: Okta.Sdk.StringEnum
+  isExternal: true
+  name: CompareTo(Object)
+  nameWithType: StringEnum.CompareTo(Object)
+  fullName: Okta.Sdk.StringEnum.CompareTo(System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.CompareTo(System.Object)
+    name: CompareTo
+    nameWithType: StringEnum.CompareTo
+    fullName: Okta.Sdk.StringEnum.CompareTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.CompareTo(System.Object)
+    name: CompareTo
+    nameWithType: StringEnum.CompareTo
+    fullName: Okta.Sdk.StringEnum.CompareTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.Create``1(System.String)
+  commentId: M:Okta.Sdk.StringEnum.Create``1(System.String)
+  parent: Okta.Sdk.StringEnum
+  isExternal: true
+  name: Create<T>(String)
+  nameWithType: StringEnum.Create<T>(String)
+  fullName: Okta.Sdk.StringEnum.Create<T>(System.String)
+  nameWithType.vb: StringEnum.Create(Of T)(String)
+  fullName.vb: Okta.Sdk.StringEnum.Create(Of T)(System.String)
+  name.vb: Create(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.Create``1(System.String)
+    name: Create<T>
+    nameWithType: StringEnum.Create<T>
+    fullName: Okta.Sdk.StringEnum.Create<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.Create``1(System.String)
+    name: Create(Of T)
+    nameWithType: StringEnum.Create(Of T)
+    fullName: Okta.Sdk.StringEnum.Create(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.SignInPageTouchPointVariant
+  commentId: T:Okta.Sdk.SignInPageTouchPointVariant
+  parent: Okta.Sdk
+  name: SignInPageTouchPointVariant
+  nameWithType: SignInPageTouchPointVariant
+  fullName: Okta.Sdk.SignInPageTouchPointVariant
+- uid: Okta.Sdk.SignInPageTouchPointVariant.op_Implicit*
+  commentId: Overload:Okta.Sdk.SignInPageTouchPointVariant.op_Implicit
+  name: Implicit
+  nameWithType: SignInPageTouchPointVariant.Implicit
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.Implicit
+  nameWithType.vb: SignInPageTouchPointVariant.Widening
+  fullName.vb: Okta.Sdk.SignInPageTouchPointVariant.Widening
+  name.vb: Widening
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.SignInPageTouchPointVariant.#ctor*
+  commentId: Overload:Okta.Sdk.SignInPageTouchPointVariant.#ctor
+  name: SignInPageTouchPointVariant
+  nameWithType: SignInPageTouchPointVariant.SignInPageTouchPointVariant
+  fullName: Okta.Sdk.SignInPageTouchPointVariant.SignInPageTouchPointVariant

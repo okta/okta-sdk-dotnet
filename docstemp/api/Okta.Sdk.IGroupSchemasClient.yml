@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IGroupSchemasClient
+  commentId: T:Okta.Sdk.IGroupSchemasClient
+  id: IGroupSchemasClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync(Okta.Sdk.IGroupSchema,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IGroupSchemasClient
+  nameWithType: IGroupSchemasClient
+  fullName: Okta.Sdk.IGroupSchemasClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchemasClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IGroupSchemasClient
+    path: ../src/Okta.Sdk/Generated/IGroupSchemasClient.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta GroupSchema resources.
+  example: []
+  syntax:
+    content: public interface IGroupSchemasClient
+    content.vb: Public Interface IGroupSchemasClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync(System.Threading.CancellationToken)
+  id: GetGroupSchemaAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupSchemasClient
+  langs:
+  - csharp
+  - vb
+  name: GetGroupSchemaAsync(CancellationToken)
+  nameWithType: IGroupSchemasClient.GetGroupSchemaAsync(CancellationToken)
+  fullName: Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchemasClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetGroupSchemaAsync
+    path: ../src/Okta.Sdk/Generated/IGroupSchemasClient.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches the group schema\n"
+  example: []
+  syntax:
+    content: Task<IGroupSchema> GetGroupSchemaAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroupSchema}
+      description: The <xref href="Okta.Sdk.IGroupSchema" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetGroupSchemaAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IGroupSchema)
+  overload: Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync*
+- uid: Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync(Okta.Sdk.IGroupSchema,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync(Okta.Sdk.IGroupSchema,System.Threading.CancellationToken)
+  id: UpdateGroupSchemaAsync(Okta.Sdk.IGroupSchema,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupSchemasClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateGroupSchemaAsync(IGroupSchema, CancellationToken)
+  nameWithType: IGroupSchemasClient.UpdateGroupSchemaAsync(IGroupSchema, CancellationToken)
+  fullName: Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync(Okta.Sdk.IGroupSchema, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchemasClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateGroupSchemaAsync
+    path: ../src/Okta.Sdk/Generated/IGroupSchemasClient.Generated.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates, adds ore removes one or more custom Group Profile properties in the schema\n"
+  example: []
+  syntax:
+    content: Task<IGroupSchema> UpdateGroupSchemaAsync(IGroupSchema body, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: body
+      type: Okta.Sdk.IGroupSchema
+      description: The <xref href="Okta.Sdk.IGroupSchema" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroupSchema}
+      description: The <xref href="Okta.Sdk.IGroupSchema" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateGroupSchemaAsync(body As IGroupSchema, cancellationToken As CancellationToken = Nothing) As Task(Of IGroupSchema)
+  overload: Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IGroupSchema
+  commentId: T:Okta.Sdk.IGroupSchema
+  parent: Okta.Sdk
+  name: IGroupSchema
+  nameWithType: IGroupSchema
+  fullName: Okta.Sdk.IGroupSchema
+- uid: Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync*
+  commentId: Overload:Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync
+  name: GetGroupSchemaAsync
+  nameWithType: IGroupSchemasClient.GetGroupSchemaAsync
+  fullName: Okta.Sdk.IGroupSchemasClient.GetGroupSchemaAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IGroupSchema}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IGroupSchema}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IGroupSchema>
+  nameWithType: Task<IGroupSchema>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IGroupSchema>
+  nameWithType.vb: Task(Of IGroupSchema)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IGroupSchema)
+  name.vb: Task(Of IGroupSchema)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroupSchema
+    name: IGroupSchema
+    nameWithType: IGroupSchema
+    fullName: Okta.Sdk.IGroupSchema
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroupSchema
+    name: IGroupSchema
+    nameWithType: IGroupSchema
+    fullName: Okta.Sdk.IGroupSchema
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync*
+  commentId: Overload:Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync
+  name: UpdateGroupSchemaAsync
+  nameWithType: IGroupSchemasClient.UpdateGroupSchemaAsync
+  fullName: Okta.Sdk.IGroupSchemasClient.UpdateGroupSchemaAsync

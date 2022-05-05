@@ -1,0 +1,716 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IIonField
+  commentId: T:Okta.Sdk.IIonField
+  id: IIonField
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IIonField.Form
+  - Okta.Sdk.IIonField.Label
+  - Okta.Sdk.IIonField.Mutable
+  - Okta.Sdk.IIonField.Name
+  - Okta.Sdk.IIonField.Required
+  - Okta.Sdk.IIonField.Secret
+  - Okta.Sdk.IIonField.Type
+  - Okta.Sdk.IIonField.Value
+  - Okta.Sdk.IIonField.Visible
+  langs:
+  - csharp
+  - vb
+  name: IIonField
+  nameWithType: IIonField
+  fullName: Okta.Sdk.IIonField
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IIonField
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a IonField resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IIonField : IResource'
+    content.vb: >-
+      Public Interface IIonField
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IIonField.Form
+  commentId: P:Okta.Sdk.IIonField.Form
+  id: Form
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Form
+  nameWithType: IIonField.Form
+  fullName: Okta.Sdk.IIonField.Form
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Form
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IIonForm Form { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IIonForm
+    content.vb: Property Form As IIonForm
+  overload: Okta.Sdk.IIonField.Form*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Label
+  commentId: P:Okta.Sdk.IIonField.Label
+  id: Label
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: IIonField.Label
+  fullName: Okta.Sdk.IIonField.Label
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Label
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Label { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Label As String
+  overload: Okta.Sdk.IIonField.Label*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Mutable
+  commentId: P:Okta.Sdk.IIonField.Mutable
+  id: Mutable
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Mutable
+  nameWithType: IIonField.Mutable
+  fullName: Okta.Sdk.IIonField.Mutable
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Mutable
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? Mutable { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property Mutable As Boolean?
+  overload: Okta.Sdk.IIonField.Mutable*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Name
+  commentId: P:Okta.Sdk.IIonField.Name
+  id: Name
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IIonField.Name
+  fullName: Okta.Sdk.IIonField.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: Okta.Sdk.IIonField.Name*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Required
+  commentId: P:Okta.Sdk.IIonField.Required
+  id: Required
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Required
+  nameWithType: IIonField.Required
+  fullName: Okta.Sdk.IIonField.Required
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Required
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? Required { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property Required As Boolean?
+  overload: Okta.Sdk.IIonField.Required*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Secret
+  commentId: P:Okta.Sdk.IIonField.Secret
+  id: Secret
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Secret
+  nameWithType: IIonField.Secret
+  fullName: Okta.Sdk.IIonField.Secret
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Secret
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? Secret { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property Secret As Boolean?
+  overload: Okta.Sdk.IIonField.Secret*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Type
+  commentId: P:Okta.Sdk.IIonField.Type
+  id: Type
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IIonField.Type
+  fullName: Okta.Sdk.IIonField.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Type { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Type As String
+  overload: Okta.Sdk.IIonField.Type*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Value
+  commentId: P:Okta.Sdk.IIonField.Value
+  id: Value
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Value
+  nameWithType: IIonField.Value
+  fullName: Okta.Sdk.IIonField.Value
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Value
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Resource Value { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.Resource
+    content.vb: Property Value As Resource
+  overload: Okta.Sdk.IIonField.Value*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIonField.Visible
+  commentId: P:Okta.Sdk.IIonField.Visible
+  id: Visible
+  parent: Okta.Sdk.IIonField
+  langs:
+  - csharp
+  - vb
+  name: Visible
+  nameWithType: IIonField.Visible
+  fullName: Okta.Sdk.IIonField.Visible
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIonField.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Visible
+    path: ../src/Okta.Sdk/Generated/IIonField.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? Visible { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property Visible As Boolean?
+  overload: Okta.Sdk.IIonField.Visible*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IIonField.Form*
+  commentId: Overload:Okta.Sdk.IIonField.Form
+  name: Form
+  nameWithType: IIonField.Form
+  fullName: Okta.Sdk.IIonField.Form
+- uid: Okta.Sdk.IIonForm
+  commentId: T:Okta.Sdk.IIonForm
+  parent: Okta.Sdk
+  name: IIonForm
+  nameWithType: IIonForm
+  fullName: Okta.Sdk.IIonForm
+- uid: Okta.Sdk.IIonField.Label*
+  commentId: Overload:Okta.Sdk.IIonField.Label
+  name: Label
+  nameWithType: IIonField.Label
+  fullName: Okta.Sdk.IIonField.Label
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IIonField.Mutable*
+  commentId: Overload:Okta.Sdk.IIonField.Mutable
+  name: Mutable
+  nameWithType: IIonField.Mutable
+  fullName: Okta.Sdk.IIonField.Mutable
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIonField.Name*
+  commentId: Overload:Okta.Sdk.IIonField.Name
+  name: Name
+  nameWithType: IIonField.Name
+  fullName: Okta.Sdk.IIonField.Name
+- uid: Okta.Sdk.IIonField.Required*
+  commentId: Overload:Okta.Sdk.IIonField.Required
+  name: Required
+  nameWithType: IIonField.Required
+  fullName: Okta.Sdk.IIonField.Required
+- uid: Okta.Sdk.IIonField.Secret*
+  commentId: Overload:Okta.Sdk.IIonField.Secret
+  name: Secret
+  nameWithType: IIonField.Secret
+  fullName: Okta.Sdk.IIonField.Secret
+- uid: Okta.Sdk.IIonField.Type*
+  commentId: Overload:Okta.Sdk.IIonField.Type
+  name: Type
+  nameWithType: IIonField.Type
+  fullName: Okta.Sdk.IIonField.Type
+- uid: Okta.Sdk.IIonField.Value*
+  commentId: Overload:Okta.Sdk.IIonField.Value
+  name: Value
+  nameWithType: IIonField.Value
+  fullName: Okta.Sdk.IIonField.Value
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource
+- uid: Okta.Sdk.IIonField.Visible*
+  commentId: Overload:Okta.Sdk.IIonField.Visible
+  name: Visible
+  nameWithType: IIonField.Visible
+  fullName: Okta.Sdk.IIonField.Visible

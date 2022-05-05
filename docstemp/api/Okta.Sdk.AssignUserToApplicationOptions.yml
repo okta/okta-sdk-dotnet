@@ -1,0 +1,617 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.AssignUserToApplicationOptions
+  commentId: T:Okta.Sdk.AssignUserToApplicationOptions
+  id: AssignUserToApplicationOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.AssignUserToApplicationOptions.ApplicationId
+  - Okta.Sdk.AssignUserToApplicationOptions.Password
+  - Okta.Sdk.AssignUserToApplicationOptions.Profile
+  - Okta.Sdk.AssignUserToApplicationOptions.Scope
+  - Okta.Sdk.AssignUserToApplicationOptions.UserId
+  - Okta.Sdk.AssignUserToApplicationOptions.UserName
+  langs:
+  - csharp
+  - vb
+  name: AssignUserToApplicationOptions
+  nameWithType: AssignUserToApplicationOptions
+  fullName: Okta.Sdk.AssignUserToApplicationOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AssignUserToApplicationOptions
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSettings helper class to assign users to application\n"
+  example: []
+  syntax:
+    content: public sealed class AssignUserToApplicationOptions
+    content.vb: Public NotInheritable Class AssignUserToApplicationOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.AssignUserToApplicationOptions.UserId
+  commentId: P:Okta.Sdk.AssignUserToApplicationOptions.UserId
+  id: UserId
+  parent: Okta.Sdk.AssignUserToApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: UserId
+  nameWithType: AssignUserToApplicationOptions.UserId
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.UserId
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserId
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the user id\n"
+  example: []
+  syntax:
+    content: public string UserId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserId As String
+  overload: Okta.Sdk.AssignUserToApplicationOptions.UserId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AssignUserToApplicationOptions.Scope
+  commentId: P:Okta.Sdk.AssignUserToApplicationOptions.Scope
+  id: Scope
+  parent: Okta.Sdk.AssignUserToApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Scope
+  nameWithType: AssignUserToApplicationOptions.Scope
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.Scope
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Scope
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the scope\n"
+  example: []
+  syntax:
+    content: public string Scope { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Scope As String
+  overload: Okta.Sdk.AssignUserToApplicationOptions.Scope*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AssignUserToApplicationOptions.Password
+  commentId: P:Okta.Sdk.AssignUserToApplicationOptions.Password
+  id: Password
+  parent: Okta.Sdk.AssignUserToApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Password
+  nameWithType: AssignUserToApplicationOptions.Password
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.Password
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Password
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a password\n"
+  example: []
+  syntax:
+    content: public string Password { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property Password As String
+  overload: Okta.Sdk.AssignUserToApplicationOptions.Password*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AssignUserToApplicationOptions.UserName
+  commentId: P:Okta.Sdk.AssignUserToApplicationOptions.UserName
+  id: UserName
+  parent: Okta.Sdk.AssignUserToApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: UserName
+  nameWithType: AssignUserToApplicationOptions.UserName
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.UserName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserName
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a username\n"
+  example: []
+  syntax:
+    content: public string UserName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property UserName As String
+  overload: Okta.Sdk.AssignUserToApplicationOptions.UserName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AssignUserToApplicationOptions.ApplicationId
+  commentId: P:Okta.Sdk.AssignUserToApplicationOptions.ApplicationId
+  id: ApplicationId
+  parent: Okta.Sdk.AssignUserToApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: ApplicationId
+  nameWithType: AssignUserToApplicationOptions.ApplicationId
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.ApplicationId
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ApplicationId
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets an application id\n"
+  example: []
+  syntax:
+    content: public string ApplicationId { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ApplicationId As String
+  overload: Okta.Sdk.AssignUserToApplicationOptions.ApplicationId*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.AssignUserToApplicationOptions.Profile
+  commentId: P:Okta.Sdk.AssignUserToApplicationOptions.Profile
+  id: Profile
+  parent: Okta.Sdk.AssignUserToApplicationOptions
+  langs:
+  - csharp
+  - vb
+  name: Profile
+  nameWithType: AssignUserToApplicationOptions.Profile
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.Profile
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/AssignUserToApplicationOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Profile
+    path: ../src/Okta.Sdk/AssignUserToApplicationOptions.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a profile\n"
+  example: []
+  syntax:
+    content: public Resource Profile { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.Resource
+    content.vb: Public Property Profile As Resource
+  overload: Okta.Sdk.AssignUserToApplicationOptions.Profile*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.AssignUserToApplicationOptions.UserId*
+  commentId: Overload:Okta.Sdk.AssignUserToApplicationOptions.UserId
+  name: UserId
+  nameWithType: AssignUserToApplicationOptions.UserId
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.UserId
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.AssignUserToApplicationOptions.Scope*
+  commentId: Overload:Okta.Sdk.AssignUserToApplicationOptions.Scope
+  name: Scope
+  nameWithType: AssignUserToApplicationOptions.Scope
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.Scope
+- uid: Okta.Sdk.AssignUserToApplicationOptions.Password*
+  commentId: Overload:Okta.Sdk.AssignUserToApplicationOptions.Password
+  name: Password
+  nameWithType: AssignUserToApplicationOptions.Password
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.Password
+- uid: Okta.Sdk.AssignUserToApplicationOptions.UserName*
+  commentId: Overload:Okta.Sdk.AssignUserToApplicationOptions.UserName
+  name: UserName
+  nameWithType: AssignUserToApplicationOptions.UserName
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.UserName
+- uid: Okta.Sdk.AssignUserToApplicationOptions.ApplicationId*
+  commentId: Overload:Okta.Sdk.AssignUserToApplicationOptions.ApplicationId
+  name: ApplicationId
+  nameWithType: AssignUserToApplicationOptions.ApplicationId
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.ApplicationId
+- uid: Okta.Sdk.AssignUserToApplicationOptions.Profile*
+  commentId: Overload:Okta.Sdk.AssignUserToApplicationOptions.Profile
+  name: Profile
+  nameWithType: AssignUserToApplicationOptions.Profile
+  fullName: Okta.Sdk.AssignUserToApplicationOptions.Profile
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource

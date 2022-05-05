@@ -1,0 +1,1051 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ITheme
+  commentId: T:Okta.Sdk.ITheme
+  id: ITheme
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ITheme.BackgroundImage
+  - Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITheme.EmailTemplateTouchPointVariant
+  - Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant
+  - Okta.Sdk.ITheme.ErrorPageTouchPointVariant
+  - Okta.Sdk.ITheme.PrimaryColorContrastHex
+  - Okta.Sdk.ITheme.PrimaryColorHex
+  - Okta.Sdk.ITheme.SecondaryColorContrastHex
+  - Okta.Sdk.ITheme.SecondaryColorHex
+  - Okta.Sdk.ITheme.SignInPageTouchPointVariant
+  - Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ITheme.UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ITheme
+  nameWithType: ITheme
+  fullName: Okta.Sdk.ITheme
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/ITheme.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ITheme
+    path: ../src/Okta.Sdk/ITheme.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a Theme resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface ITheme : IResource'
+    content.vb: >-
+      Public Interface ITheme
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ITheme.BackgroundImage
+  commentId: P:Okta.Sdk.ITheme.BackgroundImage
+  id: BackgroundImage
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: BackgroundImage
+  nameWithType: ITheme.BackgroundImage
+  fullName: Okta.Sdk.ITheme.BackgroundImage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: BackgroundImage
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string BackgroundImage { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property BackgroundImage As String
+  overload: Okta.Sdk.ITheme.BackgroundImage*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.ITheme.EmailTemplateTouchPointVariant
+  commentId: P:Okta.Sdk.ITheme.EmailTemplateTouchPointVariant
+  id: EmailTemplateTouchPointVariant
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: EmailTemplateTouchPointVariant
+  nameWithType: ITheme.EmailTemplateTouchPointVariant
+  fullName: Okta.Sdk.ITheme.EmailTemplateTouchPointVariant
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EmailTemplateTouchPointVariant
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: EmailTemplateTouchPointVariant EmailTemplateTouchPointVariant { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.EmailTemplateTouchPointVariant
+    content.vb: Property EmailTemplateTouchPointVariant As EmailTemplateTouchPointVariant
+  overload: Okta.Sdk.ITheme.EmailTemplateTouchPointVariant*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant
+  commentId: P:Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant
+  id: EndUserDashboardTouchPointVariant
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: EndUserDashboardTouchPointVariant
+  nameWithType: ITheme.EndUserDashboardTouchPointVariant
+  fullName: Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EndUserDashboardTouchPointVariant
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: EndUserDashboardTouchPointVariant EndUserDashboardTouchPointVariant { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.EndUserDashboardTouchPointVariant
+    content.vb: Property EndUserDashboardTouchPointVariant As EndUserDashboardTouchPointVariant
+  overload: Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.ErrorPageTouchPointVariant
+  commentId: P:Okta.Sdk.ITheme.ErrorPageTouchPointVariant
+  id: ErrorPageTouchPointVariant
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: ErrorPageTouchPointVariant
+  nameWithType: ITheme.ErrorPageTouchPointVariant
+  fullName: Okta.Sdk.ITheme.ErrorPageTouchPointVariant
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ErrorPageTouchPointVariant
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ErrorPageTouchPointVariant ErrorPageTouchPointVariant { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ErrorPageTouchPointVariant
+    content.vb: Property ErrorPageTouchPointVariant As ErrorPageTouchPointVariant
+  overload: Okta.Sdk.ITheme.ErrorPageTouchPointVariant*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.PrimaryColorContrastHex
+  commentId: P:Okta.Sdk.ITheme.PrimaryColorContrastHex
+  id: PrimaryColorContrastHex
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: PrimaryColorContrastHex
+  nameWithType: ITheme.PrimaryColorContrastHex
+  fullName: Okta.Sdk.ITheme.PrimaryColorContrastHex
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PrimaryColorContrastHex
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PrimaryColorContrastHex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PrimaryColorContrastHex As String
+  overload: Okta.Sdk.ITheme.PrimaryColorContrastHex*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.PrimaryColorHex
+  commentId: P:Okta.Sdk.ITheme.PrimaryColorHex
+  id: PrimaryColorHex
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: PrimaryColorHex
+  nameWithType: ITheme.PrimaryColorHex
+  fullName: Okta.Sdk.ITheme.PrimaryColorHex
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PrimaryColorHex
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string PrimaryColorHex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property PrimaryColorHex As String
+  overload: Okta.Sdk.ITheme.PrimaryColorHex*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.SecondaryColorContrastHex
+  commentId: P:Okta.Sdk.ITheme.SecondaryColorContrastHex
+  id: SecondaryColorContrastHex
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: SecondaryColorContrastHex
+  nameWithType: ITheme.SecondaryColorContrastHex
+  fullName: Okta.Sdk.ITheme.SecondaryColorContrastHex
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SecondaryColorContrastHex
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SecondaryColorContrastHex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SecondaryColorContrastHex As String
+  overload: Okta.Sdk.ITheme.SecondaryColorContrastHex*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.SecondaryColorHex
+  commentId: P:Okta.Sdk.ITheme.SecondaryColorHex
+  id: SecondaryColorHex
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: SecondaryColorHex
+  nameWithType: ITheme.SecondaryColorHex
+  fullName: Okta.Sdk.ITheme.SecondaryColorHex
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SecondaryColorHex
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SecondaryColorHex { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SecondaryColorHex As String
+  overload: Okta.Sdk.ITheme.SecondaryColorHex*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.SignInPageTouchPointVariant
+  commentId: P:Okta.Sdk.ITheme.SignInPageTouchPointVariant
+  id: SignInPageTouchPointVariant
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: SignInPageTouchPointVariant
+  nameWithType: ITheme.SignInPageTouchPointVariant
+  fullName: Okta.Sdk.ITheme.SignInPageTouchPointVariant
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignInPageTouchPointVariant
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: SignInPageTouchPointVariant SignInPageTouchPointVariant { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.SignInPageTouchPointVariant
+    content.vb: Property SignInPageTouchPointVariant As SignInPageTouchPointVariant
+  overload: Okta.Sdk.ITheme.SignInPageTouchPointVariant*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteBrandThemeLogoAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: DeleteBrandThemeLogoAsync(String, String, CancellationToken)
+  nameWithType: ITheme.DeleteBrandThemeLogoAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteBrandThemeLogoAsync
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task DeleteBrandThemeLogoAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: themeId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteBrandThemeLogoAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync*
+- uid: Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteBrandThemeFaviconAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: DeleteBrandThemeFaviconAsync(String, String, CancellationToken)
+  nameWithType: ITheme.DeleteBrandThemeFaviconAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteBrandThemeFaviconAsync
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task DeleteBrandThemeFaviconAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: themeId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteBrandThemeFaviconAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync*
+- uid: Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteBrandThemeBackgroundImageAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: DeleteBrandThemeBackgroundImageAsync(String, String, CancellationToken)
+  nameWithType: ITheme.DeleteBrandThemeBackgroundImageAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITheme.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteBrandThemeBackgroundImageAsync
+    path: ../src/Okta.Sdk/Generated/ITheme.Generated.cs
+    startLine: 41
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task DeleteBrandThemeBackgroundImageAsync(string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: brandId
+      type: System.String
+    - id: themeId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteBrandThemeBackgroundImageAsync(brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync*
+- uid: Okta.Sdk.ITheme.UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITheme.UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  id: UploadBrandThemeLogoAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: UploadBrandThemeLogoAsync(FileStream, String, String, CancellationToken)
+  nameWithType: ITheme.UploadBrandThemeLogoAsync(FileStream, String, String, CancellationToken)
+  fullName: Okta.Sdk.ITheme.UploadBrandThemeLogoAsync(System.IO.FileStream, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/ITheme.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UploadBrandThemeLogoAsync
+    path: ../src/Okta.Sdk/ITheme.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the logo for your Theme\n"
+  example: []
+  syntax:
+    content: Task<IImageUploadResponse> UploadBrandThemeLogoAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file.
+    - id: brandId
+      type: System.String
+      description: The brand Id.
+    - id: themeId
+      type: System.String
+      description: 'The theme Id. '
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+      description: A <xref href="Okta.Sdk.IImageUploadResponse" data-throw-if-not-resolved="false"></xref>
+    content.vb: Function UploadBrandThemeLogoAsync(file As FileStream, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IImageUploadResponse)
+  overload: Okta.Sdk.ITheme.UploadBrandThemeLogoAsync*
+- uid: Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  id: UpdateBrandThemeFaviconAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: UpdateBrandThemeFaviconAsync(FileStream, String, String, CancellationToken)
+  nameWithType: ITheme.UpdateBrandThemeFaviconAsync(FileStream, String, String, CancellationToken)
+  fullName: Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync(System.IO.FileStream, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/ITheme.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateBrandThemeFaviconAsync
+    path: ../src/Okta.Sdk/ITheme.cs
+    startLine: 32
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the Favicon for your Theme\n"
+  example: []
+  syntax:
+    content: Task<IImageUploadResponse> UpdateBrandThemeFaviconAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file.
+    - id: brandId
+      type: System.String
+      description: The brand Id.
+    - id: themeId
+      type: System.String
+      description: 'The theme Id. '
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+      description: A <xref href="Okta.Sdk.IImageUploadResponse" data-throw-if-not-resolved="false"></xref>
+    content.vb: Function UpdateBrandThemeFaviconAsync(file As FileStream, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IImageUploadResponse)
+  overload: Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync*
+- uid: Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  id: UpdateBrandThemeBackgroundImageAsync(System.IO.FileStream,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ITheme
+  langs:
+  - csharp
+  - vb
+  name: UpdateBrandThemeBackgroundImageAsync(FileStream, String, String, CancellationToken)
+  nameWithType: ITheme.UpdateBrandThemeBackgroundImageAsync(FileStream, String, String, CancellationToken)
+  fullName: Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync(System.IO.FileStream, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/ITheme.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateBrandThemeBackgroundImageAsync
+    path: ../src/Okta.Sdk/ITheme.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates the background image for your Theme\n"
+  example: []
+  syntax:
+    content: Task<IImageUploadResponse> UpdateBrandThemeBackgroundImageAsync(FileStream file, string brandId, string themeId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: file
+      type: System.IO.FileStream
+      description: The file.
+    - id: brandId
+      type: System.String
+      description: The brand Id.
+    - id: themeId
+      type: System.String
+      description: 'The theme Id. '
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+      description: A <xref href="Okta.Sdk.IImageUploadResponse" data-throw-if-not-resolved="false"></xref>
+    content.vb: Function UpdateBrandThemeBackgroundImageAsync(file As FileStream, brandId As String, themeId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IImageUploadResponse)
+  overload: Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync*
+references:
+- uid: Okta.Sdk.ITheme
+  commentId: T:Okta.Sdk.ITheme
+  parent: Okta.Sdk
+  name: ITheme
+  nameWithType: ITheme
+  fullName: Okta.Sdk.ITheme
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.ITheme.BackgroundImage*
+  commentId: Overload:Okta.Sdk.ITheme.BackgroundImage
+  name: BackgroundImage
+  nameWithType: ITheme.BackgroundImage
+  fullName: Okta.Sdk.ITheme.BackgroundImage
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ITheme.EmailTemplateTouchPointVariant*
+  commentId: Overload:Okta.Sdk.ITheme.EmailTemplateTouchPointVariant
+  name: EmailTemplateTouchPointVariant
+  nameWithType: ITheme.EmailTemplateTouchPointVariant
+  fullName: Okta.Sdk.ITheme.EmailTemplateTouchPointVariant
+- uid: Okta.Sdk.EmailTemplateTouchPointVariant
+  commentId: T:Okta.Sdk.EmailTemplateTouchPointVariant
+  parent: Okta.Sdk
+  name: EmailTemplateTouchPointVariant
+  nameWithType: EmailTemplateTouchPointVariant
+  fullName: Okta.Sdk.EmailTemplateTouchPointVariant
+- uid: Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant*
+  commentId: Overload:Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant
+  name: EndUserDashboardTouchPointVariant
+  nameWithType: ITheme.EndUserDashboardTouchPointVariant
+  fullName: Okta.Sdk.ITheme.EndUserDashboardTouchPointVariant
+- uid: Okta.Sdk.EndUserDashboardTouchPointVariant
+  commentId: T:Okta.Sdk.EndUserDashboardTouchPointVariant
+  parent: Okta.Sdk
+  name: EndUserDashboardTouchPointVariant
+  nameWithType: EndUserDashboardTouchPointVariant
+  fullName: Okta.Sdk.EndUserDashboardTouchPointVariant
+- uid: Okta.Sdk.ITheme.ErrorPageTouchPointVariant*
+  commentId: Overload:Okta.Sdk.ITheme.ErrorPageTouchPointVariant
+  name: ErrorPageTouchPointVariant
+  nameWithType: ITheme.ErrorPageTouchPointVariant
+  fullName: Okta.Sdk.ITheme.ErrorPageTouchPointVariant
+- uid: Okta.Sdk.ErrorPageTouchPointVariant
+  commentId: T:Okta.Sdk.ErrorPageTouchPointVariant
+  parent: Okta.Sdk
+  name: ErrorPageTouchPointVariant
+  nameWithType: ErrorPageTouchPointVariant
+  fullName: Okta.Sdk.ErrorPageTouchPointVariant
+- uid: Okta.Sdk.ITheme.PrimaryColorContrastHex*
+  commentId: Overload:Okta.Sdk.ITheme.PrimaryColorContrastHex
+  name: PrimaryColorContrastHex
+  nameWithType: ITheme.PrimaryColorContrastHex
+  fullName: Okta.Sdk.ITheme.PrimaryColorContrastHex
+- uid: Okta.Sdk.ITheme.PrimaryColorHex*
+  commentId: Overload:Okta.Sdk.ITheme.PrimaryColorHex
+  name: PrimaryColorHex
+  nameWithType: ITheme.PrimaryColorHex
+  fullName: Okta.Sdk.ITheme.PrimaryColorHex
+- uid: Okta.Sdk.ITheme.SecondaryColorContrastHex*
+  commentId: Overload:Okta.Sdk.ITheme.SecondaryColorContrastHex
+  name: SecondaryColorContrastHex
+  nameWithType: ITheme.SecondaryColorContrastHex
+  fullName: Okta.Sdk.ITheme.SecondaryColorContrastHex
+- uid: Okta.Sdk.ITheme.SecondaryColorHex*
+  commentId: Overload:Okta.Sdk.ITheme.SecondaryColorHex
+  name: SecondaryColorHex
+  nameWithType: ITheme.SecondaryColorHex
+  fullName: Okta.Sdk.ITheme.SecondaryColorHex
+- uid: Okta.Sdk.ITheme.SignInPageTouchPointVariant*
+  commentId: Overload:Okta.Sdk.ITheme.SignInPageTouchPointVariant
+  name: SignInPageTouchPointVariant
+  nameWithType: ITheme.SignInPageTouchPointVariant
+  fullName: Okta.Sdk.ITheme.SignInPageTouchPointVariant
+- uid: Okta.Sdk.SignInPageTouchPointVariant
+  commentId: T:Okta.Sdk.SignInPageTouchPointVariant
+  parent: Okta.Sdk
+  name: SignInPageTouchPointVariant
+  nameWithType: SignInPageTouchPointVariant
+  fullName: Okta.Sdk.SignInPageTouchPointVariant
+- uid: Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync*
+  commentId: Overload:Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync
+  name: DeleteBrandThemeLogoAsync
+  nameWithType: ITheme.DeleteBrandThemeLogoAsync
+  fullName: Okta.Sdk.ITheme.DeleteBrandThemeLogoAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync*
+  commentId: Overload:Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync
+  name: DeleteBrandThemeFaviconAsync
+  nameWithType: ITheme.DeleteBrandThemeFaviconAsync
+  fullName: Okta.Sdk.ITheme.DeleteBrandThemeFaviconAsync
+- uid: Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync*
+  commentId: Overload:Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync
+  name: DeleteBrandThemeBackgroundImageAsync
+  nameWithType: ITheme.DeleteBrandThemeBackgroundImageAsync
+  fullName: Okta.Sdk.ITheme.DeleteBrandThemeBackgroundImageAsync
+- uid: Okta.Sdk.IImageUploadResponse
+  commentId: T:Okta.Sdk.IImageUploadResponse
+  parent: Okta.Sdk
+  name: IImageUploadResponse
+  nameWithType: IImageUploadResponse
+  fullName: Okta.Sdk.IImageUploadResponse
+- uid: Okta.Sdk.ITheme.UploadBrandThemeLogoAsync*
+  commentId: Overload:Okta.Sdk.ITheme.UploadBrandThemeLogoAsync
+  name: UploadBrandThemeLogoAsync
+  nameWithType: ITheme.UploadBrandThemeLogoAsync
+  fullName: Okta.Sdk.ITheme.UploadBrandThemeLogoAsync
+- uid: System.IO.FileStream
+  commentId: T:System.IO.FileStream
+  parent: System.IO
+  isExternal: true
+  name: FileStream
+  nameWithType: FileStream
+  fullName: System.IO.FileStream
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IImageUploadResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IImageUploadResponse>
+  nameWithType: Task<IImageUploadResponse>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IImageUploadResponse>
+  nameWithType.vb: Task(Of IImageUploadResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IImageUploadResponse)
+  name.vb: Task(Of IImageUploadResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IImageUploadResponse
+    name: IImageUploadResponse
+    nameWithType: IImageUploadResponse
+    fullName: Okta.Sdk.IImageUploadResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IImageUploadResponse
+    name: IImageUploadResponse
+    nameWithType: IImageUploadResponse
+    fullName: Okta.Sdk.IImageUploadResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IO
+  commentId: N:System.IO
+  isExternal: true
+  name: System.IO
+  nameWithType: System.IO
+  fullName: System.IO
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync*
+  commentId: Overload:Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync
+  name: UpdateBrandThemeFaviconAsync
+  nameWithType: ITheme.UpdateBrandThemeFaviconAsync
+  fullName: Okta.Sdk.ITheme.UpdateBrandThemeFaviconAsync
+- uid: Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync*
+  commentId: Overload:Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync
+  name: UpdateBrandThemeBackgroundImageAsync
+  nameWithType: ITheme.UpdateBrandThemeBackgroundImageAsync
+  fullName: Okta.Sdk.ITheme.UpdateBrandThemeBackgroundImageAsync

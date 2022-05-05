@@ -1,0 +1,972 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  commentId: T:Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  id: CollectionAsyncEnumerator`1
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.CollectionAsyncEnumerator`1.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)
+  - Okta.Sdk.Internal.CollectionAsyncEnumerator`1.Current
+  - Okta.Sdk.Internal.CollectionAsyncEnumerator`1.DisposeAsync
+  - Okta.Sdk.Internal.CollectionAsyncEnumerator`1.MoveNextAsync
+  langs:
+  - csharp
+  - vb
+  name: CollectionAsyncEnumerator<T>
+  nameWithType: CollectionAsyncEnumerator<T>
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CollectionAsyncEnumerator
+    path: ../src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+    startLine: 18
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nEnumerates an Okta API collection for use with LINQ.\nThis is an internal class; use <xref href=\"Okta.Sdk.PagedCollectionEnumerator%601\" data-throw-if-not-resolved=\"false\"></xref> if you need to page collections yourself.\n"
+  remarks: See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.
+  example: []
+  syntax:
+    content: 'public sealed class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>, IAsyncDisposable where T : IResource'
+    typeParameters:
+    - id: T
+      description: The type of items in the collection.
+    content.vb: >-
+      Public NotInheritable Class CollectionAsyncEnumerator(Of T As IResource)
+
+          Implements IAsyncEnumerator(Of T), IAsyncDisposable
+  inheritance:
+  - System.Object
+  implements:
+  - System.Collections.Generic.IAsyncEnumerator{{T}}
+  - System.IAsyncDisposable
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  nameWithType.vb: CollectionAsyncEnumerator(Of T)
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T)
+  name.vb: CollectionAsyncEnumerator(Of T)
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)
+  id: '#ctor(Okta.Sdk.Internal.IDataStore,Okta.Sdk.HttpRequest,Okta.Sdk.RequestContext,System.Threading.CancellationToken)'
+  parent: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: CollectionAsyncEnumerator(IDataStore, HttpRequest, RequestContext, CancellationToken)
+  nameWithType: CollectionAsyncEnumerator<T>.CollectionAsyncEnumerator(IDataStore, HttpRequest, RequestContext, CancellationToken)
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.CollectionAsyncEnumerator(Okta.Sdk.Internal.IDataStore, Okta.Sdk.HttpRequest, Okta.Sdk.RequestContext, System.Threading.CancellationToken)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nInitializes a new instance of the <xref href=\"Okta.Sdk.Internal.CollectionAsyncEnumerator%601\" data-throw-if-not-resolved=\"false\"></xref> class.\n"
+  example: []
+  syntax:
+    content: public CollectionAsyncEnumerator(IDataStore dataStore, HttpRequest initialRequest, RequestContext requestContext, CancellationToken cancellationToken)
+    parameters:
+    - id: dataStore
+      type: Okta.Sdk.Internal.IDataStore
+      description: The <xref href="Okta.Sdk.Internal.IDataStore?text=DataStore" data-throw-if-not-resolved="false"></xref> to use.
+    - id: initialRequest
+      type: Okta.Sdk.HttpRequest
+      description: The initial HTTP request options.
+    - id: requestContext
+      type: Okta.Sdk.RequestContext
+      description: The request context.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    content.vb: Public Sub New(dataStore As IDataStore, initialRequest As HttpRequest, requestContext As RequestContext, cancellationToken As CancellationToken)
+  overload: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.#ctor*
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).CollectionAsyncEnumerator(IDataStore, HttpRequest, RequestContext, CancellationToken)
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).CollectionAsyncEnumerator(Okta.Sdk.Internal.IDataStore, Okta.Sdk.HttpRequest, Okta.Sdk.RequestContext, System.Threading.CancellationToken)
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.Current
+  commentId: P:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.Current
+  id: Current
+  parent: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: Current
+  nameWithType: CollectionAsyncEnumerator<T>.Current
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.Current
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Current
+    path: ../src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public T Current { get; }
+    parameters: []
+    return:
+      type: '{T}'
+    content.vb: Public ReadOnly Property Current As T
+  overload: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.Current*
+  implements:
+  - System.Collections.Generic.IAsyncEnumerator{{T}}.Current
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).Current
+  modifiers.csharp:
+  - public
+  - get
+  modifiers.vb:
+  - Public
+  - ReadOnly
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).Current
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.MoveNextAsync
+  commentId: M:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.MoveNextAsync
+  id: MoveNextAsync
+  parent: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: MoveNextAsync()
+  nameWithType: CollectionAsyncEnumerator<T>.MoveNextAsync()
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.MoveNextAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MoveNextAsync
+    path: ../src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public async ValueTask<bool> MoveNextAsync()
+    return:
+      type: System.Threading.Tasks.ValueTask{System.Boolean}
+    content.vb: Public Function MoveNextAsync As ValueTask(Of Boolean)
+  overload: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.MoveNextAsync*
+  implements:
+  - System.Collections.Generic.IAsyncEnumerator{{T}}.MoveNextAsync
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).MoveNextAsync()
+  modifiers.csharp:
+  - public
+  - async
+  modifiers.vb:
+  - Public
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).MoveNextAsync()
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.DisposeAsync
+  commentId: M:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.DisposeAsync
+  id: DisposeAsync
+  parent: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  langs:
+  - csharp
+  - vb
+  name: DisposeAsync()
+  nameWithType: CollectionAsyncEnumerator<T>.DisposeAsync()
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.DisposeAsync()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DisposeAsync
+    path: ../src/Okta.Sdk/Internal/CollectionAsyncEnumerator{T}.cs
+    startLine: 87
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: public ValueTask DisposeAsync()
+    return:
+      type: System.Threading.Tasks.ValueTask
+    content.vb: Public Function DisposeAsync As ValueTask
+  overload: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.DisposeAsync*
+  implements:
+  - System.IAsyncDisposable.DisposeAsync
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).DisposeAsync()
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).DisposeAsync()
+references:
+- uid: Okta.Sdk.PagedCollectionEnumerator`1
+  commentId: T:Okta.Sdk.PagedCollectionEnumerator`1
+  name: PagedCollectionEnumerator<T>
+  nameWithType: PagedCollectionEnumerator<T>
+  fullName: Okta.Sdk.PagedCollectionEnumerator<T>
+  nameWithType.vb: PagedCollectionEnumerator(Of T)
+  fullName.vb: Okta.Sdk.PagedCollectionEnumerator(Of T)
+  name.vb: PagedCollectionEnumerator(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.PagedCollectionEnumerator`1
+    name: PagedCollectionEnumerator
+    nameWithType: PagedCollectionEnumerator
+    fullName: Okta.Sdk.PagedCollectionEnumerator
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.PagedCollectionEnumerator`1
+    name: PagedCollectionEnumerator
+    nameWithType: PagedCollectionEnumerator
+    fullName: Okta.Sdk.PagedCollectionEnumerator
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Collections.Generic.IAsyncEnumerator{{T}}
+  commentId: T:System.Collections.Generic.IAsyncEnumerator{`0}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerator`1
+  name: IAsyncEnumerator<T>
+  nameWithType: IAsyncEnumerator<T>
+  fullName: System.Collections.Generic.IAsyncEnumerator<T>
+  nameWithType.vb: IAsyncEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerator(Of T)
+  name.vb: IAsyncEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.IAsyncDisposable
+  commentId: T:System.IAsyncDisposable
+  parent: System
+  isExternal: true
+  name: IAsyncDisposable
+  nameWithType: IAsyncDisposable
+  fullName: System.IAsyncDisposable
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Collections.Generic.IAsyncEnumerator`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerator`1
+  isExternal: true
+  name: IAsyncEnumerator<T>
+  nameWithType: IAsyncEnumerator<T>
+  fullName: System.Collections.Generic.IAsyncEnumerator<T>
+  nameWithType.vb: IAsyncEnumerator(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerator(Of T)
+  name.vb: IAsyncEnumerator(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerator
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1
+    name: IAsyncEnumerator
+    nameWithType: IAsyncEnumerator
+    fullName: System.Collections.Generic.IAsyncEnumerator
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  commentId: T:Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+  name: CollectionAsyncEnumerator<T>
+  nameWithType: CollectionAsyncEnumerator<T>
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>
+  nameWithType.vb: CollectionAsyncEnumerator(Of T)
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T)
+  name.vb: CollectionAsyncEnumerator(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+    name: CollectionAsyncEnumerator
+    nameWithType: CollectionAsyncEnumerator
+    fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1
+    name: CollectionAsyncEnumerator
+    nameWithType: CollectionAsyncEnumerator
+    fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.IDataStore
+  commentId: T:Okta.Sdk.Internal.IDataStore
+  parent: Okta.Sdk.Internal
+  name: IDataStore
+  nameWithType: IDataStore
+  fullName: Okta.Sdk.Internal.IDataStore
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.#ctor*
+  commentId: Overload:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.#ctor
+  name: CollectionAsyncEnumerator
+  nameWithType: CollectionAsyncEnumerator<T>.CollectionAsyncEnumerator
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.CollectionAsyncEnumerator
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).CollectionAsyncEnumerator
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).CollectionAsyncEnumerator
+- uid: Okta.Sdk.HttpRequest
+  commentId: T:Okta.Sdk.HttpRequest
+  parent: Okta.Sdk
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: Okta.Sdk.HttpRequest
+- uid: Okta.Sdk.RequestContext
+  commentId: T:Okta.Sdk.RequestContext
+  parent: Okta.Sdk
+  name: RequestContext
+  nameWithType: RequestContext
+  fullName: Okta.Sdk.RequestContext
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.Current*
+  commentId: Overload:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.Current
+  name: Current
+  nameWithType: CollectionAsyncEnumerator<T>.Current
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.Current
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).Current
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).Current
+- uid: System.Collections.Generic.IAsyncEnumerator{{T}}.Current
+  commentId: P:System.Collections.Generic.IAsyncEnumerator{`0}.Current
+  parent: System.Collections.Generic.IAsyncEnumerator{{T}}
+  definition: System.Collections.Generic.IAsyncEnumerator`1.Current
+  name: Current
+  nameWithType: IAsyncEnumerator<T>.Current
+  fullName: System.Collections.Generic.IAsyncEnumerator<T>.Current
+  nameWithType.vb: IAsyncEnumerator(Of T).Current
+  fullName.vb: System.Collections.Generic.IAsyncEnumerator(Of T).Current
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.Collections.Generic.IAsyncEnumerator`1.Current
+  commentId: P:System.Collections.Generic.IAsyncEnumerator`1.Current
+  isExternal: true
+  name: Current
+  nameWithType: IAsyncEnumerator<T>.Current
+  fullName: System.Collections.Generic.IAsyncEnumerator<T>.Current
+  nameWithType.vb: IAsyncEnumerator(Of T).Current
+  fullName.vb: System.Collections.Generic.IAsyncEnumerator(Of T).Current
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.MoveNextAsync*
+  commentId: Overload:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.MoveNextAsync
+  name: MoveNextAsync
+  nameWithType: CollectionAsyncEnumerator<T>.MoveNextAsync
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.MoveNextAsync
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).MoveNextAsync
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).MoveNextAsync
+- uid: System.Collections.Generic.IAsyncEnumerator{{T}}.MoveNextAsync
+  commentId: M:System.Collections.Generic.IAsyncEnumerator{`0}.MoveNextAsync
+  parent: System.Collections.Generic.IAsyncEnumerator{{T}}
+  definition: System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+  name: MoveNextAsync()
+  nameWithType: IAsyncEnumerator<T>.MoveNextAsync()
+  fullName: System.Collections.Generic.IAsyncEnumerator<T>.MoveNextAsync()
+  nameWithType.vb: IAsyncEnumerator(Of T).MoveNextAsync()
+  fullName.vb: System.Collections.Generic.IAsyncEnumerator(Of T).MoveNextAsync()
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IAsyncEnumerator<T>.MoveNextAsync
+    fullName: System.Collections.Generic.IAsyncEnumerator<T>.MoveNextAsync
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IAsyncEnumerator(Of T).MoveNextAsync
+    fullName: System.Collections.Generic.IAsyncEnumerator(Of T).MoveNextAsync
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.ValueTask{System.Boolean}
+  commentId: T:System.Threading.Tasks.ValueTask{System.Boolean}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.ValueTask`1
+  name: ValueTask<Boolean>
+  nameWithType: ValueTask<Boolean>
+  fullName: System.Threading.Tasks.ValueTask<System.Boolean>
+  nameWithType.vb: ValueTask(Of Boolean)
+  fullName.vb: System.Threading.Tasks.ValueTask(Of System.Boolean)
+  name.vb: ValueTask(Of Boolean)
+  spec.csharp:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    nameWithType: ValueTask
+    fullName: System.Threading.Tasks.ValueTask
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    nameWithType: ValueTask
+    fullName: System.Threading.Tasks.ValueTask
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+  commentId: M:System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+  isExternal: true
+  name: MoveNextAsync()
+  nameWithType: IAsyncEnumerator<T>.MoveNextAsync()
+  fullName: System.Collections.Generic.IAsyncEnumerator<T>.MoveNextAsync()
+  nameWithType.vb: IAsyncEnumerator(Of T).MoveNextAsync()
+  fullName.vb: System.Collections.Generic.IAsyncEnumerator(Of T).MoveNextAsync()
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IAsyncEnumerator<T>.MoveNextAsync
+    fullName: System.Collections.Generic.IAsyncEnumerator<T>.MoveNextAsync
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerator`1.MoveNextAsync
+    name: MoveNextAsync
+    nameWithType: IAsyncEnumerator(Of T).MoveNextAsync
+    fullName: System.Collections.Generic.IAsyncEnumerator(Of T).MoveNextAsync
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.ValueTask`1
+  commentId: T:System.Threading.Tasks.ValueTask`1
+  isExternal: true
+  name: ValueTask<TResult>
+  nameWithType: ValueTask<TResult>
+  fullName: System.Threading.Tasks.ValueTask<TResult>
+  nameWithType.vb: ValueTask(Of TResult)
+  fullName.vb: System.Threading.Tasks.ValueTask(Of TResult)
+  name.vb: ValueTask(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    nameWithType: ValueTask
+    fullName: System.Threading.Tasks.ValueTask
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.ValueTask`1
+    name: ValueTask
+    nameWithType: ValueTask
+    fullName: System.Threading.Tasks.ValueTask
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.Internal.CollectionAsyncEnumerator`1.DisposeAsync*
+  commentId: Overload:Okta.Sdk.Internal.CollectionAsyncEnumerator`1.DisposeAsync
+  name: DisposeAsync
+  nameWithType: CollectionAsyncEnumerator<T>.DisposeAsync
+  fullName: Okta.Sdk.Internal.CollectionAsyncEnumerator<T>.DisposeAsync
+  nameWithType.vb: CollectionAsyncEnumerator(Of T).DisposeAsync
+  fullName.vb: Okta.Sdk.Internal.CollectionAsyncEnumerator(Of T).DisposeAsync
+- uid: System.IAsyncDisposable.DisposeAsync
+  commentId: M:System.IAsyncDisposable.DisposeAsync
+  parent: System.IAsyncDisposable
+  isExternal: true
+  name: DisposeAsync()
+  nameWithType: IAsyncDisposable.DisposeAsync()
+  fullName: System.IAsyncDisposable.DisposeAsync()
+  spec.csharp:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    nameWithType: IAsyncDisposable.DisposeAsync
+    fullName: System.IAsyncDisposable.DisposeAsync
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.IAsyncDisposable.DisposeAsync
+    name: DisposeAsync
+    nameWithType: IAsyncDisposable.DisposeAsync
+    fullName: System.IAsyncDisposable.DisposeAsync
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.ValueTask
+  commentId: T:System.Threading.Tasks.ValueTask
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: ValueTask
+  nameWithType: ValueTask
+  fullName: System.Threading.Tasks.ValueTask

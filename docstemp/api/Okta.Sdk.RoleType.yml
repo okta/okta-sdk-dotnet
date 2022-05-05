@@ -1,0 +1,916 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.RoleType
+  commentId: T:Okta.Sdk.RoleType
+  id: RoleType
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.RoleType.#ctor(System.String)
+  - Okta.Sdk.RoleType.ApiAccessManagementAdmin
+  - Okta.Sdk.RoleType.AppAdmin
+  - Okta.Sdk.RoleType.GroupMembershipAdmin
+  - Okta.Sdk.RoleType.HelpDeskAdmin
+  - Okta.Sdk.RoleType.MobileAdmin
+  - Okta.Sdk.RoleType.op_Implicit(System.String)~Okta.Sdk.RoleType
+  - Okta.Sdk.RoleType.OrgAdmin
+  - Okta.Sdk.RoleType.ReadOnlyAdmin
+  - Okta.Sdk.RoleType.ReportAdmin
+  - Okta.Sdk.RoleType.SuperAdmin
+  - Okta.Sdk.RoleType.UserAdmin
+  langs:
+  - csharp
+  - vb
+  name: RoleType
+  nameWithType: RoleType
+  fullName: Okta.Sdk.RoleType
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RoleType
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAn enumeration of RoleType values in the Okta API.\n"
+  example: []
+  syntax:
+    content: 'public sealed class RoleType : StringEnum, IComparable'
+    content.vb: >-
+      Public NotInheritable Class RoleType
+
+          Inherits StringEnum
+
+          Implements IComparable
+  inheritance:
+  - System.Object
+  - Okta.Sdk.StringEnum
+  implements:
+  - System.IComparable
+  inheritedMembers:
+  - Okta.Sdk.StringEnum.Value
+  - Okta.Sdk.StringEnum.ToString
+  - Okta.Sdk.StringEnum.Equals(System.Object)
+  - Okta.Sdk.StringEnum.GetHashCode
+  - Okta.Sdk.StringEnum.CompareTo(System.Object)
+  - Okta.Sdk.StringEnum.Create``1(System.String)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.RoleType.SuperAdmin
+  commentId: F:Okta.Sdk.RoleType.SuperAdmin
+  id: SuperAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: SuperAdmin
+  nameWithType: RoleType.SuperAdmin
+  fullName: Okta.Sdk.RoleType.SuperAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SuperAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The SUPER_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType SuperAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared SuperAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.OrgAdmin
+  commentId: F:Okta.Sdk.RoleType.OrgAdmin
+  id: OrgAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: OrgAdmin
+  nameWithType: RoleType.OrgAdmin
+  fullName: Okta.Sdk.RoleType.OrgAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: OrgAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 18
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The ORG_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType OrgAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared OrgAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.AppAdmin
+  commentId: F:Okta.Sdk.RoleType.AppAdmin
+  id: AppAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: AppAdmin
+  nameWithType: RoleType.AppAdmin
+  fullName: Okta.Sdk.RoleType.AppAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AppAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The APP_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType AppAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared AppAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.UserAdmin
+  commentId: F:Okta.Sdk.RoleType.UserAdmin
+  id: UserAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: UserAdmin
+  nameWithType: RoleType.UserAdmin
+  fullName: Okta.Sdk.RoleType.UserAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 24
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The USER_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType UserAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared UserAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.HelpDeskAdmin
+  commentId: F:Okta.Sdk.RoleType.HelpDeskAdmin
+  id: HelpDeskAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: HelpDeskAdmin
+  nameWithType: RoleType.HelpDeskAdmin
+  fullName: Okta.Sdk.RoleType.HelpDeskAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HelpDeskAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The HELP_DESK_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType HelpDeskAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared HelpDeskAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.ReadOnlyAdmin
+  commentId: F:Okta.Sdk.RoleType.ReadOnlyAdmin
+  id: ReadOnlyAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: ReadOnlyAdmin
+  nameWithType: RoleType.ReadOnlyAdmin
+  fullName: Okta.Sdk.RoleType.ReadOnlyAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ReadOnlyAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The READ_ONLY_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType ReadOnlyAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared ReadOnlyAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.MobileAdmin
+  commentId: F:Okta.Sdk.RoleType.MobileAdmin
+  id: MobileAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: MobileAdmin
+  nameWithType: RoleType.MobileAdmin
+  fullName: Okta.Sdk.RoleType.MobileAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MobileAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The MOBILE_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType MobileAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared MobileAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.ApiAccessManagementAdmin
+  commentId: F:Okta.Sdk.RoleType.ApiAccessManagementAdmin
+  id: ApiAccessManagementAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: ApiAccessManagementAdmin
+  nameWithType: RoleType.ApiAccessManagementAdmin
+  fullName: Okta.Sdk.RoleType.ApiAccessManagementAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ApiAccessManagementAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 36
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The API_ACCESS_MANAGEMENT_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType ApiAccessManagementAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared ApiAccessManagementAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.ReportAdmin
+  commentId: F:Okta.Sdk.RoleType.ReportAdmin
+  id: ReportAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: ReportAdmin
+  nameWithType: RoleType.ReportAdmin
+  fullName: Okta.Sdk.RoleType.ReportAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ReportAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The REPORT_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType ReportAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared ReportAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.GroupMembershipAdmin
+  commentId: F:Okta.Sdk.RoleType.GroupMembershipAdmin
+  id: GroupMembershipAdmin
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: GroupMembershipAdmin
+  nameWithType: RoleType.GroupMembershipAdmin
+  fullName: Okta.Sdk.RoleType.GroupMembershipAdmin
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GroupMembershipAdmin
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: The GROUP_MEMBERSHIP_ADMIN RoleType.
+  example: []
+  syntax:
+    content: public static RoleType GroupMembershipAdmin
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared GroupMembershipAdmin As RoleType
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Okta.Sdk.RoleType.op_Implicit(System.String)~Okta.Sdk.RoleType
+  commentId: M:Okta.Sdk.RoleType.op_Implicit(System.String)~Okta.Sdk.RoleType
+  id: op_Implicit(System.String)~Okta.Sdk.RoleType
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: Implicit(String to RoleType)
+  nameWithType: RoleType.Implicit(String to RoleType)
+  fullName: Okta.Sdk.RoleType.Implicit(System.String to Okta.Sdk.RoleType)
+  type: Operator
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: op_Implicit
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 48
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nImplicit operator declaration to accept and convert a string value as a <xref href=\"Okta.Sdk.RoleType\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static implicit operator RoleType(string value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value to use
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Public Shared Widening Operator CType(value As String) As RoleType
+  overload: Okta.Sdk.RoleType.op_Implicit*
+  nameWithType.vb: RoleType.Widening(String to RoleType)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Okta.Sdk.RoleType.Widening(System.String to Okta.Sdk.RoleType)
+  name.vb: Widening(String to RoleType)
+- uid: Okta.Sdk.RoleType.#ctor(System.String)
+  commentId: M:Okta.Sdk.RoleType.#ctor(System.String)
+  id: '#ctor(System.String)'
+  parent: Okta.Sdk.RoleType
+  langs:
+  - csharp
+  - vb
+  name: RoleType(String)
+  nameWithType: RoleType.RoleType(String)
+  fullName: Okta.Sdk.RoleType.RoleType(System.String)
+  type: Constructor
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/RoleType.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: .ctor
+    path: ../src/Okta.Sdk/Generated/RoleType.Generated.cs
+    startLine: 54
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nCreates a new <xref href=\"Okta.Sdk.RoleType\" data-throw-if-not-resolved=\"false\"></xref> instance.\n"
+  example: []
+  syntax:
+    content: public RoleType(string value)
+    parameters:
+    - id: value
+      type: System.String
+      description: The value to use.
+    content.vb: Public Sub New(value As String)
+  overload: Okta.Sdk.RoleType.#ctor*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.StringEnum
+  commentId: T:Okta.Sdk.StringEnum
+  parent: Okta.Sdk
+  name: StringEnum
+  nameWithType: StringEnum
+  fullName: Okta.Sdk.StringEnum
+- uid: System.IComparable
+  commentId: T:System.IComparable
+  parent: System
+  isExternal: true
+  name: IComparable
+  nameWithType: IComparable
+  fullName: System.IComparable
+- uid: Okta.Sdk.StringEnum.Value
+  commentId: P:Okta.Sdk.StringEnum.Value
+  parent: Okta.Sdk.StringEnum
+  name: Value
+  nameWithType: StringEnum.Value
+  fullName: Okta.Sdk.StringEnum.Value
+- uid: Okta.Sdk.StringEnum.ToString
+  commentId: M:Okta.Sdk.StringEnum.ToString
+  parent: Okta.Sdk.StringEnum
+  name: ToString()
+  nameWithType: StringEnum.ToString()
+  fullName: Okta.Sdk.StringEnum.ToString()
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.ToString
+    name: ToString
+    nameWithType: StringEnum.ToString
+    fullName: Okta.Sdk.StringEnum.ToString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.ToString
+    name: ToString
+    nameWithType: StringEnum.ToString
+    fullName: Okta.Sdk.StringEnum.ToString
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.Equals(System.Object)
+  commentId: M:Okta.Sdk.StringEnum.Equals(System.Object)
+  parent: Okta.Sdk.StringEnum
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: StringEnum.Equals(Object)
+  fullName: Okta.Sdk.StringEnum.Equals(System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.Equals(System.Object)
+    name: Equals
+    nameWithType: StringEnum.Equals
+    fullName: Okta.Sdk.StringEnum.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.Equals(System.Object)
+    name: Equals
+    nameWithType: StringEnum.Equals
+    fullName: Okta.Sdk.StringEnum.Equals
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.GetHashCode
+  commentId: M:Okta.Sdk.StringEnum.GetHashCode
+  parent: Okta.Sdk.StringEnum
+  name: GetHashCode()
+  nameWithType: StringEnum.GetHashCode()
+  fullName: Okta.Sdk.StringEnum.GetHashCode()
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.GetHashCode
+    name: GetHashCode
+    nameWithType: StringEnum.GetHashCode
+    fullName: Okta.Sdk.StringEnum.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.GetHashCode
+    name: GetHashCode
+    nameWithType: StringEnum.GetHashCode
+    fullName: Okta.Sdk.StringEnum.GetHashCode
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.CompareTo(System.Object)
+  commentId: M:Okta.Sdk.StringEnum.CompareTo(System.Object)
+  parent: Okta.Sdk.StringEnum
+  isExternal: true
+  name: CompareTo(Object)
+  nameWithType: StringEnum.CompareTo(Object)
+  fullName: Okta.Sdk.StringEnum.CompareTo(System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.CompareTo(System.Object)
+    name: CompareTo
+    nameWithType: StringEnum.CompareTo
+    fullName: Okta.Sdk.StringEnum.CompareTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.CompareTo(System.Object)
+    name: CompareTo
+    nameWithType: StringEnum.CompareTo
+    fullName: Okta.Sdk.StringEnum.CompareTo
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.StringEnum.Create``1(System.String)
+  commentId: M:Okta.Sdk.StringEnum.Create``1(System.String)
+  parent: Okta.Sdk.StringEnum
+  isExternal: true
+  name: Create<T>(String)
+  nameWithType: StringEnum.Create<T>(String)
+  fullName: Okta.Sdk.StringEnum.Create<T>(System.String)
+  nameWithType.vb: StringEnum.Create(Of T)(String)
+  fullName.vb: Okta.Sdk.StringEnum.Create(Of T)(System.String)
+  name.vb: Create(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.StringEnum.Create``1(System.String)
+    name: Create<T>
+    nameWithType: StringEnum.Create<T>
+    fullName: Okta.Sdk.StringEnum.Create<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.StringEnum.Create``1(System.String)
+    name: Create(Of T)
+    nameWithType: StringEnum.Create(Of T)
+    fullName: Okta.Sdk.StringEnum.Create(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.RoleType
+  commentId: T:Okta.Sdk.RoleType
+  parent: Okta.Sdk
+  name: RoleType
+  nameWithType: RoleType
+  fullName: Okta.Sdk.RoleType
+- uid: Okta.Sdk.RoleType.op_Implicit*
+  commentId: Overload:Okta.Sdk.RoleType.op_Implicit
+  name: Implicit
+  nameWithType: RoleType.Implicit
+  fullName: Okta.Sdk.RoleType.Implicit
+  nameWithType.vb: RoleType.Widening
+  fullName.vb: Okta.Sdk.RoleType.Widening
+  name.vb: Widening
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.RoleType.#ctor*
+  commentId: Overload:Okta.Sdk.RoleType.#ctor
+  name: RoleType
+  nameWithType: RoleType.RoleType
+  fullName: Okta.Sdk.RoleType.RoleType

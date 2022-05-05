@@ -1,0 +1,1021 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IJsonWebKey
+  commentId: T:Okta.Sdk.IJsonWebKey
+  id: IJsonWebKey
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IJsonWebKey.Alg
+  - Okta.Sdk.IJsonWebKey.Created
+  - Okta.Sdk.IJsonWebKey.E
+  - Okta.Sdk.IJsonWebKey.ExpiresAt
+  - Okta.Sdk.IJsonWebKey.KeyOps
+  - Okta.Sdk.IJsonWebKey.Kid
+  - Okta.Sdk.IJsonWebKey.Kty
+  - Okta.Sdk.IJsonWebKey.LastUpdated
+  - Okta.Sdk.IJsonWebKey.N
+  - Okta.Sdk.IJsonWebKey.Status
+  - Okta.Sdk.IJsonWebKey.Use
+  - Okta.Sdk.IJsonWebKey.X5C
+  - Okta.Sdk.IJsonWebKey.X5T
+  - Okta.Sdk.IJsonWebKey.X5TS256
+  - Okta.Sdk.IJsonWebKey.X5U
+  langs:
+  - csharp
+  - vb
+  name: IJsonWebKey
+  nameWithType: IJsonWebKey
+  fullName: Okta.Sdk.IJsonWebKey
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IJsonWebKey
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a JsonWebKey resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IJsonWebKey : IResource'
+    content.vb: >-
+      Public Interface IJsonWebKey
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IJsonWebKey.Alg
+  commentId: P:Okta.Sdk.IJsonWebKey.Alg
+  id: Alg
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: Alg
+  nameWithType: IJsonWebKey.Alg
+  fullName: Okta.Sdk.IJsonWebKey.Alg
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Alg
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Alg { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Alg As String
+  overload: Okta.Sdk.IJsonWebKey.Alg*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.Created
+  commentId: P:Okta.Sdk.IJsonWebKey.Created
+  id: Created
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IJsonWebKey.Created
+  fullName: Okta.Sdk.IJsonWebKey.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: Property Created As DateTimeOffset?
+  overload: Okta.Sdk.IJsonWebKey.Created*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.E
+  commentId: P:Okta.Sdk.IJsonWebKey.E
+  id: E
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: E
+  nameWithType: IJsonWebKey.E
+  fullName: Okta.Sdk.IJsonWebKey.E
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: E
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string E { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property E As String
+  overload: Okta.Sdk.IJsonWebKey.E*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.ExpiresAt
+  commentId: P:Okta.Sdk.IJsonWebKey.ExpiresAt
+  id: ExpiresAt
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: ExpiresAt
+  nameWithType: IJsonWebKey.ExpiresAt
+  fullName: Okta.Sdk.IJsonWebKey.ExpiresAt
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExpiresAt
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? ExpiresAt { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: Property ExpiresAt As DateTimeOffset?
+  overload: Okta.Sdk.IJsonWebKey.ExpiresAt*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.KeyOps
+  commentId: P:Okta.Sdk.IJsonWebKey.KeyOps
+  id: KeyOps
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: KeyOps
+  nameWithType: IJsonWebKey.KeyOps
+  fullName: Okta.Sdk.IJsonWebKey.KeyOps
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: KeyOps
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<string> KeyOps { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Property KeyOps As IList(Of String)
+  overload: Okta.Sdk.IJsonWebKey.KeyOps*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.Kid
+  commentId: P:Okta.Sdk.IJsonWebKey.Kid
+  id: Kid
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: Kid
+  nameWithType: IJsonWebKey.Kid
+  fullName: Okta.Sdk.IJsonWebKey.Kid
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Kid
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Kid { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Kid As String
+  overload: Okta.Sdk.IJsonWebKey.Kid*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.Kty
+  commentId: P:Okta.Sdk.IJsonWebKey.Kty
+  id: Kty
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: Kty
+  nameWithType: IJsonWebKey.Kty
+  fullName: Okta.Sdk.IJsonWebKey.Kty
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Kty
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Kty { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Kty As String
+  overload: Okta.Sdk.IJsonWebKey.Kty*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.LastUpdated
+  commentId: P:Okta.Sdk.IJsonWebKey.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IJsonWebKey.LastUpdated
+  fullName: Okta.Sdk.IJsonWebKey.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IJsonWebKey.LastUpdated*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.N
+  commentId: P:Okta.Sdk.IJsonWebKey.N
+  id: N
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: N
+  nameWithType: IJsonWebKey.N
+  fullName: Okta.Sdk.IJsonWebKey.N
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: N
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string N { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property N As String
+  overload: Okta.Sdk.IJsonWebKey.N*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.Status
+  commentId: P:Okta.Sdk.IJsonWebKey.Status
+  id: Status
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: IJsonWebKey.Status
+  fullName: Okta.Sdk.IJsonWebKey.Status
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Status
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Status { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Status As String
+  overload: Okta.Sdk.IJsonWebKey.Status*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.Use
+  commentId: P:Okta.Sdk.IJsonWebKey.Use
+  id: Use
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: Use
+  nameWithType: IJsonWebKey.Use
+  fullName: Okta.Sdk.IJsonWebKey.Use
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Use
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 37
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Use { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Use As String
+  overload: Okta.Sdk.IJsonWebKey.Use*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.X5C
+  commentId: P:Okta.Sdk.IJsonWebKey.X5C
+  id: X5C
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: X5C
+  nameWithType: IJsonWebKey.X5C
+  fullName: Okta.Sdk.IJsonWebKey.X5C
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: X5C
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<string> X5C { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: Property X5C As IList(Of String)
+  overload: Okta.Sdk.IJsonWebKey.X5C*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.X5T
+  commentId: P:Okta.Sdk.IJsonWebKey.X5T
+  id: X5T
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: X5T
+  nameWithType: IJsonWebKey.X5T
+  fullName: Okta.Sdk.IJsonWebKey.X5T
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: X5T
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 41
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string X5T { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property X5T As String
+  overload: Okta.Sdk.IJsonWebKey.X5T*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.X5TS256
+  commentId: P:Okta.Sdk.IJsonWebKey.X5TS256
+  id: X5TS256
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: X5TS256
+  nameWithType: IJsonWebKey.X5TS256
+  fullName: Okta.Sdk.IJsonWebKey.X5TS256
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: X5TS256
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string X5TS256 { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property X5TS256 As String
+  overload: Okta.Sdk.IJsonWebKey.X5TS256*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IJsonWebKey.X5U
+  commentId: P:Okta.Sdk.IJsonWebKey.X5U
+  id: X5U
+  parent: Okta.Sdk.IJsonWebKey
+  langs:
+  - csharp
+  - vb
+  name: X5U
+  nameWithType: IJsonWebKey.X5U
+  fullName: Okta.Sdk.IJsonWebKey.X5U
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: X5U
+    path: ../src/Okta.Sdk/Generated/IJsonWebKey.Generated.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string X5U { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property X5U As String
+  overload: Okta.Sdk.IJsonWebKey.X5U*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IJsonWebKey.Alg*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.Alg
+  name: Alg
+  nameWithType: IJsonWebKey.Alg
+  fullName: Okta.Sdk.IJsonWebKey.Alg
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IJsonWebKey.Created*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.Created
+  name: Created
+  nameWithType: IJsonWebKey.Created
+  fullName: Okta.Sdk.IJsonWebKey.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IJsonWebKey.E*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.E
+  name: E
+  nameWithType: IJsonWebKey.E
+  fullName: Okta.Sdk.IJsonWebKey.E
+- uid: Okta.Sdk.IJsonWebKey.ExpiresAt*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.ExpiresAt
+  name: ExpiresAt
+  nameWithType: IJsonWebKey.ExpiresAt
+  fullName: Okta.Sdk.IJsonWebKey.ExpiresAt
+- uid: Okta.Sdk.IJsonWebKey.KeyOps*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.KeyOps
+  name: KeyOps
+  nameWithType: IJsonWebKey.KeyOps
+  fullName: Okta.Sdk.IJsonWebKey.KeyOps
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.IJsonWebKey.Kid*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.Kid
+  name: Kid
+  nameWithType: IJsonWebKey.Kid
+  fullName: Okta.Sdk.IJsonWebKey.Kid
+- uid: Okta.Sdk.IJsonWebKey.Kty*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.Kty
+  name: Kty
+  nameWithType: IJsonWebKey.Kty
+  fullName: Okta.Sdk.IJsonWebKey.Kty
+- uid: Okta.Sdk.IJsonWebKey.LastUpdated*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.LastUpdated
+  name: LastUpdated
+  nameWithType: IJsonWebKey.LastUpdated
+  fullName: Okta.Sdk.IJsonWebKey.LastUpdated
+- uid: Okta.Sdk.IJsonWebKey.N*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.N
+  name: N
+  nameWithType: IJsonWebKey.N
+  fullName: Okta.Sdk.IJsonWebKey.N
+- uid: Okta.Sdk.IJsonWebKey.Status*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.Status
+  name: Status
+  nameWithType: IJsonWebKey.Status
+  fullName: Okta.Sdk.IJsonWebKey.Status
+- uid: Okta.Sdk.IJsonWebKey.Use*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.Use
+  name: Use
+  nameWithType: IJsonWebKey.Use
+  fullName: Okta.Sdk.IJsonWebKey.Use
+- uid: Okta.Sdk.IJsonWebKey.X5C*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.X5C
+  name: X5C
+  nameWithType: IJsonWebKey.X5C
+  fullName: Okta.Sdk.IJsonWebKey.X5C
+- uid: Okta.Sdk.IJsonWebKey.X5T*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.X5T
+  name: X5T
+  nameWithType: IJsonWebKey.X5T
+  fullName: Okta.Sdk.IJsonWebKey.X5T
+- uid: Okta.Sdk.IJsonWebKey.X5TS256*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.X5TS256
+  name: X5TS256
+  nameWithType: IJsonWebKey.X5TS256
+  fullName: Okta.Sdk.IJsonWebKey.X5TS256
+- uid: Okta.Sdk.IJsonWebKey.X5U*
+  commentId: Overload:Okta.Sdk.IJsonWebKey.X5U
+  name: X5U
+  nameWithType: IJsonWebKey.X5U
+  fullName: Okta.Sdk.IJsonWebKey.X5U

@@ -1,0 +1,794 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ITrustedOrigin
+  commentId: T:Okta.Sdk.ITrustedOrigin
+  id: ITrustedOrigin
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ITrustedOrigin.Created
+  - Okta.Sdk.ITrustedOrigin.CreatedBy
+  - Okta.Sdk.ITrustedOrigin.Id
+  - Okta.Sdk.ITrustedOrigin.LastUpdated
+  - Okta.Sdk.ITrustedOrigin.LastUpdatedBy
+  - Okta.Sdk.ITrustedOrigin.Name
+  - Okta.Sdk.ITrustedOrigin.Origin
+  - Okta.Sdk.ITrustedOrigin.Scopes
+  - Okta.Sdk.ITrustedOrigin.Status
+  langs:
+  - csharp
+  - vb
+  name: ITrustedOrigin
+  nameWithType: ITrustedOrigin
+  fullName: Okta.Sdk.ITrustedOrigin
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ITrustedOrigin
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a TrustedOrigin resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface ITrustedOrigin : IResource'
+    content.vb: >-
+      Public Interface ITrustedOrigin
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ITrustedOrigin.Created
+  commentId: P:Okta.Sdk.ITrustedOrigin.Created
+  id: Created
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: ITrustedOrigin.Created
+  fullName: Okta.Sdk.ITrustedOrigin.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.ITrustedOrigin.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.ITrustedOrigin.CreatedBy
+  commentId: P:Okta.Sdk.ITrustedOrigin.CreatedBy
+  id: CreatedBy
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: CreatedBy
+  nameWithType: ITrustedOrigin.CreatedBy
+  fullName: Okta.Sdk.ITrustedOrigin.CreatedBy
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreatedBy
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string CreatedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property CreatedBy As String
+  overload: Okta.Sdk.ITrustedOrigin.CreatedBy*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITrustedOrigin.Id
+  commentId: P:Okta.Sdk.ITrustedOrigin.Id
+  id: Id
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: ITrustedOrigin.Id
+  fullName: Okta.Sdk.ITrustedOrigin.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Id As String
+  overload: Okta.Sdk.ITrustedOrigin.Id*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.ITrustedOrigin.LastUpdated
+  commentId: P:Okta.Sdk.ITrustedOrigin.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: ITrustedOrigin.LastUpdated
+  fullName: Okta.Sdk.ITrustedOrigin.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.ITrustedOrigin.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.ITrustedOrigin.LastUpdatedBy
+  commentId: P:Okta.Sdk.ITrustedOrigin.LastUpdatedBy
+  id: LastUpdatedBy
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: LastUpdatedBy
+  nameWithType: ITrustedOrigin.LastUpdatedBy
+  fullName: Okta.Sdk.ITrustedOrigin.LastUpdatedBy
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdatedBy
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string LastUpdatedBy { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property LastUpdatedBy As String
+  overload: Okta.Sdk.ITrustedOrigin.LastUpdatedBy*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITrustedOrigin.Name
+  commentId: P:Okta.Sdk.ITrustedOrigin.Name
+  id: Name
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: ITrustedOrigin.Name
+  fullName: Okta.Sdk.ITrustedOrigin.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: Okta.Sdk.ITrustedOrigin.Name*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITrustedOrigin.Origin
+  commentId: P:Okta.Sdk.ITrustedOrigin.Origin
+  id: Origin
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: Origin
+  nameWithType: ITrustedOrigin.Origin
+  fullName: Okta.Sdk.ITrustedOrigin.Origin
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Origin
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Origin { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Origin As String
+  overload: Okta.Sdk.ITrustedOrigin.Origin*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITrustedOrigin.Scopes
+  commentId: P:Okta.Sdk.ITrustedOrigin.Scopes
+  id: Scopes
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: Scopes
+  nameWithType: ITrustedOrigin.Scopes
+  fullName: Okta.Sdk.ITrustedOrigin.Scopes
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Scopes
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<IScope> Scopes { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.IScope}
+    content.vb: Property Scopes As IList(Of IScope)
+  overload: Okta.Sdk.ITrustedOrigin.Scopes*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ITrustedOrigin.Status
+  commentId: P:Okta.Sdk.ITrustedOrigin.Status
+  id: Status
+  parent: Okta.Sdk.ITrustedOrigin
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: ITrustedOrigin.Status
+  fullName: Okta.Sdk.ITrustedOrigin.Status
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Status
+    path: ../src/Okta.Sdk/Generated/ITrustedOrigin.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Status { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Status As String
+  overload: Okta.Sdk.ITrustedOrigin.Status*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.ITrustedOrigin.Created*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.Created
+  name: Created
+  nameWithType: ITrustedOrigin.Created
+  fullName: Okta.Sdk.ITrustedOrigin.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ITrustedOrigin.CreatedBy*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.CreatedBy
+  name: CreatedBy
+  nameWithType: ITrustedOrigin.CreatedBy
+  fullName: Okta.Sdk.ITrustedOrigin.CreatedBy
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.ITrustedOrigin.Id*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.Id
+  name: Id
+  nameWithType: ITrustedOrigin.Id
+  fullName: Okta.Sdk.ITrustedOrigin.Id
+- uid: Okta.Sdk.ITrustedOrigin.LastUpdated*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.LastUpdated
+  name: LastUpdated
+  nameWithType: ITrustedOrigin.LastUpdated
+  fullName: Okta.Sdk.ITrustedOrigin.LastUpdated
+- uid: Okta.Sdk.ITrustedOrigin.LastUpdatedBy*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.LastUpdatedBy
+  name: LastUpdatedBy
+  nameWithType: ITrustedOrigin.LastUpdatedBy
+  fullName: Okta.Sdk.ITrustedOrigin.LastUpdatedBy
+- uid: Okta.Sdk.ITrustedOrigin.Name*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.Name
+  name: Name
+  nameWithType: ITrustedOrigin.Name
+  fullName: Okta.Sdk.ITrustedOrigin.Name
+- uid: Okta.Sdk.ITrustedOrigin.Origin*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.Origin
+  name: Origin
+  nameWithType: ITrustedOrigin.Origin
+  fullName: Okta.Sdk.ITrustedOrigin.Origin
+- uid: Okta.Sdk.ITrustedOrigin.Scopes*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.Scopes
+  name: Scopes
+  nameWithType: ITrustedOrigin.Scopes
+  fullName: Okta.Sdk.ITrustedOrigin.Scopes
+- uid: System.Collections.Generic.IList{Okta.Sdk.IScope}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.IScope}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<IScope>
+  nameWithType: IList<IScope>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.IScope>
+  nameWithType.vb: IList(Of IScope)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.IScope)
+  name.vb: IList(Of IScope)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IScope
+    name: IScope
+    nameWithType: IScope
+    fullName: Okta.Sdk.IScope
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IScope
+    name: IScope
+    nameWithType: IScope
+    fullName: Okta.Sdk.IScope
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.ITrustedOrigin.Status*
+  commentId: Overload:Okta.Sdk.ITrustedOrigin.Status
+  name: Status
+  nameWithType: ITrustedOrigin.Status
+  fullName: Okta.Sdk.ITrustedOrigin.Status

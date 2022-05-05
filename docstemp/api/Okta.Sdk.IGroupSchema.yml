@@ -1,0 +1,678 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IGroupSchema
+  commentId: T:Okta.Sdk.IGroupSchema
+  id: IGroupSchema
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IGroupSchema.Created
+  - Okta.Sdk.IGroupSchema.Definitions
+  - Okta.Sdk.IGroupSchema.Description
+  - Okta.Sdk.IGroupSchema.Id
+  - Okta.Sdk.IGroupSchema.LastUpdated
+  - Okta.Sdk.IGroupSchema.Name
+  - Okta.Sdk.IGroupSchema.Properties
+  - Okta.Sdk.IGroupSchema.Schema
+  - Okta.Sdk.IGroupSchema.Title
+  - Okta.Sdk.IGroupSchema.Type
+  langs:
+  - csharp
+  - vb
+  name: IGroupSchema
+  nameWithType: IGroupSchema
+  fullName: Okta.Sdk.IGroupSchema
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IGroupSchema
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a GroupSchema resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IGroupSchema : IResource'
+    content.vb: >-
+      Public Interface IGroupSchema
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IGroupSchema.Schema
+  commentId: P:Okta.Sdk.IGroupSchema.Schema
+  id: Schema
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Schema
+  nameWithType: IGroupSchema.Schema
+  fullName: Okta.Sdk.IGroupSchema.Schema
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Schema
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Schema { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Schema As String
+  overload: Okta.Sdk.IGroupSchema.Schema*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroupSchema.Created
+  commentId: P:Okta.Sdk.IGroupSchema.Created
+  id: Created
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IGroupSchema.Created
+  fullName: Okta.Sdk.IGroupSchema.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Created { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Created As String
+  overload: Okta.Sdk.IGroupSchema.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroupSchema.Definitions
+  commentId: P:Okta.Sdk.IGroupSchema.Definitions
+  id: Definitions
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Definitions
+  nameWithType: IGroupSchema.Definitions
+  fullName: Okta.Sdk.IGroupSchema.Definitions
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Definitions
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IGroupSchemaDefinitions Definitions { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IGroupSchemaDefinitions
+    content.vb: Property Definitions As IGroupSchemaDefinitions
+  overload: Okta.Sdk.IGroupSchema.Definitions*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IGroupSchema.Description
+  commentId: P:Okta.Sdk.IGroupSchema.Description
+  id: Description
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IGroupSchema.Description
+  fullName: Okta.Sdk.IGroupSchema.Description
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Description
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Description As String
+  overload: Okta.Sdk.IGroupSchema.Description*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IGroupSchema.Id
+  commentId: P:Okta.Sdk.IGroupSchema.Id
+  id: Id
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IGroupSchema.Id
+  fullName: Okta.Sdk.IGroupSchema.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Id As String
+  overload: Okta.Sdk.IGroupSchema.Id*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroupSchema.LastUpdated
+  commentId: P:Okta.Sdk.IGroupSchema.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IGroupSchema.LastUpdated
+  fullName: Okta.Sdk.IGroupSchema.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property LastUpdated As String
+  overload: Okta.Sdk.IGroupSchema.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroupSchema.Name
+  commentId: P:Okta.Sdk.IGroupSchema.Name
+  id: Name
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IGroupSchema.Name
+  fullName: Okta.Sdk.IGroupSchema.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Name { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Name As String
+  overload: Okta.Sdk.IGroupSchema.Name*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroupSchema.Properties
+  commentId: P:Okta.Sdk.IGroupSchema.Properties
+  id: Properties
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Properties
+  nameWithType: IGroupSchema.Properties
+  fullName: Okta.Sdk.IGroupSchema.Properties
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Properties
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IUserSchemaProperties Properties { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemaProperties
+    content.vb: ReadOnly Property Properties As IUserSchemaProperties
+  overload: Okta.Sdk.IGroupSchema.Properties*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroupSchema.Title
+  commentId: P:Okta.Sdk.IGroupSchema.Title
+  id: Title
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Title
+  nameWithType: IGroupSchema.Title
+  fullName: Okta.Sdk.IGroupSchema.Title
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Title
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Title { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Title As String
+  overload: Okta.Sdk.IGroupSchema.Title*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IGroupSchema.Type
+  commentId: P:Okta.Sdk.IGroupSchema.Type
+  id: Type
+  parent: Okta.Sdk.IGroupSchema
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IGroupSchema.Type
+  fullName: Okta.Sdk.IGroupSchema.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/IGroupSchema.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Type { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Type As String
+  overload: Okta.Sdk.IGroupSchema.Type*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IGroupSchema.Schema*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Schema
+  name: Schema
+  nameWithType: IGroupSchema.Schema
+  fullName: Okta.Sdk.IGroupSchema.Schema
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IGroupSchema.Created*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Created
+  name: Created
+  nameWithType: IGroupSchema.Created
+  fullName: Okta.Sdk.IGroupSchema.Created
+- uid: Okta.Sdk.IGroupSchema.Definitions*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Definitions
+  name: Definitions
+  nameWithType: IGroupSchema.Definitions
+  fullName: Okta.Sdk.IGroupSchema.Definitions
+- uid: Okta.Sdk.IGroupSchemaDefinitions
+  commentId: T:Okta.Sdk.IGroupSchemaDefinitions
+  parent: Okta.Sdk
+  name: IGroupSchemaDefinitions
+  nameWithType: IGroupSchemaDefinitions
+  fullName: Okta.Sdk.IGroupSchemaDefinitions
+- uid: Okta.Sdk.IGroupSchema.Description*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Description
+  name: Description
+  nameWithType: IGroupSchema.Description
+  fullName: Okta.Sdk.IGroupSchema.Description
+- uid: Okta.Sdk.IGroupSchema.Id*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Id
+  name: Id
+  nameWithType: IGroupSchema.Id
+  fullName: Okta.Sdk.IGroupSchema.Id
+- uid: Okta.Sdk.IGroupSchema.LastUpdated*
+  commentId: Overload:Okta.Sdk.IGroupSchema.LastUpdated
+  name: LastUpdated
+  nameWithType: IGroupSchema.LastUpdated
+  fullName: Okta.Sdk.IGroupSchema.LastUpdated
+- uid: Okta.Sdk.IGroupSchema.Name*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Name
+  name: Name
+  nameWithType: IGroupSchema.Name
+  fullName: Okta.Sdk.IGroupSchema.Name
+- uid: Okta.Sdk.IGroupSchema.Properties*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Properties
+  name: Properties
+  nameWithType: IGroupSchema.Properties
+  fullName: Okta.Sdk.IGroupSchema.Properties
+- uid: Okta.Sdk.IUserSchemaProperties
+  commentId: T:Okta.Sdk.IUserSchemaProperties
+  parent: Okta.Sdk
+  name: IUserSchemaProperties
+  nameWithType: IUserSchemaProperties
+  fullName: Okta.Sdk.IUserSchemaProperties
+- uid: Okta.Sdk.IGroupSchema.Title*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Title
+  name: Title
+  nameWithType: IGroupSchema.Title
+  fullName: Okta.Sdk.IGroupSchema.Title
+- uid: Okta.Sdk.IGroupSchema.Type*
+  commentId: Overload:Okta.Sdk.IGroupSchema.Type
+  name: Type
+  nameWithType: IGroupSchema.Type
+  fullName: Okta.Sdk.IGroupSchema.Type

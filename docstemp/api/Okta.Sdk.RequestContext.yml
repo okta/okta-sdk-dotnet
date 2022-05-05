@@ -1,0 +1,750 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.RequestContext
+  commentId: T:Okta.Sdk.RequestContext
+  id: RequestContext
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.RequestContext.Accept
+  - Okta.Sdk.RequestContext.AcceptLanguage
+  - Okta.Sdk.RequestContext.Clone
+  - Okta.Sdk.RequestContext.ContentTransferEncoding
+  - Okta.Sdk.RequestContext.ContentType
+  - Okta.Sdk.RequestContext.UserAgent
+  - Okta.Sdk.RequestContext.XForwardedFor
+  - Okta.Sdk.RequestContext.XForwardedPort
+  - Okta.Sdk.RequestContext.XForwardedProto
+  langs:
+  - csharp
+  - vb
+  name: RequestContext
+  nameWithType: RequestContext
+  fullName: Okta.Sdk.RequestContext
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RequestContext
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 16
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nContains information about the downstream request from a client or browser to the application.\n"
+  remarks: "\nThis class is used to pass request details (like the X-Forwarded-For header) from the client request\nthrough to the Okta API. Null properties are ignored.\n"
+  example: []
+  syntax:
+    content: public class RequestContext
+    content.vb: Public Class RequestContext
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Okta.Sdk.RequestContext.UserAgent
+  commentId: P:Okta.Sdk.RequestContext.UserAgent
+  id: UserAgent
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: UserAgent
+  nameWithType: RequestContext.UserAgent
+  fullName: Okta.Sdk.RequestContext.UserAgent
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserAgent
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 24
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the User-Agent of the downstream client.\n"
+  example: []
+  syntax:
+    content: public string UserAgent { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe User-Agent value.\n"
+    content.vb: Public Property UserAgent As String
+  overload: Okta.Sdk.RequestContext.UserAgent*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.XForwardedFor
+  commentId: P:Okta.Sdk.RequestContext.XForwardedFor
+  id: XForwardedFor
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: XForwardedFor
+  nameWithType: RequestContext.XForwardedFor
+  fullName: Okta.Sdk.RequestContext.XForwardedFor
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: XForwardedFor
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 32
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the X-Forwarded-For value that should be sent to the Okta API.\n"
+  example: []
+  syntax:
+    content: public string XForwardedFor { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe X-Forwarded-For value.\n"
+    content.vb: Public Property XForwardedFor As String
+  overload: Okta.Sdk.RequestContext.XForwardedFor*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.XForwardedProto
+  commentId: P:Okta.Sdk.RequestContext.XForwardedProto
+  id: XForwardedProto
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: XForwardedProto
+  nameWithType: RequestContext.XForwardedProto
+  fullName: Okta.Sdk.RequestContext.XForwardedProto
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: XForwardedProto
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 40
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the X-Forwarded-Proto value that should be sent to the Okta API.\n"
+  example: []
+  syntax:
+    content: public string XForwardedProto { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe X-Forwarded-Proto value.\n"
+    content.vb: Public Property XForwardedProto As String
+  overload: Okta.Sdk.RequestContext.XForwardedProto*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.XForwardedPort
+  commentId: P:Okta.Sdk.RequestContext.XForwardedPort
+  id: XForwardedPort
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: XForwardedPort
+  nameWithType: RequestContext.XForwardedPort
+  fullName: Okta.Sdk.RequestContext.XForwardedPort
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: XForwardedPort
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 48
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the X-Forwarded-Port value that should be sent to the Okta API.\n"
+  example: []
+  syntax:
+    content: public string XForwardedPort { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe X-Forwarded-Port value.\n"
+    content.vb: Public Property XForwardedPort As String
+  overload: Okta.Sdk.RequestContext.XForwardedPort*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.AcceptLanguage
+  commentId: P:Okta.Sdk.RequestContext.AcceptLanguage
+  id: AcceptLanguage
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: AcceptLanguage
+  nameWithType: RequestContext.AcceptLanguage
+  fullName: Okta.Sdk.RequestContext.AcceptLanguage
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AcceptLanguage
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 56
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the Accept-Language value that should be sent to the Okta API.\n"
+  example: []
+  syntax:
+    content: public string AcceptLanguage { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe Accept-Language value.\n"
+    content.vb: Public Property AcceptLanguage As String
+  overload: Okta.Sdk.RequestContext.AcceptLanguage*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.Accept
+  commentId: P:Okta.Sdk.RequestContext.Accept
+  id: Accept
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: Accept
+  nameWithType: RequestContext.Accept
+  fullName: Okta.Sdk.RequestContext.Accept
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Accept
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 64
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the Accept value that should be sent to the Okta API.\n"
+  example: []
+  syntax:
+    content: public string Accept { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe Accept value.\n"
+    content.vb: Public Property Accept As String
+  overload: Okta.Sdk.RequestContext.Accept*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.ContentTransferEncoding
+  commentId: P:Okta.Sdk.RequestContext.ContentTransferEncoding
+  id: ContentTransferEncoding
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: ContentTransferEncoding
+  nameWithType: RequestContext.ContentTransferEncoding
+  fullName: Okta.Sdk.RequestContext.ContentTransferEncoding
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ContentTransferEncoding
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 72
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the Content-Transfer-Encoding value that should be sent to the Okta API.\n"
+  example: []
+  syntax:
+    content: public string ContentTransferEncoding { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe Content-Transfer-Encoding value.\n"
+    content.vb: Public Property ContentTransferEncoding As String
+  overload: Okta.Sdk.RequestContext.ContentTransferEncoding*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.ContentType
+  commentId: P:Okta.Sdk.RequestContext.ContentType
+  id: ContentType
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: ContentType
+  nameWithType: RequestContext.ContentType
+  fullName: Okta.Sdk.RequestContext.ContentType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ContentType
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 77
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the Content-Type.\n"
+  example: []
+  syntax:
+    content: public string ContentType { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property ContentType As String
+  overload: Okta.Sdk.RequestContext.ContentType*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.RequestContext.Clone
+  commentId: M:Okta.Sdk.RequestContext.Clone
+  id: Clone
+  parent: Okta.Sdk.RequestContext
+  langs:
+  - csharp
+  - vb
+  name: Clone()
+  nameWithType: RequestContext.Clone()
+  fullName: Okta.Sdk.RequestContext.Clone()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/RequestContext.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Clone
+    path: ../src/Okta.Sdk/RequestContext.cs
+    startLine: 83
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nClone the current request context.\n"
+  example: []
+  syntax:
+    content: public RequestContext Clone()
+    return:
+      type: Okta.Sdk.RequestContext
+      description: A clone of the current request context.
+    content.vb: Public Function Clone As RequestContext
+  overload: Okta.Sdk.RequestContext.Clone*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.RequestContext.UserAgent*
+  commentId: Overload:Okta.Sdk.RequestContext.UserAgent
+  name: UserAgent
+  nameWithType: RequestContext.UserAgent
+  fullName: Okta.Sdk.RequestContext.UserAgent
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.RequestContext.XForwardedFor*
+  commentId: Overload:Okta.Sdk.RequestContext.XForwardedFor
+  name: XForwardedFor
+  nameWithType: RequestContext.XForwardedFor
+  fullName: Okta.Sdk.RequestContext.XForwardedFor
+- uid: Okta.Sdk.RequestContext.XForwardedProto*
+  commentId: Overload:Okta.Sdk.RequestContext.XForwardedProto
+  name: XForwardedProto
+  nameWithType: RequestContext.XForwardedProto
+  fullName: Okta.Sdk.RequestContext.XForwardedProto
+- uid: Okta.Sdk.RequestContext.XForwardedPort*
+  commentId: Overload:Okta.Sdk.RequestContext.XForwardedPort
+  name: XForwardedPort
+  nameWithType: RequestContext.XForwardedPort
+  fullName: Okta.Sdk.RequestContext.XForwardedPort
+- uid: Okta.Sdk.RequestContext.AcceptLanguage*
+  commentId: Overload:Okta.Sdk.RequestContext.AcceptLanguage
+  name: AcceptLanguage
+  nameWithType: RequestContext.AcceptLanguage
+  fullName: Okta.Sdk.RequestContext.AcceptLanguage
+- uid: Okta.Sdk.RequestContext.Accept*
+  commentId: Overload:Okta.Sdk.RequestContext.Accept
+  name: Accept
+  nameWithType: RequestContext.Accept
+  fullName: Okta.Sdk.RequestContext.Accept
+- uid: Okta.Sdk.RequestContext.ContentTransferEncoding*
+  commentId: Overload:Okta.Sdk.RequestContext.ContentTransferEncoding
+  name: ContentTransferEncoding
+  nameWithType: RequestContext.ContentTransferEncoding
+  fullName: Okta.Sdk.RequestContext.ContentTransferEncoding
+- uid: Okta.Sdk.RequestContext.ContentType*
+  commentId: Overload:Okta.Sdk.RequestContext.ContentType
+  name: ContentType
+  nameWithType: RequestContext.ContentType
+  fullName: Okta.Sdk.RequestContext.ContentType
+- uid: Okta.Sdk.RequestContext.Clone*
+  commentId: Overload:Okta.Sdk.RequestContext.Clone
+  name: Clone
+  nameWithType: RequestContext.Clone
+  fullName: Okta.Sdk.RequestContext.Clone
+- uid: Okta.Sdk.RequestContext
+  commentId: T:Okta.Sdk.RequestContext
+  parent: Okta.Sdk
+  name: RequestContext
+  nameWithType: RequestContext
+  fullName: Okta.Sdk.RequestContext

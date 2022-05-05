@@ -1,0 +1,653 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IInlineHooksClient
+  commentId: T:Okta.Sdk.IInlineHooksClient
+  id: IInlineHooksClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync(Okta.Sdk.IInlineHook,System.Threading.CancellationToken)
+  - Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync(Okta.Sdk.IInlineHookPayload,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IInlineHooksClient.GetInlineHookAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IInlineHooksClient.ListInlineHooks(System.String)
+  - Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync(Okta.Sdk.IInlineHook,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IInlineHooksClient
+  nameWithType: IInlineHooksClient
+  fullName: Okta.Sdk.IInlineHooksClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IInlineHooksClient
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta InlineHook resources.
+  example: []
+  syntax:
+    content: public interface IInlineHooksClient
+    content.vb: Public Interface IInlineHooksClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IInlineHooksClient.ListInlineHooks(System.String)
+  commentId: M:Okta.Sdk.IInlineHooksClient.ListInlineHooks(System.String)
+  id: ListInlineHooks(System.String)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: ListInlineHooks(String)
+  nameWithType: IInlineHooksClient.ListInlineHooks(String)
+  fullName: Okta.Sdk.IInlineHooksClient.ListInlineHooks(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListInlineHooks
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IInlineHook> ListInlineHooks(string type = null)
+    parameters:
+    - id: type
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IInlineHook}
+      description: A collection of <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListInlineHooks(type As String = Nothing) As ICollectionClient(Of IInlineHook)
+  overload: Okta.Sdk.IInlineHooksClient.ListInlineHooks*
+- uid: Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync(Okta.Sdk.IInlineHook,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync(Okta.Sdk.IInlineHook,System.Threading.CancellationToken)
+  id: CreateInlineHookAsync(Okta.Sdk.IInlineHook,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: CreateInlineHookAsync(IInlineHook, CancellationToken)
+  nameWithType: IInlineHooksClient.CreateInlineHookAsync(IInlineHook, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync(Okta.Sdk.IInlineHook, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSuccess\n"
+  example: []
+  syntax:
+    content: Task<IInlineHook> CreateInlineHookAsync(IInlineHook inlineHook, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: inlineHook
+      type: Okta.Sdk.IInlineHook
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateInlineHookAsync(inlineHook As IInlineHook, cancellationToken As CancellationToken = Nothing) As Task(Of IInlineHook)
+  overload: Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync*
+- uid: Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteInlineHookAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteInlineHookAsync(String, CancellationToken)
+  nameWithType: IInlineHooksClient.DeleteInlineHookAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.\n"
+  example: []
+  syntax:
+    content: Task DeleteInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: inlineHookId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteInlineHookAsync(inlineHookId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync*
+- uid: Okta.Sdk.IInlineHooksClient.GetInlineHookAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.GetInlineHookAsync(System.String,System.Threading.CancellationToken)
+  id: GetInlineHookAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: GetInlineHookAsync(String, CancellationToken)
+  nameWithType: IInlineHooksClient.GetInlineHookAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.GetInlineHookAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 46
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an inline hook by ID\n"
+  example: []
+  syntax:
+    content: Task<IInlineHook> GetInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: inlineHookId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetInlineHookAsync(inlineHookId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IInlineHook)
+  overload: Okta.Sdk.IInlineHooksClient.GetInlineHookAsync*
+- uid: Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync(Okta.Sdk.IInlineHook,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync(Okta.Sdk.IInlineHook,System.String,System.Threading.CancellationToken)
+  id: UpdateInlineHookAsync(Okta.Sdk.IInlineHook,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateInlineHookAsync(IInlineHook, String, CancellationToken)
+  nameWithType: IInlineHooksClient.UpdateInlineHookAsync(IInlineHook, String, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync(Okta.Sdk.IInlineHook, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates an inline hook by ID\n"
+  example: []
+  syntax:
+    content: Task<IInlineHook> UpdateInlineHookAsync(IInlineHook inlineHook, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: inlineHook
+      type: Okta.Sdk.IInlineHook
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> resource.
+    - id: inlineHookId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateInlineHookAsync(inlineHook As IInlineHook, inlineHookId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IInlineHook)
+  overload: Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync*
+- uid: Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync(Okta.Sdk.IInlineHookPayload,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync(Okta.Sdk.IInlineHookPayload,System.String,System.Threading.CancellationToken)
+  id: ExecuteInlineHookAsync(Okta.Sdk.IInlineHookPayload,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: ExecuteInlineHookAsync(IInlineHookPayload, String, CancellationToken)
+  nameWithType: IInlineHooksClient.ExecuteInlineHookAsync(IInlineHookPayload, String, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync(Okta.Sdk.IInlineHookPayload, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ExecuteInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 64
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nExecutes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.\n"
+  example: []
+  syntax:
+    content: Task<IInlineHookResponse> ExecuteInlineHookAsync(IInlineHookPayload payloadData, string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: payloadData
+      type: Okta.Sdk.IInlineHookPayload
+      description: The <xref href="Okta.Sdk.IInlineHookPayload" data-throw-if-not-resolved="false"></xref> resource.
+    - id: inlineHookId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IInlineHookResponse}
+      description: The <xref href="Okta.Sdk.IInlineHookResponse" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ExecuteInlineHookAsync(payloadData As IInlineHookPayload, inlineHookId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IInlineHookResponse)
+  overload: Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync*
+- uid: Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  id: ActivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateInlineHookAsync(String, CancellationToken)
+  nameWithType: IInlineHooksClient.ActivateInlineHookAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 72
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nActivates the Inline Hook matching the provided id\n"
+  example: []
+  syntax:
+    content: Task<IInlineHook> ActivateInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: inlineHookId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ActivateInlineHookAsync(inlineHookId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IInlineHook)
+  overload: Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync*
+- uid: Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  id: DeactivateInlineHookAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IInlineHooksClient
+  langs:
+  - csharp
+  - vb
+  name: DeactivateInlineHookAsync(String, CancellationToken)
+  nameWithType: IInlineHooksClient.DeactivateInlineHookAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeactivateInlineHookAsync
+    path: ../src/Okta.Sdk/Generated/IInlineHooksClient.Generated.cs
+    startLine: 80
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeactivates the Inline Hook matching the provided id\n"
+  example: []
+  syntax:
+    content: Task<IInlineHook> DeactivateInlineHookAsync(string inlineHookId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: inlineHookId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+      description: The <xref href="Okta.Sdk.IInlineHook" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function DeactivateInlineHookAsync(inlineHookId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IInlineHook)
+  overload: Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IInlineHook
+  commentId: T:Okta.Sdk.IInlineHook
+  parent: Okta.Sdk
+  name: IInlineHook
+  nameWithType: IInlineHook
+  fullName: Okta.Sdk.IInlineHook
+- uid: Okta.Sdk.IInlineHooksClient.ListInlineHooks*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.ListInlineHooks
+  name: ListInlineHooks
+  nameWithType: IInlineHooksClient.ListInlineHooks
+  fullName: Okta.Sdk.IInlineHooksClient.ListInlineHooks
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IInlineHook}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IInlineHook}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IInlineHook>
+  nameWithType: ICollectionClient<IInlineHook>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IInlineHook>
+  nameWithType.vb: ICollectionClient(Of IInlineHook)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IInlineHook)
+  name.vb: ICollectionClient(Of IInlineHook)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IInlineHook
+    name: IInlineHook
+    nameWithType: IInlineHook
+    fullName: Okta.Sdk.IInlineHook
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IInlineHook
+    name: IInlineHook
+    nameWithType: IInlineHook
+    fullName: Okta.Sdk.IInlineHook
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync
+  name: CreateInlineHookAsync
+  nameWithType: IInlineHooksClient.CreateInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.CreateInlineHookAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IInlineHook}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IInlineHook>
+  nameWithType: Task<IInlineHook>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IInlineHook>
+  nameWithType.vb: Task(Of IInlineHook)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IInlineHook)
+  name.vb: Task(Of IInlineHook)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IInlineHook
+    name: IInlineHook
+    nameWithType: IInlineHook
+    fullName: Okta.Sdk.IInlineHook
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IInlineHook
+    name: IInlineHook
+    nameWithType: IInlineHook
+    fullName: Okta.Sdk.IInlineHook
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync
+  name: DeleteInlineHookAsync
+  nameWithType: IInlineHooksClient.DeleteInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.DeleteInlineHookAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.IInlineHooksClient.GetInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.GetInlineHookAsync
+  name: GetInlineHookAsync
+  nameWithType: IInlineHooksClient.GetInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.GetInlineHookAsync
+- uid: Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync
+  name: UpdateInlineHookAsync
+  nameWithType: IInlineHooksClient.UpdateInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.UpdateInlineHookAsync
+- uid: Okta.Sdk.IInlineHookPayload
+  commentId: T:Okta.Sdk.IInlineHookPayload
+  parent: Okta.Sdk
+  name: IInlineHookPayload
+  nameWithType: IInlineHookPayload
+  fullName: Okta.Sdk.IInlineHookPayload
+- uid: Okta.Sdk.IInlineHookResponse
+  commentId: T:Okta.Sdk.IInlineHookResponse
+  parent: Okta.Sdk
+  name: IInlineHookResponse
+  nameWithType: IInlineHookResponse
+  fullName: Okta.Sdk.IInlineHookResponse
+- uid: Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync
+  name: ExecuteInlineHookAsync
+  nameWithType: IInlineHooksClient.ExecuteInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.ExecuteInlineHookAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IInlineHookResponse}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IInlineHookResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IInlineHookResponse>
+  nameWithType: Task<IInlineHookResponse>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IInlineHookResponse>
+  nameWithType.vb: Task(Of IInlineHookResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IInlineHookResponse)
+  name.vb: Task(Of IInlineHookResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IInlineHookResponse
+    name: IInlineHookResponse
+    nameWithType: IInlineHookResponse
+    fullName: Okta.Sdk.IInlineHookResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IInlineHookResponse
+    name: IInlineHookResponse
+    nameWithType: IInlineHookResponse
+    fullName: Okta.Sdk.IInlineHookResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync
+  name: ActivateInlineHookAsync
+  nameWithType: IInlineHooksClient.ActivateInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.ActivateInlineHookAsync
+- uid: Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync*
+  commentId: Overload:Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync
+  name: DeactivateInlineHookAsync
+  nameWithType: IInlineHooksClient.DeactivateInlineHookAsync
+  fullName: Okta.Sdk.IInlineHooksClient.DeactivateInlineHookAsync

@@ -1,0 +1,536 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.MultipartHttpRequest
+  commentId: T:Okta.Sdk.MultipartHttpRequest
+  id: MultipartHttpRequest
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.MultipartHttpRequest.FileName
+  langs:
+  - csharp
+  - vb
+  name: MultipartHttpRequest
+  nameWithType: MultipartHttpRequest
+  fullName: Okta.Sdk.MultipartHttpRequest
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/MultipartHttpRequest.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: MultipartHttpRequest
+    path: ../src/Okta.Sdk/MultipartHttpRequest.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nThis class represents a Multipart request.\n"
+  example: []
+  syntax:
+    content: 'public class MultipartHttpRequest : HttpRequest'
+    content.vb: >-
+      Public Class MultipartHttpRequest
+
+          Inherits HttpRequest
+  inheritance:
+  - System.Object
+  - Okta.Sdk.HttpRequest
+  inheritedMembers:
+  - Okta.Sdk.HttpRequest.PayloadHandler
+  - Okta.Sdk.HttpRequest.Verb
+  - Okta.Sdk.HttpRequest.Uri
+  - Okta.Sdk.HttpRequest.Payload
+  - Okta.Sdk.HttpRequest.ContentType
+  - Okta.Sdk.HttpRequest.ContentTransferEncoding
+  - Okta.Sdk.HttpRequest.QueryParameters
+  - Okta.Sdk.HttpRequest.PathParameters
+  - Okta.Sdk.HttpRequest.Headers
+  - Okta.Sdk.HttpRequest.GetBody
+  - Okta.Sdk.HttpRequest.SetHttpRequestMessageContent(System.Net.Http.HttpRequestMessage)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Okta.Sdk.MultipartHttpRequest.FileName
+  commentId: P:Okta.Sdk.MultipartHttpRequest.FileName
+  id: FileName
+  parent: Okta.Sdk.MultipartHttpRequest
+  langs:
+  - csharp
+  - vb
+  name: FileName
+  nameWithType: MultipartHttpRequest.FileName
+  fullName: Okta.Sdk.MultipartHttpRequest.FileName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/MultipartHttpRequest.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: FileName
+    path: ../src/Okta.Sdk/MultipartHttpRequest.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the file name.\n"
+  example: []
+  syntax:
+    content: public string FileName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Public Property FileName As String
+  overload: Okta.Sdk.MultipartHttpRequest.FileName*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.HttpRequest
+  commentId: T:Okta.Sdk.HttpRequest
+  parent: Okta.Sdk
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: Okta.Sdk.HttpRequest
+- uid: Okta.Sdk.HttpRequest.PayloadHandler
+  commentId: P:Okta.Sdk.HttpRequest.PayloadHandler
+  parent: Okta.Sdk.HttpRequest
+  name: PayloadHandler
+  nameWithType: HttpRequest.PayloadHandler
+  fullName: Okta.Sdk.HttpRequest.PayloadHandler
+- uid: Okta.Sdk.HttpRequest.Verb
+  commentId: P:Okta.Sdk.HttpRequest.Verb
+  parent: Okta.Sdk.HttpRequest
+  name: Verb
+  nameWithType: HttpRequest.Verb
+  fullName: Okta.Sdk.HttpRequest.Verb
+- uid: Okta.Sdk.HttpRequest.Uri
+  commentId: P:Okta.Sdk.HttpRequest.Uri
+  parent: Okta.Sdk.HttpRequest
+  name: Uri
+  nameWithType: HttpRequest.Uri
+  fullName: Okta.Sdk.HttpRequest.Uri
+- uid: Okta.Sdk.HttpRequest.Payload
+  commentId: P:Okta.Sdk.HttpRequest.Payload
+  parent: Okta.Sdk.HttpRequest
+  name: Payload
+  nameWithType: HttpRequest.Payload
+  fullName: Okta.Sdk.HttpRequest.Payload
+- uid: Okta.Sdk.HttpRequest.ContentType
+  commentId: P:Okta.Sdk.HttpRequest.ContentType
+  parent: Okta.Sdk.HttpRequest
+  name: ContentType
+  nameWithType: HttpRequest.ContentType
+  fullName: Okta.Sdk.HttpRequest.ContentType
+- uid: Okta.Sdk.HttpRequest.ContentTransferEncoding
+  commentId: P:Okta.Sdk.HttpRequest.ContentTransferEncoding
+  parent: Okta.Sdk.HttpRequest
+  name: ContentTransferEncoding
+  nameWithType: HttpRequest.ContentTransferEncoding
+  fullName: Okta.Sdk.HttpRequest.ContentTransferEncoding
+- uid: Okta.Sdk.HttpRequest.QueryParameters
+  commentId: P:Okta.Sdk.HttpRequest.QueryParameters
+  parent: Okta.Sdk.HttpRequest
+  name: QueryParameters
+  nameWithType: HttpRequest.QueryParameters
+  fullName: Okta.Sdk.HttpRequest.QueryParameters
+- uid: Okta.Sdk.HttpRequest.PathParameters
+  commentId: P:Okta.Sdk.HttpRequest.PathParameters
+  parent: Okta.Sdk.HttpRequest
+  name: PathParameters
+  nameWithType: HttpRequest.PathParameters
+  fullName: Okta.Sdk.HttpRequest.PathParameters
+- uid: Okta.Sdk.HttpRequest.Headers
+  commentId: P:Okta.Sdk.HttpRequest.Headers
+  parent: Okta.Sdk.HttpRequest
+  name: Headers
+  nameWithType: HttpRequest.Headers
+  fullName: Okta.Sdk.HttpRequest.Headers
+- uid: Okta.Sdk.HttpRequest.GetBody
+  commentId: M:Okta.Sdk.HttpRequest.GetBody
+  parent: Okta.Sdk.HttpRequest
+  name: GetBody()
+  nameWithType: HttpRequest.GetBody()
+  fullName: Okta.Sdk.HttpRequest.GetBody()
+  spec.csharp:
+  - uid: Okta.Sdk.HttpRequest.GetBody
+    name: GetBody
+    nameWithType: HttpRequest.GetBody
+    fullName: Okta.Sdk.HttpRequest.GetBody
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.HttpRequest.GetBody
+    name: GetBody
+    nameWithType: HttpRequest.GetBody
+    fullName: Okta.Sdk.HttpRequest.GetBody
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.HttpRequest.SetHttpRequestMessageContent(System.Net.Http.HttpRequestMessage)
+  commentId: M:Okta.Sdk.HttpRequest.SetHttpRequestMessageContent(System.Net.Http.HttpRequestMessage)
+  parent: Okta.Sdk.HttpRequest
+  isExternal: true
+  name: SetHttpRequestMessageContent(HttpRequestMessage)
+  nameWithType: HttpRequest.SetHttpRequestMessageContent(HttpRequestMessage)
+  fullName: Okta.Sdk.HttpRequest.SetHttpRequestMessageContent(System.Net.Http.HttpRequestMessage)
+  spec.csharp:
+  - uid: Okta.Sdk.HttpRequest.SetHttpRequestMessageContent(System.Net.Http.HttpRequestMessage)
+    name: SetHttpRequestMessageContent
+    nameWithType: HttpRequest.SetHttpRequestMessageContent
+    fullName: Okta.Sdk.HttpRequest.SetHttpRequestMessageContent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    nameWithType: HttpRequestMessage
+    fullName: System.Net.Http.HttpRequestMessage
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.HttpRequest.SetHttpRequestMessageContent(System.Net.Http.HttpRequestMessage)
+    name: SetHttpRequestMessageContent
+    nameWithType: HttpRequest.SetHttpRequestMessageContent
+    fullName: Okta.Sdk.HttpRequest.SetHttpRequestMessageContent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    nameWithType: HttpRequestMessage
+    fullName: System.Net.Http.HttpRequestMessage
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.MultipartHttpRequest.FileName*
+  commentId: Overload:Okta.Sdk.MultipartHttpRequest.FileName
+  name: FileName
+  nameWithType: MultipartHttpRequest.FileName
+  fullName: Okta.Sdk.MultipartHttpRequest.FileName
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String

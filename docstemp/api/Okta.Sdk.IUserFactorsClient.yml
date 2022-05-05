@@ -1,0 +1,1439 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IUserFactorsClient
+  commentId: T:Okta.Sdk.IUserFactorsClient
+  id: IUserFactorsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCallFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCustomHotpFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddEmailFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddHardwareFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddPushFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSecurityQuestionFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSmsFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTokenFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTotpFactorOptions,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.DeleteFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.EnrollFactorAsync(Okta.Sdk.IUserFactor,System.String,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.GetFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.ListFactors(System.String)
+  - Okta.Sdk.IUserFactorsClient.ListSupportedFactors(System.String)
+  - Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions(System.String)
+  - Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest,System.String,System.String,System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  - Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IUserFactorsClient
+  nameWithType: IUserFactorsClient
+  fullName: Okta.Sdk.IUserFactorsClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IUserFactorsClient
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 11
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta UserFactor resources.
+  example: []
+  syntax:
+    content: public interface IUserFactorsClient
+    content.vb: Public Interface IUserFactorsClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IUserFactorsClient.ListFactors(System.String)
+  commentId: M:Okta.Sdk.IUserFactorsClient.ListFactors(System.String)
+  id: ListFactors(System.String)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: ListFactors(String)
+  nameWithType: IUserFactorsClient.ListFactors(String)
+  fullName: Okta.Sdk.IUserFactorsClient.ListFactors(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListFactors
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates all the enrolled factors for the specified user\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IUserFactor> ListFactors(string userId)
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IUserFactor}
+      description: A collection of <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListFactors(userId As String) As ICollectionClient(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.ListFactors*
+- uid: Okta.Sdk.IUserFactorsClient.EnrollFactorAsync(Okta.Sdk.IUserFactor,System.String,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.EnrollFactorAsync(Okta.Sdk.IUserFactor,System.String,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: EnrollFactorAsync(Okta.Sdk.IUserFactor,System.String,System.Nullable{System.Boolean},System.String,System.Nullable{System.Int32},System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: EnrollFactorAsync(IUserFactor, String, Nullable<Boolean>, String, Nullable<Int32>, Nullable<Boolean>, CancellationToken)
+  nameWithType: IUserFactorsClient.EnrollFactorAsync(IUserFactor, String, Nullable<Boolean>, String, Nullable<Int32>, Nullable<Boolean>, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.EnrollFactorAsync(Okta.Sdk.IUserFactor, System.String, System.Nullable<System.Boolean>, System.String, System.Nullable<System.Int32>, System.Nullable<System.Boolean>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EnrollFactorAsync
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a supported factor.\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> EnrollFactorAsync(IUserFactor body, string userId, bool? updatePhone = false, string templateId = null, int? tokenLifetimeSeconds = 300, bool? activate = false, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: body
+      type: Okta.Sdk.IUserFactor
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource.
+    - id: userId
+      type: System.String
+      description: ''
+    - id: updatePhone
+      type: System.Nullable{System.Boolean}
+      description: ''
+    - id: templateId
+      type: System.String
+      description: id of SMS template (only for SMS factor)
+    - id: tokenLifetimeSeconds
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: activate
+      type: System.Nullable{System.Boolean}
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function EnrollFactorAsync(body As IUserFactor, userId As String, updatePhone As Boolean? = False, templateId As String = Nothing, tokenLifetimeSeconds As Integer? = 300, activate As Boolean? = False, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.EnrollFactorAsync*
+  nameWithType.vb: IUserFactorsClient.EnrollFactorAsync(IUserFactor, String, Nullable(Of Boolean), String, Nullable(Of Int32), Nullable(Of Boolean), CancellationToken)
+  fullName.vb: Okta.Sdk.IUserFactorsClient.EnrollFactorAsync(Okta.Sdk.IUserFactor, System.String, System.Nullable(Of System.Boolean), System.String, System.Nullable(Of System.Int32), System.Nullable(Of System.Boolean), System.Threading.CancellationToken)
+  name.vb: EnrollFactorAsync(IUserFactor, String, Nullable(Of Boolean), String, Nullable(Of Int32), Nullable(Of Boolean), CancellationToken)
+- uid: Okta.Sdk.IUserFactorsClient.ListSupportedFactors(System.String)
+  commentId: M:Okta.Sdk.IUserFactorsClient.ListSupportedFactors(System.String)
+  id: ListSupportedFactors(System.String)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: ListSupportedFactors(String)
+  nameWithType: IUserFactorsClient.ListSupportedFactors(String)
+  fullName: Okta.Sdk.IUserFactorsClient.ListSupportedFactors(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListSupportedFactors
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates all the supported factors that can be enrolled for the specified user\n"
+  example: []
+  syntax:
+    content: ICollectionClient<IUserFactor> ListSupportedFactors(string userId)
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IUserFactor}
+      description: A collection of <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListSupportedFactors(userId As String) As ICollectionClient(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.ListSupportedFactors*
+- uid: Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions(System.String)
+  commentId: M:Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions(System.String)
+  id: ListSupportedSecurityQuestions(System.String)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: ListSupportedSecurityQuestions(String)
+  nameWithType: IUserFactorsClient.ListSupportedSecurityQuestions(String)
+  fullName: Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListSupportedSecurityQuestions
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 49
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnumerates all available security questions for a user&apos;s `question` factor\n"
+  example: []
+  syntax:
+    content: ICollectionClient<ISecurityQuestion> ListSupportedSecurityQuestions(string userId)
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.ISecurityQuestion}
+      description: A collection of <xref href="Okta.Sdk.ISecurityQuestion" data-throw-if-not-resolved="false"></xref> that can be enumerated asynchronously.
+    content.vb: Function ListSupportedSecurityQuestions(userId As String) As ICollectionClient(Of ISecurityQuestion)
+  overload: Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions*
+- uid: Okta.Sdk.IUserFactorsClient.DeleteFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.DeleteFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: DeleteFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteFactorAsync(String, String, CancellationToken)
+  nameWithType: IUserFactorsClient.DeleteFactorAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.DeleteFactorAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteFactorAsync
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 58
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUnenrolls an existing factor for the specified user, allowing the user to enroll a new factor.\n"
+  example: []
+  syntax:
+    content: Task DeleteFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    - id: factorId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteFactorAsync(userId As String, factorId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IUserFactorsClient.DeleteFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.GetFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.GetFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: GetFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: GetFactorAsync(String, String, CancellationToken)
+  nameWithType: IUserFactorsClient.GetFactorAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.GetFactorAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetFactorAsync
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 67
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nFetches a factor for the specified user\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> GetFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    - id: factorId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetFactorAsync(userId As String, factorId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.GetFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest,System.String,System.String,System.Threading.CancellationToken)
+  id: ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateFactorAsync(IActivateFactorRequest, String, String, CancellationToken)
+  nameWithType: IUserFactorsClient.ActivateFactorAsync(IActivateFactorRequest, String, String, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(Okta.Sdk.IActivateFactorRequest, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateFactorAsync
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 77
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nThe `sms` and `token:software:totp` factor types require activation to complete the enrollment process.\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> ActivateFactorAsync(IActivateFactorRequest body, string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: body
+      type: Okta.Sdk.IActivateFactorRequest
+      description: The <xref href="Okta.Sdk.IActivateFactorRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: userId
+      type: System.String
+      description: ''
+    - id: factorId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ActivateFactorAsync(body As IActivateFactorRequest, userId As String, factorId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: GetFactorTransactionStatusAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: GetFactorTransactionStatusAsync(String, String, String, CancellationToken)
+  nameWithType: IUserFactorsClient.GetFactorTransactionStatusAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetFactorTransactionStatusAsync
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 87
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPolls factors verification transaction for status.\n"
+  example: []
+  syntax:
+    content: Task<IVerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: ''
+    - id: factorId
+      type: System.String
+      description: ''
+    - id: transactionId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IVerifyUserFactorResponse}
+      description: The <xref href="Okta.Sdk.IVerifyUserFactorResponse" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetFactorTransactionStatusAsync(userId As String, factorId As String, transactionId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IVerifyUserFactorResponse)
+  overload: Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync*
+- uid: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest,System.String,System.String,System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest,System.String,System.String,System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest,System.String,System.String,System.String,System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: VerifyFactorAsync(IVerifyFactorRequest, String, String, String, Nullable<Int32>, CancellationToken)
+  nameWithType: IUserFactorsClient.VerifyFactorAsync(IVerifyFactorRequest, String, String, String, Nullable<Int32>, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest, System.String, System.String, System.String, System.Nullable<System.Int32>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: VerifyFactorAsync
+    path: ../src/Okta.Sdk/Generated/IUserFactorsClient.Generated.cs
+    startLine: 99
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nVerifies an OTP for a `token` or `token:hardware` factor\n"
+  example: []
+  syntax:
+    content: Task<IVerifyUserFactorResponse> VerifyFactorAsync(IVerifyFactorRequest body, string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = 300, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: body
+      type: Okta.Sdk.IVerifyFactorRequest
+      description: The <xref href="Okta.Sdk.IVerifyFactorRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: userId
+      type: System.String
+      description: ''
+    - id: factorId
+      type: System.String
+      description: ''
+    - id: templateId
+      type: System.String
+      description: ''
+    - id: tokenLifetimeSeconds
+      type: System.Nullable{System.Int32}
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IVerifyUserFactorResponse}
+      description: The <xref href="Okta.Sdk.IVerifyUserFactorResponse" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function VerifyFactorAsync(body As IVerifyFactorRequest, userId As String, factorId As String, templateId As String = Nothing, tokenLifetimeSeconds As Integer? = 300, cancellationToken As CancellationToken = Nothing) As Task(Of IVerifyUserFactorResponse)
+  overload: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync*
+  nameWithType.vb: IUserFactorsClient.VerifyFactorAsync(IVerifyFactorRequest, String, String, String, Nullable(Of Int32), CancellationToken)
+  fullName.vb: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(Okta.Sdk.IVerifyFactorRequest, System.String, System.String, System.String, System.Nullable(Of System.Int32), System.Threading.CancellationToken)
+  name.vb: VerifyFactorAsync(IVerifyFactorRequest, String, String, String, Nullable(Of Int32), CancellationToken)
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSecurityQuestionFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSecurityQuestionFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddSecurityQuestionFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddSecurityQuestionFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddSecurityQuestionFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddSecurityQuestionFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a security question factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddSecurityQuestionFactorOptions securityQuestionFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: securityQuestionFactorOptions
+      type: Okta.Sdk.AddSecurityQuestionFactorOptions
+      description: The security question factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, securityQuestionFactorOptions As AddSecurityQuestionFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCallFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCallFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddCallFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddCallFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddCallFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddCallFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a call factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddCallFactorOptions callFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: callFactorOptions
+      type: Okta.Sdk.AddCallFactorOptions
+      description: The call factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, callFactorOptions As AddCallFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddEmailFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddEmailFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddEmailFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddEmailFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddEmailFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddEmailFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with an email factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddEmailFactorOptions emailFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: emailFactorOptions
+      type: Okta.Sdk.AddEmailFactorOptions
+      description: The email factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, emailFactorOptions As AddEmailFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddHardwareFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddHardwareFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddHardwareFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddHardwareFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddHardwareFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddHardwareFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a hardware factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddHardwareFactorOptions hardwareFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: hardwareFactorOptions
+      type: Okta.Sdk.AddHardwareFactorOptions
+      description: The hardware factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, hardwareFactorOptions As AddHardwareFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddPushFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddPushFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddPushFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddPushFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddPushFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddPushFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 56
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a push factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddPushFactorOptions pushFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: pushFactorOptions
+      type: Okta.Sdk.AddPushFactorOptions
+      description: The push factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, pushFactorOptions As AddPushFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSmsFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddSmsFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddSmsFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddSmsFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddSmsFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddSmsFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a sms factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddSmsFactorOptions smsFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: smsFactorOptions
+      type: Okta.Sdk.AddSmsFactorOptions
+      description: The sms factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, smsFactorOptions As AddSmsFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTokenFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTokenFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddTokenFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddTokenFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddTokenFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddTokenFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 74
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a token factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddTokenFactorOptions tokenFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: tokenFactorOptions
+      type: Okta.Sdk.AddTokenFactorOptions
+      description: The token factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, tokenFactorOptions As AddTokenFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTotpFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddTotpFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddTotpFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddTotpFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddTotpFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddTotpFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 83
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a token:software:totp factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddTotpFactorOptions totpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: totpFactorOptions
+      type: Okta.Sdk.AddTotpFactorOptions
+      description: The token:software:totp factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, totpFactorOptions As AddTotpFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCustomHotpFactorOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String,Okta.Sdk.AddCustomHotpFactorOptions,System.Threading.CancellationToken)
+  id: AddFactorAsync(System.String,Okta.Sdk.AddCustomHotpFactorOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: AddFactorAsync(String, AddCustomHotpFactorOptions, CancellationToken)
+  nameWithType: IUserFactorsClient.AddFactorAsync(String, AddCustomHotpFactorOptions, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync(System.String, Okta.Sdk.AddCustomHotpFactorOptions, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 92
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nEnrolls a user with a token:hotp factor\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> AddFactorAsync(string userId, AddCustomHotpFactorOptions hotpFactorOptions, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user id
+    - id: hotpFactorOptions
+      type: Okta.Sdk.AddCustomHotpFactorOptions
+      description: The token:hotp factor options
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> resource
+    content.vb: Function AddFactorAsync(userId As String, hotpFactorOptions As AddCustomHotpFactorOptions, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: VerifyFactorAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: VerifyFactorAsync(String, String, String, CancellationToken)
+  nameWithType: IUserFactorsClient.VerifyFactorAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: VerifyFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 102
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nVerifies an OTP for a `token` or `token:hardware` factor\n"
+  example: []
+  syntax:
+    content: Task<IVerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = null, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user ID.
+    - id: factorId
+      type: System.String
+      description: The factor ID.
+    - id: templateId
+      type: System.String
+      description: The template ID.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IVerifyUserFactorResponse}
+      description: The <xref href="Okta.Sdk.IVerifyUserFactorResponse" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function VerifyFactorAsync(userId As String, factorId As String, templateId As String = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of IVerifyUserFactorResponse)
+  overload: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync*
+- uid: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: ActivateFactorAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUserFactorsClient
+  langs:
+  - csharp
+  - vb
+  name: ActivateFactorAsync(String, String, CancellationToken)
+  nameWithType: IUserFactorsClient.ActivateFactorAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IUserFactorsClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateFactorAsync
+    path: ../src/Okta.Sdk/IUserFactorsClient.cs
+    startLine: 111
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nThe `sms` and `token:software:totp` factor types require activation to complete the enrollment process.\n"
+  example: []
+  syntax:
+    content: Task<IUserFactor> ActivateFactorAsync(string userId, string factorId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+      description: The user ID.
+    - id: factorId
+      type: System.String
+      description: The factor Id.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+      description: The <xref href="Okta.Sdk.IUserFactor" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function ActivateFactorAsync(userId As String, factorId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IUserFactor)
+  overload: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IUserFactor
+  commentId: T:Okta.Sdk.IUserFactor
+  parent: Okta.Sdk
+  name: IUserFactor
+  nameWithType: IUserFactor
+  fullName: Okta.Sdk.IUserFactor
+- uid: Okta.Sdk.IUserFactorsClient.ListFactors*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.ListFactors
+  name: ListFactors
+  nameWithType: IUserFactorsClient.ListFactors
+  fullName: Okta.Sdk.IUserFactorsClient.ListFactors
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IUserFactor}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IUserFactor}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IUserFactor>
+  nameWithType: ICollectionClient<IUserFactor>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IUserFactor>
+  nameWithType.vb: ICollectionClient(Of IUserFactor)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IUserFactor)
+  name.vb: ICollectionClient(Of IUserFactor)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IUserFactor
+    name: IUserFactor
+    nameWithType: IUserFactor
+    fullName: Okta.Sdk.IUserFactor
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IUserFactor
+    name: IUserFactor
+    nameWithType: IUserFactor
+    fullName: Okta.Sdk.IUserFactor
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IUserFactorsClient.EnrollFactorAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.EnrollFactorAsync
+  name: EnrollFactorAsync
+  nameWithType: IUserFactorsClient.EnrollFactorAsync
+  fullName: Okta.Sdk.IUserFactorsClient.EnrollFactorAsync
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IUserFactor}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IUserFactor>
+  nameWithType: Task<IUserFactor>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IUserFactor>
+  nameWithType.vb: Task(Of IUserFactor)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IUserFactor)
+  name.vb: Task(Of IUserFactor)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IUserFactor
+    name: IUserFactor
+    nameWithType: IUserFactor
+    fullName: Okta.Sdk.IUserFactor
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IUserFactor
+    name: IUserFactor
+    nameWithType: IUserFactor
+    fullName: Okta.Sdk.IUserFactor
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IUserFactorsClient.ListSupportedFactors*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.ListSupportedFactors
+  name: ListSupportedFactors
+  nameWithType: IUserFactorsClient.ListSupportedFactors
+  fullName: Okta.Sdk.IUserFactorsClient.ListSupportedFactors
+- uid: Okta.Sdk.ISecurityQuestion
+  commentId: T:Okta.Sdk.ISecurityQuestion
+  parent: Okta.Sdk
+  name: ISecurityQuestion
+  nameWithType: ISecurityQuestion
+  fullName: Okta.Sdk.ISecurityQuestion
+- uid: Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions
+  name: ListSupportedSecurityQuestions
+  nameWithType: IUserFactorsClient.ListSupportedSecurityQuestions
+  fullName: Okta.Sdk.IUserFactorsClient.ListSupportedSecurityQuestions
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.ISecurityQuestion}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.ISecurityQuestion}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<ISecurityQuestion>
+  nameWithType: ICollectionClient<ISecurityQuestion>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.ISecurityQuestion>
+  nameWithType.vb: ICollectionClient(Of ISecurityQuestion)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.ISecurityQuestion)
+  name.vb: ICollectionClient(Of ISecurityQuestion)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISecurityQuestion
+    name: ISecurityQuestion
+    nameWithType: ISecurityQuestion
+    fullName: Okta.Sdk.ISecurityQuestion
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISecurityQuestion
+    name: ISecurityQuestion
+    nameWithType: ISecurityQuestion
+    fullName: Okta.Sdk.ISecurityQuestion
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IUserFactorsClient.DeleteFactorAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.DeleteFactorAsync
+  name: DeleteFactorAsync
+  nameWithType: IUserFactorsClient.DeleteFactorAsync
+  fullName: Okta.Sdk.IUserFactorsClient.DeleteFactorAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.IUserFactorsClient.GetFactorAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.GetFactorAsync
+  name: GetFactorAsync
+  nameWithType: IUserFactorsClient.GetFactorAsync
+  fullName: Okta.Sdk.IUserFactorsClient.GetFactorAsync
+- uid: Okta.Sdk.IActivateFactorRequest
+  commentId: T:Okta.Sdk.IActivateFactorRequest
+  parent: Okta.Sdk
+  name: IActivateFactorRequest
+  nameWithType: IActivateFactorRequest
+  fullName: Okta.Sdk.IActivateFactorRequest
+- uid: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.ActivateFactorAsync
+  name: ActivateFactorAsync
+  nameWithType: IUserFactorsClient.ActivateFactorAsync
+  fullName: Okta.Sdk.IUserFactorsClient.ActivateFactorAsync
+- uid: Okta.Sdk.IVerifyUserFactorResponse
+  commentId: T:Okta.Sdk.IVerifyUserFactorResponse
+  parent: Okta.Sdk
+  name: IVerifyUserFactorResponse
+  nameWithType: IVerifyUserFactorResponse
+  fullName: Okta.Sdk.IVerifyUserFactorResponse
+- uid: Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync
+  name: GetFactorTransactionStatusAsync
+  nameWithType: IUserFactorsClient.GetFactorTransactionStatusAsync
+  fullName: Okta.Sdk.IUserFactorsClient.GetFactorTransactionStatusAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IVerifyUserFactorResponse}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IVerifyUserFactorResponse}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IVerifyUserFactorResponse>
+  nameWithType: Task<IVerifyUserFactorResponse>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IVerifyUserFactorResponse>
+  nameWithType.vb: Task(Of IVerifyUserFactorResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IVerifyUserFactorResponse)
+  name.vb: Task(Of IVerifyUserFactorResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IVerifyUserFactorResponse
+    name: IVerifyUserFactorResponse
+    nameWithType: IVerifyUserFactorResponse
+    fullName: Okta.Sdk.IVerifyUserFactorResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IVerifyUserFactorResponse
+    name: IVerifyUserFactorResponse
+    nameWithType: IVerifyUserFactorResponse
+    fullName: Okta.Sdk.IVerifyUserFactorResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IVerifyFactorRequest
+  commentId: T:Okta.Sdk.IVerifyFactorRequest
+  parent: Okta.Sdk
+  name: IVerifyFactorRequest
+  nameWithType: IVerifyFactorRequest
+  fullName: Okta.Sdk.IVerifyFactorRequest
+- uid: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.VerifyFactorAsync
+  name: VerifyFactorAsync
+  nameWithType: IUserFactorsClient.VerifyFactorAsync
+  fullName: Okta.Sdk.IUserFactorsClient.VerifyFactorAsync
+- uid: Okta.Sdk.IUserFactorsClient.AddFactorAsync*
+  commentId: Overload:Okta.Sdk.IUserFactorsClient.AddFactorAsync
+  name: AddFactorAsync
+  nameWithType: IUserFactorsClient.AddFactorAsync
+  fullName: Okta.Sdk.IUserFactorsClient.AddFactorAsync
+- uid: Okta.Sdk.AddSecurityQuestionFactorOptions
+  commentId: T:Okta.Sdk.AddSecurityQuestionFactorOptions
+  parent: Okta.Sdk
+  name: AddSecurityQuestionFactorOptions
+  nameWithType: AddSecurityQuestionFactorOptions
+  fullName: Okta.Sdk.AddSecurityQuestionFactorOptions
+- uid: Okta.Sdk.AddCallFactorOptions
+  commentId: T:Okta.Sdk.AddCallFactorOptions
+  parent: Okta.Sdk
+  name: AddCallFactorOptions
+  nameWithType: AddCallFactorOptions
+  fullName: Okta.Sdk.AddCallFactorOptions
+- uid: Okta.Sdk.AddEmailFactorOptions
+  commentId: T:Okta.Sdk.AddEmailFactorOptions
+  parent: Okta.Sdk
+  name: AddEmailFactorOptions
+  nameWithType: AddEmailFactorOptions
+  fullName: Okta.Sdk.AddEmailFactorOptions
+- uid: Okta.Sdk.AddHardwareFactorOptions
+  commentId: T:Okta.Sdk.AddHardwareFactorOptions
+  parent: Okta.Sdk
+  name: AddHardwareFactorOptions
+  nameWithType: AddHardwareFactorOptions
+  fullName: Okta.Sdk.AddHardwareFactorOptions
+- uid: Okta.Sdk.AddPushFactorOptions
+  commentId: T:Okta.Sdk.AddPushFactorOptions
+  parent: Okta.Sdk
+  name: AddPushFactorOptions
+  nameWithType: AddPushFactorOptions
+  fullName: Okta.Sdk.AddPushFactorOptions
+- uid: Okta.Sdk.AddSmsFactorOptions
+  commentId: T:Okta.Sdk.AddSmsFactorOptions
+  parent: Okta.Sdk
+  name: AddSmsFactorOptions
+  nameWithType: AddSmsFactorOptions
+  fullName: Okta.Sdk.AddSmsFactorOptions
+- uid: Okta.Sdk.AddTokenFactorOptions
+  commentId: T:Okta.Sdk.AddTokenFactorOptions
+  parent: Okta.Sdk
+  name: AddTokenFactorOptions
+  nameWithType: AddTokenFactorOptions
+  fullName: Okta.Sdk.AddTokenFactorOptions
+- uid: Okta.Sdk.AddTotpFactorOptions
+  commentId: T:Okta.Sdk.AddTotpFactorOptions
+  parent: Okta.Sdk
+  name: AddTotpFactorOptions
+  nameWithType: AddTotpFactorOptions
+  fullName: Okta.Sdk.AddTotpFactorOptions
+- uid: Okta.Sdk.AddCustomHotpFactorOptions
+  commentId: T:Okta.Sdk.AddCustomHotpFactorOptions
+  parent: Okta.Sdk
+  name: AddCustomHotpFactorOptions
+  nameWithType: AddCustomHotpFactorOptions
+  fullName: Okta.Sdk.AddCustomHotpFactorOptions

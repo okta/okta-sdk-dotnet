@@ -1,0 +1,350 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ISessionsClient
+  commentId: T:Okta.Sdk.ISessionsClient
+  id: ISessionsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ISessionsClient.CreateSessionAsync(Okta.Sdk.ICreateSessionRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.ISessionsClient.EndSessionAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ISessionsClient.GetSessionAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.ISessionsClient.RefreshSessionAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: ISessionsClient
+  nameWithType: ISessionsClient
+  fullName: Okta.Sdk.ISessionsClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ISessionsClient
+    path: ../src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta Session resources.
+  example: []
+  syntax:
+    content: public interface ISessionsClient
+    content.vb: Public Interface ISessionsClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ISessionsClient.CreateSessionAsync(Okta.Sdk.ICreateSessionRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ISessionsClient.CreateSessionAsync(Okta.Sdk.ICreateSessionRequest,System.Threading.CancellationToken)
+  id: CreateSessionAsync(Okta.Sdk.ICreateSessionRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ISessionsClient
+  langs:
+  - csharp
+  - vb
+  name: CreateSessionAsync(ICreateSessionRequest, CancellationToken)
+  nameWithType: ISessionsClient.CreateSessionAsync(ICreateSessionRequest, CancellationToken)
+  fullName: Okta.Sdk.ISessionsClient.CreateSessionAsync(Okta.Sdk.ICreateSessionRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateSessionAsync
+    path: ../src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nCreates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.\n"
+  example: []
+  syntax:
+    content: Task<ISession> CreateSessionAsync(ICreateSessionRequest createSessionRequest, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: createSessionRequest
+      type: Okta.Sdk.ICreateSessionRequest
+      description: The <xref href="Okta.Sdk.ICreateSessionRequest" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISession}
+      description: The <xref href="Okta.Sdk.ISession" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function CreateSessionAsync(createSessionRequest As ICreateSessionRequest, cancellationToken As CancellationToken = Nothing) As Task(Of ISession)
+  overload: Okta.Sdk.ISessionsClient.CreateSessionAsync*
+- uid: Okta.Sdk.ISessionsClient.EndSessionAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ISessionsClient.EndSessionAsync(System.String,System.Threading.CancellationToken)
+  id: EndSessionAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ISessionsClient
+  langs:
+  - csharp
+  - vb
+  name: EndSessionAsync(String, CancellationToken)
+  nameWithType: ISessionsClient.EndSessionAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ISessionsClient.EndSessionAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EndSessionAsync
+    path: ../src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\n\n"
+  example: []
+  syntax:
+    content: Task EndSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function EndSessionAsync(sessionId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.ISessionsClient.EndSessionAsync*
+- uid: Okta.Sdk.ISessionsClient.GetSessionAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ISessionsClient.GetSessionAsync(System.String,System.Threading.CancellationToken)
+  id: GetSessionAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ISessionsClient
+  langs:
+  - csharp
+  - vb
+  name: GetSessionAsync(String, CancellationToken)
+  nameWithType: ISessionsClient.GetSessionAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ISessionsClient.GetSessionAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetSessionAsync
+    path: ../src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGet details about a session.\n"
+  example: []
+  syntax:
+    content: Task<ISession> GetSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISession}
+      description: The <xref href="Okta.Sdk.ISession" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetSessionAsync(sessionId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ISession)
+  overload: Okta.Sdk.ISessionsClient.GetSessionAsync*
+- uid: Okta.Sdk.ISessionsClient.RefreshSessionAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.ISessionsClient.RefreshSessionAsync(System.String,System.Threading.CancellationToken)
+  id: RefreshSessionAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.ISessionsClient
+  langs:
+  - csharp
+  - vb
+  name: RefreshSessionAsync(String, CancellationToken)
+  nameWithType: ISessionsClient.RefreshSessionAsync(String, CancellationToken)
+  fullName: Okta.Sdk.ISessionsClient.RefreshSessionAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RefreshSessionAsync
+    path: ../src/Okta.Sdk/Generated/ISessionsClient.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\n\n"
+  example: []
+  syntax:
+    content: Task<ISession> RefreshSessionAsync(string sessionId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: sessionId
+      type: System.String
+      description: ''
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ISession}
+      description: The <xref href="Okta.Sdk.ISession" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function RefreshSessionAsync(sessionId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ISession)
+  overload: Okta.Sdk.ISessionsClient.RefreshSessionAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.ICreateSessionRequest
+  commentId: T:Okta.Sdk.ICreateSessionRequest
+  parent: Okta.Sdk
+  name: ICreateSessionRequest
+  nameWithType: ICreateSessionRequest
+  fullName: Okta.Sdk.ICreateSessionRequest
+- uid: Okta.Sdk.ISession
+  commentId: T:Okta.Sdk.ISession
+  parent: Okta.Sdk
+  name: ISession
+  nameWithType: ISession
+  fullName: Okta.Sdk.ISession
+- uid: Okta.Sdk.ISessionsClient.CreateSessionAsync*
+  commentId: Overload:Okta.Sdk.ISessionsClient.CreateSessionAsync
+  name: CreateSessionAsync
+  nameWithType: ISessionsClient.CreateSessionAsync
+  fullName: Okta.Sdk.ISessionsClient.CreateSessionAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.ISession}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.ISession}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ISession>
+  nameWithType: Task<ISession>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.ISession>
+  nameWithType.vb: Task(Of ISession)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.ISession)
+  name.vb: Task(Of ISession)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISession
+    name: ISession
+    nameWithType: ISession
+    fullName: Okta.Sdk.ISession
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISession
+    name: ISession
+    nameWithType: ISession
+    fullName: Okta.Sdk.ISession
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.ISessionsClient.EndSessionAsync*
+  commentId: Overload:Okta.Sdk.ISessionsClient.EndSessionAsync
+  name: EndSessionAsync
+  nameWithType: ISessionsClient.EndSessionAsync
+  fullName: Okta.Sdk.ISessionsClient.EndSessionAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ISessionsClient.GetSessionAsync*
+  commentId: Overload:Okta.Sdk.ISessionsClient.GetSessionAsync
+  name: GetSessionAsync
+  nameWithType: ISessionsClient.GetSessionAsync
+  fullName: Okta.Sdk.ISessionsClient.GetSessionAsync
+- uid: Okta.Sdk.ISessionsClient.RefreshSessionAsync*
+  commentId: Overload:Okta.Sdk.ISessionsClient.RefreshSessionAsync
+  name: RefreshSessionAsync
+  nameWithType: ISessionsClient.RefreshSessionAsync
+  fullName: Okta.Sdk.ISessionsClient.RefreshSessionAsync

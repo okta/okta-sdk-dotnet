@@ -1,0 +1,607 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  commentId: T:Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  id: CreateUserWithRecoveryQuestionOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate
+  - Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile
+  - Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  - Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  langs:
+  - csharp
+  - vb
+  name: CreateUserWithRecoveryQuestionOptions
+  nameWithType: CreateUserWithRecoveryQuestionOptions
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateUserWithRecoveryQuestionOptions
+    path: ../src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+    startLine: 12
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nContains the options for creating a new <xref href=\"Okta.Sdk.IUser?text=User\" data-throw-if-not-resolved=\"false\"></xref> with a recovery question/answer.\nUsed with <xref href=\"Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions%2cSystem.Threading.CancellationToken)\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: See <a href="https://developer.okta.com/docs/api/resources/users.html#create-user-with-recovery-question">Create User with Recovery Question</a> in the documentation.
+  example: []
+  syntax:
+    content: public class CreateUserWithRecoveryQuestionOptions
+    content.vb: Public Class CreateUserWithRecoveryQuestionOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile
+  commentId: P:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile
+  id: Profile
+  parent: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: Profile
+  nameWithType: CreateUserWithRecoveryQuestionOptions.Profile
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Profile
+    path: ../src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the new user&apos;s profile.\n"
+  example: []
+  syntax:
+    content: public UserProfile Profile { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.UserProfile
+      description: "\nThe user&apos;s profile.\n"
+    content.vb: Public Property Profile As UserProfile
+  overload: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate
+  commentId: P:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate
+  id: Activate
+  parent: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: Activate
+  nameWithType: CreateUserWithRecoveryQuestionOptions.Activate
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Activate
+    path: ../src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets a value indicating whether the new user should be activated immediately.\n"
+  remarks: The default value is <code>true</code> (users will be activated immediately).
+  example: []
+  syntax:
+    content: public bool Activate { get; set; }
+    parameters: []
+    return:
+      type: System.Boolean
+      description: "\nWhether the new user should be activated immediately.\n"
+    content.vb: Public Property Activate As Boolean
+  overload: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  commentId: P:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  id: RecoveryQuestion
+  parent: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: RecoveryQuestion
+  nameWithType: CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RecoveryQuestion
+    path: ../src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the new user&apos;s recovery question.\n"
+  example: []
+  syntax:
+    content: public string RecoveryQuestion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: The new user&apos;s recovery question.
+    content.vb: Public Property RecoveryQuestion As String
+  overload: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  commentId: P:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  id: RecoveryAnswer
+  parent: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: RecoveryAnswer
+  nameWithType: CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RecoveryAnswer
+    path: ../src/Okta.Sdk/CreateUserWithRecoveryQuestionOptions.cs
+    startLine: 41
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the new user&apos;s recovery answer.\n"
+  example: []
+  syntax:
+    content: public string RecoveryAnswer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: The new user&apos;s recovery answer.
+    content.vb: Public Property RecoveryAnswer As String
+  overload: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk.IUser
+  commentId: T:Okta.Sdk.IUser
+  parent: Okta.Sdk
+  name: IUser
+  nameWithType: IUser
+  fullName: Okta.Sdk.IUser
+- uid: Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IUsersClient
+  isExternal: true
+  name: CreateUserAsync(CreateUserWithRecoveryQuestionOptions, CancellationToken)
+  nameWithType: IUsersClient.CreateUserAsync(CreateUserWithRecoveryQuestionOptions, CancellationToken)
+  fullName: Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions,System.Threading.CancellationToken)
+    name: CreateUserAsync
+    nameWithType: IUsersClient.CreateUserAsync
+    fullName: Okta.Sdk.IUsersClient.CreateUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+    name: CreateUserWithRecoveryQuestionOptions
+    nameWithType: CreateUserWithRecoveryQuestionOptions
+    fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IUsersClient.CreateUserAsync(Okta.Sdk.CreateUserWithRecoveryQuestionOptions,System.Threading.CancellationToken)
+    name: CreateUserAsync
+    nameWithType: IUsersClient.CreateUserAsync
+    fullName: Okta.Sdk.IUsersClient.CreateUserAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+    name: CreateUserWithRecoveryQuestionOptions
+    nameWithType: CreateUserWithRecoveryQuestionOptions
+    fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IUsersClient
+  commentId: T:Okta.Sdk.IUsersClient
+  parent: Okta.Sdk
+  name: IUsersClient
+  nameWithType: IUsersClient
+  fullName: Okta.Sdk.IUsersClient
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile*
+  commentId: Overload:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile
+  name: Profile
+  nameWithType: CreateUserWithRecoveryQuestionOptions.Profile
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Profile
+- uid: Okta.Sdk.UserProfile
+  commentId: T:Okta.Sdk.UserProfile
+  parent: Okta.Sdk
+  name: UserProfile
+  nameWithType: UserProfile
+  fullName: Okta.Sdk.UserProfile
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate*
+  commentId: Overload:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate
+  name: Activate
+  nameWithType: CreateUserWithRecoveryQuestionOptions.Activate
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.Activate
+- uid: System.Boolean
+  commentId: T:System.Boolean
+  parent: System
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion*
+  commentId: Overload:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  name: RecoveryQuestion
+  nameWithType: CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryQuestion
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer*
+  commentId: Overload:Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  name: RecoveryAnswer
+  nameWithType: CreateUserWithRecoveryQuestionOptions.RecoveryAnswer
+  fullName: Okta.Sdk.CreateUserWithRecoveryQuestionOptions.RecoveryAnswer

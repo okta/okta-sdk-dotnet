@@ -1,0 +1,1526 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IGroup
+  commentId: T:Okta.Sdk.IGroup
+  id: IGroup
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  - Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroup.Created
+  - Okta.Sdk.IGroup.DeleteAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IGroup.Id
+  - Okta.Sdk.IGroup.LastMembershipUpdated
+  - Okta.Sdk.IGroup.LastUpdated
+  - Okta.Sdk.IGroup.ListApplications(System.String,System.Nullable{System.Int32})
+  - Okta.Sdk.IGroup.ObjectClass
+  - Okta.Sdk.IGroup.Profile
+  - Okta.Sdk.IGroup.RemoveUserAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IGroup.Type
+  - Okta.Sdk.IGroup.UpdateAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IGroup.Users
+  langs:
+  - csharp
+  - vb
+  name: IGroup
+  nameWithType: IGroup
+  fullName: Okta.Sdk.IGroup
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroup.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IGroup
+    path: ../src/Okta.Sdk/IGroup.cs
+    startLine: 13
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a Group resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IGroup : IResource'
+    content.vb: >-
+      Public Interface IGroup
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IGroup.Created
+  commentId: P:Okta.Sdk.IGroup.Created
+  id: Created
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IGroup.Created
+  fullName: Okta.Sdk.IGroup.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.IGroup.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.Id
+  commentId: P:Okta.Sdk.IGroup.Id
+  id: Id
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IGroup.Id
+  fullName: Okta.Sdk.IGroup.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Id As String
+  overload: Okta.Sdk.IGroup.Id*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.LastMembershipUpdated
+  commentId: P:Okta.Sdk.IGroup.LastMembershipUpdated
+  id: LastMembershipUpdated
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: LastMembershipUpdated
+  nameWithType: IGroup.LastMembershipUpdated
+  fullName: Okta.Sdk.IGroup.LastMembershipUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastMembershipUpdated
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastMembershipUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastMembershipUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IGroup.LastMembershipUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.LastUpdated
+  commentId: P:Okta.Sdk.IGroup.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IGroup.LastUpdated
+  fullName: Okta.Sdk.IGroup.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IGroup.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.ObjectClass
+  commentId: P:Okta.Sdk.IGroup.ObjectClass
+  id: ObjectClass
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: ObjectClass
+  nameWithType: IGroup.ObjectClass
+  fullName: Okta.Sdk.IGroup.ObjectClass
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ObjectClass
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<string> ObjectClass { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{System.String}
+    content.vb: ReadOnly Property ObjectClass As IList(Of String)
+  overload: Okta.Sdk.IGroup.ObjectClass*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.Profile
+  commentId: P:Okta.Sdk.IGroup.Profile
+  id: Profile
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: Profile
+  nameWithType: IGroup.Profile
+  fullName: Okta.Sdk.IGroup.Profile
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Profile
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IGroupProfile Profile { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IGroupProfile
+    content.vb: Property Profile As IGroupProfile
+  overload: Okta.Sdk.IGroup.Profile*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IGroup.Type
+  commentId: P:Okta.Sdk.IGroup.Type
+  id: Type
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IGroup.Type
+  fullName: Okta.Sdk.IGroup.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: GroupType Type { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.GroupType
+    content.vb: ReadOnly Property Type As GroupType
+  overload: Okta.Sdk.IGroup.Type*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.RemoveUserAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroup.RemoveUserAsync(System.String,System.Threading.CancellationToken)
+  id: RemoveUserAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: RemoveUserAsync(String, CancellationToken)
+  nameWithType: IGroup.RemoveUserAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IGroup.RemoveUserAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RemoveUserAsync
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task RemoveUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function RemoveUserAsync(userId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroup.RemoveUserAsync*
+- uid: Okta.Sdk.IGroup.ListApplications(System.String,System.Nullable{System.Int32})
+  commentId: M:Okta.Sdk.IGroup.ListApplications(System.String,System.Nullable{System.Int32})
+  id: ListApplications(System.String,System.Nullable{System.Int32})
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: ListApplications(String, Nullable<Int32>)
+  nameWithType: IGroup.ListApplications(String, Nullable<Int32>)
+  fullName: Okta.Sdk.IGroup.ListApplications(System.String, System.Nullable<System.Int32>)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListApplications
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 34
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ICollectionClient<IApplication> ListApplications(string after = null, int? limit = 20)
+    parameters:
+    - id: after
+      type: System.String
+    - id: limit
+      type: System.Nullable{System.Int32}
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IApplication}
+    content.vb: Function ListApplications(after As String = Nothing, limit As Integer? = 20) As ICollectionClient(Of IApplication)
+  overload: Okta.Sdk.IGroup.ListApplications*
+  nameWithType.vb: IGroup.ListApplications(String, Nullable(Of Int32))
+  fullName.vb: Okta.Sdk.IGroup.ListApplications(System.String, System.Nullable(Of System.Int32))
+  name.vb: ListApplications(String, Nullable(Of Int32))
+- uid: Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  id: AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.Nullable{System.Boolean},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: AssignRoleAsync(IAssignRoleRequest, Nullable<Boolean>, CancellationToken)
+  nameWithType: IGroup.AssignRoleAsync(IAssignRoleRequest, Nullable<Boolean>, CancellationToken)
+  fullName: Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest, System.Nullable<System.Boolean>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IGroup.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AssignRoleAsync
+    path: ../src/Okta.Sdk/Generated/IGroup.Generated.cs
+    startLine: 37
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, bool? disableNotifications = null, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: assignRoleRequest
+      type: Okta.Sdk.IAssignRoleRequest
+    - id: disableNotifications
+      type: System.Nullable{System.Boolean}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IRole}
+    content.vb: Function AssignRoleAsync(assignRoleRequest As IAssignRoleRequest, disableNotifications As Boolean? = Nothing, cancellationToken As CancellationToken = Nothing) As Task(Of IRole)
+  overload: Okta.Sdk.IGroup.AssignRoleAsync*
+  nameWithType.vb: IGroup.AssignRoleAsync(IAssignRoleRequest, Nullable(Of Boolean), CancellationToken)
+  fullName.vb: Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest, System.Nullable(Of System.Boolean), System.Threading.CancellationToken)
+  name.vb: AssignRoleAsync(IAssignRoleRequest, Nullable(Of Boolean), CancellationToken)
+- uid: Okta.Sdk.IGroup.Users
+  commentId: P:Okta.Sdk.IGroup.Users
+  id: Users
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: Users
+  nameWithType: IGroup.Users
+  fullName: Okta.Sdk.IGroup.Users
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroup.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Users
+    path: ../src/Okta.Sdk/IGroup.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets the collection of <xref href=\"Okta.Sdk.IUser?text=Users\" data-throw-if-not-resolved=\"false\"></xref> in this Group.\n"
+  example: []
+  syntax:
+    content: IAsyncEnumerable<IUser> Users { get; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IUser}
+      description: The collection of Users in this Group.
+    content.vb: ReadOnly Property Users As IAsyncEnumerable(Of IUser)
+  overload: Okta.Sdk.IGroup.Users*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IGroup.DeleteAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroup.DeleteAsync(System.Threading.CancellationToken)
+  id: DeleteAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(CancellationToken)
+  nameWithType: IGroup.DeleteAsync(CancellationToken)
+  fullName: Okta.Sdk.IGroup.DeleteAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroup.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteAsync
+    path: ../src/Okta.Sdk/IGroup.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes the group.\n"
+  example: []
+  syntax:
+    content: Task DeleteAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteAsync(cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IGroup.DeleteAsync*
+- uid: Okta.Sdk.IGroup.UpdateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroup.UpdateAsync(System.Threading.CancellationToken)
+  id: UpdateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: UpdateAsync(CancellationToken)
+  nameWithType: IGroup.UpdateAsync(CancellationToken)
+  fullName: Okta.Sdk.IGroup.UpdateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroup.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateAsync
+    path: ../src/Okta.Sdk/IGroup.cs
+    startLine: 34
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nSaves changes and returns the updated resource.\n"
+  remarks: Alias of <xref href="Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup%2cSystem.String%2cSystem.Threading.CancellationToken)" data-throw-if-not-resolved="false"></xref>.
+  example: []
+  syntax:
+    content: Task<IGroup> UpdateAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+      description: The updated <xref href="Okta.Sdk.IGroup?text=Group" data-throw-if-not-resolved="false"></xref>.
+    content.vb: Function UpdateAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IGroup)
+  overload: Okta.Sdk.IGroup.UpdateAsync*
+- uid: Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Threading.CancellationToken)
+  id: AssignRoleAsync(Okta.Sdk.IAssignRoleRequest,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroup
+  langs:
+  - csharp
+  - vb
+  name: AssignRoleAsync(IAssignRoleRequest, String, CancellationToken)
+  nameWithType: IGroup.AssignRoleAsync(IAssignRoleRequest, String, CancellationToken)
+  fullName: Okta.Sdk.IGroup.AssignRoleAsync(Okta.Sdk.IAssignRoleRequest, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IGroup.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AssignRoleAsync
+    path: ../src/Okta.Sdk/IGroup.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nAssigns a role to a group.\n"
+  example: []
+  syntax:
+    content: >-
+      [Obsolete("This method is deprecated and will be removed in the next major release. Use <c>AssignRoleAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.")]
+
+      Task<IRole> AssignRoleAsync(IAssignRoleRequest assignRoleRequest, string disableNotifications, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: assignRoleRequest
+      type: Okta.Sdk.IAssignRoleRequest
+      description: The request.
+    - id: disableNotifications
+      type: System.String
+      description: The flag to disable notifications.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IRole}
+      description: The role.
+    content.vb: >-
+      <Obsolete("This method is deprecated and will be removed in the next major release. Use <c>AssignRoleAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.")>
+
+      Function AssignRoleAsync(assignRoleRequest As IAssignRoleRequest, disableNotifications As String, cancellationToken As CancellationToken = Nothing) As Task(Of IRole)
+  overload: Okta.Sdk.IGroup.AssignRoleAsync*
+  attributes:
+  - type: System.ObsoleteAttribute
+    ctor: System.ObsoleteAttribute.#ctor(System.String)
+    arguments:
+    - type: System.String
+      value: This method is deprecated and will be removed in the next major release. Use <c>AssignRoleAsync</c> but passing a bool? param for <c>disableNotifications</c> instead.
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IGroup.Created*
+  commentId: Overload:Okta.Sdk.IGroup.Created
+  name: Created
+  nameWithType: IGroup.Created
+  fullName: Okta.Sdk.IGroup.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IGroup.Id*
+  commentId: Overload:Okta.Sdk.IGroup.Id
+  name: Id
+  nameWithType: IGroup.Id
+  fullName: Okta.Sdk.IGroup.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.IGroup.LastMembershipUpdated*
+  commentId: Overload:Okta.Sdk.IGroup.LastMembershipUpdated
+  name: LastMembershipUpdated
+  nameWithType: IGroup.LastMembershipUpdated
+  fullName: Okta.Sdk.IGroup.LastMembershipUpdated
+- uid: Okta.Sdk.IGroup.LastUpdated*
+  commentId: Overload:Okta.Sdk.IGroup.LastUpdated
+  name: LastUpdated
+  nameWithType: IGroup.LastUpdated
+  fullName: Okta.Sdk.IGroup.LastUpdated
+- uid: Okta.Sdk.IGroup.ObjectClass*
+  commentId: Overload:Okta.Sdk.IGroup.ObjectClass
+  name: ObjectClass
+  nameWithType: IGroup.ObjectClass
+  fullName: Okta.Sdk.IGroup.ObjectClass
+- uid: System.Collections.Generic.IList{System.String}
+  commentId: T:System.Collections.Generic.IList{System.String}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<String>
+  nameWithType: IList<String>
+  fullName: System.Collections.Generic.IList<System.String>
+  nameWithType.vb: IList(Of String)
+  fullName.vb: System.Collections.Generic.IList(Of System.String)
+  name.vb: IList(Of String)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.IGroup.Profile*
+  commentId: Overload:Okta.Sdk.IGroup.Profile
+  name: Profile
+  nameWithType: IGroup.Profile
+  fullName: Okta.Sdk.IGroup.Profile
+- uid: Okta.Sdk.IGroupProfile
+  commentId: T:Okta.Sdk.IGroupProfile
+  parent: Okta.Sdk
+  name: IGroupProfile
+  nameWithType: IGroupProfile
+  fullName: Okta.Sdk.IGroupProfile
+- uid: Okta.Sdk.IGroup.Type*
+  commentId: Overload:Okta.Sdk.IGroup.Type
+  name: Type
+  nameWithType: IGroup.Type
+  fullName: Okta.Sdk.IGroup.Type
+- uid: Okta.Sdk.GroupType
+  commentId: T:Okta.Sdk.GroupType
+  parent: Okta.Sdk
+  name: GroupType
+  nameWithType: GroupType
+  fullName: Okta.Sdk.GroupType
+- uid: Okta.Sdk.IGroup.RemoveUserAsync*
+  commentId: Overload:Okta.Sdk.IGroup.RemoveUserAsync
+  name: RemoveUserAsync
+  nameWithType: IGroup.RemoveUserAsync
+  fullName: Okta.Sdk.IGroup.RemoveUserAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IGroup.ListApplications*
+  commentId: Overload:Okta.Sdk.IGroup.ListApplications
+  name: ListApplications
+  nameWithType: IGroup.ListApplications
+  fullName: Okta.Sdk.IGroup.ListApplications
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IApplication}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IApplication}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IApplication>
+  nameWithType: ICollectionClient<IApplication>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IApplication>
+  nameWithType.vb: ICollectionClient(Of IApplication)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IApplication)
+  name.vb: ICollectionClient(Of IApplication)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IApplication
+    name: IApplication
+    nameWithType: IApplication
+    fullName: Okta.Sdk.IApplication
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IApplication
+    name: IApplication
+    nameWithType: IApplication
+    fullName: Okta.Sdk.IApplication
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroup.AssignRoleAsync*
+  commentId: Overload:Okta.Sdk.IGroup.AssignRoleAsync
+  name: AssignRoleAsync
+  nameWithType: IGroup.AssignRoleAsync
+  fullName: Okta.Sdk.IGroup.AssignRoleAsync
+- uid: Okta.Sdk.IAssignRoleRequest
+  commentId: T:Okta.Sdk.IAssignRoleRequest
+  parent: Okta.Sdk
+  name: IAssignRoleRequest
+  nameWithType: IAssignRoleRequest
+  fullName: Okta.Sdk.IAssignRoleRequest
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IRole}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IRole}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IRole>
+  nameWithType: Task<IRole>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IRole>
+  nameWithType.vb: Task(Of IRole)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IRole)
+  name.vb: Task(Of IRole)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Okta.Sdk.IRole
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IRole
+    name: IRole
+    nameWithType: IRole
+    fullName: Okta.Sdk.IRole
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IUser
+  commentId: T:Okta.Sdk.IUser
+  parent: Okta.Sdk
+  name: IUser
+  nameWithType: IUser
+  fullName: Okta.Sdk.IUser
+- uid: Okta.Sdk.IGroup.Users*
+  commentId: Overload:Okta.Sdk.IGroup.Users
+  name: Users
+  nameWithType: IGroup.Users
+  fullName: Okta.Sdk.IGroup.Users
+- uid: System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IUser}
+  commentId: T:System.Collections.Generic.IAsyncEnumerable{Okta.Sdk.IUser}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IAsyncEnumerable`1
+  name: IAsyncEnumerable<IUser>
+  nameWithType: IAsyncEnumerable<IUser>
+  fullName: System.Collections.Generic.IAsyncEnumerable<Okta.Sdk.IUser>
+  nameWithType.vb: IAsyncEnumerable(Of IUser)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of Okta.Sdk.IUser)
+  name.vb: IAsyncEnumerable(Of IUser)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Okta.Sdk.IUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IUser
+    name: IUser
+    nameWithType: IUser
+    fullName: Okta.Sdk.IUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IAsyncEnumerable`1
+  commentId: T:System.Collections.Generic.IAsyncEnumerable`1
+  isExternal: true
+  name: IAsyncEnumerable<T>
+  nameWithType: IAsyncEnumerable<T>
+  fullName: System.Collections.Generic.IAsyncEnumerable<T>
+  nameWithType.vb: IAsyncEnumerable(Of T)
+  fullName.vb: System.Collections.Generic.IAsyncEnumerable(Of T)
+  name.vb: IAsyncEnumerable(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IAsyncEnumerable`1
+    name: IAsyncEnumerable
+    nameWithType: IAsyncEnumerable
+    fullName: System.Collections.Generic.IAsyncEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroup.DeleteAsync*
+  commentId: Overload:Okta.Sdk.IGroup.DeleteAsync
+  name: DeleteAsync
+  nameWithType: IGroup.DeleteAsync
+  fullName: Okta.Sdk.IGroup.DeleteAsync
+- uid: Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IGroupsClient
+  isExternal: true
+  name: UpdateGroupAsync(IGroup, String, CancellationToken)
+  nameWithType: IGroupsClient.UpdateGroupAsync(IGroup, String, CancellationToken)
+  fullName: Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup, System.String, System.Threading.CancellationToken)
+  spec.csharp:
+  - uid: Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+    name: UpdateGroupAsync
+    nameWithType: IGroupsClient.UpdateGroupAsync
+    fullName: Okta.Sdk.IGroupsClient.UpdateGroupAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IGroupsClient.UpdateGroupAsync(Okta.Sdk.IGroup,System.String,System.Threading.CancellationToken)
+    name: UpdateGroupAsync
+    nameWithType: IGroupsClient.UpdateGroupAsync
+    fullName: Okta.Sdk.IGroupsClient.UpdateGroupAsync
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Threading.CancellationToken
+    name: CancellationToken
+    nameWithType: CancellationToken
+    fullName: System.Threading.CancellationToken
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroup
+  commentId: T:Okta.Sdk.IGroup
+  parent: Okta.Sdk
+  name: IGroup
+  nameWithType: IGroup
+  fullName: Okta.Sdk.IGroup
+- uid: Okta.Sdk.IGroup.UpdateAsync*
+  commentId: Overload:Okta.Sdk.IGroup.UpdateAsync
+  name: UpdateAsync
+  nameWithType: IGroup.UpdateAsync
+  fullName: Okta.Sdk.IGroup.UpdateAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IGroup}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IGroup>
+  nameWithType: Task<IGroup>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IGroup>
+  nameWithType.vb: Task(Of IGroup)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IGroup)
+  name.vb: Task(Of IGroup)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IGroup
+    name: IGroup
+    nameWithType: IGroup
+    fullName: Okta.Sdk.IGroup
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IGroupsClient
+  commentId: T:Okta.Sdk.IGroupsClient
+  parent: Okta.Sdk
+  name: IGroupsClient
+  nameWithType: IGroupsClient
+  fullName: Okta.Sdk.IGroupsClient

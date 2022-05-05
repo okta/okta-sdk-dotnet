@@ -1,0 +1,1775 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IIdentityProvider
+  commentId: T:Okta.Sdk.IIdentityProvider
+  id: IIdentityProvider
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IIdentityProvider.ActivateAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.CloneKeyAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.Created
+  - Okta.Sdk.IIdentityProvider.DeactivateAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.GenerateCsrAsync(Okta.Sdk.ICsrMetadata,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.GetSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.GetSigningKeyAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.GetUserAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.Id
+  - Okta.Sdk.IIdentityProvider.IssuerMode
+  - Okta.Sdk.IIdentityProvider.LastUpdated
+  - Okta.Sdk.IIdentityProvider.LinkUserAsync(Okta.Sdk.IUserIdentityProviderLinkRequest,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IIdentityProvider.ListSigningCsrs
+  - Okta.Sdk.IIdentityProvider.ListSigningKeys
+  - Okta.Sdk.IIdentityProvider.ListSocialAuthTokens(System.String)
+  - Okta.Sdk.IIdentityProvider.ListUsers
+  - Okta.Sdk.IIdentityProvider.Name
+  - Okta.Sdk.IIdentityProvider.Policy
+  - Okta.Sdk.IIdentityProvider.Protocol
+  - Okta.Sdk.IIdentityProvider.Status
+  - Okta.Sdk.IIdentityProvider.Type
+  - Okta.Sdk.IIdentityProvider.UnlinkUserAsync(System.String,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IIdentityProvider
+  nameWithType: IIdentityProvider
+  fullName: Okta.Sdk.IIdentityProvider
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IIdentityProvider
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a IdentityProvider resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IIdentityProvider : IResource'
+    content.vb: >-
+      Public Interface IIdentityProvider
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IIdentityProvider.Created
+  commentId: P:Okta.Sdk.IIdentityProvider.Created
+  id: Created
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IIdentityProvider.Created
+  fullName: Okta.Sdk.IIdentityProvider.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.IIdentityProvider.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IIdentityProvider.Id
+  commentId: P:Okta.Sdk.IIdentityProvider.Id
+  id: Id
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IIdentityProvider.Id
+  fullName: Okta.Sdk.IIdentityProvider.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Id As String
+  overload: Okta.Sdk.IIdentityProvider.Id*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IIdentityProvider.IssuerMode
+  commentId: P:Okta.Sdk.IIdentityProvider.IssuerMode
+  id: IssuerMode
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: IssuerMode
+  nameWithType: IIdentityProvider.IssuerMode
+  fullName: Okta.Sdk.IIdentityProvider.IssuerMode
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IssuerMode
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string IssuerMode { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property IssuerMode As String
+  overload: Okta.Sdk.IIdentityProvider.IssuerMode*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIdentityProvider.LastUpdated
+  commentId: P:Okta.Sdk.IIdentityProvider.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IIdentityProvider.LastUpdated
+  fullName: Okta.Sdk.IIdentityProvider.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IIdentityProvider.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IIdentityProvider.Name
+  commentId: P:Okta.Sdk.IIdentityProvider.Name
+  id: Name
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Name
+  nameWithType: IIdentityProvider.Name
+  fullName: Okta.Sdk.IIdentityProvider.Name
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Name
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Name { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Name As String
+  overload: Okta.Sdk.IIdentityProvider.Name*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIdentityProvider.Policy
+  commentId: P:Okta.Sdk.IIdentityProvider.Policy
+  id: Policy
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Policy
+  nameWithType: IIdentityProvider.Policy
+  fullName: Okta.Sdk.IIdentityProvider.Policy
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Policy
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IIdentityProviderPolicy Policy { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IIdentityProviderPolicy
+    content.vb: Property Policy As IIdentityProviderPolicy
+  overload: Okta.Sdk.IIdentityProvider.Policy*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIdentityProvider.Protocol
+  commentId: P:Okta.Sdk.IIdentityProvider.Protocol
+  id: Protocol
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Protocol
+  nameWithType: IIdentityProvider.Protocol
+  fullName: Okta.Sdk.IIdentityProvider.Protocol
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Protocol
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IProtocol Protocol { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProtocol
+    content.vb: Property Protocol As IProtocol
+  overload: Okta.Sdk.IIdentityProvider.Protocol*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIdentityProvider.Status
+  commentId: P:Okta.Sdk.IIdentityProvider.Status
+  id: Status
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: IIdentityProvider.Status
+  fullName: Okta.Sdk.IIdentityProvider.Status
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Status
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Status { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Status As String
+  overload: Okta.Sdk.IIdentityProvider.Status*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIdentityProvider.Type
+  commentId: P:Okta.Sdk.IIdentityProvider.Type
+  id: Type
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IIdentityProvider.Type
+  fullName: Okta.Sdk.IIdentityProvider.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Type { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Type As String
+  overload: Okta.Sdk.IIdentityProvider.Type*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IIdentityProvider.ListSigningCsrs
+  commentId: M:Okta.Sdk.IIdentityProvider.ListSigningCsrs
+  id: ListSigningCsrs
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: ListSigningCsrs()
+  nameWithType: IIdentityProvider.ListSigningCsrs()
+  fullName: Okta.Sdk.IIdentityProvider.ListSigningCsrs()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListSigningCsrs
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ICollectionClient<ICsr> ListSigningCsrs()
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.ICsr}
+    content.vb: Function ListSigningCsrs As ICollectionClient(Of ICsr)
+  overload: Okta.Sdk.IIdentityProvider.ListSigningCsrs*
+- uid: Okta.Sdk.IIdentityProvider.GenerateCsrAsync(Okta.Sdk.ICsrMetadata,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.GenerateCsrAsync(Okta.Sdk.ICsrMetadata,System.Threading.CancellationToken)
+  id: GenerateCsrAsync(Okta.Sdk.ICsrMetadata,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: GenerateCsrAsync(ICsrMetadata, CancellationToken)
+  nameWithType: IIdentityProvider.GenerateCsrAsync(ICsrMetadata, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.GenerateCsrAsync(Okta.Sdk.ICsrMetadata, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GenerateCsrAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<ICsr> GenerateCsrAsync(ICsrMetadata metadata, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: metadata
+      type: Okta.Sdk.ICsrMetadata
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ICsr}
+    content.vb: Function GenerateCsrAsync(metadata As ICsrMetadata, cancellationToken As CancellationToken = Nothing) As Task(Of ICsr)
+  overload: Okta.Sdk.IIdentityProvider.GenerateCsrAsync*
+- uid: Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: DeleteSigningCsrAsync(String, CancellationToken)
+  nameWithType: IIdentityProvider.DeleteSigningCsrAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteSigningCsrAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 41
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task DeleteSigningCsrAsync(string csrId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: csrId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function DeleteSigningCsrAsync(csrId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync*
+- uid: Okta.Sdk.IIdentityProvider.GetSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.GetSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  id: GetSigningCsrAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSigningCsrAsync(String, CancellationToken)
+  nameWithType: IIdentityProvider.GetSigningCsrAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.GetSigningCsrAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetSigningCsrAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 44
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<ICsr> GetSigningCsrAsync(string csrId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: csrId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.ICsr}
+    content.vb: Function GetSigningCsrAsync(csrId As String, cancellationToken As CancellationToken = Nothing) As Task(Of ICsr)
+  overload: Okta.Sdk.IIdentityProvider.GetSigningCsrAsync*
+- uid: Okta.Sdk.IIdentityProvider.ListSigningKeys
+  commentId: M:Okta.Sdk.IIdentityProvider.ListSigningKeys
+  id: ListSigningKeys
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: ListSigningKeys()
+  nameWithType: IIdentityProvider.ListSigningKeys()
+  fullName: Okta.Sdk.IIdentityProvider.ListSigningKeys()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListSigningKeys
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ICollectionClient<IJsonWebKey> ListSigningKeys()
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IJsonWebKey}
+    content.vb: Function ListSigningKeys As ICollectionClient(Of IJsonWebKey)
+  overload: Okta.Sdk.IIdentityProvider.ListSigningKeys*
+- uid: Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)
+  id: GenerateSigningKeyAsync(System.Nullable{System.Int32},System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: GenerateSigningKeyAsync(Nullable<Int32>, CancellationToken)
+  nameWithType: IIdentityProvider.GenerateSigningKeyAsync(Nullable<Int32>, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync(System.Nullable<System.Int32>, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GenerateSigningKeyAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 50
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IJsonWebKey> GenerateSigningKeyAsync(int? validityYears, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: validityYears
+      type: System.Nullable{System.Int32}
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IJsonWebKey}
+    content.vb: Function GenerateSigningKeyAsync(validityYears As Integer?, cancellationToken As CancellationToken = Nothing) As Task(Of IJsonWebKey)
+  overload: Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync*
+  nameWithType.vb: IIdentityProvider.GenerateSigningKeyAsync(Nullable(Of Int32), CancellationToken)
+  fullName.vb: Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync(System.Nullable(Of System.Int32), System.Threading.CancellationToken)
+  name.vb: GenerateSigningKeyAsync(Nullable(Of Int32), CancellationToken)
+- uid: Okta.Sdk.IIdentityProvider.GetSigningKeyAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.GetSigningKeyAsync(System.String,System.Threading.CancellationToken)
+  id: GetSigningKeyAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: GetSigningKeyAsync(String, CancellationToken)
+  nameWithType: IIdentityProvider.GetSigningKeyAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.GetSigningKeyAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetSigningKeyAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 53
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IJsonWebKey> GetSigningKeyAsync(string keyId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: keyId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IJsonWebKey}
+    content.vb: Function GetSigningKeyAsync(keyId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IJsonWebKey)
+  overload: Okta.Sdk.IIdentityProvider.GetSigningKeyAsync*
+- uid: Okta.Sdk.IIdentityProvider.CloneKeyAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.CloneKeyAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: CloneKeyAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: CloneKeyAsync(String, String, CancellationToken)
+  nameWithType: IIdentityProvider.CloneKeyAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.CloneKeyAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CloneKeyAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 56
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IJsonWebKey> CloneKeyAsync(string keyId, string targetIdpId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: keyId
+      type: System.String
+    - id: targetIdpId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IJsonWebKey}
+    content.vb: Function CloneKeyAsync(keyId As String, targetIdpId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IJsonWebKey)
+  overload: Okta.Sdk.IIdentityProvider.CloneKeyAsync*
+- uid: Okta.Sdk.IIdentityProvider.ActivateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.ActivateAsync(System.Threading.CancellationToken)
+  id: ActivateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: ActivateAsync(CancellationToken)
+  nameWithType: IIdentityProvider.ActivateAsync(CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.ActivateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ActivateAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 59
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IIdentityProvider> ActivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IIdentityProvider}
+    content.vb: Function ActivateAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IIdentityProvider)
+  overload: Okta.Sdk.IIdentityProvider.ActivateAsync*
+- uid: Okta.Sdk.IIdentityProvider.DeactivateAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.DeactivateAsync(System.Threading.CancellationToken)
+  id: DeactivateAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: DeactivateAsync(CancellationToken)
+  nameWithType: IIdentityProvider.DeactivateAsync(CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.DeactivateAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeactivateAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 62
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IIdentityProvider> DeactivateAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IIdentityProvider}
+    content.vb: Function DeactivateAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IIdentityProvider)
+  overload: Okta.Sdk.IIdentityProvider.DeactivateAsync*
+- uid: Okta.Sdk.IIdentityProvider.ListUsers
+  commentId: M:Okta.Sdk.IIdentityProvider.ListUsers
+  id: ListUsers
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: ListUsers()
+  nameWithType: IIdentityProvider.ListUsers()
+  fullName: Okta.Sdk.IIdentityProvider.ListUsers()
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListUsers
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ICollectionClient<IIdentityProviderApplicationUser> ListUsers()
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.IIdentityProviderApplicationUser}
+    content.vb: Function ListUsers As ICollectionClient(Of IIdentityProviderApplicationUser)
+  overload: Okta.Sdk.IIdentityProvider.ListUsers*
+- uid: Okta.Sdk.IIdentityProvider.UnlinkUserAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.UnlinkUserAsync(System.String,System.Threading.CancellationToken)
+  id: UnlinkUserAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: UnlinkUserAsync(String, CancellationToken)
+  nameWithType: IIdentityProvider.UnlinkUserAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.UnlinkUserAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UnlinkUserAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 68
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task UnlinkUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function UnlinkUserAsync(userId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IIdentityProvider.UnlinkUserAsync*
+- uid: Okta.Sdk.IIdentityProvider.GetUserAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.GetUserAsync(System.String,System.Threading.CancellationToken)
+  id: GetUserAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: GetUserAsync(String, CancellationToken)
+  nameWithType: IIdentityProvider.GetUserAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.GetUserAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetUserAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 71
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IIdentityProviderApplicationUser> GetUserAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IIdentityProviderApplicationUser}
+    content.vb: Function GetUserAsync(userId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IIdentityProviderApplicationUser)
+  overload: Okta.Sdk.IIdentityProvider.GetUserAsync*
+- uid: Okta.Sdk.IIdentityProvider.LinkUserAsync(Okta.Sdk.IUserIdentityProviderLinkRequest,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IIdentityProvider.LinkUserAsync(Okta.Sdk.IUserIdentityProviderLinkRequest,System.String,System.Threading.CancellationToken)
+  id: LinkUserAsync(Okta.Sdk.IUserIdentityProviderLinkRequest,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: LinkUserAsync(IUserIdentityProviderLinkRequest, String, CancellationToken)
+  nameWithType: IIdentityProvider.LinkUserAsync(IUserIdentityProviderLinkRequest, String, CancellationToken)
+  fullName: Okta.Sdk.IIdentityProvider.LinkUserAsync(Okta.Sdk.IUserIdentityProviderLinkRequest, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LinkUserAsync
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 74
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task<IIdentityProviderApplicationUser> LinkUserAsync(IUserIdentityProviderLinkRequest userIdentityProviderLinkRequest, string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userIdentityProviderLinkRequest
+      type: Okta.Sdk.IUserIdentityProviderLinkRequest
+    - id: userId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IIdentityProviderApplicationUser}
+    content.vb: Function LinkUserAsync(userIdentityProviderLinkRequest As IUserIdentityProviderLinkRequest, userId As String, cancellationToken As CancellationToken = Nothing) As Task(Of IIdentityProviderApplicationUser)
+  overload: Okta.Sdk.IIdentityProvider.LinkUserAsync*
+- uid: Okta.Sdk.IIdentityProvider.ListSocialAuthTokens(System.String)
+  commentId: M:Okta.Sdk.IIdentityProvider.ListSocialAuthTokens(System.String)
+  id: ListSocialAuthTokens(System.String)
+  parent: Okta.Sdk.IIdentityProvider
+  langs:
+  - csharp
+  - vb
+  name: ListSocialAuthTokens(String)
+  nameWithType: IIdentityProvider.ListSocialAuthTokens(String)
+  fullName: Okta.Sdk.IIdentityProvider.ListSocialAuthTokens(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ListSocialAuthTokens
+    path: ../src/Okta.Sdk/Generated/IIdentityProvider.Generated.cs
+    startLine: 77
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ICollectionClient<ISocialAuthToken> ListSocialAuthTokens(string userId)
+    parameters:
+    - id: userId
+      type: System.String
+    return:
+      type: Okta.Sdk.ICollectionClient{Okta.Sdk.ISocialAuthToken}
+    content.vb: Function ListSocialAuthTokens(userId As String) As ICollectionClient(Of ISocialAuthToken)
+  overload: Okta.Sdk.IIdentityProvider.ListSocialAuthTokens*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IIdentityProvider.Created*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Created
+  name: Created
+  nameWithType: IIdentityProvider.Created
+  fullName: Okta.Sdk.IIdentityProvider.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IIdentityProvider.Id*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Id
+  name: Id
+  nameWithType: IIdentityProvider.Id
+  fullName: Okta.Sdk.IIdentityProvider.Id
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.IIdentityProvider.IssuerMode*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.IssuerMode
+  name: IssuerMode
+  nameWithType: IIdentityProvider.IssuerMode
+  fullName: Okta.Sdk.IIdentityProvider.IssuerMode
+- uid: Okta.Sdk.IIdentityProvider.LastUpdated*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.LastUpdated
+  name: LastUpdated
+  nameWithType: IIdentityProvider.LastUpdated
+  fullName: Okta.Sdk.IIdentityProvider.LastUpdated
+- uid: Okta.Sdk.IIdentityProvider.Name*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Name
+  name: Name
+  nameWithType: IIdentityProvider.Name
+  fullName: Okta.Sdk.IIdentityProvider.Name
+- uid: Okta.Sdk.IIdentityProvider.Policy*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Policy
+  name: Policy
+  nameWithType: IIdentityProvider.Policy
+  fullName: Okta.Sdk.IIdentityProvider.Policy
+- uid: Okta.Sdk.IIdentityProviderPolicy
+  commentId: T:Okta.Sdk.IIdentityProviderPolicy
+  parent: Okta.Sdk
+  name: IIdentityProviderPolicy
+  nameWithType: IIdentityProviderPolicy
+  fullName: Okta.Sdk.IIdentityProviderPolicy
+- uid: Okta.Sdk.IIdentityProvider.Protocol*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Protocol
+  name: Protocol
+  nameWithType: IIdentityProvider.Protocol
+  fullName: Okta.Sdk.IIdentityProvider.Protocol
+- uid: Okta.Sdk.IProtocol
+  commentId: T:Okta.Sdk.IProtocol
+  parent: Okta.Sdk
+  name: IProtocol
+  nameWithType: IProtocol
+  fullName: Okta.Sdk.IProtocol
+- uid: Okta.Sdk.IIdentityProvider.Status*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Status
+  name: Status
+  nameWithType: IIdentityProvider.Status
+  fullName: Okta.Sdk.IIdentityProvider.Status
+- uid: Okta.Sdk.IIdentityProvider.Type*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.Type
+  name: Type
+  nameWithType: IIdentityProvider.Type
+  fullName: Okta.Sdk.IIdentityProvider.Type
+- uid: Okta.Sdk.IIdentityProvider.ListSigningCsrs*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.ListSigningCsrs
+  name: ListSigningCsrs
+  nameWithType: IIdentityProvider.ListSigningCsrs
+  fullName: Okta.Sdk.IIdentityProvider.ListSigningCsrs
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.ICsr}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.ICsr}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<ICsr>
+  nameWithType: ICollectionClient<ICsr>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.ICsr>
+  nameWithType.vb: ICollectionClient(Of ICsr)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.ICsr)
+  name.vb: ICollectionClient(Of ICsr)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ICsr
+    name: ICsr
+    nameWithType: ICsr
+    fullName: Okta.Sdk.ICsr
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ICsr
+    name: ICsr
+    nameWithType: ICsr
+    fullName: Okta.Sdk.ICsr
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ICollectionClient`1
+  commentId: T:Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<T>
+  nameWithType: ICollectionClient<T>
+  fullName: Okta.Sdk.ICollectionClient<T>
+  nameWithType.vb: ICollectionClient(Of T)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of T)
+  name.vb: ICollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIdentityProvider.GenerateCsrAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.GenerateCsrAsync
+  name: GenerateCsrAsync
+  nameWithType: IIdentityProvider.GenerateCsrAsync
+  fullName: Okta.Sdk.IIdentityProvider.GenerateCsrAsync
+- uid: Okta.Sdk.ICsrMetadata
+  commentId: T:Okta.Sdk.ICsrMetadata
+  parent: Okta.Sdk
+  name: ICsrMetadata
+  nameWithType: ICsrMetadata
+  fullName: Okta.Sdk.ICsrMetadata
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.ICsr}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.ICsr}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<ICsr>
+  nameWithType: Task<ICsr>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.ICsr>
+  nameWithType.vb: Task(Of ICsr)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.ICsr)
+  name.vb: Task(Of ICsr)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ICsr
+    name: ICsr
+    nameWithType: ICsr
+    fullName: Okta.Sdk.ICsr
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ICsr
+    name: ICsr
+    nameWithType: ICsr
+    fullName: Okta.Sdk.ICsr
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync
+  name: DeleteSigningCsrAsync
+  nameWithType: IIdentityProvider.DeleteSigningCsrAsync
+  fullName: Okta.Sdk.IIdentityProvider.DeleteSigningCsrAsync
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: Okta.Sdk.IIdentityProvider.GetSigningCsrAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.GetSigningCsrAsync
+  name: GetSigningCsrAsync
+  nameWithType: IIdentityProvider.GetSigningCsrAsync
+  fullName: Okta.Sdk.IIdentityProvider.GetSigningCsrAsync
+- uid: Okta.Sdk.IIdentityProvider.ListSigningKeys*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.ListSigningKeys
+  name: ListSigningKeys
+  nameWithType: IIdentityProvider.ListSigningKeys
+  fullName: Okta.Sdk.IIdentityProvider.ListSigningKeys
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IJsonWebKey}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IJsonWebKey}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IJsonWebKey>
+  nameWithType: ICollectionClient<IJsonWebKey>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IJsonWebKey>
+  nameWithType.vb: ICollectionClient(Of IJsonWebKey)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IJsonWebKey)
+  name.vb: ICollectionClient(Of IJsonWebKey)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IJsonWebKey
+    name: IJsonWebKey
+    nameWithType: IJsonWebKey
+    fullName: Okta.Sdk.IJsonWebKey
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IJsonWebKey
+    name: IJsonWebKey
+    nameWithType: IJsonWebKey
+    fullName: Okta.Sdk.IJsonWebKey
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync
+  name: GenerateSigningKeyAsync
+  nameWithType: IIdentityProvider.GenerateSigningKeyAsync
+  fullName: Okta.Sdk.IIdentityProvider.GenerateSigningKeyAsync
+- uid: System.Nullable{System.Int32}
+  commentId: T:System.Nullable{System.Int32}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Int32>
+  nameWithType: Nullable<Int32>
+  fullName: System.Nullable<System.Int32>
+  nameWithType.vb: Nullable(Of Int32)
+  fullName.vb: System.Nullable(Of System.Int32)
+  name.vb: Nullable(Of Int32)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IJsonWebKey}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IJsonWebKey}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IJsonWebKey>
+  nameWithType: Task<IJsonWebKey>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IJsonWebKey>
+  nameWithType.vb: Task(Of IJsonWebKey)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IJsonWebKey)
+  name.vb: Task(Of IJsonWebKey)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IJsonWebKey
+    name: IJsonWebKey
+    nameWithType: IJsonWebKey
+    fullName: Okta.Sdk.IJsonWebKey
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IJsonWebKey
+    name: IJsonWebKey
+    nameWithType: IJsonWebKey
+    fullName: Okta.Sdk.IJsonWebKey
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIdentityProvider.GetSigningKeyAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.GetSigningKeyAsync
+  name: GetSigningKeyAsync
+  nameWithType: IIdentityProvider.GetSigningKeyAsync
+  fullName: Okta.Sdk.IIdentityProvider.GetSigningKeyAsync
+- uid: Okta.Sdk.IIdentityProvider.CloneKeyAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.CloneKeyAsync
+  name: CloneKeyAsync
+  nameWithType: IIdentityProvider.CloneKeyAsync
+  fullName: Okta.Sdk.IIdentityProvider.CloneKeyAsync
+- uid: Okta.Sdk.IIdentityProvider.ActivateAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.ActivateAsync
+  name: ActivateAsync
+  nameWithType: IIdentityProvider.ActivateAsync
+  fullName: Okta.Sdk.IIdentityProvider.ActivateAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IIdentityProvider}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IIdentityProvider}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IIdentityProvider>
+  nameWithType: Task<IIdentityProvider>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IIdentityProvider>
+  nameWithType.vb: Task(Of IIdentityProvider)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IIdentityProvider)
+  name.vb: Task(Of IIdentityProvider)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IIdentityProvider
+    name: IIdentityProvider
+    nameWithType: IIdentityProvider
+    fullName: Okta.Sdk.IIdentityProvider
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IIdentityProvider
+    name: IIdentityProvider
+    nameWithType: IIdentityProvider
+    fullName: Okta.Sdk.IIdentityProvider
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIdentityProvider.DeactivateAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.DeactivateAsync
+  name: DeactivateAsync
+  nameWithType: IIdentityProvider.DeactivateAsync
+  fullName: Okta.Sdk.IIdentityProvider.DeactivateAsync
+- uid: Okta.Sdk.IIdentityProvider.ListUsers*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.ListUsers
+  name: ListUsers
+  nameWithType: IIdentityProvider.ListUsers
+  fullName: Okta.Sdk.IIdentityProvider.ListUsers
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.IIdentityProviderApplicationUser}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.IIdentityProviderApplicationUser}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<IIdentityProviderApplicationUser>
+  nameWithType: ICollectionClient<IIdentityProviderApplicationUser>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.IIdentityProviderApplicationUser>
+  nameWithType.vb: ICollectionClient(Of IIdentityProviderApplicationUser)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.IIdentityProviderApplicationUser)
+  name.vb: ICollectionClient(Of IIdentityProviderApplicationUser)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IIdentityProviderApplicationUser
+    name: IIdentityProviderApplicationUser
+    nameWithType: IIdentityProviderApplicationUser
+    fullName: Okta.Sdk.IIdentityProviderApplicationUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IIdentityProviderApplicationUser
+    name: IIdentityProviderApplicationUser
+    nameWithType: IIdentityProviderApplicationUser
+    fullName: Okta.Sdk.IIdentityProviderApplicationUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIdentityProvider.UnlinkUserAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.UnlinkUserAsync
+  name: UnlinkUserAsync
+  nameWithType: IIdentityProvider.UnlinkUserAsync
+  fullName: Okta.Sdk.IIdentityProvider.UnlinkUserAsync
+- uid: Okta.Sdk.IIdentityProvider.GetUserAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.GetUserAsync
+  name: GetUserAsync
+  nameWithType: IIdentityProvider.GetUserAsync
+  fullName: Okta.Sdk.IIdentityProvider.GetUserAsync
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IIdentityProviderApplicationUser}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IIdentityProviderApplicationUser}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IIdentityProviderApplicationUser>
+  nameWithType: Task<IIdentityProviderApplicationUser>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IIdentityProviderApplicationUser>
+  nameWithType.vb: Task(Of IIdentityProviderApplicationUser)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IIdentityProviderApplicationUser)
+  name.vb: Task(Of IIdentityProviderApplicationUser)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IIdentityProviderApplicationUser
+    name: IIdentityProviderApplicationUser
+    nameWithType: IIdentityProviderApplicationUser
+    fullName: Okta.Sdk.IIdentityProviderApplicationUser
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IIdentityProviderApplicationUser
+    name: IIdentityProviderApplicationUser
+    nameWithType: IIdentityProviderApplicationUser
+    fullName: Okta.Sdk.IIdentityProviderApplicationUser
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IIdentityProvider.LinkUserAsync*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.LinkUserAsync
+  name: LinkUserAsync
+  nameWithType: IIdentityProvider.LinkUserAsync
+  fullName: Okta.Sdk.IIdentityProvider.LinkUserAsync
+- uid: Okta.Sdk.IUserIdentityProviderLinkRequest
+  commentId: T:Okta.Sdk.IUserIdentityProviderLinkRequest
+  parent: Okta.Sdk
+  name: IUserIdentityProviderLinkRequest
+  nameWithType: IUserIdentityProviderLinkRequest
+  fullName: Okta.Sdk.IUserIdentityProviderLinkRequest
+- uid: Okta.Sdk.IIdentityProvider.ListSocialAuthTokens*
+  commentId: Overload:Okta.Sdk.IIdentityProvider.ListSocialAuthTokens
+  name: ListSocialAuthTokens
+  nameWithType: IIdentityProvider.ListSocialAuthTokens
+  fullName: Okta.Sdk.IIdentityProvider.ListSocialAuthTokens
+- uid: Okta.Sdk.ICollectionClient{Okta.Sdk.ISocialAuthToken}
+  commentId: T:Okta.Sdk.ICollectionClient{Okta.Sdk.ISocialAuthToken}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.ICollectionClient`1
+  name: ICollectionClient<ISocialAuthToken>
+  nameWithType: ICollectionClient<ISocialAuthToken>
+  fullName: Okta.Sdk.ICollectionClient<Okta.Sdk.ISocialAuthToken>
+  nameWithType.vb: ICollectionClient(Of ISocialAuthToken)
+  fullName.vb: Okta.Sdk.ICollectionClient(Of Okta.Sdk.ISocialAuthToken)
+  name.vb: ICollectionClient(Of ISocialAuthToken)
+  spec.csharp:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISocialAuthToken
+    name: ISocialAuthToken
+    nameWithType: ISocialAuthToken
+    fullName: Okta.Sdk.ISocialAuthToken
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.ICollectionClient`1
+    name: ICollectionClient
+    nameWithType: ICollectionClient
+    fullName: Okta.Sdk.ICollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISocialAuthToken
+    name: ISocialAuthToken
+    nameWithType: ISocialAuthToken
+    fullName: Okta.Sdk.ISocialAuthToken
+  - name: )
+    nameWithType: )
+    fullName: )

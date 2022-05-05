@@ -1,0 +1,2358 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IOktaClient
+  commentId: T:Okta.Sdk.IOktaClient
+  id: IOktaClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IOktaClient.Applications
+  - Okta.Sdk.IOktaClient.Authenticators
+  - Okta.Sdk.IOktaClient.AuthorizationServers
+  - Okta.Sdk.IOktaClient.Brands
+  - Okta.Sdk.IOktaClient.Configuration
+  - Okta.Sdk.IOktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  - Okta.Sdk.IOktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.Domains
+  - Okta.Sdk.IOktaClient.EventHooks
+  - Okta.Sdk.IOktaClient.Features
+  - Okta.Sdk.IOktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+  - Okta.Sdk.IOktaClient.GetCollection``1(System.String)
+  - Okta.Sdk.IOktaClient.Groups
+  - Okta.Sdk.IOktaClient.GroupSchemas
+  - Okta.Sdk.IOktaClient.IdentityProviders
+  - Okta.Sdk.IOktaClient.InlineHooks
+  - Okta.Sdk.IOktaClient.LinkedObjects
+  - Okta.Sdk.IOktaClient.Logs
+  - Okta.Sdk.IOktaClient.NetworkZones
+  - Okta.Sdk.IOktaClient.Orgs
+  - Okta.Sdk.IOktaClient.Policies
+  - Okta.Sdk.IOktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.ProfileMappings
+  - Okta.Sdk.IOktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  - Okta.Sdk.IOktaClient.Sessions
+  - Okta.Sdk.IOktaClient.Subscriptions
+  - Okta.Sdk.IOktaClient.Templates
+  - Okta.Sdk.IOktaClient.ThreatInsights
+  - Okta.Sdk.IOktaClient.TrustedOrigins
+  - Okta.Sdk.IOktaClient.UserFactors
+  - Okta.Sdk.IOktaClient.Users
+  - Okta.Sdk.IOktaClient.UserSchemas
+  - Okta.Sdk.IOktaClient.UserTypes
+  langs:
+  - csharp
+  - vb
+  name: IOktaClient
+  nameWithType: IOktaClient
+  fullName: Okta.Sdk.IOktaClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IOktaClient
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 14
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nA client that communicates with the Okta Management API.\n"
+  example: []
+  syntax:
+    content: public interface IOktaClient
+    content.vb: Public Interface IOktaClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IOktaClient.Configuration
+  commentId: P:Okta.Sdk.IOktaClient.Configuration
+  id: Configuration
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Configuration
+  nameWithType: IOktaClient.Configuration
+  fullName: Okta.Sdk.IOktaClient.Configuration
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Configuration
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets the configuration passed to this <xref href=\"Okta.Sdk.IOktaClient?text=OktaClient\" data-throw-if-not-resolved=\"false\"></xref>.\n"
+  remarks: The configuration is immutable after the client is initialized. This property references a copy of the configuration.
+  example: []
+  syntax:
+    content: OktaClientConfiguration Configuration { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.Configuration.OktaClientConfiguration
+      description: "\nThe client configuration.\n"
+    content.vb: ReadOnly Property Configuration As OktaClientConfiguration
+  overload: Okta.Sdk.IOktaClient.Configuration*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Brands
+  commentId: P:Okta.Sdk.IOktaClient.Brands
+  id: Brands
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Brands
+  nameWithType: IOktaClient.Brands
+  fullName: Okta.Sdk.IOktaClient.Brands
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Brands
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 28
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IBrandsClient?text=GroupSchemasClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the schemas API.\n"
+  example: []
+  syntax:
+    content: IBrandsClient Brands { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IBrandsClient
+    content.vb: ReadOnly Property Brands As IBrandsClient
+  overload: Okta.Sdk.IOktaClient.Brands*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.GroupSchemas
+  commentId: P:Okta.Sdk.IOktaClient.GroupSchemas
+  id: GroupSchemas
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: GroupSchemas
+  nameWithType: IOktaClient.GroupSchemas
+  fullName: Okta.Sdk.IOktaClient.GroupSchemas
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GroupSchemas
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IGroupSchemasClient?text=GroupSchemasClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the schemas API.\n"
+  example: []
+  syntax:
+    content: IGroupSchemasClient GroupSchemas { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IGroupSchemasClient
+    content.vb: ReadOnly Property GroupSchemas As IGroupSchemasClient
+  overload: Okta.Sdk.IOktaClient.GroupSchemas*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Authenticators
+  commentId: P:Okta.Sdk.IOktaClient.Authenticators
+  id: Authenticators
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Authenticators
+  nameWithType: IOktaClient.Authenticators
+  fullName: Okta.Sdk.IOktaClient.Authenticators
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Authenticators
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 38
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IAuthenticatorsClient?text=AuthenticatorsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Authenticators API.\n"
+  example: []
+  syntax:
+    content: IAuthenticatorsClient Authenticators { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IAuthenticatorsClient
+    content.vb: ReadOnly Property Authenticators As IAuthenticatorsClient
+  overload: Okta.Sdk.IOktaClient.Authenticators*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Orgs
+  commentId: P:Okta.Sdk.IOktaClient.Orgs
+  id: Orgs
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Orgs
+  nameWithType: IOktaClient.Orgs
+  fullName: Okta.Sdk.IOktaClient.Orgs
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Orgs
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IOrgsClient?text=OrgsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Orgs API.\n"
+  example: []
+  syntax:
+    content: IOrgsClient Orgs { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IOrgsClient
+    content.vb: ReadOnly Property Orgs As IOrgsClient
+  overload: Okta.Sdk.IOktaClient.Orgs*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.UserTypes
+  commentId: P:Okta.Sdk.IOktaClient.UserTypes
+  id: UserTypes
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: UserTypes
+  nameWithType: IOktaClient.UserTypes
+  fullName: Okta.Sdk.IOktaClient.UserTypes
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserTypes
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 51
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IUserTypesClient?text=UserTypesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta User Types API.\n"
+  example: []
+  syntax:
+    content: IUserTypesClient UserTypes { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserTypesClient
+      description: "\nA <xref href=\"Okta.Sdk.IUserTypesClient?text=UserTypesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta User Types API.\n"
+    content.vb: ReadOnly Property UserTypes As IUserTypesClient
+  overload: Okta.Sdk.IOktaClient.UserTypes*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Users
+  commentId: P:Okta.Sdk.IOktaClient.Users
+  id: Users
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Users
+  nameWithType: IOktaClient.Users
+  fullName: Okta.Sdk.IOktaClient.Users
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Users
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 59
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IUsersClient?text=UsersClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Users API.\n"
+  example: []
+  syntax:
+    content: IUsersClient Users { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUsersClient
+      description: "\nA <xref href=\"Okta.Sdk.IUsersClient?text=UsersClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Users API.\n"
+    content.vb: ReadOnly Property Users As IUsersClient
+  overload: Okta.Sdk.IOktaClient.Users*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Applications
+  commentId: P:Okta.Sdk.IOktaClient.Applications
+  id: Applications
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Applications
+  nameWithType: IOktaClient.Applications
+  fullName: Okta.Sdk.IOktaClient.Applications
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Applications
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 67
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IApplicationsClient?text=ApplicationsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Applications API.\n"
+  example: []
+  syntax:
+    content: IApplicationsClient Applications { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IApplicationsClient
+      description: "\nA <xref href=\"Okta.Sdk.IApplicationsClient?text=ApplicationsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Applications API.\n"
+    content.vb: ReadOnly Property Applications As IApplicationsClient
+  overload: Okta.Sdk.IOktaClient.Applications*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Sessions
+  commentId: P:Okta.Sdk.IOktaClient.Sessions
+  id: Sessions
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Sessions
+  nameWithType: IOktaClient.Sessions
+  fullName: Okta.Sdk.IOktaClient.Sessions
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Sessions
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 75
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.ISessionsClient?text=SessionsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Sessions API.\n"
+  example: []
+  syntax:
+    content: ISessionsClient Sessions { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ISessionsClient
+      description: "\nA <xref href=\"Okta.Sdk.ISessionsClient?text=SessionsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Sessions API.\n"
+    content.vb: ReadOnly Property Sessions As ISessionsClient
+  overload: Okta.Sdk.IOktaClient.Sessions*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Logs
+  commentId: P:Okta.Sdk.IOktaClient.Logs
+  id: Logs
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Logs
+  nameWithType: IOktaClient.Logs
+  fullName: Okta.Sdk.IOktaClient.Logs
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Logs
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 83
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.ILogsClient?text=LogsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Logs API.\n"
+  example: []
+  syntax:
+    content: ILogsClient Logs { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILogsClient
+      description: "\nA <xref href=\"Okta.Sdk.ILogsClient?text=LogsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Logs API.\n"
+    content.vb: ReadOnly Property Logs As ILogsClient
+  overload: Okta.Sdk.IOktaClient.Logs*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Policies
+  commentId: P:Okta.Sdk.IOktaClient.Policies
+  id: Policies
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Policies
+  nameWithType: IOktaClient.Policies
+  fullName: Okta.Sdk.IOktaClient.Policies
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Policies
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 91
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IPoliciesClient?text=PoliciesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Policies API\n"
+  example: []
+  syntax:
+    content: IPoliciesClient Policies { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IPoliciesClient
+      description: "\nA <xref href=\"Okta.Sdk.IPoliciesClient?text=PoliciesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Policies API.\n"
+    content.vb: ReadOnly Property Policies As IPoliciesClient
+  overload: Okta.Sdk.IOktaClient.Policies*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.UserFactors
+  commentId: P:Okta.Sdk.IOktaClient.UserFactors
+  id: UserFactors
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: UserFactors
+  nameWithType: IOktaClient.UserFactors
+  fullName: Okta.Sdk.IOktaClient.UserFactors
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserFactors
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 99
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IUserFactorsClient?text=UserFactorsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Factors API.\n"
+  example: []
+  syntax:
+    content: IUserFactorsClient UserFactors { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserFactorsClient
+      description: "\nA <xref href=\"Okta.Sdk.IUserFactorsClient?text=UserFactorsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Factors API.\n"
+    content.vb: ReadOnly Property UserFactors As IUserFactorsClient
+  overload: Okta.Sdk.IOktaClient.UserFactors*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Groups
+  commentId: P:Okta.Sdk.IOktaClient.Groups
+  id: Groups
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Groups
+  nameWithType: IOktaClient.Groups
+  fullName: Okta.Sdk.IOktaClient.Groups
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Groups
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 107
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IGroupsClient?text=GroupsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Groups API.\n"
+  example: []
+  syntax:
+    content: IGroupsClient Groups { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IGroupsClient
+      description: "\nA <xref href=\"Okta.Sdk.IGroupsClient?text=GroupsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Groups API.\n"
+    content.vb: ReadOnly Property Groups As IGroupsClient
+  overload: Okta.Sdk.IOktaClient.Groups*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.AuthorizationServers
+  commentId: P:Okta.Sdk.IOktaClient.AuthorizationServers
+  id: AuthorizationServers
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: AuthorizationServers
+  nameWithType: IOktaClient.AuthorizationServers
+  fullName: Okta.Sdk.IOktaClient.AuthorizationServers
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthorizationServers
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 115
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.IAuthorizationServersClient?text=AuthorizationServersClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Authorization Servers API.\n"
+  example: []
+  syntax:
+    content: IAuthorizationServersClient AuthorizationServers { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IAuthorizationServersClient
+      description: "\nAn <xref href=\"Okta.Sdk.IAuthorizationServersClient?text=AuthorizationServersClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Authorization Servers API.\n"
+    content.vb: ReadOnly Property AuthorizationServers As IAuthorizationServersClient
+  overload: Okta.Sdk.IOktaClient.AuthorizationServers*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.EventHooks
+  commentId: P:Okta.Sdk.IOktaClient.EventHooks
+  id: EventHooks
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: EventHooks
+  nameWithType: IOktaClient.EventHooks
+  fullName: Okta.Sdk.IOktaClient.EventHooks
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: EventHooks
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 123
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.IEventHooksClient?text=EventHooksClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Event Hooks API.\n"
+  example: []
+  syntax:
+    content: IEventHooksClient EventHooks { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IEventHooksClient
+      description: "\nAn <xref href=\"Okta.Sdk.IEventHooksClient?text=EventHooksClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Event Hooks API.\n"
+    content.vb: ReadOnly Property EventHooks As IEventHooksClient
+  overload: Okta.Sdk.IOktaClient.EventHooks*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.InlineHooks
+  commentId: P:Okta.Sdk.IOktaClient.InlineHooks
+  id: InlineHooks
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: InlineHooks
+  nameWithType: IOktaClient.InlineHooks
+  fullName: Okta.Sdk.IOktaClient.InlineHooks
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: InlineHooks
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 131
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.IInlineHooksClient?text=InlineHooksClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Inline Hooks API.\n"
+  example: []
+  syntax:
+    content: IInlineHooksClient InlineHooks { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IInlineHooksClient
+      description: "\nAn <xref href=\"Okta.Sdk.IInlineHooksClient?text=InlineHooksClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Inline Hooks API.\n"
+    content.vb: ReadOnly Property InlineHooks As IInlineHooksClient
+  overload: Okta.Sdk.IOktaClient.InlineHooks*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.LinkedObjects
+  commentId: P:Okta.Sdk.IOktaClient.LinkedObjects
+  id: LinkedObjects
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: LinkedObjects
+  nameWithType: IOktaClient.LinkedObjects
+  fullName: Okta.Sdk.IOktaClient.LinkedObjects
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LinkedObjects
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 139
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.ILinkedObjectsClient?text=LinkedObjectsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Linked Objects API.\n"
+  example: []
+  syntax:
+    content: ILinkedObjectsClient LinkedObjects { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ILinkedObjectsClient
+      description: "\nAn <xref href=\"Okta.Sdk.ILinkedObjectsClient?text=LinkedObjectsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Linked Objects API.\n"
+    content.vb: ReadOnly Property LinkedObjects As ILinkedObjectsClient
+  overload: Okta.Sdk.IOktaClient.LinkedObjects*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.UserSchemas
+  commentId: P:Okta.Sdk.IOktaClient.UserSchemas
+  id: UserSchemas
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: UserSchemas
+  nameWithType: IOktaClient.UserSchemas
+  fullName: Okta.Sdk.IOktaClient.UserSchemas
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UserSchemas
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 147
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.IUserSchemasClient?text=UserSchemasClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Schemas API.\n"
+  example: []
+  syntax:
+    content: IUserSchemasClient UserSchemas { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IUserSchemasClient
+      description: "\nAn <xref href=\"Okta.Sdk.ILinkedObjectsClient?text=UserSchemasClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Schemas API.\n"
+    content.vb: ReadOnly Property UserSchemas As IUserSchemasClient
+  overload: Okta.Sdk.IOktaClient.UserSchemas*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.TrustedOrigins
+  commentId: P:Okta.Sdk.IOktaClient.TrustedOrigins
+  id: TrustedOrigins
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: TrustedOrigins
+  nameWithType: IOktaClient.TrustedOrigins
+  fullName: Okta.Sdk.IOktaClient.TrustedOrigins
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: TrustedOrigins
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 155
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.ITrustedOriginsClient?text=TrustedOriginsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Trusted Origins API.\n"
+  example: []
+  syntax:
+    content: ITrustedOriginsClient TrustedOrigins { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ITrustedOriginsClient
+      description: "\nAn <xref href=\"Okta.Sdk.ITrustedOriginsClient?text=TrustedOriginsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Trusted Origins API.\n"
+    content.vb: ReadOnly Property TrustedOrigins As ITrustedOriginsClient
+  overload: Okta.Sdk.IOktaClient.TrustedOrigins*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Features
+  commentId: P:Okta.Sdk.IOktaClient.Features
+  id: Features
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Features
+  nameWithType: IOktaClient.Features
+  fullName: Okta.Sdk.IOktaClient.Features
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Features
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 163
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IFeaturesClient?text=FeaturesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Features API.\n"
+  example: []
+  syntax:
+    content: IFeaturesClient Features { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IFeaturesClient
+      description: "\nA <xref href=\"Okta.Sdk.IFeaturesClient?text=FeaturesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Features API.\n"
+    content.vb: ReadOnly Property Features As IFeaturesClient
+  overload: Okta.Sdk.IOktaClient.Features*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.IdentityProviders
+  commentId: P:Okta.Sdk.IOktaClient.IdentityProviders
+  id: IdentityProviders
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: IdentityProviders
+  nameWithType: IOktaClient.IdentityProviders
+  fullName: Okta.Sdk.IOktaClient.IdentityProviders
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IdentityProviders
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 171
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets an <xref href=\"Okta.Sdk.IIdentityProvidersClient?text=IdentityProvidersClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Identity Providers API.\n"
+  example: []
+  syntax:
+    content: IIdentityProvidersClient IdentityProviders { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IIdentityProvidersClient
+      description: "\nAn <xref href=\"Okta.Sdk.IIdentityProvidersClient?text=IdentityProvidersClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Identity Providers API.\n"
+    content.vb: ReadOnly Property IdentityProviders As IIdentityProvidersClient
+  overload: Okta.Sdk.IOktaClient.IdentityProviders*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Templates
+  commentId: P:Okta.Sdk.IOktaClient.Templates
+  id: Templates
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Templates
+  nameWithType: IOktaClient.Templates
+  fullName: Okta.Sdk.IOktaClient.Templates
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Templates
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 179
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.ITemplatesClient?text=TemplatesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Templates API.\n"
+  example: []
+  syntax:
+    content: ITemplatesClient Templates { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ITemplatesClient
+      description: "\nA <xref href=\"Okta.Sdk.ITemplatesClient?text=TemplatesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Templates API.\n"
+    content.vb: ReadOnly Property Templates As ITemplatesClient
+  overload: Okta.Sdk.IOktaClient.Templates*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.NetworkZones
+  commentId: P:Okta.Sdk.IOktaClient.NetworkZones
+  id: NetworkZones
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: NetworkZones
+  nameWithType: IOktaClient.NetworkZones
+  fullName: Okta.Sdk.IOktaClient.NetworkZones
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: NetworkZones
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 187
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.INetworkZonesClient?text=NetworkZonesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Network Zones API.\n"
+  example: []
+  syntax:
+    content: INetworkZonesClient NetworkZones { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.INetworkZonesClient
+      description: "\nA <xref href=\"Okta.Sdk.INetworkZonesClient?text=NetworkZonesClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Network Zones API.\n"
+    content.vb: ReadOnly Property NetworkZones As INetworkZonesClient
+  overload: Okta.Sdk.IOktaClient.NetworkZones*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Domains
+  commentId: P:Okta.Sdk.IOktaClient.Domains
+  id: Domains
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Domains
+  nameWithType: IOktaClient.Domains
+  fullName: Okta.Sdk.IOktaClient.Domains
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Domains
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 195
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IDomainsClient?text=DomainsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Domains API.\n"
+  example: []
+  syntax:
+    content: IDomainsClient Domains { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IDomainsClient
+      description: "\nA <xref href=\"Okta.Sdk.IDomainsClient?text=DomainsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Domains API.\n"
+    content.vb: ReadOnly Property Domains As IDomainsClient
+  overload: Okta.Sdk.IOktaClient.Domains*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.ProfileMappings
+  commentId: P:Okta.Sdk.IOktaClient.ProfileMappings
+  id: ProfileMappings
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: ProfileMappings
+  nameWithType: IOktaClient.ProfileMappings
+  fullName: Okta.Sdk.IOktaClient.ProfileMappings
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ProfileMappings
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 203
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IProfileMappingsClient?text=ProfileMappingsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Mappings API.\n"
+  example: []
+  syntax:
+    content: IProfileMappingsClient ProfileMappings { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IProfileMappingsClient
+      description: "\nA <xref href=\"Okta.Sdk.IProfileMappingsClient?text=ProfileMappingsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Mappings API.\n"
+    content.vb: ReadOnly Property ProfileMappings As IProfileMappingsClient
+  overload: Okta.Sdk.IOktaClient.ProfileMappings*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.ThreatInsights
+  commentId: P:Okta.Sdk.IOktaClient.ThreatInsights
+  id: ThreatInsights
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: ThreatInsights
+  nameWithType: IOktaClient.ThreatInsights
+  fullName: Okta.Sdk.IOktaClient.ThreatInsights
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ThreatInsights
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 211
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.IThreatInsightsClient?text=ThreatInsightsClient\" data-throw-if-not-resolved=\"false\"></xref> Okta ThreatInsight configuration API.\n"
+  example: []
+  syntax:
+    content: IThreatInsightsClient ThreatInsights { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.IThreatInsightsClient
+      description: "\nA <xref href=\"Okta.Sdk.IThreatInsightsClient?text=ThreatInsightsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta ThreatInsight configuration API.\n"
+    content.vb: ReadOnly Property ThreatInsights As IThreatInsightsClient
+  overload: Okta.Sdk.IOktaClient.ThreatInsights*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.Subscriptions
+  commentId: P:Okta.Sdk.IOktaClient.Subscriptions
+  id: Subscriptions
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: Subscriptions
+  nameWithType: IOktaClient.Subscriptions
+  fullName: Okta.Sdk.IOktaClient.Subscriptions
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Subscriptions
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 219
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a <xref href=\"Okta.Sdk.ISubscriptionsClient?text=SubscriptionsClient\" data-throw-if-not-resolved=\"false\"></xref> Okta Subscriptions API.\n"
+  example: []
+  syntax:
+    content: ISubscriptionsClient Subscriptions { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ISubscriptionsClient
+      description: "\nA <xref href=\"Okta.Sdk.ISubscriptionsClient?text=SubscriptionsClient\" data-throw-if-not-resolved=\"false\"></xref> that interacts with the Okta Subscriptions API.\n"
+    content.vb: ReadOnly Property Subscriptions As ISubscriptionsClient
+  overload: Okta.Sdk.IOktaClient.Subscriptions*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IOktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  commentId: M:Okta.Sdk.IOktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  id: CreateScoped(Okta.Sdk.RequestContext)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: CreateScoped(RequestContext)
+  nameWithType: IOktaClient.CreateScoped(RequestContext)
+  fullName: Okta.Sdk.IOktaClient.CreateScoped(Okta.Sdk.RequestContext)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CreateScoped
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 227
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nCreates a new <xref href=\"Okta.Sdk.IOktaClient?text=OktaClient\" data-throw-if-not-resolved=\"false\"></xref> scoped to the given request context.\n"
+  remarks: This method is used to temporarily create a copy of the client in order to pass information about the current request to the Okta API.
+  example: []
+  syntax:
+    content: IOktaClient CreateScoped(RequestContext requestContext)
+    parameters:
+    - id: requestContext
+      type: Okta.Sdk.RequestContext
+      description: The request context
+    return:
+      type: Okta.Sdk.IOktaClient
+      description: The new client.
+    content.vb: Function CreateScoped(requestContext As RequestContext) As IOktaClient
+  overload: Okta.Sdk.IOktaClient.CreateScoped*
+- uid: Okta.Sdk.IOktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.GetAsync``1(System.String,System.Threading.CancellationToken)
+  id: GetAsync``1(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync<T>(String, CancellationToken)
+  nameWithType: IOktaClient.GetAsync<T>(String, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.GetAsync<T>(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 238
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a resource by URL and deserializes it to a <xref href=\"Okta.Sdk.Resource\" data-throw-if-not-resolved=\"false\"></xref> type.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: >-
+      Task<T> GetAsync<T>(string href, CancellationToken cancellationToken = default(CancellationToken))
+
+          where T : Resource, new()
+    parameters:
+    - id: href
+      type: System.String
+      description: The resource URL.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: T
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type to deserialize the returned data to.
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: The deserialized resource.
+    content.vb: Function GetAsync(Of T As {Resource, New})(href As String, cancellationToken As CancellationToken = Nothing) As Task(Of T)
+  overload: Okta.Sdk.IOktaClient.GetAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+  nameWithType.vb: IOktaClient.GetAsync(Of T)(String, CancellationToken)
+  fullName.vb: Okta.Sdk.IOktaClient.GetAsync(Of T)(System.String, System.Threading.CancellationToken)
+  name.vb: GetAsync(Of T)(String, CancellationToken)
+- uid: Okta.Sdk.IOktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  id: GetAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: GetAsync<T>(HttpRequest, CancellationToken)
+  nameWithType: IOktaClient.GetAsync<T>(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.GetAsync<T>(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 250
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a resource by specifying the HTTP request options, and deserializes it to a <xref href=\"Okta.Sdk.Resource\" data-throw-if-not-resolved=\"false\"></xref> type.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: >-
+      Task<T> GetAsync<T>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+
+          where T : Resource, new()
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: T
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type to deserialize the returned data to.
+    return:
+      type: System.Threading.Tasks.Task{{T}}
+      description: The deserialized resource.
+    content.vb: Function GetAsync(Of T As {Resource, New})(request As HttpRequest, cancellationToken As CancellationToken = Nothing) As Task(Of T)
+  overload: Okta.Sdk.IOktaClient.GetAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+  nameWithType.vb: IOktaClient.GetAsync(Of T)(HttpRequest, CancellationToken)
+  fullName.vb: Okta.Sdk.IOktaClient.GetAsync(Of T)(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  name.vb: GetAsync(Of T)(HttpRequest, CancellationToken)
+- uid: Okta.Sdk.IOktaClient.GetCollection``1(System.String)
+  commentId: M:Okta.Sdk.IOktaClient.GetCollection``1(System.String)
+  id: GetCollection``1(System.String)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: GetCollection<T>(String)
+  nameWithType: IOktaClient.GetCollection<T>(String)
+  fullName: Okta.Sdk.IOktaClient.GetCollection<T>(System.String)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetCollection
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 259
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a collection of resources from the Okta API by URL.\n"
+  example: []
+  syntax:
+    content: >-
+      CollectionClient<T> GetCollection<T>(string href)
+
+          where T : IResource
+    parameters:
+    - id: href
+      type: System.String
+      description: The collection URL.
+    typeParameters:
+    - id: T
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type of the collection.
+    return:
+      type: Okta.Sdk.CollectionClient{{T}}
+      description: A collection that can be enumerated asynchronously.
+    content.vb: Function GetCollection(Of T As IResource)(href As String) As CollectionClient(Of T)
+  overload: Okta.Sdk.IOktaClient.GetCollection*
+  nameWithType.vb: IOktaClient.GetCollection(Of T)(String)
+  fullName.vb: Okta.Sdk.IOktaClient.GetCollection(Of T)(System.String)
+  name.vb: GetCollection(Of T)(String)
+- uid: Okta.Sdk.IOktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.IOktaClient.GetCollection``1(Okta.Sdk.HttpRequest)
+  id: GetCollection``1(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: GetCollection<T>(HttpRequest)
+  nameWithType: IOktaClient.GetCollection<T>(HttpRequest)
+  fullName: Okta.Sdk.IOktaClient.GetCollection<T>(Okta.Sdk.HttpRequest)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetCollection
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 268
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets a collection of resources from the Okta API by URL.\n"
+  example: []
+  syntax:
+    content: >-
+      CollectionClient<T> GetCollection<T>(HttpRequest request)
+
+          where T : IResource
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request options.
+    typeParameters:
+    - id: T
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type of the collection.
+    return:
+      type: Okta.Sdk.CollectionClient{{T}}
+      description: A collection that can be enumerated asynchronously.
+    content.vb: Function GetCollection(Of T As IResource)(request As HttpRequest) As CollectionClient(Of T)
+  overload: Okta.Sdk.IOktaClient.GetCollection*
+  nameWithType.vb: IOktaClient.GetCollection(Of T)(HttpRequest)
+  fullName.vb: Okta.Sdk.IOktaClient.GetCollection(Of T)(Okta.Sdk.HttpRequest)
+  name.vb: GetCollection(Of T)(HttpRequest)
+- uid: Okta.Sdk.IOktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  id: PostAsync(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PostAsync(String, Object, CancellationToken)
+  nameWithType: IOktaClient.PostAsync(String, Object, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PostAsync(System.String, System.Object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PostAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 280
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPosts data to an endpoint by URL.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: Task PostAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: href
+      type: System.String
+      description: The endpoint URL.
+    - id: model
+      type: System.Object
+      description: The data to serialize and attach to the request body.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function PostAsync(href As String, model As Object, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOktaClient.PostAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+- uid: Okta.Sdk.IOktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  id: PostAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PostAsync<TResponse>(String, Object, CancellationToken)
+  nameWithType: IOktaClient.PostAsync<TResponse>(String, Object, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PostAsync<TResponse>(System.String, System.Object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PostAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 295
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPosts data to an endpoint by URL, and deserializes the response payload to a <xref href=\"Okta.Sdk.Resource\" data-throw-if-not-resolved=\"false\"></xref> type.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: >-
+      Task<TResponse> PostAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+
+          where TResponse : Resource, new()
+    parameters:
+    - id: href
+      type: System.String
+      description: The endpoint URL.
+    - id: model
+      type: System.Object
+      description: The data to serialize and attach to the request body.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: TResponse
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type to deserialize the returned data to.
+    return:
+      type: System.Threading.Tasks.Task{{TResponse}}
+      description: The deserialized response data.
+    content.vb: Function PostAsync(Of TResponse As {Resource, New})(href As String, model As Object, cancellationToken As CancellationToken = Nothing) As Task(Of TResponse)
+  overload: Okta.Sdk.IOktaClient.PostAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+  nameWithType.vb: IOktaClient.PostAsync(Of TResponse)(String, Object, CancellationToken)
+  fullName.vb: Okta.Sdk.IOktaClient.PostAsync(Of TResponse)(System.String, System.Object, System.Threading.CancellationToken)
+  name.vb: PostAsync(Of TResponse)(String, Object, CancellationToken)
+- uid: Okta.Sdk.IOktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  id: PostAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PostAsync(HttpRequest, CancellationToken)
+  nameWithType: IOktaClient.PostAsync(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PostAsync(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PostAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 309
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPosts data to an endpoint by specifying the HTTP request options.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: Task PostAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function PostAsync(request As HttpRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOktaClient.PostAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+- uid: Okta.Sdk.IOktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  id: PostAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PostAsync<TResponse>(HttpRequest, CancellationToken)
+  nameWithType: IOktaClient.PostAsync<TResponse>(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PostAsync<TResponse>(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PostAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 322
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPosts data to an endpoint by specifying the HTTP request options, and deserializes the response payload to a <xref href=\"Okta.Sdk.Resource\" data-throw-if-not-resolved=\"false\"></xref> type.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: >-
+      Task<TResponse> PostAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+
+          where TResponse : Resource, new()
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: TResponse
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type to deserialize the returned data to.
+    return:
+      type: System.Threading.Tasks.Task{{TResponse}}
+      description: The deserialized response data.
+    content.vb: Function PostAsync(Of TResponse As {Resource, New})(request As HttpRequest, cancellationToken As CancellationToken = Nothing) As Task(Of TResponse)
+  overload: Okta.Sdk.IOktaClient.PostAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+  nameWithType.vb: IOktaClient.PostAsync(Of TResponse)(HttpRequest, CancellationToken)
+  fullName.vb: Okta.Sdk.IOktaClient.PostAsync(Of TResponse)(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  name.vb: PostAsync(Of TResponse)(HttpRequest, CancellationToken)
+- uid: Okta.Sdk.IOktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  id: PutAsync(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PutAsync(String, Object, CancellationToken)
+  nameWithType: IOktaClient.PutAsync(String, Object, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PutAsync(System.String, System.Object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PutAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 336
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPuts data to an endpoint by URL.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: Task PutAsync(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: href
+      type: System.String
+      description: The endpoint URL.
+    - id: model
+      type: System.Object
+      description: The data to serialize and attach to the request body.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function PutAsync(href As String, model As Object, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOktaClient.PutAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+- uid: Okta.Sdk.IOktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  id: PutAsync``1(System.String,System.Object,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PutAsync<TResponse>(String, Object, CancellationToken)
+  nameWithType: IOktaClient.PutAsync<TResponse>(String, Object, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PutAsync<TResponse>(System.String, System.Object, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PutAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 351
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPuts data to an endpoint by URL and deserializes the response payload to a <xref href=\"Okta.Sdk.Resource\" data-throw-if-not-resolved=\"false\"></xref> type.\n<remarks>You typically only need to use this method if you are working with resources not natively handled by this library.</remarks>\n"
+  example: []
+  syntax:
+    content: >-
+      Task<TResponse> PutAsync<TResponse>(string href, object model, CancellationToken cancellationToken = default(CancellationToken))
+
+          where TResponse : Resource, new()
+    parameters:
+    - id: href
+      type: System.String
+      description: The endpoint URL.
+    - id: model
+      type: System.Object
+      description: The data to serialize and attach to the request body.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: TResponse
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type to deserialize the returned data to.
+    return:
+      type: System.Threading.Tasks.Task{{TResponse}}
+      description: The deserialized response data.
+    content.vb: Function PutAsync(Of TResponse As {Resource, New})(href As String, model As Object, cancellationToken As CancellationToken = Nothing) As Task(Of TResponse)
+  overload: Okta.Sdk.IOktaClient.PutAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+  nameWithType.vb: IOktaClient.PutAsync(Of TResponse)(String, Object, CancellationToken)
+  fullName.vb: Okta.Sdk.IOktaClient.PutAsync(Of TResponse)(System.String, System.Object, System.Threading.CancellationToken)
+  name.vb: PutAsync(Of TResponse)(String, Object, CancellationToken)
+- uid: Okta.Sdk.IOktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  id: PutAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PutAsync(HttpRequest, CancellationToken)
+  nameWithType: IOktaClient.PutAsync(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PutAsync(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PutAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 365
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPuts data to an endpoint by specifying the HTTP request options.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: Task PutAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The endpoint URL.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function PutAsync(request As HttpRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOktaClient.PutAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+- uid: Okta.Sdk.IOktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  id: PutAsync``1(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: PutAsync<TResponse>(HttpRequest, CancellationToken)
+  nameWithType: IOktaClient.PutAsync<TResponse>(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.PutAsync<TResponse>(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: PutAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 378
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nPuts data to an endpoint by specifying the HTTP request options, and deserializes the response payload to a <xref href=\"Okta.Sdk.Resource\" data-throw-if-not-resolved=\"false\"></xref> type.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: >-
+      Task<TResponse> PutAsync<TResponse>(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+
+          where TResponse : Resource, new()
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    typeParameters:
+    - id: TResponse
+      description: The <xref href="Okta.Sdk.Resource" data-throw-if-not-resolved="false"></xref> type to deserialize the returned data to.
+    return:
+      type: System.Threading.Tasks.Task{{TResponse}}
+      description: The deserialized response data.
+    content.vb: Function PutAsync(Of TResponse As {Resource, New})(request As HttpRequest, cancellationToken As CancellationToken = Nothing) As Task(Of TResponse)
+  overload: Okta.Sdk.IOktaClient.PutAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+  nameWithType.vb: IOktaClient.PutAsync(Of TResponse)(HttpRequest, CancellationToken)
+  fullName.vb: Okta.Sdk.IOktaClient.PutAsync(Of TResponse)(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  name.vb: PutAsync(Of TResponse)(HttpRequest, CancellationToken)
+- uid: Okta.Sdk.IOktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.DeleteAsync(System.String,System.Threading.CancellationToken)
+  id: DeleteAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(String, CancellationToken)
+  nameWithType: IOktaClient.DeleteAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.DeleteAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 391
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes a resource by URL.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: Task DeleteAsync(string href, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: href
+      type: System.String
+      description: The resource URL.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteAsync(href As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOktaClient.DeleteAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+- uid: Okta.Sdk.IOktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IOktaClient.DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  id: DeleteAsync(Okta.Sdk.HttpRequest,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IOktaClient
+  langs:
+  - csharp
+  - vb
+  name: DeleteAsync(HttpRequest, CancellationToken)
+  nameWithType: IOktaClient.DeleteAsync(HttpRequest, CancellationToken)
+  fullName: Okta.Sdk.IOktaClient.DeleteAsync(Okta.Sdk.HttpRequest, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/IOktaClient.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DeleteAsync
+    path: ../src/Okta.Sdk/IOktaClient.cs
+    startLine: 403
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nDeletes a resource by specifying the HTTP request options.\n"
+  remarks: You typically only need to use this method if you are working with resources not natively handled by this library.
+  example: []
+  syntax:
+    content: Task DeleteAsync(HttpRequest request, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: request
+      type: Okta.Sdk.HttpRequest
+      description: The request options.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task
+      description: A Task that represents the asynchronous operation.
+    content.vb: Function DeleteAsync(request As HttpRequest, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IOktaClient.DeleteAsync*
+  exceptions:
+  - type: Okta.Sdk.OktaApiException
+    commentId: T:Okta.Sdk.OktaApiException
+    description: An API error occurred.
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IOktaClient
+  commentId: T:Okta.Sdk.IOktaClient
+  parent: Okta.Sdk
+  name: IOktaClient
+  nameWithType: IOktaClient
+  fullName: Okta.Sdk.IOktaClient
+- uid: Okta.Sdk.IOktaClient.Configuration*
+  commentId: Overload:Okta.Sdk.IOktaClient.Configuration
+  name: Configuration
+  nameWithType: IOktaClient.Configuration
+  fullName: Okta.Sdk.IOktaClient.Configuration
+- uid: Okta.Sdk.Configuration.OktaClientConfiguration
+  commentId: T:Okta.Sdk.Configuration.OktaClientConfiguration
+  parent: Okta.Sdk.Configuration
+  name: OktaClientConfiguration
+  nameWithType: OktaClientConfiguration
+  fullName: Okta.Sdk.Configuration.OktaClientConfiguration
+- uid: Okta.Sdk.Configuration
+  commentId: N:Okta.Sdk.Configuration
+  name: Okta.Sdk.Configuration
+  nameWithType: Okta.Sdk.Configuration
+  fullName: Okta.Sdk.Configuration
+- uid: Okta.Sdk.IBrandsClient
+  commentId: T:Okta.Sdk.IBrandsClient
+  parent: Okta.Sdk
+  name: IBrandsClient
+  nameWithType: IBrandsClient
+  fullName: Okta.Sdk.IBrandsClient
+- uid: Okta.Sdk.IOktaClient.Brands*
+  commentId: Overload:Okta.Sdk.IOktaClient.Brands
+  name: Brands
+  nameWithType: IOktaClient.Brands
+  fullName: Okta.Sdk.IOktaClient.Brands
+- uid: Okta.Sdk.IGroupSchemasClient
+  commentId: T:Okta.Sdk.IGroupSchemasClient
+  parent: Okta.Sdk
+  name: IGroupSchemasClient
+  nameWithType: IGroupSchemasClient
+  fullName: Okta.Sdk.IGroupSchemasClient
+- uid: Okta.Sdk.IOktaClient.GroupSchemas*
+  commentId: Overload:Okta.Sdk.IOktaClient.GroupSchemas
+  name: GroupSchemas
+  nameWithType: IOktaClient.GroupSchemas
+  fullName: Okta.Sdk.IOktaClient.GroupSchemas
+- uid: Okta.Sdk.IAuthenticatorsClient
+  commentId: T:Okta.Sdk.IAuthenticatorsClient
+  parent: Okta.Sdk
+  name: IAuthenticatorsClient
+  nameWithType: IAuthenticatorsClient
+  fullName: Okta.Sdk.IAuthenticatorsClient
+- uid: Okta.Sdk.IOktaClient.Authenticators*
+  commentId: Overload:Okta.Sdk.IOktaClient.Authenticators
+  name: Authenticators
+  nameWithType: IOktaClient.Authenticators
+  fullName: Okta.Sdk.IOktaClient.Authenticators
+- uid: Okta.Sdk.IOrgsClient
+  commentId: T:Okta.Sdk.IOrgsClient
+  parent: Okta.Sdk
+  name: IOrgsClient
+  nameWithType: IOrgsClient
+  fullName: Okta.Sdk.IOrgsClient
+- uid: Okta.Sdk.IOktaClient.Orgs*
+  commentId: Overload:Okta.Sdk.IOktaClient.Orgs
+  name: Orgs
+  nameWithType: IOktaClient.Orgs
+  fullName: Okta.Sdk.IOktaClient.Orgs
+- uid: Okta.Sdk.IUserTypesClient
+  commentId: T:Okta.Sdk.IUserTypesClient
+  parent: Okta.Sdk
+  name: IUserTypesClient
+  nameWithType: IUserTypesClient
+  fullName: Okta.Sdk.IUserTypesClient
+- uid: Okta.Sdk.IOktaClient.UserTypes*
+  commentId: Overload:Okta.Sdk.IOktaClient.UserTypes
+  name: UserTypes
+  nameWithType: IOktaClient.UserTypes
+  fullName: Okta.Sdk.IOktaClient.UserTypes
+- uid: Okta.Sdk.IUsersClient
+  commentId: T:Okta.Sdk.IUsersClient
+  parent: Okta.Sdk
+  name: IUsersClient
+  nameWithType: IUsersClient
+  fullName: Okta.Sdk.IUsersClient
+- uid: Okta.Sdk.IOktaClient.Users*
+  commentId: Overload:Okta.Sdk.IOktaClient.Users
+  name: Users
+  nameWithType: IOktaClient.Users
+  fullName: Okta.Sdk.IOktaClient.Users
+- uid: Okta.Sdk.IApplicationsClient
+  commentId: T:Okta.Sdk.IApplicationsClient
+  parent: Okta.Sdk
+  name: IApplicationsClient
+  nameWithType: IApplicationsClient
+  fullName: Okta.Sdk.IApplicationsClient
+- uid: Okta.Sdk.IOktaClient.Applications*
+  commentId: Overload:Okta.Sdk.IOktaClient.Applications
+  name: Applications
+  nameWithType: IOktaClient.Applications
+  fullName: Okta.Sdk.IOktaClient.Applications
+- uid: Okta.Sdk.ISessionsClient
+  commentId: T:Okta.Sdk.ISessionsClient
+  parent: Okta.Sdk
+  name: ISessionsClient
+  nameWithType: ISessionsClient
+  fullName: Okta.Sdk.ISessionsClient
+- uid: Okta.Sdk.IOktaClient.Sessions*
+  commentId: Overload:Okta.Sdk.IOktaClient.Sessions
+  name: Sessions
+  nameWithType: IOktaClient.Sessions
+  fullName: Okta.Sdk.IOktaClient.Sessions
+- uid: Okta.Sdk.ILogsClient
+  commentId: T:Okta.Sdk.ILogsClient
+  parent: Okta.Sdk
+  name: ILogsClient
+  nameWithType: ILogsClient
+  fullName: Okta.Sdk.ILogsClient
+- uid: Okta.Sdk.IOktaClient.Logs*
+  commentId: Overload:Okta.Sdk.IOktaClient.Logs
+  name: Logs
+  nameWithType: IOktaClient.Logs
+  fullName: Okta.Sdk.IOktaClient.Logs
+- uid: Okta.Sdk.IPoliciesClient
+  commentId: T:Okta.Sdk.IPoliciesClient
+  parent: Okta.Sdk
+  name: IPoliciesClient
+  nameWithType: IPoliciesClient
+  fullName: Okta.Sdk.IPoliciesClient
+- uid: Okta.Sdk.IOktaClient.Policies*
+  commentId: Overload:Okta.Sdk.IOktaClient.Policies
+  name: Policies
+  nameWithType: IOktaClient.Policies
+  fullName: Okta.Sdk.IOktaClient.Policies
+- uid: Okta.Sdk.IUserFactorsClient
+  commentId: T:Okta.Sdk.IUserFactorsClient
+  parent: Okta.Sdk
+  name: IUserFactorsClient
+  nameWithType: IUserFactorsClient
+  fullName: Okta.Sdk.IUserFactorsClient
+- uid: Okta.Sdk.IOktaClient.UserFactors*
+  commentId: Overload:Okta.Sdk.IOktaClient.UserFactors
+  name: UserFactors
+  nameWithType: IOktaClient.UserFactors
+  fullName: Okta.Sdk.IOktaClient.UserFactors
+- uid: Okta.Sdk.IGroupsClient
+  commentId: T:Okta.Sdk.IGroupsClient
+  parent: Okta.Sdk
+  name: IGroupsClient
+  nameWithType: IGroupsClient
+  fullName: Okta.Sdk.IGroupsClient
+- uid: Okta.Sdk.IOktaClient.Groups*
+  commentId: Overload:Okta.Sdk.IOktaClient.Groups
+  name: Groups
+  nameWithType: IOktaClient.Groups
+  fullName: Okta.Sdk.IOktaClient.Groups
+- uid: Okta.Sdk.IAuthorizationServersClient
+  commentId: T:Okta.Sdk.IAuthorizationServersClient
+  parent: Okta.Sdk
+  name: IAuthorizationServersClient
+  nameWithType: IAuthorizationServersClient
+  fullName: Okta.Sdk.IAuthorizationServersClient
+- uid: Okta.Sdk.IOktaClient.AuthorizationServers*
+  commentId: Overload:Okta.Sdk.IOktaClient.AuthorizationServers
+  name: AuthorizationServers
+  nameWithType: IOktaClient.AuthorizationServers
+  fullName: Okta.Sdk.IOktaClient.AuthorizationServers
+- uid: Okta.Sdk.IEventHooksClient
+  commentId: T:Okta.Sdk.IEventHooksClient
+  parent: Okta.Sdk
+  name: IEventHooksClient
+  nameWithType: IEventHooksClient
+  fullName: Okta.Sdk.IEventHooksClient
+- uid: Okta.Sdk.IOktaClient.EventHooks*
+  commentId: Overload:Okta.Sdk.IOktaClient.EventHooks
+  name: EventHooks
+  nameWithType: IOktaClient.EventHooks
+  fullName: Okta.Sdk.IOktaClient.EventHooks
+- uid: Okta.Sdk.IInlineHooksClient
+  commentId: T:Okta.Sdk.IInlineHooksClient
+  parent: Okta.Sdk
+  name: IInlineHooksClient
+  nameWithType: IInlineHooksClient
+  fullName: Okta.Sdk.IInlineHooksClient
+- uid: Okta.Sdk.IOktaClient.InlineHooks*
+  commentId: Overload:Okta.Sdk.IOktaClient.InlineHooks
+  name: InlineHooks
+  nameWithType: IOktaClient.InlineHooks
+  fullName: Okta.Sdk.IOktaClient.InlineHooks
+- uid: Okta.Sdk.ILinkedObjectsClient
+  commentId: T:Okta.Sdk.ILinkedObjectsClient
+  parent: Okta.Sdk
+  name: ILinkedObjectsClient
+  nameWithType: ILinkedObjectsClient
+  fullName: Okta.Sdk.ILinkedObjectsClient
+- uid: Okta.Sdk.IOktaClient.LinkedObjects*
+  commentId: Overload:Okta.Sdk.IOktaClient.LinkedObjects
+  name: LinkedObjects
+  nameWithType: IOktaClient.LinkedObjects
+  fullName: Okta.Sdk.IOktaClient.LinkedObjects
+- uid: Okta.Sdk.IUserSchemasClient
+  commentId: T:Okta.Sdk.IUserSchemasClient
+  parent: Okta.Sdk
+  name: IUserSchemasClient
+  nameWithType: IUserSchemasClient
+  fullName: Okta.Sdk.IUserSchemasClient
+- uid: Okta.Sdk.IOktaClient.UserSchemas*
+  commentId: Overload:Okta.Sdk.IOktaClient.UserSchemas
+  name: UserSchemas
+  nameWithType: IOktaClient.UserSchemas
+  fullName: Okta.Sdk.IOktaClient.UserSchemas
+- uid: Okta.Sdk.ITrustedOriginsClient
+  commentId: T:Okta.Sdk.ITrustedOriginsClient
+  parent: Okta.Sdk
+  name: ITrustedOriginsClient
+  nameWithType: ITrustedOriginsClient
+  fullName: Okta.Sdk.ITrustedOriginsClient
+- uid: Okta.Sdk.IOktaClient.TrustedOrigins*
+  commentId: Overload:Okta.Sdk.IOktaClient.TrustedOrigins
+  name: TrustedOrigins
+  nameWithType: IOktaClient.TrustedOrigins
+  fullName: Okta.Sdk.IOktaClient.TrustedOrigins
+- uid: Okta.Sdk.IFeaturesClient
+  commentId: T:Okta.Sdk.IFeaturesClient
+  parent: Okta.Sdk
+  name: IFeaturesClient
+  nameWithType: IFeaturesClient
+  fullName: Okta.Sdk.IFeaturesClient
+- uid: Okta.Sdk.IOktaClient.Features*
+  commentId: Overload:Okta.Sdk.IOktaClient.Features
+  name: Features
+  nameWithType: IOktaClient.Features
+  fullName: Okta.Sdk.IOktaClient.Features
+- uid: Okta.Sdk.IIdentityProvidersClient
+  commentId: T:Okta.Sdk.IIdentityProvidersClient
+  parent: Okta.Sdk
+  name: IIdentityProvidersClient
+  nameWithType: IIdentityProvidersClient
+  fullName: Okta.Sdk.IIdentityProvidersClient
+- uid: Okta.Sdk.IOktaClient.IdentityProviders*
+  commentId: Overload:Okta.Sdk.IOktaClient.IdentityProviders
+  name: IdentityProviders
+  nameWithType: IOktaClient.IdentityProviders
+  fullName: Okta.Sdk.IOktaClient.IdentityProviders
+- uid: Okta.Sdk.ITemplatesClient
+  commentId: T:Okta.Sdk.ITemplatesClient
+  parent: Okta.Sdk
+  name: ITemplatesClient
+  nameWithType: ITemplatesClient
+  fullName: Okta.Sdk.ITemplatesClient
+- uid: Okta.Sdk.IOktaClient.Templates*
+  commentId: Overload:Okta.Sdk.IOktaClient.Templates
+  name: Templates
+  nameWithType: IOktaClient.Templates
+  fullName: Okta.Sdk.IOktaClient.Templates
+- uid: Okta.Sdk.INetworkZonesClient
+  commentId: T:Okta.Sdk.INetworkZonesClient
+  parent: Okta.Sdk
+  name: INetworkZonesClient
+  nameWithType: INetworkZonesClient
+  fullName: Okta.Sdk.INetworkZonesClient
+- uid: Okta.Sdk.IOktaClient.NetworkZones*
+  commentId: Overload:Okta.Sdk.IOktaClient.NetworkZones
+  name: NetworkZones
+  nameWithType: IOktaClient.NetworkZones
+  fullName: Okta.Sdk.IOktaClient.NetworkZones
+- uid: Okta.Sdk.IDomainsClient
+  commentId: T:Okta.Sdk.IDomainsClient
+  parent: Okta.Sdk
+  name: IDomainsClient
+  nameWithType: IDomainsClient
+  fullName: Okta.Sdk.IDomainsClient
+- uid: Okta.Sdk.IOktaClient.Domains*
+  commentId: Overload:Okta.Sdk.IOktaClient.Domains
+  name: Domains
+  nameWithType: IOktaClient.Domains
+  fullName: Okta.Sdk.IOktaClient.Domains
+- uid: Okta.Sdk.IProfileMappingsClient
+  commentId: T:Okta.Sdk.IProfileMappingsClient
+  parent: Okta.Sdk
+  name: IProfileMappingsClient
+  nameWithType: IProfileMappingsClient
+  fullName: Okta.Sdk.IProfileMappingsClient
+- uid: Okta.Sdk.IOktaClient.ProfileMappings*
+  commentId: Overload:Okta.Sdk.IOktaClient.ProfileMappings
+  name: ProfileMappings
+  nameWithType: IOktaClient.ProfileMappings
+  fullName: Okta.Sdk.IOktaClient.ProfileMappings
+- uid: Okta.Sdk.IThreatInsightsClient
+  commentId: T:Okta.Sdk.IThreatInsightsClient
+  parent: Okta.Sdk
+  name: IThreatInsightsClient
+  nameWithType: IThreatInsightsClient
+  fullName: Okta.Sdk.IThreatInsightsClient
+- uid: Okta.Sdk.IOktaClient.ThreatInsights*
+  commentId: Overload:Okta.Sdk.IOktaClient.ThreatInsights
+  name: ThreatInsights
+  nameWithType: IOktaClient.ThreatInsights
+  fullName: Okta.Sdk.IOktaClient.ThreatInsights
+- uid: Okta.Sdk.ISubscriptionsClient
+  commentId: T:Okta.Sdk.ISubscriptionsClient
+  parent: Okta.Sdk
+  name: ISubscriptionsClient
+  nameWithType: ISubscriptionsClient
+  fullName: Okta.Sdk.ISubscriptionsClient
+- uid: Okta.Sdk.IOktaClient.Subscriptions*
+  commentId: Overload:Okta.Sdk.IOktaClient.Subscriptions
+  name: Subscriptions
+  nameWithType: IOktaClient.Subscriptions
+  fullName: Okta.Sdk.IOktaClient.Subscriptions
+- uid: Okta.Sdk.IOktaClient.CreateScoped*
+  commentId: Overload:Okta.Sdk.IOktaClient.CreateScoped
+  name: CreateScoped
+  nameWithType: IOktaClient.CreateScoped
+  fullName: Okta.Sdk.IOktaClient.CreateScoped
+- uid: Okta.Sdk.RequestContext
+  commentId: T:Okta.Sdk.RequestContext
+  parent: Okta.Sdk
+  name: RequestContext
+  nameWithType: RequestContext
+  fullName: Okta.Sdk.RequestContext
+- uid: Okta.Sdk.Resource
+  commentId: T:Okta.Sdk.Resource
+  parent: Okta.Sdk
+  name: Resource
+  nameWithType: Resource
+  fullName: Okta.Sdk.Resource
+- uid: Okta.Sdk.OktaApiException
+  commentId: T:Okta.Sdk.OktaApiException
+  name: OktaApiException
+  nameWithType: OktaApiException
+  fullName: Okta.Sdk.OktaApiException
+- uid: Okta.Sdk.IOktaClient.GetAsync*
+  commentId: Overload:Okta.Sdk.IOktaClient.GetAsync
+  name: GetAsync
+  nameWithType: IOktaClient.GetAsync
+  fullName: Okta.Sdk.IOktaClient.GetAsync
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{{T}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<T>
+  nameWithType: Task<T>
+  fullName: System.Threading.Tasks.Task<T>
+  nameWithType.vb: Task(Of T)
+  fullName.vb: System.Threading.Tasks.Task(Of T)
+  name.vb: Task(Of T)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.HttpRequest
+  commentId: T:Okta.Sdk.HttpRequest
+  parent: Okta.Sdk
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: Okta.Sdk.HttpRequest
+- uid: Okta.Sdk.IOktaClient.GetCollection*
+  commentId: Overload:Okta.Sdk.IOktaClient.GetCollection
+  name: GetCollection
+  nameWithType: IOktaClient.GetCollection
+  fullName: Okta.Sdk.IOktaClient.GetCollection
+- uid: Okta.Sdk.CollectionClient{{T}}
+  commentId: T:Okta.Sdk.CollectionClient{``0}
+  parent: Okta.Sdk
+  definition: Okta.Sdk.CollectionClient`1
+  name: CollectionClient<T>
+  nameWithType: CollectionClient<T>
+  fullName: Okta.Sdk.CollectionClient<T>
+  nameWithType.vb: CollectionClient(Of T)
+  fullName.vb: Okta.Sdk.CollectionClient(Of T)
+  name.vb: CollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.CollectionClient`1
+    name: CollectionClient
+    nameWithType: CollectionClient
+    fullName: Okta.Sdk.CollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.CollectionClient`1
+    name: CollectionClient
+    nameWithType: CollectionClient
+    fullName: Okta.Sdk.CollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.CollectionClient`1
+  commentId: T:Okta.Sdk.CollectionClient`1
+  name: CollectionClient<T>
+  nameWithType: CollectionClient<T>
+  fullName: Okta.Sdk.CollectionClient<T>
+  nameWithType.vb: CollectionClient(Of T)
+  fullName.vb: Okta.Sdk.CollectionClient(Of T)
+  name.vb: CollectionClient(Of T)
+  spec.csharp:
+  - uid: Okta.Sdk.CollectionClient`1
+    name: CollectionClient
+    nameWithType: CollectionClient
+    fullName: Okta.Sdk.CollectionClient
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Okta.Sdk.CollectionClient`1
+    name: CollectionClient
+    nameWithType: CollectionClient
+    fullName: Okta.Sdk.CollectionClient
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IOktaClient.PostAsync*
+  commentId: Overload:Okta.Sdk.IOktaClient.PostAsync
+  name: PostAsync
+  nameWithType: IOktaClient.PostAsync
+  fullName: Okta.Sdk.IOktaClient.PostAsync
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading.Tasks.Task{{TResponse}}
+  commentId: T:System.Threading.Tasks.Task{``0}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<TResponse>
+  nameWithType: Task<TResponse>
+  fullName: System.Threading.Tasks.Task<TResponse>
+  nameWithType.vb: Task(Of TResponse)
+  fullName.vb: System.Threading.Tasks.Task(Of TResponse)
+  name.vb: Task(Of TResponse)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResponse
+    nameWithType: TResponse
+    fullName: TResponse
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResponse
+    nameWithType: TResponse
+    fullName: TResponse
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IOktaClient.PutAsync*
+  commentId: Overload:Okta.Sdk.IOktaClient.PutAsync
+  name: PutAsync
+  nameWithType: IOktaClient.PutAsync
+  fullName: Okta.Sdk.IOktaClient.PutAsync
+- uid: Okta.Sdk.IOktaClient.DeleteAsync*
+  commentId: Overload:Okta.Sdk.IOktaClient.DeleteAsync
+  name: DeleteAsync
+  nameWithType: IOktaClient.DeleteAsync
+  fullName: Okta.Sdk.IOktaClient.DeleteAsync

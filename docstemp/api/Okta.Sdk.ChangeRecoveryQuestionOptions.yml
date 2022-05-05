@@ -1,0 +1,485 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions
+  commentId: T:Okta.Sdk.ChangeRecoveryQuestionOptions
+  id: ChangeRecoveryQuestionOptions
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword
+  - Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer
+  - Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion
+  langs:
+  - csharp
+  - vb
+  name: ChangeRecoveryQuestionOptions
+  nameWithType: ChangeRecoveryQuestionOptions
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ChangeRecoveryQuestionOptions
+    path: ../src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nContains the parameters needed to change a user&apos;s recovery question.\n"
+  example: []
+  syntax:
+    content: public sealed class ChangeRecoveryQuestionOptions
+    content.vb: Public NotInheritable Class ChangeRecoveryQuestionOptions
+  inheritance:
+  - System.Object
+  inheritedMembers:
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - sealed
+  - class
+  modifiers.vb:
+  - Public
+  - NotInheritable
+  - Class
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword
+  commentId: P:Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword
+  id: CurrentPassword
+  parent: Okta.Sdk.ChangeRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: CurrentPassword
+  nameWithType: ChangeRecoveryQuestionOptions.CurrentPassword
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: CurrentPassword
+    path: ../src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+    startLine: 18
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the user&apos;s current password.\n"
+  example: []
+  syntax:
+    content: public string CurrentPassword { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe user&apos;s current password.\n"
+    content.vb: Public Property CurrentPassword As String
+  overload: Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion
+  commentId: P:Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion
+  id: RecoveryQuestion
+  parent: Okta.Sdk.ChangeRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: RecoveryQuestion
+  nameWithType: ChangeRecoveryQuestionOptions.RecoveryQuestion
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RecoveryQuestion
+    path: ../src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+    startLine: 26
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the user&apos;s new recovery question.\n"
+  example: []
+  syntax:
+    content: public string RecoveryQuestion { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe user&apos;s new recovery question.\n"
+    content.vb: Public Property RecoveryQuestion As String
+  overload: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer
+  commentId: P:Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer
+  id: RecoveryAnswer
+  parent: Okta.Sdk.ChangeRecoveryQuestionOptions
+  langs:
+  - csharp
+  - vb
+  name: RecoveryAnswer
+  nameWithType: ChangeRecoveryQuestionOptions.RecoveryAnswer
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RecoveryAnswer
+    path: ../src/Okta.Sdk/ChangeRecoveryQuestionOptions.cs
+    startLine: 34
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets or sets the user&apos;s new recovery answer.\n"
+  example: []
+  syntax:
+    content: public string RecoveryAnswer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+      description: "\nThe user&apos;s new recovery answer.\n"
+    content.vb: Public Property RecoveryAnswer As String
+  overload: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer*
+  modifiers.csharp:
+  - public
+  - get
+  - set
+  modifiers.vb:
+  - Public
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword*
+  commentId: Overload:Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword
+  name: CurrentPassword
+  nameWithType: ChangeRecoveryQuestionOptions.CurrentPassword
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions.CurrentPassword
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion*
+  commentId: Overload:Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion
+  name: RecoveryQuestion
+  nameWithType: ChangeRecoveryQuestionOptions.RecoveryQuestion
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryQuestion
+- uid: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer*
+  commentId: Overload:Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer
+  name: RecoveryAnswer
+  nameWithType: ChangeRecoveryQuestionOptions.RecoveryAnswer
+  fullName: Okta.Sdk.ChangeRecoveryQuestionOptions.RecoveryAnswer

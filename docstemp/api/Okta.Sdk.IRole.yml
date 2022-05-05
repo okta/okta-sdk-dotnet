@@ -1,0 +1,963 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IRole
+  commentId: T:Okta.Sdk.IRole
+  id: IRole
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IRole.AddAdminGroupTargetAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync(System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync(System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  - Okta.Sdk.IRole.AssignmentType
+  - Okta.Sdk.IRole.Created
+  - Okta.Sdk.IRole.Description
+  - Okta.Sdk.IRole.Id
+  - Okta.Sdk.IRole.Label
+  - Okta.Sdk.IRole.LastUpdated
+  - Okta.Sdk.IRole.Status
+  - Okta.Sdk.IRole.Type
+  langs:
+  - csharp
+  - vb
+  name: IRole
+  nameWithType: IRole
+  fullName: Okta.Sdk.IRole
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IRole
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a Role resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface IRole : IResource'
+    content.vb: >-
+      Public Interface IRole
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IRole.AssignmentType
+  commentId: P:Okta.Sdk.IRole.AssignmentType
+  id: AssignmentType
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AssignmentType
+  nameWithType: IRole.AssignmentType
+  fullName: Okta.Sdk.IRole.AssignmentType
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AssignmentType
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: RoleAssignmentType AssignmentType { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.RoleAssignmentType
+    content.vb: Property AssignmentType As RoleAssignmentType
+  overload: Okta.Sdk.IRole.AssignmentType*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IRole.Created
+  commentId: P:Okta.Sdk.IRole.Created
+  id: Created
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: Created
+  nameWithType: IRole.Created
+  fullName: Okta.Sdk.IRole.Created
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Created
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? Created { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property Created As DateTimeOffset?
+  overload: Okta.Sdk.IRole.Created*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IRole.Description
+  commentId: P:Okta.Sdk.IRole.Description
+  id: Description
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: Description
+  nameWithType: IRole.Description
+  fullName: Okta.Sdk.IRole.Description
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Description
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Description { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Description As String
+  overload: Okta.Sdk.IRole.Description*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IRole.Id
+  commentId: P:Okta.Sdk.IRole.Id
+  id: Id
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: Id
+  nameWithType: IRole.Id
+  fullName: Okta.Sdk.IRole.Id
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Id
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Id { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Id As String
+  overload: Okta.Sdk.IRole.Id*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IRole.Label
+  commentId: P:Okta.Sdk.IRole.Label
+  id: Label
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: Label
+  nameWithType: IRole.Label
+  fullName: Okta.Sdk.IRole.Label
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Label
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Label { get; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: ReadOnly Property Label As String
+  overload: Okta.Sdk.IRole.Label*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IRole.LastUpdated
+  commentId: P:Okta.Sdk.IRole.LastUpdated
+  id: LastUpdated
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: LastUpdated
+  nameWithType: IRole.LastUpdated
+  fullName: Okta.Sdk.IRole.LastUpdated
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: LastUpdated
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: DateTimeOffset? LastUpdated { get; }
+    parameters: []
+    return:
+      type: System.Nullable{System.DateTimeOffset}
+    content.vb: ReadOnly Property LastUpdated As DateTimeOffset?
+  overload: Okta.Sdk.IRole.LastUpdated*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IRole.Status
+  commentId: P:Okta.Sdk.IRole.Status
+  id: Status
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: Status
+  nameWithType: IRole.Status
+  fullName: Okta.Sdk.IRole.Status
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Status
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: RoleStatus Status { get; }
+    parameters: []
+    return:
+      type: Okta.Sdk.RoleStatus
+    content.vb: ReadOnly Property Status As RoleStatus
+  overload: Okta.Sdk.IRole.Status*
+  modifiers.csharp:
+  - get
+  modifiers.vb:
+  - ReadOnly
+- uid: Okta.Sdk.IRole.Type
+  commentId: P:Okta.Sdk.IRole.Type
+  id: Type
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: Type
+  nameWithType: IRole.Type
+  fullName: Okta.Sdk.IRole.Type
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Type
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: RoleType Type { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.RoleType
+    content.vb: Property Type As RoleType
+  overload: Okta.Sdk.IRole.Type*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.IRole.AddAdminGroupTargetAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IRole.AddAdminGroupTargetAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: AddAdminGroupTargetAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AddAdminGroupTargetAsync(String, String, CancellationToken)
+  nameWithType: IRole.AddAdminGroupTargetAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IRole.AddAdminGroupTargetAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddAdminGroupTargetAsync
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task AddAdminGroupTargetAsync(string groupId, string targetGroupId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+    - id: targetGroupId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddAdminGroupTargetAsync(groupId As String, targetGroupId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IRole.AddAdminGroupTargetAsync*
+- uid: Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: AddAppInstanceTargetToAdminRoleAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AddAppInstanceTargetToAdminRoleAsync(String, String, String, CancellationToken)
+  nameWithType: IRole.AddAppInstanceTargetToAdminRoleAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddAppInstanceTargetToAdminRoleAsync
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 36
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task AddAppInstanceTargetToAdminRoleAsync(string groupId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+    - id: appName
+      type: System.String
+    - id: applicationId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddAppInstanceTargetToAdminRoleAsync(groupId As String, appName As String, applicationId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync*
+- uid: Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: AddAppTargetToAdminRoleAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AddAppTargetToAdminRoleAsync(String, String, CancellationToken)
+  nameWithType: IRole.AddAppTargetToAdminRoleAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddAppTargetToAdminRoleAsync
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task AddAppTargetToAdminRoleAsync(string groupId, string appName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: groupId
+      type: System.String
+    - id: appName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddAppTargetToAdminRoleAsync(groupId As String, appName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync*
+- uid: Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync(System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync(System.String,System.Threading.CancellationToken)
+  id: AddAllAppsAsTargetToRoleAsync(System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AddAllAppsAsTargetToRoleAsync(String, CancellationToken)
+  nameWithType: IRole.AddAllAppsAsTargetToRoleAsync(String, CancellationToken)
+  fullName: Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync(System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddAllAppsAsTargetToRoleAsync
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 42
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task AddAllAppsAsTargetToRoleAsync(string userId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddAllAppsAsTargetToRoleAsync(userId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync*
+- uid: Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  id: AddAppTargetToAppAdminRoleForUserAsync(System.String,System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AddAppTargetToAppAdminRoleForUserAsync(String, String, String, CancellationToken)
+  nameWithType: IRole.AddAppTargetToAppAdminRoleForUserAsync(String, String, String, CancellationToken)
+  fullName: Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync(System.String, System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddAppTargetToAppAdminRoleForUserAsync
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task AddAppTargetToAppAdminRoleForUserAsync(string userId, string appName, string applicationId, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+    - id: appName
+      type: System.String
+    - id: applicationId
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddAppTargetToAppAdminRoleForUserAsync(userId As String, appName As String, applicationId As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync*
+- uid: Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync(System.String,System.String,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync(System.String,System.String,System.Threading.CancellationToken)
+  id: AddAppTargetToAdminRoleForUserAsync(System.String,System.String,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IRole
+  langs:
+  - csharp
+  - vb
+  name: AddAppTargetToAdminRoleForUserAsync(String, String, CancellationToken)
+  nameWithType: IRole.AddAppTargetToAdminRoleForUserAsync(String, String, CancellationToken)
+  fullName: Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync(System.String, System.String, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IRole.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AddAppTargetToAdminRoleForUserAsync
+    path: ../src/Okta.Sdk/Generated/IRole.Generated.cs
+    startLine: 48
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: Task AddAppTargetToAdminRoleForUserAsync(string userId, string appName, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: userId
+      type: System.String
+    - id: appName
+      type: System.String
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+    return:
+      type: System.Threading.Tasks.Task
+    content.vb: Function AddAppTargetToAdminRoleForUserAsync(userId As String, appName As String, cancellationToken As CancellationToken = Nothing) As Task
+  overload: Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.IRole.AssignmentType*
+  commentId: Overload:Okta.Sdk.IRole.AssignmentType
+  name: AssignmentType
+  nameWithType: IRole.AssignmentType
+  fullName: Okta.Sdk.IRole.AssignmentType
+- uid: Okta.Sdk.RoleAssignmentType
+  commentId: T:Okta.Sdk.RoleAssignmentType
+  parent: Okta.Sdk
+  name: RoleAssignmentType
+  nameWithType: RoleAssignmentType
+  fullName: Okta.Sdk.RoleAssignmentType
+- uid: Okta.Sdk.IRole.Created*
+  commentId: Overload:Okta.Sdk.IRole.Created
+  name: Created
+  nameWithType: IRole.Created
+  fullName: Okta.Sdk.IRole.Created
+- uid: System.Nullable{System.DateTimeOffset}
+  commentId: T:System.Nullable{System.DateTimeOffset}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<DateTimeOffset>
+  nameWithType: Nullable<DateTimeOffset>
+  fullName: System.Nullable<System.DateTimeOffset>
+  nameWithType.vb: Nullable(Of DateTimeOffset)
+  fullName.vb: System.Nullable(Of System.DateTimeOffset)
+  name.vb: Nullable(Of DateTimeOffset)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.DateTimeOffset
+    name: DateTimeOffset
+    nameWithType: DateTimeOffset
+    fullName: System.DateTimeOffset
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.IRole.Description*
+  commentId: Overload:Okta.Sdk.IRole.Description
+  name: Description
+  nameWithType: IRole.Description
+  fullName: Okta.Sdk.IRole.Description
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.IRole.Id*
+  commentId: Overload:Okta.Sdk.IRole.Id
+  name: Id
+  nameWithType: IRole.Id
+  fullName: Okta.Sdk.IRole.Id
+- uid: Okta.Sdk.IRole.Label*
+  commentId: Overload:Okta.Sdk.IRole.Label
+  name: Label
+  nameWithType: IRole.Label
+  fullName: Okta.Sdk.IRole.Label
+- uid: Okta.Sdk.IRole.LastUpdated*
+  commentId: Overload:Okta.Sdk.IRole.LastUpdated
+  name: LastUpdated
+  nameWithType: IRole.LastUpdated
+  fullName: Okta.Sdk.IRole.LastUpdated
+- uid: Okta.Sdk.IRole.Status*
+  commentId: Overload:Okta.Sdk.IRole.Status
+  name: Status
+  nameWithType: IRole.Status
+  fullName: Okta.Sdk.IRole.Status
+- uid: Okta.Sdk.RoleStatus
+  commentId: T:Okta.Sdk.RoleStatus
+  parent: Okta.Sdk
+  name: RoleStatus
+  nameWithType: RoleStatus
+  fullName: Okta.Sdk.RoleStatus
+- uid: Okta.Sdk.IRole.Type*
+  commentId: Overload:Okta.Sdk.IRole.Type
+  name: Type
+  nameWithType: IRole.Type
+  fullName: Okta.Sdk.IRole.Type
+- uid: Okta.Sdk.RoleType
+  commentId: T:Okta.Sdk.RoleType
+  parent: Okta.Sdk
+  name: RoleType
+  nameWithType: RoleType
+  fullName: Okta.Sdk.RoleType
+- uid: Okta.Sdk.IRole.AddAdminGroupTargetAsync*
+  commentId: Overload:Okta.Sdk.IRole.AddAdminGroupTargetAsync
+  name: AddAdminGroupTargetAsync
+  nameWithType: IRole.AddAdminGroupTargetAsync
+  fullName: Okta.Sdk.IRole.AddAdminGroupTargetAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task
+  commentId: T:System.Threading.Tasks.Task
+  parent: System.Threading.Tasks
+  isExternal: true
+  name: Task
+  nameWithType: Task
+  fullName: System.Threading.Tasks.Task
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync*
+  commentId: Overload:Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync
+  name: AddAppInstanceTargetToAdminRoleAsync
+  nameWithType: IRole.AddAppInstanceTargetToAdminRoleAsync
+  fullName: Okta.Sdk.IRole.AddAppInstanceTargetToAdminRoleAsync
+- uid: Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync*
+  commentId: Overload:Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync
+  name: AddAppTargetToAdminRoleAsync
+  nameWithType: IRole.AddAppTargetToAdminRoleAsync
+  fullName: Okta.Sdk.IRole.AddAppTargetToAdminRoleAsync
+- uid: Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync*
+  commentId: Overload:Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync
+  name: AddAllAppsAsTargetToRoleAsync
+  nameWithType: IRole.AddAllAppsAsTargetToRoleAsync
+  fullName: Okta.Sdk.IRole.AddAllAppsAsTargetToRoleAsync
+- uid: Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync*
+  commentId: Overload:Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync
+  name: AddAppTargetToAppAdminRoleForUserAsync
+  nameWithType: IRole.AddAppTargetToAppAdminRoleForUserAsync
+  fullName: Okta.Sdk.IRole.AddAppTargetToAppAdminRoleForUserAsync
+- uid: Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync*
+  commentId: Overload:Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync
+  name: AddAppTargetToAdminRoleForUserAsync
+  nameWithType: IRole.AddAppTargetToAdminRoleForUserAsync
+  fullName: Okta.Sdk.IRole.AddAppTargetToAdminRoleForUserAsync

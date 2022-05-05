@@ -1,0 +1,1533 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn
+  commentId: T:Okta.Sdk.ISamlApplicationSettingsSignOn
+  id: ISamlApplicationSettingsSignOn
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.Audience
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.Destination
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.Slo
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  - Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  langs:
+  - csharp
+  - vb
+  name: ISamlApplicationSettingsSignOn
+  nameWithType: ISamlApplicationSettingsSignOn
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ISamlApplicationSettingsSignOn
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: Represents a SamlApplicationSettingsSignOn resource in the Okta API.
+  example: []
+  syntax:
+    content: 'public interface ISamlApplicationSettingsSignOn : IResource'
+    content.vb: >-
+      Public Interface ISamlApplicationSettingsSignOn
+
+          Inherits IResource
+  inheritedMembers:
+  - Okta.Sdk.IResource.Item(System.String)
+  - Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  - Okta.Sdk.IResource.GetData
+  - Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  - Okta.Sdk.IResource.GetProperty``1(System.String)
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints
+  id: AcsEndpoints
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: AcsEndpoints
+  nameWithType: ISamlApplicationSettingsSignOn.AcsEndpoints
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AcsEndpoints
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 17
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<IAcsEndpoint> AcsEndpoints { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.IAcsEndpoint}
+    content.vb: Property AcsEndpoints As IList(Of IAcsEndpoint)
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  id: AllowMultipleAcsEndpoints
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: AllowMultipleAcsEndpoints
+  nameWithType: ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AllowMultipleAcsEndpoints
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 19
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? AllowMultipleAcsEndpoints { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property AllowMultipleAcsEndpoints As Boolean?
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned
+  id: AssertionSigned
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: AssertionSigned
+  nameWithType: ISamlApplicationSettingsSignOn.AssertionSigned
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AssertionSigned
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 21
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? AssertionSigned { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property AssertionSigned As Boolean?
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements
+  id: AttributeStatements
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: AttributeStatements
+  nameWithType: ISamlApplicationSettingsSignOn.AttributeStatements
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AttributeStatements
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 23
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<ISamlAttributeStatement> AttributeStatements { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.ISamlAttributeStatement}
+    content.vb: Property AttributeStatements As IList(Of ISamlAttributeStatement)
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Audience
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.Audience
+  id: Audience
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: Audience
+  nameWithType: ISamlApplicationSettingsSignOn.Audience
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Audience
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Audience
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 25
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Audience { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Audience As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.Audience*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride
+  id: AudienceOverride
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: AudienceOverride
+  nameWithType: ISamlApplicationSettingsSignOn.AudienceOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AudienceOverride
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 27
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string AudienceOverride { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property AudienceOverride As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  id: AuthenticationContextClassName
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: AuthenticationContextClassName
+  nameWithType: ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: AuthenticationContextClassName
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 29
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string AuthenticationContextClassName { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property AuthenticationContextClassName As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState
+  id: DefaultRelayState
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: DefaultRelayState
+  nameWithType: ISamlApplicationSettingsSignOn.DefaultRelayState
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DefaultRelayState
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 31
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string DefaultRelayState { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DefaultRelayState As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Destination
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.Destination
+  id: Destination
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: Destination
+  nameWithType: ISamlApplicationSettingsSignOn.Destination
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Destination
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Destination
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 33
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Destination { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Destination As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.Destination*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride
+  id: DestinationOverride
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: DestinationOverride
+  nameWithType: ISamlApplicationSettingsSignOn.DestinationOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DestinationOverride
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 35
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string DestinationOverride { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DestinationOverride As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm
+  id: DigestAlgorithm
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: DigestAlgorithm
+  nameWithType: ISamlApplicationSettingsSignOn.DigestAlgorithm
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: DigestAlgorithm
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 37
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string DigestAlgorithm { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property DigestAlgorithm As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  id: HonorForceAuthentication
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: HonorForceAuthentication
+  nameWithType: ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: HonorForceAuthentication
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 39
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? HonorForceAuthentication { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property HonorForceAuthentication As Boolean?
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer
+  id: IdpIssuer
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: IdpIssuer
+  nameWithType: ISamlApplicationSettingsSignOn.IdpIssuer
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IdpIssuer
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 41
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string IdpIssuer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property IdpIssuer As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks
+  id: InlineHooks
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: InlineHooks
+  nameWithType: ISamlApplicationSettingsSignOn.InlineHooks
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: InlineHooks
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 43
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: IList<ISignOnInlineHook> InlineHooks { get; set; }
+    parameters: []
+    return:
+      type: System.Collections.Generic.IList{Okta.Sdk.ISignOnInlineHook}
+    content.vb: Property InlineHooks As IList(Of ISignOnInlineHook)
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient
+  id: Recipient
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: Recipient
+  nameWithType: ISamlApplicationSettingsSignOn.Recipient
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Recipient
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 45
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string Recipient { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property Recipient As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride
+  id: RecipientOverride
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: RecipientOverride
+  nameWithType: ISamlApplicationSettingsSignOn.RecipientOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RecipientOverride
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 47
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string RecipientOverride { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property RecipientOverride As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed
+  id: RequestCompressed
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: RequestCompressed
+  nameWithType: ISamlApplicationSettingsSignOn.RequestCompressed
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: RequestCompressed
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 49
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? RequestCompressed { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property RequestCompressed As Boolean?
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned
+  id: ResponseSigned
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: ResponseSigned
+  nameWithType: ISamlApplicationSettingsSignOn.ResponseSigned
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ResponseSigned
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 51
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: bool? ResponseSigned { get; set; }
+    parameters: []
+    return:
+      type: System.Nullable{System.Boolean}
+    content.vb: Property ResponseSigned As Boolean?
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  id: SignatureAlgorithm
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SignatureAlgorithm
+  nameWithType: ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SignatureAlgorithm
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 53
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SignatureAlgorithm { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SignatureAlgorithm As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Slo
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.Slo
+  id: Slo
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: Slo
+  nameWithType: ISamlApplicationSettingsSignOn.Slo
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Slo
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Slo
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 55
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ISingleLogout Slo { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ISingleLogout
+    content.vb: Property Slo As ISingleLogout
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.Slo*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate
+  id: SpCertificate
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SpCertificate
+  nameWithType: ISamlApplicationSettingsSignOn.SpCertificate
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SpCertificate
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 57
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: ISpCertificate SpCertificate { get; set; }
+    parameters: []
+    return:
+      type: Okta.Sdk.ISpCertificate
+    content.vb: Property SpCertificate As ISpCertificate
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer
+  id: SpIssuer
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SpIssuer
+  nameWithType: ISamlApplicationSettingsSignOn.SpIssuer
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SpIssuer
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 59
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SpIssuer { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SpIssuer As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl
+  id: SsoAcsUrl
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SsoAcsUrl
+  nameWithType: ISamlApplicationSettingsSignOn.SsoAcsUrl
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SsoAcsUrl
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 61
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SsoAcsUrl { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SsoAcsUrl As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  id: SsoAcsUrlOverride
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SsoAcsUrlOverride
+  nameWithType: ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SsoAcsUrlOverride
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 63
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SsoAcsUrlOverride { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SsoAcsUrlOverride As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  id: SubjectNameIdFormat
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SubjectNameIdFormat
+  nameWithType: ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SubjectNameIdFormat
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 65
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SubjectNameIdFormat { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SubjectNameIdFormat As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat*
+  modifiers.csharp:
+  - get
+  - set
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  commentId: P:Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  id: SubjectNameIdTemplate
+  parent: Okta.Sdk.ISamlApplicationSettingsSignOn
+  langs:
+  - csharp
+  - vb
+  name: SubjectNameIdTemplate
+  nameWithType: ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  type: Property
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: SubjectNameIdTemplate
+    path: ../src/Okta.Sdk/Generated/ISamlApplicationSettingsSignOn.Generated.cs
+    startLine: 67
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  syntax:
+    content: string SubjectNameIdTemplate { get; set; }
+    parameters: []
+    return:
+      type: System.String
+    content.vb: Property SubjectNameIdTemplate As String
+  overload: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate*
+  modifiers.csharp:
+  - get
+  - set
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IResource.Item(System.String)
+  commentId: P:Okta.Sdk.IResource.Item(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: Item[String]
+  nameWithType: IResource.Item[String]
+  fullName: Okta.Sdk.IResource.Item[System.String]
+  nameWithType.vb: IResource.Item(String)
+  fullName.vb: Okta.Sdk.IResource.Item(System.String)
+  name.vb: Item(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: '['
+    nameWithType: '['
+    fullName: '['
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ']'
+    nameWithType: ']'
+    fullName: ']'
+  spec.vb:
+  - uid: Okta.Sdk.IResource.Item(System.String)
+    name: Item
+    nameWithType: IResource.Item
+    fullName: Okta.Sdk.IResource.Item
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetArrayProperty<T>(String)
+  nameWithType: IResource.GetArrayProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetArrayProperty<T>(System.String)
+  nameWithType.vb: IResource.GetArrayProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetArrayProperty(Of T)(System.String)
+  name.vb: GetArrayProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty<T>
+    nameWithType: IResource.GetArrayProperty<T>
+    fullName: Okta.Sdk.IResource.GetArrayProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetArrayProperty``1(System.String)
+    name: GetArrayProperty(Of T)
+    nameWithType: IResource.GetArrayProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetArrayProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetData
+  commentId: M:Okta.Sdk.IResource.GetData
+  parent: Okta.Sdk.IResource
+  name: GetData()
+  nameWithType: IResource.GetData()
+  fullName: Okta.Sdk.IResource.GetData()
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetData
+    name: GetData
+    nameWithType: IResource.GetData
+    fullName: Okta.Sdk.IResource.GetData
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  commentId: M:Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: SetProperty(String, Object)
+  nameWithType: IResource.SetProperty(String, Object)
+  fullName: Okta.Sdk.IResource.SetProperty(System.String, System.Object)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.SetProperty(System.String,System.Object)
+    name: SetProperty
+    nameWithType: IResource.SetProperty
+    fullName: Okta.Sdk.IResource.SetProperty
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+  commentId: M:Okta.Sdk.IResource.GetProperty``1(System.String)
+  parent: Okta.Sdk.IResource
+  isExternal: true
+  name: GetProperty<T>(String)
+  nameWithType: IResource.GetProperty<T>(String)
+  fullName: Okta.Sdk.IResource.GetProperty<T>(System.String)
+  nameWithType.vb: IResource.GetProperty(Of T)(String)
+  fullName.vb: Okta.Sdk.IResource.GetProperty(Of T)(System.String)
+  name.vb: GetProperty(Of T)(String)
+  spec.csharp:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty<T>
+    nameWithType: IResource.GetProperty<T>
+    fullName: Okta.Sdk.IResource.GetProperty<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.IResource.GetProperty``1(System.String)
+    name: GetProperty(Of T)
+    nameWithType: IResource.GetProperty(Of T)
+    fullName: Okta.Sdk.IResource.GetProperty(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.IResource
+  commentId: T:Okta.Sdk.IResource
+  parent: Okta.Sdk
+  name: IResource
+  nameWithType: IResource
+  fullName: Okta.Sdk.IResource
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints
+  name: AcsEndpoints
+  nameWithType: ISamlApplicationSettingsSignOn.AcsEndpoints
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AcsEndpoints
+- uid: System.Collections.Generic.IList{Okta.Sdk.IAcsEndpoint}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.IAcsEndpoint}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<IAcsEndpoint>
+  nameWithType: IList<IAcsEndpoint>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.IAcsEndpoint>
+  nameWithType.vb: IList(Of IAcsEndpoint)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.IAcsEndpoint)
+  name.vb: IList(Of IAcsEndpoint)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IAcsEndpoint
+    name: IAcsEndpoint
+    nameWithType: IAcsEndpoint
+    fullName: Okta.Sdk.IAcsEndpoint
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IAcsEndpoint
+    name: IAcsEndpoint
+    nameWithType: IAcsEndpoint
+    fullName: Okta.Sdk.IAcsEndpoint
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic.IList`1
+  commentId: T:System.Collections.Generic.IList`1
+  isExternal: true
+  name: IList<T>
+  nameWithType: IList<T>
+  fullName: System.Collections.Generic.IList<T>
+  nameWithType.vb: IList(Of T)
+  fullName.vb: System.Collections.Generic.IList(Of T)
+  name.vb: IList(Of T)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Collections.Generic
+  commentId: N:System.Collections.Generic
+  isExternal: true
+  name: System.Collections.Generic
+  nameWithType: System.Collections.Generic
+  fullName: System.Collections.Generic
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  name: AllowMultipleAcsEndpoints
+  nameWithType: ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AllowMultipleAcsEndpoints
+- uid: System.Nullable{System.Boolean}
+  commentId: T:System.Nullable{System.Boolean}
+  parent: System
+  definition: System.Nullable`1
+  name: Nullable<Boolean>
+  nameWithType: Nullable<Boolean>
+  fullName: System.Nullable<System.Boolean>
+  nameWithType.vb: Nullable(Of Boolean)
+  fullName.vb: System.Nullable(Of System.Boolean)
+  name.vb: Nullable(Of Boolean)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Boolean
+    name: Boolean
+    nameWithType: Boolean
+    fullName: System.Boolean
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  commentId: T:System.Nullable`1
+  isExternal: true
+  name: Nullable<T>
+  nameWithType: Nullable<T>
+  fullName: System.Nullable<T>
+  nameWithType.vb: Nullable(Of T)
+  fullName.vb: System.Nullable(Of T)
+  name.vb: Nullable(Of T)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned
+  name: AssertionSigned
+  nameWithType: ISamlApplicationSettingsSignOn.AssertionSigned
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AssertionSigned
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements
+  name: AttributeStatements
+  nameWithType: ISamlApplicationSettingsSignOn.AttributeStatements
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AttributeStatements
+- uid: System.Collections.Generic.IList{Okta.Sdk.ISamlAttributeStatement}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.ISamlAttributeStatement}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<ISamlAttributeStatement>
+  nameWithType: IList<ISamlAttributeStatement>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.ISamlAttributeStatement>
+  nameWithType.vb: IList(Of ISamlAttributeStatement)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.ISamlAttributeStatement)
+  name.vb: IList(Of ISamlAttributeStatement)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISamlAttributeStatement
+    name: ISamlAttributeStatement
+    nameWithType: ISamlAttributeStatement
+    fullName: Okta.Sdk.ISamlAttributeStatement
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISamlAttributeStatement
+    name: ISamlAttributeStatement
+    nameWithType: ISamlAttributeStatement
+    fullName: Okta.Sdk.ISamlAttributeStatement
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Audience*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.Audience
+  name: Audience
+  nameWithType: ISamlApplicationSettingsSignOn.Audience
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Audience
+- uid: System.String
+  commentId: T:System.String
+  parent: System
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride
+  name: AudienceOverride
+  nameWithType: ISamlApplicationSettingsSignOn.AudienceOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AudienceOverride
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  name: AuthenticationContextClassName
+  nameWithType: ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.AuthenticationContextClassName
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState
+  name: DefaultRelayState
+  nameWithType: ISamlApplicationSettingsSignOn.DefaultRelayState
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.DefaultRelayState
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Destination*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.Destination
+  name: Destination
+  nameWithType: ISamlApplicationSettingsSignOn.Destination
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Destination
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride
+  name: DestinationOverride
+  nameWithType: ISamlApplicationSettingsSignOn.DestinationOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.DestinationOverride
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm
+  name: DigestAlgorithm
+  nameWithType: ISamlApplicationSettingsSignOn.DigestAlgorithm
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.DigestAlgorithm
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  name: HonorForceAuthentication
+  nameWithType: ISamlApplicationSettingsSignOn.HonorForceAuthentication
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.HonorForceAuthentication
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer
+  name: IdpIssuer
+  nameWithType: ISamlApplicationSettingsSignOn.IdpIssuer
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.IdpIssuer
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks
+  name: InlineHooks
+  nameWithType: ISamlApplicationSettingsSignOn.InlineHooks
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.InlineHooks
+- uid: System.Collections.Generic.IList{Okta.Sdk.ISignOnInlineHook}
+  commentId: T:System.Collections.Generic.IList{Okta.Sdk.ISignOnInlineHook}
+  parent: System.Collections.Generic
+  definition: System.Collections.Generic.IList`1
+  name: IList<ISignOnInlineHook>
+  nameWithType: IList<ISignOnInlineHook>
+  fullName: System.Collections.Generic.IList<Okta.Sdk.ISignOnInlineHook>
+  nameWithType.vb: IList(Of ISignOnInlineHook)
+  fullName.vb: System.Collections.Generic.IList(Of Okta.Sdk.ISignOnInlineHook)
+  name.vb: IList(Of ISignOnInlineHook)
+  spec.csharp:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.ISignOnInlineHook
+    name: ISignOnInlineHook
+    nameWithType: ISignOnInlineHook
+    fullName: Okta.Sdk.ISignOnInlineHook
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Collections.Generic.IList`1
+    name: IList
+    nameWithType: IList
+    fullName: System.Collections.Generic.IList
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.ISignOnInlineHook
+    name: ISignOnInlineHook
+    nameWithType: ISignOnInlineHook
+    fullName: Okta.Sdk.ISignOnInlineHook
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient
+  name: Recipient
+  nameWithType: ISamlApplicationSettingsSignOn.Recipient
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Recipient
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride
+  name: RecipientOverride
+  nameWithType: ISamlApplicationSettingsSignOn.RecipientOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.RecipientOverride
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed
+  name: RequestCompressed
+  nameWithType: ISamlApplicationSettingsSignOn.RequestCompressed
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.RequestCompressed
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned
+  name: ResponseSigned
+  nameWithType: ISamlApplicationSettingsSignOn.ResponseSigned
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.ResponseSigned
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  name: SignatureAlgorithm
+  nameWithType: ISamlApplicationSettingsSignOn.SignatureAlgorithm
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SignatureAlgorithm
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.Slo*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.Slo
+  name: Slo
+  nameWithType: ISamlApplicationSettingsSignOn.Slo
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.Slo
+- uid: Okta.Sdk.ISingleLogout
+  commentId: T:Okta.Sdk.ISingleLogout
+  parent: Okta.Sdk
+  name: ISingleLogout
+  nameWithType: ISingleLogout
+  fullName: Okta.Sdk.ISingleLogout
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate
+  name: SpCertificate
+  nameWithType: ISamlApplicationSettingsSignOn.SpCertificate
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SpCertificate
+- uid: Okta.Sdk.ISpCertificate
+  commentId: T:Okta.Sdk.ISpCertificate
+  parent: Okta.Sdk
+  name: ISpCertificate
+  nameWithType: ISpCertificate
+  fullName: Okta.Sdk.ISpCertificate
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer
+  name: SpIssuer
+  nameWithType: ISamlApplicationSettingsSignOn.SpIssuer
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SpIssuer
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl
+  name: SsoAcsUrl
+  nameWithType: ISamlApplicationSettingsSignOn.SsoAcsUrl
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrl
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  name: SsoAcsUrlOverride
+  nameWithType: ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SsoAcsUrlOverride
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  name: SubjectNameIdFormat
+  nameWithType: ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdFormat
+- uid: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate*
+  commentId: Overload:Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  name: SubjectNameIdTemplate
+  nameWithType: ISamlApplicationSettingsSignOn.SubjectNameIdTemplate
+  fullName: Okta.Sdk.ISamlApplicationSettingsSignOn.SubjectNameIdTemplate

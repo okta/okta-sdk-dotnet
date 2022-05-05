@@ -1,0 +1,233 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.IThreatInsightsClient
+  commentId: T:Okta.Sdk.IThreatInsightsClient
+  id: IThreatInsightsClient
+  parent: Okta.Sdk
+  children:
+  - Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync(System.Threading.CancellationToken)
+  - Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync(Okta.Sdk.IThreatInsightConfiguration,System.Threading.CancellationToken)
+  langs:
+  - csharp
+  - vb
+  name: IThreatInsightsClient
+  nameWithType: IThreatInsightsClient
+  fullName: Okta.Sdk.IThreatInsightsClient
+  type: Interface
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IThreatInsightsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: IThreatInsightsClient
+    path: ../src/Okta.Sdk/Generated/IThreatInsightsClient.Generated.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: A client that works with Okta ThreatInsight resources.
+  example: []
+  syntax:
+    content: public interface IThreatInsightsClient
+    content.vb: Public Interface IThreatInsightsClient
+  modifiers.csharp:
+  - public
+  - interface
+  modifiers.vb:
+  - Public
+  - Interface
+- uid: Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync(System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync(System.Threading.CancellationToken)
+  id: GetCurrentConfigurationAsync(System.Threading.CancellationToken)
+  parent: Okta.Sdk.IThreatInsightsClient
+  langs:
+  - csharp
+  - vb
+  name: GetCurrentConfigurationAsync(CancellationToken)
+  nameWithType: IThreatInsightsClient.GetCurrentConfigurationAsync(CancellationToken)
+  fullName: Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync(System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IThreatInsightsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetCurrentConfigurationAsync
+    path: ../src/Okta.Sdk/Generated/IThreatInsightsClient.Generated.cs
+    startLine: 22
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nGets current ThreatInsight configuration\n"
+  example: []
+  syntax:
+    content: Task<IThreatInsightConfiguration> GetCurrentConfigurationAsync(CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IThreatInsightConfiguration}
+      description: The <xref href="Okta.Sdk.IThreatInsightConfiguration" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function GetCurrentConfigurationAsync(cancellationToken As CancellationToken = Nothing) As Task(Of IThreatInsightConfiguration)
+  overload: Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync*
+- uid: Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync(Okta.Sdk.IThreatInsightConfiguration,System.Threading.CancellationToken)
+  commentId: M:Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync(Okta.Sdk.IThreatInsightConfiguration,System.Threading.CancellationToken)
+  id: UpdateConfigurationAsync(Okta.Sdk.IThreatInsightConfiguration,System.Threading.CancellationToken)
+  parent: Okta.Sdk.IThreatInsightsClient
+  langs:
+  - csharp
+  - vb
+  name: UpdateConfigurationAsync(IThreatInsightConfiguration, CancellationToken)
+  nameWithType: IThreatInsightsClient.UpdateConfigurationAsync(IThreatInsightConfiguration, CancellationToken)
+  fullName: Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync(Okta.Sdk.IThreatInsightConfiguration, System.Threading.CancellationToken)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Generated/IThreatInsightsClient.Generated.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: UpdateConfigurationAsync
+    path: ../src/Okta.Sdk/Generated/IThreatInsightsClient.Generated.cs
+    startLine: 30
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk
+  summary: "\nUpdates ThreatInsight configuration\n"
+  example: []
+  syntax:
+    content: Task<IThreatInsightConfiguration> UpdateConfigurationAsync(IThreatInsightConfiguration threatInsightConfiguration, CancellationToken cancellationToken = default(CancellationToken))
+    parameters:
+    - id: threatInsightConfiguration
+      type: Okta.Sdk.IThreatInsightConfiguration
+      description: The <xref href="Okta.Sdk.IThreatInsightConfiguration" data-throw-if-not-resolved="false"></xref> resource.
+    - id: cancellationToken
+      type: System.Threading.CancellationToken
+      description: The cancellation token.
+    return:
+      type: System.Threading.Tasks.Task{Okta.Sdk.IThreatInsightConfiguration}
+      description: The <xref href="Okta.Sdk.IThreatInsightConfiguration" data-throw-if-not-resolved="false"></xref> response.
+    content.vb: Function UpdateConfigurationAsync(threatInsightConfiguration As IThreatInsightConfiguration, cancellationToken As CancellationToken = Nothing) As Task(Of IThreatInsightConfiguration)
+  overload: Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync*
+references:
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: Okta.Sdk.IThreatInsightConfiguration
+  commentId: T:Okta.Sdk.IThreatInsightConfiguration
+  parent: Okta.Sdk
+  name: IThreatInsightConfiguration
+  nameWithType: IThreatInsightConfiguration
+  fullName: Okta.Sdk.IThreatInsightConfiguration
+- uid: Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync*
+  commentId: Overload:Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync
+  name: GetCurrentConfigurationAsync
+  nameWithType: IThreatInsightsClient.GetCurrentConfigurationAsync
+  fullName: Okta.Sdk.IThreatInsightsClient.GetCurrentConfigurationAsync
+- uid: System.Threading.CancellationToken
+  commentId: T:System.Threading.CancellationToken
+  parent: System.Threading
+  isExternal: true
+  name: CancellationToken
+  nameWithType: CancellationToken
+  fullName: System.Threading.CancellationToken
+- uid: System.Threading.Tasks.Task{Okta.Sdk.IThreatInsightConfiguration}
+  commentId: T:System.Threading.Tasks.Task{Okta.Sdk.IThreatInsightConfiguration}
+  parent: System.Threading.Tasks
+  definition: System.Threading.Tasks.Task`1
+  name: Task<IThreatInsightConfiguration>
+  nameWithType: Task<IThreatInsightConfiguration>
+  fullName: System.Threading.Tasks.Task<Okta.Sdk.IThreatInsightConfiguration>
+  nameWithType.vb: Task(Of IThreatInsightConfiguration)
+  fullName.vb: System.Threading.Tasks.Task(Of Okta.Sdk.IThreatInsightConfiguration)
+  name.vb: Task(Of IThreatInsightConfiguration)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Okta.Sdk.IThreatInsightConfiguration
+    name: IThreatInsightConfiguration
+    nameWithType: IThreatInsightConfiguration
+    fullName: Okta.Sdk.IThreatInsightConfiguration
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Okta.Sdk.IThreatInsightConfiguration
+    name: IThreatInsightConfiguration
+    nameWithType: IThreatInsightConfiguration
+    fullName: Okta.Sdk.IThreatInsightConfiguration
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading
+  commentId: N:System.Threading
+  isExternal: true
+  name: System.Threading
+  nameWithType: System.Threading
+  fullName: System.Threading
+- uid: System.Threading.Tasks.Task`1
+  commentId: T:System.Threading.Tasks.Task`1
+  isExternal: true
+  name: Task<TResult>
+  nameWithType: Task<TResult>
+  fullName: System.Threading.Tasks.Task<TResult>
+  nameWithType.vb: Task(Of TResult)
+  fullName.vb: System.Threading.Tasks.Task(Of TResult)
+  name.vb: Task(Of TResult)
+  spec.csharp:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Threading.Tasks.Task`1
+    name: Task
+    nameWithType: Task
+    fullName: System.Threading.Tasks.Task
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: TResult
+    nameWithType: TResult
+    fullName: TResult
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Threading.Tasks
+  commentId: N:System.Threading.Tasks
+  isExternal: true
+  name: System.Threading.Tasks
+  nameWithType: System.Threading.Tasks
+  fullName: System.Threading.Tasks
+- uid: Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync*
+  commentId: Overload:Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync
+  name: UpdateConfigurationAsync
+  nameWithType: IThreatInsightsClient.UpdateConfigurationAsync
+  fullName: Okta.Sdk.IThreatInsightsClient.UpdateConfigurationAsync

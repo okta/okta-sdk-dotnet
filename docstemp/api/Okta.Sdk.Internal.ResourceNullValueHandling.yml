@@ -1,0 +1,118 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.ResourceNullValueHandling
+  commentId: T:Okta.Sdk.Internal.ResourceNullValueHandling
+  id: ResourceNullValueHandling
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.ResourceNullValueHandling.Ignore
+  - Okta.Sdk.Internal.ResourceNullValueHandling.Include
+  langs:
+  - csharp
+  - vb
+  name: ResourceNullValueHandling
+  nameWithType: ResourceNullValueHandling
+  fullName: Okta.Sdk.Internal.ResourceNullValueHandling
+  type: Enum
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ResourceNullValueHandling.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ResourceNullValueHandling
+    path: ../src/Okta.Sdk/Internal/ResourceNullValueHandling.cs
+    startLine: 10
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nSpecifies null value handling options for the ResourceSerializingConverter.\n"
+  example: []
+  syntax:
+    content: public enum ResourceNullValueHandling
+    content.vb: Public Enum ResourceNullValueHandling
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Okta.Sdk.Internal.ResourceNullValueHandling.Ignore
+  commentId: F:Okta.Sdk.Internal.ResourceNullValueHandling.Ignore
+  id: Ignore
+  parent: Okta.Sdk.Internal.ResourceNullValueHandling
+  langs:
+  - csharp
+  - vb
+  name: Ignore
+  nameWithType: ResourceNullValueHandling.Ignore
+  fullName: Okta.Sdk.Internal.ResourceNullValueHandling.Ignore
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ResourceNullValueHandling.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Ignore
+    path: ../src/Okta.Sdk/Internal/ResourceNullValueHandling.cs
+    startLine: 15
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nIgnore null values when serializing and deserializing resources. Default.\n"
+  example: []
+  syntax:
+    content: Ignore = 0
+    return:
+      type: Okta.Sdk.Internal.ResourceNullValueHandling
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Okta.Sdk.Internal.ResourceNullValueHandling.Include
+  commentId: F:Okta.Sdk.Internal.ResourceNullValueHandling.Include
+  id: Include
+  parent: Okta.Sdk.Internal.ResourceNullValueHandling
+  langs:
+  - csharp
+  - vb
+  name: Include
+  nameWithType: ResourceNullValueHandling.Include
+  fullName: Okta.Sdk.Internal.ResourceNullValueHandling.Include
+  type: Field
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ResourceNullValueHandling.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: Include
+    path: ../src/Okta.Sdk/Internal/ResourceNullValueHandling.cs
+    startLine: 20
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  summary: "\nInclude null values when serializing and deserializing resources.\n"
+  example: []
+  syntax:
+    content: Include = 1
+    return:
+      type: Okta.Sdk.Internal.ResourceNullValueHandling
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: Okta.Sdk.Internal.ResourceNullValueHandling
+  commentId: T:Okta.Sdk.Internal.ResourceNullValueHandling
+  parent: Okta.Sdk.Internal
+  name: ResourceNullValueHandling
+  nameWithType: ResourceNullValueHandling
+  fullName: Okta.Sdk.Internal.ResourceNullValueHandling

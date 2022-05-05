@@ -1,0 +1,731 @@
+### YamlMime:ManagedReference
+items:
+- uid: Okta.Sdk.Internal.ByteArrayPayloadHandler
+  commentId: T:Okta.Sdk.Internal.ByteArrayPayloadHandler
+  id: ByteArrayPayloadHandler
+  parent: Okta.Sdk.Internal
+  children:
+  - Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  langs:
+  - csharp
+  - vb
+  name: ByteArrayPayloadHandler
+  nameWithType: ByteArrayPayloadHandler
+  fullName: Okta.Sdk.Internal.ByteArrayPayloadHandler
+  type: Class
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ByteArrayPayloadHandler.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: ByteArrayPayloadHandler
+    path: ../src/Okta.Sdk/Internal/ByteArrayPayloadHandler.cs
+    startLine: 11
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: 'public abstract class ByteArrayPayloadHandler : PayloadHandler, IPayloadHandler'
+    content.vb: >-
+      Public MustInherit Class ByteArrayPayloadHandler
+
+          Inherits PayloadHandler
+
+          Implements IPayloadHandler
+  inheritance:
+  - System.Object
+  - Okta.Sdk.Internal.PayloadHandler
+  derivedClasses:
+  - Okta.Sdk.Internal.PemFilePayloadHandler
+  - Okta.Sdk.Internal.X509CaCertPayloadHandler
+  implements:
+  - Okta.Sdk.Internal.IPayloadHandler
+  inheritedMembers:
+  - Okta.Sdk.Internal.PayloadHandler.ContentType
+  - Okta.Sdk.Internal.PayloadHandler.ContentTransferEncoding
+  - Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)
+  - Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest,System.Net.Http.HttpRequestMessage)
+  - Okta.Sdk.Internal.PayloadHandler.Default
+  - Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)
+  - Okta.Sdk.Internal.PayloadHandler.TryRegister``1
+  - Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)
+  - Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)
+  - System.Object.Equals(System.Object)
+  - System.Object.Equals(System.Object,System.Object)
+  - System.Object.GetHashCode
+  - System.Object.GetType
+  - System.Object.MemberwiseClone
+  - System.Object.ReferenceEquals(System.Object,System.Object)
+  - System.Object.ToString
+  modifiers.csharp:
+  - public
+  - abstract
+  - class
+  modifiers.vb:
+  - Public
+  - MustInherit
+  - Class
+- uid: Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  id: GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.Internal.ByteArrayPayloadHandler
+  langs:
+  - csharp
+  - vb
+  name: GetRequestHttpContent(HttpRequest)
+  nameWithType: ByteArrayPayloadHandler.GetRequestHttpContent(HttpRequest)
+  fullName: Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  type: Method
+  source:
+    remote:
+      path: src/Okta.Sdk/Internal/ByteArrayPayloadHandler.cs
+      branch: lr-docfx-gh-actions
+      repo: https://github.com/okta/okta-sdk-dotnet.git
+    id: GetRequestHttpContent
+    path: ../src/Okta.Sdk/Internal/ByteArrayPayloadHandler.cs
+    startLine: 14
+  assemblies:
+  - Okta.Sdk
+  namespace: Okta.Sdk.Internal
+  example: []
+  syntax:
+    content: protected override HttpContent GetRequestHttpContent(HttpRequest httpRequest)
+    parameters:
+    - id: httpRequest
+      type: Okta.Sdk.HttpRequest
+    return:
+      type: System.Net.Http.HttpContent
+    content.vb: Protected Overrides Function GetRequestHttpContent(httpRequest As HttpRequest) As HttpContent
+  overridden: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  overload: Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent*
+  modifiers.csharp:
+  - protected
+  - override
+  modifiers.vb:
+  - Protected
+  - Overrides
+references:
+- uid: Okta.Sdk.Internal
+  commentId: N:Okta.Sdk.Internal
+  name: Okta.Sdk.Internal
+  nameWithType: Okta.Sdk.Internal
+  fullName: Okta.Sdk.Internal
+- uid: System.Object
+  commentId: T:System.Object
+  parent: System
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Okta.Sdk.Internal.PayloadHandler
+  commentId: T:Okta.Sdk.Internal.PayloadHandler
+  parent: Okta.Sdk.Internal
+  name: PayloadHandler
+  nameWithType: PayloadHandler
+  fullName: Okta.Sdk.Internal.PayloadHandler
+- uid: Okta.Sdk.Internal.IPayloadHandler
+  commentId: T:Okta.Sdk.Internal.IPayloadHandler
+  parent: Okta.Sdk.Internal
+  name: IPayloadHandler
+  nameWithType: IPayloadHandler
+  fullName: Okta.Sdk.Internal.IPayloadHandler
+- uid: Okta.Sdk.Internal.PayloadHandler.ContentType
+  commentId: P:Okta.Sdk.Internal.PayloadHandler.ContentType
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: ContentType
+  nameWithType: PayloadHandler.ContentType
+  fullName: Okta.Sdk.Internal.PayloadHandler.ContentType
+- uid: Okta.Sdk.Internal.PayloadHandler.ContentTransferEncoding
+  commentId: P:Okta.Sdk.Internal.PayloadHandler.ContentTransferEncoding
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: ContentTransferEncoding
+  nameWithType: PayloadHandler.ContentTransferEncoding
+  fullName: Okta.Sdk.Internal.PayloadHandler.ContentTransferEncoding
+- uid: Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: GetBody(HttpRequest)
+  nameWithType: PayloadHandler.GetBody(HttpRequest)
+  fullName: Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)
+    name: GetBody
+    nameWithType: PayloadHandler.GetBody
+    fullName: Okta.Sdk.Internal.PayloadHandler.GetBody
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.GetBody(Okta.Sdk.HttpRequest)
+    name: GetBody
+    nameWithType: PayloadHandler.GetBody
+    fullName: Okta.Sdk.Internal.PayloadHandler.GetBody
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest,System.Net.Http.HttpRequestMessage)
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest,System.Net.Http.HttpRequestMessage)
+  parent: Okta.Sdk.Internal.PayloadHandler
+  isExternal: true
+  name: SetHttpRequestMessageContent(HttpRequest, HttpRequestMessage)
+  nameWithType: PayloadHandler.SetHttpRequestMessageContent(HttpRequest, HttpRequestMessage)
+  fullName: Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest, System.Net.Http.HttpRequestMessage)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest,System.Net.Http.HttpRequestMessage)
+    name: SetHttpRequestMessageContent
+    nameWithType: PayloadHandler.SetHttpRequestMessageContent
+    fullName: Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    nameWithType: HttpRequestMessage
+    fullName: System.Net.Http.HttpRequestMessage
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent(Okta.Sdk.HttpRequest,System.Net.Http.HttpRequestMessage)
+    name: SetHttpRequestMessageContent
+    nameWithType: PayloadHandler.SetHttpRequestMessageContent
+    fullName: Okta.Sdk.Internal.PayloadHandler.SetHttpRequestMessageContent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Net.Http.HttpRequestMessage
+    name: HttpRequestMessage
+    nameWithType: HttpRequestMessage
+    fullName: System.Net.Http.HttpRequestMessage
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.PayloadHandler.Default
+  commentId: P:Okta.Sdk.Internal.PayloadHandler.Default
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: Default
+  nameWithType: PayloadHandler.Default
+  fullName: Okta.Sdk.Internal.PayloadHandler.Default
+- uid: Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)
+  parent: Okta.Sdk.Internal.PayloadHandler
+  isExternal: true
+  name: ForContentType(String)
+  nameWithType: PayloadHandler.ForContentType(String)
+  fullName: Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)
+    name: ForContentType
+    nameWithType: PayloadHandler.ForContentType
+    fullName: Okta.Sdk.Internal.PayloadHandler.ForContentType
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.ForContentType(System.String)
+    name: ForContentType
+    nameWithType: PayloadHandler.ForContentType
+    fullName: Okta.Sdk.Internal.PayloadHandler.ForContentType
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.PayloadHandler.TryRegister``1
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.TryRegister``1
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: TryRegister<T>()
+  nameWithType: PayloadHandler.TryRegister<T>()
+  fullName: Okta.Sdk.Internal.PayloadHandler.TryRegister<T>()
+  nameWithType.vb: PayloadHandler.TryRegister(Of T)()
+  fullName.vb: Okta.Sdk.Internal.PayloadHandler.TryRegister(Of T)()
+  name.vb: TryRegister(Of T)()
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.TryRegister``1
+    name: TryRegister<T>
+    nameWithType: PayloadHandler.TryRegister<T>
+    fullName: Okta.Sdk.Internal.PayloadHandler.TryRegister<T>
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.TryRegister``1
+    name: TryRegister(Of T)
+    nameWithType: PayloadHandler.TryRegister(Of T)
+    fullName: Okta.Sdk.Internal.PayloadHandler.TryRegister(Of T)
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: TryRegister(IPayloadHandler)
+  nameWithType: PayloadHandler.TryRegister(IPayloadHandler)
+  fullName: Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)
+    name: TryRegister
+    nameWithType: PayloadHandler.TryRegister
+    fullName: Okta.Sdk.Internal.PayloadHandler.TryRegister
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.Internal.IPayloadHandler
+    name: IPayloadHandler
+    nameWithType: IPayloadHandler
+    fullName: Okta.Sdk.Internal.IPayloadHandler
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.TryRegister(Okta.Sdk.Internal.IPayloadHandler)
+    name: TryRegister
+    nameWithType: PayloadHandler.TryRegister
+    fullName: Okta.Sdk.Internal.PayloadHandler.TryRegister
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.Internal.IPayloadHandler
+    name: IPayloadHandler
+    nameWithType: IPayloadHandler
+    fullName: Okta.Sdk.Internal.IPayloadHandler
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: ValidateRequest(HttpRequest)
+  nameWithType: PayloadHandler.ValidateRequest(HttpRequest)
+  fullName: Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)
+    name: ValidateRequest
+    nameWithType: PayloadHandler.ValidateRequest
+    fullName: Okta.Sdk.Internal.PayloadHandler.ValidateRequest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.ValidateRequest(Okta.Sdk.HttpRequest)
+    name: ValidateRequest
+    nameWithType: PayloadHandler.ValidateRequest
+    fullName: Okta.Sdk.Internal.PayloadHandler.ValidateRequest
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object)
+  commentId: M:System.Object.Equals(System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object)
+  nameWithType: Object.Equals(Object)
+  fullName: System.Object.Equals(System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.Equals(System.Object,System.Object)
+  commentId: M:System.Object.Equals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: Equals(Object, Object)
+  nameWithType: Object.Equals(Object, Object)
+  fullName: System.Object.Equals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.Equals(System.Object,System.Object)
+    name: Equals
+    nameWithType: Object.Equals
+    fullName: System.Object.Equals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetHashCode
+  commentId: M:System.Object.GetHashCode
+  parent: System.Object
+  isExternal: true
+  name: GetHashCode()
+  nameWithType: Object.GetHashCode()
+  fullName: System.Object.GetHashCode()
+  spec.csharp:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetHashCode
+    name: GetHashCode
+    nameWithType: Object.GetHashCode
+    fullName: System.Object.GetHashCode
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.GetType
+  commentId: M:System.Object.GetType
+  parent: System.Object
+  isExternal: true
+  name: GetType()
+  nameWithType: Object.GetType()
+  fullName: System.Object.GetType()
+  spec.csharp:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.GetType
+    name: GetType
+    nameWithType: Object.GetType
+    fullName: System.Object.GetType
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.MemberwiseClone
+  commentId: M:System.Object.MemberwiseClone
+  parent: System.Object
+  isExternal: true
+  name: MemberwiseClone()
+  nameWithType: Object.MemberwiseClone()
+  fullName: System.Object.MemberwiseClone()
+  spec.csharp:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.MemberwiseClone
+    name: MemberwiseClone
+    nameWithType: Object.MemberwiseClone
+    fullName: System.Object.MemberwiseClone
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ReferenceEquals(System.Object,System.Object)
+  commentId: M:System.Object.ReferenceEquals(System.Object,System.Object)
+  parent: System.Object
+  isExternal: true
+  name: ReferenceEquals(Object, Object)
+  nameWithType: Object.ReferenceEquals(Object, Object)
+  fullName: System.Object.ReferenceEquals(System.Object, System.Object)
+  spec.csharp:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ReferenceEquals(System.Object,System.Object)
+    name: ReferenceEquals
+    nameWithType: Object.ReferenceEquals
+    fullName: System.Object.ReferenceEquals
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Object.ToString
+  commentId: M:System.Object.ToString
+  parent: System.Object
+  isExternal: true
+  name: ToString()
+  nameWithType: Object.ToString()
+  fullName: System.Object.ToString()
+  spec.csharp:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: System.Object.ToString
+    name: ToString
+    nameWithType: Object.ToString
+    fullName: System.Object.ToString
+    isExternal: true
+  - name: (
+    nameWithType: (
+    fullName: (
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System
+  commentId: N:System
+  isExternal: true
+  name: System
+  nameWithType: System
+  fullName: System
+- uid: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  commentId: M:Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  parent: Okta.Sdk.Internal.PayloadHandler
+  name: GetRequestHttpContent(HttpRequest)
+  nameWithType: PayloadHandler.GetRequestHttpContent(HttpRequest)
+  fullName: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+  spec.csharp:
+  - uid: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+    name: GetRequestHttpContent
+    nameWithType: PayloadHandler.GetRequestHttpContent
+    fullName: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+  spec.vb:
+  - uid: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent(Okta.Sdk.HttpRequest)
+    name: GetRequestHttpContent
+    nameWithType: PayloadHandler.GetRequestHttpContent
+    fullName: Okta.Sdk.Internal.PayloadHandler.GetRequestHttpContent
+  - name: (
+    nameWithType: (
+    fullName: (
+  - uid: Okta.Sdk.HttpRequest
+    name: HttpRequest
+    nameWithType: HttpRequest
+    fullName: Okta.Sdk.HttpRequest
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent*
+  commentId: Overload:Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent
+  name: GetRequestHttpContent
+  nameWithType: ByteArrayPayloadHandler.GetRequestHttpContent
+  fullName: Okta.Sdk.Internal.ByteArrayPayloadHandler.GetRequestHttpContent
+- uid: Okta.Sdk.HttpRequest
+  commentId: T:Okta.Sdk.HttpRequest
+  parent: Okta.Sdk
+  name: HttpRequest
+  nameWithType: HttpRequest
+  fullName: Okta.Sdk.HttpRequest
+- uid: System.Net.Http.HttpContent
+  commentId: T:System.Net.Http.HttpContent
+  parent: System.Net.Http
+  isExternal: true
+  name: HttpContent
+  nameWithType: HttpContent
+  fullName: System.Net.Http.HttpContent
+- uid: Okta.Sdk
+  commentId: N:Okta.Sdk
+  name: Okta.Sdk
+  nameWithType: Okta.Sdk
+  fullName: Okta.Sdk
+- uid: System.Net.Http
+  commentId: N:System.Net.Http
+  isExternal: true
+  name: System.Net.Http
+  nameWithType: System.Net.Http
+  fullName: System.Net.Http
