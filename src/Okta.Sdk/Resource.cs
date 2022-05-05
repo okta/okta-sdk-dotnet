@@ -12,7 +12,9 @@ using Okta.Sdk.Internal;
 
 namespace Okta.Sdk
 {
-    /// <inheritdoc/>
+    /// <summary>
+    /// Represents a resource in the Okta API.
+    /// </summary>
     public class Resource : IResource
     {
         internal static readonly TypeInfo ResourceTypeInfo = typeof(IResource).GetTypeInfo();
