@@ -1,6 +1,8 @@
-	<div class="apiversion">
+<div class="apiversion"> Latest version</div>
+
+<!--	<div class="apiversion">
 			<form action="#" method="GET">
 				<span>API version:</span>
                 <select id="version-switcher" name="version" />
             </form>
-	</div>
+	</div> -->

@@ -7,5 +7,5 @@ The [Okta .NET SDK](https://github.com/okta/okta-sdk-dotnet) provides .NET devel
 
 You can find all the steps you need to follow to get started with the SDK on [GitHub](https://github.com/okta/okta-sdk-dotnet).
 
-Also, you can see this project's documentation on the [API Reference section](https://developer.okta.com/okta-sdk-dotnet/latest/api/index.html).
+Also, you can see this project's documentation on the [API Reference section](https://developer.okta.com/okta-sdk-dotnet/api/index.html).
 
