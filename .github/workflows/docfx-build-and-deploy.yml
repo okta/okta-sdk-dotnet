@@ -30,11 +30,14 @@ jobs:
     
     - name: DocFX Build
       working-directory: docs
-      run: docfx docfx.json
+      run: docfx docfx.json --force
       continue-on-error: false
     
-    - name: List files after docs build
-      run: dir docs
+    - name: List files tree after docs build
+      run: tree
+      
+    - name: List files after build
+      run: dir /s
 
     - name: Deploy Docs to Github Pages
       uses: peaceiris/actions-gh-pages@v3
