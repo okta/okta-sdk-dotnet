@@ -22,21 +22,24 @@ jobs:
     - name: Setup DocFX
       uses: crazy-max/ghaction-chocolatey@v1
       with:
-       args: install docfx
+       args: install docfx --version=2.51
       #run: choco install --verbose docfx
     
     - name: Install dependencies
       run: dotnet restore src/Okta.Sdk
     
     - name: DocFX Build
-      working-directory: docstemp
-      run: docfx docfx.json
-      continue-on-error: true
+      working-directory: docs
+      run: docfx docfx.json --force
+      continue-on-error: false
     
+    - name: List files tree after docs build
+      run: tree /f
+
     - name: Deploy Docs to Github Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./target/gh-pages
+        publish_dir: docs/_site
         keep_files: true
     
