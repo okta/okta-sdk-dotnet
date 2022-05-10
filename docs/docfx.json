@@ -10,7 +10,7 @@
       ],
       "dest": "api",
       "properties": {
-        "TargetFramework": "netcoreapp3.1"
+        "TargetFramework": "netstandard2.0"
       },
       "disableGitFeatures": false,
       "disableDefaultFilter": false
@@ -64,7 +64,7 @@
     "markdownEngineName": "markdig",
     "noLangKeyword": false,
     "keepFileLink": false,
-    "cleanupCacheHistory": false,
+    "cleanupCacheHistory": true,
     "disableGitFeatures": false
   }
 }
