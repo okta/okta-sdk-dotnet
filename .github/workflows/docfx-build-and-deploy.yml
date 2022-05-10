@@ -24,10 +24,9 @@ jobs:
     
     - uses: nikeee/docfx-action@v1.0.0
       name: Build Documentation
-      working-directory: docs
       continue-on-error: false
       with:
-        args: docfx.json
+        args: docs/docfx.json
     
     - name: List files tree after docs build
       run: ls
