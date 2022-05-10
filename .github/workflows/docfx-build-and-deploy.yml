@@ -28,9 +28,9 @@ jobs:
     - name: Install dependencies
       run: dotnet restore src/Okta.Sdk
     
-    - name: DocFx metadata
-      working-directory: docs
-      run: docfx metadata ./docfx.json -l Verbose
+    # - name: DocFx metadata
+    #   working-directory: docs
+    #   run: docfx metadata ./docfx.json -l Verbose
     
     - name: DocFX Build
       working-directory: docs
