@@ -8,37 +8,29 @@ on:
 
 jobs:
   generate-docs:
-    runs-on: windows-latest
-
+    runs-on: ubuntu-latest
+        
     steps:
     - name: Checkout
       uses: actions/checkout@v2
     
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
-      #with:
-      #  dotnet-version: 3.1.101
-        
-    - name: Setup DocFX
-      uses: crazy-max/ghaction-chocolatey@v1
       with:
-       args: install docfx
-      #run: choco install --verbose docfx
-    
+        dotnet-version: 3.1.101
+        
     - name: Install dependencies
       run: dotnet restore src/Okta.Sdk
     
-    # - name: DocFx metadata
-    #   working-directory: docs
-    #   run: docfx metadata ./docfx.json -l Verbose
-    
-    - name: DocFX Build
+    - uses: nikeee/docfx-action@v1.0.0
+      name: Build Documentation
       working-directory: docs
-      run: docfx docfx.json
       continue-on-error: false
+      with:
+        args: docfx.json
     
     - name: List files tree after docs build
-      run: tree /f
+      run: ls
 
     - name: Deploy Docs to Github Pages
       uses: peaceiris/actions-gh-pages@v3
