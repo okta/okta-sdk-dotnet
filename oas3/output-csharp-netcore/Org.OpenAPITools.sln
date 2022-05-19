@@ -1,0 +1,42 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32413.511
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Org.OpenAPITools", "src\Org.OpenAPITools\Org.OpenAPITools.csproj", "{17D28A53-337B-40CC-B993-2F3C33B9C01D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Org.OpenAPITools.Test", "src\Org.OpenAPITools.Test\Org.OpenAPITools.Test.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.OpenApi.Sdk", "src\Okta.OpenApi.Sdk\Okta.OpenApi.Sdk.csproj", "{1CE9244D-55EE-4A42-BC83-9213B7B58820}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.OpenApi.IntegrationTest", "src\Okta.OpenApi.IntegrationTest\Okta.OpenApi.IntegrationTest.csproj", "{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17D28A53-337B-40CC-B993-2F3C33B9C01D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17D28A53-337B-40CC-B993-2F3C33B9C01D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17D28A53-337B-40CC-B993-2F3C33B9C01D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17D28A53-337B-40CC-B993-2F3C33B9C01D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F1DEBC-DE5E-4517-8062-F000CD499087}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CE9244D-55EE-4A42-BC83-9213B7B58820}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CE9244D-55EE-4A42-BC83-9213B7B58820}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CE9244D-55EE-4A42-BC83-9213B7B58820}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CE9244D-55EE-4A42-BC83-9213B7B58820}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7A60C6C2-81A3-4955-AC3A-9255C1A9273B}
+	EndGlobalSection
+EndGlobal

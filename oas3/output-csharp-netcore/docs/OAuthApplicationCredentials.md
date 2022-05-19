@@ -1,0 +1,12 @@
+# Org.OpenAPITools.Model.OAuthApplicationCredentials
+
+## Properties
+
+Name | Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+**Signing** | [**ApplicationCredentialsSigning**](ApplicationCredentialsSigning.md) |  | [optional] 
+**UserNameTemplate** | [**ApplicationCredentialsUsernameTemplate**](ApplicationCredentialsUsernameTemplate.md) |  | [optional] 
+**OauthClient** | [**ApplicationCredentialsOAuthClient**](ApplicationCredentialsOAuthClient.md) |  | [optional] 
+
+[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+
