@@ -63,8 +63,8 @@ namespace Org.OpenAPITools.Model
         /// <summary>
         /// Gets or Sets Created
         /// </summary>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTimeOffset Created { get; private set; }
+        [DataMember(Name = "created", EmitDefaultValue = true)]
+        public DateTimeOffset? Created { get; private set; }
 
         /// <summary>
         /// Returns false as Created should not be serialized given that it's read-only.
