@@ -29,7 +29,7 @@ namespace Okta.Sdk
         }
         
         /// <inheritdoc />
-        public ICollectionClient<IGroup> ListGroups(string q = null, string search = null, string after = null, int? limit = 10000, string expand = null)
+        public ICollectionClient<IGroup> ListGroups(string q = null, string filter = null, string after = null, int? limit = 10000, string expand = null, string search = null)
             => GetCollectionClient<IGroup>(new HttpRequest
             {
                 Uri = "/api/v1/groups",
@@ -38,10 +38,11 @@ namespace Okta.Sdk
                 QueryParameters = new Dictionary<string, object>()
                 {
                     ["q"] = q,
-                    ["search"] = search,
+                    ["filter"] = filter,
                     ["after"] = after,
                     ["limit"] = limit,
                     ["expand"] = expand,
+                    ["search"] = search,
                 },
             });
                     
