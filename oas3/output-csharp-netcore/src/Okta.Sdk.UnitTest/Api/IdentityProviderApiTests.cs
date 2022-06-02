@@ -9,17 +9,11 @@
  */
 
 using System;
-using System.IO;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
-using System.Reflection;
-using RestSharp;
 using Xunit;
 using System.Threading.Tasks;
 using FluentAssertions;
-using Newtonsoft.Json;
 using Okta.Sdk.UnitTest.Internal;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
