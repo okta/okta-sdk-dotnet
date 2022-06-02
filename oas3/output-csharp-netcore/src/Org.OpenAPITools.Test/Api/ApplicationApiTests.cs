@@ -22,7 +22,7 @@ using Org.OpenAPITools.Api;
 // uncomment below to import models
 //using Org.OpenAPITools.Model;
 
-namespace Org.OpenAPITools.Test.Api
+namespace Okta.Sdk.UnitTest
 {
     /// <summary>
     ///  Class for testing ApplicationApi

@@ -8,7 +8,7 @@ using Newtonsoft.Json;
 using Org.OpenAPITools.Client;
 using RestSharp;
 
-namespace Org.OpenAPITools.Test.Internal
+namespace Okta.Sdk.UnitTest.Internal
 {
     public class MockAsyncClient : IAsynchronousClient
     {

@@ -10,7 +10,7 @@ using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 using Xunit;
 
-namespace Okta.OpenApi.IntegrationTest
+namespace Okta.Sdk.IntegrationTest
 {
     public class ApplicationScenarios
     {

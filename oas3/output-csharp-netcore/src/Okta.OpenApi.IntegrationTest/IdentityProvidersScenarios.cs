@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -11,7 +13,7 @@ using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Model;
 using Xunit;
 
-namespace Okta.OpenApi.IntegrationTest
+namespace Okta.Sdk.IntegrationTest
 {
     public class IdentityProvidersScenarios
     {
@@ -1535,6 +1537,17 @@ namespace Okta.OpenApi.IntegrationTest
                 await _idpApi.DeactivateIdentityProviderAsync(createdIdp.Id);
                 await _idpApi.DeleteIdentityProviderAsync(createdIdp.Id);
             }
+        }
+
+        [Fact(Skip = "TODO")]
+        public async Task PublishCsr()
+        {
+            using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("foo")))
+            {
+                var key = await _idpApi.PublishCsrForIdentityProviderAsync("foo", "bar", stream);
+                key.Should().NotBeNull();
+            }
+            
         }
 
         private static IdentityProvider GetTestIdentityProvider(string idpName, string idpSuffix)

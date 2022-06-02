@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <AssemblyName>Org.OpenAPITools.Test</AssemblyName>
-    <RootNamespace>Org.OpenAPITools.Test</RootNamespace>
+    <AssemblyName>Okta.Sdk.UnitTest</AssemblyName>
+    <RootNamespace>Okta.Sdk.UnitTest</RootNamespace>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IsPackable>false</IsPackable>
   </PropertyGroup>

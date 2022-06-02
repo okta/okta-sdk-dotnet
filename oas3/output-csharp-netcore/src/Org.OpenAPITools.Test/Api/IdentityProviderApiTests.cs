@@ -20,16 +20,16 @@ using Xunit;
 
 using Org.OpenAPITools.Client;
 using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Test.Internal;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Newtonsoft.Json;
+using Okta.Sdk.UnitTest.Internal;
 using Org.OpenAPITools.Model;
 
 // uncomment below to import models
 //using Org.OpenAPITools.Model;
 
-namespace Org.OpenAPITools.Test.Api
+namespace Okta.Sdk.UnitTest
 {
     /// <summary>
     ///  Class for testing IdentityProviderApi

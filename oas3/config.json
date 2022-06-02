@@ -1,4 +1,14 @@
 {
     "useDateTimeOffset": true,
-    "returnICollection": true
+    "returnICollection": true,
+    "useCollection": true,
+    "validatable": false,
+    "templateDir" : "./csharp-netcore-custom-templates",
+    "packageName" : "Okta.Sdk",
+    "outputDir" : "./output-csharp-netcore",
+    "inputSpec" : "c:/source/okta-oas3/dist/management.json",
+    "globalProperties": {
+        "apiTests": false,
+        "modelTests": false
+    }
 }
