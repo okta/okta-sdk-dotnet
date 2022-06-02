@@ -1,7 +1,6 @@
 {
     "useDateTimeOffset": true,
     "returnICollection": true,
-    "useCollection": true,
     "validatable": false,
     "templateDir" : "./csharp-netcore-custom-templates",
     "packageName" : "Okta.Sdk",

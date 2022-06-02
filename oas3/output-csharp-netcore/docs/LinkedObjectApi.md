@@ -1,0 +1,319 @@
+# Okta.Sdk.Api.LinkedObjectApi
+
+All URIs are relative to *https://your-subdomain.okta.com*
+
+Method | HTTP request | Description
+------------- | ------------- | -------------
+[**AddLinkedObjectDefinition**](LinkedObjectApi.md#addlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Add Linked Object Definition
+[**DeleteLinkedObjectDefinition**](LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete Linked Object Definition
+[**GetLinkedObjectDefinition**](LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Get Linked Object Definition
+[**ListLinkedObjectDefinitions**](LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List Linked Object Definitions
+
+
+<a name="addlinkedobjectdefinition"></a>
+# **AddLinkedObjectDefinition**
+> LinkedObject AddLinkedObjectDefinition (LinkedObject linkedObject)
+
+Add Linked Object Definition
+
+Success
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class AddLinkedObjectDefinitionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: api_token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new LinkedObjectApi(config);
+            var linkedObject = new LinkedObject(); // LinkedObject | 
+
+            try
+            {
+                // Add Linked Object Definition
+                LinkedObject result = apiInstance.AddLinkedObjectDefinition(linkedObject);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LinkedObjectApi.AddLinkedObjectDefinition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **linkedObject** | [**LinkedObject**](LinkedObject.md)|  | 
+
+### Return type
+
+[**LinkedObject**](LinkedObject.md)
+
+### Authorization
+
+[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **201** | Created |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="deletelinkedobjectdefinition"></a>
+# **DeleteLinkedObjectDefinition**
+> void DeleteLinkedObjectDefinition (string linkedObjectName)
+
+Delete Linked Object Definition
+
+Success
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class DeleteLinkedObjectDefinitionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: api_token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new LinkedObjectApi(config);
+            var linkedObjectName = "linkedObjectName_example";  // string | 
+
+            try
+            {
+                // Delete Linked Object Definition
+                apiInstance.DeleteLinkedObjectDefinition(linkedObjectName);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LinkedObjectApi.DeleteLinkedObjectDefinition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **linkedObjectName** | **string**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: Not defined
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | No Content |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getlinkedobjectdefinition"></a>
+# **GetLinkedObjectDefinition**
+> LinkedObject GetLinkedObjectDefinition (string linkedObjectName)
+
+Get Linked Object Definition
+
+Success
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetLinkedObjectDefinitionExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: api_token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new LinkedObjectApi(config);
+            var linkedObjectName = "linkedObjectName_example";  // string | 
+
+            try
+            {
+                // Get Linked Object Definition
+                LinkedObject result = apiInstance.GetLinkedObjectDefinition(linkedObjectName);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LinkedObjectApi.GetLinkedObjectDefinition: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **linkedObjectName** | **string**|  | 
+
+### Return type
+
+[**LinkedObject**](LinkedObject.md)
+
+### Authorization
+
+[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="listlinkedobjectdefinitions"></a>
+# **ListLinkedObjectDefinitions**
+> List&lt;LinkedObject&gt; ListLinkedObjectDefinitions ()
+
+List Linked Object Definitions
+
+Success
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class ListLinkedObjectDefinitionsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: api_token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new LinkedObjectApi(config);
+
+            try
+            {
+                // List Linked Object Definitions
+                List<LinkedObject> result = apiInstance.ListLinkedObjectDefinitions();
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling LinkedObjectApi.ListLinkedObjectDefinitions: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**List&lt;LinkedObject&gt;**](LinkedObject.md)
+
+### Authorization
+
+[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Success |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+

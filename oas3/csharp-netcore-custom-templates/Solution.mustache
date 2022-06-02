@@ -4,12 +4,9 @@ VisualStudioVersion = {{^netStandard}}12.0.0.0{{/netStandard}}{{#netStandard}}14
 MinimumVisualStudioVersion = {{^netStandard}}10.0.0.1{{/netStandard}}{{#netStandard}}10.0.40219.1{{/netStandard}}
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{packageName}}", "src\{{packageName}}\{{packageName}}.csproj", "{{packageGuid}}"
 EndProject
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.OpenApi.Sdk", "src\Okta.OpenApi.Sdk\Okta.OpenApi.Sdk.csproj", "{1CE9244D-55EE-4A42-BC83-9213B7B58820}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.IntegrationTest", "src\Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTest", "src\Org.OpenAPITools.Test\Okta.Sdk.UnitTest.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.UnitTest", "src\Okta.Sdk.UnitTest\Okta.Sdk.UnitTest.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 EndProject
 {{^excludeTests}}Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "{{testPackageName}}", "src\{{testPackageName}}\{{testPackageName}}.csproj", "{19F1DEBC-DE5E-4517-8062-F000CD499087}"
 {{/excludeTests}}Global
