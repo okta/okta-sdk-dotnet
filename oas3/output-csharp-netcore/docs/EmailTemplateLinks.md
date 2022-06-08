@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmailTemplateLinks
+# Okta.Sdk.Model.EmailTemplateLinks
 Links to resources related to this email template.
 
 ## Properties
@@ -6,6 +6,7 @@ Links to resources related to this email template.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Self** | [**HrefObject**](HrefObject.md) |  | [optional] 
+**Settings** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **DefaultContent** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Customizations** | [**HrefObject**](HrefObject.md) |  | [optional] 
 **Test** | [**HrefObject**](HrefObject.md) |  | [optional] 

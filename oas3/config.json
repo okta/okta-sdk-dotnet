@@ -5,7 +5,7 @@
     "templateDir" : "./csharp-netcore-custom-templates",
     "packageName" : "Okta.Sdk",
     "outputDir" : "./output-csharp-netcore",
-    "inputSpec" : "c:/source/okta-oas3/dist/management.json",
+    "inputSpec" : "C:/source/okta-oas3/specs/monolith/dist/management.json",
     "globalProperties": {
         "apiTests": false,
         "modelTests": false

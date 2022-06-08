@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.IdpPolicyRuleAction
+# Okta.Sdk.Model.IdpPolicyRuleAction
 
 ## Properties
 

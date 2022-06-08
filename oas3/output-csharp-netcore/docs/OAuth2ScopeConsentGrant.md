@@ -4,10 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **ClientId** | **string** |  | [optional] 
-**UserId** | **string** |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **CreatedBy** | [**OAuth2Actor**](OAuth2Actor.md) |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -16,6 +13,9 @@ Name | Type | Description | Notes
 **ScopeId** | **string** |  | [optional] 
 **Source** | **OAuth2ScopeConsentGrantSource** |  | [optional] 
 **Status** | **GrantOrTokenStatus** |  | [optional] 
+**UserId** | **string** |  | [optional] 
+**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

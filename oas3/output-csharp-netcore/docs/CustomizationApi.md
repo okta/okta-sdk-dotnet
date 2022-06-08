@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Api.CustomizationApi
+# Okta.Sdk.Api.CustomizationApi
 
 All URIs are relative to *https://your-subdomain.okta.com*
 
@@ -16,6 +16,7 @@ Method | HTTP request | Description
 [**GetEmailCustomization**](CustomizationApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Get Email Customization
 [**GetEmailDefaultContent**](CustomizationApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Get Email Template Default Content
 [**GetEmailDefaultPreview**](CustomizationApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Preview Email Template Default Content
+[**GetEmailSettings**](CustomizationApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Get Email Template Settings
 [**GetEmailTemplate**](CustomizationApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Get Email Template
 [**ListBrandThemes**](CustomizationApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | Get Brand Themes
 [**ListBrands**](CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List Brands
@@ -25,6 +26,7 @@ Method | HTTP request | Description
 [**UpdateBrand**](CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Update Brand
 [**UpdateBrandTheme**](CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Update a theme for a brand
 [**UpdateEmailCustomization**](CustomizationApi.md#updateemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Update Email Customization
+[**UpdateEmailSettings**](CustomizationApi.md#updateemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Update Email Template Settings
 [**UploadBrandThemeBackgroundImage**](CustomizationApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Updates the background image for your Theme
 [**UploadBrandThemeFavicon**](CustomizationApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Updates the favicon for your theme
 [**UploadBrandThemeLogo**](CustomizationApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Update a themes logo
@@ -42,9 +44,9 @@ Creates a new email customization.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -54,11 +56,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -97,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -109,7 +111,11 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Successfully created the email customization. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Could not create the email customization because it conflicts with an existing email customization. |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -125,9 +131,9 @@ Deletes all customizations for an email template.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -137,11 +143,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -177,18 +183,21 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted all customizations for the email template. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -204,9 +213,9 @@ Deletes a Theme background image
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -216,11 +225,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -256,7 +265,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -268,7 +277,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -284,9 +295,9 @@ Deletes a Theme favicon. The org then uses the Okta default favicon.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -296,11 +307,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -336,7 +347,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -348,7 +359,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -364,9 +377,9 @@ Deletes a Theme logo. The org then uses the Okta default logo.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -376,11 +389,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -416,7 +429,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -428,7 +441,9 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -444,9 +459,9 @@ Deletes an email customization by its unique identifier.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -456,11 +471,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -498,7 +513,7 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -510,7 +525,10 @@ void (empty response body)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully deleted the email customization. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Could not delete the email customization deleted because it is the default email customization. |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -526,9 +544,9 @@ Fetches a brand by `brandId`
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -538,11 +556,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -577,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -589,7 +607,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -605,9 +625,9 @@ Fetches a theme for a brand
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -617,11 +637,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -658,7 +678,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -670,6 +690,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -685,9 +708,9 @@ Generates a preview of an email customization. All variable references (e.g., `$
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -697,11 +720,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -740,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -752,6 +775,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully generated a preview of the email customization. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -767,9 +793,9 @@ Gets an email customization by its unique identifier.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -779,11 +805,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -822,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -834,6 +860,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email customization. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -849,9 +878,9 @@ Gets an email template's default content.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -861,11 +890,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -904,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -916,6 +945,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email template&#39;s default content. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -931,9 +963,9 @@ Generates a preview of an email template's default content. All variable referen
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -943,11 +975,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -986,7 +1018,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -998,12 +1030,98 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully generated a preview of the email template&#39;s default content. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="getemailsettings"></a>
+# **GetEmailSettings**
+> EmailSettings GetEmailSettings (string brandId, string templateName)
+
+Get Email Template Settings
+
+Gets an email template's settings.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class GetEmailSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth 2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var templateName = "templateName_example";  // string | The name of the email template.
+
+            try
+            {
+                // Get Email Template Settings
+                EmailSettings result = apiInstance.GetEmailSettings(brandId, templateName);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.GetEmailSettings: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **templateName** | **string**| The name of the email template. | 
+
+### Return type
+
+[**EmailSettings**](EmailSettings.md)
+
+### Authorization
+
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | Successfully retrieved the email template&#39;s settings. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="getemailtemplate"></a>
 # **GetEmailTemplate**
-> EmailTemplate GetEmailTemplate (string brandId, string templateName)
+> EmailTemplate GetEmailTemplate (string brandId, string templateName, List<string> expand = null)
 
 Get Email Template
 
@@ -1013,9 +1131,9 @@ Gets the details of an email template by name.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1025,21 +1143,22 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand.
             var templateName = "templateName_example";  // string | The name of the email template.
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response. (optional) 
 
             try
             {
                 // Get Email Template
-                EmailTemplate result = apiInstance.GetEmailTemplate(brandId, templateName);
+                EmailTemplate result = apiInstance.GetEmailTemplate(brandId, templateName, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1059,6 +1178,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **brandId** | **string**| The ID of the brand. | 
  **templateName** | **string**| The name of the email template. | 
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response. | [optional] 
 
 ### Return type
 
@@ -1066,7 +1186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1078,6 +1198,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved the email template. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1093,9 +1216,9 @@ List all the themes in your brand
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1105,11 +1228,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1144,7 +1267,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1156,6 +1279,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1171,9 +1297,9 @@ List all the brands in your org.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1183,11 +1309,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1218,7 +1344,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1230,6 +1356,8 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1245,9 +1373,9 @@ Lists all customizations of an email template.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1257,11 +1385,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1302,7 +1430,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1314,12 +1442,15 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully retrieved all email customizations for the specified email template. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 <a name="listemailtemplates"></a>
 # **ListEmailTemplates**
-> List&lt;EmailTemplate&gt; ListEmailTemplates (string brandId, string after = null, int? limit = null)
+> List&lt;EmailTemplate&gt; ListEmailTemplates (string brandId, string after = null, int? limit = null, List<string> expand = null)
 
 List Email Templates
 
@@ -1329,9 +1460,9 @@ Lists all email templates.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1341,22 +1472,23 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
             var brandId = "brandId_example";  // string | The ID of the brand.
             var after = "after_example";  // string | The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the `Link` response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional) 
             var limit = 20;  // int? | A limit on the number of objects to return. (optional)  (default to 20)
+            var expand = new List<string>(); // List<string> | Specifies additional metadata to be included in the response. (optional) 
 
             try
             {
                 // List Email Templates
-                List<EmailTemplate> result = apiInstance.ListEmailTemplates(brandId, after, limit);
+                List<EmailTemplate> result = apiInstance.ListEmailTemplates(brandId, after, limit, expand);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -1377,6 +1509,7 @@ Name | Type | Description  | Notes
  **brandId** | **string**| The ID of the brand. | 
  **after** | **string**| The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. | [optional] 
  **limit** | **int?**| A limit on the number of objects to return. | [optional] [default to 20]
+ **expand** | [**List&lt;string&gt;**](string.md)| Specifies additional metadata to be included in the response. | [optional] 
 
 ### Return type
 
@@ -1384,7 +1517,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1396,6 +1529,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully returned the list of email templates. |  * Link - The pagination header containing links to the current and next page of results. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. <br>  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1411,9 +1547,9 @@ Sends a test email to the current user’s primary and secondary email addresses
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1423,11 +1559,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1465,18 +1601,21 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | Successfully sent a test email. |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1492,9 +1631,9 @@ Updates a brand by `brandId`
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1504,11 +1643,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1545,7 +1684,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1558,6 +1697,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1573,9 +1715,9 @@ Updates a theme for a brand
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1585,11 +1727,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1628,7 +1770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1641,7 +1783,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1657,9 +1801,9 @@ Updates an existing email customization using the property values provided.
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1669,11 +1813,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1714,7 +1858,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1726,7 +1870,97 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Successfully updated the email customization. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
 | **409** | Could not update the email customization because the update would cause a conflict with an existing email customization. |  -  |
+| **429** | Too Many Requests |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a name="updateemailsettings"></a>
+# **UpdateEmailSettings**
+> void UpdateEmailSettings (string brandId, string templateName, EmailSettings emailSettings = null)
+
+Update Email Template Settings
+
+Updates an email template's settings.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
+
+namespace Example
+{
+    public class UpdateEmailSettingsExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://your-subdomain.okta.com";
+            // Configure API key authorization: API Token
+            config.AddApiKey("Authorization", "YOUR_API_KEY");
+            // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+            // config.AddApiKeyPrefix("Authorization", "Bearer");
+            // Configure OAuth2 access token for authorization: OAuth 2.0
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new CustomizationApi(config);
+            var brandId = "brandId_example";  // string | The ID of the brand.
+            var templateName = "templateName_example";  // string | The name of the email template.
+            var emailSettings = new EmailSettings(); // EmailSettings |  (optional) 
+
+            try
+            {
+                // Update Email Template Settings
+                apiInstance.UpdateEmailSettings(brandId, templateName, emailSettings);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling CustomizationApi.UpdateEmailSettings: " + e.Message );
+                Debug.Print("Status Code: "+ e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **brandId** | **string**| The ID of the brand. | 
+ **templateName** | **string**| The name of the email template. | 
+ **emailSettings** | [**EmailSettings**](EmailSettings.md)|  | [optional] 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **204** | Successfully updated the email template&#39;s settings. |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **422** | Could not update the email template&#39;s settings due to an invalid setting value. |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1742,9 +1976,9 @@ Updates the background image for your Theme
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1754,11 +1988,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1795,7 +2029,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1808,7 +2042,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1824,9 +2060,9 @@ Updates the favicon for your theme
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1836,11 +2072,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1877,7 +2113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1890,7 +2126,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -1906,9 +2144,9 @@ Updates the logo for your Theme
 ```csharp
 using System.Collections.Generic;
 using System.Diagnostics;
-using Org.OpenAPITools.Api;
-using Org.OpenAPITools.Client;
-using Org.OpenAPITools.Model;
+using Okta.Sdk.Api;
+using Okta.Sdk.Client;
+using Okta.Sdk.Model;
 
 namespace Example
 {
@@ -1918,11 +2156,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1959,7 +2197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -1972,7 +2210,9 @@ Name | Type | Description  | Notes
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
 | **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

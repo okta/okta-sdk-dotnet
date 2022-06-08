@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Channel** | [**InlineHookChannel**](InlineHookChannel.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -13,6 +12,7 @@ Name | Type | Description | Notes
 **Status** | **InlineHookStatus** |  | [optional] 
 **Type** | **InlineHookType** |  | [optional] 
 **_Version** | **string** |  | [optional] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

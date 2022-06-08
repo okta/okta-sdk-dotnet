@@ -7,11 +7,11 @@ Name | Type | Description | Notes
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Id** | **string** |  | [optional] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
+**Name** | **string** |  | [optional] 
 **Priority** | **int** |  | [optional] 
 **Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **System** | **bool** |  | [optional] [default to false]
 **Type** | [**PolicyRuleType**](PolicyRuleType.md) |  | [optional] 
-**Name** | **string** |  | [optional] 
 **Conditions** | [**AuthorizationServerPolicyRuleConditions**](AuthorizationServerPolicyRuleConditions.md) |  | [optional] 
 **Actions** | [**AuthorizationServerPolicyRuleActions**](AuthorizationServerPolicyRuleActions.md) |  | [optional] 
 

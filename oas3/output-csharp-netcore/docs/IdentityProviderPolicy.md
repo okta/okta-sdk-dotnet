@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Description** | **string** |  | [optional] 
@@ -16,6 +14,8 @@ Name | Type | Description | Notes
 **Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **System** | **bool** |  | [optional] 
 **Type** | [**PolicyType**](PolicyType.md) |  | [optional] 
+**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **AccountLink** | [**PolicyAccountLink**](PolicyAccountLink.md) |  | [optional] 
 **MaxClockSkew** | **int** |  | [optional] 
 **Provisioning** | [**Provisioning**](Provisioning.md) |  | [optional] 

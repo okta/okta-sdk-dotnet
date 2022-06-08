@@ -34,11 +34,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -85,6 +85,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **201** | Created |  -  |
+| **400** | Bad Request |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -112,11 +115,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -150,18 +153,21 @@ void (empty response body)
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: Not defined
+ - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **204** | No Content |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -189,11 +195,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -228,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -240,6 +246,9 @@ Name | Type | Description  | Notes
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **404** | Not Found |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -267,11 +276,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: api_token
+            // Configure API key authorization: API Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: oauth2
+            // Configure OAuth2 access token for authorization: OAuth 2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -302,7 +311,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[api_token](../README.md#api_token), [oauth2](../README.md#oauth2)
+[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
 
 ### HTTP request headers
 
@@ -314,6 +323,8 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | Success |  -  |
+| **403** | Forbidden |  -  |
+| **429** | Too Many Requests |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

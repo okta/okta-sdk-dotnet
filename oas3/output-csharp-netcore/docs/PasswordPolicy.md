@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Description** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -15,6 +13,8 @@ Name | Type | Description | Notes
 **Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **System** | **bool** |  | [optional] 
 **Type** | [**PolicyType**](PolicyType.md) |  | [optional] 
+**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Conditions** | [**PasswordPolicyConditions**](PasswordPolicyConditions.md) |  | [optional] 
 **Settings** | [**PasswordPolicySettings**](PasswordPolicySettings.md) |  | [optional] 
 

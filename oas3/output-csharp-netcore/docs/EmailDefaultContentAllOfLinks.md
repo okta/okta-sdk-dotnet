@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmailDefaultContentAllOfLinks
+# Okta.Sdk.Model.EmailDefaultContentAllOfLinks
 Links to resources related to this email template's default content.
 
 ## Properties

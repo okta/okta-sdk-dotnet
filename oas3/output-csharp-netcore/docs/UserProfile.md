@@ -16,7 +16,7 @@ Name | Type | Description | Notes
 **HonorificPrefix** | **string** |  | [optional] 
 **HonorificSuffix** | **string** |  | [optional] 
 **LastName** | **string** |  | [optional] 
-**Locale** | **string** |  | [optional] 
+**Locale** | **string** | The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646). | [optional] 
 **Login** | **string** |  | [optional] 
 **Manager** | **string** |  | [optional] 
 **ManagerId** | **string** |  | [optional] 

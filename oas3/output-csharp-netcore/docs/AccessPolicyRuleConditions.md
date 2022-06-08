@@ -23,8 +23,8 @@ Name | Type | Description | Notes
 **RiskScore** | [**RiskScorePolicyRuleCondition**](RiskScorePolicyRuleCondition.md) |  | [optional] 
 **Scopes** | [**OAuth2ScopesMediationPolicyRuleCondition**](OAuth2ScopesMediationPolicyRuleCondition.md) |  | [optional] 
 **UserIdentifier** | [**UserIdentifierPolicyRuleCondition**](UserIdentifierPolicyRuleCondition.md) |  | [optional] 
-**UserStatus** | [**UserStatusPolicyRuleCondition**](UserStatusPolicyRuleCondition.md) |  | [optional] 
 **Users** | [**UserPolicyRuleCondition**](UserPolicyRuleCondition.md) |  | [optional] 
+**UserStatus** | [**UserStatusPolicyRuleCondition**](UserStatusPolicyRuleCondition.md) |  | [optional] 
 **ElCondition** | [**AccessPolicyRuleCustomCondition**](AccessPolicyRuleCustomCondition.md) |  | [optional] 
 **UserType** | [**UserTypeCondition**](UserTypeCondition.md) |  | [optional] 
 

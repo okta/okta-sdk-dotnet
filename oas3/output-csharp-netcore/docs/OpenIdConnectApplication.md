@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Accessibility** | [**ApplicationAccessibility**](ApplicationAccessibility.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Features** | **List&lt;string&gt;** |  | [optional] 
@@ -17,6 +15,8 @@ Name | Type | Description | Notes
 **SignOnMode** | [**ApplicationSignOnMode**](ApplicationSignOnMode.md) |  | [optional] 
 **Status** | [**ApplicationLifecycleStatus**](ApplicationLifecycleStatus.md) |  | [optional] 
 **Visibility** | [**ApplicationVisibility**](ApplicationVisibility.md) |  | [optional] 
+**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Credentials** | [**OAuthApplicationCredentials**](OAuthApplicationCredentials.md) |  | [optional] 
 **Name** | **string** |  | [optional] [default to "oidc_client"]
 **Settings** | [**OpenIdConnectApplicationSettings**](OpenIdConnectApplicationSettings.md) |  | [optional] 

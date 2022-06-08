@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **AlwaysIncludeInToken** | **bool** |  | [optional] 
 **ClaimType** | **OAuth2ClaimType** |  | [optional] 
 **Conditions** | [**OAuth2ClaimConditions**](OAuth2ClaimConditions.md) |  | [optional] 
@@ -15,6 +14,7 @@ Name | Type | Description | Notes
 **System** | **bool** |  | [optional] 
 **Value** | **string** |  | [optional] 
 **ValueType** | **OAuth2ClaimValueType** |  | [optional] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

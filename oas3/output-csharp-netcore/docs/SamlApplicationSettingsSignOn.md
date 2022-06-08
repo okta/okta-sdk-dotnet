@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**AllowMultipleAcsEndpoints** | **bool** |  | [optional] 
 **AcsEndpoints** | [**List&lt;AcsEndpoint&gt;**](AcsEndpoint.md) |  | [optional] 
+**AllowMultipleAcsEndpoints** | **bool** |  | [optional] 
 **AssertionSigned** | **bool** |  | [optional] 
 **AttributeStatements** | [**List&lt;SamlAttributeStatement&gt;**](SamlAttributeStatement.md) |  | [optional] 
 **Audience** | **string** |  | [optional] 
@@ -24,10 +24,10 @@ Name | Type | Description | Notes
 **ResponseSigned** | **bool** |  | [optional] 
 **SignatureAlgorithm** | **string** |  | [optional] 
 **Slo** | [**SingleLogout**](SingleLogout.md) |  | [optional] 
+**SpCertificate** | [**SpCertificate**](SpCertificate.md) |  | [optional] 
 **SpIssuer** | **string** |  | [optional] 
 **SsoAcsUrl** | **string** |  | [optional] 
 **SsoAcsUrlOverride** | **string** |  | [optional] 
-**SpCertificate** | [**SpCertificate**](SpCertificate.md) |  | [optional] 
 **SubjectNameIdFormat** | **string** |  | [optional] 
 **SubjectNameIdTemplate** | **string** |  | [optional] 
 

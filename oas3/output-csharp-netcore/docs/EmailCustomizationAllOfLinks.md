@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmailCustomizationAllOfLinks
+# Okta.Sdk.Model.EmailCustomizationAllOfLinks
 Links to resources related to this email customization.
 
 ## Properties

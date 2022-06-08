@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Accessibility** | [**ApplicationAccessibility**](ApplicationAccessibility.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
@@ -18,6 +16,8 @@ Name | Type | Description | Notes
 **SignOnMode** | [**ApplicationSignOnMode**](ApplicationSignOnMode.md) |  | [optional] 
 **Status** | [**ApplicationLifecycleStatus**](ApplicationLifecycleStatus.md) |  | [optional] 
 **Visibility** | [**ApplicationVisibility**](ApplicationVisibility.md) |  | [optional] 
+**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Name** | **string** |  | [optional] [default to "template_wsfed"]
 **Settings** | [**WsFederationApplicationSettings**](WsFederationApplicationSettings.md) |  | [optional] 
 

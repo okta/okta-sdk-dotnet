@@ -4,19 +4,19 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Type** | **NetworkZoneType** |  | [optional] 
-**Id** | **string** |  | [optional] [readonly] 
-**Name** | **string** |  | [optional] 
-**System** | **bool** |  | [optional] 
-**Usage** | **NetworkZoneUsage** |  | [optional] 
-**Status** | **NetworkZoneStatus** |  | [optional] 
-**ProxyType** | **string** |  | [optional] 
-**Locations** | [**List&lt;NetworkZoneLocation&gt;**](NetworkZoneLocation.md) |  | [optional] 
-**Gateways** | [**List&lt;NetworkZoneAddress&gt;**](NetworkZoneAddress.md) |  | [optional] 
-**Proxies** | [**List&lt;NetworkZoneAddress&gt;**](NetworkZoneAddress.md) |  | [optional] 
 **Asns** | **List&lt;string&gt;** |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
+**Gateways** | [**List&lt;NetworkZoneAddress&gt;**](NetworkZoneAddress.md) |  | [optional] 
+**Id** | **string** |  | [optional] [readonly] 
 **LastUpdated** | **DateTimeOffset** |  | [optional] [readonly] 
+**Locations** | [**List&lt;NetworkZoneLocation&gt;**](NetworkZoneLocation.md) |  | [optional] 
+**Name** | **string** |  | [optional] 
+**Proxies** | [**List&lt;NetworkZoneAddress&gt;**](NetworkZoneAddress.md) |  | [optional] 
+**ProxyType** | **string** |  | [optional] 
+**Status** | **NetworkZoneStatus** |  | [optional] 
+**System** | **bool** |  | [optional] 
+**Type** | **NetworkZoneType** |  | [optional] 
+**Usage** | **NetworkZoneUsage** |  | [optional] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

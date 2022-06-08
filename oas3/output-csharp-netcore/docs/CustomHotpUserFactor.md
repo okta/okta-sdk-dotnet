@@ -4,8 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **FactorType** | [**FactorType**](FactorType.md) |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -13,6 +11,8 @@ Name | Type | Description | Notes
 **Provider** | [**FactorProvider**](FactorProvider.md) |  | [optional] 
 **Status** | [**FactorStatus**](FactorStatus.md) |  | [optional] 
 **Verify** | [**VerifyFactorRequest**](VerifyFactorRequest.md) |  | [optional] 
+**Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **FactorProfileId** | **string** |  | [optional] 
 **Profile** | [**CustomHotpUserFactorProfile**](CustomHotpUserFactorProfile.md) |  | [optional] 
 

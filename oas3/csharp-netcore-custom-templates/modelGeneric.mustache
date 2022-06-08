@@ -105,7 +105,7 @@
         /// </summary>
         [JsonConstructorAttribute]
         {{^isAdditionalPropertiesTrue}}
-        protected {{classname}}() { }
+        public {{classname}}() { }
         {{/isAdditionalPropertiesTrue}}
         {{#isAdditionalPropertiesTrue}}
         protected {{classname}}()

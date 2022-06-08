@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.IframeEmbedScopeAllowedApps
+# Okta.Sdk.Model.IframeEmbedScopeAllowedApps
 
 ## Properties
 

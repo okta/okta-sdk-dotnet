@@ -1,4 +1,4 @@
-# Org.OpenAPITools.Model.EmailDefaultContentAllOf
+# Okta.Sdk.Model.EmailDefaultContentAllOf
 
 ## Properties
 
