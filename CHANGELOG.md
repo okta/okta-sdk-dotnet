@@ -1,6 +1,14 @@
 # Changelog
 Running changelog of releases since `3.1.1`
 
+## 5.6.0
+
+- Update Open API spec to 2.12.0
+- Add `Application.UpdateApplicationPolicyAsync` method
+- Add `APPLE` as a `LogCredentialProvider` option
+- Add support for `AllowedOktaApps` in Scopes
+- Add `IframeEmbed` as a `ScopeType` option
+
 ## v5.5.0
 
 - Add support for [Email template operations](https://developer.okta.com/docs/reference/api/brands/#email-template-operations).

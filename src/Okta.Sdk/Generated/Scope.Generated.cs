@@ -17,6 +17,13 @@ namespace Okta.Sdk
     public sealed partial class Scope : Resource, IScope
     {
         /// <inheritdoc/>
+        public IList<IframeEmbedScopeAllowedApps> AllowedOktaApps 
+        {
+            get => GetArrayProperty<IframeEmbedScopeAllowedApps>("allowedOktaApps");
+            set => this["allowedOktaApps"] = value;
+        }
+        
+        /// <inheritdoc/>
         public string StringValue 
         {
             get => GetStringProperty("stringValue");

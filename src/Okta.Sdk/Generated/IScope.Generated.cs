@@ -15,6 +15,8 @@ namespace Okta.Sdk
     /// <summary>Represents a Scope resource in the Okta API.</summary>
     public partial interface IScope : IResource
     {
+        IList<IframeEmbedScopeAllowedApps> AllowedOktaApps { get; set; }
+
         string StringValue { get; set; }
 
         ScopeType Type { get; set; }

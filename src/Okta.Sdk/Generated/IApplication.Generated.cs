@@ -139,5 +139,8 @@ namespace Okta.Sdk
         Task<IApplicationFeature> UpdateFeatureForApplicationAsync(ICapabilitiesObject capabilities, 
             string name, CancellationToken cancellationToken = default(CancellationToken));
 
+        Task UpdateApplicationPolicyAsync(
+            string policyId, CancellationToken cancellationToken = default(CancellationToken));
+
     }
 }

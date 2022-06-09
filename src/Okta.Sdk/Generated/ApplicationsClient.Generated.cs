@@ -483,6 +483,20 @@ namespace Okta.Sdk
                 }, cancellationToken).ConfigureAwait(false);
         
         /// <inheritdoc />
+        public async Task UpdateApplicationPolicyAsync(string appId, string policyId, CancellationToken cancellationToken = default(CancellationToken))
+            => await PutAsync(new HttpRequest
+            {
+                Uri = "/api/v1/apps/{appId}/policies/{policyId}",
+                Verb = HttpVerb.Put,
+                
+                PathParameters = new Dictionary<string, object>()
+                {
+                    ["appId"] = appId,
+                    ["policyId"] = policyId,
+                },
+                }, cancellationToken).ConfigureAwait(false);
+        
+        /// <inheritdoc />
         public async Task RevokeOAuth2TokensForApplicationAsync(string appId, CancellationToken cancellationToken = default(CancellationToken))
             => await DeleteAsync(new HttpRequest
             {
