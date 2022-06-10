@@ -43,7 +43,7 @@ namespace Okta.Sdk.Client
         /// Gets the base path.
         /// </summary>
         /// <value>Base path.</value>
-        string BasePath { get; }
+        string OktaDomain { get; }
 
         /// <summary>
         /// Gets the date time format.

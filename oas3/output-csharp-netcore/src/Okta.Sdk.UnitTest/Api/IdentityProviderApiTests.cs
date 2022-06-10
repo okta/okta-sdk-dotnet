@@ -71,7 +71,7 @@ namespace Okta.Sdk.UnitTest
                                 ]";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com"});
+            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com"});
 
             var users = await idpApi.ListIdentityProviderApplicationUsersAsync("0oa4lb6lbtmH355Hx0h7");
 
@@ -125,7 +125,7 @@ namespace Okta.Sdk.UnitTest
 
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             var user = await idpApi.GetIdentityProviderApplicationUserAsync("0oa62bfdiumsUndnZ0h7", "00u5t60iloOHN9pBi0h7");
             
@@ -169,7 +169,7 @@ namespace Okta.Sdk.UnitTest
                             }";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             var user = await idpApi.LinkUserToIdentityProviderAsync("0oa62b57p7c8PaGpU0h7",
                 "00ub0oNGTSWTBKOLGLNR", new UserIdentityProviderLinkRequest() { ExternalId = "121749775026145" });
@@ -186,7 +186,7 @@ namespace Okta.Sdk.UnitTest
         public async Task UnlinkUserFromIdentityProvider()
         {
             var mockClient = new MockAsyncClient(string.Empty, HttpStatusCode.NoContent);
-            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
             
             await idpApi.UnlinkUserFromIdentityProviderAsync("0oa4lb6lbtmH355Hx0h7", "00u5cl9lo7nMjHjPr0h7");
 
@@ -208,7 +208,7 @@ namespace Okta.Sdk.UnitTest
                                 }]";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             var tokens = await idpApi.ListSocialAuthTokensAsync("0oa62b57p7c8PaGpU0h7", "00ub0oNGTSWTBKOLGLNR");
 
@@ -237,7 +237,7 @@ namespace Okta.Sdk.UnitTest
                                 }";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var idpApi = new IdentityProviderApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
 
             var idp = new IdentityProvider()

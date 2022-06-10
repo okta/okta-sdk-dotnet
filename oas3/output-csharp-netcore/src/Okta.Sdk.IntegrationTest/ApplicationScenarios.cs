@@ -23,9 +23,9 @@ namespace Okta.Sdk.IntegrationTest
 
             _config.ApiKey.Add("Authorization", "");
             _config.ApiKeyPrefix.Add("Authorization", "SSWS");
-            _config.BasePath = "";
+            _config.OktaDomain = "";
 
-            _applicationApi = new ApplicationApi(_config);
+            _applicationApi = new ApplicationApi();
             _userApi = new UserApi(_config);
             _groupApi = new GroupApi(_config);
         }
@@ -1682,7 +1682,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
                 
-                var issuer = _config.BasePath;
+                var issuer = _config.OktaDomain;
 
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {
@@ -1763,7 +1763,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var issuer = _config.BasePath;
+                var issuer = _config.OktaDomain;
 
                 // TODO: Review the spec. This method should return void
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
@@ -1849,7 +1849,7 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var issuer = _config.BasePath;
+                var issuer = _config.OktaDomain;
 
                 // TODO: Review the spec. This method should return void
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()

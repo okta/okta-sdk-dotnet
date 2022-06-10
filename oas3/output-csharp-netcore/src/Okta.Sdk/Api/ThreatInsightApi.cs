@@ -154,10 +154,10 @@ namespace Okta.Sdk.Api
         {
             this.Configuration = Okta.Sdk.Client.Configuration.MergeConfigurations(
                 Okta.Sdk.Client.GlobalConfiguration.Instance,
-                new Okta.Sdk.Client.Configuration { BasePath = basePath }
+                new Okta.Sdk.Client.Configuration { OktaDomain = basePath }
             );
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -175,8 +175,8 @@ namespace Okta.Sdk.Api
                 Okta.Sdk.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -215,7 +215,7 @@ namespace Okta.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return this.Configuration.OktaDomain;
         }
 
         /// <summary>

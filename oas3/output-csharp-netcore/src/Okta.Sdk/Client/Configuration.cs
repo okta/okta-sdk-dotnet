@@ -12,12 +12,19 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Okta.Sdk.Abstractions.Configuration;
+using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
+using Okta.Sdk.Abstractions.Configuration.Providers.Object;
+using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
 
 namespace Okta.Sdk.Client
 {
@@ -42,6 +49,79 @@ namespace Okta.Sdk.Client
         public const string ISO8601_DATETIME_FORMAT = "o";
 
         #endregion Constants
+
+        #region Okta Members
+
+        private bool _disableHttpsCheck = false;
+
+        /// <summary>
+        /// Gets or sets the Okta API token.
+        /// </summary>
+        /// <value>
+        /// The Okta API token.
+        /// </value>
+        /// <remarks>An API token can be generated from the Okta developer dashboard.</remarks>
+        public string Token
+        {
+            get => _token;
+            set
+            {
+                _token = value;
+                _apiKey = _apiKey ?? new Dictionary<string, string>();
+                if (!_apiKey.ContainsKey("Authorization"))
+                {
+                    _apiKey.Add("Authorization", string.Empty);
+                }
+                _apiKey["Authorization"] = _token;
+
+                _apiKeyPrefix = _apiKeyPrefix ?? new Dictionary<string, string>();
+
+                if (!_apiKeyPrefix.ContainsKey("Authorization"))
+                {
+                    _apiKeyPrefix.Add("Authorization", String.Empty);
+                }
+                _apiKeyPrefix["Authorization"] = "SSWS";
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the flag to disable https check.
+        /// This allows for insecure configurations and is NOT recommended for production use.
+        /// </summary>
+        public bool DisableHttpsCheck
+        {
+            get
+            {
+                return _disableHttpsCheck;
+            }
+
+            set
+            {
+                if (value)
+                {
+                    Trace.TraceWarning("Warning: HTTPS check is disabled. This allows for insecure configurations and is NOT recommended for production use.");
+                }
+
+                _disableHttpsCheck = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Okta Organization URL to use.
+        /// </summary>
+        /// <value>
+        /// The Okta Organization URL to use.
+        /// </value>
+        /// <remarks>
+        /// This URL is typically in the form <c>https://dev-12345.oktapreview.com</c>. If your Okta domain includes <c>-admin</c>, remove it.
+        /// </remarks>
+        public string OktaDomain
+        {
+            get { return _basePath; }
+            set { _basePath = value; }
+        }
+
+        #endregion
 
         #region Static Members
 
@@ -69,6 +149,11 @@ namespace Okta.Sdk.Client
         /// Example: http://localhost:3000/v1/
         /// </summary>
         private string _basePath;
+
+        /// <summary>
+        /// Defines the token used by the Okta API
+        /// </summary>
+        private string _token { get; set; }
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
@@ -103,7 +188,7 @@ namespace Okta.Sdk.Client
         {
             Proxy = null;
             UserAgent = "OpenAPI-Generator/1.0.0/csharp";
-            BasePath = "https://your-subdomain.okta.com";
+            OktaDomain = "https://your-subdomain.okta.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -168,10 +253,10 @@ namespace Okta.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://your-subdomain.okta.com") : this()
+            string oktaDomain = "https://your-subdomain.okta.com") : this()
         {
-            if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
+            if (string.IsNullOrWhiteSpace(oktaDomain))
+                throw new ArgumentException("The provided Okta domain is invalid.", "oktaDomain");
             if (defaultHeaders == null)
                 throw new ArgumentNullException("defaultHeaders");
             if (apiKey == null)
@@ -179,7 +264,7 @@ namespace Okta.Sdk.Client
             if (apiKeyPrefix == null)
                 throw new ArgumentNullException("apiKeyPrefix");
 
-            BasePath = basePath;
+            OktaDomain = oktaDomain;
 
             foreach (var keyValuePair in defaultHeaders)
             {
@@ -197,17 +282,28 @@ namespace Okta.Sdk.Client
             }
         }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Configuration" /> class
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        public Configuration(
+            string oktaDomain,
+            string token) : this()
+        {
+            if (string.IsNullOrWhiteSpace(oktaDomain))
+                throw new ArgumentException("The provided Okta domain is invalid.", "oktaDomain");
+
+            if (string.IsNullOrWhiteSpace(token))
+                throw new ArgumentException("The provided token is invalid.", "token");
+
+            OktaDomain = oktaDomain;
+            Token = token;
+        }
+
+
         #endregion Constructors
 
         #region Properties
-
-        /// <summary>
-        /// Gets or sets the base path for API access.
-        /// </summary>
-        public virtual string BasePath {
-            get { return _basePath; }
-            set { _basePath = value; }
-        }
 
         /// <summary>
         /// Gets or sets the default header.
@@ -245,7 +341,10 @@ namespace Okta.Sdk.Client
         /// Gets or sets the HTTP user agent.
         /// </summary>
         /// <value>Http user agent.</value>
-        public virtual string UserAgent { get; set; }
+        public virtual string UserAgent
+        {
+            get; protected set;
+        }
 
         /// <summary>
         /// Gets or sets the username (HTTP basic authentication).
@@ -497,7 +596,7 @@ namespace Okta.Sdk.Client
         /// <param name="key">Api Key name.</param>
         /// <param name="value">Api Key value.</param>
         /// <returns></returns>
-        public void AddApiKey(string key, string value)
+        protected void AddApiKey(string key, string value)
         {
             ApiKey[key] = value;
         }
@@ -507,7 +606,7 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <param name="key">Api Key name.</param>
         /// <param name="value">Api Key value.</param>
-        public void AddApiKeyPrefix(string key, string value)
+        protected void AddApiKeyPrefix(string key, string value)
         {
             ApiKeyPrefix[key] = value;
         }
@@ -538,7 +637,7 @@ namespace Okta.Sdk.Client
                 ApiKey = apiKey,
                 ApiKeyPrefix = apiKeyPrefix,
                 DefaultHeaders = defaultHeaders,
-                BasePath = second.BasePath ?? first.BasePath,
+                OktaDomain = second.OktaDomain ?? first.OktaDomain,
                 Timeout = second.Timeout,
                 Proxy = second.Proxy ?? first.Proxy,
                 UserAgent = second.UserAgent ?? first.UserAgent,
@@ -550,6 +649,33 @@ namespace Okta.Sdk.Client
                 ClientCertificates = second.ClientCertificates ?? first.ClientCertificates,
             };
             return config;
+        }
+
+        public static Configuration GetConfigurationOrDefault(Configuration configuration = null)
+        {
+            string configurationFileRoot = Directory.GetCurrentDirectory();
+
+            var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
+
+            var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, "appsettings.json");
+            var applicationOktaYamlLocation = Path.Combine(configurationFileRoot ?? string.Empty, "okta.yaml");
+
+            var configBuilder = new ConfigurationBuilder()
+                .AddYamlFile(homeOktaYamlLocation, optional: true)
+                .AddJsonFile(applicationAppSettingsLocation, optional: true)
+                .AddYamlFile(applicationOktaYamlLocation, optional: true)
+                .AddEnvironmentVariables("okta", "_", root: "okta")
+                .AddEnvironmentVariables("okta_testing", "_", root: "okta")
+                .AddObject(configuration, root: "okta:client")
+                .AddObject(configuration, root: "okta:testing")
+                .AddObject(configuration);
+
+            var compiledConfig = new Configuration();
+            configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
+            configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
+            configBuilder.Build().Bind(compiledConfig);
+
+            return compiledConfig;
         }
         #endregion Static Members
     }

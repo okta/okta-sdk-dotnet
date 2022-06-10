@@ -37,7 +37,7 @@ namespace Okta.Sdk.UnitTest
         public async Task GetOAuthToken()
         {
             var mockClient = new MockAsyncClient(GetOAuthTokenStubResponse(), HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             var token = await appApi.GetOAuth2TokenForApplicationAsync("foo", "oar579Mcp7OUsNTlo0g3");
 
@@ -62,7 +62,7 @@ namespace Okta.Sdk.UnitTest
         public async Task ListOAuthTokens()
         {
             var mockClient = new MockAsyncClient(GetListOAuthTokensStubResponse(), HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             var tokens = await appApi.ListOAuth2TokensForApplicationAsync("foo");
 
@@ -111,7 +111,7 @@ namespace Okta.Sdk.UnitTest
                                         }
                                     }";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             var capabilitiesObj = new CapabilitiesObject
             {
@@ -170,7 +170,7 @@ namespace Okta.Sdk.UnitTest
                                         }
                                     }";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
             var feature = await appApi.GetFeatureForApplicationAsync("foo", "bar");
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features/{name}");
@@ -212,7 +212,7 @@ namespace Okta.Sdk.UnitTest
                                         }
                                     }]";
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
             var features = await appApi.ListFeaturesForApplicationAsync("foo");
 
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/features");
@@ -228,7 +228,7 @@ namespace Okta.Sdk.UnitTest
         public async Task ActivateDefaultConnection()
         {
             var mockClient = new MockAsyncClient(string.Empty, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             await appApi.ActivateDefaultProvisioningConnectionForApplicationAsync("foo");
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default/lifecycle/activate");
@@ -239,7 +239,7 @@ namespace Okta.Sdk.UnitTest
         public async Task DeactivateDefaultConnection()
         {
             var mockClient = new MockAsyncClient(string.Empty, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
 
             await appApi.DeactivateDefaultProvisioningConnectionForApplicationAsync("foo");
             mockClient.ReceivedPath.Should().StartWith("/api/v1/apps/{appId}/connections/default/lifecycle/deactivate");
@@ -274,7 +274,7 @@ namespace Okta.Sdk.UnitTest
                                 }";
 
             var mockClient = new MockAsyncClient(rawResponse, HttpStatusCode.OK);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { BasePath = "https://foo.com" });
+            var appApi = new ApplicationApi(new ApiClient(), mockClient, new Configuration { OktaDomain = "https://foo.com" });
             var connectionProfile = new ProvisioningConnectionRequest
             {
                 Profile = new ProvisioningConnectionProfile

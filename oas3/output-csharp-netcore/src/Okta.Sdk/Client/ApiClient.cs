@@ -30,6 +30,14 @@ using RestSharp;
 using RestSharp.Deserializers;
 using RestSharpMethod = RestSharp.Method;
 using Polly;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
+using Okta.Sdk.Abstractions.Configuration.Providers.Object;
+using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
 
 namespace Okta.Sdk.Client
 {
@@ -157,11 +165,93 @@ namespace Okta.Sdk.Client
             set { throw new InvalidOperationException("Not allowed to set content type."); }
         }
     }
+
     /// <summary>
-    /// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
-    /// encapsulating general REST accessor use cases.
+    /// Contains methods for resolving the home directory path.
     /// </summary>
-    public partial class ApiClient : ISynchronousClient, IAsynchronousClient
+    internal static class HomePath
+    {
+        /// <summary>
+        /// Resolves a collection of path segments with a home directory path.
+        /// </summary>
+        /// <remarks>
+        /// Provides support for Unix-like paths on Windows. If the first path segment starts with <c>~</c>, this segment is prepended with the home directory path.
+        /// </remarks>
+        /// <param name="pathSegments">The path segments.</param>
+        /// <returns>A combined path which includes the resolved home directory path (if necessary). If home directory path cannot be resolved, returns null.</returns>
+        public static string Resolve(params string[] pathSegments)
+        {
+            if (pathSegments.Length == 0)
+            {
+                return null;
+            }
+
+            if (!pathSegments[0].StartsWith("~"))
+            {
+                return Path.Combine(pathSegments);
+            }
+
+            if (!TryGetHomePath(out string homePath))
+            {
+                return null;
+            }
+
+            var newSegments =
+                new string[] { pathSegments[0].Replace("~", homePath) }
+                .Concat(pathSegments.Skip(1))
+                .ToArray();
+
+            return Path.Combine(newSegments);
+        }
+
+        /// <summary>
+        /// Resolves the current user's home directory path.
+        /// Throws an exception if the path cannot be resolved.
+        /// </summary>
+        /// <returns>The home path.</returns>
+        public static string GetHomePath()
+        {
+            if (TryGetHomePath(out var homePath))
+            {
+                return homePath;
+            }
+            else
+            {
+                throw new Exception("Home directory cannot be found in environment variables.");
+            }
+        }
+
+        /// <summary>
+        /// Tries to resolve the current user's home directory path.
+        /// </summary>
+        /// <param name="homePath">Output: resolved home path.</param>
+        /// <returns>true if home path was resolved; otherwise, false.</returns>
+        public static bool TryGetHomePath(out string homePath)
+        {
+#if NET45
+            homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+#else
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                homePath = Environment.GetEnvironmentVariable("USERPROFILE") ??
+                           Path.Combine(Environment.GetEnvironmentVariable("HOMEDRIVE"), Environment.GetEnvironmentVariable("HOMEPATH"));
+            }
+            else
+            {
+                homePath = Environment.GetEnvironmentVariable("HOME");
+            }
+#endif
+
+            return !string.IsNullOrEmpty(homePath);
+        }
+    }
+
+
+/// <summary>
+/// Provides a default implementation of an Api client (both synchronous and asynchronous implementations),
+/// encapsulating general REST accessor use cases.
+/// </summary>
+public partial class ApiClient : ISynchronousClient, IAsynchronousClient
     {
         private readonly string _baseUrl;
 
@@ -181,7 +271,7 @@ namespace Okta.Sdk.Client
                 }
             }
         };
-
+        
         /// <summary>
         /// Allows for extending request processing for <see cref="ApiClient"/> generated code.
         /// </summary>
@@ -200,7 +290,7 @@ namespace Okta.Sdk.Client
         /// </summary>
         public ApiClient()
         {
-            _baseUrl = Okta.Sdk.Client.GlobalConfiguration.Instance.BasePath;
+            _baseUrl = Okta.Sdk.Client.GlobalConfiguration.Instance.OktaDomain;
         }
 
         /// <summary>
