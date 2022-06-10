@@ -129,6 +129,8 @@ namespace {{packageName}}.{{apiPackage}}
                 {{packageName}}.Client.GlobalConfiguration.Instance,
                 configuration
             );
+            
+            Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
             this.Client = new {{packageName}}.Client.ApiClient(this.Configuration.OktaDomain);
             {{#supportsAsync}}
             this.AsynchronousClient = new {{packageName}}.Client.ApiClient(this.Configuration.OktaDomain);

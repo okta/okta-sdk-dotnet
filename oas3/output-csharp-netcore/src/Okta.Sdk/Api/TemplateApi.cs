@@ -340,6 +340,8 @@ namespace Okta.Sdk.Api
                 Okta.Sdk.Client.GlobalConfiguration.Instance,
                 configuration
             );
+            
+            Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
             this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
