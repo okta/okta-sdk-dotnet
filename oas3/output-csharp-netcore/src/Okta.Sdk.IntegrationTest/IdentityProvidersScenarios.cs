@@ -16,18 +16,11 @@ namespace Okta.Sdk.IntegrationTest
 {
     public class IdentityProvidersScenarios
     {
-        private Configuration _config;
         private IdentityProviderApi _idpApi;
 
         public IdentityProvidersScenarios()
         {
-            _config = new Configuration();
-
-            _config.ApiKey.Add("Authorization", "");
-            _config.ApiKeyPrefix.Add("Authorization", "SSWS");
-            _config.BasePath = "";
-
-            _idpApi = new IdentityProviderApi(_config);
+            _idpApi = new IdentityProviderApi();
 
             DeleteAllIdps().Wait();
         }
@@ -103,7 +96,7 @@ namespace Okta.Sdk.IntegrationTest
                         },
                     },
                     Scopes = new List<string>() { "openid", "profile", "email" },
-                    Type = ProtocolType.OIDC,
+                    Type = ProtocolType.OAUTH2,
                     Credentials = new IdentityProviderCredentials()
                     {
                         _Client = new IdentityProviderCredentialsClient()

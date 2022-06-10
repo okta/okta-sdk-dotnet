@@ -16,18 +16,11 @@ namespace Okta.Sdk.IntegrationTest
         private ApplicationApi _applicationApi;
         private UserApi _userApi;
         private GroupApi _groupApi;
-        private Configuration _config;
         public ApplicationScenarios()
         {
-            _config = new Configuration();
-
-            _config.ApiKey.Add("Authorization", "");
-            _config.ApiKeyPrefix.Add("Authorization", "SSWS");
-            _config.BasePath = "";
-
-            _applicationApi = new ApplicationApi(_config);
-            _userApi = new UserApi(_config);
-            _groupApi = new GroupApi(_config);
+            _applicationApi = new ApplicationApi();
+            _userApi = new UserApi();
+            _groupApi = new GroupApi();
         }
 
         [Fact]
@@ -1681,8 +1674,9 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                
-                var issuer = _config.BasePath;
+
+                var issuer = _applicationApi.Configuration.OktaDomain;
+                issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
 
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {
@@ -1763,7 +1757,8 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var issuer = _config.BasePath;
+                var issuer = _applicationApi.Configuration.OktaDomain;
+                issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
 
                 // TODO: Review the spec. This method should return void
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
@@ -1849,8 +1844,8 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var issuer = _config.BasePath;
-
+                var issuer = _applicationApi.Configuration.OktaDomain;
+                issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
                 // TODO: Review the spec. This method should return void
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {

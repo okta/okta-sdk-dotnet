@@ -26,6 +26,12 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <value>Access token.</value>
         string AccessToken { get; }
+        
+        /// <summary>
+        /// Gets the API token.
+        /// </summary>
+        /// <value>API token.</value>
+        string Token { get; }
 
         /// <summary>
         /// Gets the API key.
@@ -40,10 +46,10 @@ namespace Okta.Sdk.Client
         IDictionary<string, string> ApiKeyPrefix { get; }
 
         /// <summary>
-        /// Gets the base path.
+        /// Gets the org URL.
         /// </summary>
-        /// <value>Base path.</value>
-        string BasePath { get; }
+        /// <value>Okta domain.</value>
+        string OktaDomain { get; }
 
         /// <summary>
         /// Gets the date time format.
