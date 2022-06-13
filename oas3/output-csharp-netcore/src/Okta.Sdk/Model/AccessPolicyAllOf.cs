@@ -27,29 +27,17 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Org2OrgApplicationAllOf
+    /// AccessPolicyAllOf
     /// </summary>
-    [DataContract(Name = "Org2OrgApplication_allOf")]
-    public partial class Org2OrgApplicationAllOf : IEquatable<Org2OrgApplicationAllOf>
+    [DataContract(Name = "AccessPolicy_allOf")]
+    public partial class AccessPolicyAllOf : IEquatable<AccessPolicyAllOf>
     {
         
         /// <summary>
-        /// Gets or Sets Credentials
+        /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "credentials", EmitDefaultValue = false)]
-        public ApplicationCredentials Credentials { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Settings
-        /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
-        public Org2OrgApplicationSettings Settings { get; set; }
+        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        public AccessPolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -58,10 +46,8 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Org2OrgApplicationAllOf {\n");
-            sb.Append("  Credentials: ").Append(Credentials).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Settings: ").Append(Settings).Append("\n");
+            sb.Append("class AccessPolicyAllOf {\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +68,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Org2OrgApplicationAllOf);
+            return this.Equals(input as AccessPolicyAllOf);
         }
 
         /// <summary>
-        /// Returns true if Org2OrgApplicationAllOf instances are equal
+        /// Returns true if AccessPolicyAllOf instances are equal
         /// </summary>
-        /// <param name="input">Instance of Org2OrgApplicationAllOf to be compared</param>
+        /// <param name="input">Instance of AccessPolicyAllOf to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Org2OrgApplicationAllOf input)
+        public bool Equals(AccessPolicyAllOf input)
         {
             if (input == null)
             {
@@ -98,19 +84,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Credentials == input.Credentials ||
-                    (this.Credentials != null &&
-                    this.Credentials.Equals(input.Credentials))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && 
-                (
-                    this.Settings == input.Settings ||
-                    (this.Settings != null &&
-                    this.Settings.Equals(input.Settings))
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
                 );
         }
 
@@ -123,17 +99,9 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Credentials != null)
+                if (this.Conditions != null)
                 {
-                    hashCode = (hashCode * 59) + this.Credentials.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
-                if (this.Settings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
                 return hashCode;
             }

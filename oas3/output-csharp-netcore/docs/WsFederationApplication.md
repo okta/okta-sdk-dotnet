@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Accessibility** | [**ApplicationAccessibility**](ApplicationAccessibility.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
 **Features** | **List&lt;string&gt;** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **Label** | **string** |  | [optional] 
@@ -18,6 +17,7 @@ Name | Type | Description | Notes
 **Visibility** | [**ApplicationVisibility**](ApplicationVisibility.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
 **Name** | **string** |  | [optional] [default to "template_wsfed"]
 **Settings** | [**WsFederationApplicationSettings**](WsFederationApplicationSettings.md) |  | [optional] 
 

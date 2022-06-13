@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Description** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -17,6 +16,7 @@ Name | Type | Description | Notes
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **AccountLink** | [**PolicyAccountLink**](PolicyAccountLink.md) |  | [optional] 
+**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **MaxClockSkew** | **int** |  | [optional] 
 **Provisioning** | [**Provisioning**](Provisioning.md) |  | [optional] 
 **Subject** | [**PolicySubject**](PolicySubject.md) |  | [optional] 

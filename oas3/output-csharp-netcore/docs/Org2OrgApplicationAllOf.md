@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
 **Name** | **string** |  | [optional] [default to "okta_org2org"]
 **Settings** | [**Org2OrgApplicationSettings**](Org2OrgApplicationSettings.md) |  | [optional] 
 

@@ -60,12 +60,6 @@ namespace Okta.Sdk.Model
         public PolicyType? Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets Conditions
-        /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
-        public PolicyRuleConditions Conditions { get; set; }
-
-        /// <summary>
         /// Gets or Sets Created
         /// </summary>
         [DataMember(Name = "created", EmitDefaultValue = false)]
@@ -167,7 +161,6 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class Policy {\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
@@ -214,11 +207,6 @@ namespace Okta.Sdk.Model
                 return false;
             }
             return 
-                (
-                    this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
-                ) && 
                 (
                     this.Created == input.Created ||
                     (this.Created != null &&
@@ -283,10 +271,6 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Conditions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

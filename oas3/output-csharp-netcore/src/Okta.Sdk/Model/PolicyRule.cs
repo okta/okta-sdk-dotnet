@@ -58,18 +58,6 @@ namespace Okta.Sdk.Model
         public PolicyRuleType? Type { get; set; }
         
         /// <summary>
-        /// Gets or Sets Actions
-        /// </summary>
-        [DataMember(Name = "actions", EmitDefaultValue = false)]
-        public PolicyRuleActions Actions { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Conditions
-        /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
-        public PolicyRuleConditions Conditions { get; set; }
-
-        /// <summary>
         /// Gets or Sets Created
         /// </summary>
         [DataMember(Name = "created", EmitDefaultValue = false)]
@@ -129,8 +117,6 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class PolicyRule {\n");
-            sb.Append("  Actions: ").Append(Actions).Append("\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
@@ -174,16 +160,6 @@ namespace Okta.Sdk.Model
                 return false;
             }
             return 
-                (
-                    this.Actions == input.Actions ||
-                    (this.Actions != null &&
-                    this.Actions.Equals(input.Actions))
-                ) && 
-                (
-                    this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
-                ) && 
                 (
                     this.Created == input.Created ||
                     (this.Created != null &&
@@ -231,14 +207,6 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Actions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Actions.GetHashCode();
-                }
-                if (this.Conditions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
                 if (this.Created != null)
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();

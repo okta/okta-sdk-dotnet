@@ -42,6 +42,12 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
+        /// Gets or Sets Conditions
+        /// </summary>
+        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        public AuthorizationServerPolicyRuleConditions Conditions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -50,6 +56,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class AuthorizationServerPolicy {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,7 +91,12 @@ namespace Okta.Sdk.Model
             {
                 return false;
             }
-            return base.Equals(input);
+            return base.Equals(input) && 
+                (
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
+                );
         }
 
         /// <summary>
@@ -96,6 +108,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
+                if (this.Conditions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
+                }
                 return hashCode;
             }
         }

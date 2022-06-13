@@ -3,6 +3,7 @@ Okta.Sdk.sln
 README.md
 appveyor.yml
 docs/AccessPolicy.md
+docs/AccessPolicyAllOf.md
 docs/AccessPolicyConstraint.md
 docs/AccessPolicyConstraints.md
 docs/AccessPolicyRule.md
@@ -74,6 +75,7 @@ docs/AuthorizationServerCredentialsRotationMode.md
 docs/AuthorizationServerCredentialsSigningConfig.md
 docs/AuthorizationServerCredentialsUse.md
 docs/AuthorizationServerPolicy.md
+docs/AuthorizationServerPolicyAllOf.md
 docs/AuthorizationServerPolicyRule.md
 docs/AuthorizationServerPolicyRuleActions.md
 docs/AuthorizationServerPolicyRuleActionsAllOf.md
@@ -455,6 +457,7 @@ docs/PrincipalRateLimitApi.md
 docs/PrincipalRateLimitEntity.md
 docs/PrincipalType.md
 docs/ProfileEnrollmentPolicy.md
+docs/ProfileEnrollmentPolicyAllOf.md
 docs/ProfileEnrollmentPolicyRule.md
 docs/ProfileEnrollmentPolicyRuleAction.md
 docs/ProfileEnrollmentPolicyRuleActions.md
@@ -688,6 +691,7 @@ src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
 src/Okta.Sdk/Model/AbstractOpenAPISchema.cs
 src/Okta.Sdk/Model/AccessPolicy.cs
+src/Okta.Sdk/Model/AccessPolicyAllOf.cs
 src/Okta.Sdk/Model/AccessPolicyConstraint.cs
 src/Okta.Sdk/Model/AccessPolicyConstraints.cs
 src/Okta.Sdk/Model/AccessPolicyRule.cs
@@ -754,6 +758,7 @@ src/Okta.Sdk/Model/AuthorizationServerCredentialsRotationMode.cs
 src/Okta.Sdk/Model/AuthorizationServerCredentialsSigningConfig.cs
 src/Okta.Sdk/Model/AuthorizationServerCredentialsUse.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicy.cs
+src/Okta.Sdk/Model/AuthorizationServerPolicyAllOf.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRule.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRuleActions.cs
 src/Okta.Sdk/Model/AuthorizationServerPolicyRuleActionsAllOf.cs
@@ -1121,6 +1126,7 @@ src/Okta.Sdk/Model/PreRegistrationInlineHook.cs
 src/Okta.Sdk/Model/PrincipalRateLimitEntity.cs
 src/Okta.Sdk/Model/PrincipalType.cs
 src/Okta.Sdk/Model/ProfileEnrollmentPolicy.cs
+src/Okta.Sdk/Model/ProfileEnrollmentPolicyAllOf.cs
 src/Okta.Sdk/Model/ProfileEnrollmentPolicyRule.cs
 src/Okta.Sdk/Model/ProfileEnrollmentPolicyRuleAction.cs
 src/Okta.Sdk/Model/ProfileEnrollmentPolicyRuleActions.cs

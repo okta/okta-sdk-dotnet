@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Description** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
@@ -16,6 +15,7 @@ Name | Type | Description | Notes
 **Type** | [**PolicyType**](PolicyType.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
+**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

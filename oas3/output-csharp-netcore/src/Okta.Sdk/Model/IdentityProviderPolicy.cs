@@ -48,6 +48,12 @@ namespace Okta.Sdk.Model
         public PolicyAccountLink AccountLink { get; set; }
 
         /// <summary>
+        /// Gets or Sets Conditions
+        /// </summary>
+        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        public PolicyRuleConditions Conditions { get; set; }
+
+        /// <summary>
         /// Gets or Sets MaxClockSkew
         /// </summary>
         [DataMember(Name = "maxClockSkew", EmitDefaultValue = false)]
@@ -75,6 +81,7 @@ namespace Okta.Sdk.Model
             sb.Append("class IdentityProviderPolicy {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  AccountLink: ").Append(AccountLink).Append("\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  MaxClockSkew: ").Append(MaxClockSkew).Append("\n");
             sb.Append("  Provisioning: ").Append(Provisioning).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
@@ -119,6 +126,11 @@ namespace Okta.Sdk.Model
                     this.AccountLink.Equals(input.AccountLink))
                 ) && base.Equals(input) && 
                 (
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
+                ) && base.Equals(input) && 
+                (
                     this.MaxClockSkew == input.MaxClockSkew ||
                     this.MaxClockSkew.Equals(input.MaxClockSkew)
                 ) && base.Equals(input) && 
@@ -146,6 +158,10 @@ namespace Okta.Sdk.Model
                 if (this.AccountLink != null)
                 {
                     hashCode = (hashCode * 59) + this.AccountLink.GetHashCode();
+                }
+                if (this.Conditions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.MaxClockSkew.GetHashCode();
                 if (this.Provisioning != null)

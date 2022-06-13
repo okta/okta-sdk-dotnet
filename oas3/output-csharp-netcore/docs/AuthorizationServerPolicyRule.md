@@ -12,8 +12,8 @@ Name | Type | Description | Notes
 **Status** | [**LifecycleStatus**](LifecycleStatus.md) |  | [optional] 
 **System** | **bool** |  | [optional] [default to false]
 **Type** | [**PolicyRuleType**](PolicyRuleType.md) |  | [optional] 
-**Conditions** | [**AuthorizationServerPolicyRuleConditions**](AuthorizationServerPolicyRuleConditions.md) |  | [optional] 
 **Actions** | [**AuthorizationServerPolicyRuleActions**](AuthorizationServerPolicyRuleActions.md) |  | [optional] 
+**Conditions** | [**AuthorizationServerPolicyRuleConditions**](AuthorizationServerPolicyRuleConditions.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

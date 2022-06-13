@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
 **Name** | **string** |  | [optional] [default to "template_wsfed"]
 **Settings** | [**WsFederationApplicationSettings**](WsFederationApplicationSettings.md) |  | [optional] 
 

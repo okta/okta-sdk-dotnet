@@ -6,13 +6,13 @@
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AFACAACkEQAAAAAFgIABAAEAAAAFAISAqBAAAAAACAA=</HashCode>
+      <HashCode>AFACAACkEQAAAAAFgIABAAEAAAABAISAKBAAAAAACAA=</HashCode>
       <FileName>Model\Application.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.AutoLoginApplication">
-    <Position X="10.25" Y="5.25" Width="3" />
+    <Position X="19.75" Y="6" Width="3" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -23,7 +23,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.BasicAuthApplication">
-    <Position X="16.75" Y="5.25" Width="3" />
+    <Position X="25.5" Y="6" Width="3" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -34,7 +34,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.BookmarkApplication">
-    <Position X="13.5" Y="5.25" Width="2.75" />
+    <Position X="23" Y="6" Width="2.25" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -45,18 +45,18 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.BrowserPluginApplication">
-    <Position X="0.5" Y="5.25" Width="3" />
+    <Position X="3.5" Y="6" Width="3" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAEAIAAIAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAEAIAAoAAAAAAAAAA=</HashCode>
       <FileName>Model\BrowserPluginApplication.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.OpenIdConnectApplication">
-    <Position X="6.75" Y="5.25" Width="3.25" />
+    <Position X="16.5" Y="6" Width="3.25" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
@@ -67,45 +67,45 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.Org2OrgApplication">
-    <Position X="5" Y="7.5" Width="2.75" />
+    <Position X="13.5" Y="6" Width="2.75" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAAQAAAAAAIAAoAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAQAAAAEAIAAoAAAAAAAAAA=</HashCode>
       <FileName>Model\Org2OrgApplication.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.SamlApplication">
-    <Position X="4" Y="5.25" Width="2.5" />
+    <Position X="10.25" Y="6" Width="2.75" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAAAIAAoAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAAAAAAEAIAAoAAAAAAAAAA=</HashCode>
       <FileName>Model\SamlApplication.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.SwaApplication">
-    <Position X="4.75" Y="10.25" Width="2.5" />
+    <Position X="7" Y="6" Width="3" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAAQAAAAAAIAAoAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAQAAAAEAIAAoAAAAAAAAAA=</HashCode>
       <FileName>Model\SwaApplication.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Okta.Sdk.Model.SwaThreeFieldApplication">
-    <Position X="0.5" Y="10.25" Width="3" />
+    <Position X="0.5" Y="6" Width="3" />
     <Compartments>
       <Compartment Name="Methods" Collapsed="true" />
     </Compartments>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAEgAAAAAQAAAAAAIAAoAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAEgAAAAAQAAAAEAIAAoAAAAAAAAAA=</HashCode>
       <FileName>Model\SwaThreeFieldApplication.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />

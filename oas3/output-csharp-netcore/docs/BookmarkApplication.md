@@ -6,7 +6,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Accessibility** | [**ApplicationAccessibility**](ApplicationAccessibility.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
-**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
 **Features** | **List&lt;string&gt;** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 
 **Label** | **string** |  | [optional] 
