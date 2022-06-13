@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -53,6 +54,48 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedApp.SignOnMode.Should().Be(ApplicationSignOnMode.BOOKMARK);
                 retrievedApp.Settings.App.RequestIntegration.Should().Be(false);
                 retrievedApp.Settings.App.Url.Should().Be("https://example.com/bookmark.htm");
+            }
+            finally
+            {
+                await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
+                await _applicationApi.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UploadLogo()
+        {
+            var guid = Guid.NewGuid();
+
+            var app = new BookmarkApplication
+            {
+                Name = "bookmark",
+                Label = $"dotnet-sdk: UploadLogo {guid}",
+                SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                Settings = new BookmarkApplicationSettings
+                {
+                    App = new BookmarkApplicationSettingsApplication
+                    {
+                        RequestIntegration = false,
+                        Url = "https://example.com/bookmark.htm",
+                    },
+                },
+            };
+
+            var createdApp = await _applicationApi.CreateApplicationAsync(app);
+
+            try
+            {
+                var defaultLogo = createdApp.Links["logo"].ToString();
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/okta_logo_white.png");
+                var file = File.OpenRead(filePath);
+
+                await _applicationApi.UploadApplicationLogoAsync(createdApp.Id, file);
+
+                var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
+                var updatedLogo = retrievedApp.Links["logo"].ToString();
+                defaultLogo.Should().NotBeEquivalentTo(updatedLogo);
+
             }
             finally
             {
