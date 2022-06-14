@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using FluentAssertions;
@@ -16,18 +17,11 @@ namespace Okta.Sdk.IntegrationTest
         private ApplicationApi _applicationApi;
         private UserApi _userApi;
         private GroupApi _groupApi;
-        private Configuration _config;
         public ApplicationScenarios()
         {
-            _config = new Configuration();
-
-            _config.ApiKey.Add("Authorization", "");
-            _config.ApiKeyPrefix.Add("Authorization", "SSWS");
-            _config.BasePath = "";
-
-            _applicationApi = new ApplicationApi(_config);
-            _userApi = new UserApi(_config);
-            _groupApi = new GroupApi(_config);
+            _applicationApi = new ApplicationApi();
+            _userApi = new UserApi();
+            _groupApi = new GroupApi();
         }
 
         [Fact]
@@ -60,6 +54,48 @@ namespace Okta.Sdk.IntegrationTest
                 retrievedApp.SignOnMode.Should().Be(ApplicationSignOnMode.BOOKMARK);
                 retrievedApp.Settings.App.RequestIntegration.Should().Be(false);
                 retrievedApp.Settings.App.Url.Should().Be("https://example.com/bookmark.htm");
+            }
+            finally
+            {
+                await _applicationApi.DeactivateApplicationAsync(createdApp.Id);
+                await _applicationApi.DeleteApplicationAsync(createdApp.Id);
+            }
+        }
+
+        [Fact]
+        public async Task UploadLogo()
+        {
+            var guid = Guid.NewGuid();
+
+            var app = new BookmarkApplication
+            {
+                Name = "bookmark",
+                Label = $"dotnet-sdk: UploadLogo {guid}",
+                SignOnMode = ApplicationSignOnMode.BOOKMARK,
+                Settings = new BookmarkApplicationSettings
+                {
+                    App = new BookmarkApplicationSettingsApplication
+                    {
+                        RequestIntegration = false,
+                        Url = "https://example.com/bookmark.htm",
+                    },
+                },
+            };
+
+            var createdApp = await _applicationApi.CreateApplicationAsync(app);
+
+            try
+            {
+                var defaultLogo = createdApp.Links["logo"].ToString();
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Assets/okta_logo_white.png");
+                var file = File.OpenRead(filePath);
+
+                await _applicationApi.UploadApplicationLogoAsync(createdApp.Id, file);
+
+                var retrievedApp = await _applicationApi.GetApplicationAsync(createdApp.Id) as BookmarkApplication;
+                var updatedLogo = retrievedApp.Links["logo"].ToString();
+                defaultLogo.Should().NotBeEquivalentTo(updatedLogo);
+
             }
             finally
             {
@@ -1681,8 +1717,9 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                
-                var issuer = _config.BasePath;
+
+                var issuer = _applicationApi.Configuration.OktaDomain;
+                issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
 
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {
@@ -1763,7 +1800,8 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var issuer = _config.BasePath;
+                var issuer = _applicationApi.Configuration.OktaDomain;
+                issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
 
                 // TODO: Review the spec. This method should return void
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
@@ -1849,8 +1887,8 @@ namespace Okta.Sdk.IntegrationTest
             try
             {
 
-                var issuer = _config.BasePath;
-
+                var issuer = _applicationApi.Configuration.OktaDomain;
+                issuer = issuer.EndsWith("/") ? issuer.Substring(0, issuer.Length - 1) : issuer;
                 // TODO: Review the spec. This method should return void
                 await _applicationApi.GrantConsentToScopeAsync(createdApp.Id, new OAuth2ScopeConsentGrant()
                 {

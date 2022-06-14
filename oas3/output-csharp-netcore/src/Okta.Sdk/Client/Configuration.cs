@@ -12,12 +12,21 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
+using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using Okta.Sdk.Abstractions.Configuration;
+using Okta.Sdk.Abstractions.Configuration.Providers.EnvironmentVariables;
+using Okta.Sdk.Abstractions.Configuration.Providers.Object;
+using Okta.Sdk.Abstractions.Configuration.Providers.Yaml;
 
 namespace Okta.Sdk.Client
 {
@@ -42,6 +51,79 @@ namespace Okta.Sdk.Client
         public const string ISO8601_DATETIME_FORMAT = "o";
 
         #endregion Constants
+        
+        #region Okta Members
+        
+        private bool _disableHttpsCheck = false;
+
+        /// <summary>
+        /// Gets or sets the Okta API token.
+        /// </summary>
+        /// <value>
+        /// The Okta API token.
+        /// </value>
+        /// <remarks>An API token can be generated from the Okta developer dashboard.</remarks>
+        public string Token
+        {
+            get => _token;
+            set
+            {
+                _token = value;
+                _apiKey = _apiKey ?? new Dictionary<string, string>();
+                if (!_apiKey.ContainsKey("Authorization"))
+                {
+                    _apiKey.Add("Authorization", string.Empty);
+                }
+                _apiKey["Authorization"] = _token;
+
+                _apiKeyPrefix = _apiKeyPrefix ?? new Dictionary<string, string>();
+
+                if (!_apiKeyPrefix.ContainsKey("Authorization"))
+                {
+                    _apiKeyPrefix.Add("Authorization", String.Empty);
+                }
+                _apiKeyPrefix["Authorization"] = "SSWS";
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the flag to disable https check.
+        /// This allows for insecure configurations and is NOT recommended for production use.
+        /// </summary>
+        public bool DisableHttpsCheck
+        {
+            get
+            {
+                return _disableHttpsCheck;
+            }
+
+            set
+            {
+                if (value)
+                {
+                    Trace.TraceWarning("Warning: HTTPS check is disabled. This allows for insecure configurations and is NOT recommended for production use.");
+                }
+
+                _disableHttpsCheck = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the Okta Organization URL to use.
+        /// </summary>
+        /// <value>
+        /// The Okta Organization URL to use.
+        /// </value>
+        /// <remarks>
+        /// This URL is typically in the form <c>https://dev-12345.oktapreview.com</c>. If your Okta domain includes <c>-admin</c>, remove it.
+        /// </remarks>
+        public string OktaDomain
+        {
+            get { return _basePath; }
+            set { _basePath = value; }
+        }
+
+        #endregion
 
         #region Static Members
 
@@ -59,6 +141,56 @@ namespace Okta.Sdk.Client
             }
             return null;
         };
+        
+        /// <summary>
+        /// Validates the Okta configuration
+        /// </summary>
+        /// <param name="configuration">The configuration to be validated</param>
+        public static void Validate(Configuration configuration)
+        {
+            if (string.IsNullOrEmpty(configuration.OktaDomain))
+            {
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Your Okta URL is missing. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+            }
+
+            if (!configuration.DisableHttpsCheck && !configuration.OktaDomain.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+            {
+                throw new ArgumentException($"Your Okta URL must start with https. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain", nameof(configuration.OktaDomain));
+            }
+
+            if (configuration.OktaDomain.IndexOf("{yourOktaDomain}", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), "Replace {yourOktaDomain} with your Okta domain. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+            }
+
+            if (configuration.OktaDomain.IndexOf("-admin.okta.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                configuration.OktaDomain.IndexOf("-admin.oktapreview.com", StringComparison.OrdinalIgnoreCase) >= 0 ||
+                configuration.OktaDomain.IndexOf("-admin.okta-emea.com", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"Your Okta domain should not contain -admin. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+            }
+
+            if (configuration.OktaDomain.IndexOf(".com.com", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+            }
+
+            if (Regex.Matches(configuration.OktaDomain, "://").Count != 1)
+            {
+                throw new ArgumentNullException(nameof(configuration.OktaDomain), $"It looks like there's a typo in your Okta domain. Current value: {configuration.OktaDomain}. You can copy your domain from the Okta Developer Console. Follow these instructions to find it: https://bit.ly/finding-okta-domain");
+            }
+
+            if (string.IsNullOrEmpty(configuration.Token))
+            {
+                throw new ArgumentNullException(nameof(configuration.Token), "Your Okta API token is missing. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token");
+            }
+
+            if (configuration.Token.IndexOf("{apiToken}", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                throw new ArgumentException("Replace {apiToken} with your Okta API token. You can generate one in the Okta Developer Console. Follow these instructions: https://bit.ly/get-okta-api-token", nameof(configuration.Token));
+            }
+
+        }
 
         #endregion Static Members
 
@@ -69,6 +201,11 @@ namespace Okta.Sdk.Client
         /// Example: http://localhost:3000/v1/
         /// </summary>
         private string _basePath;
+
+        /// <summary>
+        /// Defines the token used by the Okta API
+        /// </summary>
+        private string _token { get; set; }
 
         /// <summary>
         /// Gets or sets the API key based on the authentication name.
@@ -103,7 +240,7 @@ namespace Okta.Sdk.Client
         {
             Proxy = null;
             UserAgent = "OpenAPI-Generator/1.0.0/csharp";
-            BasePath = "https://your-subdomain.okta.com";
+            OktaDomain = "https://your-subdomain.okta.com";
             DefaultHeaders = new ConcurrentDictionary<string, string>();
             ApiKey = new ConcurrentDictionary<string, string>();
             ApiKeyPrefix = new ConcurrentDictionary<string, string>();
@@ -168,10 +305,10 @@ namespace Okta.Sdk.Client
             IDictionary<string, string> defaultHeaders,
             IDictionary<string, string> apiKey,
             IDictionary<string, string> apiKeyPrefix,
-            string basePath = "https://your-subdomain.okta.com") : this()
+            string oktaDomain = "https://your-subdomain.okta.com") : this()
         {
-            if (string.IsNullOrWhiteSpace(basePath))
-                throw new ArgumentException("The provided basePath is invalid.", "basePath");
+            if (string.IsNullOrWhiteSpace(oktaDomain))
+                throw new ArgumentException("The provided oktaDomain is invalid.", "oktaDomain");
             if (defaultHeaders == null)
                 throw new ArgumentNullException("defaultHeaders");
             if (apiKey == null)
@@ -179,7 +316,7 @@ namespace Okta.Sdk.Client
             if (apiKeyPrefix == null)
                 throw new ArgumentNullException("apiKeyPrefix");
 
-            BasePath = basePath;
+            OktaDomain = oktaDomain;
 
             foreach (var keyValuePair in defaultHeaders)
             {
@@ -195,6 +332,21 @@ namespace Okta.Sdk.Client
             {
                 ApiKeyPrefix.Add(keyValuePair);
             }
+        }
+        
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("ReSharper", "VirtualMemberCallInConstructor")]
+        public Configuration(
+            string oktaDomain,
+            string token) : this()
+        {
+            if (string.IsNullOrWhiteSpace(oktaDomain))
+                throw new ArgumentException("The provided oktaDomain is invalid.", "oktaDomain");
+
+            if (string.IsNullOrWhiteSpace(token))
+                throw new ArgumentException("The provided token is invalid.", "token");
+
+            OktaDomain = oktaDomain;
+            Token = token;
         }
 
         #endregion Constructors
@@ -245,7 +397,10 @@ namespace Okta.Sdk.Client
         /// Gets or sets the HTTP user agent.
         /// </summary>
         /// <value>Http user agent.</value>
-        public virtual string UserAgent { get; set; }
+        public virtual string UserAgent
+        {
+            get; protected set;
+        }
 
         /// <summary>
         /// Gets or sets the username (HTTP basic authentication).
@@ -497,7 +652,7 @@ namespace Okta.Sdk.Client
         /// <param name="key">Api Key name.</param>
         /// <param name="value">Api Key value.</param>
         /// <returns></returns>
-        public void AddApiKey(string key, string value)
+        protected void AddApiKey(string key, string value)
         {
             ApiKey[key] = value;
         }
@@ -507,7 +662,7 @@ namespace Okta.Sdk.Client
         /// </summary>
         /// <param name="key">Api Key name.</param>
         /// <param name="value">Api Key value.</param>
-        public void AddApiKeyPrefix(string key, string value)
+        protected void AddApiKeyPrefix(string key, string value)
         {
             ApiKeyPrefix[key] = value;
         }
@@ -538,7 +693,8 @@ namespace Okta.Sdk.Client
                 ApiKey = apiKey,
                 ApiKeyPrefix = apiKeyPrefix,
                 DefaultHeaders = defaultHeaders,
-                BasePath = second.BasePath ?? first.BasePath,
+                OktaDomain = second.OktaDomain ?? first.OktaDomain,
+                Token = second.Token ?? first.Token,
                 Timeout = second.Timeout,
                 Proxy = second.Proxy ?? first.Proxy,
                 UserAgent = second.UserAgent ?? first.UserAgent,
@@ -551,6 +707,114 @@ namespace Okta.Sdk.Client
             };
             return config;
         }
+        
+        public static Configuration GetConfigurationOrDefault(Configuration configuration = null)
+        {
+            string configurationFileRoot = Directory.GetCurrentDirectory();
+
+            var homeOktaYamlLocation = HomePath.Resolve("~", ".okta", "okta.yaml");
+
+            var applicationAppSettingsLocation = Path.Combine(configurationFileRoot ?? string.Empty, "appsettings.json");
+            var applicationOktaYamlLocation = Path.Combine(configurationFileRoot ?? string.Empty, "okta.yaml");
+
+            var configBuilder = new ConfigurationBuilder()
+                .AddYamlFile(homeOktaYamlLocation, optional: true)
+                .AddJsonFile(applicationAppSettingsLocation, optional: true)
+                .AddYamlFile(applicationOktaYamlLocation, optional: true)
+                .AddEnvironmentVariables("okta", "_", root: "okta")
+                .AddEnvironmentVariables("okta_testing", "_", root: "okta")
+                .AddObject(configuration, root: "okta:client")
+                .AddObject(configuration, root: "okta:testing")
+                .AddObject(configuration);
+
+            var compiledConfig = new Configuration();
+            configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
+            configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
+            configBuilder.Build().Bind(compiledConfig);
+
+            return compiledConfig;
+        }
+        
         #endregion Static Members
+    }
+    
+    /// <summary>
+    /// Contains methods for resolving the home directory path.
+    /// </summary>
+    internal static class HomePath
+    {
+        /// <summary>
+        /// Resolves a collection of path segments with a home directory path.
+        /// </summary>
+        /// <remarks>
+        /// Provides support for Unix-like paths on Windows. If the first path segment starts with <c>~</c>, this segment is prepended with the home directory path.
+        /// </remarks>
+        /// <param name="pathSegments">The path segments.</param>
+        /// <returns>A combined path which includes the resolved home directory path (if necessary). If home directory path cannot be resolved, returns null.</returns>
+        public static string Resolve(params string[] pathSegments)
+        {
+            if (pathSegments.Length == 0)
+            {
+                return null;
+            }
+
+            if (!pathSegments[0].StartsWith("~"))
+            {
+                return Path.Combine(pathSegments);
+            }
+
+            if (!TryGetHomePath(out string homePath))
+            {
+                return null;
+            }
+
+            var newSegments =
+                new string[] { pathSegments[0].Replace("~", homePath) }
+                .Concat(pathSegments.Skip(1))
+                .ToArray();
+
+            return Path.Combine(newSegments);
+        }
+
+        /// <summary>
+        /// Resolves the current user's home directory path.
+        /// Throws an exception if the path cannot be resolved.
+        /// </summary>
+        /// <returns>The home path.</returns>
+        public static string GetHomePath()
+        {
+            if (TryGetHomePath(out var homePath))
+            {
+                return homePath;
+            }
+            else
+            {
+                throw new Exception("Home directory cannot be found in environment variables.");
+            }
+        }
+
+        /// <summary>
+        /// Tries to resolve the current user's home directory path.
+        /// </summary>
+        /// <param name="homePath">Output: resolved home path.</param>
+        /// <returns>true if home path was resolved; otherwise, false.</returns>
+        public static bool TryGetHomePath(out string homePath)
+        {
+#if NET45
+            homePath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+#else
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                homePath = Environment.GetEnvironmentVariable("USERPROFILE") ??
+                           Path.Combine(Environment.GetEnvironmentVariable("HOMEDRIVE"), Environment.GetEnvironmentVariable("HOMEPATH"));
+            }
+            else
+            {
+                homePath = Environment.GetEnvironmentVariable("HOME");
+            }
+#endif
+
+            return !string.IsNullOrEmpty(homePath);
+        }
     }
 }

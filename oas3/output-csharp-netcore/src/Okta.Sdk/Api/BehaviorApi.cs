@@ -363,44 +363,23 @@ namespace Okta.Sdk.Api
         private Okta.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="BehaviorApi"/> class.
-        /// </summary>
-        /// <returns></returns>
-        public BehaviorApi() : this((string)null)
-        {
-        }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="BehaviorApi"/> class.
-        /// </summary>
-        /// <returns></returns>
-        public BehaviorApi(string basePath)
-        {
-            this.Configuration = Okta.Sdk.Client.Configuration.MergeConfigurations(
-                Okta.Sdk.Client.GlobalConfiguration.Instance,
-                new Okta.Sdk.Client.Configuration { BasePath = basePath }
-            );
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
-        }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="BehaviorApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public BehaviorApi(Okta.Sdk.Client.Configuration configuration)
+        public BehaviorApi(Okta.Sdk.Client.Configuration configuration = null)
         {
-            if (configuration == null) throw new ArgumentNullException("configuration");
+            configuration = Sdk.Client.Configuration.GetConfigurationOrDefault(configuration);
 
             this.Configuration = Okta.Sdk.Client.Configuration.MergeConfigurations(
                 Okta.Sdk.Client.GlobalConfiguration.Instance,
                 configuration
             );
-            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
-            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.BasePath);
+            
+            Sdk.Client.Configuration.Validate((Configuration)this.Configuration);
+            this.Client = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
+            this.AsynchronousClient = new Okta.Sdk.Client.ApiClient(this.Configuration.OktaDomain);
             ExceptionFactory = Okta.Sdk.Client.Configuration.DefaultExceptionFactory;
         }
 
@@ -439,7 +418,7 @@ namespace Okta.Sdk.Api
         /// <value>The base path</value>
         public string GetBasePath()
         {
-            return this.Configuration.BasePath;
+            return this.Configuration.OktaDomain;
         }
 
         /// <summary>

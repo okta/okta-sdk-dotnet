@@ -197,20 +197,20 @@ namespace {{packageName}}.Client
         /// </summary>
         public ApiClient()
         {
-            _baseUrl = {{packageName}}.Client.GlobalConfiguration.Instance.BasePath;
+            _baseUrl = {{packageName}}.Client.GlobalConfiguration.Instance.OktaDomain;
         }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiClient" />
         /// </summary>
-        /// <param name="basePath">The target service's base path in URL format.</param>
+        /// <param name="oktaDomain">The Okta domain in URL format.</param>
         /// <exception cref="ArgumentException"></exception>
-        public ApiClient(string basePath)
+        public ApiClient(string oktaDomain)
         {
-            if (string.IsNullOrEmpty(basePath))
-                throw new ArgumentException("basePath cannot be empty");
+            if (string.IsNullOrEmpty(oktaDomain))
+                throw new ArgumentException("oktaDomain cannot be empty");
 
-            _baseUrl = basePath;
+            _baseUrl = oktaDomain;
         }
 
         /// <summary>
