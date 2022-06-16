@@ -4,17 +4,17 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreatePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#createprincipalratelimitentity) | **POST** /api/v1/principal-rate-limits | Create Principal Rate Limit entity
-[**GetPrincipalRateLimitEntity**](PrincipalRateLimitApi.md#getprincipalratelimitentity) | **GET** /api/v1/principal-rate-limits/{principalRateLimitId} | Get Principal Rate Limit entity
-[**ListPrincipalRateLimitEntities**](PrincipalRateLimitApi.md#listprincipalratelimitentities) | **GET** /api/v1/principal-rate-limits | List Principal Rate Limit entities
-[**UpdatePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#updateprincipalratelimitentity) | **PUT** /api/v1/principal-rate-limits/{principalRateLimitId} | Update Principal Rate Limit entity
+[**CreatePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#createprincipalratelimitentity) | **POST** /api/v1/principal-rate-limits | Create a Principal Rate Limit
+[**GetPrincipalRateLimitEntity**](PrincipalRateLimitApi.md#getprincipalratelimitentity) | **GET** /api/v1/principal-rate-limits/{principalRateLimitId} | Retrieve a Principal Rate Limit
+[**ListPrincipalRateLimitEntities**](PrincipalRateLimitApi.md#listprincipalratelimitentities) | **GET** /api/v1/principal-rate-limits | List all Principal Rate Limits
+[**UpdatePrincipalRateLimitEntity**](PrincipalRateLimitApi.md#updateprincipalratelimitentity) | **PUT** /api/v1/principal-rate-limits/{principalRateLimitId} | Replace a Principal Rate Limit
 
 
 <a name="createprincipalratelimitentity"></a>
 # **CreatePrincipalRateLimitEntity**
 > PrincipalRateLimitEntity CreatePrincipalRateLimitEntity (PrincipalRateLimitEntity entity)
 
-Create Principal Rate Limit entity
+Create a Principal Rate Limit
 
 Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
 
@@ -34,11 +34,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PrincipalRateLimitApi(config);
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Create Principal Rate Limit entity
+                // Create a Principal Rate Limit
                 PrincipalRateLimitEntity result = apiInstance.CreatePrincipalRateLimitEntity(entity);
                 Debug.WriteLine(result);
             }
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **GetPrincipalRateLimitEntity**
 > PrincipalRateLimitEntity GetPrincipalRateLimitEntity (string principalRateLimitId)
 
-Get Principal Rate Limit entity
+Retrieve a Principal Rate Limit
 
 Fetches a Principal Rate Limit entity by `principalRateLimitId`.
 
@@ -116,11 +116,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PrincipalRateLimitApi(config);
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Get Principal Rate Limit entity
+                // Retrieve a Principal Rate Limit
                 PrincipalRateLimitEntity result = apiInstance.GetPrincipalRateLimitEntity(principalRateLimitId);
                 Debug.WriteLine(result);
             }
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **ListPrincipalRateLimitEntities**
 > List&lt;PrincipalRateLimitEntity&gt; ListPrincipalRateLimitEntities (string filter = null, string after = null, int? limit = null)
 
-List Principal Rate Limit entities
+List all Principal Rate Limits
 
 Lists all Principal Rate Limit entities considering the provided parameters.
 
@@ -197,11 +197,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PrincipalRateLimitApi(config);
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // List Principal Rate Limit entities
+                // List all Principal Rate Limits
                 List<PrincipalRateLimitEntity> result = apiInstance.ListPrincipalRateLimitEntities(filter, after, limit);
                 Debug.WriteLine(result);
             }
@@ -240,7 +240,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -262,7 +262,7 @@ Name | Type | Description  | Notes
 # **UpdatePrincipalRateLimitEntity**
 > PrincipalRateLimitEntity UpdatePrincipalRateLimitEntity (string principalRateLimitId, PrincipalRateLimitEntity entity)
 
-Update Principal Rate Limit entity
+Replace a Principal Rate Limit
 
 Update a  Principal Rate Limit entity by `principalRateLimitId`.
 
@@ -282,11 +282,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PrincipalRateLimitApi(config);
@@ -295,7 +295,7 @@ namespace Example
 
             try
             {
-                // Update Principal Rate Limit entity
+                // Replace a Principal Rate Limit
                 PrincipalRateLimitEntity result = apiInstance.UpdatePrincipalRateLimitEntity(principalRateLimitId, entity);
                 Debug.WriteLine(result);
             }
@@ -323,7 +323,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

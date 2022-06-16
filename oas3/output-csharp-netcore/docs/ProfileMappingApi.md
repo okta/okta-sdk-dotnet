@@ -4,16 +4,16 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetProfileMapping**](ProfileMappingApi.md#getprofilemapping) | **GET** /api/v1/mappings/{mappingId} | Get Profile Mapping
-[**ListProfileMappings**](ProfileMappingApi.md#listprofilemappings) | **GET** /api/v1/mappings | List Profile Mappings
-[**UpdateProfileMapping**](ProfileMappingApi.md#updateprofilemapping) | **POST** /api/v1/mappings/{mappingId} | Update Profile Mapping
+[**GetProfileMapping**](ProfileMappingApi.md#getprofilemapping) | **GET** /api/v1/mappings/{mappingId} | Retrieve a Profile Mapping
+[**ListProfileMappings**](ProfileMappingApi.md#listprofilemappings) | **GET** /api/v1/mappings | List all Profile Mappings
+[**UpdateProfileMapping**](ProfileMappingApi.md#updateprofilemapping) | **POST** /api/v1/mappings/{mappingId} | Update a Profile Mapping
 
 
 <a name="getprofilemapping"></a>
 # **GetProfileMapping**
 > ProfileMapping GetProfileMapping (string mappingId)
 
-Get Profile Mapping
+Retrieve a Profile Mapping
 
 Fetches a single Profile Mapping referenced by its ID.
 
@@ -33,11 +33,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileMappingApi(config);
@@ -45,7 +45,7 @@ namespace Example
 
             try
             {
-                // Get Profile Mapping
+                // Retrieve a Profile Mapping
                 ProfileMapping result = apiInstance.GetProfileMapping(mappingId);
                 Debug.WriteLine(result);
             }
@@ -72,7 +72,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 # **ListProfileMappings**
 > List&lt;ProfileMapping&gt; ListProfileMappings (string after = null, int? limit = null, string sourceId = null, string targetId = null)
 
-List Profile Mappings
+List all Profile Mappings
 
 Enumerates Profile Mappings in your organization with pagination.
 
@@ -114,11 +114,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileMappingApi(config);
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // List Profile Mappings
+                // List all Profile Mappings
                 List<ProfileMapping> result = apiInstance.ListProfileMappings(after, limit, sourceId, targetId);
                 Debug.WriteLine(result);
             }
@@ -159,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **UpdateProfileMapping**
 > ProfileMapping UpdateProfileMapping (string mappingId, ProfileMapping profileMapping)
 
-Update Profile Mapping
+Update a Profile Mapping
 
 Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
 
@@ -200,11 +200,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProfileMappingApi(config);
@@ -213,7 +213,7 @@ namespace Example
 
             try
             {
-                // Update Profile Mapping
+                // Update a Profile Mapping
                 ProfileMapping result = apiInstance.UpdateProfileMapping(mappingId, profileMapping);
                 Debug.WriteLine(result);
             }
@@ -241,7 +241,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

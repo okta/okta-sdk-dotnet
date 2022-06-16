@@ -5,23 +5,23 @@ All URIs are relative to *https://your-subdomain.okta.com*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**BulkRemoveEmailAddressBounces**](OrgSettingApi.md#bulkremoveemailaddressbounces) | **POST** /api/v1/org/email/bounces/remove-list | Remove Emails from Email Provider Bounce List
-[**ExtendOktaSupport**](OrgSettingApi.md#extendoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/extend | Extend Okta Support
-[**GetOktaCommunicationSettings**](OrgSettingApi.md#getoktacommunicationsettings) | **GET** /api/v1/org/privacy/oktaCommunication | Get Okta Communication Settings
-[**GetOrgContactTypes**](OrgSettingApi.md#getorgcontacttypes) | **GET** /api/v1/org/contacts | Get org contact types
-[**GetOrgContactUser**](OrgSettingApi.md#getorgcontactuser) | **GET** /api/v1/org/contacts/{contactType} | Get org contact user
-[**GetOrgOktaSupportSettings**](OrgSettingApi.md#getorgoktasupportsettings) | **GET** /api/v1/org/privacy/oktaSupport | Get Okta Support settings
-[**GetOrgPreferences**](OrgSettingApi.md#getorgpreferences) | **GET** /api/v1/org/preferences | Get org preferences
-[**GetOrgSettings**](OrgSettingApi.md#getorgsettings) | **GET** /api/v1/org | Get org settings
-[**GrantOktaSupport**](OrgSettingApi.md#grantoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/grant | Grant Okta Support
-[**HideOktaUIFooter**](OrgSettingApi.md#hideoktauifooter) | **POST** /api/v1/org/preferences/hideEndUserFooter | Show Okta UI Footer
-[**OptInUsersToOktaCommunicationEmails**](OrgSettingApi.md#optinuserstooktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optIn | Opt in all users to Okta Communication emails
-[**OptOutUsersFromOktaCommunicationEmails**](OrgSettingApi.md#optoutusersfromoktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optOut | Opt out all users from Okta Communication emails
-[**PartialUpdateOrgSetting**](OrgSettingApi.md#partialupdateorgsetting) | **POST** /api/v1/org | Partial update Org Setting
-[**RevokeOktaSupport**](OrgSettingApi.md#revokeoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/revoke | Extend Okta Support
-[**ShowOktaUIFooter**](OrgSettingApi.md#showoktauifooter) | **POST** /api/v1/org/preferences/showEndUserFooter | Show Okta UI Footer
-[**UpdateOrgContactUser**](OrgSettingApi.md#updateorgcontactuser) | **PUT** /api/v1/org/contacts/{contactType} | Update org contact user
-[**UpdateOrgLogo**](OrgSettingApi.md#updateorglogo) | **POST** /api/v1/org/logo | Update org logo
-[**UpdateOrgSetting**](OrgSettingApi.md#updateorgsetting) | **PUT** /api/v1/org | Update Org setting
+[**ExtendOktaSupport**](OrgSettingApi.md#extendoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/extend | Extend Okta Support Access
+[**GetOktaCommunicationSettings**](OrgSettingApi.md#getoktacommunicationsettings) | **GET** /api/v1/org/privacy/oktaCommunication | Retreive the Okta Communication Settings
+[**GetOrgContactTypes**](OrgSettingApi.md#getorgcontacttypes) | **GET** /api/v1/org/contacts | Retrieve the Org Contact Types
+[**GetOrgContactUser**](OrgSettingApi.md#getorgcontactuser) | **GET** /api/v1/org/contacts/{contactType} | Retrieve the User of the Contact Type
+[**GetOrgOktaSupportSettings**](OrgSettingApi.md#getorgoktasupportsettings) | **GET** /api/v1/org/privacy/oktaSupport | Retrieve the Okta Support Settings
+[**GetOrgPreferences**](OrgSettingApi.md#getorgpreferences) | **GET** /api/v1/org/preferences | Retrieve the Org Preferences
+[**GetOrgSettings**](OrgSettingApi.md#getorgsettings) | **GET** /api/v1/org | Retrieve the Org Settings
+[**GrantOktaSupport**](OrgSettingApi.md#grantoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/grant | Grant Okta Support Access to your Org
+[**HideOktaUIFooter**](OrgSettingApi.md#hideoktauifooter) | **POST** /api/v1/org/preferences/hideEndUserFooter | Update the Preference to Hide the Okta Dashboard Footer
+[**OptInUsersToOktaCommunicationEmails**](OrgSettingApi.md#optinuserstooktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optIn | Opt in all Users to Okta Communication emails
+[**OptOutUsersFromOktaCommunicationEmails**](OrgSettingApi.md#optoutusersfromoktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optOut | Opt out all Users from Okta Communication emails
+[**PartialUpdateOrgSetting**](OrgSettingApi.md#partialupdateorgsetting) | **POST** /api/v1/org | Update the Org Settings
+[**RevokeOktaSupport**](OrgSettingApi.md#revokeoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/revoke | Revoke Okta Support Access
+[**ShowOktaUIFooter**](OrgSettingApi.md#showoktauifooter) | **POST** /api/v1/org/preferences/showEndUserFooter | Update the Preference to Show the Okta Dashboard Footer
+[**UpdateOrgContactUser**](OrgSettingApi.md#updateorgcontactuser) | **PUT** /api/v1/org/contacts/{contactType} | Replace the User of the Contact Type
+[**UpdateOrgLogo**](OrgSettingApi.md#updateorglogo) | **POST** /api/v1/org/logo | Upload the Org Logo
+[**UpdateOrgSetting**](OrgSettingApi.md#updateorgsetting) | **PUT** /api/v1/org | Replace the Org Settings
 
 
 <a name="bulkremoveemailaddressbounces"></a>
@@ -48,11 +48,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
@@ -87,7 +87,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -109,7 +109,7 @@ Name | Type | Description  | Notes
 # **ExtendOktaSupport**
 > OrgOktaSupportSettingsObj ExtendOktaSupport ()
 
-Extend Okta Support
+Extend Okta Support Access
 
 Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
 
@@ -129,18 +129,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Extend Okta Support
+                // Extend Okta Support Access
                 OrgOktaSupportSettingsObj result = apiInstance.ExtendOktaSupport();
                 Debug.WriteLine(result);
             }
@@ -164,7 +164,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -185,7 +185,7 @@ This endpoint does not need any parameter.
 # **GetOktaCommunicationSettings**
 > OrgOktaCommunicationSetting GetOktaCommunicationSettings ()
 
-Get Okta Communication Settings
+Retreive the Okta Communication Settings
 
 Gets Okta Communication Settings of your organization.
 
@@ -205,18 +205,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Get Okta Communication Settings
+                // Retreive the Okta Communication Settings
                 OrgOktaCommunicationSetting result = apiInstance.GetOktaCommunicationSettings();
                 Debug.WriteLine(result);
             }
@@ -240,7 +240,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -261,7 +261,7 @@ This endpoint does not need any parameter.
 # **GetOrgContactTypes**
 > List&lt;OrgContactTypeObj&gt; GetOrgContactTypes ()
 
-Get org contact types
+Retrieve the Org Contact Types
 
 Gets Contact Types of your organization.
 
@@ -281,18 +281,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Get org contact types
+                // Retrieve the Org Contact Types
                 List<OrgContactTypeObj> result = apiInstance.GetOrgContactTypes();
                 Debug.WriteLine(result);
             }
@@ -316,7 +316,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -337,7 +337,7 @@ This endpoint does not need any parameter.
 # **GetOrgContactUser**
 > OrgContactUser GetOrgContactUser (string contactType)
 
-Get org contact user
+Retrieve the User of the Contact Type
 
 Retrieves the URL of the User associated with the specified Contact Type.
 
@@ -357,11 +357,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
@@ -369,7 +369,7 @@ namespace Example
 
             try
             {
-                // Get org contact user
+                // Retrieve the User of the Contact Type
                 OrgContactUser result = apiInstance.GetOrgContactUser(contactType);
                 Debug.WriteLine(result);
             }
@@ -396,7 +396,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 # **GetOrgOktaSupportSettings**
 > OrgOktaSupportSettingsObj GetOrgOktaSupportSettings ()
 
-Get Okta Support settings
+Retrieve the Okta Support Settings
 
 Gets Okta Support Settings of your organization.
 
@@ -438,18 +438,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Get Okta Support settings
+                // Retrieve the Okta Support Settings
                 OrgOktaSupportSettingsObj result = apiInstance.GetOrgOktaSupportSettings();
                 Debug.WriteLine(result);
             }
@@ -473,7 +473,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -494,7 +494,7 @@ This endpoint does not need any parameter.
 # **GetOrgPreferences**
 > OrgPreferences GetOrgPreferences ()
 
-Get org preferences
+Retrieve the Org Preferences
 
 Gets preferences of your organization.
 
@@ -514,18 +514,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Get org preferences
+                // Retrieve the Org Preferences
                 OrgPreferences result = apiInstance.GetOrgPreferences();
                 Debug.WriteLine(result);
             }
@@ -549,7 +549,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -570,7 +570,7 @@ This endpoint does not need any parameter.
 # **GetOrgSettings**
 > OrgSetting GetOrgSettings ()
 
-Get org settings
+Retrieve the Org Settings
 
 Get settings of your organization.
 
@@ -590,18 +590,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Get org settings
+                // Retrieve the Org Settings
                 OrgSetting result = apiInstance.GetOrgSettings();
                 Debug.WriteLine(result);
             }
@@ -625,7 +625,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -646,7 +646,7 @@ This endpoint does not need any parameter.
 # **GrantOktaSupport**
 > OrgOktaSupportSettingsObj GrantOktaSupport ()
 
-Grant Okta Support
+Grant Okta Support Access to your Org
 
 Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
 
@@ -666,18 +666,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Grant Okta Support
+                // Grant Okta Support Access to your Org
                 OrgOktaSupportSettingsObj result = apiInstance.GrantOktaSupport();
                 Debug.WriteLine(result);
             }
@@ -701,7 +701,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -722,7 +722,7 @@ This endpoint does not need any parameter.
 # **HideOktaUIFooter**
 > OrgPreferences HideOktaUIFooter ()
 
-Show Okta UI Footer
+Update the Preference to Hide the Okta Dashboard Footer
 
 Hide the Okta UI footer for all end users of your organization.
 
@@ -742,18 +742,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Show Okta UI Footer
+                // Update the Preference to Hide the Okta Dashboard Footer
                 OrgPreferences result = apiInstance.HideOktaUIFooter();
                 Debug.WriteLine(result);
             }
@@ -777,7 +777,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -798,7 +798,7 @@ This endpoint does not need any parameter.
 # **OptInUsersToOktaCommunicationEmails**
 > OrgOktaCommunicationSetting OptInUsersToOktaCommunicationEmails ()
 
-Opt in all users to Okta Communication emails
+Opt in all Users to Okta Communication emails
 
 Opts in all users of this org to Okta Communication emails.
 
@@ -818,18 +818,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Opt in all users to Okta Communication emails
+                // Opt in all Users to Okta Communication emails
                 OrgOktaCommunicationSetting result = apiInstance.OptInUsersToOktaCommunicationEmails();
                 Debug.WriteLine(result);
             }
@@ -853,7 +853,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -874,7 +874,7 @@ This endpoint does not need any parameter.
 # **OptOutUsersFromOktaCommunicationEmails**
 > OrgOktaCommunicationSetting OptOutUsersFromOktaCommunicationEmails ()
 
-Opt out all users from Okta Communication emails
+Opt out all Users from Okta Communication emails
 
 Opts out all users of this org from Okta Communication emails.
 
@@ -894,18 +894,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Opt out all users from Okta Communication emails
+                // Opt out all Users from Okta Communication emails
                 OrgOktaCommunicationSetting result = apiInstance.OptOutUsersFromOktaCommunicationEmails();
                 Debug.WriteLine(result);
             }
@@ -929,7 +929,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -950,7 +950,7 @@ This endpoint does not need any parameter.
 # **PartialUpdateOrgSetting**
 > OrgSetting PartialUpdateOrgSetting (OrgSetting orgSetting = null)
 
-Partial update Org Setting
+Update the Org Settings
 
 Partial update settings of your organization.
 
@@ -970,11 +970,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
@@ -982,7 +982,7 @@ namespace Example
 
             try
             {
-                // Partial update Org Setting
+                // Update the Org Settings
                 OrgSetting result = apiInstance.PartialUpdateOrgSetting(orgSetting);
                 Debug.WriteLine(result);
             }
@@ -1009,7 +1009,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1031,7 +1031,7 @@ Name | Type | Description  | Notes
 # **RevokeOktaSupport**
 > OrgOktaSupportSettingsObj RevokeOktaSupport ()
 
-Extend Okta Support
+Revoke Okta Support Access
 
 Revokes Okta Support access to your organization.
 
@@ -1051,18 +1051,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Extend Okta Support
+                // Revoke Okta Support Access
                 OrgOktaSupportSettingsObj result = apiInstance.RevokeOktaSupport();
                 Debug.WriteLine(result);
             }
@@ -1086,7 +1086,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1107,7 +1107,7 @@ This endpoint does not need any parameter.
 # **ShowOktaUIFooter**
 > OrgPreferences ShowOktaUIFooter ()
 
-Show Okta UI Footer
+Update the Preference to Show the Okta Dashboard Footer
 
 Makes the Okta UI footer visible for all end users of your organization.
 
@@ -1127,18 +1127,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Show Okta UI Footer
+                // Update the Preference to Show the Okta Dashboard Footer
                 OrgPreferences result = apiInstance.ShowOktaUIFooter();
                 Debug.WriteLine(result);
             }
@@ -1162,7 +1162,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1183,7 +1183,7 @@ This endpoint does not need any parameter.
 # **UpdateOrgContactUser**
 > OrgContactUser UpdateOrgContactUser (string contactType, OrgContactUser orgContactUser)
 
-Update org contact user
+Replace the User of the Contact Type
 
 Updates the User associated with the specified Contact Type.
 
@@ -1203,11 +1203,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
@@ -1216,7 +1216,7 @@ namespace Example
 
             try
             {
-                // Update org contact user
+                // Replace the User of the Contact Type
                 OrgContactUser result = apiInstance.UpdateOrgContactUser(contactType, orgContactUser);
                 Debug.WriteLine(result);
             }
@@ -1244,7 +1244,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 # **UpdateOrgLogo**
 > void UpdateOrgLogo ()
 
-Update org logo
+Upload the Org Logo
 
 Updates the logo for your organization.
 
@@ -1287,18 +1287,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
 
             try
             {
-                // Update org logo
+                // Upload the Org Logo
                 apiInstance.UpdateOrgLogo();
             }
             catch (ApiException  e)
@@ -1321,7 +1321,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1343,7 +1343,7 @@ void (empty response body)
 # **UpdateOrgSetting**
 > OrgSetting UpdateOrgSetting (OrgSetting orgSetting)
 
-Update Org setting
+Replace the Org Settings
 
 Update settings of your organization.
 
@@ -1363,11 +1363,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new OrgSettingApi(config);
@@ -1375,7 +1375,7 @@ namespace Example
 
             try
             {
-                // Update Org setting
+                // Replace the Org Settings
                 OrgSetting result = apiInstance.UpdateOrgSetting(orgSetting);
                 Debug.WriteLine(result);
             }
@@ -1402,7 +1402,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

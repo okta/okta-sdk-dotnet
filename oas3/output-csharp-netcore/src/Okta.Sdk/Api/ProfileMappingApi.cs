@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Profile Mapping
+        /// Retrieve a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Fetches a single Profile Mapping referenced by its ID.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         ProfileMapping GetProfileMapping(string mappingId);
 
         /// <summary>
-        /// Get Profile Mapping
+        /// Retrieve a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Fetches a single Profile Mapping referenced by its ID.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ProfileMapping</returns>
         ApiResponse<ProfileMapping> GetProfileMappingWithHttpInfo(string mappingId);
         /// <summary>
-        /// List Profile Mappings
+        /// List all Profile Mappings
         /// </summary>
         /// <remarks>
         /// Enumerates Profile Mappings in your organization with pagination.
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Api
         List<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string));
 
         /// <summary>
-        /// List Profile Mappings
+        /// List all Profile Mappings
         /// </summary>
         /// <remarks>
         /// Enumerates Profile Mappings in your organization with pagination.
@@ -76,7 +76,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;ProfileMapping&gt;</returns>
         ApiResponse<List<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string));
         /// <summary>
-        /// Update Profile Mapping
+        /// Update a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
@@ -88,7 +88,7 @@ namespace Okta.Sdk.Api
         ProfileMapping UpdateProfileMapping(string mappingId, ProfileMapping profileMapping);
 
         /// <summary>
-        /// Update Profile Mapping
+        /// Update a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
@@ -108,7 +108,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Profile Mapping
+        /// Retrieve a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Fetches a single Profile Mapping referenced by its ID.
@@ -120,7 +120,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ProfileMapping> GetProfileMappingAsync(string mappingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Profile Mapping
+        /// Retrieve a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Fetches a single Profile Mapping referenced by its ID.
@@ -131,7 +131,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ProfileMapping)</returns>
         System.Threading.Tasks.Task<ApiResponse<ProfileMapping>> GetProfileMappingWithHttpInfoAsync(string mappingId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Profile Mappings
+        /// List all Profile Mappings
         /// </summary>
         /// <remarks>
         /// Enumerates Profile Mappings in your organization with pagination.
@@ -146,7 +146,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<ProfileMapping>> ListProfileMappingsAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Profile Mappings
+        /// List all Profile Mappings
         /// </summary>
         /// <remarks>
         /// Enumerates Profile Mappings in your organization with pagination.
@@ -160,7 +160,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;ProfileMapping&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Profile Mapping
+        /// Update a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
@@ -173,7 +173,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ProfileMapping> UpdateProfileMappingAsync(string mappingId, ProfileMapping profileMapping, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Profile Mapping
+        /// Update a Profile Mapping
         /// </summary>
         /// <remarks>
         /// Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
@@ -284,7 +284,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Profile Mapping Fetches a single Profile Mapping referenced by its ID.
+        /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -296,7 +296,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Profile Mapping Fetches a single Profile Mapping referenced by its ID.
+        /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -333,12 +333,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -360,7 +360,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Profile Mapping Fetches a single Profile Mapping referenced by its ID.
+        /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -373,7 +373,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Profile Mapping Fetches a single Profile Mapping referenced by its ID.
+        /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -412,12 +412,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -440,7 +440,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Profile Mappings Enumerates Profile Mappings in your organization with pagination.
+        /// List all Profile Mappings Enumerates Profile Mappings in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after"> (optional)</param>
@@ -455,7 +455,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Profile Mappings Enumerates Profile Mappings in your organization with pagination.
+        /// List all Profile Mappings Enumerates Profile Mappings in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after"> (optional)</param>
@@ -504,12 +504,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetId", targetId));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -531,7 +531,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Profile Mappings Enumerates Profile Mappings in your organization with pagination.
+        /// List all Profile Mappings Enumerates Profile Mappings in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after"> (optional)</param>
@@ -547,7 +547,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Profile Mappings Enumerates Profile Mappings in your organization with pagination.
+        /// List all Profile Mappings Enumerates Profile Mappings in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after"> (optional)</param>
@@ -598,12 +598,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetId", targetId));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -626,7 +626,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
+        /// Update a Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -639,7 +639,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
+        /// Update a Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -685,12 +685,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
             localVarRequestOptions.Data = profileMapping;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -712,7 +712,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
+        /// Update a Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -726,7 +726,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
+        /// Update a Profile Mapping Updates an existing Profile Mapping by adding, updating, or removing one or many Property Mappings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mappingId"></param>
@@ -774,12 +774,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("mappingId", Okta.Sdk.Client.ClientUtils.ParameterToString(mappingId)); // path parameter
             localVarRequestOptions.Data = profileMapping;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

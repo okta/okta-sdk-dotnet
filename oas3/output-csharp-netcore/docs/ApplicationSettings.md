@@ -4,10 +4,9 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**App** | **Object** |  | [optional] 
+**IdentityStoreId** | **string** |  | [optional] 
 **ImplicitAssignment** | **bool** |  | [optional] 
 **InlineHookId** | **string** |  | [optional] 
-**IdentityStoreId** | **string** |  | [optional] 
 **Notes** | [**ApplicationSettingsNotes**](ApplicationSettingsNotes.md) |  | [optional] 
 **Notifications** | [**ApplicationSettingsNotifications**](ApplicationSettingsNotifications.md) |  | [optional] 
 

@@ -4,54 +4,54 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateApplication**](ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate Application
-[**ActivateDefaultProvisioningConnectionForApplication**](ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate default Provisioning Connection for application
-[**AssignUserToApplication**](ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign User to Application for SSO &amp; Provisioning
-[**CloneApplicationKey**](ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone Application Key Credential
-[**CreateApplication**](ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Add Application
-[**CreateApplicationGroupAssignment**](ApplicationApi.md#createapplicationgroupassignment) | **PUT** /api/v1/apps/{appId}/groups/{groupId} | Assign Group to Application
-[**DeactivateApplication**](ApplicationApi.md#deactivateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/deactivate | Deactivate Application
-[**DeactivateDefaultProvisioningConnectionForApplication**](ApplicationApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate default Provisioning Connection for application
-[**DeleteApplication**](ApplicationApi.md#deleteapplication) | **DELETE** /api/v1/apps/{appId} | Delete Application
-[**DeleteApplicationGroupAssignment**](ApplicationApi.md#deleteapplicationgroupassignment) | **DELETE** /api/v1/apps/{appId}/groups/{groupId} | Remove Group from Application
-[**DeleteApplicationUser**](ApplicationApi.md#deleteapplicationuser) | **DELETE** /api/v1/apps/{appId}/users/{userId} | Remove User from Application
-[**GenerateApplicationKey**](ApplicationApi.md#generateapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/generate | Generate Key Credential for Application
-[**GenerateCsrForApplication**](ApplicationApi.md#generatecsrforapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs | Generate Certificate Signing Request for Application
-[**GetApplication**](ApplicationApi.md#getapplication) | **GET** /api/v1/apps/{appId} | Get Application
-[**GetApplicationGroupAssignment**](ApplicationApi.md#getapplicationgroupassignment) | **GET** /api/v1/apps/{appId}/groups/{groupId} | Get Assigned Group for Application
-[**GetApplicationKey**](ApplicationApi.md#getapplicationkey) | **GET** /api/v1/apps/{appId}/credentials/keys/{keyId} | Get Key Credential for Application
-[**GetApplicationUser**](ApplicationApi.md#getapplicationuser) | **GET** /api/v1/apps/{appId}/users/{userId} | Get Assigned User for Application
-[**GetCsrForApplication**](ApplicationApi.md#getcsrforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Get Certificate Signing Request
-[**GetDefaultProvisioningConnectionForApplication**](ApplicationApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Fetches the default Provisioning Connection for an application.
-[**GetFeatureForApplication**](ApplicationApi.md#getfeatureforapplication) | **GET** /api/v1/apps/{appId}/features/{name} | Fetches a Feature object for an application.
-[**GetOAuth2TokenForApplication**](ApplicationApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Get OAuth 2.0 Token for Application
-[**GetScopeConsentGrant**](ApplicationApi.md#getscopeconsentgrant) | **GET** /api/v1/apps/{appId}/grants/{grantId} | Get Scope Consent Grant for Application
-[**GrantConsentToScope**](ApplicationApi.md#grantconsenttoscope) | **POST** /api/v1/apps/{appId}/grants | Grant Consent to Scope for Application
-[**ListApplicationGroupAssignments**](ApplicationApi.md#listapplicationgroupassignments) | **GET** /api/v1/apps/{appId}/groups | List Groups Assigned to Application
-[**ListApplicationKeys**](ApplicationApi.md#listapplicationkeys) | **GET** /api/v1/apps/{appId}/credentials/keys | List Key Credentials for Application
-[**ListApplicationUsers**](ApplicationApi.md#listapplicationusers) | **GET** /api/v1/apps/{appId}/users | List Users Assigned to Application
-[**ListApplications**](ApplicationApi.md#listapplications) | **GET** /api/v1/apps | List Applications
-[**ListCsrsForApplication**](ApplicationApi.md#listcsrsforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs | List Certificate Signing Requests for Application
-[**ListFeaturesForApplication**](ApplicationApi.md#listfeaturesforapplication) | **GET** /api/v1/apps/{appId}/features | Fetches the Feature objects for an application.
-[**ListOAuth2TokensForApplication**](ApplicationApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | Lists OAuth 2.0 Tokens for Application
-[**ListScopeConsentGrants**](ApplicationApi.md#listscopeconsentgrants) | **GET** /api/v1/apps/{appId}/grants | List Scope Consent Grants for Application
-[**PublishCsrFromApplication**](ApplicationApi.md#publishcsrfromapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish | Publish Certificate Signing Request
-[**RevokeCsrFromApplication**](ApplicationApi.md#revokecsrfromapplication) | **DELETE** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Revoke Certificate Signing Request
-[**RevokeOAuth2TokenForApplication**](ApplicationApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an OAuth 2.0 Token for Application
-[**RevokeOAuth2TokensForApplication**](ApplicationApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke All OAuth 2.0 Tokens for Application
-[**RevokeScopeConsentGrant**](ApplicationApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke Scope Consent Grant for Application
-[**SetDefaultProvisioningConnectionForApplication**](ApplicationApi.md#setdefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Sets the default Provisioning Connection for an application.
-[**UpdateApplication**](ApplicationApi.md#updateapplication) | **PUT** /api/v1/apps/{appId} | Update Application
-[**UpdateApplicationUser**](ApplicationApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update Application Profile for Assigned User
-[**UpdateFeatureForApplication**](ApplicationApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{name} | Updates a Feature object for an application.
-[**UploadApplicationLogo**](ApplicationApi.md#uploadapplicationlogo) | **POST** /api/v1/apps/{appId}/logo | The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+[**ActivateApplication**](ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate an Application
+[**ActivateDefaultProvisioningConnectionForApplication**](ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default Provisioning Connection
+[**AssignUserToApplication**](ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign a User
+[**CloneApplicationKey**](ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone a Key Credential
+[**CreateApplication**](ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Create an Application
+[**CreateApplicationGroupAssignment**](ApplicationApi.md#createapplicationgroupassignment) | **PUT** /api/v1/apps/{appId}/groups/{groupId} | Assign a Group
+[**DeactivateApplication**](ApplicationApi.md#deactivateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/deactivate | Deactivate an Application
+[**DeactivateDefaultProvisioningConnectionForApplication**](ApplicationApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate the default Provisioning Connection for an Application
+[**DeleteApplication**](ApplicationApi.md#deleteapplication) | **DELETE** /api/v1/apps/{appId} | Delete an Application
+[**DeleteApplicationGroupAssignment**](ApplicationApi.md#deleteapplicationgroupassignment) | **DELETE** /api/v1/apps/{appId}/groups/{groupId} | Unassign a Group
+[**DeleteApplicationUser**](ApplicationApi.md#deleteapplicationuser) | **DELETE** /api/v1/apps/{appId}/users/{userId} | Unassign a User
+[**GenerateApplicationKey**](ApplicationApi.md#generateapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/generate | Generate a Key Credential
+[**GenerateCsrForApplication**](ApplicationApi.md#generatecsrforapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs | Generate a Certificate Signing Request
+[**GetApplication**](ApplicationApi.md#getapplication) | **GET** /api/v1/apps/{appId} | Retrieve an Application
+[**GetApplicationGroupAssignment**](ApplicationApi.md#getapplicationgroupassignment) | **GET** /api/v1/apps/{appId}/groups/{groupId} | Retrieve an Assigned Group
+[**GetApplicationKey**](ApplicationApi.md#getapplicationkey) | **GET** /api/v1/apps/{appId}/credentials/keys/{keyId} | Retrieve a Key Credential
+[**GetApplicationUser**](ApplicationApi.md#getapplicationuser) | **GET** /api/v1/apps/{appId}/users/{userId} | Retrieve an Assigned User
+[**GetCsrForApplication**](ApplicationApi.md#getcsrforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Retrieve a Certificate Signing Request
+[**GetDefaultProvisioningConnectionForApplication**](ApplicationApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Retrieve the default Provisioning Connection
+[**GetFeatureForApplication**](ApplicationApi.md#getfeatureforapplication) | **GET** /api/v1/apps/{appId}/features/{name} | Retrieve a Feature
+[**GetOAuth2TokenForApplication**](ApplicationApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an OAuth 2.0 Token
+[**GetScopeConsentGrant**](ApplicationApi.md#getscopeconsentgrant) | **GET** /api/v1/apps/{appId}/grants/{grantId} | Retrieve a Scope Consent Grant
+[**GrantConsentToScope**](ApplicationApi.md#grantconsenttoscope) | **POST** /api/v1/apps/{appId}/grants | Grant Consent to Scope
+[**ListApplicationGroupAssignments**](ApplicationApi.md#listapplicationgroupassignments) | **GET** /api/v1/apps/{appId}/groups | List all Assigned Groups
+[**ListApplicationKeys**](ApplicationApi.md#listapplicationkeys) | **GET** /api/v1/apps/{appId}/credentials/keys | List all Key Credentials
+[**ListApplicationUsers**](ApplicationApi.md#listapplicationusers) | **GET** /api/v1/apps/{appId}/users | List all Assigned Users
+[**ListApplications**](ApplicationApi.md#listapplications) | **GET** /api/v1/apps | List all Applications
+[**ListCsrsForApplication**](ApplicationApi.md#listcsrsforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs | List all Certificate Signing Requests
+[**ListFeaturesForApplication**](ApplicationApi.md#listfeaturesforapplication) | **GET** /api/v1/apps/{appId}/features | List all Features
+[**ListOAuth2TokensForApplication**](ApplicationApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all OAuth 2.0 Tokens
+[**ListScopeConsentGrants**](ApplicationApi.md#listscopeconsentgrants) | **GET** /api/v1/apps/{appId}/grants | List all Scope Consent Grants
+[**PublishCsrFromApplication**](ApplicationApi.md#publishcsrfromapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish | Publish a Certificate Signing Request
+[**RevokeCsrFromApplication**](ApplicationApi.md#revokecsrfromapplication) | **DELETE** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Revoke a Certificate Signing Request
+[**RevokeOAuth2TokenForApplication**](ApplicationApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an OAuth 2.0 Token
+[**RevokeOAuth2TokensForApplication**](ApplicationApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke all OAuth 2.0 Tokens
+[**RevokeScopeConsentGrant**](ApplicationApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke a Scope Consent Grant
+[**SetDefaultProvisioningConnectionForApplication**](ApplicationApi.md#setdefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Update the default Provisioning Connection
+[**UpdateApplication**](ApplicationApi.md#updateapplication) | **PUT** /api/v1/apps/{appId} | Replace an Application
+[**UpdateApplicationUser**](ApplicationApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update an Application Profile for Assigned User
+[**UpdateFeatureForApplication**](ApplicationApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{name} | Update a Feature
+[**UploadApplicationLogo**](ApplicationApi.md#uploadapplicationlogo) | **POST** /api/v1/apps/{appId}/logo | Upload a Logo
 
 
 <a name="activateapplication"></a>
 # **ActivateApplication**
 > void ActivateApplication (string appId)
 
-Activate Application
+Activate an Application
 
 Activates an inactive application.
 
@@ -71,11 +71,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -83,7 +83,7 @@ namespace Example
 
             try
             {
-                // Activate Application
+                // Activate an Application
                 apiInstance.ActivateApplication(appId);
             }
             catch (ApiException  e)
@@ -109,7 +109,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -131,7 +131,7 @@ void (empty response body)
 # **ActivateDefaultProvisioningConnectionForApplication**
 > void ActivateDefaultProvisioningConnectionForApplication (string appId)
 
-Activate default Provisioning Connection for application
+Activate the default Provisioning Connection
 
 Activates the default Provisioning Connection for an application.
 
@@ -151,11 +151,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -163,7 +163,7 @@ namespace Example
 
             try
             {
-                // Activate default Provisioning Connection for application
+                // Activate the default Provisioning Connection
                 apiInstance.ActivateDefaultProvisioningConnectionForApplication(appId);
             }
             catch (ApiException  e)
@@ -189,7 +189,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -211,7 +211,7 @@ void (empty response body)
 # **AssignUserToApplication**
 > AppUser AssignUserToApplication (string appId, AppUser appUser)
 
-Assign User to Application for SSO & Provisioning
+Assign a User
 
 Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
 
@@ -231,11 +231,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -244,7 +244,7 @@ namespace Example
 
             try
             {
-                // Assign User to Application for SSO & Provisioning
+                // Assign a User
                 AppUser result = apiInstance.AssignUserToApplication(appId, appUser);
                 Debug.WriteLine(result);
             }
@@ -272,7 +272,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -295,7 +295,7 @@ Name | Type | Description  | Notes
 # **CloneApplicationKey**
 > JsonWebKey CloneApplicationKey (string appId, string keyId, string targetAid)
 
-Clone Application Key Credential
+Clone a Key Credential
 
 Clones a X.509 certificate for an application key credential from a source application to target application.
 
@@ -315,11 +315,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -329,7 +329,7 @@ namespace Example
 
             try
             {
-                // Clone Application Key Credential
+                // Clone a Key Credential
                 JsonWebKey result = apiInstance.CloneApplicationKey(appId, keyId, targetAid);
                 Debug.WriteLine(result);
             }
@@ -358,7 +358,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -380,7 +380,7 @@ Name | Type | Description  | Notes
 # **CreateApplication**
 > Application CreateApplication (Application application, bool? activate = null, string oktaAccessGatewayAgent = null)
 
-Add Application
+Create an Application
 
 Adds a new application to your Okta organization.
 
@@ -400,11 +400,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -414,7 +414,7 @@ namespace Example
 
             try
             {
-                // Add Application
+                // Create an Application
                 Application result = apiInstance.CreateApplication(application, activate, oktaAccessGatewayAgent);
                 Debug.WriteLine(result);
             }
@@ -443,7 +443,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -465,7 +465,7 @@ Name | Type | Description  | Notes
 # **CreateApplicationGroupAssignment**
 > ApplicationGroupAssignment CreateApplicationGroupAssignment (string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = null)
 
-Assign Group to Application
+Assign a Group
 
 Assigns a group to an application
 
@@ -485,11 +485,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -499,7 +499,7 @@ namespace Example
 
             try
             {
-                // Assign Group to Application
+                // Assign a Group
                 ApplicationGroupAssignment result = apiInstance.CreateApplicationGroupAssignment(appId, groupId, applicationGroupAssignment);
                 Debug.WriteLine(result);
             }
@@ -528,7 +528,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -551,7 +551,7 @@ Name | Type | Description  | Notes
 # **DeactivateApplication**
 > void DeactivateApplication (string appId)
 
-Deactivate Application
+Deactivate an Application
 
 Deactivates an active application.
 
@@ -571,11 +571,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -583,7 +583,7 @@ namespace Example
 
             try
             {
-                // Deactivate Application
+                // Deactivate an Application
                 apiInstance.DeactivateApplication(appId);
             }
             catch (ApiException  e)
@@ -609,7 +609,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -631,7 +631,7 @@ void (empty response body)
 # **DeactivateDefaultProvisioningConnectionForApplication**
 > void DeactivateDefaultProvisioningConnectionForApplication (string appId)
 
-Deactivate default Provisioning Connection for application
+Deactivate the default Provisioning Connection for an Application
 
 Deactivates the default Provisioning Connection for an application.
 
@@ -651,11 +651,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -663,7 +663,7 @@ namespace Example
 
             try
             {
-                // Deactivate default Provisioning Connection for application
+                // Deactivate the default Provisioning Connection for an Application
                 apiInstance.DeactivateDefaultProvisioningConnectionForApplication(appId);
             }
             catch (ApiException  e)
@@ -689,7 +689,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -711,7 +711,7 @@ void (empty response body)
 # **DeleteApplication**
 > void DeleteApplication (string appId)
 
-Delete Application
+Delete an Application
 
 Removes an inactive application.
 
@@ -731,11 +731,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -743,7 +743,7 @@ namespace Example
 
             try
             {
-                // Delete Application
+                // Delete an Application
                 apiInstance.DeleteApplication(appId);
             }
             catch (ApiException  e)
@@ -769,7 +769,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -780,7 +780,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -791,7 +791,7 @@ void (empty response body)
 # **DeleteApplicationGroupAssignment**
 > void DeleteApplicationGroupAssignment (string appId, string groupId)
 
-Remove Group from Application
+Unassign a Group
 
 Removes a group assignment from an application.
 
@@ -811,11 +811,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -824,7 +824,7 @@ namespace Example
 
             try
             {
-                // Remove Group from Application
+                // Unassign a Group
                 apiInstance.DeleteApplicationGroupAssignment(appId, groupId);
             }
             catch (ApiException  e)
@@ -851,7 +851,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -873,7 +873,7 @@ void (empty response body)
 # **DeleteApplicationUser**
 > void DeleteApplicationUser (string appId, string userId, bool? sendEmail = null)
 
-Remove User from Application
+Unassign a User
 
 Removes an assignment for a user from an application.
 
@@ -893,11 +893,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -907,7 +907,7 @@ namespace Example
 
             try
             {
-                // Remove User from Application
+                // Unassign a User
                 apiInstance.DeleteApplicationUser(appId, userId, sendEmail);
             }
             catch (ApiException  e)
@@ -935,7 +935,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -957,7 +957,7 @@ void (empty response body)
 # **GenerateApplicationKey**
 > JsonWebKey GenerateApplicationKey (string appId, int? validityYears = null)
 
-Generate Key Credential for Application
+Generate a Key Credential
 
 Generates a new X.509 certificate for an application key credential
 
@@ -977,11 +977,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -990,7 +990,7 @@ namespace Example
 
             try
             {
-                // Generate Key Credential for Application
+                // Generate a Key Credential
                 JsonWebKey result = apiInstance.GenerateApplicationKey(appId, validityYears);
                 Debug.WriteLine(result);
             }
@@ -1018,7 +1018,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
 # **GenerateCsrForApplication**
 > Csr GenerateCsrForApplication (string appId, CsrMetadata metadata)
 
-Generate Certificate Signing Request for Application
+Generate a Certificate Signing Request
 
 Generates a new key pair and returns the Certificate Signing Request for it.
 
@@ -1060,11 +1060,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1073,7 +1073,7 @@ namespace Example
 
             try
             {
-                // Generate Certificate Signing Request for Application
+                // Generate a Certificate Signing Request
                 Csr result = apiInstance.GenerateCsrForApplication(appId, metadata);
                 Debug.WriteLine(result);
             }
@@ -1101,7 +1101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1124,7 +1124,7 @@ Name | Type | Description  | Notes
 # **GetApplication**
 > Application GetApplication (string appId, string expand = null)
 
-Get Application
+Retrieve an Application
 
 Fetches an application from your Okta organization by `id`.
 
@@ -1144,11 +1144,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1157,7 +1157,7 @@ namespace Example
 
             try
             {
-                // Get Application
+                // Retrieve an Application
                 Application result = apiInstance.GetApplication(appId, expand);
                 Debug.WriteLine(result);
             }
@@ -1185,7 +1185,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1207,7 +1207,7 @@ Name | Type | Description  | Notes
 # **GetApplicationGroupAssignment**
 > ApplicationGroupAssignment GetApplicationGroupAssignment (string appId, string groupId, string expand = null)
 
-Get Assigned Group for Application
+Retrieve an Assigned Group
 
 Fetches an application group assignment
 
@@ -1227,11 +1227,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1241,7 +1241,7 @@ namespace Example
 
             try
             {
-                // Get Assigned Group for Application
+                // Retrieve an Assigned Group
                 ApplicationGroupAssignment result = apiInstance.GetApplicationGroupAssignment(appId, groupId, expand);
                 Debug.WriteLine(result);
             }
@@ -1270,7 +1270,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1292,7 +1292,7 @@ Name | Type | Description  | Notes
 # **GetApplicationKey**
 > JsonWebKey GetApplicationKey (string appId, string keyId)
 
-Get Key Credential for Application
+Retrieve a Key Credential
 
 Gets a specific application key credential by kid
 
@@ -1312,11 +1312,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1325,7 +1325,7 @@ namespace Example
 
             try
             {
-                // Get Key Credential for Application
+                // Retrieve a Key Credential
                 JsonWebKey result = apiInstance.GetApplicationKey(appId, keyId);
                 Debug.WriteLine(result);
             }
@@ -1353,7 +1353,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1375,7 +1375,7 @@ Name | Type | Description  | Notes
 # **GetApplicationUser**
 > AppUser GetApplicationUser (string appId, string userId, string expand = null)
 
-Get Assigned User for Application
+Retrieve an Assigned User
 
 Fetches a specific user assignment for application by `id`.
 
@@ -1395,11 +1395,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1409,7 +1409,7 @@ namespace Example
 
             try
             {
-                // Get Assigned User for Application
+                // Retrieve an Assigned User
                 AppUser result = apiInstance.GetApplicationUser(appId, userId, expand);
                 Debug.WriteLine(result);
             }
@@ -1438,7 +1438,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1460,7 +1460,7 @@ Name | Type | Description  | Notes
 # **GetCsrForApplication**
 > Csr GetCsrForApplication (string appId, string csrId)
 
-Get Certificate Signing Request
+Retrieve a Certificate Signing Request
 
 Fetches a certificate signing request for the app by `id`.
 
@@ -1480,11 +1480,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1493,7 +1493,7 @@ namespace Example
 
             try
             {
-                // Get Certificate Signing Request
+                // Retrieve a Certificate Signing Request
                 Csr result = apiInstance.GetCsrForApplication(appId, csrId);
                 Debug.WriteLine(result);
             }
@@ -1521,7 +1521,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1543,7 +1543,7 @@ Name | Type | Description  | Notes
 # **GetDefaultProvisioningConnectionForApplication**
 > ProvisioningConnection GetDefaultProvisioningConnectionForApplication (string appId)
 
-Fetches the default Provisioning Connection for an application.
+Retrieve the default Provisioning Connection
 
 Get default Provisioning Connection for application
 
@@ -1563,11 +1563,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1575,7 +1575,7 @@ namespace Example
 
             try
             {
-                // Fetches the default Provisioning Connection for an application.
+                // Retrieve the default Provisioning Connection
                 ProvisioningConnection result = apiInstance.GetDefaultProvisioningConnectionForApplication(appId);
                 Debug.WriteLine(result);
             }
@@ -1602,7 +1602,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1624,7 +1624,7 @@ Name | Type | Description  | Notes
 # **GetFeatureForApplication**
 > ApplicationFeature GetFeatureForApplication (string appId, string name)
 
-Fetches a Feature object for an application.
+Retrieve a Feature
 
 Fetches a Feature object for an application.
 
@@ -1644,11 +1644,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1657,7 +1657,7 @@ namespace Example
 
             try
             {
-                // Fetches a Feature object for an application.
+                // Retrieve a Feature
                 ApplicationFeature result = apiInstance.GetFeatureForApplication(appId, name);
                 Debug.WriteLine(result);
             }
@@ -1685,7 +1685,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1707,7 +1707,7 @@ Name | Type | Description  | Notes
 # **GetOAuth2TokenForApplication**
 > OAuth2Token GetOAuth2TokenForApplication (string appId, string tokenId, string expand = null)
 
-Get OAuth 2.0 Token for Application
+Retrieve an OAuth 2.0 Token
 
 Gets a token for the specified application
 
@@ -1727,11 +1727,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1741,7 +1741,7 @@ namespace Example
 
             try
             {
-                // Get OAuth 2.0 Token for Application
+                // Retrieve an OAuth 2.0 Token
                 OAuth2Token result = apiInstance.GetOAuth2TokenForApplication(appId, tokenId, expand);
                 Debug.WriteLine(result);
             }
@@ -1770,7 +1770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1792,7 +1792,7 @@ Name | Type | Description  | Notes
 # **GetScopeConsentGrant**
 > OAuth2ScopeConsentGrant GetScopeConsentGrant (string appId, string grantId, string expand = null)
 
-Get Scope Consent Grant for Application
+Retrieve a Scope Consent Grant
 
 Fetches a single scope consent grant for the application
 
@@ -1812,7 +1812,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -1824,7 +1824,7 @@ namespace Example
 
             try
             {
-                // Get Scope Consent Grant for Application
+                // Retrieve a Scope Consent Grant
                 OAuth2ScopeConsentGrant result = apiInstance.GetScopeConsentGrant(appId, grantId, expand);
                 Debug.WriteLine(result);
             }
@@ -1853,7 +1853,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 
@@ -1875,7 +1875,7 @@ Name | Type | Description  | Notes
 # **GrantConsentToScope**
 > OAuth2ScopeConsentGrant GrantConsentToScope (string appId, OAuth2ScopeConsentGrant oAuth2ScopeConsentGrant)
 
-Grant Consent to Scope for Application
+Grant Consent to Scope
 
 Grants consent for the application to request an OAuth 2.0 Okta scope
 
@@ -1895,7 +1895,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -1906,7 +1906,7 @@ namespace Example
 
             try
             {
-                // Grant Consent to Scope for Application
+                // Grant Consent to Scope
                 OAuth2ScopeConsentGrant result = apiInstance.GrantConsentToScope(appId, oAuth2ScopeConsentGrant);
                 Debug.WriteLine(result);
             }
@@ -1934,7 +1934,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 
@@ -1957,7 +1957,7 @@ Name | Type | Description  | Notes
 # **ListApplicationGroupAssignments**
 > List&lt;ApplicationGroupAssignment&gt; ListApplicationGroupAssignments (string appId, string q = null, string after = null, int? limit = null, string expand = null)
 
-List Groups Assigned to Application
+List all Assigned Groups
 
 Enumerates group assignments for an application.
 
@@ -1977,11 +1977,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -1993,7 +1993,7 @@ namespace Example
 
             try
             {
-                // List Groups Assigned to Application
+                // List all Assigned Groups
                 List<ApplicationGroupAssignment> result = apiInstance.ListApplicationGroupAssignments(appId, q, after, limit, expand);
                 Debug.WriteLine(result);
             }
@@ -2024,7 +2024,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2046,7 +2046,7 @@ Name | Type | Description  | Notes
 # **ListApplicationKeys**
 > List&lt;JsonWebKey&gt; ListApplicationKeys (string appId)
 
-List Key Credentials for Application
+List all Key Credentials
 
 Enumerates key credentials for an application
 
@@ -2066,11 +2066,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2078,7 +2078,7 @@ namespace Example
 
             try
             {
-                // List Key Credentials for Application
+                // List all Key Credentials
                 List<JsonWebKey> result = apiInstance.ListApplicationKeys(appId);
                 Debug.WriteLine(result);
             }
@@ -2105,7 +2105,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2127,7 +2127,7 @@ Name | Type | Description  | Notes
 # **ListApplicationUsers**
 > List&lt;AppUser&gt; ListApplicationUsers (string appId, string q = null, string queryScope = null, string after = null, int? limit = null, string filter = null, string expand = null)
 
-List Users Assigned to Application
+List all Assigned Users
 
 Enumerates all assigned [application users](#application-user-model) for an application.
 
@@ -2147,11 +2147,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2165,7 +2165,7 @@ namespace Example
 
             try
             {
-                // List Users Assigned to Application
+                // List all Assigned Users
                 List<AppUser> result = apiInstance.ListApplicationUsers(appId, q, queryScope, after, limit, filter, expand);
                 Debug.WriteLine(result);
             }
@@ -2198,7 +2198,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2220,7 +2220,7 @@ Name | Type | Description  | Notes
 # **ListApplications**
 > List&lt;Application&gt; ListApplications (string q = null, string after = null, int? limit = null, string filter = null, string expand = null, bool? includeNonDeleted = null)
 
-List Applications
+List all Applications
 
 Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
 
@@ -2240,11 +2240,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2257,7 +2257,7 @@ namespace Example
 
             try
             {
-                // List Applications
+                // List all Applications
                 List<Application> result = apiInstance.ListApplications(q, after, limit, filter, expand, includeNonDeleted);
                 Debug.WriteLine(result);
             }
@@ -2289,7 +2289,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2310,7 +2310,7 @@ Name | Type | Description  | Notes
 # **ListCsrsForApplication**
 > List&lt;Csr&gt; ListCsrsForApplication (string appId)
 
-List Certificate Signing Requests for Application
+List all Certificate Signing Requests
 
 Enumerates Certificate Signing Requests for an application
 
@@ -2330,11 +2330,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2342,7 +2342,7 @@ namespace Example
 
             try
             {
-                // List Certificate Signing Requests for Application
+                // List all Certificate Signing Requests
                 List<Csr> result = apiInstance.ListCsrsForApplication(appId);
                 Debug.WriteLine(result);
             }
@@ -2369,7 +2369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2391,7 +2391,7 @@ Name | Type | Description  | Notes
 # **ListFeaturesForApplication**
 > List&lt;ApplicationFeature&gt; ListFeaturesForApplication (string appId)
 
-Fetches the Feature objects for an application.
+List all Features
 
 List Features for application
 
@@ -2411,11 +2411,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2423,7 +2423,7 @@ namespace Example
 
             try
             {
-                // Fetches the Feature objects for an application.
+                // List all Features
                 List<ApplicationFeature> result = apiInstance.ListFeaturesForApplication(appId);
                 Debug.WriteLine(result);
             }
@@ -2450,7 +2450,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2472,7 +2472,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2TokensForApplication**
 > List&lt;OAuth2Token&gt; ListOAuth2TokensForApplication (string appId, string expand = null, string after = null, int? limit = null)
 
-Lists OAuth 2.0 Tokens for Application
+List all OAuth 2.0 Tokens
 
 Lists all tokens for the application
 
@@ -2492,11 +2492,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2507,7 +2507,7 @@ namespace Example
 
             try
             {
-                // Lists OAuth 2.0 Tokens for Application
+                // List all OAuth 2.0 Tokens
                 List<OAuth2Token> result = apiInstance.ListOAuth2TokensForApplication(appId, expand, after, limit);
                 Debug.WriteLine(result);
             }
@@ -2537,7 +2537,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2559,7 +2559,7 @@ Name | Type | Description  | Notes
 # **ListScopeConsentGrants**
 > List&lt;OAuth2ScopeConsentGrant&gt; ListScopeConsentGrants (string appId, string expand = null)
 
-List Scope Consent Grants for Application
+List all Scope Consent Grants
 
 Lists all scope consent grants for the application
 
@@ -2579,7 +2579,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -2590,7 +2590,7 @@ namespace Example
 
             try
             {
-                // List Scope Consent Grants for Application
+                // List all Scope Consent Grants
                 List<OAuth2ScopeConsentGrant> result = apiInstance.ListScopeConsentGrants(appId, expand);
                 Debug.WriteLine(result);
             }
@@ -2618,7 +2618,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 
@@ -2640,7 +2640,7 @@ Name | Type | Description  | Notes
 # **PublishCsrFromApplication**
 > JsonWebKey PublishCsrFromApplication (string appId, string csrId, System.IO.Stream body)
 
-Publish Certificate Signing Request
+Publish a Certificate Signing Request
 
 Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
 
@@ -2660,11 +2660,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2674,7 +2674,7 @@ namespace Example
 
             try
             {
-                // Publish Certificate Signing Request
+                // Publish a Certificate Signing Request
                 JsonWebKey result = apiInstance.PublishCsrFromApplication(appId, csrId, body);
                 Debug.WriteLine(result);
             }
@@ -2703,7 +2703,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2726,7 +2726,7 @@ Name | Type | Description  | Notes
 # **RevokeCsrFromApplication**
 > void RevokeCsrFromApplication (string appId, string csrId)
 
-Revoke Certificate Signing Request
+Revoke a Certificate Signing Request
 
 Revokes a certificate signing request and deletes the key pair from the application.
 
@@ -2746,11 +2746,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2759,7 +2759,7 @@ namespace Example
 
             try
             {
-                // Revoke Certificate Signing Request
+                // Revoke a Certificate Signing Request
                 apiInstance.RevokeCsrFromApplication(appId, csrId);
             }
             catch (ApiException  e)
@@ -2786,7 +2786,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2808,7 +2808,7 @@ void (empty response body)
 # **RevokeOAuth2TokenForApplication**
 > void RevokeOAuth2TokenForApplication (string appId, string tokenId)
 
-Revoke an OAuth 2.0 Token for Application
+Revoke an OAuth 2.0 Token
 
 Revokes the specified token for the specified application
 
@@ -2828,11 +2828,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2841,7 +2841,7 @@ namespace Example
 
             try
             {
-                // Revoke an OAuth 2.0 Token for Application
+                // Revoke an OAuth 2.0 Token
                 apiInstance.RevokeOAuth2TokenForApplication(appId, tokenId);
             }
             catch (ApiException  e)
@@ -2868,7 +2868,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2890,7 +2890,7 @@ void (empty response body)
 # **RevokeOAuth2TokensForApplication**
 > void RevokeOAuth2TokensForApplication (string appId)
 
-Revoke All OAuth 2.0 Tokens for Application
+Revoke all OAuth 2.0 Tokens
 
 Revokes all tokens for the specified application
 
@@ -2910,11 +2910,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -2922,7 +2922,7 @@ namespace Example
 
             try
             {
-                // Revoke All OAuth 2.0 Tokens for Application
+                // Revoke all OAuth 2.0 Tokens
                 apiInstance.RevokeOAuth2TokensForApplication(appId);
             }
             catch (ApiException  e)
@@ -2948,7 +2948,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2970,7 +2970,7 @@ void (empty response body)
 # **RevokeScopeConsentGrant**
 > void RevokeScopeConsentGrant (string appId, string grantId)
 
-Revoke Scope Consent Grant for Application
+Revoke a Scope Consent Grant
 
 Revokes permission for the application to request the given scope
 
@@ -2990,7 +2990,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -3001,7 +3001,7 @@ namespace Example
 
             try
             {
-                // Revoke Scope Consent Grant for Application
+                // Revoke a Scope Consent Grant
                 apiInstance.RevokeScopeConsentGrant(appId, grantId);
             }
             catch (ApiException  e)
@@ -3028,7 +3028,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 
@@ -3050,7 +3050,7 @@ void (empty response body)
 # **SetDefaultProvisioningConnectionForApplication**
 > ProvisioningConnection SetDefaultProvisioningConnectionForApplication (string appId, ProvisioningConnectionRequest provisioningConnectionRequest, bool? activate = null)
 
-Sets the default Provisioning Connection for an application.
+Update the default Provisioning Connection
 
 Set default Provisioning Connection for application
 
@@ -3070,11 +3070,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3084,7 +3084,7 @@ namespace Example
 
             try
             {
-                // Sets the default Provisioning Connection for an application.
+                // Update the default Provisioning Connection
                 ProvisioningConnection result = apiInstance.SetDefaultProvisioningConnectionForApplication(appId, provisioningConnectionRequest, activate);
                 Debug.WriteLine(result);
             }
@@ -3113,7 +3113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3136,7 +3136,7 @@ Name | Type | Description  | Notes
 # **UpdateApplication**
 > Application UpdateApplication (string appId, Application application)
 
-Update Application
+Replace an Application
 
 Updates an application in your organization.
 
@@ -3156,11 +3156,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3169,7 +3169,7 @@ namespace Example
 
             try
             {
-                // Update Application
+                // Replace an Application
                 Application result = apiInstance.UpdateApplication(appId, application);
                 Debug.WriteLine(result);
             }
@@ -3197,7 +3197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3220,7 +3220,7 @@ Name | Type | Description  | Notes
 # **UpdateApplicationUser**
 > AppUser UpdateApplicationUser (string appId, string userId, AppUser appUser)
 
-Update Application Profile for Assigned User
+Update an Application Profile for Assigned User
 
 Updates a user's profile for an application
 
@@ -3240,11 +3240,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3254,7 +3254,7 @@ namespace Example
 
             try
             {
-                // Update Application Profile for Assigned User
+                // Update an Application Profile for Assigned User
                 AppUser result = apiInstance.UpdateApplicationUser(appId, userId, appUser);
                 Debug.WriteLine(result);
             }
@@ -3283,7 +3283,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3306,7 +3306,7 @@ Name | Type | Description  | Notes
 # **UpdateFeatureForApplication**
 > ApplicationFeature UpdateFeatureForApplication (string appId, string name, CapabilitiesObject capabilitiesObject)
 
-Updates a Feature object for an application.
+Update a Feature
 
 Updates a Feature object for an application.
 
@@ -3326,11 +3326,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3340,7 +3340,7 @@ namespace Example
 
             try
             {
-                // Updates a Feature object for an application.
+                // Update a Feature
                 ApplicationFeature result = apiInstance.UpdateFeatureForApplication(appId, name, capabilitiesObject);
                 Debug.WriteLine(result);
             }
@@ -3369,7 +3369,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3392,9 +3392,9 @@ Name | Type | Description  | Notes
 # **UploadApplicationLogo**
 > void UploadApplicationLogo (string appId, System.IO.Stream file)
 
-The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+Upload a Logo
 
-Update the logo for an application.
+The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 
 ### Example
 ```csharp
@@ -3412,11 +3412,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApplicationApi(config);
@@ -3425,7 +3425,7 @@ namespace Example
 
             try
             {
-                // The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+                // Upload a Logo
                 apiInstance.UploadApplicationLogo(appId, file);
             }
             catch (ApiException  e)
@@ -3452,7 +3452,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

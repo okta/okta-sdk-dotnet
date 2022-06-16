@@ -89,7 +89,6 @@ docs/AutoUpdateSchedule.md
 docs/BasicApplicationSettings.md
 docs/BasicApplicationSettingsAllOf.md
 docs/BasicApplicationSettingsApplication.md
-docs/BasicApplicationSettingsApplicationAllOf.md
 docs/BasicAuthApplication.md
 docs/BasicAuthApplicationAllOf.md
 docs/BeforeScheduledActionPolicyRuleCondition.md
@@ -118,7 +117,6 @@ docs/BookmarkApplicationAllOf.md
 docs/BookmarkApplicationSettings.md
 docs/BookmarkApplicationSettingsAllOf.md
 docs/BookmarkApplicationSettingsApplication.md
-docs/BookmarkApplicationSettingsApplicationAllOf.md
 docs/BouncesRemoveListError.md
 docs/BouncesRemoveListObj.md
 docs/BouncesRemoveListResult.md
@@ -366,12 +364,6 @@ docs/OpenIdConnectApplicationSettingsRefreshToken.md
 docs/OpenIdConnectApplicationType.md
 docs/OpenIdConnectRefreshTokenRotationType.md
 docs/OperationalStatus.md
-docs/Org2OrgApplication.md
-docs/Org2OrgApplicationAllOf.md
-docs/Org2OrgApplicationSettings.md
-docs/Org2OrgApplicationSettingsAllOf.md
-docs/Org2OrgApplicationSettingsApp.md
-docs/Org2OrgApplicationSettingsAppAllOf.md
 docs/OrgContactType.md
 docs/OrgContactTypeObj.md
 docs/OrgContactUser.md
@@ -511,6 +503,7 @@ docs/SamlApplication.md
 docs/SamlApplicationAllOf.md
 docs/SamlApplicationSettings.md
 docs/SamlApplicationSettingsAllOf.md
+docs/SamlApplicationSettingsApplication.md
 docs/SamlApplicationSettingsSignOn.md
 docs/SamlAttributeStatement.md
 docs/ScheduledUserLifecycleAction.md
@@ -522,7 +515,6 @@ docs/SecurePasswordStoreApplicationAllOf.md
 docs/SecurePasswordStoreApplicationSettings.md
 docs/SecurePasswordStoreApplicationSettingsAllOf.md
 docs/SecurePasswordStoreApplicationSettingsApplication.md
-docs/SecurePasswordStoreApplicationSettingsApplicationAllOf.md
 docs/SecurityQuestion.md
 docs/SecurityQuestionUserFactor.md
 docs/SecurityQuestionUserFactorAllOf.md
@@ -547,18 +539,9 @@ docs/SpCertificate.md
 docs/Subscription.md
 docs/SubscriptionApi.md
 docs/SubscriptionStatus.md
-docs/SwaApplication.md
-docs/SwaApplicationAllOf.md
 docs/SwaApplicationSettings.md
 docs/SwaApplicationSettingsAllOf.md
 docs/SwaApplicationSettingsApplication.md
-docs/SwaApplicationSettingsApplicationAllOf.md
-docs/SwaThreeFieldApplication.md
-docs/SwaThreeFieldApplicationAllOf.md
-docs/SwaThreeFieldApplicationSettings.md
-docs/SwaThreeFieldApplicationSettingsAllOf.md
-docs/SwaThreeFieldApplicationSettingsApplication.md
-docs/SwaThreeFieldApplicationSettingsApplicationAllOf.md
 docs/SystemLogApi.md
 docs/TempPassword.md
 docs/TemplateApi.md
@@ -638,7 +621,6 @@ docs/WsFederationApplicationAllOf.md
 docs/WsFederationApplicationSettings.md
 docs/WsFederationApplicationSettingsAllOf.md
 docs/WsFederationApplicationSettingsApplication.md
-docs/WsFederationApplicationSettingsApplicationAllOf.md
 git_push.sh
 src/Okta.Sdk/Api/AgentPoolsApi.cs
 src/Okta.Sdk/Api/ApiTokenApi.cs
@@ -769,7 +751,6 @@ src/Okta.Sdk/Model/AutoUpdateSchedule.cs
 src/Okta.Sdk/Model/BasicApplicationSettings.cs
 src/Okta.Sdk/Model/BasicApplicationSettingsAllOf.cs
 src/Okta.Sdk/Model/BasicApplicationSettingsApplication.cs
-src/Okta.Sdk/Model/BasicApplicationSettingsApplicationAllOf.cs
 src/Okta.Sdk/Model/BasicAuthApplication.cs
 src/Okta.Sdk/Model/BasicAuthApplicationAllOf.cs
 src/Okta.Sdk/Model/BeforeScheduledActionPolicyRuleCondition.cs
@@ -797,7 +778,6 @@ src/Okta.Sdk/Model/BookmarkApplicationAllOf.cs
 src/Okta.Sdk/Model/BookmarkApplicationSettings.cs
 src/Okta.Sdk/Model/BookmarkApplicationSettingsAllOf.cs
 src/Okta.Sdk/Model/BookmarkApplicationSettingsApplication.cs
-src/Okta.Sdk/Model/BookmarkApplicationSettingsApplicationAllOf.cs
 src/Okta.Sdk/Model/BouncesRemoveListError.cs
 src/Okta.Sdk/Model/BouncesRemoveListObj.cs
 src/Okta.Sdk/Model/BouncesRemoveListResult.cs
@@ -1035,12 +1015,6 @@ src/Okta.Sdk/Model/OpenIdConnectApplicationSettingsRefreshToken.cs
 src/Okta.Sdk/Model/OpenIdConnectApplicationType.cs
 src/Okta.Sdk/Model/OpenIdConnectRefreshTokenRotationType.cs
 src/Okta.Sdk/Model/OperationalStatus.cs
-src/Okta.Sdk/Model/Org2OrgApplication.cs
-src/Okta.Sdk/Model/Org2OrgApplicationAllOf.cs
-src/Okta.Sdk/Model/Org2OrgApplicationSettings.cs
-src/Okta.Sdk/Model/Org2OrgApplicationSettingsAllOf.cs
-src/Okta.Sdk/Model/Org2OrgApplicationSettingsApp.cs
-src/Okta.Sdk/Model/Org2OrgApplicationSettingsAppAllOf.cs
 src/Okta.Sdk/Model/OrgContactType.cs
 src/Okta.Sdk/Model/OrgContactTypeObj.cs
 src/Okta.Sdk/Model/OrgContactUser.cs
@@ -1176,6 +1150,7 @@ src/Okta.Sdk/Model/SamlApplication.cs
 src/Okta.Sdk/Model/SamlApplicationAllOf.cs
 src/Okta.Sdk/Model/SamlApplicationSettings.cs
 src/Okta.Sdk/Model/SamlApplicationSettingsAllOf.cs
+src/Okta.Sdk/Model/SamlApplicationSettingsApplication.cs
 src/Okta.Sdk/Model/SamlApplicationSettingsSignOn.cs
 src/Okta.Sdk/Model/SamlAttributeStatement.cs
 src/Okta.Sdk/Model/ScheduledUserLifecycleAction.cs
@@ -1186,7 +1161,6 @@ src/Okta.Sdk/Model/SecurePasswordStoreApplicationAllOf.cs
 src/Okta.Sdk/Model/SecurePasswordStoreApplicationSettings.cs
 src/Okta.Sdk/Model/SecurePasswordStoreApplicationSettingsAllOf.cs
 src/Okta.Sdk/Model/SecurePasswordStoreApplicationSettingsApplication.cs
-src/Okta.Sdk/Model/SecurePasswordStoreApplicationSettingsApplicationAllOf.cs
 src/Okta.Sdk/Model/SecurityQuestion.cs
 src/Okta.Sdk/Model/SecurityQuestionUserFactor.cs
 src/Okta.Sdk/Model/SecurityQuestionUserFactorAllOf.cs
@@ -1209,18 +1183,9 @@ src/Okta.Sdk/Model/SocialAuthToken.cs
 src/Okta.Sdk/Model/SpCertificate.cs
 src/Okta.Sdk/Model/Subscription.cs
 src/Okta.Sdk/Model/SubscriptionStatus.cs
-src/Okta.Sdk/Model/SwaApplication.cs
-src/Okta.Sdk/Model/SwaApplicationAllOf.cs
 src/Okta.Sdk/Model/SwaApplicationSettings.cs
 src/Okta.Sdk/Model/SwaApplicationSettingsAllOf.cs
 src/Okta.Sdk/Model/SwaApplicationSettingsApplication.cs
-src/Okta.Sdk/Model/SwaApplicationSettingsApplicationAllOf.cs
-src/Okta.Sdk/Model/SwaThreeFieldApplication.cs
-src/Okta.Sdk/Model/SwaThreeFieldApplicationAllOf.cs
-src/Okta.Sdk/Model/SwaThreeFieldApplicationSettings.cs
-src/Okta.Sdk/Model/SwaThreeFieldApplicationSettingsAllOf.cs
-src/Okta.Sdk/Model/SwaThreeFieldApplicationSettingsApplication.cs
-src/Okta.Sdk/Model/SwaThreeFieldApplicationSettingsApplicationAllOf.cs
 src/Okta.Sdk/Model/TempPassword.cs
 src/Okta.Sdk/Model/Theme.cs
 src/Okta.Sdk/Model/ThemeResponse.cs
@@ -1293,5 +1258,4 @@ src/Okta.Sdk/Model/WsFederationApplicationAllOf.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettings.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettingsAllOf.cs
 src/Okta.Sdk/Model/WsFederationApplicationSettingsApplication.cs
-src/Okta.Sdk/Model/WsFederationApplicationSettingsApplicationAllOf.cs
 src/Okta.Sdk/Okta.Sdk.csproj

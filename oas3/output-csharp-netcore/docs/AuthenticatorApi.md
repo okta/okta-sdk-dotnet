@@ -4,18 +4,18 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAuthenticator**](AuthenticatorApi.md#activateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/activate | Activate Authenticator
-[**DeactivateAuthenticator**](AuthenticatorApi.md#deactivateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/deactivate | Deactivate Authenticator
-[**GetAuthenticator**](AuthenticatorApi.md#getauthenticator) | **GET** /api/v1/authenticators/{authenticatorId} | Get Authenticator
-[**ListAuthenticators**](AuthenticatorApi.md#listauthenticators) | **GET** /api/v1/authenticators | List Authenticators
-[**UpdateAuthenticator**](AuthenticatorApi.md#updateauthenticator) | **PUT** /api/v1/authenticators/{authenticatorId} | Update Authenticator
+[**ActivateAuthenticator**](AuthenticatorApi.md#activateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/activate | Activate an Authenticator
+[**DeactivateAuthenticator**](AuthenticatorApi.md#deactivateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/deactivate | Deactivate an Authenticator
+[**GetAuthenticator**](AuthenticatorApi.md#getauthenticator) | **GET** /api/v1/authenticators/{authenticatorId} | Retrieve an Authenticator
+[**ListAuthenticators**](AuthenticatorApi.md#listauthenticators) | **GET** /api/v1/authenticators | List all Authenticators
+[**UpdateAuthenticator**](AuthenticatorApi.md#updateauthenticator) | **PUT** /api/v1/authenticators/{authenticatorId} | Replace an Authenticator
 
 
 <a name="activateauthenticator"></a>
 # **ActivateAuthenticator**
 > Authenticator ActivateAuthenticator (string authenticatorId)
 
-Activate Authenticator
+Activate an Authenticator
 
 Activates an authenticator by `authenticatorId`.
 
@@ -35,11 +35,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticatorApi(config);
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Activate Authenticator
+                // Activate an Authenticator
                 Authenticator result = apiInstance.ActivateAuthenticator(authenticatorId);
                 Debug.WriteLine(result);
             }
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **DeactivateAuthenticator**
 > Authenticator DeactivateAuthenticator (string authenticatorId)
 
-Deactivate Authenticator
+Deactivate an Authenticator
 
 Deactivates an authenticator by `authenticatorId`.
 
@@ -116,11 +116,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticatorApi(config);
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // Deactivate Authenticator
+                // Deactivate an Authenticator
                 Authenticator result = apiInstance.DeactivateAuthenticator(authenticatorId);
                 Debug.WriteLine(result);
             }
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **GetAuthenticator**
 > Authenticator GetAuthenticator (string authenticatorId)
 
-Get Authenticator
+Retrieve an Authenticator
 
 Fetches an authenticator from your Okta organization by `authenticatorId`.
 
@@ -197,11 +197,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticatorApi(config);
@@ -209,7 +209,7 @@ namespace Example
 
             try
             {
-                // Get Authenticator
+                // Retrieve an Authenticator
                 Authenticator result = apiInstance.GetAuthenticator(authenticatorId);
                 Debug.WriteLine(result);
             }
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListAuthenticators**
 > List&lt;Authenticator&gt; ListAuthenticators ()
 
-List Authenticators
+List all Authenticators
 
 Enumerates authenticators in your organization.
 
@@ -278,18 +278,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticatorApi(config);
 
             try
             {
-                // List Authenticators
+                // List all Authenticators
                 List<Authenticator> result = apiInstance.ListAuthenticators();
                 Debug.WriteLine(result);
             }
@@ -313,7 +313,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -334,7 +334,7 @@ This endpoint does not need any parameter.
 # **UpdateAuthenticator**
 > Authenticator UpdateAuthenticator (string authenticatorId, Authenticator authenticator)
 
-Update Authenticator
+Replace an Authenticator
 
 Updates an authenticator
 
@@ -354,11 +354,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthenticatorApi(config);
@@ -367,7 +367,7 @@ namespace Example
 
             try
             {
-                // Update Authenticator
+                // Replace an Authenticator
                 Authenticator result = apiInstance.UpdateAuthenticator(authenticatorId, authenticator);
                 Debug.WriteLine(result);
             }
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

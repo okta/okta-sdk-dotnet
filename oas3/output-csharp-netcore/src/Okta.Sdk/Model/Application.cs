@@ -42,14 +42,11 @@ namespace Okta.Sdk.Model
     [JsonSubtypes.KnownSubType(typeof(BrowserPluginApplication), "BrowserPluginApplication")]
     [JsonSubtypes.KnownSubType(typeof(OpenIdConnectApplication), "OPENID_CONNECT")]
     [JsonSubtypes.KnownSubType(typeof(OpenIdConnectApplication), "OpenIdConnectApplication")]
-    [JsonSubtypes.KnownSubType(typeof(Org2OrgApplication), "Org2OrgApplication")]
     [JsonSubtypes.KnownSubType(typeof(SamlApplication), "SAML_1_1")]
     [JsonSubtypes.KnownSubType(typeof(SamlApplication), "SAML_2_0")]
     [JsonSubtypes.KnownSubType(typeof(SecurePasswordStoreApplication), "SECURE_PASSWORD_STORE")]
     [JsonSubtypes.KnownSubType(typeof(SamlApplication), "SamlApplication")]
     [JsonSubtypes.KnownSubType(typeof(SecurePasswordStoreApplication), "SecurePasswordStoreApplication")]
-    [JsonSubtypes.KnownSubType(typeof(SwaApplication), "SwaApplication")]
-    [JsonSubtypes.KnownSubType(typeof(SwaThreeFieldApplication), "SwaThreeFieldApplication")]
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WS_FEDERATION")]
     [JsonSubtypes.KnownSubType(typeof(WsFederationApplication), "WsFederationApplication")]
     public partial class Application : IEquatable<Application>
@@ -87,12 +84,6 @@ namespace Okta.Sdk.Model
         {
             return false;
         }
-        /// <summary>
-        /// Gets or Sets Credentials
-        /// </summary>
-        [DataMember(Name = "credentials", EmitDefaultValue = false)]
-        public ApplicationCredentials Credentials { get; set; }
-
         /// <summary>
         /// Gets or Sets Features
         /// </summary>
@@ -146,12 +137,6 @@ namespace Okta.Sdk.Model
         public Dictionary<string, Object> Profile { get; set; }
 
         /// <summary>
-        /// Gets or Sets Settings
-        /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
-        public ApplicationSettings Settings { get; set; }
-
-        /// <summary>
         /// Gets or Sets Visibility
         /// </summary>
         [DataMember(Name = "visibility", EmitDefaultValue = false)]
@@ -195,14 +180,12 @@ namespace Okta.Sdk.Model
             sb.Append("class Application {\n");
             sb.Append("  Accessibility: ").Append(Accessibility).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
-            sb.Append("  Credentials: ").Append(Credentials).Append("\n");
             sb.Append("  Features: ").Append(Features).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Label: ").Append(Label).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Licensing: ").Append(Licensing).Append("\n");
             sb.Append("  Profile: ").Append(Profile).Append("\n");
-            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("  SignOnMode: ").Append(SignOnMode).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Visibility: ").Append(Visibility).Append("\n");
@@ -254,11 +237,6 @@ namespace Okta.Sdk.Model
                     this.Created.Equals(input.Created))
                 ) && 
                 (
-                    this.Credentials == input.Credentials ||
-                    (this.Credentials != null &&
-                    this.Credentials.Equals(input.Credentials))
-                ) && 
-                (
                     this.Features == input.Features ||
                     this.Features != null &&
                     input.Features != null &&
@@ -289,11 +267,6 @@ namespace Okta.Sdk.Model
                     this.Profile != null &&
                     input.Profile != null &&
                     this.Profile.SequenceEqual(input.Profile)
-                ) && 
-                (
-                    this.Settings == input.Settings ||
-                    (this.Settings != null &&
-                    this.Settings.Equals(input.Settings))
                 ) && 
                 (
                     this.SignOnMode == input.SignOnMode ||
@@ -339,10 +312,6 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Created.GetHashCode();
                 }
-                if (this.Credentials != null)
-                {
-                    hashCode = (hashCode * 59) + this.Credentials.GetHashCode();
-                }
                 if (this.Features != null)
                 {
                     hashCode = (hashCode * 59) + this.Features.GetHashCode();
@@ -366,10 +335,6 @@ namespace Okta.Sdk.Model
                 if (this.Profile != null)
                 {
                     hashCode = (hashCode * 59) + this.Profile.GetHashCode();
-                }
-                if (this.Settings != null)
-                {
-                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.SignOnMode.GetHashCode();
                 hashCode = (hashCode * 59) + this.Status.GetHashCode();

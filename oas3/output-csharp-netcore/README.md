@@ -72,11 +72,11 @@ namespace Example
 
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.ApiKey.Add("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.ApiKeyPrefix.Add("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -85,7 +85,7 @@ namespace Example
 
             try
             {
-                // Activate Agent pool update
+                // Activate an Agent Pool update
                 AgentPoolUpdate result = apiInstance.ActivateAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -108,377 +108,377 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentPoolsApi* | [**ActivateAgentPoolsUpdate**](docs/AgentPoolsApi.md#activateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/activate | Activate Agent pool update
-*AgentPoolsApi* | [**CreateAgentPoolsUpdate**](docs/AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an Agent pool update
-*AgentPoolsApi* | [**DeactivateAgentPoolsUpdate**](docs/AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate Agent pool update
-*AgentPoolsApi* | [**DeleteAgentPoolsUpdate**](docs/AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete Agent pool update
-*AgentPoolsApi* | [**GetAgentPools**](docs/AgentPoolsApi.md#getagentpools) | **GET** /api/v1/agentPools | Fetch AgentPools
-*AgentPoolsApi* | [**GetAgentPoolsUpdateInstance**](docs/AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Get Agent pool update by id
-*AgentPoolsApi* | [**GetAgentPoolsUpdateSettings**](docs/AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Get Agent pool update settings
-*AgentPoolsApi* | [**GetAgentPoolsUpdates**](docs/AgentPoolsApi.md#getagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List Agent pool updates
-*AgentPoolsApi* | [**PauseAgentPoolsUpdate**](docs/AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause Agent pool update
-*AgentPoolsApi* | [**ResumeAgentPoolsUpdate**](docs/AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume Agent pool update
-*AgentPoolsApi* | [**RetryAgentPoolsUpdate**](docs/AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry Agent pool update
-*AgentPoolsApi* | [**SetAgentPoolsUpdateSettings**](docs/AgentPoolsApi.md#setagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update Agent pool update settings
-*AgentPoolsApi* | [**StopAgentPoolsUpdate**](docs/AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop Agent pool update
-*AgentPoolsApi* | [**UpdateAgentPoolsUpdate**](docs/AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Change Agent pool update by id
-*ApiTokenApi* | [**GetApiToken**](docs/ApiTokenApi.md#getapitoken) | **GET** /api/v1/api-tokens/{apiTokenId} | Get the Metadata for an API Token
-*ApiTokenApi* | [**ListApiTokens**](docs/ApiTokenApi.md#listapitokens) | **GET** /api/v1/api-tokens | List API Token Metadata
+*AgentPoolsApi* | [**ActivateAgentPoolsUpdate**](docs/AgentPoolsApi.md#activateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/activate | Activate an Agent Pool update
+*AgentPoolsApi* | [**CreateAgentPoolsUpdate**](docs/AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an Agent Pool update
+*AgentPoolsApi* | [**DeactivateAgentPoolsUpdate**](docs/AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate an Agent Pool update
+*AgentPoolsApi* | [**DeleteAgentPoolsUpdate**](docs/AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete an Agent Pool update
+*AgentPoolsApi* | [**GetAgentPools**](docs/AgentPoolsApi.md#getagentpools) | **GET** /api/v1/agentPools | List all Agent Pools
+*AgentPoolsApi* | [**GetAgentPoolsUpdateInstance**](docs/AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Retrieve an Agent Pool update by id
+*AgentPoolsApi* | [**GetAgentPoolsUpdateSettings**](docs/AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Retrieve an Agent Pool update's settings
+*AgentPoolsApi* | [**GetAgentPoolsUpdates**](docs/AgentPoolsApi.md#getagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List all Agent Pool updates
+*AgentPoolsApi* | [**PauseAgentPoolsUpdate**](docs/AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause an Agent Pool update
+*AgentPoolsApi* | [**ResumeAgentPoolsUpdate**](docs/AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume an Agent Pool update
+*AgentPoolsApi* | [**RetryAgentPoolsUpdate**](docs/AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry an Agent Pool update
+*AgentPoolsApi* | [**SetAgentPoolsUpdateSettings**](docs/AgentPoolsApi.md#setagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update an Agent pool update settings
+*AgentPoolsApi* | [**StopAgentPoolsUpdate**](docs/AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop an Agent Pool update
+*AgentPoolsApi* | [**UpdateAgentPoolsUpdate**](docs/AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Update an Agent Pool update by id
+*ApiTokenApi* | [**GetApiToken**](docs/ApiTokenApi.md#getapitoken) | **GET** /api/v1/api-tokens/{apiTokenId} | Retrieve an API Token's Metadata
+*ApiTokenApi* | [**ListApiTokens**](docs/ApiTokenApi.md#listapitokens) | **GET** /api/v1/api-tokens | List all API Token Metadata
 *ApiTokenApi* | [**RevokeApiToken**](docs/ApiTokenApi.md#revokeapitoken) | **DELETE** /api/v1/api-tokens/{apiTokenId} | Revoke an API Token
 *ApiTokenApi* | [**RevokeCurrentApiToken**](docs/ApiTokenApi.md#revokecurrentapitoken) | **DELETE** /api/v1/api-tokens/current | Revoke the Current API Token
-*ApplicationApi* | [**ActivateApplication**](docs/ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate Application
-*ApplicationApi* | [**ActivateDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate default Provisioning Connection for application
-*ApplicationApi* | [**AssignUserToApplication**](docs/ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign User to Application for SSO & Provisioning
-*ApplicationApi* | [**CloneApplicationKey**](docs/ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone Application Key Credential
-*ApplicationApi* | [**CreateApplication**](docs/ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Add Application
-*ApplicationApi* | [**CreateApplicationGroupAssignment**](docs/ApplicationApi.md#createapplicationgroupassignment) | **PUT** /api/v1/apps/{appId}/groups/{groupId} | Assign Group to Application
-*ApplicationApi* | [**DeactivateApplication**](docs/ApplicationApi.md#deactivateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/deactivate | Deactivate Application
-*ApplicationApi* | [**DeactivateDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate default Provisioning Connection for application
-*ApplicationApi* | [**DeleteApplication**](docs/ApplicationApi.md#deleteapplication) | **DELETE** /api/v1/apps/{appId} | Delete Application
-*ApplicationApi* | [**DeleteApplicationGroupAssignment**](docs/ApplicationApi.md#deleteapplicationgroupassignment) | **DELETE** /api/v1/apps/{appId}/groups/{groupId} | Remove Group from Application
-*ApplicationApi* | [**DeleteApplicationUser**](docs/ApplicationApi.md#deleteapplicationuser) | **DELETE** /api/v1/apps/{appId}/users/{userId} | Remove User from Application
-*ApplicationApi* | [**GenerateApplicationKey**](docs/ApplicationApi.md#generateapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/generate | Generate Key Credential for Application
-*ApplicationApi* | [**GenerateCsrForApplication**](docs/ApplicationApi.md#generatecsrforapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs | Generate Certificate Signing Request for Application
-*ApplicationApi* | [**GetApplication**](docs/ApplicationApi.md#getapplication) | **GET** /api/v1/apps/{appId} | Get Application
-*ApplicationApi* | [**GetApplicationGroupAssignment**](docs/ApplicationApi.md#getapplicationgroupassignment) | **GET** /api/v1/apps/{appId}/groups/{groupId} | Get Assigned Group for Application
-*ApplicationApi* | [**GetApplicationKey**](docs/ApplicationApi.md#getapplicationkey) | **GET** /api/v1/apps/{appId}/credentials/keys/{keyId} | Get Key Credential for Application
-*ApplicationApi* | [**GetApplicationUser**](docs/ApplicationApi.md#getapplicationuser) | **GET** /api/v1/apps/{appId}/users/{userId} | Get Assigned User for Application
-*ApplicationApi* | [**GetCsrForApplication**](docs/ApplicationApi.md#getcsrforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Get Certificate Signing Request
-*ApplicationApi* | [**GetDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Fetches the default Provisioning Connection for an application.
-*ApplicationApi* | [**GetFeatureForApplication**](docs/ApplicationApi.md#getfeatureforapplication) | **GET** /api/v1/apps/{appId}/features/{name} | Fetches a Feature object for an application.
-*ApplicationApi* | [**GetOAuth2TokenForApplication**](docs/ApplicationApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Get OAuth 2.0 Token for Application
-*ApplicationApi* | [**GetScopeConsentGrant**](docs/ApplicationApi.md#getscopeconsentgrant) | **GET** /api/v1/apps/{appId}/grants/{grantId} | Get Scope Consent Grant for Application
-*ApplicationApi* | [**GrantConsentToScope**](docs/ApplicationApi.md#grantconsenttoscope) | **POST** /api/v1/apps/{appId}/grants | Grant Consent to Scope for Application
-*ApplicationApi* | [**ListApplicationGroupAssignments**](docs/ApplicationApi.md#listapplicationgroupassignments) | **GET** /api/v1/apps/{appId}/groups | List Groups Assigned to Application
-*ApplicationApi* | [**ListApplicationKeys**](docs/ApplicationApi.md#listapplicationkeys) | **GET** /api/v1/apps/{appId}/credentials/keys | List Key Credentials for Application
-*ApplicationApi* | [**ListApplicationUsers**](docs/ApplicationApi.md#listapplicationusers) | **GET** /api/v1/apps/{appId}/users | List Users Assigned to Application
-*ApplicationApi* | [**ListApplications**](docs/ApplicationApi.md#listapplications) | **GET** /api/v1/apps | List Applications
-*ApplicationApi* | [**ListCsrsForApplication**](docs/ApplicationApi.md#listcsrsforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs | List Certificate Signing Requests for Application
-*ApplicationApi* | [**ListFeaturesForApplication**](docs/ApplicationApi.md#listfeaturesforapplication) | **GET** /api/v1/apps/{appId}/features | Fetches the Feature objects for an application.
-*ApplicationApi* | [**ListOAuth2TokensForApplication**](docs/ApplicationApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | Lists OAuth 2.0 Tokens for Application
-*ApplicationApi* | [**ListScopeConsentGrants**](docs/ApplicationApi.md#listscopeconsentgrants) | **GET** /api/v1/apps/{appId}/grants | List Scope Consent Grants for Application
-*ApplicationApi* | [**PublishCsrFromApplication**](docs/ApplicationApi.md#publishcsrfromapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish | Publish Certificate Signing Request
-*ApplicationApi* | [**RevokeCsrFromApplication**](docs/ApplicationApi.md#revokecsrfromapplication) | **DELETE** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Revoke Certificate Signing Request
-*ApplicationApi* | [**RevokeOAuth2TokenForApplication**](docs/ApplicationApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an OAuth 2.0 Token for Application
-*ApplicationApi* | [**RevokeOAuth2TokensForApplication**](docs/ApplicationApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke All OAuth 2.0 Tokens for Application
-*ApplicationApi* | [**RevokeScopeConsentGrant**](docs/ApplicationApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke Scope Consent Grant for Application
-*ApplicationApi* | [**SetDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#setdefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Sets the default Provisioning Connection for an application.
-*ApplicationApi* | [**UpdateApplication**](docs/ApplicationApi.md#updateapplication) | **PUT** /api/v1/apps/{appId} | Update Application
-*ApplicationApi* | [**UpdateApplicationUser**](docs/ApplicationApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update Application Profile for Assigned User
-*ApplicationApi* | [**UpdateFeatureForApplication**](docs/ApplicationApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{name} | Updates a Feature object for an application.
-*ApplicationApi* | [**UploadApplicationLogo**](docs/ApplicationApi.md#uploadapplicationlogo) | **POST** /api/v1/apps/{appId}/logo | The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
-*AuthenticatorApi* | [**ActivateAuthenticator**](docs/AuthenticatorApi.md#activateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/activate | Activate Authenticator
-*AuthenticatorApi* | [**DeactivateAuthenticator**](docs/AuthenticatorApi.md#deactivateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/deactivate | Deactivate Authenticator
-*AuthenticatorApi* | [**GetAuthenticator**](docs/AuthenticatorApi.md#getauthenticator) | **GET** /api/v1/authenticators/{authenticatorId} | Get Authenticator
-*AuthenticatorApi* | [**ListAuthenticators**](docs/AuthenticatorApi.md#listauthenticators) | **GET** /api/v1/authenticators | List Authenticators
-*AuthenticatorApi* | [**UpdateAuthenticator**](docs/AuthenticatorApi.md#updateauthenticator) | **PUT** /api/v1/authenticators/{authenticatorId} | Update Authenticator
-*AuthorizationServerApi* | [**ActivateAuthorizationServer**](docs/AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate Authorization Server
-*AuthorizationServerApi* | [**ActivateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate Authorization Server Policy
-*AuthorizationServerApi* | [**ActivateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate Authorization Server Policy Rule
-*AuthorizationServerApi* | [**CreateAuthorizationServer**](docs/AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create Authorization Server
-*AuthorizationServerApi* | [**CreateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create Authorization Server Policy
-*AuthorizationServerApi* | [**CreateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create Authorization Server Policy Rule
-*AuthorizationServerApi* | [**CreateOAuth2Claim**](docs/AuthorizationServerApi.md#createoauth2claim) | **POST** /api/v1/authorizationServers/{authServerId}/claims | Create Custom OAuth 2.0 Token Claim
-*AuthorizationServerApi* | [**CreateOAuth2Scope**](docs/AuthorizationServerApi.md#createoauth2scope) | **POST** /api/v1/authorizationServers/{authServerId}/scopes | Create Oauth2scope
-*AuthorizationServerApi* | [**DeactivateAuthorizationServer**](docs/AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate Authorization Server
-*AuthorizationServerApi* | [**DeactivateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate Authorization Server Policy
-*AuthorizationServerApi* | [**DeactivateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate Authorization Server Policy Rule
-*AuthorizationServerApi* | [**DeleteAuthorizationServer**](docs/AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete Authorization Server
-*AuthorizationServerApi* | [**DeleteAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete Authorization Server Policy
-*AuthorizationServerApi* | [**DeleteAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete Authorization Server Policy Rule
-*AuthorizationServerApi* | [**DeleteOAuth2Claim**](docs/AuthorizationServerApi.md#deleteoauth2claim) | **DELETE** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Delete Custom OAuth 2.0 Token Claim
-*AuthorizationServerApi* | [**DeleteOAuth2Scope**](docs/AuthorizationServerApi.md#deleteoauth2scope) | **DELETE** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Delete Oauth2scope
-*AuthorizationServerApi* | [**GetAuthorizationServer**](docs/AuthorizationServerApi.md#getauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId} | Get Authorization Server
-*AuthorizationServerApi* | [**GetAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#getauthorizationserverpolicy) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Get Authorization Server Policy
-*AuthorizationServerApi* | [**GetAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#getauthorizationserverpolicyrule) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Get Authorization Server Policy Rule
-*AuthorizationServerApi* | [**GetOAuth2Claim**](docs/AuthorizationServerApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Get Oauth2claim
-*AuthorizationServerApi* | [**GetOAuth2Scope**](docs/AuthorizationServerApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Get Oauth2scope
-*AuthorizationServerApi* | [**GetRefreshTokenForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Get Refresh Token for Authorization Server and Client
-*AuthorizationServerApi* | [**ListAuthorizationServerKeys**](docs/AuthorizationServerApi.md#listauthorizationserverkeys) | **GET** /api/v1/authorizationServers/{authServerId}/credentials/keys | List Authorization Server Keys
-*AuthorizationServerApi* | [**ListAuthorizationServerPolicies**](docs/AuthorizationServerApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List Authorization Server Policies
-*AuthorizationServerApi* | [**ListAuthorizationServerPolicyRules**](docs/AuthorizationServerApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List Authorization Server Policy Rules
-*AuthorizationServerApi* | [**ListAuthorizationServers**](docs/AuthorizationServerApi.md#listauthorizationservers) | **GET** /api/v1/authorizationServers | List Authorization Servers
-*AuthorizationServerApi* | [**ListOAuth2Claims**](docs/AuthorizationServerApi.md#listoauth2claims) | **GET** /api/v1/authorizationServers/{authServerId}/claims | List Custom OAuth 2.0 Token Claims
-*AuthorizationServerApi* | [**ListOAuth2ClientsForAuthorizationServer**](docs/AuthorizationServerApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List Oauth2clients for Authorization Server
-*AuthorizationServerApi* | [**ListOAuth2Scopes**](docs/AuthorizationServerApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List Oauth2scopes
-*AuthorizationServerApi* | [**ListRefreshTokensForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List Refresh Tokens for Authorization Server and Client
-*AuthorizationServerApi* | [**RevokeRefreshTokenForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke Refresh Token for Authorization Server and Client
-*AuthorizationServerApi* | [**RevokeRefreshTokensForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke Refresh Tokens for Authorization Server and Client
-*AuthorizationServerApi* | [**RotateAuthorizationServerKeys**](docs/AuthorizationServerApi.md#rotateauthorizationserverkeys) | **POST** /api/v1/authorizationServers/{authServerId}/credentials/lifecycle/keyRotate | Rotate Authorization Server Keys
-*AuthorizationServerApi* | [**UpdateAuthorizationServer**](docs/AuthorizationServerApi.md#updateauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Update Authorization Server
-*AuthorizationServerApi* | [**UpdateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#updateauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Update Authorization Server Policy
-*AuthorizationServerApi* | [**UpdateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#updateauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Update Authorization Server Policy Rule
-*AuthorizationServerApi* | [**UpdateOAuth2Claim**](docs/AuthorizationServerApi.md#updateoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Update Custom OAuth 2.0 Token Claim
-*AuthorizationServerApi* | [**UpdateOAuth2Scope**](docs/AuthorizationServerApi.md#updateoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Update Oauth2scope
-*BehaviorApi* | [**ActivateBehaviorDetectionRule**](docs/BehaviorApi.md#activatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/activate | Activate Behavior Detection Rule
-*BehaviorApi* | [**CreateBehaviorDetectionRule**](docs/BehaviorApi.md#createbehaviordetectionrule) | **POST** /api/v1/behaviors | Create new Behavior Detection Rule
-*BehaviorApi* | [**DeactivateBehaviorDetectionRule**](docs/BehaviorApi.md#deactivatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/deactivate | Deactivate Behavior Detection Rule
-*BehaviorApi* | [**DeleteBehaviorDetectionRule**](docs/BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete Behavior Detection Rule
-*BehaviorApi* | [**GetBehaviorDetectionRule**](docs/BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Get Behavior Detection Rule
-*BehaviorApi* | [**ListBehaviorDetectionRules**](docs/BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List Behavior Detection Rules
-*BehaviorApi* | [**UpdateBehaviorDetectionRule**](docs/BehaviorApi.md#updatebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Update Behavior Detection Rule
-*CAPTCHAApi* | [**CreateCaptchaInstance**](docs/CAPTCHAApi.md#createcaptchainstance) | **POST** /api/v1/captchas | Create new CAPTCHA instance
-*CAPTCHAApi* | [**DeleteCaptchaInstance**](docs/CAPTCHAApi.md#deletecaptchainstance) | **DELETE** /api/v1/captchas/{captchaId} | Delete CAPTCHA Instance
-*CAPTCHAApi* | [**GetCaptchaInstance**](docs/CAPTCHAApi.md#getcaptchainstance) | **GET** /api/v1/captchas/{captchaId} | Get CAPTCHA Instance
-*CAPTCHAApi* | [**ListCaptchaInstances**](docs/CAPTCHAApi.md#listcaptchainstances) | **GET** /api/v1/captchas | List CAPTCHA instances
-*CAPTCHAApi* | [**PartialUpdateCaptchaInstance**](docs/CAPTCHAApi.md#partialupdatecaptchainstance) | **POST** /api/v1/captchas/{captchaId} | Partial Update CAPTCHA instance
-*CAPTCHAApi* | [**UpdateCaptchaInstance**](docs/CAPTCHAApi.md#updatecaptchainstance) | **PUT** /api/v1/captchas/{captchaId} | Update CAPTCHA instance
-*CustomizationApi* | [**CreateEmailCustomization**](docs/CustomizationApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create Email Customization
-*CustomizationApi* | [**DeleteAllCustomizations**](docs/CustomizationApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete All Email Customizations
-*CustomizationApi* | [**DeleteBrandThemeBackgroundImage**](docs/CustomizationApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Deletes a Theme background image
-*CustomizationApi* | [**DeleteBrandThemeFavicon**](docs/CustomizationApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Deletes a Theme favicon. The org then uses the Okta default favicon.
-*CustomizationApi* | [**DeleteBrandThemeLogo**](docs/CustomizationApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Deletes a Theme logo. The org then uses the Okta default logo.
-*CustomizationApi* | [**DeleteEmailCustomization**](docs/CustomizationApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete Email Customization
-*CustomizationApi* | [**GetBrand**](docs/CustomizationApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Get Brand
-*CustomizationApi* | [**GetBrandTheme**](docs/CustomizationApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Get a theme for a brand
-*CustomizationApi* | [**GetCustomizationPreview**](docs/CustomizationApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Preview Email Customization
-*CustomizationApi* | [**GetEmailCustomization**](docs/CustomizationApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Get Email Customization
-*CustomizationApi* | [**GetEmailDefaultContent**](docs/CustomizationApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Get Email Template Default Content
-*CustomizationApi* | [**GetEmailDefaultPreview**](docs/CustomizationApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Preview Email Template Default Content
-*CustomizationApi* | [**GetEmailSettings**](docs/CustomizationApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Get Email Template Settings
-*CustomizationApi* | [**GetEmailTemplate**](docs/CustomizationApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Get Email Template
-*CustomizationApi* | [**ListBrandThemes**](docs/CustomizationApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | Get Brand Themes
-*CustomizationApi* | [**ListBrands**](docs/CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List Brands
-*CustomizationApi* | [**ListEmailCustomizations**](docs/CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List Email Customizations
-*CustomizationApi* | [**ListEmailTemplates**](docs/CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List Email Templates
-*CustomizationApi* | [**SendTestEmail**](docs/CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send Test Email
-*CustomizationApi* | [**UpdateBrand**](docs/CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Update Brand
-*CustomizationApi* | [**UpdateBrandTheme**](docs/CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Update a theme for a brand
-*CustomizationApi* | [**UpdateEmailCustomization**](docs/CustomizationApi.md#updateemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Update Email Customization
-*CustomizationApi* | [**UpdateEmailSettings**](docs/CustomizationApi.md#updateemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Update Email Template Settings
-*CustomizationApi* | [**UploadBrandThemeBackgroundImage**](docs/CustomizationApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Updates the background image for your Theme
-*CustomizationApi* | [**UploadBrandThemeFavicon**](docs/CustomizationApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Updates the favicon for your theme
-*CustomizationApi* | [**UploadBrandThemeLogo**](docs/CustomizationApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Update a themes logo
-*DomainApi* | [**CreateCertificate**](docs/DomainApi.md#createcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Create Certificate
-*DomainApi* | [**CreateDomain**](docs/DomainApi.md#createdomain) | **POST** /api/v1/domains | Create Domain
-*DomainApi* | [**DeleteDomain**](docs/DomainApi.md#deletedomain) | **DELETE** /api/v1/domains/{domainId} | Delete Domain
-*DomainApi* | [**GetDomain**](docs/DomainApi.md#getdomain) | **GET** /api/v1/domains/{domainId} | Get Domain
-*DomainApi* | [**ListDomains**](docs/DomainApi.md#listdomains) | **GET** /api/v1/domains | List Domains
-*DomainApi* | [**VerifyDomain**](docs/DomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify Domain
-*EventHookApi* | [**ActivateEventHook**](docs/EventHookApi.md#activateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/activate | Activate Event Hook
-*EventHookApi* | [**CreateEventHook**](docs/EventHookApi.md#createeventhook) | **POST** /api/v1/eventHooks | Create Event Hook
-*EventHookApi* | [**DeactivateEventHook**](docs/EventHookApi.md#deactivateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/deactivate | Deactivate Event Hook
-*EventHookApi* | [**DeleteEventHook**](docs/EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete Event Hook
-*EventHookApi* | [**GetEventHook**](docs/EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Get Event Hook
-*EventHookApi* | [**ListEventHooks**](docs/EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List Event Hooks
-*EventHookApi* | [**UpdateEventHook**](docs/EventHookApi.md#updateeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Update Event Hook
-*EventHookApi* | [**VerifyEventHook**](docs/EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify Event Hook
-*FeatureApi* | [**GetFeature**](docs/FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Get Feature
-*FeatureApi* | [**ListFeatureDependencies**](docs/FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List Feature Dependencies
-*FeatureApi* | [**ListFeatureDependents**](docs/FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List Feature Dependents
-*FeatureApi* | [**ListFeatures**](docs/FeatureApi.md#listfeatures) | **GET** /api/v1/features | List Features
-*FeatureApi* | [**UpdateFeatureLifecycle**](docs/FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update Feature Lifecycle
-*GroupApi* | [**ActivateGroupRule**](docs/GroupApi.md#activategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/activate | Activate a group Rule
-*GroupApi* | [**AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**](docs/GroupApi.md#addapplicationinstancetargettoappadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Add App Instance Target to App Administrator Role given to a Group
-*GroupApi* | [**AddApplicationTargetToAdminRoleGivenToGroup**](docs/GroupApi.md#addapplicationtargettoadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Add Application Target to Admin Role Given to Group
-*GroupApi* | [**AddGroupTargetToGroupAdministratorRoleForGroup**](docs/GroupApi.md#addgrouptargettogroupadministratorroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Add Group Target for Group Role
-*GroupApi* | [**AddUserToGroup**](docs/GroupApi.md#addusertogroup) | **PUT** /api/v1/groups/{groupId}/users/{userId} | Add User to Group
-*GroupApi* | [**AssignRoleToGroup**](docs/GroupApi.md#assignroletogroup) | **POST** /api/v1/groups/{groupId}/roles | Assign Role to Group
-*GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **POST** /api/v1/groups | Add Group
-*GroupApi* | [**CreateGroupRule**](docs/GroupApi.md#creategrouprule) | **POST** /api/v1/groups/rules | Create Group Rule
-*GroupApi* | [**DeactivateGroupRule**](docs/GroupApi.md#deactivategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/deactivate | Deactivate a group Rule
-*GroupApi* | [**DeleteGroup**](docs/GroupApi.md#deletegroup) | **DELETE** /api/v1/groups/{groupId} | Remove Group
+*ApplicationApi* | [**ActivateApplication**](docs/ApplicationApi.md#activateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/activate | Activate an Application
+*ApplicationApi* | [**ActivateDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#activatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/activate | Activate the default Provisioning Connection
+*ApplicationApi* | [**AssignUserToApplication**](docs/ApplicationApi.md#assignusertoapplication) | **POST** /api/v1/apps/{appId}/users | Assign a User
+*ApplicationApi* | [**CloneApplicationKey**](docs/ApplicationApi.md#cloneapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/{keyId}/clone | Clone a Key Credential
+*ApplicationApi* | [**CreateApplication**](docs/ApplicationApi.md#createapplication) | **POST** /api/v1/apps | Create an Application
+*ApplicationApi* | [**CreateApplicationGroupAssignment**](docs/ApplicationApi.md#createapplicationgroupassignment) | **PUT** /api/v1/apps/{appId}/groups/{groupId} | Assign a Group
+*ApplicationApi* | [**DeactivateApplication**](docs/ApplicationApi.md#deactivateapplication) | **POST** /api/v1/apps/{appId}/lifecycle/deactivate | Deactivate an Application
+*ApplicationApi* | [**DeactivateDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#deactivatedefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default/lifecycle/deactivate | Deactivate the default Provisioning Connection for an Application
+*ApplicationApi* | [**DeleteApplication**](docs/ApplicationApi.md#deleteapplication) | **DELETE** /api/v1/apps/{appId} | Delete an Application
+*ApplicationApi* | [**DeleteApplicationGroupAssignment**](docs/ApplicationApi.md#deleteapplicationgroupassignment) | **DELETE** /api/v1/apps/{appId}/groups/{groupId} | Unassign a Group
+*ApplicationApi* | [**DeleteApplicationUser**](docs/ApplicationApi.md#deleteapplicationuser) | **DELETE** /api/v1/apps/{appId}/users/{userId} | Unassign a User
+*ApplicationApi* | [**GenerateApplicationKey**](docs/ApplicationApi.md#generateapplicationkey) | **POST** /api/v1/apps/{appId}/credentials/keys/generate | Generate a Key Credential
+*ApplicationApi* | [**GenerateCsrForApplication**](docs/ApplicationApi.md#generatecsrforapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs | Generate a Certificate Signing Request
+*ApplicationApi* | [**GetApplication**](docs/ApplicationApi.md#getapplication) | **GET** /api/v1/apps/{appId} | Retrieve an Application
+*ApplicationApi* | [**GetApplicationGroupAssignment**](docs/ApplicationApi.md#getapplicationgroupassignment) | **GET** /api/v1/apps/{appId}/groups/{groupId} | Retrieve an Assigned Group
+*ApplicationApi* | [**GetApplicationKey**](docs/ApplicationApi.md#getapplicationkey) | **GET** /api/v1/apps/{appId}/credentials/keys/{keyId} | Retrieve a Key Credential
+*ApplicationApi* | [**GetApplicationUser**](docs/ApplicationApi.md#getapplicationuser) | **GET** /api/v1/apps/{appId}/users/{userId} | Retrieve an Assigned User
+*ApplicationApi* | [**GetCsrForApplication**](docs/ApplicationApi.md#getcsrforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Retrieve a Certificate Signing Request
+*ApplicationApi* | [**GetDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#getdefaultprovisioningconnectionforapplication) | **GET** /api/v1/apps/{appId}/connections/default | Retrieve the default Provisioning Connection
+*ApplicationApi* | [**GetFeatureForApplication**](docs/ApplicationApi.md#getfeatureforapplication) | **GET** /api/v1/apps/{appId}/features/{name} | Retrieve a Feature
+*ApplicationApi* | [**GetOAuth2TokenForApplication**](docs/ApplicationApi.md#getoauth2tokenforapplication) | **GET** /api/v1/apps/{appId}/tokens/{tokenId} | Retrieve an OAuth 2.0 Token
+*ApplicationApi* | [**GetScopeConsentGrant**](docs/ApplicationApi.md#getscopeconsentgrant) | **GET** /api/v1/apps/{appId}/grants/{grantId} | Retrieve a Scope Consent Grant
+*ApplicationApi* | [**GrantConsentToScope**](docs/ApplicationApi.md#grantconsenttoscope) | **POST** /api/v1/apps/{appId}/grants | Grant Consent to Scope
+*ApplicationApi* | [**ListApplicationGroupAssignments**](docs/ApplicationApi.md#listapplicationgroupassignments) | **GET** /api/v1/apps/{appId}/groups | List all Assigned Groups
+*ApplicationApi* | [**ListApplicationKeys**](docs/ApplicationApi.md#listapplicationkeys) | **GET** /api/v1/apps/{appId}/credentials/keys | List all Key Credentials
+*ApplicationApi* | [**ListApplicationUsers**](docs/ApplicationApi.md#listapplicationusers) | **GET** /api/v1/apps/{appId}/users | List all Assigned Users
+*ApplicationApi* | [**ListApplications**](docs/ApplicationApi.md#listapplications) | **GET** /api/v1/apps | List all Applications
+*ApplicationApi* | [**ListCsrsForApplication**](docs/ApplicationApi.md#listcsrsforapplication) | **GET** /api/v1/apps/{appId}/credentials/csrs | List all Certificate Signing Requests
+*ApplicationApi* | [**ListFeaturesForApplication**](docs/ApplicationApi.md#listfeaturesforapplication) | **GET** /api/v1/apps/{appId}/features | List all Features
+*ApplicationApi* | [**ListOAuth2TokensForApplication**](docs/ApplicationApi.md#listoauth2tokensforapplication) | **GET** /api/v1/apps/{appId}/tokens | List all OAuth 2.0 Tokens
+*ApplicationApi* | [**ListScopeConsentGrants**](docs/ApplicationApi.md#listscopeconsentgrants) | **GET** /api/v1/apps/{appId}/grants | List all Scope Consent Grants
+*ApplicationApi* | [**PublishCsrFromApplication**](docs/ApplicationApi.md#publishcsrfromapplication) | **POST** /api/v1/apps/{appId}/credentials/csrs/{csrId}/lifecycle/publish | Publish a Certificate Signing Request
+*ApplicationApi* | [**RevokeCsrFromApplication**](docs/ApplicationApi.md#revokecsrfromapplication) | **DELETE** /api/v1/apps/{appId}/credentials/csrs/{csrId} | Revoke a Certificate Signing Request
+*ApplicationApi* | [**RevokeOAuth2TokenForApplication**](docs/ApplicationApi.md#revokeoauth2tokenforapplication) | **DELETE** /api/v1/apps/{appId}/tokens/{tokenId} | Revoke an OAuth 2.0 Token
+*ApplicationApi* | [**RevokeOAuth2TokensForApplication**](docs/ApplicationApi.md#revokeoauth2tokensforapplication) | **DELETE** /api/v1/apps/{appId}/tokens | Revoke all OAuth 2.0 Tokens
+*ApplicationApi* | [**RevokeScopeConsentGrant**](docs/ApplicationApi.md#revokescopeconsentgrant) | **DELETE** /api/v1/apps/{appId}/grants/{grantId} | Revoke a Scope Consent Grant
+*ApplicationApi* | [**SetDefaultProvisioningConnectionForApplication**](docs/ApplicationApi.md#setdefaultprovisioningconnectionforapplication) | **POST** /api/v1/apps/{appId}/connections/default | Update the default Provisioning Connection
+*ApplicationApi* | [**UpdateApplication**](docs/ApplicationApi.md#updateapplication) | **PUT** /api/v1/apps/{appId} | Replace an Application
+*ApplicationApi* | [**UpdateApplicationUser**](docs/ApplicationApi.md#updateapplicationuser) | **POST** /api/v1/apps/{appId}/users/{userId} | Update an Application Profile for Assigned User
+*ApplicationApi* | [**UpdateFeatureForApplication**](docs/ApplicationApi.md#updatefeatureforapplication) | **PUT** /api/v1/apps/{appId}/features/{name} | Update a Feature
+*ApplicationApi* | [**UploadApplicationLogo**](docs/ApplicationApi.md#uploadapplicationlogo) | **POST** /api/v1/apps/{appId}/logo | Upload a Logo
+*AuthenticatorApi* | [**ActivateAuthenticator**](docs/AuthenticatorApi.md#activateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/activate | Activate an Authenticator
+*AuthenticatorApi* | [**DeactivateAuthenticator**](docs/AuthenticatorApi.md#deactivateauthenticator) | **POST** /api/v1/authenticators/{authenticatorId}/lifecycle/deactivate | Deactivate an Authenticator
+*AuthenticatorApi* | [**GetAuthenticator**](docs/AuthenticatorApi.md#getauthenticator) | **GET** /api/v1/authenticators/{authenticatorId} | Retrieve an Authenticator
+*AuthenticatorApi* | [**ListAuthenticators**](docs/AuthenticatorApi.md#listauthenticators) | **GET** /api/v1/authenticators | List all Authenticators
+*AuthenticatorApi* | [**UpdateAuthenticator**](docs/AuthenticatorApi.md#updateauthenticator) | **PUT** /api/v1/authenticators/{authenticatorId} | Replace an Authenticator
+*AuthorizationServerApi* | [**ActivateAuthorizationServer**](docs/AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate an Authorization Server
+*AuthorizationServerApi* | [**ActivateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate a Policy
+*AuthorizationServerApi* | [**ActivateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
+*AuthorizationServerApi* | [**CreateAuthorizationServer**](docs/AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create an Authorization Server
+*AuthorizationServerApi* | [**CreateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create a Policy
+*AuthorizationServerApi* | [**CreateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create a Policy Rule
+*AuthorizationServerApi* | [**CreateOAuth2Claim**](docs/AuthorizationServerApi.md#createoauth2claim) | **POST** /api/v1/authorizationServers/{authServerId}/claims | Create a Custom Token Claim
+*AuthorizationServerApi* | [**CreateOAuth2Scope**](docs/AuthorizationServerApi.md#createoauth2scope) | **POST** /api/v1/authorizationServers/{authServerId}/scopes | Create a Custom Token Scope
+*AuthorizationServerApi* | [**DeactivateAuthorizationServer**](docs/AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate an Authorization Server
+*AuthorizationServerApi* | [**DeactivateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
+*AuthorizationServerApi* | [**DeactivateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
+*AuthorizationServerApi* | [**DeleteAuthorizationServer**](docs/AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete an Authorization Server
+*AuthorizationServerApi* | [**DeleteAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete a Policy
+*AuthorizationServerApi* | [**DeleteAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
+*AuthorizationServerApi* | [**DeleteOAuth2Claim**](docs/AuthorizationServerApi.md#deleteoauth2claim) | **DELETE** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Delete a Custom Token Claim
+*AuthorizationServerApi* | [**DeleteOAuth2Scope**](docs/AuthorizationServerApi.md#deleteoauth2scope) | **DELETE** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Delete a Custom Token Scope
+*AuthorizationServerApi* | [**GetAuthorizationServer**](docs/AuthorizationServerApi.md#getauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId} | Retrieve an Authorization Server
+*AuthorizationServerApi* | [**GetAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#getauthorizationserverpolicy) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Retrieve a Policy
+*AuthorizationServerApi* | [**GetAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#getauthorizationserverpolicyrule) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Retrieve a Policy Rule
+*AuthorizationServerApi* | [**GetOAuth2Claim**](docs/AuthorizationServerApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Retrieve a Custom Token Claim
+*AuthorizationServerApi* | [**GetOAuth2Scope**](docs/AuthorizationServerApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Retrieve a Custom Token Scope
+*AuthorizationServerApi* | [**GetRefreshTokenForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Retrieve a Refresh Token for a Client
+*AuthorizationServerApi* | [**ListAuthorizationServerKeys**](docs/AuthorizationServerApi.md#listauthorizationserverkeys) | **GET** /api/v1/authorizationServers/{authServerId}/credentials/keys | List all Credential Keys
+*AuthorizationServerApi* | [**ListAuthorizationServerPolicies**](docs/AuthorizationServerApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List all Policies
+*AuthorizationServerApi* | [**ListAuthorizationServerPolicyRules**](docs/AuthorizationServerApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List all Policy Rules
+*AuthorizationServerApi* | [**ListAuthorizationServers**](docs/AuthorizationServerApi.md#listauthorizationservers) | **GET** /api/v1/authorizationServers | List all Authorization Servers
+*AuthorizationServerApi* | [**ListOAuth2Claims**](docs/AuthorizationServerApi.md#listoauth2claims) | **GET** /api/v1/authorizationServers/{authServerId}/claims | List all Custom Token Claims
+*AuthorizationServerApi* | [**ListOAuth2ClientsForAuthorizationServer**](docs/AuthorizationServerApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List all Clients
+*AuthorizationServerApi* | [**ListOAuth2Scopes**](docs/AuthorizationServerApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List all Custom Token Scopes
+*AuthorizationServerApi* | [**ListRefreshTokensForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
+*AuthorizationServerApi* | [**RevokeRefreshTokenForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke a Refresh Token for a Client
+*AuthorizationServerApi* | [**RevokeRefreshTokensForAuthorizationServerAndClient**](docs/AuthorizationServerApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke all Refresh Tokens for a Client
+*AuthorizationServerApi* | [**RotateAuthorizationServerKeys**](docs/AuthorizationServerApi.md#rotateauthorizationserverkeys) | **POST** /api/v1/authorizationServers/{authServerId}/credentials/lifecycle/keyRotate | Rotate all Credential Keys
+*AuthorizationServerApi* | [**UpdateAuthorizationServer**](docs/AuthorizationServerApi.md#updateauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Replace an Authorization Server
+*AuthorizationServerApi* | [**UpdateAuthorizationServerPolicy**](docs/AuthorizationServerApi.md#updateauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Replace a Policy
+*AuthorizationServerApi* | [**UpdateAuthorizationServerPolicyRule**](docs/AuthorizationServerApi.md#updateauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
+*AuthorizationServerApi* | [**UpdateOAuth2Claim**](docs/AuthorizationServerApi.md#updateoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Replace a Custom Token Claim
+*AuthorizationServerApi* | [**UpdateOAuth2Scope**](docs/AuthorizationServerApi.md#updateoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Replace a Custom Token Scope
+*BehaviorApi* | [**ActivateBehaviorDetectionRule**](docs/BehaviorApi.md#activatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/activate | Activate a Behavior Detection Rule
+*BehaviorApi* | [**CreateBehaviorDetectionRule**](docs/BehaviorApi.md#createbehaviordetectionrule) | **POST** /api/v1/behaviors | Create a Behavior Detection Rule
+*BehaviorApi* | [**DeactivateBehaviorDetectionRule**](docs/BehaviorApi.md#deactivatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/deactivate | Deactivate a Behavior Detection Rule
+*BehaviorApi* | [**DeleteBehaviorDetectionRule**](docs/BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete a Behavior Detection Rule
+*BehaviorApi* | [**GetBehaviorDetectionRule**](docs/BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Retrieve a Behavior Detection Rule
+*BehaviorApi* | [**ListBehaviorDetectionRules**](docs/BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List all Behavior Detection Rules
+*BehaviorApi* | [**UpdateBehaviorDetectionRule**](docs/BehaviorApi.md#updatebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Replace a Behavior Detection Rule
+*CAPTCHAApi* | [**CreateCaptchaInstance**](docs/CAPTCHAApi.md#createcaptchainstance) | **POST** /api/v1/captchas | Create a CAPTCHA instance
+*CAPTCHAApi* | [**DeleteCaptchaInstance**](docs/CAPTCHAApi.md#deletecaptchainstance) | **DELETE** /api/v1/captchas/{captchaId} | Delete a CAPTCHA Instance
+*CAPTCHAApi* | [**GetCaptchaInstance**](docs/CAPTCHAApi.md#getcaptchainstance) | **GET** /api/v1/captchas/{captchaId} | Retrieve a CAPTCHA Instance
+*CAPTCHAApi* | [**ListCaptchaInstances**](docs/CAPTCHAApi.md#listcaptchainstances) | **GET** /api/v1/captchas | List all CAPTCHA instances
+*CAPTCHAApi* | [**PartialUpdateCaptchaInstance**](docs/CAPTCHAApi.md#partialupdatecaptchainstance) | **POST** /api/v1/captchas/{captchaId} | Update a CAPTCHA instance
+*CAPTCHAApi* | [**UpdateCaptchaInstance**](docs/CAPTCHAApi.md#updatecaptchainstance) | **PUT** /api/v1/captchas/{captchaId} | Replace a CAPTCHA instance
+*CustomizationApi* | [**CreateEmailCustomization**](docs/CustomizationApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create an Email Customization
+*CustomizationApi* | [**DeleteAllCustomizations**](docs/CustomizationApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete all Email Customizations
+*CustomizationApi* | [**DeleteBrandThemeBackgroundImage**](docs/CustomizationApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Delete the Background Image
+*CustomizationApi* | [**DeleteBrandThemeFavicon**](docs/CustomizationApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Delete the Favicon
+*CustomizationApi* | [**DeleteBrandThemeLogo**](docs/CustomizationApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Delete the Logo
+*CustomizationApi* | [**DeleteEmailCustomization**](docs/CustomizationApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete an Email Customization
+*CustomizationApi* | [**GetBrand**](docs/CustomizationApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Retrieve a Brand
+*CustomizationApi* | [**GetBrandTheme**](docs/CustomizationApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Retrieve a Theme
+*CustomizationApi* | [**GetCustomizationPreview**](docs/CustomizationApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Preview an Email Customization
+*CustomizationApi* | [**GetEmailCustomization**](docs/CustomizationApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Retrieve an Email Customization
+*CustomizationApi* | [**GetEmailDefaultContent**](docs/CustomizationApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Retrieve an Email Template Default Content
+*CustomizationApi* | [**GetEmailDefaultPreview**](docs/CustomizationApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Preview the Email Template Default Content
+*CustomizationApi* | [**GetEmailSettings**](docs/CustomizationApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Retrieve the Email Template Settings
+*CustomizationApi* | [**GetEmailTemplate**](docs/CustomizationApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Retrieve an Email Template
+*CustomizationApi* | [**ListBrandThemes**](docs/CustomizationApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | List all Themes
+*CustomizationApi* | [**ListBrands**](docs/CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List all Brands
+*CustomizationApi* | [**ListEmailCustomizations**](docs/CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all Email Customizations
+*CustomizationApi* | [**ListEmailTemplates**](docs/CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all Email Templates
+*CustomizationApi* | [**SendTestEmail**](docs/CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a Test Email
+*CustomizationApi* | [**UpdateBrand**](docs/CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Replace a Brand
+*CustomizationApi* | [**UpdateBrandTheme**](docs/CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Replace a Theme
+*CustomizationApi* | [**UpdateEmailCustomization**](docs/CustomizationApi.md#updateemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Replace an Email Customization
+*CustomizationApi* | [**UpdateEmailSettings**](docs/CustomizationApi.md#updateemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Replace the Email Template Settings
+*CustomizationApi* | [**UploadBrandThemeBackgroundImage**](docs/CustomizationApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Upload the Background Image
+*CustomizationApi* | [**UploadBrandThemeFavicon**](docs/CustomizationApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Upload the Favicon
+*CustomizationApi* | [**UploadBrandThemeLogo**](docs/CustomizationApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Upload the Logo
+*DomainApi* | [**CreateCertificate**](docs/DomainApi.md#createcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Replace the Certificate
+*DomainApi* | [**CreateDomain**](docs/DomainApi.md#createdomain) | **POST** /api/v1/domains | Create a Domain
+*DomainApi* | [**DeleteDomain**](docs/DomainApi.md#deletedomain) | **DELETE** /api/v1/domains/{domainId} | Delete a Domain
+*DomainApi* | [**GetDomain**](docs/DomainApi.md#getdomain) | **GET** /api/v1/domains/{domainId} | Retrieve a Domain
+*DomainApi* | [**ListDomains**](docs/DomainApi.md#listdomains) | **GET** /api/v1/domains | List all Domains
+*DomainApi* | [**VerifyDomain**](docs/DomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify a Domain
+*EventHookApi* | [**ActivateEventHook**](docs/EventHookApi.md#activateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/activate | Activate an Event Hook
+*EventHookApi* | [**CreateEventHook**](docs/EventHookApi.md#createeventhook) | **POST** /api/v1/eventHooks | Create an Event Hook
+*EventHookApi* | [**DeactivateEventHook**](docs/EventHookApi.md#deactivateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/deactivate | Deactivate an Event Hook
+*EventHookApi* | [**DeleteEventHook**](docs/EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete an Event Hook
+*EventHookApi* | [**GetEventHook**](docs/EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Retrieve an Event Hook
+*EventHookApi* | [**ListEventHooks**](docs/EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List all Event Hooks
+*EventHookApi* | [**UpdateEventHook**](docs/EventHookApi.md#updateeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Replace an Event Hook
+*EventHookApi* | [**VerifyEventHook**](docs/EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify an Event Hook
+*FeatureApi* | [**GetFeature**](docs/FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Retrieve a Feature
+*FeatureApi* | [**ListFeatureDependencies**](docs/FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List all Dependencies
+*FeatureApi* | [**ListFeatureDependents**](docs/FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List all Dependents
+*FeatureApi* | [**ListFeatures**](docs/FeatureApi.md#listfeatures) | **GET** /api/v1/features | List all Features
+*FeatureApi* | [**UpdateFeatureLifecycle**](docs/FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update a Feature Lifecycle
+*GroupApi* | [**ActivateGroupRule**](docs/GroupApi.md#activategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/activate | Activate a Group Rule
+*GroupApi* | [**AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**](docs/GroupApi.md#addapplicationinstancetargettoappadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Assign an Application Instance Target to Application Administrator Role
+*GroupApi* | [**AddApplicationTargetToAdminRoleGivenToGroup**](docs/GroupApi.md#addapplicationtargettoadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
+*GroupApi* | [**AddGroupTargetToGroupAdministratorRoleForGroup**](docs/GroupApi.md#addgrouptargettogroupadministratorroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Assign a Group Target for Group Role
+*GroupApi* | [**AddUserToGroup**](docs/GroupApi.md#addusertogroup) | **PUT** /api/v1/groups/{groupId}/users/{userId} | Assign a User
+*GroupApi* | [**AssignRoleToGroup**](docs/GroupApi.md#assignroletogroup) | **POST** /api/v1/groups/{groupId}/roles | Assign a Role
+*GroupApi* | [**CreateGroup**](docs/GroupApi.md#creategroup) | **POST** /api/v1/groups | Create a Group
+*GroupApi* | [**CreateGroupRule**](docs/GroupApi.md#creategrouprule) | **POST** /api/v1/groups/rules | Create a Group Rule
+*GroupApi* | [**DeactivateGroupRule**](docs/GroupApi.md#deactivategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/deactivate | Deactivate a Group Rule
+*GroupApi* | [**DeleteGroup**](docs/GroupApi.md#deletegroup) | **DELETE** /api/v1/groups/{groupId} | Delete a Group
 *GroupApi* | [**DeleteGroupRule**](docs/GroupApi.md#deletegrouprule) | **DELETE** /api/v1/groups/rules/{ruleId} | Delete a group Rule
-*GroupApi* | [**GetGroup**](docs/GroupApi.md#getgroup) | **GET** /api/v1/groups/{groupId} | List Group Rules
-*GroupApi* | [**GetGroupRule**](docs/GroupApi.md#getgrouprule) | **GET** /api/v1/groups/rules/{ruleId} | Get Group Rule
-*GroupApi* | [**GetRole**](docs/GroupApi.md#getrole) | **GET** /api/v1/groups/{groupId}/roles/{roleId} | Get Role
-*GroupApi* | [**ListApplicationTargetsForApplicationAdministratorRoleForGroup**](docs/GroupApi.md#listapplicationtargetsforapplicationadministratorroleforgroup) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps | List Application Targets for Application Administrator Role for Group
-*GroupApi* | [**ListAssignedApplicationsForGroup**](docs/GroupApi.md#listassignedapplicationsforgroup) | **GET** /api/v1/groups/{groupId}/apps | List Assigned Applications
-*GroupApi* | [**ListGroupAssignedRoles**](docs/GroupApi.md#listgroupassignedroles) | **GET** /api/v1/groups/{groupId}/roles | List Group Assigned Roles
-*GroupApi* | [**ListGroupRules**](docs/GroupApi.md#listgrouprules) | **GET** /api/v1/groups/rules | List Group Rules
-*GroupApi* | [**ListGroupTargetsForGroupRole**](docs/GroupApi.md#listgrouptargetsforgrouprole) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups | List Group Targets for Group Role
-*GroupApi* | [**ListGroupUsers**](docs/GroupApi.md#listgroupusers) | **GET** /api/v1/groups/{groupId}/users | List Group Members
-*GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **GET** /api/v1/groups | List Groups
-*GroupApi* | [**RemoveApplicationTargetFromAdministratorRoleGivenToGroup**](docs/GroupApi.md#removeapplicationtargetfromadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Remove App Instance Target to App Administrator Role given to a Group
-*GroupApi* | [**RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**](docs/GroupApi.md#removeapplicationtargetfromapplicationadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Remove Application Target from Application Administrator Role Given to Group
-*GroupApi* | [**RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**](docs/GroupApi.md#removegrouptargetfromgroupadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Delete Group Target for Group Role
-*GroupApi* | [**RemoveRoleFromGroup**](docs/GroupApi.md#removerolefromgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId} | Remove Role from Group
-*GroupApi* | [**RemoveUserFromGroup**](docs/GroupApi.md#removeuserfromgroup) | **DELETE** /api/v1/groups/{groupId}/users/{userId} | Remove User from Group
-*GroupApi* | [**UpdateGroup**](docs/GroupApi.md#updategroup) | **PUT** /api/v1/groups/{groupId} | Update Group
-*GroupApi* | [**UpdateGroupRule**](docs/GroupApi.md#updategrouprule) | **PUT** /api/v1/groups/rules/{ruleId} | Update Group Rule
-*IdentityProviderApi* | [**ActivateIdentityProvider**](docs/IdentityProviderApi.md#activateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/activate | Activate Identity Provider
-*IdentityProviderApi* | [**CloneIdentityProviderKey**](docs/IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{keyId}/clone | Clone Signing Key Credential for IdP
-*IdentityProviderApi* | [**CreateIdentityProvider**](docs/IdentityProviderApi.md#createidentityprovider) | **POST** /api/v1/idps | Add Identity Provider
-*IdentityProviderApi* | [**CreateIdentityProviderKey**](docs/IdentityProviderApi.md#createidentityproviderkey) | **POST** /api/v1/idps/credentials/keys | Add X.509 Certificate Public Key for Identity Providers
-*IdentityProviderApi* | [**DeactivateIdentityProvider**](docs/IdentityProviderApi.md#deactivateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/deactivate | Deactivate Identity Provider
-*IdentityProviderApi* | [**DeleteIdentityProvider**](docs/IdentityProviderApi.md#deleteidentityprovider) | **DELETE** /api/v1/idps/{idpId} | Delete Identity Provider
-*IdentityProviderApi* | [**DeleteIdentityProviderKey**](docs/IdentityProviderApi.md#deleteidentityproviderkey) | **DELETE** /api/v1/idps/credentials/keys/{keyId} | Delete Key
-*IdentityProviderApi* | [**GenerateCsrForIdentityProvider**](docs/IdentityProviderApi.md#generatecsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs | Generate Certificate Signing Request for IdP
-*IdentityProviderApi* | [**GenerateIdentityProviderSigningKey**](docs/IdentityProviderApi.md#generateidentityprovidersigningkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/generate | Generate New IdP Signing Key Credential
-*IdentityProviderApi* | [**GetCsrForIdentityProvider**](docs/IdentityProviderApi.md#getcsrforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Get Csr for Identity Provider
-*IdentityProviderApi* | [**GetIdentityProvider**](docs/IdentityProviderApi.md#getidentityprovider) | **GET** /api/v1/idps/{idpId} | Get Identity Provider
-*IdentityProviderApi* | [**GetIdentityProviderApplicationUser**](docs/IdentityProviderApi.md#getidentityproviderapplicationuser) | **GET** /api/v1/idps/{idpId}/users/{userId} | Get Identity Provider Application User
-*IdentityProviderApi* | [**GetIdentityProviderKey**](docs/IdentityProviderApi.md#getidentityproviderkey) | **GET** /api/v1/idps/credentials/keys/{keyId} | Get Identity Provider Key
-*IdentityProviderApi* | [**GetIdentityProviderSigningKey**](docs/IdentityProviderApi.md#getidentityprovidersigningkey) | **GET** /api/v1/idps/{idpId}/credentials/keys/{keyId} | Get Signing Key Credential for IdP
-*IdentityProviderApi* | [**LinkUserToIdentityProvider**](docs/IdentityProviderApi.md#linkusertoidentityprovider) | **POST** /api/v1/idps/{idpId}/users/{userId} | Link a user to a Social IdP without a transaction
-*IdentityProviderApi* | [**ListCsrsForIdentityProvider**](docs/IdentityProviderApi.md#listcsrsforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs | List Certificate Signing Requests for IdP
-*IdentityProviderApi* | [**ListIdentityProviderApplicationUsers**](docs/IdentityProviderApi.md#listidentityproviderapplicationusers) | **GET** /api/v1/idps/{idpId}/users | Find Users
-*IdentityProviderApi* | [**ListIdentityProviderKeys**](docs/IdentityProviderApi.md#listidentityproviderkeys) | **GET** /api/v1/idps/credentials/keys | List Identity Provider Keys
-*IdentityProviderApi* | [**ListIdentityProviderSigningKeys**](docs/IdentityProviderApi.md#listidentityprovidersigningkeys) | **GET** /api/v1/idps/{idpId}/credentials/keys | List Signing Key Credentials for IdP
-*IdentityProviderApi* | [**ListIdentityProviders**](docs/IdentityProviderApi.md#listidentityproviders) | **GET** /api/v1/idps | List Identity Providers
-*IdentityProviderApi* | [**ListSocialAuthTokens**](docs/IdentityProviderApi.md#listsocialauthtokens) | **GET** /api/v1/idps/{idpId}/users/{userId}/credentials/tokens | Social Authentication Token Operation
-*IdentityProviderApi* | [**PublishCsrForIdentityProvider**](docs/IdentityProviderApi.md#publishcsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish | Publish Csr for Identity Provider
-*IdentityProviderApi* | [**RevokeCsrForIdentityProvider**](docs/IdentityProviderApi.md#revokecsrforidentityprovider) | **DELETE** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Revoke Csr for Identity Provider
-*IdentityProviderApi* | [**UnlinkUserFromIdentityProvider**](docs/IdentityProviderApi.md#unlinkuserfromidentityprovider) | **DELETE** /api/v1/idps/{idpId}/users/{userId} | Unlink User from IdP
-*IdentityProviderApi* | [**UpdateIdentityProvider**](docs/IdentityProviderApi.md#updateidentityprovider) | **PUT** /api/v1/idps/{idpId} | Update Identity Provider
-*InlineHookApi* | [**ActivateInlineHook**](docs/InlineHookApi.md#activateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/activate | Activate Inline Hook
-*InlineHookApi* | [**CreateInlineHook**](docs/InlineHookApi.md#createinlinehook) | **POST** /api/v1/inlineHooks | Create Inline Hook
-*InlineHookApi* | [**DeactivateInlineHook**](docs/InlineHookApi.md#deactivateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate | Deactivate Inline Hook
-*InlineHookApi* | [**DeleteInlineHook**](docs/InlineHookApi.md#deleteinlinehook) | **DELETE** /api/v1/inlineHooks/{inlineHookId} | Delete Inline Hook
-*InlineHookApi* | [**ExecuteInlineHook**](docs/InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute Inline Hook
-*InlineHookApi* | [**GetInlineHook**](docs/InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Get Inline Hook
-*InlineHookApi* | [**ListInlineHooks**](docs/InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List Inline Hooks
-*InlineHookApi* | [**UpdateInlineHook**](docs/InlineHookApi.md#updateinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Update Inline Hook
-*LinkedObjectApi* | [**AddLinkedObjectDefinition**](docs/LinkedObjectApi.md#addlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Add Linked Object Definition
-*LinkedObjectApi* | [**DeleteLinkedObjectDefinition**](docs/LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete Linked Object Definition
-*LinkedObjectApi* | [**GetLinkedObjectDefinition**](docs/LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Get Linked Object Definition
-*LinkedObjectApi* | [**ListLinkedObjectDefinitions**](docs/LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List Linked Object Definitions
-*NetworkZoneApi* | [**ActivateNetworkZone**](docs/NetworkZoneApi.md#activatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/activate | Activate Network Zone
-*NetworkZoneApi* | [**CreateNetworkZone**](docs/NetworkZoneApi.md#createnetworkzone) | **POST** /api/v1/zones | Add Network Zone
-*NetworkZoneApi* | [**DeactivateNetworkZone**](docs/NetworkZoneApi.md#deactivatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/deactivate | Deactivate Network Zone
-*NetworkZoneApi* | [**DeleteNetworkZone**](docs/NetworkZoneApi.md#deletenetworkzone) | **DELETE** /api/v1/zones/{zoneId} | Delete Network Zone
-*NetworkZoneApi* | [**GetNetworkZone**](docs/NetworkZoneApi.md#getnetworkzone) | **GET** /api/v1/zones/{zoneId} | Get Network Zone
-*NetworkZoneApi* | [**ListNetworkZones**](docs/NetworkZoneApi.md#listnetworkzones) | **GET** /api/v1/zones | List Network Zones
-*NetworkZoneApi* | [**UpdateNetworkZone**](docs/NetworkZoneApi.md#updatenetworkzone) | **PUT** /api/v1/zones/{zoneId} | Update Network Zone
+*GroupApi* | [**GetGroup**](docs/GroupApi.md#getgroup) | **GET** /api/v1/groups/{groupId} | List all Group Rules
+*GroupApi* | [**GetGroupRule**](docs/GroupApi.md#getgrouprule) | **GET** /api/v1/groups/rules/{ruleId} | Retrieve a Group Rule
+*GroupApi* | [**GetRole**](docs/GroupApi.md#getrole) | **GET** /api/v1/groups/{groupId}/roles/{roleId} | Retrieve a Role
+*GroupApi* | [**ListApplicationTargetsForApplicationAdministratorRoleForGroup**](docs/GroupApi.md#listapplicationtargetsforapplicationadministratorroleforgroup) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps | List all Application Targets for an Application Administrator Role
+*GroupApi* | [**ListAssignedApplicationsForGroup**](docs/GroupApi.md#listassignedapplicationsforgroup) | **GET** /api/v1/groups/{groupId}/apps | List all Assigned Applications
+*GroupApi* | [**ListGroupAssignedRoles**](docs/GroupApi.md#listgroupassignedroles) | **GET** /api/v1/groups/{groupId}/roles | List all Assigned Roles
+*GroupApi* | [**ListGroupRules**](docs/GroupApi.md#listgrouprules) | **GET** /api/v1/groups/rules | List all Group Rules
+*GroupApi* | [**ListGroupTargetsForGroupRole**](docs/GroupApi.md#listgrouptargetsforgrouprole) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups | List all Group Targets for a Group Role
+*GroupApi* | [**ListGroupUsers**](docs/GroupApi.md#listgroupusers) | **GET** /api/v1/groups/{groupId}/users | List all Member Users
+*GroupApi* | [**ListGroups**](docs/GroupApi.md#listgroups) | **GET** /api/v1/groups | List all Groups
+*GroupApi* | [**RemoveApplicationTargetFromAdministratorRoleGivenToGroup**](docs/GroupApi.md#removeapplicationtargetfromadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Delete an Application Instance Target to Application Administrator Role
+*GroupApi* | [**RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**](docs/GroupApi.md#removeapplicationtargetfromapplicationadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Delete an Application Target from Application Administrator Role
+*GroupApi* | [**RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**](docs/GroupApi.md#removegrouptargetfromgroupadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Delete a Group Target for Group Role
+*GroupApi* | [**RemoveRoleFromGroup**](docs/GroupApi.md#removerolefromgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId} | Delete a Role
+*GroupApi* | [**RemoveUserFromGroup**](docs/GroupApi.md#removeuserfromgroup) | **DELETE** /api/v1/groups/{groupId}/users/{userId} | Unassign a User
+*GroupApi* | [**UpdateGroup**](docs/GroupApi.md#updategroup) | **PUT** /api/v1/groups/{groupId} | Replace a Group
+*GroupApi* | [**UpdateGroupRule**](docs/GroupApi.md#updategrouprule) | **PUT** /api/v1/groups/rules/{ruleId} | Replace a Group Rule
+*IdentityProviderApi* | [**ActivateIdentityProvider**](docs/IdentityProviderApi.md#activateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/activate | Activate an Identity Provider
+*IdentityProviderApi* | [**CloneIdentityProviderKey**](docs/IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{keyId}/clone | Clone a Signing Credential Key
+*IdentityProviderApi* | [**CreateIdentityProvider**](docs/IdentityProviderApi.md#createidentityprovider) | **POST** /api/v1/idps | Create an Identity Provider
+*IdentityProviderApi* | [**CreateIdentityProviderKey**](docs/IdentityProviderApi.md#createidentityproviderkey) | **POST** /api/v1/idps/credentials/keys | Create an X.509 Certificate Public Key
+*IdentityProviderApi* | [**DeactivateIdentityProvider**](docs/IdentityProviderApi.md#deactivateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/deactivate | Deactivate an Identity Provider
+*IdentityProviderApi* | [**DeleteIdentityProvider**](docs/IdentityProviderApi.md#deleteidentityprovider) | **DELETE** /api/v1/idps/{idpId} | Delete an Identity Provider
+*IdentityProviderApi* | [**DeleteIdentityProviderKey**](docs/IdentityProviderApi.md#deleteidentityproviderkey) | **DELETE** /api/v1/idps/credentials/keys/{keyId} | Delete a Signing Credential Key
+*IdentityProviderApi* | [**GenerateCsrForIdentityProvider**](docs/IdentityProviderApi.md#generatecsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs | Generate a Certificate Signing Request
+*IdentityProviderApi* | [**GenerateIdentityProviderSigningKey**](docs/IdentityProviderApi.md#generateidentityprovidersigningkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/generate | Generate a new Signing Credential Key
+*IdentityProviderApi* | [**GetCsrForIdentityProvider**](docs/IdentityProviderApi.md#getcsrforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Retrieve a Certificate Signing Request
+*IdentityProviderApi* | [**GetIdentityProvider**](docs/IdentityProviderApi.md#getidentityprovider) | **GET** /api/v1/idps/{idpId} | Retrieve an Identity Provider
+*IdentityProviderApi* | [**GetIdentityProviderApplicationUser**](docs/IdentityProviderApi.md#getidentityproviderapplicationuser) | **GET** /api/v1/idps/{idpId}/users/{userId} | Retrieve a User
+*IdentityProviderApi* | [**GetIdentityProviderKey**](docs/IdentityProviderApi.md#getidentityproviderkey) | **GET** /api/v1/idps/credentials/keys/{keyId} | Retrieve an Credential Key
+*IdentityProviderApi* | [**GetIdentityProviderSigningKey**](docs/IdentityProviderApi.md#getidentityprovidersigningkey) | **GET** /api/v1/idps/{idpId}/credentials/keys/{keyId} | Retrieve a Signing Credential Key
+*IdentityProviderApi* | [**LinkUserToIdentityProvider**](docs/IdentityProviderApi.md#linkusertoidentityprovider) | **POST** /api/v1/idps/{idpId}/users/{userId} | Link a User to a Social IdP
+*IdentityProviderApi* | [**ListCsrsForIdentityProvider**](docs/IdentityProviderApi.md#listcsrsforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs | List all Certificate Signing Requests
+*IdentityProviderApi* | [**ListIdentityProviderApplicationUsers**](docs/IdentityProviderApi.md#listidentityproviderapplicationusers) | **GET** /api/v1/idps/{idpId}/users | List all Users
+*IdentityProviderApi* | [**ListIdentityProviderKeys**](docs/IdentityProviderApi.md#listidentityproviderkeys) | **GET** /api/v1/idps/credentials/keys | List all Credential Keys
+*IdentityProviderApi* | [**ListIdentityProviderSigningKeys**](docs/IdentityProviderApi.md#listidentityprovidersigningkeys) | **GET** /api/v1/idps/{idpId}/credentials/keys | List all Signing Credential Keys
+*IdentityProviderApi* | [**ListIdentityProviders**](docs/IdentityProviderApi.md#listidentityproviders) | **GET** /api/v1/idps | List all Identity Providers
+*IdentityProviderApi* | [**ListSocialAuthTokens**](docs/IdentityProviderApi.md#listsocialauthtokens) | **GET** /api/v1/idps/{idpId}/users/{userId}/credentials/tokens | List all Tokens from a OIDC Identity Provider
+*IdentityProviderApi* | [**PublishCsrForIdentityProvider**](docs/IdentityProviderApi.md#publishcsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish | Publish a Certificate Signing Request
+*IdentityProviderApi* | [**RevokeCsrForIdentityProvider**](docs/IdentityProviderApi.md#revokecsrforidentityprovider) | **DELETE** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Revoke a Certificate Signing Request
+*IdentityProviderApi* | [**UnlinkUserFromIdentityProvider**](docs/IdentityProviderApi.md#unlinkuserfromidentityprovider) | **DELETE** /api/v1/idps/{idpId}/users/{userId} | Unlink a User from IdP
+*IdentityProviderApi* | [**UpdateIdentityProvider**](docs/IdentityProviderApi.md#updateidentityprovider) | **PUT** /api/v1/idps/{idpId} | Replace an Identity Provider
+*InlineHookApi* | [**ActivateInlineHook**](docs/InlineHookApi.md#activateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/activate | Activate an Inline Hook
+*InlineHookApi* | [**CreateInlineHook**](docs/InlineHookApi.md#createinlinehook) | **POST** /api/v1/inlineHooks | Create an Inline Hook
+*InlineHookApi* | [**DeactivateInlineHook**](docs/InlineHookApi.md#deactivateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate | Deactivate an Inline Hook
+*InlineHookApi* | [**DeleteInlineHook**](docs/InlineHookApi.md#deleteinlinehook) | **DELETE** /api/v1/inlineHooks/{inlineHookId} | Delete an Inline Hook
+*InlineHookApi* | [**ExecuteInlineHook**](docs/InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute an Inline Hook
+*InlineHookApi* | [**GetInlineHook**](docs/InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Retrieve an Inline Hook
+*InlineHookApi* | [**ListInlineHooks**](docs/InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List all Inline Hooks
+*InlineHookApi* | [**UpdateInlineHook**](docs/InlineHookApi.md#updateinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an Inline Hook
+*LinkedObjectApi* | [**AddLinkedObjectDefinition**](docs/LinkedObjectApi.md#addlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Create a Linked Object Definition
+*LinkedObjectApi* | [**DeleteLinkedObjectDefinition**](docs/LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete a Linked Object Definition
+*LinkedObjectApi* | [**GetLinkedObjectDefinition**](docs/LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Retrieve a Linked Object Definition
+*LinkedObjectApi* | [**ListLinkedObjectDefinitions**](docs/LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List all Linked Object Definitions
+*NetworkZoneApi* | [**ActivateNetworkZone**](docs/NetworkZoneApi.md#activatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/activate | Activate a Network Zone
+*NetworkZoneApi* | [**CreateNetworkZone**](docs/NetworkZoneApi.md#createnetworkzone) | **POST** /api/v1/zones | Create a Network Zone
+*NetworkZoneApi* | [**DeactivateNetworkZone**](docs/NetworkZoneApi.md#deactivatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/deactivate | Deactivate a Network Zone
+*NetworkZoneApi* | [**DeleteNetworkZone**](docs/NetworkZoneApi.md#deletenetworkzone) | **DELETE** /api/v1/zones/{zoneId} | Delete a Network Zone
+*NetworkZoneApi* | [**GetNetworkZone**](docs/NetworkZoneApi.md#getnetworkzone) | **GET** /api/v1/zones/{zoneId} | Retrieve a Network Zone
+*NetworkZoneApi* | [**ListNetworkZones**](docs/NetworkZoneApi.md#listnetworkzones) | **GET** /api/v1/zones | List all Network Zones
+*NetworkZoneApi* | [**UpdateNetworkZone**](docs/NetworkZoneApi.md#updatenetworkzone) | **PUT** /api/v1/zones/{zoneId} | Replace a Network Zone
 *OrgSettingApi* | [**BulkRemoveEmailAddressBounces**](docs/OrgSettingApi.md#bulkremoveemailaddressbounces) | **POST** /api/v1/org/email/bounces/remove-list | Remove Emails from Email Provider Bounce List
-*OrgSettingApi* | [**ExtendOktaSupport**](docs/OrgSettingApi.md#extendoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/extend | Extend Okta Support
-*OrgSettingApi* | [**GetOktaCommunicationSettings**](docs/OrgSettingApi.md#getoktacommunicationsettings) | **GET** /api/v1/org/privacy/oktaCommunication | Get Okta Communication Settings
-*OrgSettingApi* | [**GetOrgContactTypes**](docs/OrgSettingApi.md#getorgcontacttypes) | **GET** /api/v1/org/contacts | Get org contact types
-*OrgSettingApi* | [**GetOrgContactUser**](docs/OrgSettingApi.md#getorgcontactuser) | **GET** /api/v1/org/contacts/{contactType} | Get org contact user
-*OrgSettingApi* | [**GetOrgOktaSupportSettings**](docs/OrgSettingApi.md#getorgoktasupportsettings) | **GET** /api/v1/org/privacy/oktaSupport | Get Okta Support settings
-*OrgSettingApi* | [**GetOrgPreferences**](docs/OrgSettingApi.md#getorgpreferences) | **GET** /api/v1/org/preferences | Get org preferences
-*OrgSettingApi* | [**GetOrgSettings**](docs/OrgSettingApi.md#getorgsettings) | **GET** /api/v1/org | Get org settings
-*OrgSettingApi* | [**GrantOktaSupport**](docs/OrgSettingApi.md#grantoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/grant | Grant Okta Support
-*OrgSettingApi* | [**HideOktaUIFooter**](docs/OrgSettingApi.md#hideoktauifooter) | **POST** /api/v1/org/preferences/hideEndUserFooter | Show Okta UI Footer
-*OrgSettingApi* | [**OptInUsersToOktaCommunicationEmails**](docs/OrgSettingApi.md#optinuserstooktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optIn | Opt in all users to Okta Communication emails
-*OrgSettingApi* | [**OptOutUsersFromOktaCommunicationEmails**](docs/OrgSettingApi.md#optoutusersfromoktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optOut | Opt out all users from Okta Communication emails
-*OrgSettingApi* | [**PartialUpdateOrgSetting**](docs/OrgSettingApi.md#partialupdateorgsetting) | **POST** /api/v1/org | Partial update Org Setting
-*OrgSettingApi* | [**RevokeOktaSupport**](docs/OrgSettingApi.md#revokeoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/revoke | Extend Okta Support
-*OrgSettingApi* | [**ShowOktaUIFooter**](docs/OrgSettingApi.md#showoktauifooter) | **POST** /api/v1/org/preferences/showEndUserFooter | Show Okta UI Footer
-*OrgSettingApi* | [**UpdateOrgContactUser**](docs/OrgSettingApi.md#updateorgcontactuser) | **PUT** /api/v1/org/contacts/{contactType} | Update org contact user
-*OrgSettingApi* | [**UpdateOrgLogo**](docs/OrgSettingApi.md#updateorglogo) | **POST** /api/v1/org/logo | Update org logo
-*OrgSettingApi* | [**UpdateOrgSetting**](docs/OrgSettingApi.md#updateorgsetting) | **PUT** /api/v1/org | Update Org setting
-*PolicyApi* | [**ActivatePolicy**](docs/PolicyApi.md#activatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/activate | Activate Policy
-*PolicyApi* | [**ActivatePolicyRule**](docs/PolicyApi.md#activatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate Policy Rule
-*PolicyApi* | [**CreatePolicy**](docs/PolicyApi.md#createpolicy) | **POST** /api/v1/policies | Create Policy
-*PolicyApi* | [**CreatePolicyRule**](docs/PolicyApi.md#createpolicyrule) | **POST** /api/v1/policies/{policyId}/rules | Create Policy Rule
-*PolicyApi* | [**DeactivatePolicy**](docs/PolicyApi.md#deactivatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/deactivate | Deactivate Policy
-*PolicyApi* | [**DeactivatePolicyRule**](docs/PolicyApi.md#deactivatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate Policy Rule
-*PolicyApi* | [**DeletePolicy**](docs/PolicyApi.md#deletepolicy) | **DELETE** /api/v1/policies/{policyId} | Delete Policy
-*PolicyApi* | [**DeletePolicyRule**](docs/PolicyApi.md#deletepolicyrule) | **DELETE** /api/v1/policies/{policyId}/rules/{ruleId} | Delete Policy Rule
-*PolicyApi* | [**GetPolicy**](docs/PolicyApi.md#getpolicy) | **GET** /api/v1/policies/{policyId} | Get Policy
-*PolicyApi* | [**GetPolicyRule**](docs/PolicyApi.md#getpolicyrule) | **GET** /api/v1/policies/{policyId}/rules/{ruleId} | Get Policy Rule
-*PolicyApi* | [**ListPolicies**](docs/PolicyApi.md#listpolicies) | **GET** /api/v1/policies | List Policies
-*PolicyApi* | [**ListPolicyRules**](docs/PolicyApi.md#listpolicyrules) | **GET** /api/v1/policies/{policyId}/rules | List Policy Rules
-*PolicyApi* | [**UpdatePolicy**](docs/PolicyApi.md#updatepolicy) | **PUT** /api/v1/policies/{policyId} | Update Policy
-*PolicyApi* | [**UpdatePolicyRule**](docs/PolicyApi.md#updatepolicyrule) | **PUT** /api/v1/policies/{policyId}/rules/{ruleId} | Update Policy Rule
-*PrincipalRateLimitApi* | [**CreatePrincipalRateLimitEntity**](docs/PrincipalRateLimitApi.md#createprincipalratelimitentity) | **POST** /api/v1/principal-rate-limits | Create Principal Rate Limit entity
-*PrincipalRateLimitApi* | [**GetPrincipalRateLimitEntity**](docs/PrincipalRateLimitApi.md#getprincipalratelimitentity) | **GET** /api/v1/principal-rate-limits/{principalRateLimitId} | Get Principal Rate Limit entity
-*PrincipalRateLimitApi* | [**ListPrincipalRateLimitEntities**](docs/PrincipalRateLimitApi.md#listprincipalratelimitentities) | **GET** /api/v1/principal-rate-limits | List Principal Rate Limit entities
-*PrincipalRateLimitApi* | [**UpdatePrincipalRateLimitEntity**](docs/PrincipalRateLimitApi.md#updateprincipalratelimitentity) | **PUT** /api/v1/principal-rate-limits/{principalRateLimitId} | Update Principal Rate Limit entity
-*ProfileMappingApi* | [**GetProfileMapping**](docs/ProfileMappingApi.md#getprofilemapping) | **GET** /api/v1/mappings/{mappingId} | Get Profile Mapping
-*ProfileMappingApi* | [**ListProfileMappings**](docs/ProfileMappingApi.md#listprofilemappings) | **GET** /api/v1/mappings | List Profile Mappings
-*ProfileMappingApi* | [**UpdateProfileMapping**](docs/ProfileMappingApi.md#updateprofilemapping) | **POST** /api/v1/mappings/{mappingId} | Update Profile Mapping
-*SchemaApi* | [**GetApplicationUserSchema**](docs/SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appInstanceId}/default | Fetches the Schema for an App User
-*SchemaApi* | [**GetGroupSchema**](docs/SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Fetches the group schema
-*SchemaApi* | [**GetUserSchema**](docs/SchemaApi.md#getuserschema) | **GET** /api/v1/meta/schemas/user/{schemaId} | Fetches the schema for a Schema Id.
-*SchemaApi* | [**UpdateApplicationUserProfile**](docs/SchemaApi.md#updateapplicationuserprofile) | **POST** /api/v1/meta/schemas/apps/{appInstanceId}/default | Partial updates on the User Profile properties of the Application User Schema.
-*SchemaApi* | [**UpdateGroupSchema**](docs/SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Updates, adds ore removes one or more custom Group Profile properties in the schema
-*SchemaApi* | [**UpdateUserProfile**](docs/SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update User Profile
-*SessionApi* | [**CreateSession**](docs/SessionApi.md#createsession) | **POST** /api/v1/sessions | Create Session with Session Token
-*SessionApi* | [**EndSession**](docs/SessionApi.md#endsession) | **DELETE** /api/v1/sessions/{sessionId} | End Session
-*SessionApi* | [**GetSession**](docs/SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Get Session
-*SessionApi* | [**RefreshSession**](docs/SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh Session
-*SubscriptionApi* | [**GetRoleSubscriptionByNotificationType**](docs/SubscriptionApi.md#getrolesubscriptionbynotificationtype) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType} | Get subscriptions of a Custom Role with a specific notification type
-*SubscriptionApi* | [**GetUserSubscriptionByNotificationType**](docs/SubscriptionApi.md#getusersubscriptionbynotificationtype) | **GET** /api/v1/users/{userId}/subscriptions/{notificationType} | Get the subscription of a User with a specific notification type
-*SubscriptionApi* | [**ListRoleSubscriptions**](docs/SubscriptionApi.md#listrolesubscriptions) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions | List all subscriptions of a Custom Role
-*SubscriptionApi* | [**ListUserSubscriptions**](docs/SubscriptionApi.md#listusersubscriptions) | **GET** /api/v1/users/{userId}/subscriptions | List subscriptions of a User
+*OrgSettingApi* | [**ExtendOktaSupport**](docs/OrgSettingApi.md#extendoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/extend | Extend Okta Support Access
+*OrgSettingApi* | [**GetOktaCommunicationSettings**](docs/OrgSettingApi.md#getoktacommunicationsettings) | **GET** /api/v1/org/privacy/oktaCommunication | Retreive the Okta Communication Settings
+*OrgSettingApi* | [**GetOrgContactTypes**](docs/OrgSettingApi.md#getorgcontacttypes) | **GET** /api/v1/org/contacts | Retrieve the Org Contact Types
+*OrgSettingApi* | [**GetOrgContactUser**](docs/OrgSettingApi.md#getorgcontactuser) | **GET** /api/v1/org/contacts/{contactType} | Retrieve the User of the Contact Type
+*OrgSettingApi* | [**GetOrgOktaSupportSettings**](docs/OrgSettingApi.md#getorgoktasupportsettings) | **GET** /api/v1/org/privacy/oktaSupport | Retrieve the Okta Support Settings
+*OrgSettingApi* | [**GetOrgPreferences**](docs/OrgSettingApi.md#getorgpreferences) | **GET** /api/v1/org/preferences | Retrieve the Org Preferences
+*OrgSettingApi* | [**GetOrgSettings**](docs/OrgSettingApi.md#getorgsettings) | **GET** /api/v1/org | Retrieve the Org Settings
+*OrgSettingApi* | [**GrantOktaSupport**](docs/OrgSettingApi.md#grantoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/grant | Grant Okta Support Access to your Org
+*OrgSettingApi* | [**HideOktaUIFooter**](docs/OrgSettingApi.md#hideoktauifooter) | **POST** /api/v1/org/preferences/hideEndUserFooter | Update the Preference to Hide the Okta Dashboard Footer
+*OrgSettingApi* | [**OptInUsersToOktaCommunicationEmails**](docs/OrgSettingApi.md#optinuserstooktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optIn | Opt in all Users to Okta Communication emails
+*OrgSettingApi* | [**OptOutUsersFromOktaCommunicationEmails**](docs/OrgSettingApi.md#optoutusersfromoktacommunicationemails) | **POST** /api/v1/org/privacy/oktaCommunication/optOut | Opt out all Users from Okta Communication emails
+*OrgSettingApi* | [**PartialUpdateOrgSetting**](docs/OrgSettingApi.md#partialupdateorgsetting) | **POST** /api/v1/org | Update the Org Settings
+*OrgSettingApi* | [**RevokeOktaSupport**](docs/OrgSettingApi.md#revokeoktasupport) | **POST** /api/v1/org/privacy/oktaSupport/revoke | Revoke Okta Support Access
+*OrgSettingApi* | [**ShowOktaUIFooter**](docs/OrgSettingApi.md#showoktauifooter) | **POST** /api/v1/org/preferences/showEndUserFooter | Update the Preference to Show the Okta Dashboard Footer
+*OrgSettingApi* | [**UpdateOrgContactUser**](docs/OrgSettingApi.md#updateorgcontactuser) | **PUT** /api/v1/org/contacts/{contactType} | Replace the User of the Contact Type
+*OrgSettingApi* | [**UpdateOrgLogo**](docs/OrgSettingApi.md#updateorglogo) | **POST** /api/v1/org/logo | Upload the Org Logo
+*OrgSettingApi* | [**UpdateOrgSetting**](docs/OrgSettingApi.md#updateorgsetting) | **PUT** /api/v1/org | Replace the Org Settings
+*PolicyApi* | [**ActivatePolicy**](docs/PolicyApi.md#activatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/activate | Activate a Policy
+*PolicyApi* | [**ActivatePolicyRule**](docs/PolicyApi.md#activatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
+*PolicyApi* | [**CreatePolicy**](docs/PolicyApi.md#createpolicy) | **POST** /api/v1/policies | Create a Policy
+*PolicyApi* | [**CreatePolicyRule**](docs/PolicyApi.md#createpolicyrule) | **POST** /api/v1/policies/{policyId}/rules | Create a Policy Rule
+*PolicyApi* | [**DeactivatePolicy**](docs/PolicyApi.md#deactivatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
+*PolicyApi* | [**DeactivatePolicyRule**](docs/PolicyApi.md#deactivatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
+*PolicyApi* | [**DeletePolicy**](docs/PolicyApi.md#deletepolicy) | **DELETE** /api/v1/policies/{policyId} | Delete a Policy
+*PolicyApi* | [**DeletePolicyRule**](docs/PolicyApi.md#deletepolicyrule) | **DELETE** /api/v1/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
+*PolicyApi* | [**GetPolicy**](docs/PolicyApi.md#getpolicy) | **GET** /api/v1/policies/{policyId} | Retrieve a Policy
+*PolicyApi* | [**GetPolicyRule**](docs/PolicyApi.md#getpolicyrule) | **GET** /api/v1/policies/{policyId}/rules/{ruleId} | Retrieve a Policy Rule
+*PolicyApi* | [**ListPolicies**](docs/PolicyApi.md#listpolicies) | **GET** /api/v1/policies | List all Policies
+*PolicyApi* | [**ListPolicyRules**](docs/PolicyApi.md#listpolicyrules) | **GET** /api/v1/policies/{policyId}/rules | List all Policy Rules
+*PolicyApi* | [**UpdatePolicy**](docs/PolicyApi.md#updatepolicy) | **PUT** /api/v1/policies/{policyId} | Replace a Policy
+*PolicyApi* | [**UpdatePolicyRule**](docs/PolicyApi.md#updatepolicyrule) | **PUT** /api/v1/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
+*PrincipalRateLimitApi* | [**CreatePrincipalRateLimitEntity**](docs/PrincipalRateLimitApi.md#createprincipalratelimitentity) | **POST** /api/v1/principal-rate-limits | Create a Principal Rate Limit
+*PrincipalRateLimitApi* | [**GetPrincipalRateLimitEntity**](docs/PrincipalRateLimitApi.md#getprincipalratelimitentity) | **GET** /api/v1/principal-rate-limits/{principalRateLimitId} | Retrieve a Principal Rate Limit
+*PrincipalRateLimitApi* | [**ListPrincipalRateLimitEntities**](docs/PrincipalRateLimitApi.md#listprincipalratelimitentities) | **GET** /api/v1/principal-rate-limits | List all Principal Rate Limits
+*PrincipalRateLimitApi* | [**UpdatePrincipalRateLimitEntity**](docs/PrincipalRateLimitApi.md#updateprincipalratelimitentity) | **PUT** /api/v1/principal-rate-limits/{principalRateLimitId} | Replace a Principal Rate Limit
+*ProfileMappingApi* | [**GetProfileMapping**](docs/ProfileMappingApi.md#getprofilemapping) | **GET** /api/v1/mappings/{mappingId} | Retrieve a Profile Mapping
+*ProfileMappingApi* | [**ListProfileMappings**](docs/ProfileMappingApi.md#listprofilemappings) | **GET** /api/v1/mappings | List all Profile Mappings
+*ProfileMappingApi* | [**UpdateProfileMapping**](docs/ProfileMappingApi.md#updateprofilemapping) | **POST** /api/v1/mappings/{mappingId} | Update a Profile Mapping
+*SchemaApi* | [**GetApplicationUserSchema**](docs/SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appInstanceId}/default | Retrieve the default Application User Schema for an Application
+*SchemaApi* | [**GetGroupSchema**](docs/SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Retrieve the default Group Schema
+*SchemaApi* | [**GetUserSchema**](docs/SchemaApi.md#getuserschema) | **GET** /api/v1/meta/schemas/user/{schemaId} | Retrieve a User Schema
+*SchemaApi* | [**UpdateApplicationUserProfile**](docs/SchemaApi.md#updateapplicationuserprofile) | **POST** /api/v1/meta/schemas/apps/{appInstanceId}/default | Update the default Application User Schema for an Application
+*SchemaApi* | [**UpdateGroupSchema**](docs/SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Update the default Group Schema
+*SchemaApi* | [**UpdateUserProfile**](docs/SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update a User Schema
+*SessionApi* | [**CreateSession**](docs/SessionApi.md#createsession) | **POST** /api/v1/sessions | Create a Session with Session Token
+*SessionApi* | [**EndSession**](docs/SessionApi.md#endsession) | **DELETE** /api/v1/sessions/{sessionId} | Delete a Session
+*SessionApi* | [**GetSession**](docs/SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Retrieve a Session
+*SessionApi* | [**RefreshSession**](docs/SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh a Session
+*SubscriptionApi* | [**GetRoleSubscriptionByNotificationType**](docs/SubscriptionApi.md#getrolesubscriptionbynotificationtype) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType} | List all Subscriptions of a Custom Role with a specific notification type
+*SubscriptionApi* | [**GetUserSubscriptionByNotificationType**](docs/SubscriptionApi.md#getusersubscriptionbynotificationtype) | **GET** /api/v1/users/{userId}/subscriptions/{notificationType} | List all Subscriptions by type
+*SubscriptionApi* | [**ListRoleSubscriptions**](docs/SubscriptionApi.md#listrolesubscriptions) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions | List all Subscriptions of a Custom Role
+*SubscriptionApi* | [**ListUserSubscriptions**](docs/SubscriptionApi.md#listusersubscriptions) | **GET** /api/v1/users/{userId}/subscriptions | List all Subscriptions
 *SubscriptionApi* | [**SubscribeRoleSubscriptionByNotificationType**](docs/SubscriptionApi.md#subscriberolesubscriptionbynotificationtype) | **POST** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/subscribe | Subscribe a Custom Role to a specific notification type
 *SubscriptionApi* | [**SubscribeUserSubscriptionByNotificationType**](docs/SubscriptionApi.md#subscribeusersubscriptionbynotificationtype) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/subscribe | Subscribe to a specific notification type
 *SubscriptionApi* | [**UnsubscribeRoleSubscriptionByNotificationType**](docs/SubscriptionApi.md#unsubscriberolesubscriptionbynotificationtype) | **POST** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/unsubscribe | Unsubscribe a Custom Role from a specific notification type
 *SubscriptionApi* | [**UnsubscribeUserSubscriptionByNotificationType**](docs/SubscriptionApi.md#unsubscribeusersubscriptionbynotificationtype) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/unsubscribe | Unsubscribe from a specific notification type
-*SystemLogApi* | [**GetLogs**](docs/SystemLogApi.md#getlogs) | **GET** /api/v1/logs | Fetch a list of events from your Okta organization system log.
-*TemplateApi* | [**CreateSmsTemplate**](docs/TemplateApi.md#createsmstemplate) | **POST** /api/v1/templates/sms | Add SMS Template
-*TemplateApi* | [**DeleteSmsTemplate**](docs/TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Remove SMS Template
-*TemplateApi* | [**GetSmsTemplate**](docs/TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Get SMS Template
-*TemplateApi* | [**ListSmsTemplates**](docs/TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List SMS Templates
-*TemplateApi* | [**PartialUpdateSmsTemplate**](docs/TemplateApi.md#partialupdatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Partial SMS Template Update
-*TemplateApi* | [**UpdateSmsTemplate**](docs/TemplateApi.md#updatesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Update SMS Template
-*ThreatInsightApi* | [**GetCurrentConfiguration**](docs/ThreatInsightApi.md#getcurrentconfiguration) | **GET** /api/v1/threats/configuration | Get Current Configuration
-*ThreatInsightApi* | [**UpdateConfiguration**](docs/ThreatInsightApi.md#updateconfiguration) | **POST** /api/v1/threats/configuration | Update Configuration
-*TrustedOriginApi* | [**ActivateOrigin**](docs/TrustedOriginApi.md#activateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate Trusted Origin
-*TrustedOriginApi* | [**CreateOrigin**](docs/TrustedOriginApi.md#createorigin) | **POST** /api/v1/trustedOrigins | Create Trusted Origin
-*TrustedOriginApi* | [**DeactivateOrigin**](docs/TrustedOriginApi.md#deactivateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate Trusted Origin
-*TrustedOriginApi* | [**DeleteOrigin**](docs/TrustedOriginApi.md#deleteorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete Trusted Origin
-*TrustedOriginApi* | [**GetOrigin**](docs/TrustedOriginApi.md#getorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Get Trusted Origin
-*TrustedOriginApi* | [**ListOrigins**](docs/TrustedOriginApi.md#listorigins) | **GET** /api/v1/trustedOrigins | List Trusted Origins
-*TrustedOriginApi* | [**UpdateOrigin**](docs/TrustedOriginApi.md#updateorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Update Trusted Origin
-*UserApi* | [**ActivateUser**](docs/UserApi.md#activateuser) | **POST** /api/v1/users/{userId}/lifecycle/activate | Activate User
-*UserApi* | [**AddAllAppsAsTargetToRole**](docs/UserApi.md#addallappsastargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | Add All Apps as Target to Role
-*UserApi* | [**AddApplicationTargetToAdminRoleForUser**](docs/UserApi.md#addapplicationtargettoadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Add Application Target to Admin Role for User
-*UserApi* | [**AddApplicationTargetToAppAdminRoleForUser**](docs/UserApi.md#addapplicationtargettoappadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Add App Instance Target to App Administrator Role given to a User
-*UserApi* | [**AddGroupTargetToRole**](docs/UserApi.md#addgrouptargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Add Group Target to Role
-*UserApi* | [**AssignRoleToUser**](docs/UserApi.md#assignroletouser) | **POST** /api/v1/users/{userId}/roles | Assign Role to User
+*SystemLogApi* | [**GetLogs**](docs/SystemLogApi.md#getlogs) | **GET** /api/v1/logs | List all System Log Events
+*TemplateApi* | [**CreateSmsTemplate**](docs/TemplateApi.md#createsmstemplate) | **POST** /api/v1/templates/sms | Create an SMS Template
+*TemplateApi* | [**DeleteSmsTemplate**](docs/TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Delete an SMS Template
+*TemplateApi* | [**GetSmsTemplate**](docs/TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Retrieve an SMS Template
+*TemplateApi* | [**ListSmsTemplates**](docs/TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List all SMS Templates
+*TemplateApi* | [**PartialUpdateSmsTemplate**](docs/TemplateApi.md#partialupdatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Update an SMS Template
+*TemplateApi* | [**UpdateSmsTemplate**](docs/TemplateApi.md#updatesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Replace an SMS Template
+*ThreatInsightApi* | [**GetCurrentConfiguration**](docs/ThreatInsightApi.md#getcurrentconfiguration) | **GET** /api/v1/threats/configuration | Retrieve the ThreatInsight Configuration
+*ThreatInsightApi* | [**UpdateConfiguration**](docs/ThreatInsightApi.md#updateconfiguration) | **POST** /api/v1/threats/configuration | Update the ThreatInsight Configuration
+*TrustedOriginApi* | [**ActivateOrigin**](docs/TrustedOriginApi.md#activateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate a Trusted Origin
+*TrustedOriginApi* | [**CreateOrigin**](docs/TrustedOriginApi.md#createorigin) | **POST** /api/v1/trustedOrigins | Create a Trusted Origin
+*TrustedOriginApi* | [**DeactivateOrigin**](docs/TrustedOriginApi.md#deactivateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate a Trusted Origin
+*TrustedOriginApi* | [**DeleteOrigin**](docs/TrustedOriginApi.md#deleteorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete a Trusted Origin
+*TrustedOriginApi* | [**GetOrigin**](docs/TrustedOriginApi.md#getorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Retrieve a Trusted Origin
+*TrustedOriginApi* | [**ListOrigins**](docs/TrustedOriginApi.md#listorigins) | **GET** /api/v1/trustedOrigins | List all Trusted Origins
+*TrustedOriginApi* | [**UpdateOrigin**](docs/TrustedOriginApi.md#updateorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Replace a Trusted Origin
+*UserApi* | [**ActivateUser**](docs/UserApi.md#activateuser) | **POST** /api/v1/users/{userId}/lifecycle/activate | Activate a User
+*UserApi* | [**AddAllAppsAsTargetToRole**](docs/UserApi.md#addallappsastargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | Assign all Apps as Target to Role
+*UserApi* | [**AddApplicationTargetToAdminRoleForUser**](docs/UserApi.md#addapplicationtargettoadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
+*UserApi* | [**AddApplicationTargetToAppAdminRoleForUser**](docs/UserApi.md#addapplicationtargettoappadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Assign an Application Instance Target to an Application Administrator Role
+*UserApi* | [**AddGroupTargetToRole**](docs/UserApi.md#addgrouptargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Assign a Group Target to Role
+*UserApi* | [**AssignRoleToUser**](docs/UserApi.md#assignroletouser) | **POST** /api/v1/users/{userId}/roles | Assign a Role
 *UserApi* | [**ChangePassword**](docs/UserApi.md#changepassword) | **POST** /api/v1/users/{userId}/credentials/change_password | Change Password
 *UserApi* | [**ChangeRecoveryQuestion**](docs/UserApi.md#changerecoveryquestion) | **POST** /api/v1/users/{userId}/credentials/change_recovery_question | Change Recovery Question
-*UserApi* | [**ClearUserSessions**](docs/UserApi.md#clearusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Clear User Sessions
-*UserApi* | [**CreateUser**](docs/UserApi.md#createuser) | **POST** /api/v1/users | Create User
-*UserApi* | [**DeactivateOrDeleteUser**](docs/UserApi.md#deactivateordeleteuser) | **DELETE** /api/v1/users/{userId} | Delete User
-*UserApi* | [**DeactivateUser**](docs/UserApi.md#deactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/deactivate | Deactivate User
+*UserApi* | [**ClearUserSessions**](docs/UserApi.md#clearusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Delete all User Sessions
+*UserApi* | [**CreateUser**](docs/UserApi.md#createuser) | **POST** /api/v1/users | Create a User
+*UserApi* | [**DeactivateOrDeleteUser**](docs/UserApi.md#deactivateordeleteuser) | **DELETE** /api/v1/users/{userId} | Delete a User
+*UserApi* | [**DeactivateUser**](docs/UserApi.md#deactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/deactivate | Deactivate a User
 *UserApi* | [**ExpirePassword**](docs/UserApi.md#expirepassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password | Expire Password
 *UserApi* | [**ExpirePasswordAndGetTemporaryPassword**](docs/UserApi.md#expirepasswordandgettemporarypassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password_with_temp_password | Expire Password and Set Temporary Password
 *UserApi* | [**ForgotPassword**](docs/UserApi.md#forgotpassword) | **POST** /api/v1/users/{userId}/credentials/forgot_password | Initiate Forgot Password
 *UserApi* | [**ForgotPasswordSetNewPassword**](docs/UserApi.md#forgotpasswordsetnewpassword) | **POST** /api/v1/users/{userId}/credentials/forgot_password_recovery_question | Reset Password with Recovery Question
-*UserApi* | [**GetLinkedObjectsForUser**](docs/UserApi.md#getlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Get Linked Objects for User
-*UserApi* | [**GetRefreshTokenForUserAndClient**](docs/UserApi.md#getrefreshtokenforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Get Refresh Token for User and Client
-*UserApi* | [**GetUser**](docs/UserApi.md#getuser) | **GET** /api/v1/users/{userId} | Get User
-*UserApi* | [**GetUserGrant**](docs/UserApi.md#getusergrant) | **GET** /api/v1/users/{userId}/grants/{grantId} | Get User Grant
-*UserApi* | [**GetUserRole**](docs/UserApi.md#getuserrole) | **GET** /api/v1/users/{userId}/roles/{roleId} | Get User Role
-*UserApi* | [**ListAppLinks**](docs/UserApi.md#listapplinks) | **GET** /api/v1/users/{userId}/appLinks | Get Assigned App Links
-*UserApi* | [**ListApplicationTargetsForApplicationAdministratorRoleForUser**](docs/UserApi.md#listapplicationtargetsforapplicationadministratorroleforuser) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | List Application Targets for Application Administrator Role for User
-*UserApi* | [**ListAssignedRolesForUser**](docs/UserApi.md#listassignedrolesforuser) | **GET** /api/v1/users/{userId}/roles | List Assigned Roles for User
-*UserApi* | [**ListGrantsForUserAndClient**](docs/UserApi.md#listgrantsforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/grants | List Grants for User and Client
-*UserApi* | [**ListGroupTargetsForRole**](docs/UserApi.md#listgrouptargetsforrole) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/groups | List Group Targets for Role
-*UserApi* | [**ListRefreshTokensForUserAndClient**](docs/UserApi.md#listrefreshtokensforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens | List Refresh Tokens for User and Client
-*UserApi* | [**ListUserClients**](docs/UserApi.md#listuserclients) | **GET** /api/v1/users/{userId}/clients | List User Clients
-*UserApi* | [**ListUserGrants**](docs/UserApi.md#listusergrants) | **GET** /api/v1/users/{userId}/grants | List User Grants
-*UserApi* | [**ListUserGroups**](docs/UserApi.md#listusergroups) | **GET** /api/v1/users/{userId}/groups | Get Member Groups
-*UserApi* | [**ListUserIdentityProviders**](docs/UserApi.md#listuseridentityproviders) | **GET** /api/v1/users/{userId}/idps | Listing IdPs associated with a user
-*UserApi* | [**ListUsers**](docs/UserApi.md#listusers) | **GET** /api/v1/users | List Users
-*UserApi* | [**PartialUpdateUser**](docs/UserApi.md#partialupdateuser) | **POST** /api/v1/users/{userId} | Partial Update User
-*UserApi* | [**ReactivateUser**](docs/UserApi.md#reactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/reactivate | Reactivate User
-*UserApi* | [**RemoveApplicationTargetFromAdministratorRoleForUser**](docs/UserApi.md#removeapplicationtargetfromadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Remove App Instance Target to App Administrator Role given to a User
-*UserApi* | [**RemoveApplicationTargetFromApplicationAdministratorRoleForUser**](docs/UserApi.md#removeapplicationtargetfromapplicationadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Remove Application Target from Application Administrator Role for User
-*UserApi* | [**RemoveGroupTargetFromRole**](docs/UserApi.md#removegrouptargetfromrole) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Remove Group Target from Role
-*UserApi* | [**RemoveLinkedObjectForUser**](docs/UserApi.md#removelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Remove Linked Object for User
-*UserApi* | [**RemoveRoleFromUser**](docs/UserApi.md#removerolefromuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId} | Remove Role from User
-*UserApi* | [**ResetFactors**](docs/UserApi.md#resetfactors) | **POST** /api/v1/users/{userId}/lifecycle/reset_factors | Reset Factors
+*UserApi* | [**GetLinkedObjectsForUser**](docs/UserApi.md#getlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | List all Linked Objects
+*UserApi* | [**GetRefreshTokenForUserAndClient**](docs/UserApi.md#getrefreshtokenforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Retrieve a Refresh Token for a Client
+*UserApi* | [**GetUser**](docs/UserApi.md#getuser) | **GET** /api/v1/users/{userId} | Retrieve a User
+*UserApi* | [**GetUserGrant**](docs/UserApi.md#getusergrant) | **GET** /api/v1/users/{userId}/grants/{grantId} | Retrieve a User Grant
+*UserApi* | [**GetUserRole**](docs/UserApi.md#getuserrole) | **GET** /api/v1/users/{userId}/roles/{roleId} | Retrieve a Role
+*UserApi* | [**ListAppLinks**](docs/UserApi.md#listapplinks) | **GET** /api/v1/users/{userId}/appLinks | List all Assigned Application Links
+*UserApi* | [**ListApplicationTargetsForApplicationAdministratorRoleForUser**](docs/UserApi.md#listapplicationtargetsforapplicationadministratorroleforuser) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | List all Application Targets for Application Administrator Role
+*UserApi* | [**ListAssignedRolesForUser**](docs/UserApi.md#listassignedrolesforuser) | **GET** /api/v1/users/{userId}/roles | List all Assigned Roles
+*UserApi* | [**ListGrantsForUserAndClient**](docs/UserApi.md#listgrantsforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/grants | List all Grants for a Client
+*UserApi* | [**ListGroupTargetsForRole**](docs/UserApi.md#listgrouptargetsforrole) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/groups | List all Group Targets for Role
+*UserApi* | [**ListRefreshTokensForUserAndClient**](docs/UserApi.md#listrefreshtokensforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
+*UserApi* | [**ListUserClients**](docs/UserApi.md#listuserclients) | **GET** /api/v1/users/{userId}/clients | List all Clients
+*UserApi* | [**ListUserGrants**](docs/UserApi.md#listusergrants) | **GET** /api/v1/users/{userId}/grants | List all User Grants
+*UserApi* | [**ListUserGroups**](docs/UserApi.md#listusergroups) | **GET** /api/v1/users/{userId}/groups | List all Groups
+*UserApi* | [**ListUserIdentityProviders**](docs/UserApi.md#listuseridentityproviders) | **GET** /api/v1/users/{userId}/idps | List all Identity Providers
+*UserApi* | [**ListUsers**](docs/UserApi.md#listusers) | **GET** /api/v1/users | List all Users
+*UserApi* | [**PartialUpdateUser**](docs/UserApi.md#partialupdateuser) | **POST** /api/v1/users/{userId} | Update a User
+*UserApi* | [**ReactivateUser**](docs/UserApi.md#reactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/reactivate | Reactivate a User
+*UserApi* | [**RemoveApplicationTargetFromAdministratorRoleForUser**](docs/UserApi.md#removeapplicationtargetfromadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Unassign an Application Instance Target to Application Administrator Role
+*UserApi* | [**RemoveApplicationTargetFromApplicationAdministratorRoleForUser**](docs/UserApi.md#removeapplicationtargetfromapplicationadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Unassign an Application Target from Application Administrator Role
+*UserApi* | [**RemoveGroupTargetFromRole**](docs/UserApi.md#removegrouptargetfromrole) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Unassign a Group Target from Role
+*UserApi* | [**RemoveLinkedObjectForUser**](docs/UserApi.md#removelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Delete a Linked Object
+*UserApi* | [**RemoveRoleFromUser**](docs/UserApi.md#removerolefromuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId} | Delete a Role
+*UserApi* | [**ResetFactors**](docs/UserApi.md#resetfactors) | **POST** /api/v1/users/{userId}/lifecycle/reset_factors | Reset all Factors
 *UserApi* | [**ResetPassword**](docs/UserApi.md#resetpassword) | **POST** /api/v1/users/{userId}/lifecycle/reset_password | Reset Password
-*UserApi* | [**RevokeGrantsForUserAndClient**](docs/UserApi.md#revokegrantsforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/grants | Revoke Grants for User and Client
-*UserApi* | [**RevokeTokenForUserAndClient**](docs/UserApi.md#revoketokenforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Revoke Token for User and Client
-*UserApi* | [**RevokeTokensForUserAndClient**](docs/UserApi.md#revoketokensforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens | Revoke Tokens for User and Client
-*UserApi* | [**RevokeUserGrant**](docs/UserApi.md#revokeusergrant) | **DELETE** /api/v1/users/{userId}/grants/{grantId} | Revoke User Grant
-*UserApi* | [**RevokeUserGrants**](docs/UserApi.md#revokeusergrants) | **DELETE** /api/v1/users/{userId}/grants | Revoke User Grants
-*UserApi* | [**SetLinkedObjectForUser**](docs/UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{associatedUserId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Set Linked Object for User
-*UserApi* | [**SuspendUser**](docs/UserApi.md#suspenduser) | **POST** /api/v1/users/{userId}/lifecycle/suspend | Suspend User
-*UserApi* | [**UnlockUser**](docs/UserApi.md#unlockuser) | **POST** /api/v1/users/{userId}/lifecycle/unlock | Unlock User
-*UserApi* | [**UnsuspendUser**](docs/UserApi.md#unsuspenduser) | **POST** /api/v1/users/{userId}/lifecycle/unsuspend | Unsuspend User
-*UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **PUT** /api/v1/users/{userId} | Update User
-*UserFactorApi* | [**ActivateFactor**](docs/UserFactorApi.md#activatefactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/lifecycle/activate | Activate Factor
-*UserFactorApi* | [**DeleteFactor**](docs/UserFactorApi.md#deletefactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Delete Factor
-*UserFactorApi* | [**EnrollFactor**](docs/UserFactorApi.md#enrollfactor) | **POST** /api/v1/users/{userId}/factors | Enroll Factor
-*UserFactorApi* | [**GetFactor**](docs/UserFactorApi.md#getfactor) | **GET** /api/v1/users/{userId}/factors/{factorId} | Get Factor
-*UserFactorApi* | [**GetFactorTransactionStatus**](docs/UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Get Factor Transaction Status
-*UserFactorApi* | [**ListFactors**](docs/UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List Factors
-*UserFactorApi* | [**ListSupportedFactors**](docs/UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List Supported Factors
-*UserFactorApi* | [**ListSupportedSecurityQuestions**](docs/UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List Supported Security Questions
-*UserFactorApi* | [**VerifyFactor**](docs/UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify MFA Factor
-*UserTypeApi* | [**CreateUserType**](docs/UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create User Type
-*UserTypeApi* | [**DeleteUserType**](docs/UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete User Type
-*UserTypeApi* | [**GetUserType**](docs/UserTypeApi.md#getusertype) | **GET** /api/v1/meta/types/user/{typeId} | Get User Type
-*UserTypeApi* | [**ListUserTypes**](docs/UserTypeApi.md#listusertypes) | **GET** /api/v1/meta/types/user | List User Types
-*UserTypeApi* | [**ReplaceUserType**](docs/UserTypeApi.md#replaceusertype) | **PUT** /api/v1/meta/types/user/{typeId} | Replace User Type
-*UserTypeApi* | [**UpdateUserType**](docs/UserTypeApi.md#updateusertype) | **POST** /api/v1/meta/types/user/{typeId} | Update User Type
+*UserApi* | [**RevokeGrantsForUserAndClient**](docs/UserApi.md#revokegrantsforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/grants | Revoke all Grants for a Client
+*UserApi* | [**RevokeTokenForUserAndClient**](docs/UserApi.md#revoketokenforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Revoke a Token for a Client
+*UserApi* | [**RevokeTokensForUserAndClient**](docs/UserApi.md#revoketokensforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens | Revoke all Refresh Tokens for a Client
+*UserApi* | [**RevokeUserGrant**](docs/UserApi.md#revokeusergrant) | **DELETE** /api/v1/users/{userId}/grants/{grantId} | Revoke a User Grant
+*UserApi* | [**RevokeUserGrants**](docs/UserApi.md#revokeusergrants) | **DELETE** /api/v1/users/{userId}/grants | Revoke all User Grants
+*UserApi* | [**SetLinkedObjectForUser**](docs/UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{associatedUserId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Create a Linked Object for two User
+*UserApi* | [**SuspendUser**](docs/UserApi.md#suspenduser) | **POST** /api/v1/users/{userId}/lifecycle/suspend | Suspend a User
+*UserApi* | [**UnlockUser**](docs/UserApi.md#unlockuser) | **POST** /api/v1/users/{userId}/lifecycle/unlock | Unlock a User
+*UserApi* | [**UnsuspendUser**](docs/UserApi.md#unsuspenduser) | **POST** /api/v1/users/{userId}/lifecycle/unsuspend | Unsuspend a User
+*UserApi* | [**UpdateUser**](docs/UserApi.md#updateuser) | **PUT** /api/v1/users/{userId} | Replace a User
+*UserFactorApi* | [**ActivateFactor**](docs/UserFactorApi.md#activatefactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/lifecycle/activate | Activate a Factor
+*UserFactorApi* | [**DeleteFactor**](docs/UserFactorApi.md#deletefactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Delete a Factor
+*UserFactorApi* | [**EnrollFactor**](docs/UserFactorApi.md#enrollfactor) | **POST** /api/v1/users/{userId}/factors | Enroll a Factor
+*UserFactorApi* | [**GetFactor**](docs/UserFactorApi.md#getfactor) | **GET** /api/v1/users/{userId}/factors/{factorId} | Retrieve a Factor
+*UserFactorApi* | [**GetFactorTransactionStatus**](docs/UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Retrieve a Factor Transaction Status
+*UserFactorApi* | [**ListFactors**](docs/UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List all Factors
+*UserFactorApi* | [**ListSupportedFactors**](docs/UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List all Supported Factors
+*UserFactorApi* | [**ListSupportedSecurityQuestions**](docs/UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List all Supported Security Questions
+*UserFactorApi* | [**VerifyFactor**](docs/UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify an MFA Factor
+*UserTypeApi* | [**CreateUserType**](docs/UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create a User Type
+*UserTypeApi* | [**DeleteUserType**](docs/UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete a User Type
+*UserTypeApi* | [**GetUserType**](docs/UserTypeApi.md#getusertype) | **GET** /api/v1/meta/types/user/{typeId} | Retrieve a User Type
+*UserTypeApi* | [**ListUserTypes**](docs/UserTypeApi.md#listusertypes) | **GET** /api/v1/meta/types/user | List all User Types
+*UserTypeApi* | [**ReplaceUserType**](docs/UserTypeApi.md#replaceusertype) | **PUT** /api/v1/meta/types/user/{typeId} | Replace a User Type
+*UserTypeApi* | [**UpdateUserType**](docs/UserTypeApi.md#updateusertype) | **POST** /api/v1/meta/types/user/{typeId} | Update a User Type
 
 
 <a name="documentation-for-models"></a>
@@ -566,7 +566,6 @@ Class | Method | HTTP request | Description
  - [Model.BasicApplicationSettings](docs/BasicApplicationSettings.md)
  - [Model.BasicApplicationSettingsAllOf](docs/BasicApplicationSettingsAllOf.md)
  - [Model.BasicApplicationSettingsApplication](docs/BasicApplicationSettingsApplication.md)
- - [Model.BasicApplicationSettingsApplicationAllOf](docs/BasicApplicationSettingsApplicationAllOf.md)
  - [Model.BasicAuthApplication](docs/BasicAuthApplication.md)
  - [Model.BasicAuthApplicationAllOf](docs/BasicAuthApplicationAllOf.md)
  - [Model.BeforeScheduledActionPolicyRuleCondition](docs/BeforeScheduledActionPolicyRuleCondition.md)
@@ -594,7 +593,6 @@ Class | Method | HTTP request | Description
  - [Model.BookmarkApplicationSettings](docs/BookmarkApplicationSettings.md)
  - [Model.BookmarkApplicationSettingsAllOf](docs/BookmarkApplicationSettingsAllOf.md)
  - [Model.BookmarkApplicationSettingsApplication](docs/BookmarkApplicationSettingsApplication.md)
- - [Model.BookmarkApplicationSettingsApplicationAllOf](docs/BookmarkApplicationSettingsApplicationAllOf.md)
  - [Model.BouncesRemoveListError](docs/BouncesRemoveListError.md)
  - [Model.BouncesRemoveListObj](docs/BouncesRemoveListObj.md)
  - [Model.BouncesRemoveListResult](docs/BouncesRemoveListResult.md)
@@ -832,12 +830,6 @@ Class | Method | HTTP request | Description
  - [Model.OpenIdConnectApplicationType](docs/OpenIdConnectApplicationType.md)
  - [Model.OpenIdConnectRefreshTokenRotationType](docs/OpenIdConnectRefreshTokenRotationType.md)
  - [Model.OperationalStatus](docs/OperationalStatus.md)
- - [Model.Org2OrgApplication](docs/Org2OrgApplication.md)
- - [Model.Org2OrgApplicationAllOf](docs/Org2OrgApplicationAllOf.md)
- - [Model.Org2OrgApplicationSettings](docs/Org2OrgApplicationSettings.md)
- - [Model.Org2OrgApplicationSettingsAllOf](docs/Org2OrgApplicationSettingsAllOf.md)
- - [Model.Org2OrgApplicationSettingsApp](docs/Org2OrgApplicationSettingsApp.md)
- - [Model.Org2OrgApplicationSettingsAppAllOf](docs/Org2OrgApplicationSettingsAppAllOf.md)
  - [Model.OrgContactType](docs/OrgContactType.md)
  - [Model.OrgContactTypeObj](docs/OrgContactTypeObj.md)
  - [Model.OrgContactUser](docs/OrgContactUser.md)
@@ -973,6 +965,7 @@ Class | Method | HTTP request | Description
  - [Model.SamlApplicationAllOf](docs/SamlApplicationAllOf.md)
  - [Model.SamlApplicationSettings](docs/SamlApplicationSettings.md)
  - [Model.SamlApplicationSettingsAllOf](docs/SamlApplicationSettingsAllOf.md)
+ - [Model.SamlApplicationSettingsApplication](docs/SamlApplicationSettingsApplication.md)
  - [Model.SamlApplicationSettingsSignOn](docs/SamlApplicationSettingsSignOn.md)
  - [Model.SamlAttributeStatement](docs/SamlAttributeStatement.md)
  - [Model.ScheduledUserLifecycleAction](docs/ScheduledUserLifecycleAction.md)
@@ -983,7 +976,6 @@ Class | Method | HTTP request | Description
  - [Model.SecurePasswordStoreApplicationSettings](docs/SecurePasswordStoreApplicationSettings.md)
  - [Model.SecurePasswordStoreApplicationSettingsAllOf](docs/SecurePasswordStoreApplicationSettingsAllOf.md)
  - [Model.SecurePasswordStoreApplicationSettingsApplication](docs/SecurePasswordStoreApplicationSettingsApplication.md)
- - [Model.SecurePasswordStoreApplicationSettingsApplicationAllOf](docs/SecurePasswordStoreApplicationSettingsApplicationAllOf.md)
  - [Model.SecurityQuestion](docs/SecurityQuestion.md)
  - [Model.SecurityQuestionUserFactor](docs/SecurityQuestionUserFactor.md)
  - [Model.SecurityQuestionUserFactorAllOf](docs/SecurityQuestionUserFactorAllOf.md)
@@ -1006,18 +998,9 @@ Class | Method | HTTP request | Description
  - [Model.SpCertificate](docs/SpCertificate.md)
  - [Model.Subscription](docs/Subscription.md)
  - [Model.SubscriptionStatus](docs/SubscriptionStatus.md)
- - [Model.SwaApplication](docs/SwaApplication.md)
- - [Model.SwaApplicationAllOf](docs/SwaApplicationAllOf.md)
  - [Model.SwaApplicationSettings](docs/SwaApplicationSettings.md)
  - [Model.SwaApplicationSettingsAllOf](docs/SwaApplicationSettingsAllOf.md)
  - [Model.SwaApplicationSettingsApplication](docs/SwaApplicationSettingsApplication.md)
- - [Model.SwaApplicationSettingsApplicationAllOf](docs/SwaApplicationSettingsApplicationAllOf.md)
- - [Model.SwaThreeFieldApplication](docs/SwaThreeFieldApplication.md)
- - [Model.SwaThreeFieldApplicationAllOf](docs/SwaThreeFieldApplicationAllOf.md)
- - [Model.SwaThreeFieldApplicationSettings](docs/SwaThreeFieldApplicationSettings.md)
- - [Model.SwaThreeFieldApplicationSettingsAllOf](docs/SwaThreeFieldApplicationSettingsAllOf.md)
- - [Model.SwaThreeFieldApplicationSettingsApplication](docs/SwaThreeFieldApplicationSettingsApplication.md)
- - [Model.SwaThreeFieldApplicationSettingsApplicationAllOf](docs/SwaThreeFieldApplicationSettingsApplicationAllOf.md)
  - [Model.TempPassword](docs/TempPassword.md)
  - [Model.Theme](docs/Theme.md)
  - [Model.ThemeResponse](docs/ThemeResponse.md)
@@ -1090,21 +1073,20 @@ Class | Method | HTTP request | Description
  - [Model.WsFederationApplicationSettings](docs/WsFederationApplicationSettings.md)
  - [Model.WsFederationApplicationSettingsAllOf](docs/WsFederationApplicationSettingsAllOf.md)
  - [Model.WsFederationApplicationSettingsApplication](docs/WsFederationApplicationSettingsApplication.md)
- - [Model.WsFederationApplicationSettingsApplicationAllOf](docs/WsFederationApplicationSettingsApplicationAllOf.md)
 
 
 <a name="documentation-for-authorization"></a>
 ## Documentation for Authorization
 
-<a name="API Token"></a>
-### API Token
+<a name="API_Token"></a>
+### API_Token
 
 - **Type**: API key
 - **API key parameter name**: Authorization
 - **Location**: HTTP header
 
-<a name="OAuth 2.0"></a>
-### OAuth 2.0
+<a name="OAuth_2.0"></a>
+### OAuth_2.0
 
 - **Type**: OAuth
 - **Flow**: accessCode

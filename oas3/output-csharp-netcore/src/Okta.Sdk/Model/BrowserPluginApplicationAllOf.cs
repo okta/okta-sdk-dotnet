@@ -40,6 +40,12 @@ namespace Okta.Sdk.Model
         public SchemeApplicationCredentials Credentials { get; set; }
 
         /// <summary>
+        /// Gets or Sets Settings
+        /// </summary>
+        [DataMember(Name = "settings", EmitDefaultValue = false)]
+        public SwaApplicationSettings Settings { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -48,6 +54,7 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class BrowserPluginApplicationAllOf {\n");
             sb.Append("  Credentials: ").Append(Credentials).Append("\n");
+            sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,6 +94,11 @@ namespace Okta.Sdk.Model
                     this.Credentials == input.Credentials ||
                     (this.Credentials != null &&
                     this.Credentials.Equals(input.Credentials))
+                ) && 
+                (
+                    this.Settings == input.Settings ||
+                    (this.Settings != null &&
+                    this.Settings.Equals(input.Settings))
                 );
         }
 
@@ -102,6 +114,10 @@ namespace Okta.Sdk.Model
                 if (this.Credentials != null)
                 {
                     hashCode = (hashCode * 59) + this.Credentials.GetHashCode();
+                }
+                if (this.Settings != null)
+                {
+                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
                 }
                 return hashCode;
             }

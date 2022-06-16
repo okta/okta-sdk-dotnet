@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Application
+        /// Activate an Application
         /// </summary>
         /// <remarks>
         /// Activates an inactive application.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         void ActivateApplication(string appId);
 
         /// <summary>
-        /// Activate Application
+        /// Activate an Application
         /// </summary>
         /// <remarks>
         /// Activates an inactive application.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivateApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Activate default Provisioning Connection for application
+        /// Activate the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Activates the default Provisioning Connection for an application.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         void ActivateDefaultProvisioningConnectionForApplication(string appId);
 
         /// <summary>
-        /// Activate default Provisioning Connection for application
+        /// Activate the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Activates the default Provisioning Connection for an application.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivateDefaultProvisioningConnectionForApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
@@ -82,7 +82,7 @@ namespace Okta.Sdk.Api
         AppUser AssignUserToApplication(string appId, AppUser appUser);
 
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
@@ -93,7 +93,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AppUser</returns>
         ApiResponse<AppUser> AssignUserToApplicationWithHttpInfo(string appId, AppUser appUser);
         /// <summary>
-        /// Clone Application Key Credential
+        /// Clone a Key Credential
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an application key credential from a source application to target application.
@@ -106,7 +106,7 @@ namespace Okta.Sdk.Api
         JsonWebKey CloneApplicationKey(string appId, string keyId, string targetAid);
 
         /// <summary>
-        /// Clone Application Key Credential
+        /// Clone a Key Credential
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an application key credential from a source application to target application.
@@ -118,7 +118,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> CloneApplicationKeyWithHttpInfo(string appId, string keyId, string targetAid);
         /// <summary>
-        /// Add Application
+        /// Create an Application
         /// </summary>
         /// <remarks>
         /// Adds a new application to your Okta organization.
@@ -131,7 +131,7 @@ namespace Okta.Sdk.Api
         Application CreateApplication(Application application, bool? activate = default(bool?), string oktaAccessGatewayAgent = default(string));
 
         /// <summary>
-        /// Add Application
+        /// Create an Application
         /// </summary>
         /// <remarks>
         /// Adds a new application to your Okta organization.
@@ -143,7 +143,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Application</returns>
         ApiResponse<Application> CreateApplicationWithHttpInfo(Application application, bool? activate = default(bool?), string oktaAccessGatewayAgent = default(string));
         /// <summary>
-        /// Assign Group to Application
+        /// Assign a Group
         /// </summary>
         /// <remarks>
         /// Assigns a group to an application
@@ -156,7 +156,7 @@ namespace Okta.Sdk.Api
         ApplicationGroupAssignment CreateApplicationGroupAssignment(string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment));
 
         /// <summary>
-        /// Assign Group to Application
+        /// Assign a Group
         /// </summary>
         /// <remarks>
         /// Assigns a group to an application
@@ -168,7 +168,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ApplicationGroupAssignment</returns>
         ApiResponse<ApplicationGroupAssignment> CreateApplicationGroupAssignmentWithHttpInfo(string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment));
         /// <summary>
-        /// Deactivate Application
+        /// Deactivate an Application
         /// </summary>
         /// <remarks>
         /// Deactivates an active application.
@@ -179,7 +179,7 @@ namespace Okta.Sdk.Api
         void DeactivateApplication(string appId);
 
         /// <summary>
-        /// Deactivate Application
+        /// Deactivate an Application
         /// </summary>
         /// <remarks>
         /// Deactivates an active application.
@@ -189,7 +189,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivateApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Deactivate default Provisioning Connection for application
+        /// Deactivate the default Provisioning Connection for an Application
         /// </summary>
         /// <remarks>
         /// Deactivates the default Provisioning Connection for an application.
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Api
         void DeactivateDefaultProvisioningConnectionForApplication(string appId);
 
         /// <summary>
-        /// Deactivate default Provisioning Connection for application
+        /// Deactivate the default Provisioning Connection for an Application
         /// </summary>
         /// <remarks>
         /// Deactivates the default Provisioning Connection for an application.
@@ -210,7 +210,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivateDefaultProvisioningConnectionForApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Delete Application
+        /// Delete an Application
         /// </summary>
         /// <remarks>
         /// Removes an inactive application.
@@ -221,7 +221,7 @@ namespace Okta.Sdk.Api
         void DeleteApplication(string appId);
 
         /// <summary>
-        /// Delete Application
+        /// Delete an Application
         /// </summary>
         /// <remarks>
         /// Removes an inactive application.
@@ -231,7 +231,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Remove Group from Application
+        /// Unassign a Group
         /// </summary>
         /// <remarks>
         /// Removes a group assignment from an application.
@@ -243,7 +243,7 @@ namespace Okta.Sdk.Api
         void DeleteApplicationGroupAssignment(string appId, string groupId);
 
         /// <summary>
-        /// Remove Group from Application
+        /// Unassign a Group
         /// </summary>
         /// <remarks>
         /// Removes a group assignment from an application.
@@ -254,7 +254,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationGroupAssignmentWithHttpInfo(string appId, string groupId);
         /// <summary>
-        /// Remove User from Application
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes an assignment for a user from an application.
@@ -267,7 +267,7 @@ namespace Okta.Sdk.Api
         void DeleteApplicationUser(string appId, string userId, bool? sendEmail = default(bool?));
 
         /// <summary>
-        /// Remove User from Application
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes an assignment for a user from an application.
@@ -279,7 +279,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteApplicationUserWithHttpInfo(string appId, string userId, bool? sendEmail = default(bool?));
         /// <summary>
-        /// Generate Key Credential for Application
+        /// Generate a Key Credential
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an application key credential
@@ -291,7 +291,7 @@ namespace Okta.Sdk.Api
         JsonWebKey GenerateApplicationKey(string appId, int? validityYears = default(int?));
 
         /// <summary>
-        /// Generate Key Credential for Application
+        /// Generate a Key Credential
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an application key credential
@@ -302,7 +302,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> GenerateApplicationKeyWithHttpInfo(string appId, int? validityYears = default(int?));
         /// <summary>
-        /// Generate Certificate Signing Request for Application
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns the Certificate Signing Request for it.
@@ -314,7 +314,7 @@ namespace Okta.Sdk.Api
         Csr GenerateCsrForApplication(string appId, CsrMetadata metadata);
 
         /// <summary>
-        /// Generate Certificate Signing Request for Application
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns the Certificate Signing Request for it.
@@ -325,7 +325,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Csr</returns>
         ApiResponse<Csr> GenerateCsrForApplicationWithHttpInfo(string appId, CsrMetadata metadata);
         /// <summary>
-        /// Get Application
+        /// Retrieve an Application
         /// </summary>
         /// <remarks>
         /// Fetches an application from your Okta organization by &#x60;id&#x60;.
@@ -337,7 +337,7 @@ namespace Okta.Sdk.Api
         Application GetApplication(string appId, string expand = default(string));
 
         /// <summary>
-        /// Get Application
+        /// Retrieve an Application
         /// </summary>
         /// <remarks>
         /// Fetches an application from your Okta organization by &#x60;id&#x60;.
@@ -348,7 +348,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Application</returns>
         ApiResponse<Application> GetApplicationWithHttpInfo(string appId, string expand = default(string));
         /// <summary>
-        /// Get Assigned Group for Application
+        /// Retrieve an Assigned Group
         /// </summary>
         /// <remarks>
         /// Fetches an application group assignment
@@ -361,7 +361,7 @@ namespace Okta.Sdk.Api
         ApplicationGroupAssignment GetApplicationGroupAssignment(string appId, string groupId, string expand = default(string));
 
         /// <summary>
-        /// Get Assigned Group for Application
+        /// Retrieve an Assigned Group
         /// </summary>
         /// <remarks>
         /// Fetches an application group assignment
@@ -373,7 +373,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ApplicationGroupAssignment</returns>
         ApiResponse<ApplicationGroupAssignment> GetApplicationGroupAssignmentWithHttpInfo(string appId, string groupId, string expand = default(string));
         /// <summary>
-        /// Get Key Credential for Application
+        /// Retrieve a Key Credential
         /// </summary>
         /// <remarks>
         /// Gets a specific application key credential by kid
@@ -385,7 +385,7 @@ namespace Okta.Sdk.Api
         JsonWebKey GetApplicationKey(string appId, string keyId);
 
         /// <summary>
-        /// Get Key Credential for Application
+        /// Retrieve a Key Credential
         /// </summary>
         /// <remarks>
         /// Gets a specific application key credential by kid
@@ -396,7 +396,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> GetApplicationKeyWithHttpInfo(string appId, string keyId);
         /// <summary>
-        /// Get Assigned User for Application
+        /// Retrieve an Assigned User
         /// </summary>
         /// <remarks>
         /// Fetches a specific user assignment for application by &#x60;id&#x60;.
@@ -409,7 +409,7 @@ namespace Okta.Sdk.Api
         AppUser GetApplicationUser(string appId, string userId, string expand = default(string));
 
         /// <summary>
-        /// Get Assigned User for Application
+        /// Retrieve an Assigned User
         /// </summary>
         /// <remarks>
         /// Fetches a specific user assignment for application by &#x60;id&#x60;.
@@ -421,7 +421,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AppUser</returns>
         ApiResponse<AppUser> GetApplicationUserWithHttpInfo(string appId, string userId, string expand = default(string));
         /// <summary>
-        /// Get Certificate Signing Request
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Fetches a certificate signing request for the app by &#x60;id&#x60;.
@@ -433,7 +433,7 @@ namespace Okta.Sdk.Api
         Csr GetCsrForApplication(string appId, string csrId);
 
         /// <summary>
-        /// Get Certificate Signing Request
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Fetches a certificate signing request for the app by &#x60;id&#x60;.
@@ -444,7 +444,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Csr</returns>
         ApiResponse<Csr> GetCsrForApplicationWithHttpInfo(string appId, string csrId);
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application.
+        /// Retrieve the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Get default Provisioning Connection for application
@@ -455,7 +455,7 @@ namespace Okta.Sdk.Api
         ProvisioningConnection GetDefaultProvisioningConnectionForApplication(string appId);
 
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application.
+        /// Retrieve the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Get default Provisioning Connection for application
@@ -465,7 +465,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ProvisioningConnection</returns>
         ApiResponse<ProvisioningConnection> GetDefaultProvisioningConnectionForApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Fetches a Feature object for an application.
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Fetches a Feature object for an application.
@@ -477,7 +477,7 @@ namespace Okta.Sdk.Api
         ApplicationFeature GetFeatureForApplication(string appId, string name);
 
         /// <summary>
-        /// Fetches a Feature object for an application.
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Fetches a Feature object for an application.
@@ -488,7 +488,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ApplicationFeature</returns>
         ApiResponse<ApplicationFeature> GetFeatureForApplicationWithHttpInfo(string appId, string name);
         /// <summary>
-        /// Get OAuth 2.0 Token for Application
+        /// Retrieve an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Gets a token for the specified application
@@ -501,7 +501,7 @@ namespace Okta.Sdk.Api
         OAuth2Token GetOAuth2TokenForApplication(string appId, string tokenId, string expand = default(string));
 
         /// <summary>
-        /// Get OAuth 2.0 Token for Application
+        /// Retrieve an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Gets a token for the specified application
@@ -513,7 +513,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2Token</returns>
         ApiResponse<OAuth2Token> GetOAuth2TokenForApplicationWithHttpInfo(string appId, string tokenId, string expand = default(string));
         /// <summary>
-        /// Get Scope Consent Grant for Application
+        /// Retrieve a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Fetches a single scope consent grant for the application
@@ -526,7 +526,7 @@ namespace Okta.Sdk.Api
         OAuth2ScopeConsentGrant GetScopeConsentGrant(string appId, string grantId, string expand = default(string));
 
         /// <summary>
-        /// Get Scope Consent Grant for Application
+        /// Retrieve a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Fetches a single scope consent grant for the application
@@ -538,7 +538,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2ScopeConsentGrant</returns>
         ApiResponse<OAuth2ScopeConsentGrant> GetScopeConsentGrantWithHttpInfo(string appId, string grantId, string expand = default(string));
         /// <summary>
-        /// Grant Consent to Scope for Application
+        /// Grant Consent to Scope
         /// </summary>
         /// <remarks>
         /// Grants consent for the application to request an OAuth 2.0 Okta scope
@@ -550,7 +550,7 @@ namespace Okta.Sdk.Api
         OAuth2ScopeConsentGrant GrantConsentToScope(string appId, OAuth2ScopeConsentGrant oAuth2ScopeConsentGrant);
 
         /// <summary>
-        /// Grant Consent to Scope for Application
+        /// Grant Consent to Scope
         /// </summary>
         /// <remarks>
         /// Grants consent for the application to request an OAuth 2.0 Okta scope
@@ -561,7 +561,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2ScopeConsentGrant</returns>
         ApiResponse<OAuth2ScopeConsentGrant> GrantConsentToScopeWithHttpInfo(string appId, OAuth2ScopeConsentGrant oAuth2ScopeConsentGrant);
         /// <summary>
-        /// List Groups Assigned to Application
+        /// List all Assigned Groups
         /// </summary>
         /// <remarks>
         /// Enumerates group assignments for an application.
@@ -576,7 +576,7 @@ namespace Okta.Sdk.Api
         List<ApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
 
         /// <summary>
-        /// List Groups Assigned to Application
+        /// List all Assigned Groups
         /// </summary>
         /// <remarks>
         /// Enumerates group assignments for an application.
@@ -590,7 +590,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;ApplicationGroupAssignment&gt;</returns>
         ApiResponse<List<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsWithHttpInfo(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
         /// <summary>
-        /// List Key Credentials for Application
+        /// List all Key Credentials
         /// </summary>
         /// <remarks>
         /// Enumerates key credentials for an application
@@ -601,7 +601,7 @@ namespace Okta.Sdk.Api
         List<JsonWebKey> ListApplicationKeys(string appId);
 
         /// <summary>
-        /// List Key Credentials for Application
+        /// List all Key Credentials
         /// </summary>
         /// <remarks>
         /// Enumerates key credentials for an application
@@ -611,7 +611,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
         ApiResponse<List<JsonWebKey>> ListApplicationKeysWithHttpInfo(string appId);
         /// <summary>
-        /// List Users Assigned to Application
+        /// List all Assigned Users
         /// </summary>
         /// <remarks>
         /// Enumerates all assigned [application users](#application-user-model) for an application.
@@ -628,7 +628,7 @@ namespace Okta.Sdk.Api
         List<AppUser> ListApplicationUsers(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string));
 
         /// <summary>
-        /// List Users Assigned to Application
+        /// List all Assigned Users
         /// </summary>
         /// <remarks>
         /// Enumerates all assigned [application users](#application-user-model) for an application.
@@ -644,7 +644,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;AppUser&gt;</returns>
         ApiResponse<List<AppUser>> ListApplicationUsersWithHttpInfo(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string));
         /// <summary>
-        /// List Applications
+        /// List all Applications
         /// </summary>
         /// <remarks>
         /// Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
@@ -660,7 +660,7 @@ namespace Okta.Sdk.Api
         List<Application> ListApplications(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?));
 
         /// <summary>
-        /// List Applications
+        /// List all Applications
         /// </summary>
         /// <remarks>
         /// Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
@@ -675,7 +675,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Application&gt;</returns>
         ApiResponse<List<Application>> ListApplicationsWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?));
         /// <summary>
-        /// List Certificate Signing Requests for Application
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an application
@@ -686,7 +686,7 @@ namespace Okta.Sdk.Api
         List<Csr> ListCsrsForApplication(string appId);
 
         /// <summary>
-        /// List Certificate Signing Requests for Application
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an application
@@ -696,7 +696,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Csr&gt;</returns>
         ApiResponse<List<Csr>> ListCsrsForApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Fetches the Feature objects for an application.
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// List Features for application
@@ -707,7 +707,7 @@ namespace Okta.Sdk.Api
         List<ApplicationFeature> ListFeaturesForApplication(string appId);
 
         /// <summary>
-        /// Fetches the Feature objects for an application.
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// List Features for application
@@ -717,7 +717,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;ApplicationFeature&gt;</returns>
         ApiResponse<List<ApplicationFeature>> ListFeaturesForApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application
+        /// List all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Lists all tokens for the application
@@ -731,7 +731,7 @@ namespace Okta.Sdk.Api
         List<OAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = default(string), string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application
+        /// List all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Lists all tokens for the application
@@ -744,7 +744,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OAuth2Token&gt;</returns>
         ApiResponse<List<OAuth2Token>> ListOAuth2TokensForApplicationWithHttpInfo(string appId, string expand = default(string), string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Scope Consent Grants for Application
+        /// List all Scope Consent Grants
         /// </summary>
         /// <remarks>
         /// Lists all scope consent grants for the application
@@ -756,7 +756,7 @@ namespace Okta.Sdk.Api
         List<OAuth2ScopeConsentGrant> ListScopeConsentGrants(string appId, string expand = default(string));
 
         /// <summary>
-        /// List Scope Consent Grants for Application
+        /// List all Scope Consent Grants
         /// </summary>
         /// <remarks>
         /// Lists all scope consent grants for the application
@@ -767,7 +767,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
         ApiResponse<List<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsWithHttpInfo(string appId, string expand = default(string));
         /// <summary>
-        /// Publish Certificate Signing Request
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
@@ -780,7 +780,7 @@ namespace Okta.Sdk.Api
         JsonWebKey PublishCsrFromApplication(string appId, string csrId, System.IO.Stream body);
 
         /// <summary>
-        /// Publish Certificate Signing Request
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
@@ -792,7 +792,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> PublishCsrFromApplicationWithHttpInfo(string appId, string csrId, System.IO.Stream body);
         /// <summary>
-        /// Revoke Certificate Signing Request
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revokes a certificate signing request and deletes the key pair from the application.
@@ -804,7 +804,7 @@ namespace Okta.Sdk.Api
         void RevokeCsrFromApplication(string appId, string csrId);
 
         /// <summary>
-        /// Revoke Certificate Signing Request
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revokes a certificate signing request and deletes the key pair from the application.
@@ -815,7 +815,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeCsrFromApplicationWithHttpInfo(string appId, string csrId);
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application
+        /// Revoke an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Revokes the specified token for the specified application
@@ -827,7 +827,7 @@ namespace Okta.Sdk.Api
         void RevokeOAuth2TokenForApplication(string appId, string tokenId);
 
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application
+        /// Revoke an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Revokes the specified token for the specified application
@@ -838,7 +838,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeOAuth2TokenForApplicationWithHttpInfo(string appId, string tokenId);
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application
+        /// Revoke all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Revokes all tokens for the specified application
@@ -849,7 +849,7 @@ namespace Okta.Sdk.Api
         void RevokeOAuth2TokensForApplication(string appId);
 
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application
+        /// Revoke all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Revokes all tokens for the specified application
@@ -859,7 +859,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeOAuth2TokensForApplicationWithHttpInfo(string appId);
         /// <summary>
-        /// Revoke Scope Consent Grant for Application
+        /// Revoke a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Revokes permission for the application to request the given scope
@@ -871,7 +871,7 @@ namespace Okta.Sdk.Api
         void RevokeScopeConsentGrant(string appId, string grantId);
 
         /// <summary>
-        /// Revoke Scope Consent Grant for Application
+        /// Revoke a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Revokes permission for the application to request the given scope
@@ -882,7 +882,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeScopeConsentGrantWithHttpInfo(string appId, string grantId);
         /// <summary>
-        /// Sets the default Provisioning Connection for an application.
+        /// Update the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Set default Provisioning Connection for application
@@ -895,7 +895,7 @@ namespace Okta.Sdk.Api
         ProvisioningConnection SetDefaultProvisioningConnectionForApplication(string appId, ProvisioningConnectionRequest provisioningConnectionRequest, bool? activate = default(bool?));
 
         /// <summary>
-        /// Sets the default Provisioning Connection for an application.
+        /// Update the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Set default Provisioning Connection for application
@@ -907,7 +907,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ProvisioningConnection</returns>
         ApiResponse<ProvisioningConnection> SetDefaultProvisioningConnectionForApplicationWithHttpInfo(string appId, ProvisioningConnectionRequest provisioningConnectionRequest, bool? activate = default(bool?));
         /// <summary>
-        /// Update Application
+        /// Replace an Application
         /// </summary>
         /// <remarks>
         /// Updates an application in your organization.
@@ -919,7 +919,7 @@ namespace Okta.Sdk.Api
         Application UpdateApplication(string appId, Application application);
 
         /// <summary>
-        /// Update Application
+        /// Replace an Application
         /// </summary>
         /// <remarks>
         /// Updates an application in your organization.
@@ -930,7 +930,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Application</returns>
         ApiResponse<Application> UpdateApplicationWithHttpInfo(string appId, Application application);
         /// <summary>
-        /// Update Application Profile for Assigned User
+        /// Update an Application Profile for Assigned User
         /// </summary>
         /// <remarks>
         /// Updates a user&#39;s profile for an application
@@ -943,7 +943,7 @@ namespace Okta.Sdk.Api
         AppUser UpdateApplicationUser(string appId, string userId, AppUser appUser);
 
         /// <summary>
-        /// Update Application Profile for Assigned User
+        /// Update an Application Profile for Assigned User
         /// </summary>
         /// <remarks>
         /// Updates a user&#39;s profile for an application
@@ -955,7 +955,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AppUser</returns>
         ApiResponse<AppUser> UpdateApplicationUserWithHttpInfo(string appId, string userId, AppUser appUser);
         /// <summary>
-        /// Updates a Feature object for an application.
+        /// Update a Feature
         /// </summary>
         /// <remarks>
         /// Updates a Feature object for an application.
@@ -968,7 +968,7 @@ namespace Okta.Sdk.Api
         ApplicationFeature UpdateFeatureForApplication(string appId, string name, CapabilitiesObject capabilitiesObject);
 
         /// <summary>
-        /// Updates a Feature object for an application.
+        /// Update a Feature
         /// </summary>
         /// <remarks>
         /// Updates a Feature object for an application.
@@ -980,10 +980,10 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ApplicationFeature</returns>
         ApiResponse<ApplicationFeature> UpdateFeatureForApplicationWithHttpInfo(string appId, string name, CapabilitiesObject capabilitiesObject);
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Upload a Logo
         /// </summary>
         /// <remarks>
-        /// Update the logo for an application.
+        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -992,10 +992,10 @@ namespace Okta.Sdk.Api
         void UploadApplicationLogo(string appId, System.IO.Stream file);
 
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Upload a Logo
         /// </summary>
         /// <remarks>
-        /// Update the logo for an application.
+        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -1012,7 +1012,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Application
+        /// Activate an Application
         /// </summary>
         /// <remarks>
         /// Activates an inactive application.
@@ -1024,7 +1024,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivateApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Application
+        /// Activate an Application
         /// </summary>
         /// <remarks>
         /// Activates an inactive application.
@@ -1035,7 +1035,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Activate default Provisioning Connection for application
+        /// Activate the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Activates the default Provisioning Connection for an application.
@@ -1047,7 +1047,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivateDefaultProvisioningConnectionForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate default Provisioning Connection for application
+        /// Activate the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Activates the default Provisioning Connection for an application.
@@ -1058,7 +1058,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
@@ -1071,7 +1071,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AppUser> AssignUserToApplicationAsync(string appId, AppUser appUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
@@ -1083,7 +1083,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AppUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<AppUser>> AssignUserToApplicationWithHttpInfoAsync(string appId, AppUser appUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Clone Application Key Credential
+        /// Clone a Key Credential
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an application key credential from a source application to target application.
@@ -1097,7 +1097,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> CloneApplicationKeyAsync(string appId, string keyId, string targetAid, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Clone Application Key Credential
+        /// Clone a Key Credential
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an application key credential from a source application to target application.
@@ -1110,7 +1110,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CloneApplicationKeyWithHttpInfoAsync(string appId, string keyId, string targetAid, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add Application
+        /// Create an Application
         /// </summary>
         /// <remarks>
         /// Adds a new application to your Okta organization.
@@ -1124,7 +1124,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Application> CreateApplicationAsync(Application application, bool? activate = default(bool?), string oktaAccessGatewayAgent = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Application
+        /// Create an Application
         /// </summary>
         /// <remarks>
         /// Adds a new application to your Okta organization.
@@ -1137,7 +1137,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Application)</returns>
         System.Threading.Tasks.Task<ApiResponse<Application>> CreateApplicationWithHttpInfoAsync(Application application, bool? activate = default(bool?), string oktaAccessGatewayAgent = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Assign Group to Application
+        /// Assign a Group
         /// </summary>
         /// <remarks>
         /// Assigns a group to an application
@@ -1151,7 +1151,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ApplicationGroupAssignment> CreateApplicationGroupAssignmentAsync(string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Assign Group to Application
+        /// Assign a Group
         /// </summary>
         /// <remarks>
         /// Assigns a group to an application
@@ -1164,7 +1164,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ApplicationGroupAssignment)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationGroupAssignment>> CreateApplicationGroupAssignmentWithHttpInfoAsync(string appId, string groupId, ApplicationGroupAssignment applicationGroupAssignment = default(ApplicationGroupAssignment), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Application
+        /// Deactivate an Application
         /// </summary>
         /// <remarks>
         /// Deactivates an active application.
@@ -1176,7 +1176,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivateApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Application
+        /// Deactivate an Application
         /// </summary>
         /// <remarks>
         /// Deactivates an active application.
@@ -1187,7 +1187,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate default Provisioning Connection for application
+        /// Deactivate the default Provisioning Connection for an Application
         /// </summary>
         /// <remarks>
         /// Deactivates the default Provisioning Connection for an application.
@@ -1199,7 +1199,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivateDefaultProvisioningConnectionForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate default Provisioning Connection for application
+        /// Deactivate the default Provisioning Connection for an Application
         /// </summary>
         /// <remarks>
         /// Deactivates the default Provisioning Connection for an application.
@@ -1210,7 +1210,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Application
+        /// Delete an Application
         /// </summary>
         /// <remarks>
         /// Removes an inactive application.
@@ -1222,7 +1222,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Application
+        /// Delete an Application
         /// </summary>
         /// <remarks>
         /// Removes an inactive application.
@@ -1233,7 +1233,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove Group from Application
+        /// Unassign a Group
         /// </summary>
         /// <remarks>
         /// Removes a group assignment from an application.
@@ -1246,7 +1246,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteApplicationGroupAssignmentAsync(string appId, string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove Group from Application
+        /// Unassign a Group
         /// </summary>
         /// <remarks>
         /// Removes a group assignment from an application.
@@ -1258,7 +1258,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationGroupAssignmentWithHttpInfoAsync(string appId, string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove User from Application
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes an assignment for a user from an application.
@@ -1272,7 +1272,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteApplicationUserAsync(string appId, string userId, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove User from Application
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes an assignment for a user from an application.
@@ -1285,7 +1285,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteApplicationUserWithHttpInfoAsync(string appId, string userId, bool? sendEmail = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Generate Key Credential for Application
+        /// Generate a Key Credential
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an application key credential
@@ -1298,7 +1298,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> GenerateApplicationKeyAsync(string appId, int? validityYears = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Generate Key Credential for Application
+        /// Generate a Key Credential
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an application key credential
@@ -1310,7 +1310,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GenerateApplicationKeyWithHttpInfoAsync(string appId, int? validityYears = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Generate Certificate Signing Request for Application
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns the Certificate Signing Request for it.
@@ -1323,7 +1323,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Csr> GenerateCsrForApplicationAsync(string appId, CsrMetadata metadata, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Generate Certificate Signing Request for Application
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns the Certificate Signing Request for it.
@@ -1335,7 +1335,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Csr)</returns>
         System.Threading.Tasks.Task<ApiResponse<Csr>> GenerateCsrForApplicationWithHttpInfoAsync(string appId, CsrMetadata metadata, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Application
+        /// Retrieve an Application
         /// </summary>
         /// <remarks>
         /// Fetches an application from your Okta organization by &#x60;id&#x60;.
@@ -1348,7 +1348,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Application> GetApplicationAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Application
+        /// Retrieve an Application
         /// </summary>
         /// <remarks>
         /// Fetches an application from your Okta organization by &#x60;id&#x60;.
@@ -1360,7 +1360,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Application)</returns>
         System.Threading.Tasks.Task<ApiResponse<Application>> GetApplicationWithHttpInfoAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Assigned Group for Application
+        /// Retrieve an Assigned Group
         /// </summary>
         /// <remarks>
         /// Fetches an application group assignment
@@ -1374,7 +1374,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ApplicationGroupAssignment> GetApplicationGroupAssignmentAsync(string appId, string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Assigned Group for Application
+        /// Retrieve an Assigned Group
         /// </summary>
         /// <remarks>
         /// Fetches an application group assignment
@@ -1387,7 +1387,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ApplicationGroupAssignment)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationGroupAssignment>> GetApplicationGroupAssignmentWithHttpInfoAsync(string appId, string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Key Credential for Application
+        /// Retrieve a Key Credential
         /// </summary>
         /// <remarks>
         /// Gets a specific application key credential by kid
@@ -1400,7 +1400,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> GetApplicationKeyAsync(string appId, string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Key Credential for Application
+        /// Retrieve a Key Credential
         /// </summary>
         /// <remarks>
         /// Gets a specific application key credential by kid
@@ -1412,7 +1412,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GetApplicationKeyWithHttpInfoAsync(string appId, string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Assigned User for Application
+        /// Retrieve an Assigned User
         /// </summary>
         /// <remarks>
         /// Fetches a specific user assignment for application by &#x60;id&#x60;.
@@ -1426,7 +1426,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AppUser> GetApplicationUserAsync(string appId, string userId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Assigned User for Application
+        /// Retrieve an Assigned User
         /// </summary>
         /// <remarks>
         /// Fetches a specific user assignment for application by &#x60;id&#x60;.
@@ -1439,7 +1439,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AppUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<AppUser>> GetApplicationUserWithHttpInfoAsync(string appId, string userId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Certificate Signing Request
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Fetches a certificate signing request for the app by &#x60;id&#x60;.
@@ -1452,7 +1452,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Csr> GetCsrForApplicationAsync(string appId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Certificate Signing Request
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Fetches a certificate signing request for the app by &#x60;id&#x60;.
@@ -1464,7 +1464,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Csr)</returns>
         System.Threading.Tasks.Task<ApiResponse<Csr>> GetCsrForApplicationWithHttpInfoAsync(string appId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application.
+        /// Retrieve the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Get default Provisioning Connection for application
@@ -1476,7 +1476,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ProvisioningConnection> GetDefaultProvisioningConnectionForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application.
+        /// Retrieve the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Get default Provisioning Connection for application
@@ -1487,7 +1487,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ProvisioningConnection)</returns>
         System.Threading.Tasks.Task<ApiResponse<ProvisioningConnection>> GetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Fetches a Feature object for an application.
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Fetches a Feature object for an application.
@@ -1500,7 +1500,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ApplicationFeature> GetFeatureForApplicationAsync(string appId, string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetches a Feature object for an application.
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Fetches a Feature object for an application.
@@ -1512,7 +1512,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ApplicationFeature)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationFeature>> GetFeatureForApplicationWithHttpInfoAsync(string appId, string name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get OAuth 2.0 Token for Application
+        /// Retrieve an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Gets a token for the specified application
@@ -1526,7 +1526,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Token> GetOAuth2TokenForApplicationAsync(string appId, string tokenId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get OAuth 2.0 Token for Application
+        /// Retrieve an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Gets a token for the specified application
@@ -1539,7 +1539,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2Token)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2Token>> GetOAuth2TokenForApplicationWithHttpInfoAsync(string appId, string tokenId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Scope Consent Grant for Application
+        /// Retrieve a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Fetches a single scope consent grant for the application
@@ -1553,7 +1553,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GetScopeConsentGrantAsync(string appId, string grantId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Scope Consent Grant for Application
+        /// Retrieve a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Fetches a single scope consent grant for the application
@@ -1566,7 +1566,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2ScopeConsentGrant)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2ScopeConsentGrant>> GetScopeConsentGrantWithHttpInfoAsync(string appId, string grantId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Grant Consent to Scope for Application
+        /// Grant Consent to Scope
         /// </summary>
         /// <remarks>
         /// Grants consent for the application to request an OAuth 2.0 Okta scope
@@ -1579,7 +1579,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2ScopeConsentGrant> GrantConsentToScopeAsync(string appId, OAuth2ScopeConsentGrant oAuth2ScopeConsentGrant, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Grant Consent to Scope for Application
+        /// Grant Consent to Scope
         /// </summary>
         /// <remarks>
         /// Grants consent for the application to request an OAuth 2.0 Okta scope
@@ -1591,7 +1591,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2ScopeConsentGrant)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2ScopeConsentGrant>> GrantConsentToScopeWithHttpInfoAsync(string appId, OAuth2ScopeConsentGrant oAuth2ScopeConsentGrant, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Groups Assigned to Application
+        /// List all Assigned Groups
         /// </summary>
         /// <remarks>
         /// Enumerates group assignments for an application.
@@ -1607,7 +1607,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Groups Assigned to Application
+        /// List all Assigned Groups
         /// </summary>
         /// <remarks>
         /// Enumerates group assignments for an application.
@@ -1622,7 +1622,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;ApplicationGroupAssignment&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ApplicationGroupAssignment>>> ListApplicationGroupAssignmentsWithHttpInfoAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Key Credentials for Application
+        /// List all Key Credentials
         /// </summary>
         /// <remarks>
         /// Enumerates key credentials for an application
@@ -1634,7 +1634,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<JsonWebKey>> ListApplicationKeysAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Key Credentials for Application
+        /// List all Key Credentials
         /// </summary>
         /// <remarks>
         /// Enumerates key credentials for an application
@@ -1645,7 +1645,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListApplicationKeysWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Users Assigned to Application
+        /// List all Assigned Users
         /// </summary>
         /// <remarks>
         /// Enumerates all assigned [application users](#application-user-model) for an application.
@@ -1663,7 +1663,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<AppUser>> ListApplicationUsersAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Users Assigned to Application
+        /// List all Assigned Users
         /// </summary>
         /// <remarks>
         /// Enumerates all assigned [application users](#application-user-model) for an application.
@@ -1680,7 +1680,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AppUser&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AppUser>>> ListApplicationUsersWithHttpInfoAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Applications
+        /// List all Applications
         /// </summary>
         /// <remarks>
         /// Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
@@ -1697,7 +1697,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Application>> ListApplicationsAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Applications
+        /// List all Applications
         /// </summary>
         /// <remarks>
         /// Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
@@ -1713,7 +1713,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Application>>> ListApplicationsWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Certificate Signing Requests for Application
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an application
@@ -1725,7 +1725,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Csr>> ListCsrsForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Certificate Signing Requests for Application
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an application
@@ -1736,7 +1736,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Csr&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Csr>>> ListCsrsForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Fetches the Feature objects for an application.
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// List Features for application
@@ -1748,7 +1748,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<ApplicationFeature>> ListFeaturesForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetches the Feature objects for an application.
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// List Features for application
@@ -1759,7 +1759,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;ApplicationFeature&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ApplicationFeature>>> ListFeaturesForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application
+        /// List all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Lists all tokens for the application
@@ -1774,7 +1774,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OAuth2Token>> ListOAuth2TokensForApplicationAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application
+        /// List all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Lists all tokens for the application
@@ -1788,7 +1788,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OAuth2Token&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OAuth2Token>>> ListOAuth2TokensForApplicationWithHttpInfoAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Scope Consent Grants for Application
+        /// List all Scope Consent Grants
         /// </summary>
         /// <remarks>
         /// Lists all scope consent grants for the application
@@ -1801,7 +1801,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Scope Consent Grants for Application
+        /// List all Scope Consent Grants
         /// </summary>
         /// <remarks>
         /// Lists all scope consent grants for the application
@@ -1813,7 +1813,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OAuth2ScopeConsentGrant&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Publish Certificate Signing Request
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
@@ -1827,7 +1827,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> PublishCsrFromApplicationAsync(string appId, string csrId, System.IO.Stream body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Publish Certificate Signing Request
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
@@ -1840,7 +1840,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> PublishCsrFromApplicationWithHttpInfoAsync(string appId, string csrId, System.IO.Stream body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke Certificate Signing Request
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revokes a certificate signing request and deletes the key pair from the application.
@@ -1853,7 +1853,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeCsrFromApplicationAsync(string appId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke Certificate Signing Request
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revokes a certificate signing request and deletes the key pair from the application.
@@ -1865,7 +1865,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeCsrFromApplicationWithHttpInfoAsync(string appId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application
+        /// Revoke an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Revokes the specified token for the specified application
@@ -1878,7 +1878,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeOAuth2TokenForApplicationAsync(string appId, string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application
+        /// Revoke an OAuth 2.0 Token
         /// </summary>
         /// <remarks>
         /// Revokes the specified token for the specified application
@@ -1890,7 +1890,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeOAuth2TokenForApplicationWithHttpInfoAsync(string appId, string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application
+        /// Revoke all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Revokes all tokens for the specified application
@@ -1902,7 +1902,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeOAuth2TokensForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application
+        /// Revoke all OAuth 2.0 Tokens
         /// </summary>
         /// <remarks>
         /// Revokes all tokens for the specified application
@@ -1913,7 +1913,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeOAuth2TokensForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke Scope Consent Grant for Application
+        /// Revoke a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Revokes permission for the application to request the given scope
@@ -1926,7 +1926,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeScopeConsentGrantAsync(string appId, string grantId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke Scope Consent Grant for Application
+        /// Revoke a Scope Consent Grant
         /// </summary>
         /// <remarks>
         /// Revokes permission for the application to request the given scope
@@ -1938,7 +1938,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeScopeConsentGrantWithHttpInfoAsync(string appId, string grantId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Sets the default Provisioning Connection for an application.
+        /// Update the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Set default Provisioning Connection for application
@@ -1952,7 +1952,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ProvisioningConnection> SetDefaultProvisioningConnectionForApplicationAsync(string appId, ProvisioningConnectionRequest provisioningConnectionRequest, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Sets the default Provisioning Connection for an application.
+        /// Update the default Provisioning Connection
         /// </summary>
         /// <remarks>
         /// Set default Provisioning Connection for application
@@ -1965,7 +1965,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ProvisioningConnection)</returns>
         System.Threading.Tasks.Task<ApiResponse<ProvisioningConnection>> SetDefaultProvisioningConnectionForApplicationWithHttpInfoAsync(string appId, ProvisioningConnectionRequest provisioningConnectionRequest, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Application
+        /// Replace an Application
         /// </summary>
         /// <remarks>
         /// Updates an application in your organization.
@@ -1978,7 +1978,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Application> UpdateApplicationAsync(string appId, Application application, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Application
+        /// Replace an Application
         /// </summary>
         /// <remarks>
         /// Updates an application in your organization.
@@ -1990,7 +1990,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Application)</returns>
         System.Threading.Tasks.Task<ApiResponse<Application>> UpdateApplicationWithHttpInfoAsync(string appId, Application application, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Application Profile for Assigned User
+        /// Update an Application Profile for Assigned User
         /// </summary>
         /// <remarks>
         /// Updates a user&#39;s profile for an application
@@ -2004,7 +2004,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AppUser> UpdateApplicationUserAsync(string appId, string userId, AppUser appUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Application Profile for Assigned User
+        /// Update an Application Profile for Assigned User
         /// </summary>
         /// <remarks>
         /// Updates a user&#39;s profile for an application
@@ -2017,7 +2017,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AppUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<AppUser>> UpdateApplicationUserWithHttpInfoAsync(string appId, string userId, AppUser appUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates a Feature object for an application.
+        /// Update a Feature
         /// </summary>
         /// <remarks>
         /// Updates a Feature object for an application.
@@ -2031,7 +2031,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ApplicationFeature> UpdateFeatureForApplicationAsync(string appId, string name, CapabilitiesObject capabilitiesObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates a Feature object for an application.
+        /// Update a Feature
         /// </summary>
         /// <remarks>
         /// Updates a Feature object for an application.
@@ -2044,10 +2044,10 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ApplicationFeature)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApplicationFeature>> UpdateFeatureForApplicationWithHttpInfoAsync(string appId, string name, CapabilitiesObject capabilitiesObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Upload a Logo
         /// </summary>
         /// <remarks>
-        /// Update the logo for an application.
+        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2057,10 +2057,10 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task UploadApplicationLogoAsync(string appId, System.IO.Stream file, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+        /// Upload a Logo
         /// </summary>
         /// <remarks>
-        /// Update the logo for an application.
+        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2168,7 +2168,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Application Activates an inactive application.
+        /// Activate an Application Activates an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2179,7 +2179,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Application Activates an inactive application.
+        /// Activate an Application Activates an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2216,12 +2216,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2243,7 +2243,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Application Activates an inactive application.
+        /// Activate an Application Activates an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2255,7 +2255,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Application Activates an inactive application.
+        /// Activate an Application Activates an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2294,12 +2294,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2322,7 +2322,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate default Provisioning Connection for application Activates the default Provisioning Connection for an application.
+        /// Activate the default Provisioning Connection Activates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2333,7 +2333,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate default Provisioning Connection for application Activates the default Provisioning Connection for an application.
+        /// Activate the default Provisioning Connection Activates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2370,12 +2370,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2397,7 +2397,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate default Provisioning Connection for application Activates the default Provisioning Connection for an application.
+        /// Activate the default Provisioning Connection Activates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2409,7 +2409,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate default Provisioning Connection for application Activates the default Provisioning Connection for an application.
+        /// Activate the default Provisioning Connection Activates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2448,12 +2448,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2476,7 +2476,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
+        /// Assign a User Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2489,7 +2489,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
+        /// Assign a User Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2535,12 +2535,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = appUser;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2562,7 +2562,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
+        /// Assign a User Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2576,7 +2576,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign User to Application for SSO &amp; Provisioning Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
+        /// Assign a User Assigns an user to an application with [credentials](#application-user-credentials-object) and an app-specific [profile](#application-user-profile-object). Profile mappings defined for the application are first applied before applying any profile properties specified in the request.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2624,12 +2624,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = appUser;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2652,7 +2652,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Application Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
+        /// Clone a Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2666,7 +2666,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Application Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
+        /// Clone a Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2719,12 +2719,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetAid", targetAid));
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2746,7 +2746,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Application Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
+        /// Clone a Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2761,7 +2761,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Application Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
+        /// Clone a Key Credential Clones a X.509 certificate for an application key credential from a source application to target application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -2816,12 +2816,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetAid", targetAid));
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2844,7 +2844,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Adds a new application to your Okta organization.
+        /// Create an Application Adds a new application to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="application"></param>
@@ -2858,7 +2858,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Adds a new application to your Okta organization.
+        /// Create an Application Adds a new application to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="application"></param>
@@ -2906,12 +2906,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = application;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2933,7 +2933,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Adds a new application to your Okta organization.
+        /// Create an Application Adds a new application to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="application"></param>
@@ -2948,7 +2948,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Adds a new application to your Okta organization.
+        /// Create an Application Adds a new application to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="application"></param>
@@ -2998,12 +2998,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = application;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3026,7 +3026,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Group to Application Assigns a group to an application
+        /// Assign a Group Assigns a group to an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3040,7 +3040,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Group to Application Assigns a group to an application
+        /// Assign a Group Assigns a group to an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3088,12 +3088,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = applicationGroupAssignment;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3115,7 +3115,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Group to Application Assigns a group to an application
+        /// Assign a Group Assigns a group to an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3130,7 +3130,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Group to Application Assigns a group to an application
+        /// Assign a Group Assigns a group to an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3180,12 +3180,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = applicationGroupAssignment;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3208,7 +3208,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Application Deactivates an active application.
+        /// Deactivate an Application Deactivates an active application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3219,7 +3219,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Application Deactivates an active application.
+        /// Deactivate an Application Deactivates an active application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3256,12 +3256,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3283,7 +3283,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Application Deactivates an active application.
+        /// Deactivate an Application Deactivates an active application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3295,7 +3295,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Application Deactivates an active application.
+        /// Deactivate an Application Deactivates an active application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3334,12 +3334,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3362,7 +3362,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate default Provisioning Connection for application Deactivates the default Provisioning Connection for an application.
+        /// Deactivate the default Provisioning Connection for an Application Deactivates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3373,7 +3373,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate default Provisioning Connection for application Deactivates the default Provisioning Connection for an application.
+        /// Deactivate the default Provisioning Connection for an Application Deactivates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3410,12 +3410,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3437,7 +3437,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate default Provisioning Connection for application Deactivates the default Provisioning Connection for an application.
+        /// Deactivate the default Provisioning Connection for an Application Deactivates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3449,7 +3449,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate default Provisioning Connection for application Deactivates the default Provisioning Connection for an application.
+        /// Deactivate the default Provisioning Connection for an Application Deactivates the default Provisioning Connection for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3488,12 +3488,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3516,7 +3516,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Application Removes an inactive application.
+        /// Delete an Application Removes an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3527,7 +3527,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Application Removes an inactive application.
+        /// Delete an Application Removes an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3564,12 +3564,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3591,7 +3591,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Application Removes an inactive application.
+        /// Delete an Application Removes an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3603,7 +3603,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Application Removes an inactive application.
+        /// Delete an Application Removes an inactive application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3642,12 +3642,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3670,7 +3670,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group from Application Removes a group assignment from an application.
+        /// Unassign a Group Removes a group assignment from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3682,7 +3682,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group from Application Removes a group assignment from an application.
+        /// Unassign a Group Removes a group assignment from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3727,12 +3727,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3754,7 +3754,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group from Application Removes a group assignment from an application.
+        /// Unassign a Group Removes a group assignment from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3767,7 +3767,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group from Application Removes a group assignment from an application.
+        /// Unassign a Group Removes a group assignment from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3814,12 +3814,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3842,7 +3842,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Application Removes an assignment for a user from an application.
+        /// Unassign a User Removes an assignment for a user from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3855,7 +3855,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Application Removes an assignment for a user from an application.
+        /// Unassign a User Removes an assignment for a user from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3905,12 +3905,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sendEmail", sendEmail));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3932,7 +3932,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Application Removes an assignment for a user from an application.
+        /// Unassign a User Removes an assignment for a user from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3946,7 +3946,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Application Removes an assignment for a user from an application.
+        /// Unassign a User Removes an assignment for a user from an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -3998,12 +3998,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "sendEmail", sendEmail));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4026,7 +4026,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Key Credential for Application Generates a new X.509 certificate for an application key credential
+        /// Generate a Key Credential Generates a new X.509 certificate for an application key credential
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4039,7 +4039,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Key Credential for Application Generates a new X.509 certificate for an application key credential
+        /// Generate a Key Credential Generates a new X.509 certificate for an application key credential
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4081,12 +4081,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validityYears", validityYears));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4108,7 +4108,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Key Credential for Application Generates a new X.509 certificate for an application key credential
+        /// Generate a Key Credential Generates a new X.509 certificate for an application key credential
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4122,7 +4122,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Key Credential for Application Generates a new X.509 certificate for an application key credential
+        /// Generate a Key Credential Generates a new X.509 certificate for an application key credential
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4166,12 +4166,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validityYears", validityYears));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4194,7 +4194,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for Application Generates a new key pair and returns the Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns the Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4207,7 +4207,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for Application Generates a new key pair and returns the Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns the Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4253,12 +4253,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = metadata;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4280,7 +4280,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for Application Generates a new key pair and returns the Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns the Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4294,7 +4294,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for Application Generates a new key pair and returns the Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns the Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4342,12 +4342,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = metadata;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4370,7 +4370,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Application Fetches an application from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve an Application Fetches an application from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4383,7 +4383,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Application Fetches an application from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve an Application Fetches an application from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4425,12 +4425,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4452,7 +4452,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Application Fetches an application from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve an Application Fetches an application from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4466,7 +4466,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Application Fetches an application from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve an Application Fetches an application from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4510,12 +4510,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4538,7 +4538,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned Group for Application Fetches an application group assignment
+        /// Retrieve an Assigned Group Fetches an application group assignment
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4552,7 +4552,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned Group for Application Fetches an application group assignment
+        /// Retrieve an Assigned Group Fetches an application group assignment
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4602,12 +4602,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4629,7 +4629,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned Group for Application Fetches an application group assignment
+        /// Retrieve an Assigned Group Fetches an application group assignment
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4644,7 +4644,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned Group for Application Fetches an application group assignment
+        /// Retrieve an Assigned Group Fetches an application group assignment
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4696,12 +4696,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4724,7 +4724,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Key Credential for Application Gets a specific application key credential by kid
+        /// Retrieve a Key Credential Gets a specific application key credential by kid
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4737,7 +4737,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Key Credential for Application Gets a specific application key credential by kid
+        /// Retrieve a Key Credential Gets a specific application key credential by kid
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4782,12 +4782,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4809,7 +4809,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Key Credential for Application Gets a specific application key credential by kid
+        /// Retrieve a Key Credential Gets a specific application key credential by kid
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4823,7 +4823,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Key Credential for Application Gets a specific application key credential by kid
+        /// Retrieve a Key Credential Gets a specific application key credential by kid
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4870,12 +4870,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4898,7 +4898,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned User for Application Fetches a specific user assignment for application by &#x60;id&#x60;.
+        /// Retrieve an Assigned User Fetches a specific user assignment for application by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4912,7 +4912,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned User for Application Fetches a specific user assignment for application by &#x60;id&#x60;.
+        /// Retrieve an Assigned User Fetches a specific user assignment for application by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -4962,12 +4962,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4989,7 +4989,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned User for Application Fetches a specific user assignment for application by &#x60;id&#x60;.
+        /// Retrieve an Assigned User Fetches a specific user assignment for application by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5004,7 +5004,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Assigned User for Application Fetches a specific user assignment for application by &#x60;id&#x60;.
+        /// Retrieve an Assigned User Fetches a specific user assignment for application by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5056,12 +5056,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5084,7 +5084,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
+        /// Retrieve a Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5097,7 +5097,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
+        /// Retrieve a Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5142,12 +5142,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5169,7 +5169,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
+        /// Retrieve a Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5183,7 +5183,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
+        /// Retrieve a Certificate Signing Request Fetches a certificate signing request for the app by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5230,12 +5230,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5258,7 +5258,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application. Get default Provisioning Connection for application
+        /// Retrieve the default Provisioning Connection Get default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5270,7 +5270,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application. Get default Provisioning Connection for application
+        /// Retrieve the default Provisioning Connection Get default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5307,12 +5307,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5334,7 +5334,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application. Get default Provisioning Connection for application
+        /// Retrieve the default Provisioning Connection Get default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5347,7 +5347,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the default Provisioning Connection for an application. Get default Provisioning Connection for application
+        /// Retrieve the default Provisioning Connection Get default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5386,12 +5386,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5414,7 +5414,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches a Feature object for an application. Fetches a Feature object for an application.
+        /// Retrieve a Feature Fetches a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5427,7 +5427,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches a Feature object for an application. Fetches a Feature object for an application.
+        /// Retrieve a Feature Fetches a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5472,12 +5472,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("name", Okta.Sdk.Client.ClientUtils.ParameterToString(name)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5499,7 +5499,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches a Feature object for an application. Fetches a Feature object for an application.
+        /// Retrieve a Feature Fetches a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5513,7 +5513,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches a Feature object for an application. Fetches a Feature object for an application.
+        /// Retrieve a Feature Fetches a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5560,12 +5560,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("name", Okta.Sdk.Client.ClientUtils.ParameterToString(name)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5588,7 +5588,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get OAuth 2.0 Token for Application Gets a token for the specified application
+        /// Retrieve an OAuth 2.0 Token Gets a token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5602,7 +5602,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get OAuth 2.0 Token for Application Gets a token for the specified application
+        /// Retrieve an OAuth 2.0 Token Gets a token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5652,12 +5652,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5679,7 +5679,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get OAuth 2.0 Token for Application Gets a token for the specified application
+        /// Retrieve an OAuth 2.0 Token Gets a token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5694,7 +5694,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get OAuth 2.0 Token for Application Gets a token for the specified application
+        /// Retrieve an OAuth 2.0 Token Gets a token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5746,12 +5746,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5774,7 +5774,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Scope Consent Grant for Application Fetches a single scope consent grant for the application
+        /// Retrieve a Scope Consent Grant Fetches a single scope consent grant for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5788,7 +5788,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Scope Consent Grant for Application Fetches a single scope consent grant for the application
+        /// Retrieve a Scope Consent Grant Fetches a single scope consent grant for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5838,7 +5838,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -5859,7 +5859,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Scope Consent Grant for Application Fetches a single scope consent grant for the application
+        /// Retrieve a Scope Consent Grant Fetches a single scope consent grant for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5874,7 +5874,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Scope Consent Grant for Application Fetches a single scope consent grant for the application
+        /// Retrieve a Scope Consent Grant Fetches a single scope consent grant for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5926,7 +5926,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -5948,7 +5948,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Consent to Scope for Application Grants consent for the application to request an OAuth 2.0 Okta scope
+        /// Grant Consent to Scope Grants consent for the application to request an OAuth 2.0 Okta scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -5961,7 +5961,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Consent to Scope for Application Grants consent for the application to request an OAuth 2.0 Okta scope
+        /// Grant Consent to Scope Grants consent for the application to request an OAuth 2.0 Okta scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6007,7 +6007,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = oAuth2ScopeConsentGrant;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -6028,7 +6028,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Consent to Scope for Application Grants consent for the application to request an OAuth 2.0 Okta scope
+        /// Grant Consent to Scope Grants consent for the application to request an OAuth 2.0 Okta scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6042,7 +6042,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Consent to Scope for Application Grants consent for the application to request an OAuth 2.0 Okta scope
+        /// Grant Consent to Scope Grants consent for the application to request an OAuth 2.0 Okta scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6090,7 +6090,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = oAuth2ScopeConsentGrant;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -6112,7 +6112,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Assigned to Application Enumerates group assignments for an application.
+        /// List all Assigned Groups Enumerates group assignments for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6128,7 +6128,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Assigned to Application Enumerates group assignments for an application.
+        /// List all Assigned Groups Enumerates group assignments for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6185,12 +6185,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6212,7 +6212,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Assigned to Application Enumerates group assignments for an application.
+        /// List all Assigned Groups Enumerates group assignments for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6229,7 +6229,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Assigned to Application Enumerates group assignments for an application.
+        /// List all Assigned Groups Enumerates group assignments for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6288,12 +6288,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6316,7 +6316,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Key Credentials for Application Enumerates key credentials for an application
+        /// List all Key Credentials Enumerates key credentials for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6328,7 +6328,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Key Credentials for Application Enumerates key credentials for an application
+        /// List all Key Credentials Enumerates key credentials for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6365,12 +6365,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6392,7 +6392,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Key Credentials for Application Enumerates key credentials for an application
+        /// List all Key Credentials Enumerates key credentials for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6405,7 +6405,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Key Credentials for Application Enumerates key credentials for an application
+        /// List all Key Credentials Enumerates key credentials for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6444,12 +6444,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6472,7 +6472,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Users Assigned to Application Enumerates all assigned [application users](#application-user-model) for an application.
+        /// List all Assigned Users Enumerates all assigned [application users](#application-user-model) for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6490,7 +6490,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Users Assigned to Application Enumerates all assigned [application users](#application-user-model) for an application.
+        /// List all Assigned Users Enumerates all assigned [application users](#application-user-model) for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6557,12 +6557,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6584,7 +6584,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Users Assigned to Application Enumerates all assigned [application users](#application-user-model) for an application.
+        /// List all Assigned Users Enumerates all assigned [application users](#application-user-model) for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6603,7 +6603,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Users Assigned to Application Enumerates all assigned [application users](#application-user-model) for an application.
+        /// List all Assigned Users Enumerates all assigned [application users](#application-user-model) for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6672,12 +6672,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6700,7 +6700,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
+        /// List all Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6717,7 +6717,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
+        /// List all Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6776,12 +6776,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeNonDeleted", includeNonDeleted));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6803,7 +6803,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
+        /// List all Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6821,7 +6821,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
+        /// List all Applications Enumerates apps added to your organization with pagination. A subset of apps can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6882,12 +6882,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeNonDeleted", includeNonDeleted));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6910,7 +6910,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for Application Enumerates Certificate Signing Requests for an application
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6922,7 +6922,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for Application Enumerates Certificate Signing Requests for an application
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6959,12 +6959,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6986,7 +6986,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for Application Enumerates Certificate Signing Requests for an application
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -6999,7 +6999,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for Application Enumerates Certificate Signing Requests for an application
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7038,12 +7038,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7066,7 +7066,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Feature objects for an application. List Features for application
+        /// List all Features List Features for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7078,7 +7078,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Feature objects for an application. List Features for application
+        /// List all Features List Features for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7115,12 +7115,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7142,7 +7142,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Feature objects for an application. List Features for application
+        /// List all Features List Features for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7155,7 +7155,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Feature objects for an application. List Features for application
+        /// List all Features List Features for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7194,12 +7194,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7222,7 +7222,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application Lists all tokens for the application
+        /// List all OAuth 2.0 Tokens Lists all tokens for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7237,7 +7237,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application Lists all tokens for the application
+        /// List all OAuth 2.0 Tokens Lists all tokens for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7289,12 +7289,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7316,7 +7316,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application Lists all tokens for the application
+        /// List all OAuth 2.0 Tokens Lists all tokens for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7332,7 +7332,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Lists OAuth 2.0 Tokens for Application Lists all tokens for the application
+        /// List all OAuth 2.0 Tokens Lists all tokens for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7386,12 +7386,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7414,7 +7414,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Scope Consent Grants for Application Lists all scope consent grants for the application
+        /// List all Scope Consent Grants Lists all scope consent grants for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7427,7 +7427,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Scope Consent Grants for Application Lists all scope consent grants for the application
+        /// List all Scope Consent Grants Lists all scope consent grants for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7469,7 +7469,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -7490,7 +7490,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Scope Consent Grants for Application Lists all scope consent grants for the application
+        /// List all Scope Consent Grants Lists all scope consent grants for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7504,7 +7504,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Scope Consent Grants for Application Lists all scope consent grants for the application
+        /// List all Scope Consent Grants Lists all scope consent grants for the application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7548,7 +7548,7 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -7570,7 +7570,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
+        /// Publish a Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7584,7 +7584,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
+        /// Publish a Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7640,12 +7640,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7667,7 +7667,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
+        /// Publish a Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7682,7 +7682,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
+        /// Publish a Certificate Signing Request Updates a certificate signing request for the app with a signed X.509 certificate and adds it into the application key credentials
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7740,12 +7740,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7768,7 +7768,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
+        /// Revoke a Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7780,7 +7780,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
+        /// Revoke a Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7825,12 +7825,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7852,7 +7852,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
+        /// Revoke a Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7865,7 +7865,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
+        /// Revoke a Certificate Signing Request Revokes a certificate signing request and deletes the key pair from the application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7912,12 +7912,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7940,7 +7940,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application Revokes the specified token for the specified application
+        /// Revoke an OAuth 2.0 Token Revokes the specified token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7952,7 +7952,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application Revokes the specified token for the specified application
+        /// Revoke an OAuth 2.0 Token Revokes the specified token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -7997,12 +7997,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("tokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(tokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8024,7 +8024,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application Revokes the specified token for the specified application
+        /// Revoke an OAuth 2.0 Token Revokes the specified token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8037,7 +8037,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke an OAuth 2.0 Token for Application Revokes the specified token for the specified application
+        /// Revoke an OAuth 2.0 Token Revokes the specified token for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8084,12 +8084,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("tokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(tokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8112,7 +8112,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application Revokes all tokens for the specified application
+        /// Revoke all OAuth 2.0 Tokens Revokes all tokens for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8123,7 +8123,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application Revokes all tokens for the specified application
+        /// Revoke all OAuth 2.0 Tokens Revokes all tokens for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8160,12 +8160,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8187,7 +8187,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application Revokes all tokens for the specified application
+        /// Revoke all OAuth 2.0 Tokens Revokes all tokens for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8199,7 +8199,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke All OAuth 2.0 Tokens for Application Revokes all tokens for the specified application
+        /// Revoke all OAuth 2.0 Tokens Revokes all tokens for the specified application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8238,12 +8238,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8266,7 +8266,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Scope Consent Grant for Application Revokes permission for the application to request the given scope
+        /// Revoke a Scope Consent Grant Revokes permission for the application to request the given scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8278,7 +8278,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Scope Consent Grant for Application Revokes permission for the application to request the given scope
+        /// Revoke a Scope Consent Grant Revokes permission for the application to request the given scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8323,7 +8323,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("grantId", Okta.Sdk.Client.ClientUtils.ParameterToString(grantId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -8344,7 +8344,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Scope Consent Grant for Application Revokes permission for the application to request the given scope
+        /// Revoke a Scope Consent Grant Revokes permission for the application to request the given scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8357,7 +8357,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Scope Consent Grant for Application Revokes permission for the application to request the given scope
+        /// Revoke a Scope Consent Grant Revokes permission for the application to request the given scope
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8404,7 +8404,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.PathParameters.Add("grantId", Okta.Sdk.Client.ClientUtils.ParameterToString(grantId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -8426,7 +8426,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Sets the default Provisioning Connection for an application. Set default Provisioning Connection for application
+        /// Update the default Provisioning Connection Set default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8440,7 +8440,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Sets the default Provisioning Connection for an application. Set default Provisioning Connection for application
+        /// Update the default Provisioning Connection Set default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8491,12 +8491,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = provisioningConnectionRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8518,7 +8518,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Sets the default Provisioning Connection for an application. Set default Provisioning Connection for application
+        /// Update the default Provisioning Connection Set default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8533,7 +8533,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Sets the default Provisioning Connection for an application. Set default Provisioning Connection for application
+        /// Update the default Provisioning Connection Set default Provisioning Connection for application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8586,12 +8586,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = provisioningConnectionRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8614,7 +8614,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Updates an application in your organization.
+        /// Replace an Application Updates an application in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8627,7 +8627,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Updates an application in your organization.
+        /// Replace an Application Updates an application in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8673,12 +8673,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = application;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8700,7 +8700,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Updates an application in your organization.
+        /// Replace an Application Updates an application in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8714,7 +8714,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Updates an application in your organization.
+        /// Replace an Application Updates an application in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8762,12 +8762,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.Data = application;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8790,7 +8790,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Profile for Assigned User Updates a user&#39;s profile for an application
+        /// Update an Application Profile for Assigned User Updates a user&#39;s profile for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8804,7 +8804,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Profile for Assigned User Updates a user&#39;s profile for an application
+        /// Update an Application Profile for Assigned User Updates a user&#39;s profile for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8858,12 +8858,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = appUser;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8885,7 +8885,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Profile for Assigned User Updates a user&#39;s profile for an application
+        /// Update an Application Profile for Assigned User Updates a user&#39;s profile for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8900,7 +8900,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Application Profile for Assigned User Updates a user&#39;s profile for an application
+        /// Update an Application Profile for Assigned User Updates a user&#39;s profile for an application
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8956,12 +8956,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = appUser;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8984,7 +8984,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates a Feature object for an application. Updates a Feature object for an application.
+        /// Update a Feature Updates a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -8998,7 +8998,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates a Feature object for an application. Updates a Feature object for an application.
+        /// Update a Feature Updates a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9052,12 +9052,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("name", Okta.Sdk.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = capabilitiesObject;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -9079,7 +9079,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates a Feature object for an application. Updates a Feature object for an application.
+        /// Update a Feature Updates a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9094,7 +9094,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates a Feature object for an application. Updates a Feature object for an application.
+        /// Update a Feature Updates a Feature object for an application.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9150,12 +9150,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("name", Okta.Sdk.Client.ClientUtils.ParameterToString(name)); // path parameter
             localVarRequestOptions.Data = capabilitiesObject;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -9178,7 +9178,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. Update the logo for an application.
+        /// Upload a Logo The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9190,7 +9190,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. Update the logo for an application.
+        /// Upload a Logo The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9236,12 +9236,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.FileParameters.Add("file", file);
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -9263,7 +9263,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. Update the logo for an application.
+        /// Upload a Logo The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9276,7 +9276,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. Update the logo for an application.
+        /// Upload a Logo The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
@@ -9324,12 +9324,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appId", Okta.Sdk.Client.ClientUtils.ParameterToString(appId)); // path parameter
             localVarRequestOptions.FileParameters.Add("file", file);
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

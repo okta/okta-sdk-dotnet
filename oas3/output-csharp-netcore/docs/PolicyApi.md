@@ -4,27 +4,27 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivatePolicy**](PolicyApi.md#activatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/activate | Activate Policy
-[**ActivatePolicyRule**](PolicyApi.md#activatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate Policy Rule
-[**CreatePolicy**](PolicyApi.md#createpolicy) | **POST** /api/v1/policies | Create Policy
-[**CreatePolicyRule**](PolicyApi.md#createpolicyrule) | **POST** /api/v1/policies/{policyId}/rules | Create Policy Rule
-[**DeactivatePolicy**](PolicyApi.md#deactivatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/deactivate | Deactivate Policy
-[**DeactivatePolicyRule**](PolicyApi.md#deactivatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate Policy Rule
-[**DeletePolicy**](PolicyApi.md#deletepolicy) | **DELETE** /api/v1/policies/{policyId} | Delete Policy
-[**DeletePolicyRule**](PolicyApi.md#deletepolicyrule) | **DELETE** /api/v1/policies/{policyId}/rules/{ruleId} | Delete Policy Rule
-[**GetPolicy**](PolicyApi.md#getpolicy) | **GET** /api/v1/policies/{policyId} | Get Policy
-[**GetPolicyRule**](PolicyApi.md#getpolicyrule) | **GET** /api/v1/policies/{policyId}/rules/{ruleId} | Get Policy Rule
-[**ListPolicies**](PolicyApi.md#listpolicies) | **GET** /api/v1/policies | List Policies
-[**ListPolicyRules**](PolicyApi.md#listpolicyrules) | **GET** /api/v1/policies/{policyId}/rules | List Policy Rules
-[**UpdatePolicy**](PolicyApi.md#updatepolicy) | **PUT** /api/v1/policies/{policyId} | Update Policy
-[**UpdatePolicyRule**](PolicyApi.md#updatepolicyrule) | **PUT** /api/v1/policies/{policyId}/rules/{ruleId} | Update Policy Rule
+[**ActivatePolicy**](PolicyApi.md#activatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/activate | Activate a Policy
+[**ActivatePolicyRule**](PolicyApi.md#activatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
+[**CreatePolicy**](PolicyApi.md#createpolicy) | **POST** /api/v1/policies | Create a Policy
+[**CreatePolicyRule**](PolicyApi.md#createpolicyrule) | **POST** /api/v1/policies/{policyId}/rules | Create a Policy Rule
+[**DeactivatePolicy**](PolicyApi.md#deactivatepolicy) | **POST** /api/v1/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
+[**DeactivatePolicyRule**](PolicyApi.md#deactivatepolicyrule) | **POST** /api/v1/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
+[**DeletePolicy**](PolicyApi.md#deletepolicy) | **DELETE** /api/v1/policies/{policyId} | Delete a Policy
+[**DeletePolicyRule**](PolicyApi.md#deletepolicyrule) | **DELETE** /api/v1/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
+[**GetPolicy**](PolicyApi.md#getpolicy) | **GET** /api/v1/policies/{policyId} | Retrieve a Policy
+[**GetPolicyRule**](PolicyApi.md#getpolicyrule) | **GET** /api/v1/policies/{policyId}/rules/{ruleId} | Retrieve a Policy Rule
+[**ListPolicies**](PolicyApi.md#listpolicies) | **GET** /api/v1/policies | List all Policies
+[**ListPolicyRules**](PolicyApi.md#listpolicyrules) | **GET** /api/v1/policies/{policyId}/rules | List all Policy Rules
+[**UpdatePolicy**](PolicyApi.md#updatepolicy) | **PUT** /api/v1/policies/{policyId} | Replace a Policy
+[**UpdatePolicyRule**](PolicyApi.md#updatepolicyrule) | **PUT** /api/v1/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
 
 
 <a name="activatepolicy"></a>
 # **ActivatePolicy**
 > void ActivatePolicy (string policyId)
 
-Activate Policy
+Activate a Policy
 
 Activates a policy.
 
@@ -44,11 +44,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -56,7 +56,7 @@ namespace Example
 
             try
             {
-                // Activate Policy
+                // Activate a Policy
                 apiInstance.ActivatePolicy(policyId);
             }
             catch (ApiException  e)
@@ -82,7 +82,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -104,7 +104,7 @@ void (empty response body)
 # **ActivatePolicyRule**
 > void ActivatePolicyRule (string policyId, string ruleId)
 
-Activate Policy Rule
+Activate a Policy Rule
 
 Activates a policy rule.
 
@@ -124,11 +124,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -137,7 +137,7 @@ namespace Example
 
             try
             {
-                // Activate Policy Rule
+                // Activate a Policy Rule
                 apiInstance.ActivatePolicyRule(policyId, ruleId);
             }
             catch (ApiException  e)
@@ -164,7 +164,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -186,7 +186,7 @@ void (empty response body)
 # **CreatePolicy**
 > Policy CreatePolicy (Policy policy, bool? activate = null)
 
-Create Policy
+Create a Policy
 
 Creates a policy.
 
@@ -206,11 +206,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -219,7 +219,7 @@ namespace Example
 
             try
             {
-                // Create Policy
+                // Create a Policy
                 Policy result = apiInstance.CreatePolicy(policy, activate);
                 Debug.WriteLine(result);
             }
@@ -247,7 +247,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -269,7 +269,7 @@ Name | Type | Description  | Notes
 # **CreatePolicyRule**
 > PolicyRule CreatePolicyRule (string policyId, PolicyRule policyRule)
 
-Create Policy Rule
+Create a Policy Rule
 
 Creates a policy rule.
 
@@ -289,11 +289,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -302,7 +302,7 @@ namespace Example
 
             try
             {
-                // Create Policy Rule
+                // Create a Policy Rule
                 PolicyRule result = apiInstance.CreatePolicyRule(policyId, policyRule);
                 Debug.WriteLine(result);
             }
@@ -330,7 +330,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 # **DeactivatePolicy**
 > void DeactivatePolicy (string policyId)
 
-Deactivate Policy
+Deactivate a Policy
 
 Deactivates a policy.
 
@@ -373,11 +373,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -385,7 +385,7 @@ namespace Example
 
             try
             {
-                // Deactivate Policy
+                // Deactivate a Policy
                 apiInstance.DeactivatePolicy(policyId);
             }
             catch (ApiException  e)
@@ -411,7 +411,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -433,7 +433,7 @@ void (empty response body)
 # **DeactivatePolicyRule**
 > void DeactivatePolicyRule (string policyId, string ruleId)
 
-Deactivate Policy Rule
+Deactivate a Policy Rule
 
 Deactivates a policy rule.
 
@@ -453,11 +453,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -466,7 +466,7 @@ namespace Example
 
             try
             {
-                // Deactivate Policy Rule
+                // Deactivate a Policy Rule
                 apiInstance.DeactivatePolicyRule(policyId, ruleId);
             }
             catch (ApiException  e)
@@ -493,7 +493,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -515,7 +515,7 @@ void (empty response body)
 # **DeletePolicy**
 > void DeletePolicy (string policyId)
 
-Delete Policy
+Delete a Policy
 
 Removes a policy.
 
@@ -535,11 +535,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -547,7 +547,7 @@ namespace Example
 
             try
             {
-                // Delete Policy
+                // Delete a Policy
                 apiInstance.DeletePolicy(policyId);
             }
             catch (ApiException  e)
@@ -573,7 +573,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -595,7 +595,7 @@ void (empty response body)
 # **DeletePolicyRule**
 > void DeletePolicyRule (string policyId, string ruleId)
 
-Delete Policy Rule
+Delete a Policy Rule
 
 Removes a policy rule.
 
@@ -615,11 +615,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -628,7 +628,7 @@ namespace Example
 
             try
             {
-                // Delete Policy Rule
+                // Delete a Policy Rule
                 apiInstance.DeletePolicyRule(policyId, ruleId);
             }
             catch (ApiException  e)
@@ -655,7 +655,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -677,7 +677,7 @@ void (empty response body)
 # **GetPolicy**
 > Policy GetPolicy (string policyId, string expand = null)
 
-Get Policy
+Retrieve a Policy
 
 Gets a policy.
 
@@ -697,11 +697,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -710,7 +710,7 @@ namespace Example
 
             try
             {
-                // Get Policy
+                // Retrieve a Policy
                 Policy result = apiInstance.GetPolicy(policyId, expand);
                 Debug.WriteLine(result);
             }
@@ -738,7 +738,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -760,7 +760,7 @@ Name | Type | Description  | Notes
 # **GetPolicyRule**
 > PolicyRule GetPolicyRule (string policyId, string ruleId)
 
-Get Policy Rule
+Retrieve a Policy Rule
 
 Gets a policy rule.
 
@@ -780,11 +780,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -793,7 +793,7 @@ namespace Example
 
             try
             {
-                // Get Policy Rule
+                // Retrieve a Policy Rule
                 PolicyRule result = apiInstance.GetPolicyRule(policyId, ruleId);
                 Debug.WriteLine(result);
             }
@@ -821,7 +821,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -843,7 +843,7 @@ Name | Type | Description  | Notes
 # **ListPolicies**
 > List&lt;Policy&gt; ListPolicies (string type, string status = null, string expand = null)
 
-List Policies
+List all Policies
 
 Gets all policies with the specified type.
 
@@ -863,11 +863,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -877,7 +877,7 @@ namespace Example
 
             try
             {
-                // List Policies
+                // List all Policies
                 List<Policy> result = apiInstance.ListPolicies(type, status, expand);
                 Debug.WriteLine(result);
             }
@@ -906,7 +906,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -927,7 +927,7 @@ Name | Type | Description  | Notes
 # **ListPolicyRules**
 > List&lt;PolicyRule&gt; ListPolicyRules (string policyId)
 
-List Policy Rules
+List all Policy Rules
 
 Enumerates all policy rules.
 
@@ -947,11 +947,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -959,7 +959,7 @@ namespace Example
 
             try
             {
-                // List Policy Rules
+                // List all Policy Rules
                 List<PolicyRule> result = apiInstance.ListPolicyRules(policyId);
                 Debug.WriteLine(result);
             }
@@ -986,7 +986,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1008,7 +1008,7 @@ Name | Type | Description  | Notes
 # **UpdatePolicy**
 > Policy UpdatePolicy (string policyId, Policy policy)
 
-Update Policy
+Replace a Policy
 
 Updates a policy.
 
@@ -1028,11 +1028,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -1041,7 +1041,7 @@ namespace Example
 
             try
             {
-                // Update Policy
+                // Replace a Policy
                 Policy result = apiInstance.UpdatePolicy(policyId, policy);
                 Debug.WriteLine(result);
             }
@@ -1069,7 +1069,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1092,7 +1092,7 @@ Name | Type | Description  | Notes
 # **UpdatePolicyRule**
 > PolicyRule UpdatePolicyRule (string policyId, string ruleId, PolicyRule policyRule)
 
-Update Policy Rule
+Replace a Policy Rule
 
 Updates a policy rule.
 
@@ -1112,11 +1112,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new PolicyApi(config);
@@ -1126,7 +1126,7 @@ namespace Example
 
             try
             {
-                // Update Policy Rule
+                // Replace a Policy Rule
                 PolicyRule result = apiInstance.UpdatePolicyRule(policyId, ruleId, policyRule);
                 Debug.WriteLine(result);
             }
@@ -1155,7 +1155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

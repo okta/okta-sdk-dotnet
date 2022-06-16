@@ -4,39 +4,39 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateEmailCustomization**](CustomizationApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create Email Customization
-[**DeleteAllCustomizations**](CustomizationApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete All Email Customizations
-[**DeleteBrandThemeBackgroundImage**](CustomizationApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Deletes a Theme background image
-[**DeleteBrandThemeFavicon**](CustomizationApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Deletes a Theme favicon. The org then uses the Okta default favicon.
-[**DeleteBrandThemeLogo**](CustomizationApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Deletes a Theme logo. The org then uses the Okta default logo.
-[**DeleteEmailCustomization**](CustomizationApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete Email Customization
-[**GetBrand**](CustomizationApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Get Brand
-[**GetBrandTheme**](CustomizationApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Get a theme for a brand
-[**GetCustomizationPreview**](CustomizationApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Preview Email Customization
-[**GetEmailCustomization**](CustomizationApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Get Email Customization
-[**GetEmailDefaultContent**](CustomizationApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Get Email Template Default Content
-[**GetEmailDefaultPreview**](CustomizationApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Preview Email Template Default Content
-[**GetEmailSettings**](CustomizationApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Get Email Template Settings
-[**GetEmailTemplate**](CustomizationApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Get Email Template
-[**ListBrandThemes**](CustomizationApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | Get Brand Themes
-[**ListBrands**](CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List Brands
-[**ListEmailCustomizations**](CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List Email Customizations
-[**ListEmailTemplates**](CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List Email Templates
-[**SendTestEmail**](CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send Test Email
-[**UpdateBrand**](CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Update Brand
-[**UpdateBrandTheme**](CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Update a theme for a brand
-[**UpdateEmailCustomization**](CustomizationApi.md#updateemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Update Email Customization
-[**UpdateEmailSettings**](CustomizationApi.md#updateemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Update Email Template Settings
-[**UploadBrandThemeBackgroundImage**](CustomizationApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Updates the background image for your Theme
-[**UploadBrandThemeFavicon**](CustomizationApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Updates the favicon for your theme
-[**UploadBrandThemeLogo**](CustomizationApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Update a themes logo
+[**CreateEmailCustomization**](CustomizationApi.md#createemailcustomization) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Create an Email Customization
+[**DeleteAllCustomizations**](CustomizationApi.md#deleteallcustomizations) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | Delete all Email Customizations
+[**DeleteBrandThemeBackgroundImage**](CustomizationApi.md#deletebrandthemebackgroundimage) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Delete the Background Image
+[**DeleteBrandThemeFavicon**](CustomizationApi.md#deletebrandthemefavicon) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Delete the Favicon
+[**DeleteBrandThemeLogo**](CustomizationApi.md#deletebrandthemelogo) | **DELETE** /api/v1/brands/{brandId}/themes/{themeId}/logo | Delete the Logo
+[**DeleteEmailCustomization**](CustomizationApi.md#deleteemailcustomization) | **DELETE** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Delete an Email Customization
+[**GetBrand**](CustomizationApi.md#getbrand) | **GET** /api/v1/brands/{brandId} | Retrieve a Brand
+[**GetBrandTheme**](CustomizationApi.md#getbrandtheme) | **GET** /api/v1/brands/{brandId}/themes/{themeId} | Retrieve a Theme
+[**GetCustomizationPreview**](CustomizationApi.md#getcustomizationpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId}/preview | Preview an Email Customization
+[**GetEmailCustomization**](CustomizationApi.md#getemailcustomization) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Retrieve an Email Customization
+[**GetEmailDefaultContent**](CustomizationApi.md#getemaildefaultcontent) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content | Retrieve an Email Template Default Content
+[**GetEmailDefaultPreview**](CustomizationApi.md#getemaildefaultpreview) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/default-content/preview | Preview the Email Template Default Content
+[**GetEmailSettings**](CustomizationApi.md#getemailsettings) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Retrieve the Email Template Settings
+[**GetEmailTemplate**](CustomizationApi.md#getemailtemplate) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName} | Retrieve an Email Template
+[**ListBrandThemes**](CustomizationApi.md#listbrandthemes) | **GET** /api/v1/brands/{brandId}/themes | List all Themes
+[**ListBrands**](CustomizationApi.md#listbrands) | **GET** /api/v1/brands | List all Brands
+[**ListEmailCustomizations**](CustomizationApi.md#listemailcustomizations) | **GET** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations | List all Email Customizations
+[**ListEmailTemplates**](CustomizationApi.md#listemailtemplates) | **GET** /api/v1/brands/{brandId}/templates/email | List all Email Templates
+[**SendTestEmail**](CustomizationApi.md#sendtestemail) | **POST** /api/v1/brands/{brandId}/templates/email/{templateName}/test | Send a Test Email
+[**UpdateBrand**](CustomizationApi.md#updatebrand) | **PUT** /api/v1/brands/{brandId} | Replace a Brand
+[**UpdateBrandTheme**](CustomizationApi.md#updatebrandtheme) | **PUT** /api/v1/brands/{brandId}/themes/{themeId} | Replace a Theme
+[**UpdateEmailCustomization**](CustomizationApi.md#updateemailcustomization) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/customizations/{customizationId} | Replace an Email Customization
+[**UpdateEmailSettings**](CustomizationApi.md#updateemailsettings) | **PUT** /api/v1/brands/{brandId}/templates/email/{templateName}/settings | Replace the Email Template Settings
+[**UploadBrandThemeBackgroundImage**](CustomizationApi.md#uploadbrandthemebackgroundimage) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/background-image | Upload the Background Image
+[**UploadBrandThemeFavicon**](CustomizationApi.md#uploadbrandthemefavicon) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/favicon | Upload the Favicon
+[**UploadBrandThemeLogo**](CustomizationApi.md#uploadbrandthemelogo) | **POST** /api/v1/brands/{brandId}/themes/{themeId}/logo | Upload the Logo
 
 
 <a name="createemailcustomization"></a>
 # **CreateEmailCustomization**
 > EmailCustomization CreateEmailCustomization (string brandId, string templateName, EmailCustomization instance = null)
 
-Create Email Customization
+Create an Email Customization
 
 Creates a new email customization.
 
@@ -56,11 +56,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -70,7 +70,7 @@ namespace Example
 
             try
             {
-                // Create Email Customization
+                // Create an Email Customization
                 EmailCustomization result = apiInstance.CreateEmailCustomization(brandId, templateName, instance);
                 Debug.WriteLine(result);
             }
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -123,7 +123,7 @@ Name | Type | Description  | Notes
 # **DeleteAllCustomizations**
 > void DeleteAllCustomizations (string brandId, string templateName)
 
-Delete All Email Customizations
+Delete all Email Customizations
 
 Deletes all customizations for an email template.
 
@@ -143,11 +143,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -156,7 +156,7 @@ namespace Example
 
             try
             {
-                // Delete All Email Customizations
+                // Delete all Email Customizations
                 apiInstance.DeleteAllCustomizations(brandId, templateName);
             }
             catch (ApiException  e)
@@ -183,7 +183,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -205,9 +205,9 @@ void (empty response body)
 # **DeleteBrandThemeBackgroundImage**
 > void DeleteBrandThemeBackgroundImage (string brandId, string themeId)
 
-Deletes a Theme background image
+Delete the Background Image
 
-Deletes a Theme background image
+Deletes a Theme background image.
 
 ### Example
 ```csharp
@@ -225,11 +225,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -238,7 +238,7 @@ namespace Example
 
             try
             {
-                // Deletes a Theme background image
+                // Delete the Background Image
                 apiInstance.DeleteBrandThemeBackgroundImage(brandId, themeId);
             }
             catch (ApiException  e)
@@ -265,7 +265,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -287,9 +287,9 @@ void (empty response body)
 # **DeleteBrandThemeFavicon**
 > void DeleteBrandThemeFavicon (string brandId, string themeId)
 
-Deletes a Theme favicon. The org then uses the Okta default favicon.
+Delete the Favicon
 
-Deletes a Theme favicon. The org then uses the Okta default favicon.
+Deletes a Theme favicon. The theme will use the default Okta favicon.
 
 ### Example
 ```csharp
@@ -307,11 +307,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -320,7 +320,7 @@ namespace Example
 
             try
             {
-                // Deletes a Theme favicon. The org then uses the Okta default favicon.
+                // Delete the Favicon
                 apiInstance.DeleteBrandThemeFavicon(brandId, themeId);
             }
             catch (ApiException  e)
@@ -347,7 +347,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -369,9 +369,9 @@ void (empty response body)
 # **DeleteBrandThemeLogo**
 > void DeleteBrandThemeLogo (string brandId, string themeId)
 
-Deletes a Theme logo. The org then uses the Okta default logo.
+Delete the Logo
 
-Deletes a Theme logo. The org then uses the Okta default logo.
+Deletes a Theme logo. The theme will use the default Okta logo.
 
 ### Example
 ```csharp
@@ -389,11 +389,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -402,7 +402,7 @@ namespace Example
 
             try
             {
-                // Deletes a Theme logo. The org then uses the Okta default logo.
+                // Delete the Logo
                 apiInstance.DeleteBrandThemeLogo(brandId, themeId);
             }
             catch (ApiException  e)
@@ -429,7 +429,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -451,7 +451,7 @@ void (empty response body)
 # **DeleteEmailCustomization**
 > void DeleteEmailCustomization (string brandId, string templateName, string customizationId)
 
-Delete Email Customization
+Delete an Email Customization
 
 Deletes an email customization by its unique identifier.
 
@@ -471,11 +471,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -485,7 +485,7 @@ namespace Example
 
             try
             {
-                // Delete Email Customization
+                // Delete an Email Customization
                 apiInstance.DeleteEmailCustomization(brandId, templateName, customizationId);
             }
             catch (ApiException  e)
@@ -513,7 +513,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -536,7 +536,7 @@ void (empty response body)
 # **GetBrand**
 > Brand GetBrand (string brandId)
 
-Get Brand
+Retrieve a Brand
 
 Fetches a brand by `brandId`
 
@@ -556,11 +556,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -568,7 +568,7 @@ namespace Example
 
             try
             {
-                // Get Brand
+                // Retrieve a Brand
                 Brand result = apiInstance.GetBrand(brandId);
                 Debug.WriteLine(result);
             }
@@ -595,7 +595,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -617,7 +617,7 @@ Name | Type | Description  | Notes
 # **GetBrandTheme**
 > ThemeResponse GetBrandTheme (string brandId, string themeId)
 
-Get a theme for a brand
+Retrieve a Theme
 
 Fetches a theme for a brand
 
@@ -637,11 +637,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -650,7 +650,7 @@ namespace Example
 
             try
             {
-                // Get a theme for a brand
+                // Retrieve a Theme
                 ThemeResponse result = apiInstance.GetBrandTheme(brandId, themeId);
                 Debug.WriteLine(result);
             }
@@ -678,7 +678,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -700,7 +700,7 @@ Name | Type | Description  | Notes
 # **GetCustomizationPreview**
 > EmailPreview GetCustomizationPreview (string brandId, string templateName, string customizationId)
 
-Preview Email Customization
+Preview an Email Customization
 
 Generates a preview of an email customization. All variable references (e.g., `${user.profile.firstName}`) are populated using the current user's context.
 
@@ -720,11 +720,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -734,7 +734,7 @@ namespace Example
 
             try
             {
-                // Preview Email Customization
+                // Preview an Email Customization
                 EmailPreview result = apiInstance.GetCustomizationPreview(brandId, templateName, customizationId);
                 Debug.WriteLine(result);
             }
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -785,7 +785,7 @@ Name | Type | Description  | Notes
 # **GetEmailCustomization**
 > EmailCustomization GetEmailCustomization (string brandId, string templateName, string customizationId)
 
-Get Email Customization
+Retrieve an Email Customization
 
 Gets an email customization by its unique identifier.
 
@@ -805,11 +805,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -819,7 +819,7 @@ namespace Example
 
             try
             {
-                // Get Email Customization
+                // Retrieve an Email Customization
                 EmailCustomization result = apiInstance.GetEmailCustomization(brandId, templateName, customizationId);
                 Debug.WriteLine(result);
             }
@@ -848,7 +848,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -870,7 +870,7 @@ Name | Type | Description  | Notes
 # **GetEmailDefaultContent**
 > EmailDefaultContent GetEmailDefaultContent (string brandId, string templateName, string language = null)
 
-Get Email Template Default Content
+Retrieve an Email Template Default Content
 
 Gets an email template's default content.
 
@@ -890,11 +890,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -904,7 +904,7 @@ namespace Example
 
             try
             {
-                // Get Email Template Default Content
+                // Retrieve an Email Template Default Content
                 EmailDefaultContent result = apiInstance.GetEmailDefaultContent(brandId, templateName, language);
                 Debug.WriteLine(result);
             }
@@ -933,7 +933,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -955,7 +955,7 @@ Name | Type | Description  | Notes
 # **GetEmailDefaultPreview**
 > EmailPreview GetEmailDefaultPreview (string brandId, string templateName, string language = null)
 
-Preview Email Template Default Content
+Preview the Email Template Default Content
 
 Generates a preview of an email template's default content. All variable references (e.g., `${user.profile.firstName}`) are populated using the current user's context.
 
@@ -975,11 +975,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -989,7 +989,7 @@ namespace Example
 
             try
             {
-                // Preview Email Template Default Content
+                // Preview the Email Template Default Content
                 EmailPreview result = apiInstance.GetEmailDefaultPreview(brandId, templateName, language);
                 Debug.WriteLine(result);
             }
@@ -1018,7 +1018,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1040,7 +1040,7 @@ Name | Type | Description  | Notes
 # **GetEmailSettings**
 > EmailSettings GetEmailSettings (string brandId, string templateName)
 
-Get Email Template Settings
+Retrieve the Email Template Settings
 
 Gets an email template's settings.
 
@@ -1060,11 +1060,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1073,7 +1073,7 @@ namespace Example
 
             try
             {
-                // Get Email Template Settings
+                // Retrieve the Email Template Settings
                 EmailSettings result = apiInstance.GetEmailSettings(brandId, templateName);
                 Debug.WriteLine(result);
             }
@@ -1101,7 +1101,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1123,7 +1123,7 @@ Name | Type | Description  | Notes
 # **GetEmailTemplate**
 > EmailTemplate GetEmailTemplate (string brandId, string templateName, List<string> expand = null)
 
-Get Email Template
+Retrieve an Email Template
 
 Gets the details of an email template by name.
 
@@ -1143,11 +1143,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1157,7 +1157,7 @@ namespace Example
 
             try
             {
-                // Get Email Template
+                // Retrieve an Email Template
                 EmailTemplate result = apiInstance.GetEmailTemplate(brandId, templateName, expand);
                 Debug.WriteLine(result);
             }
@@ -1186,7 +1186,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1208,7 +1208,7 @@ Name | Type | Description  | Notes
 # **ListBrandThemes**
 > List&lt;ThemeResponse&gt; ListBrandThemes (string brandId)
 
-Get Brand Themes
+List all Themes
 
 List all the themes in your brand
 
@@ -1228,11 +1228,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1240,7 +1240,7 @@ namespace Example
 
             try
             {
-                // Get Brand Themes
+                // List all Themes
                 List<ThemeResponse> result = apiInstance.ListBrandThemes(brandId);
                 Debug.WriteLine(result);
             }
@@ -1267,7 +1267,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1289,7 +1289,7 @@ Name | Type | Description  | Notes
 # **ListBrands**
 > List&lt;Brand&gt; ListBrands ()
 
-List Brands
+List all Brands
 
 List all the brands in your org.
 
@@ -1309,18 +1309,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
 
             try
             {
-                // List Brands
+                // List all Brands
                 List<Brand> result = apiInstance.ListBrands();
                 Debug.WriteLine(result);
             }
@@ -1344,7 +1344,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1365,7 +1365,7 @@ This endpoint does not need any parameter.
 # **ListEmailCustomizations**
 > List&lt;EmailCustomization&gt; ListEmailCustomizations (string brandId, string templateName, string after = null, int? limit = null)
 
-List Email Customizations
+List all Email Customizations
 
 Lists all customizations of an email template.
 
@@ -1385,11 +1385,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1400,7 +1400,7 @@ namespace Example
 
             try
             {
-                // List Email Customizations
+                // List all Email Customizations
                 List<EmailCustomization> result = apiInstance.ListEmailCustomizations(brandId, templateName, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1430,7 +1430,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1452,7 +1452,7 @@ Name | Type | Description  | Notes
 # **ListEmailTemplates**
 > List&lt;EmailTemplate&gt; ListEmailTemplates (string brandId, string after = null, int? limit = null, List<string> expand = null)
 
-List Email Templates
+List all Email Templates
 
 Lists all email templates.
 
@@ -1472,11 +1472,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1487,7 +1487,7 @@ namespace Example
 
             try
             {
-                // List Email Templates
+                // List all Email Templates
                 List<EmailTemplate> result = apiInstance.ListEmailTemplates(brandId, after, limit, expand);
                 Debug.WriteLine(result);
             }
@@ -1517,7 +1517,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1539,7 +1539,7 @@ Name | Type | Description  | Notes
 # **SendTestEmail**
 > void SendTestEmail (string brandId, string templateName, string language = null)
 
-Send Test Email
+Send a Test Email
 
 Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the `language` query parameter. 2. The email template's default customization. 3. The email template’s default content, translated to the current user's language.
 
@@ -1559,11 +1559,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1573,7 +1573,7 @@ namespace Example
 
             try
             {
-                // Send Test Email
+                // Send a Test Email
                 apiInstance.SendTestEmail(brandId, templateName, language);
             }
             catch (ApiException  e)
@@ -1601,7 +1601,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1623,7 +1623,7 @@ void (empty response body)
 # **UpdateBrand**
 > Brand UpdateBrand (string brandId, Brand brand)
 
-Update Brand
+Replace a Brand
 
 Updates a brand by `brandId`
 
@@ -1643,11 +1643,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1656,7 +1656,7 @@ namespace Example
 
             try
             {
-                // Update Brand
+                // Replace a Brand
                 Brand result = apiInstance.UpdateBrand(brandId, brand);
                 Debug.WriteLine(result);
             }
@@ -1684,7 +1684,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1707,7 +1707,7 @@ Name | Type | Description  | Notes
 # **UpdateBrandTheme**
 > ThemeResponse UpdateBrandTheme (string brandId, string themeId, Theme theme)
 
-Update a theme for a brand
+Replace a Theme
 
 Updates a theme for a brand
 
@@ -1727,11 +1727,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1741,7 +1741,7 @@ namespace Example
 
             try
             {
-                // Update a theme for a brand
+                // Replace a Theme
                 ThemeResponse result = apiInstance.UpdateBrandTheme(brandId, themeId, theme);
                 Debug.WriteLine(result);
             }
@@ -1770,7 +1770,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1793,7 +1793,7 @@ Name | Type | Description  | Notes
 # **UpdateEmailCustomization**
 > EmailCustomization UpdateEmailCustomization (string brandId, string templateName, string customizationId, EmailCustomization instance = null)
 
-Update Email Customization
+Replace an Email Customization
 
 Updates an existing email customization using the property values provided.
 
@@ -1813,11 +1813,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1828,7 +1828,7 @@ namespace Example
 
             try
             {
-                // Update Email Customization
+                // Replace an Email Customization
                 EmailCustomization result = apiInstance.UpdateEmailCustomization(brandId, templateName, customizationId, instance);
                 Debug.WriteLine(result);
             }
@@ -1858,7 +1858,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1882,7 +1882,7 @@ Name | Type | Description  | Notes
 # **UpdateEmailSettings**
 > void UpdateEmailSettings (string brandId, string templateName, EmailSettings emailSettings = null)
 
-Update Email Template Settings
+Replace the Email Template Settings
 
 Updates an email template's settings.
 
@@ -1902,11 +1902,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -1916,7 +1916,7 @@ namespace Example
 
             try
             {
-                // Update Email Template Settings
+                // Replace the Email Template Settings
                 apiInstance.UpdateEmailSettings(brandId, templateName, emailSettings);
             }
             catch (ApiException  e)
@@ -1944,7 +1944,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1968,7 +1968,7 @@ void (empty response body)
 # **UploadBrandThemeBackgroundImage**
 > ImageUploadResponse UploadBrandThemeBackgroundImage (string brandId, string themeId)
 
-Updates the background image for your Theme
+Upload the Background Image
 
 Updates the background image for your Theme
 
@@ -1988,11 +1988,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2001,7 +2001,7 @@ namespace Example
 
             try
             {
-                // Updates the background image for your Theme
+                // Upload the Background Image
                 ImageUploadResponse result = apiInstance.UploadBrandThemeBackgroundImage(brandId, themeId);
                 Debug.WriteLine(result);
             }
@@ -2029,7 +2029,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2052,7 +2052,7 @@ Name | Type | Description  | Notes
 # **UploadBrandThemeFavicon**
 > ImageUploadResponse UploadBrandThemeFavicon (string brandId, string themeId)
 
-Updates the favicon for your theme
+Upload the Favicon
 
 Updates the favicon for your theme
 
@@ -2072,11 +2072,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2085,7 +2085,7 @@ namespace Example
 
             try
             {
-                // Updates the favicon for your theme
+                // Upload the Favicon
                 ImageUploadResponse result = apiInstance.UploadBrandThemeFavicon(brandId, themeId);
                 Debug.WriteLine(result);
             }
@@ -2113,7 +2113,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2136,7 +2136,7 @@ Name | Type | Description  | Notes
 # **UploadBrandThemeLogo**
 > ImageUploadResponse UploadBrandThemeLogo (string brandId, string themeId)
 
-Update a themes logo
+Upload the Logo
 
 Updates the logo for your Theme
 
@@ -2156,11 +2156,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CustomizationApi(config);
@@ -2169,7 +2169,7 @@ namespace Example
 
             try
             {
-                // Update a themes logo
+                // Upload the Logo
                 ImageUploadResponse result = apiInstance.UploadBrandThemeLogo(brandId, themeId);
                 Debug.WriteLine(result);
             }
@@ -2197,7 +2197,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

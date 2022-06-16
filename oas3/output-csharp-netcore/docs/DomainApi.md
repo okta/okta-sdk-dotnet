@@ -4,19 +4,19 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCertificate**](DomainApi.md#createcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Create Certificate
-[**CreateDomain**](DomainApi.md#createdomain) | **POST** /api/v1/domains | Create Domain
-[**DeleteDomain**](DomainApi.md#deletedomain) | **DELETE** /api/v1/domains/{domainId} | Delete Domain
-[**GetDomain**](DomainApi.md#getdomain) | **GET** /api/v1/domains/{domainId} | Get Domain
-[**ListDomains**](DomainApi.md#listdomains) | **GET** /api/v1/domains | List Domains
-[**VerifyDomain**](DomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify Domain
+[**CreateCertificate**](DomainApi.md#createcertificate) | **PUT** /api/v1/domains/{domainId}/certificate | Replace the Certificate
+[**CreateDomain**](DomainApi.md#createdomain) | **POST** /api/v1/domains | Create a Domain
+[**DeleteDomain**](DomainApi.md#deletedomain) | **DELETE** /api/v1/domains/{domainId} | Delete a Domain
+[**GetDomain**](DomainApi.md#getdomain) | **GET** /api/v1/domains/{domainId} | Retrieve a Domain
+[**ListDomains**](DomainApi.md#listdomains) | **GET** /api/v1/domains | List all Domains
+[**VerifyDomain**](DomainApi.md#verifydomain) | **POST** /api/v1/domains/{domainId}/verify | Verify a Domain
 
 
 <a name="createcertificate"></a>
 # **CreateCertificate**
 > void CreateCertificate (string domainId, DomainCertificate certificate)
 
-Create Certificate
+Replace the Certificate
 
 Creates the Certificate for the Domain.
 
@@ -36,11 +36,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DomainApi(config);
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Create Certificate
+                // Replace the Certificate
                 apiInstance.CreateCertificate(domainId, certificate);
             }
             catch (ApiException  e)
@@ -76,7 +76,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -99,7 +99,7 @@ void (empty response body)
 # **CreateDomain**
 > DomainResponse CreateDomain (Domain domain)
 
-Create Domain
+Create a Domain
 
 Creates your domain.
 
@@ -119,11 +119,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DomainApi(config);
@@ -131,7 +131,7 @@ namespace Example
 
             try
             {
-                // Create Domain
+                // Create a Domain
                 DomainResponse result = apiInstance.CreateDomain(domain);
                 Debug.WriteLine(result);
             }
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **DeleteDomain**
 > void DeleteDomain (string domainId)
 
-Delete Domain
+Delete a Domain
 
 Deletes a Domain by `id`.
 
@@ -200,11 +200,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DomainApi(config);
@@ -212,7 +212,7 @@ namespace Example
 
             try
             {
-                // Delete Domain
+                // Delete a Domain
                 apiInstance.DeleteDomain(domainId);
             }
             catch (ApiException  e)
@@ -238,7 +238,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -260,7 +260,7 @@ void (empty response body)
 # **GetDomain**
 > DomainResponse GetDomain (string domainId)
 
-Get Domain
+Retrieve a Domain
 
 Fetches a Domain by `id`.
 
@@ -280,11 +280,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DomainApi(config);
@@ -292,7 +292,7 @@ namespace Example
 
             try
             {
-                // Get Domain
+                // Retrieve a Domain
                 DomainResponse result = apiInstance.GetDomain(domainId);
                 Debug.WriteLine(result);
             }
@@ -319,7 +319,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 # **ListDomains**
 > DomainListResponse ListDomains ()
 
-List Domains
+List all Domains
 
 List all verified custom Domains for the org.
 
@@ -361,18 +361,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DomainApi(config);
 
             try
             {
-                // List Domains
+                // List all Domains
                 DomainListResponse result = apiInstance.ListDomains();
                 Debug.WriteLine(result);
             }
@@ -396,7 +396,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -417,7 +417,7 @@ This endpoint does not need any parameter.
 # **VerifyDomain**
 > DomainResponse VerifyDomain (string domainId)
 
-Verify Domain
+Verify a Domain
 
 Verifies the Domain by `id`.
 
@@ -437,11 +437,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new DomainApi(config);
@@ -449,7 +449,7 @@ namespace Example
 
             try
             {
-                // Verify Domain
+                // Verify a Domain
                 DomainResponse result = apiInstance.VerifyDomain(domainId);
                 Debug.WriteLine(result);
             }
@@ -476,7 +476,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

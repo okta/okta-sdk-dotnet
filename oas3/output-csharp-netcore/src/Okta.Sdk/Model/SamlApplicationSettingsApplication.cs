@@ -27,23 +27,29 @@ namespace Okta.Sdk.Model
 {
     /// <summary>
     /// Template: ModelGeneric
-    /// Org2OrgApplicationAllOf
+    /// SamlApplicationSettingsApplication
     /// </summary>
-    [DataContract(Name = "Org2OrgApplication_allOf")]
-    public partial class Org2OrgApplicationAllOf : IEquatable<Org2OrgApplicationAllOf>
+    [DataContract(Name = "SamlApplicationSettingsApplication")]
+    public partial class SamlApplicationSettingsApplication : IEquatable<SamlApplicationSettingsApplication>
     {
         
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets AcsUrl
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        [DataMember(Name = "acsUrl", EmitDefaultValue = false)]
+        public string AcsUrl { get; set; }
 
         /// <summary>
-        /// Gets or Sets Settings
+        /// Gets or Sets AudRestriction
         /// </summary>
-        [DataMember(Name = "settings", EmitDefaultValue = false)]
-        public Org2OrgApplicationSettings Settings { get; set; }
+        [DataMember(Name = "audRestriction", EmitDefaultValue = false)]
+        public string AudRestriction { get; set; }
+
+        /// <summary>
+        /// Gets or Sets BaseUrl
+        /// </summary>
+        [DataMember(Name = "baseUrl", EmitDefaultValue = false)]
+        public string BaseUrl { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,9 +58,10 @@ namespace Okta.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class Org2OrgApplicationAllOf {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Settings: ").Append(Settings).Append("\n");
+            sb.Append("class SamlApplicationSettingsApplication {\n");
+            sb.Append("  AcsUrl: ").Append(AcsUrl).Append("\n");
+            sb.Append("  AudRestriction: ").Append(AudRestriction).Append("\n");
+            sb.Append("  BaseUrl: ").Append(BaseUrl).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,15 +82,15 @@ namespace Okta.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Org2OrgApplicationAllOf);
+            return this.Equals(input as SamlApplicationSettingsApplication);
         }
 
         /// <summary>
-        /// Returns true if Org2OrgApplicationAllOf instances are equal
+        /// Returns true if SamlApplicationSettingsApplication instances are equal
         /// </summary>
-        /// <param name="input">Instance of Org2OrgApplicationAllOf to be compared</param>
+        /// <param name="input">Instance of SamlApplicationSettingsApplication to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Org2OrgApplicationAllOf input)
+        public bool Equals(SamlApplicationSettingsApplication input)
         {
             if (input == null)
             {
@@ -91,14 +98,19 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.AcsUrl == input.AcsUrl ||
+                    (this.AcsUrl != null &&
+                    this.AcsUrl.Equals(input.AcsUrl))
                 ) && 
                 (
-                    this.Settings == input.Settings ||
-                    (this.Settings != null &&
-                    this.Settings.Equals(input.Settings))
+                    this.AudRestriction == input.AudRestriction ||
+                    (this.AudRestriction != null &&
+                    this.AudRestriction.Equals(input.AudRestriction))
+                ) && 
+                (
+                    this.BaseUrl == input.BaseUrl ||
+                    (this.BaseUrl != null &&
+                    this.BaseUrl.Equals(input.BaseUrl))
                 );
         }
 
@@ -111,13 +123,17 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Name != null)
+                if (this.AcsUrl != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AcsUrl.GetHashCode();
                 }
-                if (this.Settings != null)
+                if (this.AudRestriction != null)
                 {
-                    hashCode = (hashCode * 59) + this.Settings.GetHashCode();
+                    hashCode = (hashCode * 59) + this.AudRestriction.GetHashCode();
+                }
+                if (this.BaseUrl != null)
+                {
+                    hashCode = (hashCode * 59) + this.BaseUrl.GetHashCode();
                 }
                 return hashCode;
             }

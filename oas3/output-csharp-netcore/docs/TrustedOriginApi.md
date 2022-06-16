@@ -4,20 +4,20 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateOrigin**](TrustedOriginApi.md#activateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate Trusted Origin
-[**CreateOrigin**](TrustedOriginApi.md#createorigin) | **POST** /api/v1/trustedOrigins | Create Trusted Origin
-[**DeactivateOrigin**](TrustedOriginApi.md#deactivateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate Trusted Origin
-[**DeleteOrigin**](TrustedOriginApi.md#deleteorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete Trusted Origin
-[**GetOrigin**](TrustedOriginApi.md#getorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Get Trusted Origin
-[**ListOrigins**](TrustedOriginApi.md#listorigins) | **GET** /api/v1/trustedOrigins | List Trusted Origins
-[**UpdateOrigin**](TrustedOriginApi.md#updateorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Update Trusted Origin
+[**ActivateOrigin**](TrustedOriginApi.md#activateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/activate | Activate a Trusted Origin
+[**CreateOrigin**](TrustedOriginApi.md#createorigin) | **POST** /api/v1/trustedOrigins | Create a Trusted Origin
+[**DeactivateOrigin**](TrustedOriginApi.md#deactivateorigin) | **POST** /api/v1/trustedOrigins/{trustedOriginId}/lifecycle/deactivate | Deactivate a Trusted Origin
+[**DeleteOrigin**](TrustedOriginApi.md#deleteorigin) | **DELETE** /api/v1/trustedOrigins/{trustedOriginId} | Delete a Trusted Origin
+[**GetOrigin**](TrustedOriginApi.md#getorigin) | **GET** /api/v1/trustedOrigins/{trustedOriginId} | Retrieve a Trusted Origin
+[**ListOrigins**](TrustedOriginApi.md#listorigins) | **GET** /api/v1/trustedOrigins | List all Trusted Origins
+[**UpdateOrigin**](TrustedOriginApi.md#updateorigin) | **PUT** /api/v1/trustedOrigins/{trustedOriginId} | Replace a Trusted Origin
 
 
 <a name="activateorigin"></a>
 # **ActivateOrigin**
 > TrustedOrigin ActivateOrigin (string trustedOriginId)
 
-Activate Trusted Origin
+Activate a Trusted Origin
 
 Success
 
@@ -37,11 +37,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Activate Trusted Origin
+                // Activate a Trusted Origin
                 TrustedOrigin result = apiInstance.ActivateOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 # **CreateOrigin**
 > TrustedOrigin CreateOrigin (TrustedOrigin trustedOrigin)
 
-Create Trusted Origin
+Create a Trusted Origin
 
 Success
 
@@ -118,11 +118,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // Create Trusted Origin
+                // Create a Trusted Origin
                 TrustedOrigin result = apiInstance.CreateOrigin(trustedOrigin);
                 Debug.WriteLine(result);
             }
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **DeactivateOrigin**
 > TrustedOrigin DeactivateOrigin (string trustedOriginId)
 
-Deactivate Trusted Origin
+Deactivate a Trusted Origin
 
 Success
 
@@ -199,11 +199,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // Deactivate Trusted Origin
+                // Deactivate a Trusted Origin
                 TrustedOrigin result = apiInstance.DeactivateOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 # **DeleteOrigin**
 > void DeleteOrigin (string trustedOriginId)
 
-Delete Trusted Origin
+Delete a Trusted Origin
 
 Success
 
@@ -280,11 +280,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -292,7 +292,7 @@ namespace Example
 
             try
             {
-                // Delete Trusted Origin
+                // Delete a Trusted Origin
                 apiInstance.DeleteOrigin(trustedOriginId);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -340,7 +340,7 @@ void (empty response body)
 # **GetOrigin**
 > TrustedOrigin GetOrigin (string trustedOriginId)
 
-Get Trusted Origin
+Retrieve a Trusted Origin
 
 Success
 
@@ -360,11 +360,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -372,7 +372,7 @@ namespace Example
 
             try
             {
-                // Get Trusted Origin
+                // Retrieve a Trusted Origin
                 TrustedOrigin result = apiInstance.GetOrigin(trustedOriginId);
                 Debug.WriteLine(result);
             }
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 # **ListOrigins**
 > List&lt;TrustedOrigin&gt; ListOrigins (string q = null, string filter = null, string after = null, int? limit = null)
 
-List Trusted Origins
+List all Trusted Origins
 
 Success
 
@@ -441,11 +441,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -456,7 +456,7 @@ namespace Example
 
             try
             {
-                // List Trusted Origins
+                // List all Trusted Origins
                 List<TrustedOrigin> result = apiInstance.ListOrigins(q, filter, after, limit);
                 Debug.WriteLine(result);
             }
@@ -486,7 +486,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -507,7 +507,7 @@ Name | Type | Description  | Notes
 # **UpdateOrigin**
 > TrustedOrigin UpdateOrigin (string trustedOriginId, TrustedOrigin trustedOrigin)
 
-Update Trusted Origin
+Replace a Trusted Origin
 
 Success
 
@@ -527,11 +527,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TrustedOriginApi(config);
@@ -540,7 +540,7 @@ namespace Example
 
             try
             {
-                // Update Trusted Origin
+                // Replace a Trusted Origin
                 TrustedOrigin result = apiInstance.UpdateOrigin(trustedOriginId, trustedOrigin);
                 Debug.WriteLine(result);
             }
@@ -568,7 +568,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

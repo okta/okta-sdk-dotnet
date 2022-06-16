@@ -4,17 +4,17 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**AddLinkedObjectDefinition**](LinkedObjectApi.md#addlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Add Linked Object Definition
-[**DeleteLinkedObjectDefinition**](LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete Linked Object Definition
-[**GetLinkedObjectDefinition**](LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Get Linked Object Definition
-[**ListLinkedObjectDefinitions**](LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List Linked Object Definitions
+[**AddLinkedObjectDefinition**](LinkedObjectApi.md#addlinkedobjectdefinition) | **POST** /api/v1/meta/schemas/user/linkedObjects | Create a Linked Object Definition
+[**DeleteLinkedObjectDefinition**](LinkedObjectApi.md#deletelinkedobjectdefinition) | **DELETE** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Delete a Linked Object Definition
+[**GetLinkedObjectDefinition**](LinkedObjectApi.md#getlinkedobjectdefinition) | **GET** /api/v1/meta/schemas/user/linkedObjects/{linkedObjectName} | Retrieve a Linked Object Definition
+[**ListLinkedObjectDefinitions**](LinkedObjectApi.md#listlinkedobjectdefinitions) | **GET** /api/v1/meta/schemas/user/linkedObjects | List all Linked Object Definitions
 
 
 <a name="addlinkedobjectdefinition"></a>
 # **AddLinkedObjectDefinition**
 > LinkedObject AddLinkedObjectDefinition (LinkedObject linkedObject)
 
-Add Linked Object Definition
+Create a Linked Object Definition
 
 Success
 
@@ -34,11 +34,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Add Linked Object Definition
+                // Create a Linked Object Definition
                 LinkedObject result = apiInstance.AddLinkedObjectDefinition(linkedObject);
                 Debug.WriteLine(result);
             }
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **DeleteLinkedObjectDefinition**
 > void DeleteLinkedObjectDefinition (string linkedObjectName)
 
-Delete Linked Object Definition
+Delete a Linked Object Definition
 
 Success
 
@@ -115,11 +115,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -127,7 +127,7 @@ namespace Example
 
             try
             {
-                // Delete Linked Object Definition
+                // Delete a Linked Object Definition
                 apiInstance.DeleteLinkedObjectDefinition(linkedObjectName);
             }
             catch (ApiException  e)
@@ -153,7 +153,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -175,7 +175,7 @@ void (empty response body)
 # **GetLinkedObjectDefinition**
 > LinkedObject GetLinkedObjectDefinition (string linkedObjectName)
 
-Get Linked Object Definition
+Retrieve a Linked Object Definition
 
 Success
 
@@ -195,11 +195,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
@@ -207,7 +207,7 @@ namespace Example
 
             try
             {
-                // Get Linked Object Definition
+                // Retrieve a Linked Object Definition
                 LinkedObject result = apiInstance.GetLinkedObjectDefinition(linkedObjectName);
                 Debug.WriteLine(result);
             }
@@ -234,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -256,7 +256,7 @@ Name | Type | Description  | Notes
 # **ListLinkedObjectDefinitions**
 > List&lt;LinkedObject&gt; ListLinkedObjectDefinitions ()
 
-List Linked Object Definitions
+List all Linked Object Definitions
 
 Success
 
@@ -276,18 +276,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new LinkedObjectApi(config);
 
             try
             {
-                // List Linked Object Definitions
+                // List all Linked Object Definitions
                 List<LinkedObject> result = apiInstance.ListLinkedObjectDefinitions();
                 Debug.WriteLine(result);
             }
@@ -311,7 +311,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

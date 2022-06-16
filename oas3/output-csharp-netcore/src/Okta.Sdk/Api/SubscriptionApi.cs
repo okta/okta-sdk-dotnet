@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type
+        /// List all Subscriptions of a Custom Role with a specific notification type
         /// </summary>
         /// <remarks>
         /// When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
@@ -40,7 +40,7 @@ namespace Okta.Sdk.Api
         Subscription GetRoleSubscriptionByNotificationType(string roleTypeOrRoleId, string notificationType);
 
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type
+        /// List all Subscriptions of a Custom Role with a specific notification type
         /// </summary>
         /// <remarks>
         /// When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Subscription</returns>
         ApiResponse<Subscription> GetRoleSubscriptionByNotificationTypeWithHttpInfo(string roleTypeOrRoleId, string notificationType);
         /// <summary>
-        /// Get the subscription of a User with a specific notification type
+        /// List all Subscriptions by type
         /// </summary>
         /// <remarks>
         /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Api
         Subscription GetUserSubscriptionByNotificationType(string userId, string notificationType);
 
         /// <summary>
-        /// Get the subscription of a User with a specific notification type
+        /// List all Subscriptions by type
         /// </summary>
         /// <remarks>
         /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -74,7 +74,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Subscription</returns>
         ApiResponse<Subscription> GetUserSubscriptionByNotificationTypeWithHttpInfo(string userId, string notificationType);
         /// <summary>
-        /// List all subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role
         /// </summary>
         /// <remarks>
         /// When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
@@ -85,7 +85,7 @@ namespace Okta.Sdk.Api
         List<Subscription> ListRoleSubscriptions(string roleTypeOrRoleId);
 
         /// <summary>
-        /// List all subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role
         /// </summary>
         /// <remarks>
         /// When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
@@ -95,7 +95,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
         ApiResponse<List<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId);
         /// <summary>
-        /// List subscriptions of a User
+        /// List all Subscriptions
         /// </summary>
         /// <remarks>
         /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -106,7 +106,7 @@ namespace Okta.Sdk.Api
         List<Subscription> ListUserSubscriptions(string userId);
 
         /// <summary>
-        /// List subscriptions of a User
+        /// List all Subscriptions
         /// </summary>
         /// <remarks>
         /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -217,7 +217,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type
+        /// List all Subscriptions of a Custom Role with a specific notification type
         /// </summary>
         /// <remarks>
         /// When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
@@ -230,7 +230,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Subscription> GetRoleSubscriptionByNotificationTypeAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type
+        /// List all Subscriptions of a Custom Role with a specific notification type
         /// </summary>
         /// <remarks>
         /// When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
@@ -242,7 +242,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Subscription)</returns>
         System.Threading.Tasks.Task<ApiResponse<Subscription>> GetRoleSubscriptionByNotificationTypeWithHttpInfoAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get the subscription of a User with a specific notification type
+        /// List all Subscriptions by type
         /// </summary>
         /// <remarks>
         /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -255,7 +255,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Subscription> GetUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get the subscription of a User with a specific notification type
+        /// List all Subscriptions by type
         /// </summary>
         /// <remarks>
         /// Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -267,7 +267,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Subscription)</returns>
         System.Threading.Tasks.Task<ApiResponse<Subscription>> GetUserSubscriptionByNotificationTypeWithHttpInfoAsync(string userId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List all subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role
         /// </summary>
         /// <remarks>
         /// When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
@@ -279,7 +279,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Subscription>> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List all subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role
         /// </summary>
         /// <remarks>
         /// When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
@@ -290,7 +290,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> ListRoleSubscriptionsWithHttpInfoAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List subscriptions of a User
+        /// List all Subscriptions
         /// </summary>
         /// <remarks>
         /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -302,7 +302,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Subscription>> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List subscriptions of a User
+        /// List all Subscriptions
         /// </summary>
         /// <remarks>
         /// List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
@@ -512,7 +512,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
+        /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -525,7 +525,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
+        /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -570,12 +570,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -597,7 +597,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
+        /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -611,7 +611,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
+        /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -658,12 +658,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -686,7 +686,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the subscription of a User with a specific notification type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -699,7 +699,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the subscription of a User with a specific notification type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -744,12 +744,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -771,7 +771,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the subscription of a User with a specific notification type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -785,7 +785,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the subscription of a User with a specific notification type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -832,12 +832,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -860,7 +860,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -872,7 +872,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -909,12 +909,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -936,7 +936,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -949,7 +949,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List all subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
+        /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
@@ -988,12 +988,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1016,7 +1016,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List subscriptions of a User List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1028,7 +1028,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List subscriptions of a User List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1065,12 +1065,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1092,7 +1092,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List subscriptions of a User List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1105,7 +1105,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List subscriptions of a User List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
+        /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1144,12 +1144,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1229,12 +1229,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1316,12 +1316,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1401,12 +1401,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1488,12 +1488,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1573,12 +1573,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1660,12 +1660,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1745,12 +1745,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1832,12 +1832,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("notificationType", Okta.Sdk.Client.ClientUtils.ParameterToString(notificationType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

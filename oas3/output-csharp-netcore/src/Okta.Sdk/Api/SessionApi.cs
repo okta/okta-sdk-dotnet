@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Session with Session Token
+        /// Create a Session with Session Token
         /// </summary>
         /// <remarks>
         /// Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         Session CreateSession(CreateSessionRequest createSessionRequest);
 
         /// <summary>
-        /// Create Session with Session Token
+        /// Create a Session with Session Token
         /// </summary>
         /// <remarks>
         /// Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Session</returns>
         ApiResponse<Session> CreateSessionWithHttpInfo(CreateSessionRequest createSessionRequest);
         /// <summary>
-        /// End Session
+        /// Delete a Session
         /// </summary>
         /// <remarks>
         /// End a session.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         void EndSession(string sessionId);
 
         /// <summary>
-        /// End Session
+        /// Delete a Session
         /// </summary>
         /// <remarks>
         /// End a session.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> EndSessionWithHttpInfo(string sessionId);
         /// <summary>
-        /// Get Session
+        /// Retrieve a Session
         /// </summary>
         /// <remarks>
         /// Get details about a session.
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         Session GetSession(string sessionId);
 
         /// <summary>
-        /// Get Session
+        /// Retrieve a Session
         /// </summary>
         /// <remarks>
         /// Get details about a session.
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Session</returns>
         ApiResponse<Session> GetSessionWithHttpInfo(string sessionId);
         /// <summary>
-        /// Refresh Session
+        /// Refresh a Session
         /// </summary>
         /// <remarks>
         /// Refresh a session.
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         Session RefreshSession(string sessionId);
 
         /// <summary>
-        /// Refresh Session
+        /// Refresh a Session
         /// </summary>
         /// <remarks>
         /// Refresh a session.
@@ -121,7 +121,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create Session with Session Token
+        /// Create a Session with Session Token
         /// </summary>
         /// <remarks>
         /// Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Session> CreateSessionAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Session with Session Token
+        /// Create a Session with Session Token
         /// </summary>
         /// <remarks>
         /// Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
@@ -144,7 +144,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Session)</returns>
         System.Threading.Tasks.Task<ApiResponse<Session>> CreateSessionWithHttpInfoAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// End Session
+        /// Delete a Session
         /// </summary>
         /// <remarks>
         /// End a session.
@@ -156,7 +156,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task EndSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// End Session
+        /// Delete a Session
         /// </summary>
         /// <remarks>
         /// End a session.
@@ -167,7 +167,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> EndSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Session
+        /// Retrieve a Session
         /// </summary>
         /// <remarks>
         /// Get details about a session.
@@ -179,7 +179,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Session> GetSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Session
+        /// Retrieve a Session
         /// </summary>
         /// <remarks>
         /// Get details about a session.
@@ -190,7 +190,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Session)</returns>
         System.Threading.Tasks.Task<ApiResponse<Session>> GetSessionWithHttpInfoAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Refresh Session
+        /// Refresh a Session
         /// </summary>
         /// <remarks>
         /// Refresh a session.
@@ -202,7 +202,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Session> RefreshSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Refresh Session
+        /// Refresh a Session
         /// </summary>
         /// <remarks>
         /// Refresh a session.
@@ -312,7 +312,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
+        /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
@@ -324,7 +324,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
+        /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
@@ -362,7 +362,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = createSessionRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -383,7 +383,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
+        /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
@@ -396,7 +396,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
+        /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createSessionRequest"></param>
@@ -436,7 +436,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = createSessionRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -458,7 +458,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// End Session End a session.
+        /// Delete a Session End a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -469,7 +469,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// End Session End a session.
+        /// Delete a Session End a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -506,12 +506,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -533,7 +533,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// End Session End a session.
+        /// Delete a Session End a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -545,7 +545,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// End Session End a session.
+        /// Delete a Session End a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -584,12 +584,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -612,7 +612,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Session Get details about a session.
+        /// Retrieve a Session Get details about a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -624,7 +624,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Session Get details about a session.
+        /// Retrieve a Session Get details about a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -661,12 +661,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -688,7 +688,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Session Get details about a session.
+        /// Retrieve a Session Get details about a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -701,7 +701,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Session Get details about a session.
+        /// Retrieve a Session Get details about a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -740,12 +740,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -768,7 +768,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Refresh Session Refresh a session.
+        /// Refresh a Session Refresh a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -780,7 +780,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Refresh Session Refresh a session.
+        /// Refresh a Session Refresh a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -817,12 +817,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -844,7 +844,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Refresh Session Refresh a session.
+        /// Refresh a Session Refresh a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -857,7 +857,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Refresh Session Refresh a session.
+        /// Refresh a Session Refresh a session.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="sessionId"></param>
@@ -896,12 +896,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("sessionId", Okta.Sdk.Client.ClientUtils.ParameterToString(sessionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

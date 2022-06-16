@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Feature
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Success
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         Feature GetFeature(string featureId);
 
         /// <summary>
-        /// Get Feature
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Success
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Feature</returns>
         ApiResponse<Feature> GetFeatureWithHttpInfo(string featureId);
         /// <summary>
-        /// List Feature Dependencies
+        /// List all Dependencies
         /// </summary>
         /// <remarks>
         /// Success
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         List<Feature> ListFeatureDependencies(string featureId);
 
         /// <summary>
-        /// List Feature Dependencies
+        /// List all Dependencies
         /// </summary>
         /// <remarks>
         /// Success
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
         ApiResponse<List<Feature>> ListFeatureDependenciesWithHttpInfo(string featureId);
         /// <summary>
-        /// List Feature Dependents
+        /// List all Dependents
         /// </summary>
         /// <remarks>
         /// Success
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         List<Feature> ListFeatureDependents(string featureId);
 
         /// <summary>
-        /// List Feature Dependents
+        /// List all Dependents
         /// </summary>
         /// <remarks>
         /// Success
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
         ApiResponse<List<Feature>> ListFeatureDependentsWithHttpInfo(string featureId);
         /// <summary>
-        /// List Features
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// Success
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         List<Feature> ListFeatures();
 
         /// <summary>
-        /// List Features
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// Success
@@ -110,7 +110,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
         ApiResponse<List<Feature>> ListFeaturesWithHttpInfo();
         /// <summary>
-        /// Update Feature Lifecycle
+        /// Update a Feature Lifecycle
         /// </summary>
         /// <remarks>
         /// Success
@@ -123,7 +123,7 @@ namespace Okta.Sdk.Api
         Feature UpdateFeatureLifecycle(string featureId, string lifecycle, string mode = default(string));
 
         /// <summary>
-        /// Update Feature Lifecycle
+        /// Update a Feature Lifecycle
         /// </summary>
         /// <remarks>
         /// Success
@@ -144,7 +144,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Feature
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Success
@@ -156,7 +156,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Feature> GetFeatureAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Feature
+        /// Retrieve a Feature
         /// </summary>
         /// <remarks>
         /// Success
@@ -167,7 +167,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Feature)</returns>
         System.Threading.Tasks.Task<ApiResponse<Feature>> GetFeatureWithHttpInfoAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Feature Dependencies
+        /// List all Dependencies
         /// </summary>
         /// <remarks>
         /// Success
@@ -179,7 +179,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Feature>> ListFeatureDependenciesAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Feature Dependencies
+        /// List all Dependencies
         /// </summary>
         /// <remarks>
         /// Success
@@ -190,7 +190,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Feature&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Feature>>> ListFeatureDependenciesWithHttpInfoAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Feature Dependents
+        /// List all Dependents
         /// </summary>
         /// <remarks>
         /// Success
@@ -202,7 +202,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Feature>> ListFeatureDependentsAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Feature Dependents
+        /// List all Dependents
         /// </summary>
         /// <remarks>
         /// Success
@@ -213,7 +213,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Feature&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Feature>>> ListFeatureDependentsWithHttpInfoAsync(string featureId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Features
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// Success
@@ -224,7 +224,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Feature>> ListFeaturesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Features
+        /// List all Features
         /// </summary>
         /// <remarks>
         /// Success
@@ -234,7 +234,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Feature&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Feature>>> ListFeaturesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Feature Lifecycle
+        /// Update a Feature Lifecycle
         /// </summary>
         /// <remarks>
         /// Success
@@ -248,7 +248,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Feature> UpdateFeatureLifecycleAsync(string featureId, string lifecycle, string mode = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Feature Lifecycle
+        /// Update a Feature Lifecycle
         /// </summary>
         /// <remarks>
         /// Success
@@ -360,7 +360,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Feature Success
+        /// Retrieve a Feature Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -372,7 +372,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Feature Success
+        /// Retrieve a Feature Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -409,12 +409,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -436,7 +436,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Feature Success
+        /// Retrieve a Feature Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -449,7 +449,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Feature Success
+        /// Retrieve a Feature Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -488,12 +488,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -516,7 +516,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependencies Success
+        /// List all Dependencies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -528,7 +528,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependencies Success
+        /// List all Dependencies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -565,12 +565,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -592,7 +592,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependencies Success
+        /// List all Dependencies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -605,7 +605,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependencies Success
+        /// List all Dependencies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -644,12 +644,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -672,7 +672,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependents Success
+        /// List all Dependents Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -684,7 +684,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependents Success
+        /// List all Dependents Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -721,12 +721,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -748,7 +748,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependents Success
+        /// List all Dependents Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -761,7 +761,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Feature Dependents Success
+        /// List all Dependents Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -800,12 +800,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("featureId", Okta.Sdk.Client.ClientUtils.ParameterToString(featureId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -828,7 +828,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Features Success
+        /// List all Features Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Feature&gt;</returns>
@@ -839,7 +839,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Features Success
+        /// List all Features Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Feature&gt;</returns>
@@ -868,12 +868,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -895,7 +895,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Features Success
+        /// List all Features Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -907,7 +907,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Features Success
+        /// List all Features Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -938,12 +938,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -966,7 +966,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Feature Lifecycle Success
+        /// Update a Feature Lifecycle Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -980,7 +980,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Feature Lifecycle Success
+        /// Update a Feature Lifecycle Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -1030,12 +1030,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mode", mode));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1057,7 +1057,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Feature Lifecycle Success
+        /// Update a Feature Lifecycle Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -1072,7 +1072,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Feature Lifecycle Success
+        /// Update a Feature Lifecycle Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="featureId"></param>
@@ -1124,12 +1124,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "mode", mode));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Fetches the Schema for an App User
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         UserSchema GetApplicationUserSchema(string appInstanceId);
 
         /// <summary>
-        /// Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Fetches the Schema for an App User
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserSchema</returns>
         ApiResponse<UserSchema> GetApplicationUserSchemaWithHttpInfo(string appInstanceId);
         /// <summary>
-        /// Fetches the group schema
+        /// Retrieve the default Group Schema
         /// </summary>
         /// <remarks>
         /// Fetches the group schema
@@ -59,7 +59,7 @@ namespace Okta.Sdk.Api
         GroupSchema GetGroupSchema();
 
         /// <summary>
-        /// Fetches the group schema
+        /// Retrieve the default Group Schema
         /// </summary>
         /// <remarks>
         /// Fetches the group schema
@@ -68,7 +68,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of GroupSchema</returns>
         ApiResponse<GroupSchema> GetGroupSchemaWithHttpInfo();
         /// <summary>
-        /// Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema
         /// </summary>
         /// <remarks>
         /// Fetches the schema for a Schema Id.
@@ -79,7 +79,7 @@ namespace Okta.Sdk.Api
         UserSchema GetUserSchema(string schemaId);
 
         /// <summary>
-        /// Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema
         /// </summary>
         /// <remarks>
         /// Fetches the schema for a Schema Id.
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserSchema</returns>
         ApiResponse<UserSchema> GetUserSchemaWithHttpInfo(string schemaId);
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the Application User Schema.
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         UserSchema UpdateApplicationUserProfile(string appInstanceId, UserSchema body = default(UserSchema));
 
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the Application User Schema.
@@ -112,10 +112,10 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserSchema</returns>
         ApiResponse<UserSchema> UpdateApplicationUserProfileWithHttpInfo(string appInstanceId, UserSchema body = default(UserSchema));
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema
         /// </summary>
         /// <remarks>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -123,17 +123,17 @@ namespace Okta.Sdk.Api
         GroupSchema UpdateGroupSchema(GroupSchema groupSchema = default(GroupSchema));
 
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema
         /// </summary>
         /// <remarks>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
         /// <returns>ApiResponse of GroupSchema</returns>
         ApiResponse<GroupSchema> UpdateGroupSchemaWithHttpInfo(GroupSchema groupSchema = default(GroupSchema));
         /// <summary>
-        /// Update User Profile
+        /// Update a User Schema
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the user schema.
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Api
         UserSchema UpdateUserProfile(string schemaId, UserSchema userSchema);
 
         /// <summary>
-        /// Update User Profile
+        /// Update a User Schema
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the user schema.
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Fetches the Schema for an App User
@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserSchema> GetApplicationUserSchemaAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Fetches the Schema for an App User
@@ -188,7 +188,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserSchema>> GetApplicationUserSchemaWithHttpInfoAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Fetches the group schema
+        /// Retrieve the default Group Schema
         /// </summary>
         /// <remarks>
         /// Fetches the group schema
@@ -199,7 +199,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<GroupSchema> GetGroupSchemaAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetches the group schema
+        /// Retrieve the default Group Schema
         /// </summary>
         /// <remarks>
         /// Fetches the group schema
@@ -209,7 +209,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (GroupSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupSchema>> GetGroupSchemaWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema
         /// </summary>
         /// <remarks>
         /// Fetches the schema for a Schema Id.
@@ -221,7 +221,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserSchema> GetUserSchemaAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema
         /// </summary>
         /// <remarks>
         /// Fetches the schema for a Schema Id.
@@ -232,7 +232,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserSchema>> GetUserSchemaWithHttpInfoAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the Application User Schema.
@@ -245,7 +245,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserSchema> UpdateApplicationUserProfileAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the Application User Schema.
@@ -257,10 +257,10 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserSchema>> UpdateApplicationUserProfileWithHttpInfoAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema
         /// </summary>
         /// <remarks>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -269,10 +269,10 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema
         /// </summary>
         /// <remarks>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -280,7 +280,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (GroupSchema)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupSchema>> UpdateGroupSchemaWithHttpInfoAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update User Profile
+        /// Update a User Schema
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the user schema.
@@ -293,7 +293,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserSchema> UpdateUserProfileAsync(string schemaId, UserSchema userSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update User Profile
+        /// Update a User Schema
         /// </summary>
         /// <remarks>
         /// Partial updates on the User Profile properties of the user schema.
@@ -404,7 +404,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Schema for an App User Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -416,7 +416,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Schema for an App User Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -453,12 +453,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -480,7 +480,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Schema for an App User Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -493,7 +493,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the Schema for an App User Fetches the Schema for an App User
+        /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -532,12 +532,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -560,7 +560,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the group schema Fetches the group schema
+        /// Retrieve the default Group Schema Fetches the group schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>GroupSchema</returns>
@@ -571,7 +571,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the group schema Fetches the group schema
+        /// Retrieve the default Group Schema Fetches the group schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of GroupSchema</returns>
@@ -600,12 +600,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -627,7 +627,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the group schema Fetches the group schema
+        /// Retrieve the default Group Schema Fetches the group schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -639,7 +639,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the group schema Fetches the group schema
+        /// Retrieve the default Group Schema Fetches the group schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -670,12 +670,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -698,7 +698,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the schema for a Schema Id. Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema Fetches the schema for a Schema Id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -710,7 +710,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the schema for a Schema Id. Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema Fetches the schema for a Schema Id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -747,12 +747,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -774,7 +774,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the schema for a Schema Id. Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema Fetches the schema for a Schema Id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -787,7 +787,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetches the schema for a Schema Id. Fetches the schema for a Schema Id.
+        /// Retrieve a User Schema Fetches the schema for a Schema Id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -826,12 +826,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -854,7 +854,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema. Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -867,7 +867,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema. Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -907,12 +907,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -934,7 +934,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema. Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -948,7 +948,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial updates on the User Profile properties of the Application User Schema. Partial updates on the User Profile properties of the Application User Schema.
+        /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appInstanceId"></param>
@@ -990,12 +990,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appInstanceId", Okta.Sdk.Client.ClientUtils.ParameterToString(appInstanceId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1018,7 +1018,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -1030,7 +1030,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -1062,12 +1062,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = groupSchema;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1089,7 +1089,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -1102,7 +1102,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates, adds ore removes one or more custom Group Profile properties in the schema Updates, adds ore removes one or more custom Group Profile properties in the schema
+        /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupSchema"> (optional)</param>
@@ -1136,12 +1136,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = groupSchema;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1164,7 +1164,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Profile Partial updates on the User Profile properties of the user schema.
+        /// Update a User Schema Partial updates on the User Profile properties of the user schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -1177,7 +1177,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Profile Partial updates on the User Profile properties of the user schema.
+        /// Update a User Schema Partial updates on the User Profile properties of the user schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -1223,12 +1223,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
             localVarRequestOptions.Data = userSchema;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1250,7 +1250,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Profile Partial updates on the User Profile properties of the user schema.
+        /// Update a User Schema Partial updates on the User Profile properties of the user schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -1264,7 +1264,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Profile Partial updates on the User Profile properties of the user schema.
+        /// Update a User Schema Partial updates on the User Profile properties of the user schema.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="schemaId"></param>
@@ -1312,12 +1312,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("schemaId", Okta.Sdk.Client.ClientUtils.ParameterToString(schemaId)); // path parameter
             localVarRequestOptions.Data = userSchema;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

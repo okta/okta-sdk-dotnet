@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate a group Rule
+        /// Activate a Group Rule
         /// </summary>
         /// <remarks>
         /// Activates a specific group rule by id from your organization
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         void ActivateGroupRule(string ruleId);
 
         /// <summary>
-        /// Activate a group Rule
+        /// Activate a Group Rule
         /// </summary>
         /// <remarks>
         /// Activates a specific group rule by id from your organization
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivateGroupRuleWithHttpInfo(string ruleId);
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Add App Instance Target to App Administrator Role given to a Group
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Api
         void AddApplicationInstanceTargetToAppAdminRoleGivenToGroup(string groupId, string roleId, string appName, string applicationId);
 
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Add App Instance Target to App Administrator Role given to a Group
@@ -76,7 +76,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AddApplicationInstanceTargetToAppAdminRoleGivenToGroupWithHttpInfo(string groupId, string roleId, string appName, string applicationId);
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group
+        /// Assign an Application Target to Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -89,7 +89,7 @@ namespace Okta.Sdk.Api
         void AddApplicationTargetToAdminRoleGivenToGroup(string groupId, string roleId, string appName);
 
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group
+        /// Assign an Application Target to Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AddApplicationTargetToAdminRoleGivenToGroupWithHttpInfo(string groupId, string roleId, string appName);
         /// <summary>
-        /// Add Group Target for Group Role
+        /// Assign a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -114,7 +114,7 @@ namespace Okta.Sdk.Api
         void AddGroupTargetToGroupAdministratorRoleForGroup(string groupId, string roleId, string targetGroupId);
 
         /// <summary>
-        /// Add Group Target for Group Role
+        /// Assign a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -126,7 +126,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AddGroupTargetToGroupAdministratorRoleForGroupWithHttpInfo(string groupId, string roleId, string targetGroupId);
         /// <summary>
-        /// Add User to Group
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Adds a user to a group with &#39;OKTA_GROUP&#39; type.
@@ -138,7 +138,7 @@ namespace Okta.Sdk.Api
         void AddUserToGroup(string groupId, string userId);
 
         /// <summary>
-        /// Add User to Group
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Adds a user to a group with &#39;OKTA_GROUP&#39; type.
@@ -149,7 +149,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> AddUserToGroupWithHttpInfo(string groupId, string userId);
         /// <summary>
-        /// Assign Role to Group
+        /// Assign a Role
         /// </summary>
         /// <remarks>
         /// Assigns a Role to a Group
@@ -162,7 +162,7 @@ namespace Okta.Sdk.Api
         Role AssignRoleToGroup(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?));
 
         /// <summary>
-        /// Assign Role to Group
+        /// Assign a Role
         /// </summary>
         /// <remarks>
         /// Assigns a Role to a Group
@@ -174,7 +174,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Role</returns>
         ApiResponse<Role> AssignRoleToGroupWithHttpInfo(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?));
         /// <summary>
-        /// Add Group
+        /// Create a Group
         /// </summary>
         /// <remarks>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
@@ -185,7 +185,7 @@ namespace Okta.Sdk.Api
         Group CreateGroup(Group group);
 
         /// <summary>
-        /// Add Group
+        /// Create a Group
         /// </summary>
         /// <remarks>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
@@ -195,7 +195,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Group</returns>
         ApiResponse<Group> CreateGroupWithHttpInfo(Group group);
         /// <summary>
-        /// Create Group Rule
+        /// Create a Group Rule
         /// </summary>
         /// <remarks>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
@@ -206,7 +206,7 @@ namespace Okta.Sdk.Api
         GroupRule CreateGroupRule(GroupRule groupRule);
 
         /// <summary>
-        /// Create Group Rule
+        /// Create a Group Rule
         /// </summary>
         /// <remarks>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
@@ -216,7 +216,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of GroupRule</returns>
         ApiResponse<GroupRule> CreateGroupRuleWithHttpInfo(GroupRule groupRule);
         /// <summary>
-        /// Deactivate a group Rule
+        /// Deactivate a Group Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a specific group rule by id from your organization
@@ -227,7 +227,7 @@ namespace Okta.Sdk.Api
         void DeactivateGroupRule(string ruleId);
 
         /// <summary>
-        /// Deactivate a group Rule
+        /// Deactivate a Group Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a specific group rule by id from your organization
@@ -237,7 +237,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivateGroupRuleWithHttpInfo(string ruleId);
         /// <summary>
-        /// Remove Group
+        /// Delete a Group
         /// </summary>
         /// <remarks>
         /// Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -248,7 +248,7 @@ namespace Okta.Sdk.Api
         void DeleteGroup(string groupId);
 
         /// <summary>
-        /// Remove Group
+        /// Delete a Group
         /// </summary>
         /// <remarks>
         /// Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -281,7 +281,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteGroupRuleWithHttpInfo(string ruleId, bool? removeUsers = default(bool?));
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Fetches a group from your organization.
@@ -292,7 +292,7 @@ namespace Okta.Sdk.Api
         Group GetGroup(string groupId);
 
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Fetches a group from your organization.
@@ -302,7 +302,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Group</returns>
         ApiResponse<Group> GetGroupWithHttpInfo(string groupId);
         /// <summary>
-        /// Get Group Rule
+        /// Retrieve a Group Rule
         /// </summary>
         /// <remarks>
         /// Fetches a specific group rule by id from your organization
@@ -314,7 +314,7 @@ namespace Okta.Sdk.Api
         GroupRule GetGroupRule(string ruleId, string expand = default(string));
 
         /// <summary>
-        /// Get Group Rule
+        /// Retrieve a Group Rule
         /// </summary>
         /// <remarks>
         /// Fetches a specific group rule by id from your organization
@@ -325,7 +325,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of GroupRule</returns>
         ApiResponse<GroupRule> GetGroupRuleWithHttpInfo(string ruleId, string expand = default(string));
         /// <summary>
-        /// Get Role
+        /// Retrieve a Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -337,7 +337,7 @@ namespace Okta.Sdk.Api
         Role GetRole(string groupId, string roleId);
 
         /// <summary>
-        /// Get Role
+        /// Retrieve a Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -348,7 +348,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Role</returns>
         ApiResponse<Role> GetRoleWithHttpInfo(string groupId, string roleId);
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group
+        /// List all Application Targets for an Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
@@ -362,7 +362,7 @@ namespace Okta.Sdk.Api
         List<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group
+        /// List all Application Targets for an Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
@@ -375,7 +375,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;CatalogApplication&gt;</returns>
         ApiResponse<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Assigned Applications
+        /// List all Assigned Applications
         /// </summary>
         /// <remarks>
         /// Enumerates all applications that are assigned to a group.
@@ -388,7 +388,7 @@ namespace Okta.Sdk.Api
         List<Application> ListAssignedApplicationsForGroup(string groupId, string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Assigned Applications
+        /// List all Assigned Applications
         /// </summary>
         /// <remarks>
         /// Enumerates all applications that are assigned to a group.
@@ -400,7 +400,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Application&gt;</returns>
         ApiResponse<List<Application>> ListAssignedApplicationsForGroupWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Group Assigned Roles
+        /// List all Assigned Roles
         /// </summary>
         /// <remarks>
         /// Success
@@ -412,7 +412,7 @@ namespace Okta.Sdk.Api
         List<Role> ListGroupAssignedRoles(string groupId, string expand = default(string));
 
         /// <summary>
-        /// List Group Assigned Roles
+        /// List all Assigned Roles
         /// </summary>
         /// <remarks>
         /// Success
@@ -423,7 +423,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Role&gt;</returns>
         ApiResponse<List<Role>> ListGroupAssignedRolesWithHttpInfo(string groupId, string expand = default(string));
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Lists all group rules for your organization.
@@ -437,7 +437,7 @@ namespace Okta.Sdk.Api
         List<GroupRule> ListGroupRules(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string));
 
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Lists all group rules for your organization.
@@ -450,7 +450,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;GroupRule&gt;</returns>
         ApiResponse<List<GroupRule>> ListGroupRulesWithHttpInfo(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string));
         /// <summary>
-        /// List Group Targets for Group Role
+        /// List all Group Targets for a Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -464,7 +464,7 @@ namespace Okta.Sdk.Api
         List<Group> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Group Targets for Group Role
+        /// List all Group Targets for a Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -477,7 +477,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Group&gt;</returns>
         ApiResponse<List<Group>> ListGroupTargetsForGroupRoleWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Group Members
+        /// List all Member Users
         /// </summary>
         /// <remarks>
         /// Enumerates all users that are a member of a group.
@@ -490,7 +490,7 @@ namespace Okta.Sdk.Api
         List<User> ListGroupUsers(string groupId, string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Group Members
+        /// List all Member Users
         /// </summary>
         /// <remarks>
         /// Enumerates all users that are a member of a group.
@@ -502,7 +502,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
         ApiResponse<List<User>> ListGroupUsersWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Groups
+        /// List all Groups
         /// </summary>
         /// <remarks>
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
@@ -517,7 +517,7 @@ namespace Okta.Sdk.Api
         List<Group> ListGroups(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
 
         /// <summary>
-        /// List Groups
+        /// List all Groups
         /// </summary>
         /// <remarks>
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
@@ -531,7 +531,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Group&gt;</returns>
         ApiResponse<List<Group>> ListGroupsWithHttpInfo(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Remove App Instance Target to App Administrator Role given to a Group
@@ -545,7 +545,7 @@ namespace Okta.Sdk.Api
         void RemoveApplicationTargetFromAdministratorRoleGivenToGroup(string groupId, string roleId, string appName, string applicationId);
 
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Remove App Instance Target to App Administrator Role given to a Group
@@ -558,7 +558,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RemoveApplicationTargetFromAdministratorRoleGivenToGroupWithHttpInfo(string groupId, string roleId, string appName, string applicationId);
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group
+        /// Delete an Application Target from Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -571,7 +571,7 @@ namespace Okta.Sdk.Api
         void RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup(string groupId, string roleId, string appName);
 
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group
+        /// Delete an Application Target from Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -583,7 +583,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupWithHttpInfo(string groupId, string roleId, string appName);
         /// <summary>
-        /// Delete Group Target for Group Role
+        /// Delete a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// remove group target for a group role.
@@ -596,7 +596,7 @@ namespace Okta.Sdk.Api
         void RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup(string groupId, string roleId, string targetGroupId);
 
         /// <summary>
-        /// Delete Group Target for Group Role
+        /// Delete a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// remove group target for a group role.
@@ -608,7 +608,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupWithHttpInfo(string groupId, string roleId, string targetGroupId);
         /// <summary>
-        /// Remove Role from Group
+        /// Delete a Role
         /// </summary>
         /// <remarks>
         /// Unassigns a Role from a Group
@@ -620,7 +620,7 @@ namespace Okta.Sdk.Api
         void RemoveRoleFromGroup(string groupId, string roleId);
 
         /// <summary>
-        /// Remove Role from Group
+        /// Delete a Role
         /// </summary>
         /// <remarks>
         /// Unassigns a Role from a Group
@@ -631,7 +631,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RemoveRoleFromGroupWithHttpInfo(string groupId, string roleId);
         /// <summary>
-        /// Remove User from Group
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes a user from a group with &#39;OKTA_GROUP&#39; type.
@@ -643,7 +643,7 @@ namespace Okta.Sdk.Api
         void RemoveUserFromGroup(string groupId, string userId);
 
         /// <summary>
-        /// Remove User from Group
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes a user from a group with &#39;OKTA_GROUP&#39; type.
@@ -654,7 +654,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RemoveUserFromGroupWithHttpInfo(string groupId, string userId);
         /// <summary>
-        /// Update Group
+        /// Replace a Group
         /// </summary>
         /// <remarks>
         /// Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -666,7 +666,7 @@ namespace Okta.Sdk.Api
         Group UpdateGroup(string groupId, Group group);
 
         /// <summary>
-        /// Update Group
+        /// Replace a Group
         /// </summary>
         /// <remarks>
         /// Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -677,7 +677,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Group</returns>
         ApiResponse<Group> UpdateGroupWithHttpInfo(string groupId, Group group);
         /// <summary>
-        /// Update Group Rule
+        /// Replace a Group Rule
         /// </summary>
         /// <remarks>
         /// Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
@@ -689,7 +689,7 @@ namespace Okta.Sdk.Api
         GroupRule UpdateGroupRule(string ruleId, GroupRule groupRule);
 
         /// <summary>
-        /// Update Group Rule
+        /// Replace a Group Rule
         /// </summary>
         /// <remarks>
         /// Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
@@ -709,7 +709,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate a group Rule
+        /// Activate a Group Rule
         /// </summary>
         /// <remarks>
         /// Activates a specific group rule by id from your organization
@@ -721,7 +721,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivateGroupRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate a group Rule
+        /// Activate a Group Rule
         /// </summary>
         /// <remarks>
         /// Activates a specific group rule by id from your organization
@@ -732,7 +732,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateGroupRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Add App Instance Target to App Administrator Role given to a Group
@@ -747,7 +747,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task AddApplicationInstanceTargetToAppAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Add App Instance Target to App Administrator Role given to a Group
@@ -761,7 +761,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> AddApplicationInstanceTargetToAppAdminRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group
+        /// Assign an Application Target to Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -775,7 +775,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task AddApplicationTargetToAdminRoleGivenToGroupAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group
+        /// Assign an Application Target to Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -788,7 +788,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> AddApplicationTargetToAdminRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add Group Target for Group Role
+        /// Assign a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -802,7 +802,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task AddGroupTargetToGroupAdministratorRoleForGroupAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Group Target for Group Role
+        /// Assign a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -815,7 +815,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> AddGroupTargetToGroupAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add User to Group
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Adds a user to a group with &#39;OKTA_GROUP&#39; type.
@@ -828,7 +828,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task AddUserToGroupAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add User to Group
+        /// Assign a User
         /// </summary>
         /// <remarks>
         /// Adds a user to a group with &#39;OKTA_GROUP&#39; type.
@@ -840,7 +840,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> AddUserToGroupWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Assign Role to Group
+        /// Assign a Role
         /// </summary>
         /// <remarks>
         /// Assigns a Role to a Group
@@ -854,7 +854,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Role> AssignRoleToGroupAsync(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Assign Role to Group
+        /// Assign a Role
         /// </summary>
         /// <remarks>
         /// Assigns a Role to a Group
@@ -867,7 +867,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Role)</returns>
         System.Threading.Tasks.Task<ApiResponse<Role>> AssignRoleToGroupWithHttpInfoAsync(string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add Group
+        /// Create a Group
         /// </summary>
         /// <remarks>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
@@ -879,7 +879,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Group> CreateGroupAsync(Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Group
+        /// Create a Group
         /// </summary>
         /// <remarks>
         /// Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
@@ -890,7 +890,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Group)</returns>
         System.Threading.Tasks.Task<ApiResponse<Group>> CreateGroupWithHttpInfoAsync(Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Group Rule
+        /// Create a Group Rule
         /// </summary>
         /// <remarks>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
@@ -902,7 +902,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<GroupRule> CreateGroupRuleAsync(GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Group Rule
+        /// Create a Group Rule
         /// </summary>
         /// <remarks>
         /// Creates a group rule to dynamically add users to the specified group if they match the condition
@@ -913,7 +913,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (GroupRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupRule>> CreateGroupRuleWithHttpInfoAsync(GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate a group Rule
+        /// Deactivate a Group Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a specific group rule by id from your organization
@@ -925,7 +925,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivateGroupRuleAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate a group Rule
+        /// Deactivate a Group Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a specific group rule by id from your organization
@@ -936,7 +936,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateGroupRuleWithHttpInfoAsync(string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove Group
+        /// Delete a Group
         /// </summary>
         /// <remarks>
         /// Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -948,7 +948,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove Group
+        /// Delete a Group
         /// </summary>
         /// <remarks>
         /// Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -984,7 +984,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteGroupRuleWithHttpInfoAsync(string ruleId, bool? removeUsers = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Fetches a group from your organization.
@@ -996,7 +996,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Group> GetGroupAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Fetches a group from your organization.
@@ -1007,7 +1007,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Group)</returns>
         System.Threading.Tasks.Task<ApiResponse<Group>> GetGroupWithHttpInfoAsync(string groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Group Rule
+        /// Retrieve a Group Rule
         /// </summary>
         /// <remarks>
         /// Fetches a specific group rule by id from your organization
@@ -1020,7 +1020,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<GroupRule> GetGroupRuleAsync(string ruleId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Group Rule
+        /// Retrieve a Group Rule
         /// </summary>
         /// <remarks>
         /// Fetches a specific group rule by id from your organization
@@ -1032,7 +1032,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (GroupRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<GroupRule>> GetGroupRuleWithHttpInfoAsync(string ruleId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Role
+        /// Retrieve a Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -1045,7 +1045,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Role> GetRoleAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Role
+        /// Retrieve a Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -1057,7 +1057,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Role)</returns>
         System.Threading.Tasks.Task<ApiResponse<Role>> GetRoleWithHttpInfoAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group
+        /// List all Application Targets for an Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
@@ -1072,7 +1072,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group
+        /// List all Application Targets for an Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
@@ -1086,7 +1086,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;CatalogApplication&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Assigned Applications
+        /// List all Assigned Applications
         /// </summary>
         /// <remarks>
         /// Enumerates all applications that are assigned to a group.
@@ -1100,7 +1100,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Application>> ListAssignedApplicationsForGroupAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Assigned Applications
+        /// List all Assigned Applications
         /// </summary>
         /// <remarks>
         /// Enumerates all applications that are assigned to a group.
@@ -1113,7 +1113,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Group Assigned Roles
+        /// List all Assigned Roles
         /// </summary>
         /// <remarks>
         /// Success
@@ -1126,7 +1126,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Role>> ListGroupAssignedRolesAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Group Assigned Roles
+        /// List all Assigned Roles
         /// </summary>
         /// <remarks>
         /// Success
@@ -1138,7 +1138,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Role&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Lists all group rules for your organization.
@@ -1153,7 +1153,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<GroupRule>> ListGroupRulesAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Group Rules
+        /// List all Group Rules
         /// </summary>
         /// <remarks>
         /// Lists all group rules for your organization.
@@ -1167,7 +1167,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;GroupRule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Group Targets for Group Role
+        /// List all Group Targets for a Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -1182,7 +1182,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Group>> ListGroupTargetsForGroupRoleAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Group Targets for Group Role
+        /// List all Group Targets for a Group Role
         /// </summary>
         /// <remarks>
         /// Enumerates group targets for a group role.
@@ -1196,7 +1196,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Group Members
+        /// List all Member Users
         /// </summary>
         /// <remarks>
         /// Enumerates all users that are a member of a group.
@@ -1210,7 +1210,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<User>> ListGroupUsersAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Group Members
+        /// List all Member Users
         /// </summary>
         /// <remarks>
         /// Enumerates all users that are a member of a group.
@@ -1223,7 +1223,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Groups
+        /// List all Groups
         /// </summary>
         /// <remarks>
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
@@ -1239,7 +1239,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Group>> ListGroupsAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Groups
+        /// List all Groups
         /// </summary>
         /// <remarks>
         /// Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
@@ -1254,7 +1254,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Remove App Instance Target to App Administrator Role given to a Group
@@ -1269,7 +1269,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RemoveApplicationTargetFromAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Remove App Instance Target to App Administrator Role given to a Group
@@ -1283,7 +1283,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RemoveApplicationTargetFromAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, string applicationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group
+        /// Delete an Application Target from Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -1297,7 +1297,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group
+        /// Delete an Application Target from Application Administrator Role
         /// </summary>
         /// <remarks>
         /// Success
@@ -1310,7 +1310,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string appName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Group Target for Group Role
+        /// Delete a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// remove group target for a group role.
@@ -1324,7 +1324,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Group Target for Group Role
+        /// Delete a Group Target for Group Role
         /// </summary>
         /// <remarks>
         /// remove group target for a group role.
@@ -1337,7 +1337,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RemoveGroupTargetFromGroupAdministratorRoleGivenToGroupWithHttpInfoAsync(string groupId, string roleId, string targetGroupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove Role from Group
+        /// Delete a Role
         /// </summary>
         /// <remarks>
         /// Unassigns a Role from a Group
@@ -1350,7 +1350,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RemoveRoleFromGroupAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove Role from Group
+        /// Delete a Role
         /// </summary>
         /// <remarks>
         /// Unassigns a Role from a Group
@@ -1362,7 +1362,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RemoveRoleFromGroupWithHttpInfoAsync(string groupId, string roleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove User from Group
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes a user from a group with &#39;OKTA_GROUP&#39; type.
@@ -1375,7 +1375,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RemoveUserFromGroupAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove User from Group
+        /// Unassign a User
         /// </summary>
         /// <remarks>
         /// Removes a user from a group with &#39;OKTA_GROUP&#39; type.
@@ -1387,7 +1387,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RemoveUserFromGroupWithHttpInfoAsync(string groupId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Group
+        /// Replace a Group
         /// </summary>
         /// <remarks>
         /// Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -1400,7 +1400,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Group> UpdateGroupAsync(string groupId, Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Group
+        /// Replace a Group
         /// </summary>
         /// <remarks>
         /// Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
@@ -1412,7 +1412,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Group)</returns>
         System.Threading.Tasks.Task<ApiResponse<Group>> UpdateGroupWithHttpInfoAsync(string groupId, Group group, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Group Rule
+        /// Replace a Group Rule
         /// </summary>
         /// <remarks>
         /// Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
@@ -1425,7 +1425,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<GroupRule> UpdateGroupRuleAsync(string ruleId, GroupRule groupRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Group Rule
+        /// Replace a Group Rule
         /// </summary>
         /// <remarks>
         /// Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
@@ -1536,7 +1536,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate a group Rule Activates a specific group rule by id from your organization
+        /// Activate a Group Rule Activates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -1547,7 +1547,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate a group Rule Activates a specific group rule by id from your organization
+        /// Activate a Group Rule Activates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -1584,12 +1584,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1611,7 +1611,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate a group Rule Activates a specific group rule by id from your organization
+        /// Activate a Group Rule Activates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -1623,7 +1623,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate a group Rule Activates a specific group rule by id from your organization
+        /// Activate a Group Rule Activates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -1662,12 +1662,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1690,7 +1690,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role Add App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -1704,7 +1704,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role Add App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -1765,12 +1765,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
             localVarRequestOptions.PathParameters.Add("applicationId", Okta.Sdk.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1792,7 +1792,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role Add App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -1807,7 +1807,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add App Instance Target to App Administrator Role given to a Group Add App Instance Target to App Administrator Role given to a Group
+        /// Assign an Application Instance Target to Application Administrator Role Add App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -1870,12 +1870,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
             localVarRequestOptions.PathParameters.Add("applicationId", Okta.Sdk.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1898,7 +1898,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group Success
+        /// Assign an Application Target to Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -1911,7 +1911,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group Success
+        /// Assign an Application Target to Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -1964,12 +1964,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1991,7 +1991,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group Success
+        /// Assign an Application Target to Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2005,7 +2005,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Application Target to Admin Role Given to Group Success
+        /// Assign an Application Target to Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2060,12 +2060,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2088,7 +2088,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Target for Group Role Enumerates group targets for a group role.
+        /// Assign a Group Target for Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2101,7 +2101,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Target for Group Role Enumerates group targets for a group role.
+        /// Assign a Group Target for Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2154,7 +2154,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("targetGroupId", Okta.Sdk.Client.ClientUtils.ParameterToString(targetGroupId)); // path parameter
 
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2176,7 +2176,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Target for Group Role Enumerates group targets for a group role.
+        /// Assign a Group Target for Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2190,7 +2190,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Target for Group Role Enumerates group targets for a group role.
+        /// Assign a Group Target for Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2245,7 +2245,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("targetGroupId", Okta.Sdk.Client.ClientUtils.ParameterToString(targetGroupId)); // path parameter
 
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2268,7 +2268,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add User to Group Adds a user to a group with &#39;OKTA_GROUP&#39; type.
+        /// Assign a User Adds a user to a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2280,7 +2280,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add User to Group Adds a user to a group with &#39;OKTA_GROUP&#39; type.
+        /// Assign a User Adds a user to a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2325,12 +2325,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2352,7 +2352,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add User to Group Adds a user to a group with &#39;OKTA_GROUP&#39; type.
+        /// Assign a User Adds a user to a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2365,7 +2365,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add User to Group Adds a user to a group with &#39;OKTA_GROUP&#39; type.
+        /// Assign a User Adds a user to a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2412,12 +2412,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2440,7 +2440,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Role to Group Assigns a Role to a Group
+        /// Assign a Role Assigns a Role to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2454,7 +2454,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Role to Group Assigns a Role to a Group
+        /// Assign a Role Assigns a Role to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2505,12 +2505,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = assignRoleRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2532,7 +2532,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Role to Group Assigns a Role to a Group
+        /// Assign a Role Assigns a Role to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2547,7 +2547,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Assign Role to Group Assigns a Role to a Group
+        /// Assign a Role Assigns a Role to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -2600,12 +2600,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = assignRoleRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2628,7 +2628,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
+        /// Create a Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="group"></param>
@@ -2640,7 +2640,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
+        /// Create a Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="group"></param>
@@ -2678,12 +2678,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = group;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2705,7 +2705,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
+        /// Create a Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="group"></param>
@@ -2718,7 +2718,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
+        /// Create a Group Adds a new group with &#x60;OKTA_GROUP&#x60; type to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="group"></param>
@@ -2758,12 +2758,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = group;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2786,7 +2786,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
+        /// Create a Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupRule"></param>
@@ -2798,7 +2798,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
+        /// Create a Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupRule"></param>
@@ -2836,12 +2836,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = groupRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2863,7 +2863,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
+        /// Create a Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupRule"></param>
@@ -2876,7 +2876,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
+        /// Create a Group Rule Creates a group rule to dynamically add users to the specified group if they match the condition
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupRule"></param>
@@ -2916,12 +2916,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = groupRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2944,7 +2944,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate a group Rule Deactivates a specific group rule by id from your organization
+        /// Deactivate a Group Rule Deactivates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -2955,7 +2955,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate a group Rule Deactivates a specific group rule by id from your organization
+        /// Deactivate a Group Rule Deactivates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -2992,12 +2992,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3019,7 +3019,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate a group Rule Deactivates a specific group rule by id from your organization
+        /// Deactivate a Group Rule Deactivates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -3031,7 +3031,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate a group Rule Deactivates a specific group rule by id from your organization
+        /// Deactivate a Group Rule Deactivates a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -3070,12 +3070,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3098,7 +3098,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Delete a Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3109,7 +3109,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Delete a Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3146,12 +3146,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3173,7 +3173,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Delete a Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3185,7 +3185,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Delete a Group Removes a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3224,12 +3224,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3306,12 +3306,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeUsers", removeUsers));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3390,12 +3390,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeUsers", removeUsers));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3418,7 +3418,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Fetches a group from your organization.
+        /// List all Group Rules Fetches a group from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3430,7 +3430,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Fetches a group from your organization.
+        /// List all Group Rules Fetches a group from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3467,12 +3467,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3494,7 +3494,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Fetches a group from your organization.
+        /// List all Group Rules Fetches a group from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3507,7 +3507,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Fetches a group from your organization.
+        /// List all Group Rules Fetches a group from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3546,12 +3546,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3574,7 +3574,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Group Rule Fetches a specific group rule by id from your organization
+        /// Retrieve a Group Rule Fetches a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -3587,7 +3587,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Group Rule Fetches a specific group rule by id from your organization
+        /// Retrieve a Group Rule Fetches a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -3629,12 +3629,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3656,7 +3656,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Group Rule Fetches a specific group rule by id from your organization
+        /// Retrieve a Group Rule Fetches a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -3670,7 +3670,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Group Rule Fetches a specific group rule by id from your organization
+        /// Retrieve a Group Rule Fetches a specific group rule by id from your organization
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -3714,12 +3714,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3742,7 +3742,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Role Success
+        /// Retrieve a Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3755,7 +3755,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Role Success
+        /// Retrieve a Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3800,12 +3800,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3827,7 +3827,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Role Success
+        /// Retrieve a Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3841,7 +3841,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Role Success
+        /// Retrieve a Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3888,12 +3888,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3916,7 +3916,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
+        /// List all Application Targets for an Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3931,7 +3931,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
+        /// List all Application Targets for an Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -3986,12 +3986,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4013,7 +4013,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
+        /// List all Application Targets for an Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4029,7 +4029,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Application Targets for Application Administrator Role for Group Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
+        /// List all Application Targets for an Application Administrator Role Lists all App targets for an &#x60;APP_ADMIN&#x60; Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an &#x60;ID&#x60; value, while Application will not have an ID.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4086,12 +4086,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4114,7 +4114,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Assigned Applications Enumerates all applications that are assigned to a group.
+        /// List all Assigned Applications Enumerates all applications that are assigned to a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4128,7 +4128,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Assigned Applications Enumerates all applications that are assigned to a group.
+        /// List all Assigned Applications Enumerates all applications that are assigned to a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4175,12 +4175,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4202,7 +4202,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Assigned Applications Enumerates all applications that are assigned to a group.
+        /// List all Assigned Applications Enumerates all applications that are assigned to a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4217,7 +4217,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Assigned Applications Enumerates all applications that are assigned to a group.
+        /// List all Assigned Applications Enumerates all applications that are assigned to a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4266,12 +4266,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4294,7 +4294,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Assigned Roles Success
+        /// List all Assigned Roles Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4307,7 +4307,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Assigned Roles Success
+        /// List all Assigned Roles Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4349,12 +4349,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4376,7 +4376,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Assigned Roles Success
+        /// List all Assigned Roles Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4390,7 +4390,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Assigned Roles Success
+        /// List all Assigned Roles Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4434,12 +4434,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4462,7 +4462,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Lists all group rules for your organization.
+        /// List all Group Rules Lists all group rules for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the number of rule results in a page (optional, default to 50)</param>
@@ -4477,7 +4477,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Lists all group rules for your organization.
+        /// List all Group Rules Lists all group rules for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the number of rule results in a page (optional, default to 50)</param>
@@ -4526,12 +4526,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4553,7 +4553,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Lists all group rules for your organization.
+        /// List all Group Rules Lists all group rules for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the number of rule results in a page (optional, default to 50)</param>
@@ -4569,7 +4569,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Rules Lists all group rules for your organization.
+        /// List all Group Rules Lists all group rules for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Specifies the number of rule results in a page (optional, default to 50)</param>
@@ -4620,12 +4620,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4648,7 +4648,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Targets for Group Role Enumerates group targets for a group role.
+        /// List all Group Targets for a Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4663,7 +4663,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Targets for Group Role Enumerates group targets for a group role.
+        /// List all Group Targets for a Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4718,12 +4718,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4745,7 +4745,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Targets for Group Role Enumerates group targets for a group role.
+        /// List all Group Targets for a Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4761,7 +4761,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Targets for Group Role Enumerates group targets for a group role.
+        /// List all Group Targets for a Group Role Enumerates group targets for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4818,12 +4818,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4846,7 +4846,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Members Enumerates all users that are a member of a group.
+        /// List all Member Users Enumerates all users that are a member of a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4860,7 +4860,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Members Enumerates all users that are a member of a group.
+        /// List all Member Users Enumerates all users that are a member of a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4907,12 +4907,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4934,7 +4934,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Members Enumerates all users that are a member of a group.
+        /// List all Member Users Enumerates all users that are a member of a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4949,7 +4949,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Group Members Enumerates all users that are a member of a group.
+        /// List all Member Users Enumerates all users that are a member of a group.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -4998,12 +4998,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5026,7 +5026,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
+        /// List all Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
@@ -5042,7 +5042,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
+        /// List all Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
@@ -5096,12 +5096,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5123,7 +5123,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
+        /// List all Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
@@ -5140,7 +5140,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
+        /// List all Groups Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of groups for matching value (optional)</param>
@@ -5196,12 +5196,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5224,7 +5224,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5238,7 +5238,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5299,12 +5299,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
             localVarRequestOptions.PathParameters.Add("applicationId", Okta.Sdk.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5326,7 +5326,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5341,7 +5341,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove App Instance Target to App Administrator Role given to a Group Remove App Instance Target to App Administrator Role given to a Group
+        /// Delete an Application Instance Target to Application Administrator Role Remove App Instance Target to App Administrator Role given to a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5404,12 +5404,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
             localVarRequestOptions.PathParameters.Add("applicationId", Okta.Sdk.Client.ClientUtils.ParameterToString(applicationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5432,7 +5432,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group Success
+        /// Delete an Application Target from Application Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5445,7 +5445,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group Success
+        /// Delete an Application Target from Application Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5498,12 +5498,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5525,7 +5525,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group Success
+        /// Delete an Application Target from Application Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5539,7 +5539,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Application Target from Application Administrator Role Given to Group Success
+        /// Delete an Application Target from Application Administrator Role Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5594,12 +5594,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("appName", Okta.Sdk.Client.ClientUtils.ParameterToString(appName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5622,7 +5622,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Group Target for Group Role remove group target for a group role.
+        /// Delete a Group Target for Group Role remove group target for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5635,7 +5635,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Group Target for Group Role remove group target for a group role.
+        /// Delete a Group Target for Group Role remove group target for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5688,7 +5688,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("targetGroupId", Okta.Sdk.Client.ClientUtils.ParameterToString(targetGroupId)); // path parameter
 
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5710,7 +5710,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Group Target for Group Role remove group target for a group role.
+        /// Delete a Group Target for Group Role remove group target for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5724,7 +5724,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Group Target for Group Role remove group target for a group role.
+        /// Delete a Group Target for Group Role remove group target for a group role.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5779,7 +5779,7 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
             localVarRequestOptions.PathParameters.Add("targetGroupId", Okta.Sdk.Client.ClientUtils.ParameterToString(targetGroupId)); // path parameter
 
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5802,7 +5802,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Role from Group Unassigns a Role from a Group
+        /// Delete a Role Unassigns a Role from a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5814,7 +5814,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Role from Group Unassigns a Role from a Group
+        /// Delete a Role Unassigns a Role from a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5859,12 +5859,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5886,7 +5886,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Role from Group Unassigns a Role from a Group
+        /// Delete a Role Unassigns a Role from a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5899,7 +5899,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove Role from Group Unassigns a Role from a Group
+        /// Delete a Role Unassigns a Role from a Group
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5946,12 +5946,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("roleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5974,7 +5974,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Group Removes a user from a group with &#39;OKTA_GROUP&#39; type.
+        /// Unassign a User Removes a user from a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -5986,7 +5986,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Group Removes a user from a group with &#39;OKTA_GROUP&#39; type.
+        /// Unassign a User Removes a user from a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6031,12 +6031,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6058,7 +6058,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Group Removes a user from a group with &#39;OKTA_GROUP&#39; type.
+        /// Unassign a User Removes a user from a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6071,7 +6071,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove User from Group Removes a user from a group with &#39;OKTA_GROUP&#39; type.
+        /// Unassign a User Removes a user from a group with &#39;OKTA_GROUP&#39; type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6118,12 +6118,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6146,7 +6146,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Replace a Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6159,7 +6159,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Replace a Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6205,12 +6205,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = group;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6232,7 +6232,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Replace a Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6246,7 +6246,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
+        /// Replace a Group Updates the profile for a group with &#x60;OKTA_GROUP&#x60; type from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId"></param>
@@ -6294,12 +6294,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("groupId", Okta.Sdk.Client.ClientUtils.ParameterToString(groupId)); // path parameter
             localVarRequestOptions.Data = group;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6322,7 +6322,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
+        /// Replace a Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -6335,7 +6335,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
+        /// Replace a Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -6381,12 +6381,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = groupRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6408,7 +6408,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
+        /// Replace a Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -6422,7 +6422,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
+        /// Replace a Group Rule Updates a group rule. Only &#x60;INACTIVE&#x60; rules can be updated.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="ruleId"></param>
@@ -6470,12 +6470,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = groupRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

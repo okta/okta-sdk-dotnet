@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activates a policy.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         void ActivatePolicy(string policyId);
 
         /// <summary>
-        /// Activate Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activates a policy.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivatePolicyWithHttpInfo(string policyId);
         /// <summary>
-        /// Activate Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activates a policy rule.
@@ -61,7 +61,7 @@ namespace Okta.Sdk.Api
         void ActivatePolicyRule(string policyId, string ruleId);
 
         /// <summary>
-        /// Activate Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activates a policy rule.
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivatePolicyRuleWithHttpInfo(string policyId, string ruleId);
         /// <summary>
-        /// Create Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Creates a policy.
@@ -84,7 +84,7 @@ namespace Okta.Sdk.Api
         Policy CreatePolicy(Policy policy, bool? activate = default(bool?));
 
         /// <summary>
-        /// Create Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Creates a policy.
@@ -95,7 +95,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Policy</returns>
         ApiResponse<Policy> CreatePolicyWithHttpInfo(Policy policy, bool? activate = default(bool?));
         /// <summary>
-        /// Create Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule.
@@ -107,7 +107,7 @@ namespace Okta.Sdk.Api
         PolicyRule CreatePolicyRule(string policyId, PolicyRule policyRule);
 
         /// <summary>
-        /// Create Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule.
@@ -118,7 +118,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of PolicyRule</returns>
         ApiResponse<PolicyRule> CreatePolicyRuleWithHttpInfo(string policyId, PolicyRule policyRule);
         /// <summary>
-        /// Deactivate Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivates a policy.
@@ -129,7 +129,7 @@ namespace Okta.Sdk.Api
         void DeactivatePolicy(string policyId);
 
         /// <summary>
-        /// Deactivate Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivates a policy.
@@ -139,7 +139,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivatePolicyWithHttpInfo(string policyId);
         /// <summary>
-        /// Deactivate Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a policy rule.
@@ -151,7 +151,7 @@ namespace Okta.Sdk.Api
         void DeactivatePolicyRule(string policyId, string ruleId);
 
         /// <summary>
-        /// Deactivate Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a policy rule.
@@ -162,7 +162,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivatePolicyRuleWithHttpInfo(string policyId, string ruleId);
         /// <summary>
-        /// Delete Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Removes a policy.
@@ -173,7 +173,7 @@ namespace Okta.Sdk.Api
         void DeletePolicy(string policyId);
 
         /// <summary>
-        /// Delete Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Removes a policy.
@@ -183,7 +183,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeletePolicyWithHttpInfo(string policyId);
         /// <summary>
-        /// Delete Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Removes a policy rule.
@@ -195,7 +195,7 @@ namespace Okta.Sdk.Api
         void DeletePolicyRule(string policyId, string ruleId);
 
         /// <summary>
-        /// Delete Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Removes a policy rule.
@@ -206,7 +206,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeletePolicyRuleWithHttpInfo(string policyId, string ruleId);
         /// <summary>
-        /// Get Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Gets a policy.
@@ -218,7 +218,7 @@ namespace Okta.Sdk.Api
         Policy GetPolicy(string policyId, string expand = default(string));
 
         /// <summary>
-        /// Get Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Gets a policy.
@@ -229,7 +229,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Policy</returns>
         ApiResponse<Policy> GetPolicyWithHttpInfo(string policyId, string expand = default(string));
         /// <summary>
-        /// Get Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Gets a policy rule.
@@ -241,7 +241,7 @@ namespace Okta.Sdk.Api
         PolicyRule GetPolicyRule(string policyId, string ruleId);
 
         /// <summary>
-        /// Get Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Gets a policy rule.
@@ -252,7 +252,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of PolicyRule</returns>
         ApiResponse<PolicyRule> GetPolicyRuleWithHttpInfo(string policyId, string ruleId);
         /// <summary>
-        /// List Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Gets all policies with the specified type.
@@ -265,7 +265,7 @@ namespace Okta.Sdk.Api
         List<Policy> ListPolicies(string type, string status = default(string), string expand = default(string));
 
         /// <summary>
-        /// List Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Gets all policies with the specified type.
@@ -277,7 +277,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Policy&gt;</returns>
         ApiResponse<List<Policy>> ListPoliciesWithHttpInfo(string type, string status = default(string), string expand = default(string));
         /// <summary>
-        /// List Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules.
@@ -288,7 +288,7 @@ namespace Okta.Sdk.Api
         List<PolicyRule> ListPolicyRules(string policyId);
 
         /// <summary>
-        /// List Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules.
@@ -298,7 +298,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;PolicyRule&gt;</returns>
         ApiResponse<List<PolicyRule>> ListPolicyRulesWithHttpInfo(string policyId);
         /// <summary>
-        /// Update Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Updates a policy.
@@ -310,7 +310,7 @@ namespace Okta.Sdk.Api
         Policy UpdatePolicy(string policyId, Policy policy);
 
         /// <summary>
-        /// Update Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Updates a policy.
@@ -321,7 +321,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Policy</returns>
         ApiResponse<Policy> UpdatePolicyWithHttpInfo(string policyId, Policy policy);
         /// <summary>
-        /// Update Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates a policy rule.
@@ -334,7 +334,7 @@ namespace Okta.Sdk.Api
         PolicyRule UpdatePolicyRule(string policyId, string ruleId, PolicyRule policyRule);
 
         /// <summary>
-        /// Update Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates a policy rule.
@@ -355,7 +355,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activates a policy.
@@ -367,7 +367,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivatePolicyAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activates a policy.
@@ -378,7 +378,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivatePolicyWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Activate Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activates a policy rule.
@@ -391,7 +391,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivatePolicyRuleAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activates a policy rule.
@@ -403,7 +403,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivatePolicyRuleWithHttpInfoAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Creates a policy.
@@ -416,7 +416,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Policy> CreatePolicyAsync(Policy policy, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Creates a policy.
@@ -428,7 +428,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Policy)</returns>
         System.Threading.Tasks.Task<ApiResponse<Policy>> CreatePolicyWithHttpInfoAsync(Policy policy, bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule.
@@ -441,7 +441,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<PolicyRule> CreatePolicyRuleAsync(string policyId, PolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule.
@@ -453,7 +453,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (PolicyRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyRule>> CreatePolicyRuleWithHttpInfoAsync(string policyId, PolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivates a policy.
@@ -465,7 +465,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivatePolicyAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivates a policy.
@@ -476,7 +476,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivatePolicyWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a policy rule.
@@ -489,7 +489,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivatePolicyRuleAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivates a policy rule.
@@ -501,7 +501,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivatePolicyRuleWithHttpInfoAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Removes a policy.
@@ -513,7 +513,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeletePolicyAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Removes a policy.
@@ -524,7 +524,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeletePolicyWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Removes a policy rule.
@@ -537,7 +537,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeletePolicyRuleAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Removes a policy rule.
@@ -549,7 +549,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeletePolicyRuleWithHttpInfoAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Gets a policy.
@@ -562,7 +562,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Policy> GetPolicyAsync(string policyId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Gets a policy.
@@ -574,7 +574,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Policy)</returns>
         System.Threading.Tasks.Task<ApiResponse<Policy>> GetPolicyWithHttpInfoAsync(string policyId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Gets a policy rule.
@@ -587,7 +587,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<PolicyRule> GetPolicyRuleAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Gets a policy rule.
@@ -599,7 +599,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (PolicyRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<PolicyRule>> GetPolicyRuleWithHttpInfoAsync(string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Gets all policies with the specified type.
@@ -613,7 +613,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Policy>> ListPoliciesAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Gets all policies with the specified type.
@@ -626,7 +626,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Policy&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Policy>>> ListPoliciesWithHttpInfoAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules.
@@ -638,7 +638,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<PolicyRule>> ListPolicyRulesAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules.
@@ -649,7 +649,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;PolicyRule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<PolicyRule>>> ListPolicyRulesWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Updates a policy.
@@ -662,7 +662,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Policy> UpdatePolicyAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Updates a policy.
@@ -674,7 +674,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Policy)</returns>
         System.Threading.Tasks.Task<ApiResponse<Policy>> UpdatePolicyWithHttpInfoAsync(string policyId, Policy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates a policy rule.
@@ -688,7 +688,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<PolicyRule> UpdatePolicyRuleAsync(string policyId, string ruleId, PolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates a policy rule.
@@ -800,7 +800,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Activates a policy.
+        /// Activate a Policy Activates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -811,7 +811,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Activates a policy.
+        /// Activate a Policy Activates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -848,12 +848,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -875,7 +875,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Activates a policy.
+        /// Activate a Policy Activates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -887,7 +887,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Activates a policy.
+        /// Activate a Policy Activates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -926,12 +926,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -954,7 +954,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Rule Activates a policy rule.
+        /// Activate a Policy Rule Activates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -966,7 +966,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Rule Activates a policy rule.
+        /// Activate a Policy Rule Activates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1011,12 +1011,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1038,7 +1038,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Rule Activates a policy rule.
+        /// Activate a Policy Rule Activates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1051,7 +1051,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Policy Rule Activates a policy rule.
+        /// Activate a Policy Rule Activates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1098,12 +1098,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1126,7 +1126,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Creates a policy.
+        /// Create a Policy Creates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policy"></param>
@@ -1139,7 +1139,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Creates a policy.
+        /// Create a Policy Creates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policy"></param>
@@ -1182,12 +1182,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1209,7 +1209,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Creates a policy.
+        /// Create a Policy Creates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policy"></param>
@@ -1223,7 +1223,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Creates a policy.
+        /// Create a Policy Creates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policy"></param>
@@ -1268,12 +1268,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1296,7 +1296,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Rule Creates a policy rule.
+        /// Create a Policy Rule Creates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1309,7 +1309,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Rule Creates a policy rule.
+        /// Create a Policy Rule Creates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1355,12 +1355,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1382,7 +1382,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Rule Creates a policy rule.
+        /// Create a Policy Rule Creates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1396,7 +1396,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Policy Rule Creates a policy rule.
+        /// Create a Policy Rule Creates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1444,12 +1444,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1472,7 +1472,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Deactivates a policy.
+        /// Deactivate a Policy Deactivates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1483,7 +1483,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Deactivates a policy.
+        /// Deactivate a Policy Deactivates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1520,12 +1520,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1547,7 +1547,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Deactivates a policy.
+        /// Deactivate a Policy Deactivates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1559,7 +1559,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Deactivates a policy.
+        /// Deactivate a Policy Deactivates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1598,12 +1598,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1626,7 +1626,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Rule Deactivates a policy rule.
+        /// Deactivate a Policy Rule Deactivates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1638,7 +1638,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Rule Deactivates a policy rule.
+        /// Deactivate a Policy Rule Deactivates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1683,12 +1683,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1710,7 +1710,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Rule Deactivates a policy rule.
+        /// Deactivate a Policy Rule Deactivates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1723,7 +1723,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Policy Rule Deactivates a policy rule.
+        /// Deactivate a Policy Rule Deactivates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1770,12 +1770,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1798,7 +1798,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Removes a policy.
+        /// Delete a Policy Removes a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1809,7 +1809,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Removes a policy.
+        /// Delete a Policy Removes a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1846,12 +1846,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1873,7 +1873,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Removes a policy.
+        /// Delete a Policy Removes a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1885,7 +1885,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Removes a policy.
+        /// Delete a Policy Removes a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1924,12 +1924,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1952,7 +1952,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Rule Removes a policy rule.
+        /// Delete a Policy Rule Removes a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -1964,7 +1964,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Rule Removes a policy rule.
+        /// Delete a Policy Rule Removes a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2009,12 +2009,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2036,7 +2036,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Rule Removes a policy rule.
+        /// Delete a Policy Rule Removes a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2049,7 +2049,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Policy Rule Removes a policy rule.
+        /// Delete a Policy Rule Removes a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2096,12 +2096,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2124,7 +2124,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Gets a policy.
+        /// Retrieve a Policy Gets a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2137,7 +2137,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Gets a policy.
+        /// Retrieve a Policy Gets a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2179,12 +2179,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2206,7 +2206,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Gets a policy.
+        /// Retrieve a Policy Gets a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2220,7 +2220,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Gets a policy.
+        /// Retrieve a Policy Gets a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2264,12 +2264,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2292,7 +2292,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Rule Gets a policy rule.
+        /// Retrieve a Policy Rule Gets a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2305,7 +2305,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Rule Gets a policy rule.
+        /// Retrieve a Policy Rule Gets a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2350,12 +2350,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2377,7 +2377,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Rule Gets a policy rule.
+        /// Retrieve a Policy Rule Gets a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2391,7 +2391,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Policy Rule Gets a policy rule.
+        /// Retrieve a Policy Rule Gets a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2438,12 +2438,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2466,7 +2466,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policies Gets all policies with the specified type.
+        /// List all Policies Gets all policies with the specified type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"></param>
@@ -2480,7 +2480,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policies Gets all policies with the specified type.
+        /// List all Policies Gets all policies with the specified type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"></param>
@@ -2527,12 +2527,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2554,7 +2554,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policies Gets all policies with the specified type.
+        /// List all Policies Gets all policies with the specified type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"></param>
@@ -2569,7 +2569,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policies Gets all policies with the specified type.
+        /// List all Policies Gets all policies with the specified type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"></param>
@@ -2618,12 +2618,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2646,7 +2646,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policy Rules Enumerates all policy rules.
+        /// List all Policy Rules Enumerates all policy rules.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2658,7 +2658,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policy Rules Enumerates all policy rules.
+        /// List all Policy Rules Enumerates all policy rules.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2695,12 +2695,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2722,7 +2722,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policy Rules Enumerates all policy rules.
+        /// List all Policy Rules Enumerates all policy rules.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2735,7 +2735,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Policy Rules Enumerates all policy rules.
+        /// List all Policy Rules Enumerates all policy rules.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2774,12 +2774,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2802,7 +2802,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Updates a policy.
+        /// Replace a Policy Updates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2815,7 +2815,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Updates a policy.
+        /// Replace a Policy Updates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2861,12 +2861,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2888,7 +2888,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Updates a policy.
+        /// Replace a Policy Updates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2902,7 +2902,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Updates a policy.
+        /// Replace a Policy Updates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2950,12 +2950,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2978,7 +2978,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Rule Updates a policy rule.
+        /// Replace a Policy Rule Updates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2992,7 +2992,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Rule Updates a policy rule.
+        /// Replace a Policy Rule Updates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -3046,12 +3046,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3073,7 +3073,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Rule Updates a policy rule.
+        /// Replace a Policy Rule Updates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -3088,7 +3088,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Policy Rule Updates a policy rule.
+        /// Replace a Policy Rule Updates a policy rule.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -3144,12 +3144,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

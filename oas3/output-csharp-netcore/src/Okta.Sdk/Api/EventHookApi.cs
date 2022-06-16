@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Event Hook
+        /// Activate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         EventHook ActivateEventHook(string eventHookId);
 
         /// <summary>
-        /// Activate Event Hook
+        /// Activate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EventHook</returns>
         ApiResponse<EventHook> ActivateEventHookWithHttpInfo(string eventHookId);
         /// <summary>
-        /// Create Event Hook
+        /// Create an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         EventHook CreateEventHook(EventHook eventHook);
 
         /// <summary>
-        /// Create Event Hook
+        /// Create an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EventHook</returns>
         ApiResponse<EventHook> CreateEventHookWithHttpInfo(EventHook eventHook);
         /// <summary>
-        /// Deactivate Event Hook
+        /// Deactivate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         EventHook DeactivateEventHook(string eventHookId);
 
         /// <summary>
-        /// Deactivate Event Hook
+        /// Deactivate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EventHook</returns>
         ApiResponse<EventHook> DeactivateEventHookWithHttpInfo(string eventHookId);
         /// <summary>
-        /// Delete Event Hook
+        /// Delete an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         void DeleteEventHook(string eventHookId);
 
         /// <summary>
-        /// Delete Event Hook
+        /// Delete an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -112,7 +112,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteEventHookWithHttpInfo(string eventHookId);
         /// <summary>
-        /// Get Event Hook
+        /// Retrieve an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -123,7 +123,7 @@ namespace Okta.Sdk.Api
         EventHook GetEventHook(string eventHookId);
 
         /// <summary>
-        /// Get Event Hook
+        /// Retrieve an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EventHook</returns>
         ApiResponse<EventHook> GetEventHookWithHttpInfo(string eventHookId);
         /// <summary>
-        /// List Event Hooks
+        /// List all Event Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -143,7 +143,7 @@ namespace Okta.Sdk.Api
         List<EventHook> ListEventHooks();
 
         /// <summary>
-        /// List Event Hooks
+        /// List all Event Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -152,7 +152,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;EventHook&gt;</returns>
         ApiResponse<List<EventHook>> ListEventHooksWithHttpInfo();
         /// <summary>
-        /// Update Event Hook
+        /// Replace an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -164,7 +164,7 @@ namespace Okta.Sdk.Api
         EventHook UpdateEventHook(string eventHookId, EventHook eventHook);
 
         /// <summary>
-        /// Update Event Hook
+        /// Replace an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -175,7 +175,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EventHook</returns>
         ApiResponse<EventHook> UpdateEventHookWithHttpInfo(string eventHookId, EventHook eventHook);
         /// <summary>
-        /// Verify Event Hook
+        /// Verify an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -186,7 +186,7 @@ namespace Okta.Sdk.Api
         EventHook VerifyEventHook(string eventHookId);
 
         /// <summary>
-        /// Verify Event Hook
+        /// Verify an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -205,7 +205,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Event Hook
+        /// Activate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -217,7 +217,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EventHook> ActivateEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Event Hook
+        /// Activate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -228,7 +228,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EventHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<EventHook>> ActivateEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Event Hook
+        /// Create an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -240,7 +240,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EventHook> CreateEventHookAsync(EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Event Hook
+        /// Create an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -251,7 +251,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EventHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<EventHook>> CreateEventHookWithHttpInfoAsync(EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Event Hook
+        /// Deactivate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -263,7 +263,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EventHook> DeactivateEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Event Hook
+        /// Deactivate an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -274,7 +274,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EventHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<EventHook>> DeactivateEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Event Hook
+        /// Delete an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -286,7 +286,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Event Hook
+        /// Delete an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -297,7 +297,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Event Hook
+        /// Retrieve an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -309,7 +309,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EventHook> GetEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Event Hook
+        /// Retrieve an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -320,7 +320,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EventHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<EventHook>> GetEventHookWithHttpInfoAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Event Hooks
+        /// List all Event Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -331,7 +331,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<EventHook>> ListEventHooksAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Event Hooks
+        /// List all Event Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -341,7 +341,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;EventHook&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<EventHook>>> ListEventHooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Event Hook
+        /// Replace an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -354,7 +354,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EventHook> UpdateEventHookAsync(string eventHookId, EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Event Hook
+        /// Replace an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -366,7 +366,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EventHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<EventHook>> UpdateEventHookWithHttpInfoAsync(string eventHookId, EventHook eventHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Verify Event Hook
+        /// Verify an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -378,7 +378,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EventHook> VerifyEventHookAsync(string eventHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Verify Event Hook
+        /// Verify an Event Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -488,7 +488,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Event Hook Success
+        /// Activate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -500,7 +500,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Event Hook Success
+        /// Activate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -537,12 +537,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -564,7 +564,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Event Hook Success
+        /// Activate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -577,7 +577,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Event Hook Success
+        /// Activate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -616,12 +616,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -644,7 +644,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Event Hook Success
+        /// Create an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
@@ -656,7 +656,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Event Hook Success
+        /// Create an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
@@ -694,12 +694,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = eventHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -721,7 +721,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Event Hook Success
+        /// Create an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
@@ -734,7 +734,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Event Hook Success
+        /// Create an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHook"></param>
@@ -774,12 +774,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = eventHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -802,7 +802,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Event Hook Success
+        /// Deactivate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -814,7 +814,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Event Hook Success
+        /// Deactivate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -851,12 +851,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -878,7 +878,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Event Hook Success
+        /// Deactivate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -891,7 +891,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Event Hook Success
+        /// Deactivate an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -930,12 +930,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -958,7 +958,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Event Hook Success
+        /// Delete an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -969,7 +969,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Event Hook Success
+        /// Delete an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1006,12 +1006,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1033,7 +1033,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Event Hook Success
+        /// Delete an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1045,7 +1045,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Event Hook Success
+        /// Delete an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1084,12 +1084,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1112,7 +1112,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Event Hook Success
+        /// Retrieve an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1124,7 +1124,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Event Hook Success
+        /// Retrieve an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1161,12 +1161,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1188,7 +1188,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Event Hook Success
+        /// Retrieve an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1201,7 +1201,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Event Hook Success
+        /// Retrieve an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1240,12 +1240,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1268,7 +1268,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Event Hooks Success
+        /// List all Event Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;EventHook&gt;</returns>
@@ -1279,7 +1279,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Event Hooks Success
+        /// List all Event Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;EventHook&gt;</returns>
@@ -1308,12 +1308,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1335,7 +1335,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Event Hooks Success
+        /// List all Event Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1347,7 +1347,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Event Hooks Success
+        /// List all Event Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1378,12 +1378,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1406,7 +1406,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Event Hook Success
+        /// Replace an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1419,7 +1419,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Event Hook Success
+        /// Replace an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1465,12 +1465,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
             localVarRequestOptions.Data = eventHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1492,7 +1492,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Event Hook Success
+        /// Replace an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1506,7 +1506,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Event Hook Success
+        /// Replace an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1554,12 +1554,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
             localVarRequestOptions.Data = eventHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1582,7 +1582,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify Event Hook Success
+        /// Verify an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1594,7 +1594,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify Event Hook Success
+        /// Verify an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1631,12 +1631,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1658,7 +1658,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify Event Hook Success
+        /// Verify an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1671,7 +1671,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify Event Hook Success
+        /// Verify an Event Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="eventHookId"></param>
@@ -1710,12 +1710,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("eventHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(eventHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

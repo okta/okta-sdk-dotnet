@@ -334,7 +334,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task UpdateSWAApplicationAdminSetUsernameAndPassword()
         {
-            var app = new SwaApplication
+            var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationAdminSetUsernameAndPassword {Guid.NewGuid()}",
                 SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
@@ -356,7 +356,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as SwaApplication ;
+                var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication ;
 
                 // Checking defaults
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
@@ -377,7 +377,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
-                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as SwaApplication;
+                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.ADMINSETSCREDENTIALS);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
@@ -393,7 +393,7 @@ namespace Okta.Sdk.IntegrationTest
         [Fact]
         public async Task UpdateSWAApplicationSetUserEditablePassword()
         {
-            var app = new SwaApplication
+            var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationSetUserEditablePassword {Guid.NewGuid()}",
                 SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
@@ -415,7 +415,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as SwaApplication;
+                var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication;
 
                 // Checking defaults
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
@@ -426,7 +426,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.UserNameTemplate.Template = "${source.login}";
                 retrieved.Credentials.UserNameTemplate.Type = "BUILT_IN";
 
-                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as SwaApplication;
+                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITPASSWORDONLY);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
@@ -443,7 +443,7 @@ namespace Okta.Sdk.IntegrationTest
         public async Task UpdateSWAApplicationSetSharedCredentials()
         {
 
-            var app = new SwaApplication
+            var app = new BrowserPluginApplication
             {
                 Label = $"dotnet-sdk: UpdateSWAApplicationSetSharedCredentials {Guid.NewGuid()}",
                 SignOnMode = ApplicationSignOnMode.BROWSERPLUGIN,
@@ -465,7 +465,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as SwaApplication;
+                var retrieved = await _applicationApi.GetApplicationAsync(createdApp.Id) as BrowserPluginApplication;
 
                 // Checking defaults
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.EDITUSERNAMEANDPASSWORD);
@@ -478,7 +478,7 @@ namespace Okta.Sdk.IntegrationTest
                 retrieved.Credentials.UserName = "sharedusername";
                 retrieved.Credentials.Password = new PasswordCredential() { Value = "sharedpassword" };
 
-                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as SwaApplication;
+                retrieved = await _applicationApi.UpdateApplicationAsync(retrieved.Id, retrieved) as BrowserPluginApplication;
 
                 retrieved.Credentials.Scheme.Should().Be(ApplicationCredentialsScheme.SHAREDUSERNAMEANDPASSWORD);
                 retrieved.Credentials.UserNameTemplate.Template.Should().Be("${source.login}");
@@ -2030,14 +2030,14 @@ namespace Okta.Sdk.IntegrationTest
         {
             var guid = Guid.NewGuid();
 
-            var org2orgApp = new Org2OrgApplication
+            var org2orgApp = new SamlApplication
             {
                 Label = $"dotnet-sdk: okta_org2org {guid}",
                 SignOnMode = ApplicationSignOnMode.SAML20,
                 Name = "okta_org2org",
-                Settings = new Org2OrgApplicationSettings
+                Settings = new SamlApplicationSettings()
                 {
-                    App = new Org2OrgApplicationSettingsApp
+                    App = new SamlApplicationSettingsApplication()
                     {
                         AcsUrl = "https://example.okta.com/sso/saml2/exampleid",
                         AudRestriction = "https://www.okta.com/saml2/service-provider/exampleid",
@@ -2058,7 +2058,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 newApp.Id.Should().NotBeNullOrEmpty();
                 newApp.SignOnMode.Should().Be(ApplicationSignOnMode.SAML20);
-                ((Org2OrgApplication)newApp).Name.Should().Be(org2orgApp.Name);
+                ((SamlApplication)newApp).Name.Should().Be(org2orgApp.Name);
                 newApp.Label.Should().Be(org2orgApp.Label);
 
                 var retrievedApp = await _applicationApi.GetApplicationAsync(newApp.Id);

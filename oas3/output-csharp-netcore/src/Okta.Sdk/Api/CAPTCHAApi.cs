@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create new CAPTCHA instance
+        /// Create a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         CAPTCHAInstance CreateCaptchaInstance(CAPTCHAInstance instance);
 
         /// <summary>
-        /// Create new CAPTCHA instance
+        /// Create a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of CAPTCHAInstance</returns>
         ApiResponse<CAPTCHAInstance> CreateCaptchaInstanceWithHttpInfo(CAPTCHAInstance instance);
         /// <summary>
-        /// Delete CAPTCHA Instance
+        /// Delete a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         void DeleteCaptchaInstance(string captchaId);
 
         /// <summary>
-        /// Delete CAPTCHA Instance
+        /// Delete a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteCaptchaInstanceWithHttpInfo(string captchaId);
         /// <summary>
-        /// Get CAPTCHA Instance
+        /// Retrieve a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         CAPTCHAInstance GetCaptchaInstance(string captchaId);
 
         /// <summary>
-        /// Get CAPTCHA Instance
+        /// Retrieve a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of CAPTCHAInstance</returns>
         ApiResponse<CAPTCHAInstance> GetCaptchaInstanceWithHttpInfo(string captchaId);
         /// <summary>
-        /// List CAPTCHA instances
+        /// List all CAPTCHA instances
         /// </summary>
         /// <remarks>
         /// Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         List<CAPTCHAInstance> ListCaptchaInstances();
 
         /// <summary>
-        /// List CAPTCHA instances
+        /// List all CAPTCHA instances
         /// </summary>
         /// <remarks>
         /// Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
@@ -110,7 +110,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;CAPTCHAInstance&gt;</returns>
         ApiResponse<List<CAPTCHAInstance>> ListCaptchaInstancesWithHttpInfo();
         /// <summary>
-        /// Partial Update CAPTCHA instance
+        /// Update a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -122,7 +122,7 @@ namespace Okta.Sdk.Api
         CAPTCHAInstance PartialUpdateCaptchaInstance(string captchaId, CAPTCHAInstance instance);
 
         /// <summary>
-        /// Partial Update CAPTCHA instance
+        /// Update a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of CAPTCHAInstance</returns>
         ApiResponse<CAPTCHAInstance> PartialUpdateCaptchaInstanceWithHttpInfo(string captchaId, CAPTCHAInstance instance);
         /// <summary>
-        /// Update CAPTCHA instance
+        /// Replace a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Api
         CAPTCHAInstance UpdateCaptchaInstance(string captchaId, CAPTCHAInstance instance);
 
         /// <summary>
-        /// Update CAPTCHA instance
+        /// Replace a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create new CAPTCHA instance
+        /// Create a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<CAPTCHAInstance> CreateCaptchaInstanceAsync(CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create new CAPTCHA instance
+        /// Create a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
@@ -188,7 +188,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
         System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> CreateCaptchaInstanceWithHttpInfoAsync(CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete CAPTCHA Instance
+        /// Delete a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete CAPTCHA Instance
+        /// Delete a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
@@ -211,7 +211,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteCaptchaInstanceWithHttpInfoAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get CAPTCHA Instance
+        /// Retrieve a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -223,7 +223,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<CAPTCHAInstance> GetCaptchaInstanceAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get CAPTCHA Instance
+        /// Retrieve a CAPTCHA Instance
         /// </summary>
         /// <remarks>
         /// Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -234,7 +234,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
         System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> GetCaptchaInstanceWithHttpInfoAsync(string captchaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List CAPTCHA instances
+        /// List all CAPTCHA instances
         /// </summary>
         /// <remarks>
         /// Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
@@ -245,7 +245,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<CAPTCHAInstance>> ListCaptchaInstancesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List CAPTCHA instances
+        /// List all CAPTCHA instances
         /// </summary>
         /// <remarks>
         /// Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
@@ -255,7 +255,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;CAPTCHAInstance&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<CAPTCHAInstance>>> ListCaptchaInstancesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Partial Update CAPTCHA instance
+        /// Update a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -268,7 +268,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<CAPTCHAInstance> PartialUpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Partial Update CAPTCHA instance
+        /// Update a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -280,7 +280,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (CAPTCHAInstance)</returns>
         System.Threading.Tasks.Task<ApiResponse<CAPTCHAInstance>> PartialUpdateCaptchaInstanceWithHttpInfoAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update CAPTCHA instance
+        /// Replace a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -293,7 +293,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<CAPTCHAInstance> UpdateCaptchaInstanceAsync(string captchaId, CAPTCHAInstance instance, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update CAPTCHA instance
+        /// Replace a CAPTCHA instance
         /// </summary>
         /// <remarks>
         /// Update a CAPTCHA instance by &#x60;captchaId&#x60;.
@@ -404,7 +404,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
+        /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instance"></param>
@@ -416,7 +416,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
+        /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instance"></param>
@@ -454,12 +454,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -481,7 +481,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
+        /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instance"></param>
@@ -494,7 +494,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
+        /// Create a CAPTCHA instance Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instance"></param>
@@ -534,12 +534,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -562,7 +562,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
+        /// Delete a CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -573,7 +573,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
+        /// Delete a CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -610,12 +610,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -637,7 +637,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
+        /// Delete a CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -649,7 +649,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
+        /// Delete a CAPTCHA Instance Delete a CAPTCHA instance by &#x60;captchaId&#x60;. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -688,12 +688,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -716,7 +716,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Retrieve a CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -728,7 +728,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Retrieve a CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -765,12 +765,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -792,7 +792,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Retrieve a CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -805,7 +805,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Retrieve a CAPTCHA Instance Fetches a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -844,12 +844,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -872,7 +872,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
+        /// List all CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;CAPTCHAInstance&gt;</returns>
@@ -883,7 +883,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
+        /// List all CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;CAPTCHAInstance&gt;</returns>
@@ -912,12 +912,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -939,7 +939,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
+        /// List all CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -951,7 +951,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
+        /// List all CAPTCHA instances Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -982,12 +982,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1010,7 +1010,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial Update CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Update a CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1023,7 +1023,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial Update CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Update a CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1069,12 +1069,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1096,7 +1096,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial Update CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Update a CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1110,7 +1110,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial Update CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Update a CAPTCHA instance Partially update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1158,12 +1158,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1186,7 +1186,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Replace a CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1199,7 +1199,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Replace a CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1245,12 +1245,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1272,7 +1272,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Replace a CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1286,7 +1286,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
+        /// Replace a CAPTCHA instance Update a CAPTCHA instance by &#x60;captchaId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="captchaId">id of the CAPTCHA</param>
@@ -1334,12 +1334,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("captchaId", Okta.Sdk.Client.ClientUtils.ParameterToString(captchaId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

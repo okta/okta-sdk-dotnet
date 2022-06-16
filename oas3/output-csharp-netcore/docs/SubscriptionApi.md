@@ -4,10 +4,10 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetRoleSubscriptionByNotificationType**](SubscriptionApi.md#getrolesubscriptionbynotificationtype) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType} | Get subscriptions of a Custom Role with a specific notification type
-[**GetUserSubscriptionByNotificationType**](SubscriptionApi.md#getusersubscriptionbynotificationtype) | **GET** /api/v1/users/{userId}/subscriptions/{notificationType} | Get the subscription of a User with a specific notification type
-[**ListRoleSubscriptions**](SubscriptionApi.md#listrolesubscriptions) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions | List all subscriptions of a Custom Role
-[**ListUserSubscriptions**](SubscriptionApi.md#listusersubscriptions) | **GET** /api/v1/users/{userId}/subscriptions | List subscriptions of a User
+[**GetRoleSubscriptionByNotificationType**](SubscriptionApi.md#getrolesubscriptionbynotificationtype) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType} | List all Subscriptions of a Custom Role with a specific notification type
+[**GetUserSubscriptionByNotificationType**](SubscriptionApi.md#getusersubscriptionbynotificationtype) | **GET** /api/v1/users/{userId}/subscriptions/{notificationType} | List all Subscriptions by type
+[**ListRoleSubscriptions**](SubscriptionApi.md#listrolesubscriptions) | **GET** /api/v1/roles/{roleTypeOrRoleId}/subscriptions | List all Subscriptions of a Custom Role
+[**ListUserSubscriptions**](SubscriptionApi.md#listusersubscriptions) | **GET** /api/v1/users/{userId}/subscriptions | List all Subscriptions
 [**SubscribeRoleSubscriptionByNotificationType**](SubscriptionApi.md#subscriberolesubscriptionbynotificationtype) | **POST** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/subscribe | Subscribe a Custom Role to a specific notification type
 [**SubscribeUserSubscriptionByNotificationType**](SubscriptionApi.md#subscribeusersubscriptionbynotificationtype) | **POST** /api/v1/users/{userId}/subscriptions/{notificationType}/subscribe | Subscribe to a specific notification type
 [**UnsubscribeRoleSubscriptionByNotificationType**](SubscriptionApi.md#unsubscriberolesubscriptionbynotificationtype) | **POST** /api/v1/roles/{roleTypeOrRoleId}/subscriptions/{notificationType}/unsubscribe | Unsubscribe a Custom Role from a specific notification type
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 # **GetRoleSubscriptionByNotificationType**
 > Subscription GetRoleSubscriptionByNotificationType (string roleTypeOrRoleId, string notificationType)
 
-Get subscriptions of a Custom Role with a specific notification type
+List all Subscriptions of a Custom Role with a specific notification type
 
 When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
 
@@ -38,11 +38,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -51,7 +51,7 @@ namespace Example
 
             try
             {
-                // Get subscriptions of a Custom Role with a specific notification type
+                // List all Subscriptions of a Custom Role with a specific notification type
                 Subscription result = apiInstance.GetRoleSubscriptionByNotificationType(roleTypeOrRoleId, notificationType);
                 Debug.WriteLine(result);
             }
@@ -79,7 +79,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -101,7 +101,7 @@ Name | Type | Description  | Notes
 # **GetUserSubscriptionByNotificationType**
 > Subscription GetUserSubscriptionByNotificationType (string userId, string notificationType)
 
-Get the subscription of a User with a specific notification type
+List all Subscriptions by type
 
 Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
 
@@ -121,11 +121,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -134,7 +134,7 @@ namespace Example
 
             try
             {
-                // Get the subscription of a User with a specific notification type
+                // List all Subscriptions by type
                 Subscription result = apiInstance.GetUserSubscriptionByNotificationType(userId, notificationType);
                 Debug.WriteLine(result);
             }
@@ -162,7 +162,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -184,7 +184,7 @@ Name | Type | Description  | Notes
 # **ListRoleSubscriptions**
 > List&lt;Subscription&gt; ListRoleSubscriptions (string roleTypeOrRoleId)
 
-List all subscriptions of a Custom Role
+List all Subscriptions of a Custom Role
 
 When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
 
@@ -204,11 +204,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -216,7 +216,7 @@ namespace Example
 
             try
             {
-                // List all subscriptions of a Custom Role
+                // List all Subscriptions of a Custom Role
                 List<Subscription> result = apiInstance.ListRoleSubscriptions(roleTypeOrRoleId);
                 Debug.WriteLine(result);
             }
@@ -243,7 +243,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -265,7 +265,7 @@ Name | Type | Description  | Notes
 # **ListUserSubscriptions**
 > List&lt;Subscription&gt; ListUserSubscriptions (string userId)
 
-List subscriptions of a User
+List all Subscriptions
 
 List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
 
@@ -285,11 +285,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -297,7 +297,7 @@ namespace Example
 
             try
             {
-                // List subscriptions of a User
+                // List all Subscriptions
                 List<Subscription> result = apiInstance.ListUserSubscriptions(userId);
                 Debug.WriteLine(result);
             }
@@ -324,7 +324,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -366,11 +366,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -406,7 +406,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -448,11 +448,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -488,7 +488,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -530,11 +530,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -570,7 +570,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -612,11 +612,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SubscriptionApi(config);
@@ -652,7 +652,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

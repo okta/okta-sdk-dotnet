@@ -4,18 +4,18 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetFeature**](FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Get Feature
-[**ListFeatureDependencies**](FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List Feature Dependencies
-[**ListFeatureDependents**](FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List Feature Dependents
-[**ListFeatures**](FeatureApi.md#listfeatures) | **GET** /api/v1/features | List Features
-[**UpdateFeatureLifecycle**](FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update Feature Lifecycle
+[**GetFeature**](FeatureApi.md#getfeature) | **GET** /api/v1/features/{featureId} | Retrieve a Feature
+[**ListFeatureDependencies**](FeatureApi.md#listfeaturedependencies) | **GET** /api/v1/features/{featureId}/dependencies | List all Dependencies
+[**ListFeatureDependents**](FeatureApi.md#listfeaturedependents) | **GET** /api/v1/features/{featureId}/dependents | List all Dependents
+[**ListFeatures**](FeatureApi.md#listfeatures) | **GET** /api/v1/features | List all Features
+[**UpdateFeatureLifecycle**](FeatureApi.md#updatefeaturelifecycle) | **POST** /api/v1/features/{featureId}/{lifecycle} | Update a Feature Lifecycle
 
 
 <a name="getfeature"></a>
 # **GetFeature**
 > Feature GetFeature (string featureId)
 
-Get Feature
+Retrieve a Feature
 
 Success
 
@@ -35,11 +35,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
@@ -47,7 +47,7 @@ namespace Example
 
             try
             {
-                // Get Feature
+                // Retrieve a Feature
                 Feature result = apiInstance.GetFeature(featureId);
                 Debug.WriteLine(result);
             }
@@ -74,7 +74,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -96,7 +96,7 @@ Name | Type | Description  | Notes
 # **ListFeatureDependencies**
 > List&lt;Feature&gt; ListFeatureDependencies (string featureId)
 
-List Feature Dependencies
+List all Dependencies
 
 Success
 
@@ -116,11 +116,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
@@ -128,7 +128,7 @@ namespace Example
 
             try
             {
-                // List Feature Dependencies
+                // List all Dependencies
                 List<Feature> result = apiInstance.ListFeatureDependencies(featureId);
                 Debug.WriteLine(result);
             }
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -177,7 +177,7 @@ Name | Type | Description  | Notes
 # **ListFeatureDependents**
 > List&lt;Feature&gt; ListFeatureDependents (string featureId)
 
-List Feature Dependents
+List all Dependents
 
 Success
 
@@ -197,11 +197,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
@@ -209,7 +209,7 @@ namespace Example
 
             try
             {
-                // List Feature Dependents
+                // List all Dependents
                 List<Feature> result = apiInstance.ListFeatureDependents(featureId);
                 Debug.WriteLine(result);
             }
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListFeatures**
 > List&lt;Feature&gt; ListFeatures ()
 
-List Features
+List all Features
 
 Success
 
@@ -278,18 +278,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
 
             try
             {
-                // List Features
+                // List all Features
                 List<Feature> result = apiInstance.ListFeatures();
                 Debug.WriteLine(result);
             }
@@ -313,7 +313,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -334,7 +334,7 @@ This endpoint does not need any parameter.
 # **UpdateFeatureLifecycle**
 > Feature UpdateFeatureLifecycle (string featureId, string lifecycle, string mode = null)
 
-Update Feature Lifecycle
+Update a Feature Lifecycle
 
 Success
 
@@ -354,11 +354,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new FeatureApi(config);
@@ -368,7 +368,7 @@ namespace Example
 
             try
             {
-                // Update Feature Lifecycle
+                // Update a Feature Lifecycle
                 Feature result = apiInstance.UpdateFeatureLifecycle(featureId, lifecycle, mode);
                 Debug.WriteLine(result);
             }
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

@@ -4,21 +4,21 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateEventHook**](EventHookApi.md#activateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/activate | Activate Event Hook
-[**CreateEventHook**](EventHookApi.md#createeventhook) | **POST** /api/v1/eventHooks | Create Event Hook
-[**DeactivateEventHook**](EventHookApi.md#deactivateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/deactivate | Deactivate Event Hook
-[**DeleteEventHook**](EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete Event Hook
-[**GetEventHook**](EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Get Event Hook
-[**ListEventHooks**](EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List Event Hooks
-[**UpdateEventHook**](EventHookApi.md#updateeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Update Event Hook
-[**VerifyEventHook**](EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify Event Hook
+[**ActivateEventHook**](EventHookApi.md#activateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/activate | Activate an Event Hook
+[**CreateEventHook**](EventHookApi.md#createeventhook) | **POST** /api/v1/eventHooks | Create an Event Hook
+[**DeactivateEventHook**](EventHookApi.md#deactivateeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/deactivate | Deactivate an Event Hook
+[**DeleteEventHook**](EventHookApi.md#deleteeventhook) | **DELETE** /api/v1/eventHooks/{eventHookId} | Delete an Event Hook
+[**GetEventHook**](EventHookApi.md#geteventhook) | **GET** /api/v1/eventHooks/{eventHookId} | Retrieve an Event Hook
+[**ListEventHooks**](EventHookApi.md#listeventhooks) | **GET** /api/v1/eventHooks | List all Event Hooks
+[**UpdateEventHook**](EventHookApi.md#updateeventhook) | **PUT** /api/v1/eventHooks/{eventHookId} | Replace an Event Hook
+[**VerifyEventHook**](EventHookApi.md#verifyeventhook) | **POST** /api/v1/eventHooks/{eventHookId}/lifecycle/verify | Verify an Event Hook
 
 
 <a name="activateeventhook"></a>
 # **ActivateEventHook**
 > EventHook ActivateEventHook (string eventHookId)
 
-Activate Event Hook
+Activate an Event Hook
 
 Success
 
@@ -38,11 +38,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -50,7 +50,7 @@ namespace Example
 
             try
             {
-                // Activate Event Hook
+                // Activate an Event Hook
                 EventHook result = apiInstance.ActivateEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -77,7 +77,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -99,7 +99,7 @@ Name | Type | Description  | Notes
 # **CreateEventHook**
 > EventHook CreateEventHook (EventHook eventHook)
 
-Create Event Hook
+Create an Event Hook
 
 Success
 
@@ -119,11 +119,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -131,7 +131,7 @@ namespace Example
 
             try
             {
-                // Create Event Hook
+                // Create an Event Hook
                 EventHook result = apiInstance.CreateEventHook(eventHook);
                 Debug.WriteLine(result);
             }
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -180,7 +180,7 @@ Name | Type | Description  | Notes
 # **DeactivateEventHook**
 > EventHook DeactivateEventHook (string eventHookId)
 
-Deactivate Event Hook
+Deactivate an Event Hook
 
 Success
 
@@ -200,11 +200,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -212,7 +212,7 @@ namespace Example
 
             try
             {
-                // Deactivate Event Hook
+                // Deactivate an Event Hook
                 EventHook result = apiInstance.DeactivateEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -261,7 +261,7 @@ Name | Type | Description  | Notes
 # **DeleteEventHook**
 > void DeleteEventHook (string eventHookId)
 
-Delete Event Hook
+Delete an Event Hook
 
 Success
 
@@ -281,11 +281,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -293,7 +293,7 @@ namespace Example
 
             try
             {
-                // Delete Event Hook
+                // Delete an Event Hook
                 apiInstance.DeleteEventHook(eventHookId);
             }
             catch (ApiException  e)
@@ -319,7 +319,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -341,7 +341,7 @@ void (empty response body)
 # **GetEventHook**
 > EventHook GetEventHook (string eventHookId)
 
-Get Event Hook
+Retrieve an Event Hook
 
 Success
 
@@ -361,11 +361,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -373,7 +373,7 @@ namespace Example
 
             try
             {
-                // Get Event Hook
+                // Retrieve an Event Hook
                 EventHook result = apiInstance.GetEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -400,7 +400,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 # **ListEventHooks**
 > List&lt;EventHook&gt; ListEventHooks ()
 
-List Event Hooks
+List all Event Hooks
 
 Success
 
@@ -442,18 +442,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
 
             try
             {
-                // List Event Hooks
+                // List all Event Hooks
                 List<EventHook> result = apiInstance.ListEventHooks();
                 Debug.WriteLine(result);
             }
@@ -477,7 +477,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -498,7 +498,7 @@ This endpoint does not need any parameter.
 # **UpdateEventHook**
 > EventHook UpdateEventHook (string eventHookId, EventHook eventHook)
 
-Update Event Hook
+Replace an Event Hook
 
 Success
 
@@ -518,11 +518,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -531,7 +531,7 @@ namespace Example
 
             try
             {
-                // Update Event Hook
+                // Replace an Event Hook
                 EventHook result = apiInstance.UpdateEventHook(eventHookId, eventHook);
                 Debug.WriteLine(result);
             }
@@ -559,7 +559,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 # **VerifyEventHook**
 > EventHook VerifyEventHook (string eventHookId)
 
-Verify Event Hook
+Verify an Event Hook
 
 Success
 
@@ -602,11 +602,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new EventHookApi(config);
@@ -614,7 +614,7 @@ namespace Example
 
             try
             {
-                // Verify Event Hook
+                // Verify an Event Hook
                 EventHook result = apiInstance.VerifyEventHook(eventHookId);
                 Debug.WriteLine(result);
             }
@@ -641,7 +641,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

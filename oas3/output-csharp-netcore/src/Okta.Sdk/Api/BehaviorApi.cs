@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Activate Behavior Detection Rule
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         BehaviorRule ActivateBehaviorDetectionRule(string behaviorId);
 
         /// <summary>
-        /// Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Activate Behavior Detection Rule
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of BehaviorRule</returns>
         ApiResponse<BehaviorRule> ActivateBehaviorDetectionRuleWithHttpInfo(string behaviorId);
         /// <summary>
-        /// Create new Behavior Detection Rule
+        /// Create a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Adds a new Behavior Detection Rule to your organization.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         BehaviorRule CreateBehaviorDetectionRule(BehaviorRule rule);
 
         /// <summary>
-        /// Create new Behavior Detection Rule
+        /// Create a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Adds a new Behavior Detection Rule to your organization.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of BehaviorRule</returns>
         ApiResponse<BehaviorRule> CreateBehaviorDetectionRuleWithHttpInfo(BehaviorRule rule);
         /// <summary>
-        /// Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Behavior Detection Rule
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         BehaviorRule DeactivateBehaviorDetectionRule(string behaviorId);
 
         /// <summary>
-        /// Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Behavior Detection Rule
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of BehaviorRule</returns>
         ApiResponse<BehaviorRule> DeactivateBehaviorDetectionRuleWithHttpInfo(string behaviorId);
         /// <summary>
-        /// Delete Behavior Detection Rule
+        /// Delete a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         void DeleteBehaviorDetectionRule(string behaviorId);
 
         /// <summary>
-        /// Delete Behavior Detection Rule
+        /// Delete a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -112,7 +112,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteBehaviorDetectionRuleWithHttpInfo(string behaviorId);
         /// <summary>
-        /// Get Behavior Detection Rule
+        /// Retrieve a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -123,7 +123,7 @@ namespace Okta.Sdk.Api
         List<BehaviorRule> GetBehaviorDetectionRule(string behaviorId);
 
         /// <summary>
-        /// Get Behavior Detection Rule
+        /// Retrieve a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
         ApiResponse<List<BehaviorRule>> GetBehaviorDetectionRuleWithHttpInfo(string behaviorId);
         /// <summary>
-        /// List Behavior Detection Rules
+        /// List all Behavior Detection Rules
         /// </summary>
         /// <remarks>
         /// Enumerates Behavior Detection Rules in your organization with pagination.
@@ -143,7 +143,7 @@ namespace Okta.Sdk.Api
         List<BehaviorRule> ListBehaviorDetectionRules();
 
         /// <summary>
-        /// List Behavior Detection Rules
+        /// List all Behavior Detection Rules
         /// </summary>
         /// <remarks>
         /// Enumerates Behavior Detection Rules in your organization with pagination.
@@ -152,7 +152,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
         ApiResponse<List<BehaviorRule>> ListBehaviorDetectionRulesWithHttpInfo();
         /// <summary>
-        /// Update Behavior Detection Rule
+        /// Replace a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -164,7 +164,7 @@ namespace Okta.Sdk.Api
         BehaviorRule UpdateBehaviorDetectionRule(string behaviorId, BehaviorRule rule);
 
         /// <summary>
-        /// Update Behavior Detection Rule
+        /// Replace a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -184,7 +184,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Activate Behavior Detection Rule
@@ -196,7 +196,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<BehaviorRule> ActivateBehaviorDetectionRuleAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Activate Behavior Detection Rule
@@ -207,7 +207,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (BehaviorRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<BehaviorRule>> ActivateBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create new Behavior Detection Rule
+        /// Create a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Adds a new Behavior Detection Rule to your organization.
@@ -219,7 +219,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<BehaviorRule> CreateBehaviorDetectionRuleAsync(BehaviorRule rule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create new Behavior Detection Rule
+        /// Create a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Adds a new Behavior Detection Rule to your organization.
@@ -230,7 +230,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (BehaviorRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<BehaviorRule>> CreateBehaviorDetectionRuleWithHttpInfoAsync(BehaviorRule rule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Behavior Detection Rule
@@ -242,7 +242,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<BehaviorRule> DeactivateBehaviorDetectionRuleAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Behavior Detection Rule
@@ -253,7 +253,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (BehaviorRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<BehaviorRule>> DeactivateBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Behavior Detection Rule
+        /// Delete a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -265,7 +265,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteBehaviorDetectionRuleAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Behavior Detection Rule
+        /// Delete a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -276,7 +276,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Behavior Detection Rule
+        /// Retrieve a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -288,7 +288,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<BehaviorRule>> GetBehaviorDetectionRuleAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Behavior Detection Rule
+        /// Retrieve a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -299,7 +299,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;BehaviorRule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<BehaviorRule>>> GetBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Behavior Detection Rules
+        /// List all Behavior Detection Rules
         /// </summary>
         /// <remarks>
         /// Enumerates Behavior Detection Rules in your organization with pagination.
@@ -310,7 +310,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<BehaviorRule>> ListBehaviorDetectionRulesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Behavior Detection Rules
+        /// List all Behavior Detection Rules
         /// </summary>
         /// <remarks>
         /// Enumerates Behavior Detection Rules in your organization with pagination.
@@ -320,7 +320,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;BehaviorRule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<BehaviorRule>>> ListBehaviorDetectionRulesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Behavior Detection Rule
+        /// Replace a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -333,7 +333,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<BehaviorRule> UpdateBehaviorDetectionRuleAsync(string behaviorId, BehaviorRule rule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Behavior Detection Rule
+        /// Replace a Behavior Detection Rule
         /// </summary>
         /// <remarks>
         /// Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
@@ -444,7 +444,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Behavior Detection Rule Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule Activate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -456,7 +456,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Behavior Detection Rule Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule Activate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -493,12 +493,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -520,7 +520,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Behavior Detection Rule Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule Activate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -533,7 +533,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Behavior Detection Rule Activate Behavior Detection Rule
+        /// Activate a Behavior Detection Rule Activate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -572,12 +572,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -600,7 +600,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
+        /// Create a Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rule"></param>
@@ -612,7 +612,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
+        /// Create a Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rule"></param>
@@ -650,12 +650,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = rule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -677,7 +677,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
+        /// Create a Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rule"></param>
@@ -690,7 +690,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create new Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
+        /// Create a Behavior Detection Rule Adds a new Behavior Detection Rule to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="rule"></param>
@@ -730,12 +730,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = rule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -758,7 +758,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Behavior Detection Rule Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule Deactivate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -770,7 +770,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Behavior Detection Rule Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule Deactivate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -807,12 +807,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -834,7 +834,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Behavior Detection Rule Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule Deactivate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -847,7 +847,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Behavior Detection Rule Deactivate Behavior Detection Rule
+        /// Deactivate a Behavior Detection Rule Deactivate Behavior Detection Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -886,12 +886,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -914,7 +914,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Delete a Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -925,7 +925,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Delete a Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -962,12 +962,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -989,7 +989,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Delete a Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1001,7 +1001,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Delete a Behavior Detection Rule Delete a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1040,12 +1040,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1068,7 +1068,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Retrieve a Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1080,7 +1080,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Retrieve a Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1117,12 +1117,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1144,7 +1144,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Retrieve a Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1157,7 +1157,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Retrieve a Behavior Detection Rule Fetches a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1196,12 +1196,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1224,7 +1224,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
+        /// List all Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;BehaviorRule&gt;</returns>
@@ -1235,7 +1235,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
+        /// List all Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
@@ -1264,12 +1264,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1291,7 +1291,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
+        /// List all Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1303,7 +1303,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
+        /// List all Behavior Detection Rules Enumerates Behavior Detection Rules in your organization with pagination.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1334,12 +1334,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1362,7 +1362,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Replace a Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1375,7 +1375,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Replace a Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1421,12 +1421,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
             localVarRequestOptions.Data = rule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1448,7 +1448,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Replace a Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1462,7 +1462,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
+        /// Replace a Behavior Detection Rule Update a Behavior Detection Rule by &#x60;behaviorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
@@ -1510,12 +1510,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("behaviorId", Okta.Sdk.Client.ClientUtils.ParameterToString(behaviorId)); // path parameter
             localVarRequestOptions.Data = rule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

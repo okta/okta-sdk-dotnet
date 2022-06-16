@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Network Zone
+        /// Activate a Network Zone
         /// </summary>
         /// <remarks>
         /// Activate Network Zone
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         NetworkZone ActivateNetworkZone(string zoneId);
 
         /// <summary>
-        /// Activate Network Zone
+        /// Activate a Network Zone
         /// </summary>
         /// <remarks>
         /// Activate Network Zone
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of NetworkZone</returns>
         ApiResponse<NetworkZone> ActivateNetworkZoneWithHttpInfo(string zoneId);
         /// <summary>
-        /// Add Network Zone
+        /// Create a Network Zone
         /// </summary>
         /// <remarks>
         /// Adds a new network zone to your Okta organization.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         NetworkZone CreateNetworkZone(NetworkZone zone);
 
         /// <summary>
-        /// Add Network Zone
+        /// Create a Network Zone
         /// </summary>
         /// <remarks>
         /// Adds a new network zone to your Okta organization.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of NetworkZone</returns>
         ApiResponse<NetworkZone> CreateNetworkZoneWithHttpInfo(NetworkZone zone);
         /// <summary>
-        /// Deactivate Network Zone
+        /// Deactivate a Network Zone
         /// </summary>
         /// <remarks>
         /// Deactivates a network zone.
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         NetworkZone DeactivateNetworkZone(string zoneId);
 
         /// <summary>
-        /// Deactivate Network Zone
+        /// Deactivate a Network Zone
         /// </summary>
         /// <remarks>
         /// Deactivates a network zone.
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of NetworkZone</returns>
         ApiResponse<NetworkZone> DeactivateNetworkZoneWithHttpInfo(string zoneId);
         /// <summary>
-        /// Delete Network Zone
+        /// Delete a Network Zone
         /// </summary>
         /// <remarks>
         /// Removes network zone.
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         void DeleteNetworkZone(string zoneId);
 
         /// <summary>
-        /// Delete Network Zone
+        /// Delete a Network Zone
         /// </summary>
         /// <remarks>
         /// Removes network zone.
@@ -112,7 +112,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteNetworkZoneWithHttpInfo(string zoneId);
         /// <summary>
-        /// Get Network Zone
+        /// Retrieve a Network Zone
         /// </summary>
         /// <remarks>
         /// Fetches a network zone from your Okta organization by &#x60;id&#x60;.
@@ -123,7 +123,7 @@ namespace Okta.Sdk.Api
         NetworkZone GetNetworkZone(string zoneId);
 
         /// <summary>
-        /// Get Network Zone
+        /// Retrieve a Network Zone
         /// </summary>
         /// <remarks>
         /// Fetches a network zone from your Okta organization by &#x60;id&#x60;.
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of NetworkZone</returns>
         ApiResponse<NetworkZone> GetNetworkZoneWithHttpInfo(string zoneId);
         /// <summary>
-        /// List Network Zones
+        /// List all Network Zones
         /// </summary>
         /// <remarks>
         /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
@@ -146,7 +146,7 @@ namespace Okta.Sdk.Api
         List<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string));
 
         /// <summary>
-        /// List Network Zones
+        /// List all Network Zones
         /// </summary>
         /// <remarks>
         /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
@@ -158,7 +158,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;NetworkZone&gt;</returns>
         ApiResponse<List<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string));
         /// <summary>
-        /// Update Network Zone
+        /// Replace a Network Zone
         /// </summary>
         /// <remarks>
         /// Updates a network zone in your organization.
@@ -170,7 +170,7 @@ namespace Okta.Sdk.Api
         NetworkZone UpdateNetworkZone(string zoneId, NetworkZone zone);
 
         /// <summary>
-        /// Update Network Zone
+        /// Replace a Network Zone
         /// </summary>
         /// <remarks>
         /// Updates a network zone in your organization.
@@ -190,7 +190,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Network Zone
+        /// Activate a Network Zone
         /// </summary>
         /// <remarks>
         /// Activate Network Zone
@@ -202,7 +202,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<NetworkZone> ActivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Network Zone
+        /// Activate a Network Zone
         /// </summary>
         /// <remarks>
         /// Activate Network Zone
@@ -213,7 +213,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
         System.Threading.Tasks.Task<ApiResponse<NetworkZone>> ActivateNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add Network Zone
+        /// Create a Network Zone
         /// </summary>
         /// <remarks>
         /// Adds a new network zone to your Okta organization.
@@ -225,7 +225,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<NetworkZone> CreateNetworkZoneAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Network Zone
+        /// Create a Network Zone
         /// </summary>
         /// <remarks>
         /// Adds a new network zone to your Okta organization.
@@ -236,7 +236,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
         System.Threading.Tasks.Task<ApiResponse<NetworkZone>> CreateNetworkZoneWithHttpInfoAsync(NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Network Zone
+        /// Deactivate a Network Zone
         /// </summary>
         /// <remarks>
         /// Deactivates a network zone.
@@ -248,7 +248,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<NetworkZone> DeactivateNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Network Zone
+        /// Deactivate a Network Zone
         /// </summary>
         /// <remarks>
         /// Deactivates a network zone.
@@ -259,7 +259,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
         System.Threading.Tasks.Task<ApiResponse<NetworkZone>> DeactivateNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Network Zone
+        /// Delete a Network Zone
         /// </summary>
         /// <remarks>
         /// Removes network zone.
@@ -271,7 +271,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Network Zone
+        /// Delete a Network Zone
         /// </summary>
         /// <remarks>
         /// Removes network zone.
@@ -282,7 +282,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Network Zone
+        /// Retrieve a Network Zone
         /// </summary>
         /// <remarks>
         /// Fetches a network zone from your Okta organization by &#x60;id&#x60;.
@@ -294,7 +294,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<NetworkZone> GetNetworkZoneAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Network Zone
+        /// Retrieve a Network Zone
         /// </summary>
         /// <remarks>
         /// Fetches a network zone from your Okta organization by &#x60;id&#x60;.
@@ -305,7 +305,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (NetworkZone)</returns>
         System.Threading.Tasks.Task<ApiResponse<NetworkZone>> GetNetworkZoneWithHttpInfoAsync(string zoneId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Network Zones
+        /// List all Network Zones
         /// </summary>
         /// <remarks>
         /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
@@ -319,7 +319,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<NetworkZone>> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Network Zones
+        /// List all Network Zones
         /// </summary>
         /// <remarks>
         /// Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
@@ -332,7 +332,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;NetworkZone&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Network Zone
+        /// Replace a Network Zone
         /// </summary>
         /// <remarks>
         /// Updates a network zone in your organization.
@@ -345,7 +345,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<NetworkZone> UpdateNetworkZoneAsync(string zoneId, NetworkZone zone, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Network Zone
+        /// Replace a Network Zone
         /// </summary>
         /// <remarks>
         /// Updates a network zone in your organization.
@@ -456,7 +456,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Network Zone Activate Network Zone
+        /// Activate a Network Zone Activate Network Zone
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -468,7 +468,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Network Zone Activate Network Zone
+        /// Activate a Network Zone Activate Network Zone
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -505,12 +505,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -532,7 +532,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Network Zone Activate Network Zone
+        /// Activate a Network Zone Activate Network Zone
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -545,7 +545,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Network Zone Activate Network Zone
+        /// Activate a Network Zone Activate Network Zone
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -584,12 +584,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -612,7 +612,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Network Zone Adds a new network zone to your Okta organization.
+        /// Create a Network Zone Adds a new network zone to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zone"></param>
@@ -624,7 +624,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Network Zone Adds a new network zone to your Okta organization.
+        /// Create a Network Zone Adds a new network zone to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zone"></param>
@@ -662,12 +662,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = zone;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -689,7 +689,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Network Zone Adds a new network zone to your Okta organization.
+        /// Create a Network Zone Adds a new network zone to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zone"></param>
@@ -702,7 +702,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Network Zone Adds a new network zone to your Okta organization.
+        /// Create a Network Zone Adds a new network zone to your Okta organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zone"></param>
@@ -742,12 +742,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = zone;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -770,7 +770,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Network Zone Deactivates a network zone.
+        /// Deactivate a Network Zone Deactivates a network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -782,7 +782,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Network Zone Deactivates a network zone.
+        /// Deactivate a Network Zone Deactivates a network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -819,12 +819,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -846,7 +846,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Network Zone Deactivates a network zone.
+        /// Deactivate a Network Zone Deactivates a network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -859,7 +859,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Network Zone Deactivates a network zone.
+        /// Deactivate a Network Zone Deactivates a network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -898,12 +898,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -926,7 +926,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Network Zone Removes network zone.
+        /// Delete a Network Zone Removes network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -937,7 +937,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Network Zone Removes network zone.
+        /// Delete a Network Zone Removes network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -974,12 +974,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1001,7 +1001,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Network Zone Removes network zone.
+        /// Delete a Network Zone Removes network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1013,7 +1013,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Network Zone Removes network zone.
+        /// Delete a Network Zone Removes network zone.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1052,12 +1052,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1080,7 +1080,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1092,7 +1092,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1129,12 +1129,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1156,7 +1156,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1169,7 +1169,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
+        /// Retrieve a Network Zone Fetches a network zone from your Okta organization by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1208,12 +1208,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1236,7 +1236,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+        /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
@@ -1250,7 +1250,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+        /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
@@ -1294,12 +1294,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1321,7 +1321,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+        /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
@@ -1336,7 +1336,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
+        /// List all Network Zones Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of network zones (optional)</param>
@@ -1382,12 +1382,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1410,7 +1410,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Network Zone Updates a network zone in your organization.
+        /// Replace a Network Zone Updates a network zone in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1423,7 +1423,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Network Zone Updates a network zone in your organization.
+        /// Replace a Network Zone Updates a network zone in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1469,12 +1469,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
             localVarRequestOptions.Data = zone;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1496,7 +1496,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Network Zone Updates a network zone in your organization.
+        /// Replace a Network Zone Updates a network zone in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1510,7 +1510,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Network Zone Updates a network zone in your organization.
+        /// Replace a Network Zone Updates a network zone in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="zoneId"></param>
@@ -1558,12 +1558,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("zoneId", Okta.Sdk.Client.ClientUtils.ParameterToString(zoneId)); // path parameter
             localVarRequestOptions.Data = zone;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

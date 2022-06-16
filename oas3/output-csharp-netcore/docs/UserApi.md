@@ -4,64 +4,64 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateUser**](UserApi.md#activateuser) | **POST** /api/v1/users/{userId}/lifecycle/activate | Activate User
-[**AddAllAppsAsTargetToRole**](UserApi.md#addallappsastargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | Add All Apps as Target to Role
-[**AddApplicationTargetToAdminRoleForUser**](UserApi.md#addapplicationtargettoadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Add Application Target to Admin Role for User
-[**AddApplicationTargetToAppAdminRoleForUser**](UserApi.md#addapplicationtargettoappadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Add App Instance Target to App Administrator Role given to a User
-[**AddGroupTargetToRole**](UserApi.md#addgrouptargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Add Group Target to Role
-[**AssignRoleToUser**](UserApi.md#assignroletouser) | **POST** /api/v1/users/{userId}/roles | Assign Role to User
+[**ActivateUser**](UserApi.md#activateuser) | **POST** /api/v1/users/{userId}/lifecycle/activate | Activate a User
+[**AddAllAppsAsTargetToRole**](UserApi.md#addallappsastargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | Assign all Apps as Target to Role
+[**AddApplicationTargetToAdminRoleForUser**](UserApi.md#addapplicationtargettoadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
+[**AddApplicationTargetToAppAdminRoleForUser**](UserApi.md#addapplicationtargettoappadminroleforuser) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Assign an Application Instance Target to an Application Administrator Role
+[**AddGroupTargetToRole**](UserApi.md#addgrouptargettorole) | **PUT** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Assign a Group Target to Role
+[**AssignRoleToUser**](UserApi.md#assignroletouser) | **POST** /api/v1/users/{userId}/roles | Assign a Role
 [**ChangePassword**](UserApi.md#changepassword) | **POST** /api/v1/users/{userId}/credentials/change_password | Change Password
 [**ChangeRecoveryQuestion**](UserApi.md#changerecoveryquestion) | **POST** /api/v1/users/{userId}/credentials/change_recovery_question | Change Recovery Question
-[**ClearUserSessions**](UserApi.md#clearusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Clear User Sessions
-[**CreateUser**](UserApi.md#createuser) | **POST** /api/v1/users | Create User
-[**DeactivateOrDeleteUser**](UserApi.md#deactivateordeleteuser) | **DELETE** /api/v1/users/{userId} | Delete User
-[**DeactivateUser**](UserApi.md#deactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/deactivate | Deactivate User
+[**ClearUserSessions**](UserApi.md#clearusersessions) | **DELETE** /api/v1/users/{userId}/sessions | Delete all User Sessions
+[**CreateUser**](UserApi.md#createuser) | **POST** /api/v1/users | Create a User
+[**DeactivateOrDeleteUser**](UserApi.md#deactivateordeleteuser) | **DELETE** /api/v1/users/{userId} | Delete a User
+[**DeactivateUser**](UserApi.md#deactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/deactivate | Deactivate a User
 [**ExpirePassword**](UserApi.md#expirepassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password | Expire Password
 [**ExpirePasswordAndGetTemporaryPassword**](UserApi.md#expirepasswordandgettemporarypassword) | **POST** /api/v1/users/{userId}/lifecycle/expire_password_with_temp_password | Expire Password and Set Temporary Password
 [**ForgotPassword**](UserApi.md#forgotpassword) | **POST** /api/v1/users/{userId}/credentials/forgot_password | Initiate Forgot Password
 [**ForgotPasswordSetNewPassword**](UserApi.md#forgotpasswordsetnewpassword) | **POST** /api/v1/users/{userId}/credentials/forgot_password_recovery_question | Reset Password with Recovery Question
-[**GetLinkedObjectsForUser**](UserApi.md#getlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Get Linked Objects for User
-[**GetRefreshTokenForUserAndClient**](UserApi.md#getrefreshtokenforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Get Refresh Token for User and Client
-[**GetUser**](UserApi.md#getuser) | **GET** /api/v1/users/{userId} | Get User
-[**GetUserGrant**](UserApi.md#getusergrant) | **GET** /api/v1/users/{userId}/grants/{grantId} | Get User Grant
-[**GetUserRole**](UserApi.md#getuserrole) | **GET** /api/v1/users/{userId}/roles/{roleId} | Get User Role
-[**ListAppLinks**](UserApi.md#listapplinks) | **GET** /api/v1/users/{userId}/appLinks | Get Assigned App Links
-[**ListApplicationTargetsForApplicationAdministratorRoleForUser**](UserApi.md#listapplicationtargetsforapplicationadministratorroleforuser) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | List Application Targets for Application Administrator Role for User
-[**ListAssignedRolesForUser**](UserApi.md#listassignedrolesforuser) | **GET** /api/v1/users/{userId}/roles | List Assigned Roles for User
-[**ListGrantsForUserAndClient**](UserApi.md#listgrantsforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/grants | List Grants for User and Client
-[**ListGroupTargetsForRole**](UserApi.md#listgrouptargetsforrole) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/groups | List Group Targets for Role
-[**ListRefreshTokensForUserAndClient**](UserApi.md#listrefreshtokensforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens | List Refresh Tokens for User and Client
-[**ListUserClients**](UserApi.md#listuserclients) | **GET** /api/v1/users/{userId}/clients | List User Clients
-[**ListUserGrants**](UserApi.md#listusergrants) | **GET** /api/v1/users/{userId}/grants | List User Grants
-[**ListUserGroups**](UserApi.md#listusergroups) | **GET** /api/v1/users/{userId}/groups | Get Member Groups
-[**ListUserIdentityProviders**](UserApi.md#listuseridentityproviders) | **GET** /api/v1/users/{userId}/idps | Listing IdPs associated with a user
-[**ListUsers**](UserApi.md#listusers) | **GET** /api/v1/users | List Users
-[**PartialUpdateUser**](UserApi.md#partialupdateuser) | **POST** /api/v1/users/{userId} | Partial Update User
-[**ReactivateUser**](UserApi.md#reactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/reactivate | Reactivate User
-[**RemoveApplicationTargetFromAdministratorRoleForUser**](UserApi.md#removeapplicationtargetfromadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Remove App Instance Target to App Administrator Role given to a User
-[**RemoveApplicationTargetFromApplicationAdministratorRoleForUser**](UserApi.md#removeapplicationtargetfromapplicationadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Remove Application Target from Application Administrator Role for User
-[**RemoveGroupTargetFromRole**](UserApi.md#removegrouptargetfromrole) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Remove Group Target from Role
-[**RemoveLinkedObjectForUser**](UserApi.md#removelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Remove Linked Object for User
-[**RemoveRoleFromUser**](UserApi.md#removerolefromuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId} | Remove Role from User
-[**ResetFactors**](UserApi.md#resetfactors) | **POST** /api/v1/users/{userId}/lifecycle/reset_factors | Reset Factors
+[**GetLinkedObjectsForUser**](UserApi.md#getlinkedobjectsforuser) | **GET** /api/v1/users/{userId}/linkedObjects/{relationshipName} | List all Linked Objects
+[**GetRefreshTokenForUserAndClient**](UserApi.md#getrefreshtokenforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Retrieve a Refresh Token for a Client
+[**GetUser**](UserApi.md#getuser) | **GET** /api/v1/users/{userId} | Retrieve a User
+[**GetUserGrant**](UserApi.md#getusergrant) | **GET** /api/v1/users/{userId}/grants/{grantId} | Retrieve a User Grant
+[**GetUserRole**](UserApi.md#getuserrole) | **GET** /api/v1/users/{userId}/roles/{roleId} | Retrieve a Role
+[**ListAppLinks**](UserApi.md#listapplinks) | **GET** /api/v1/users/{userId}/appLinks | List all Assigned Application Links
+[**ListApplicationTargetsForApplicationAdministratorRoleForUser**](UserApi.md#listapplicationtargetsforapplicationadministratorroleforuser) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps | List all Application Targets for Application Administrator Role
+[**ListAssignedRolesForUser**](UserApi.md#listassignedrolesforuser) | **GET** /api/v1/users/{userId}/roles | List all Assigned Roles
+[**ListGrantsForUserAndClient**](UserApi.md#listgrantsforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/grants | List all Grants for a Client
+[**ListGroupTargetsForRole**](UserApi.md#listgrouptargetsforrole) | **GET** /api/v1/users/{userId}/roles/{roleId}/targets/groups | List all Group Targets for Role
+[**ListRefreshTokensForUserAndClient**](UserApi.md#listrefreshtokensforuserandclient) | **GET** /api/v1/users/{userId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
+[**ListUserClients**](UserApi.md#listuserclients) | **GET** /api/v1/users/{userId}/clients | List all Clients
+[**ListUserGrants**](UserApi.md#listusergrants) | **GET** /api/v1/users/{userId}/grants | List all User Grants
+[**ListUserGroups**](UserApi.md#listusergroups) | **GET** /api/v1/users/{userId}/groups | List all Groups
+[**ListUserIdentityProviders**](UserApi.md#listuseridentityproviders) | **GET** /api/v1/users/{userId}/idps | List all Identity Providers
+[**ListUsers**](UserApi.md#listusers) | **GET** /api/v1/users | List all Users
+[**PartialUpdateUser**](UserApi.md#partialupdateuser) | **POST** /api/v1/users/{userId} | Update a User
+[**ReactivateUser**](UserApi.md#reactivateuser) | **POST** /api/v1/users/{userId}/lifecycle/reactivate | Reactivate a User
+[**RemoveApplicationTargetFromAdministratorRoleForUser**](UserApi.md#removeapplicationtargetfromadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Unassign an Application Instance Target to Application Administrator Role
+[**RemoveApplicationTargetFromApplicationAdministratorRoleForUser**](UserApi.md#removeapplicationtargetfromapplicationadministratorroleforuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/catalog/apps/{appName} | Unassign an Application Target from Application Administrator Role
+[**RemoveGroupTargetFromRole**](UserApi.md#removegrouptargetfromrole) | **DELETE** /api/v1/users/{userId}/roles/{roleId}/targets/groups/{groupId} | Unassign a Group Target from Role
+[**RemoveLinkedObjectForUser**](UserApi.md#removelinkedobjectforuser) | **DELETE** /api/v1/users/{userId}/linkedObjects/{relationshipName} | Delete a Linked Object
+[**RemoveRoleFromUser**](UserApi.md#removerolefromuser) | **DELETE** /api/v1/users/{userId}/roles/{roleId} | Delete a Role
+[**ResetFactors**](UserApi.md#resetfactors) | **POST** /api/v1/users/{userId}/lifecycle/reset_factors | Reset all Factors
 [**ResetPassword**](UserApi.md#resetpassword) | **POST** /api/v1/users/{userId}/lifecycle/reset_password | Reset Password
-[**RevokeGrantsForUserAndClient**](UserApi.md#revokegrantsforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/grants | Revoke Grants for User and Client
-[**RevokeTokenForUserAndClient**](UserApi.md#revoketokenforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Revoke Token for User and Client
-[**RevokeTokensForUserAndClient**](UserApi.md#revoketokensforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens | Revoke Tokens for User and Client
-[**RevokeUserGrant**](UserApi.md#revokeusergrant) | **DELETE** /api/v1/users/{userId}/grants/{grantId} | Revoke User Grant
-[**RevokeUserGrants**](UserApi.md#revokeusergrants) | **DELETE** /api/v1/users/{userId}/grants | Revoke User Grants
-[**SetLinkedObjectForUser**](UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{associatedUserId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Set Linked Object for User
-[**SuspendUser**](UserApi.md#suspenduser) | **POST** /api/v1/users/{userId}/lifecycle/suspend | Suspend User
-[**UnlockUser**](UserApi.md#unlockuser) | **POST** /api/v1/users/{userId}/lifecycle/unlock | Unlock User
-[**UnsuspendUser**](UserApi.md#unsuspenduser) | **POST** /api/v1/users/{userId}/lifecycle/unsuspend | Unsuspend User
-[**UpdateUser**](UserApi.md#updateuser) | **PUT** /api/v1/users/{userId} | Update User
+[**RevokeGrantsForUserAndClient**](UserApi.md#revokegrantsforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/grants | Revoke all Grants for a Client
+[**RevokeTokenForUserAndClient**](UserApi.md#revoketokenforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens/{tokenId} | Revoke a Token for a Client
+[**RevokeTokensForUserAndClient**](UserApi.md#revoketokensforuserandclient) | **DELETE** /api/v1/users/{userId}/clients/{clientId}/tokens | Revoke all Refresh Tokens for a Client
+[**RevokeUserGrant**](UserApi.md#revokeusergrant) | **DELETE** /api/v1/users/{userId}/grants/{grantId} | Revoke a User Grant
+[**RevokeUserGrants**](UserApi.md#revokeusergrants) | **DELETE** /api/v1/users/{userId}/grants | Revoke all User Grants
+[**SetLinkedObjectForUser**](UserApi.md#setlinkedobjectforuser) | **PUT** /api/v1/users/{associatedUserId}/linkedObjects/{primaryRelationshipName}/{primaryUserId} | Create a Linked Object for two User
+[**SuspendUser**](UserApi.md#suspenduser) | **POST** /api/v1/users/{userId}/lifecycle/suspend | Suspend a User
+[**UnlockUser**](UserApi.md#unlockuser) | **POST** /api/v1/users/{userId}/lifecycle/unlock | Unlock a User
+[**UnsuspendUser**](UserApi.md#unsuspenduser) | **POST** /api/v1/users/{userId}/lifecycle/unsuspend | Unsuspend a User
+[**UpdateUser**](UserApi.md#updateuser) | **PUT** /api/v1/users/{userId} | Replace a User
 
 
 <a name="activateuser"></a>
 # **ActivateUser**
 > UserActivationToken ActivateUser (string userId, bool sendEmail)
 
-Activate User
+Activate a User
 
 Activates a user.  This operation can only be performed on users with a `STAGED` status.  Activation of a user is an asynchronous operation. The user will have the `transitioningToStatus` property with a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.  The user will have a status of `ACTIVE` when the activation process is complete.
 
@@ -81,11 +81,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -94,7 +94,7 @@ namespace Example
 
             try
             {
-                // Activate User
+                // Activate a User
                 UserActivationToken result = apiInstance.ActivateUser(userId, sendEmail);
                 Debug.WriteLine(result);
             }
@@ -122,7 +122,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -144,9 +144,9 @@ Name | Type | Description  | Notes
 # **AddAllAppsAsTargetToRole**
 > void AddAllAppsAsTargetToRole (string userId, string roleId)
 
-Add All Apps as Target to Role
+Assign all Apps as Target to Role
 
-Success
+Assign all Apps as Target to Role
 
 ### Example
 ```csharp
@@ -164,11 +164,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -177,7 +177,7 @@ namespace Example
 
             try
             {
-                // Add All Apps as Target to Role
+                // Assign all Apps as Target to Role
                 apiInstance.AddAllAppsAsTargetToRole(userId, roleId);
             }
             catch (ApiException  e)
@@ -204,7 +204,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -226,7 +226,7 @@ void (empty response body)
 # **AddApplicationTargetToAdminRoleForUser**
 > void AddApplicationTargetToAdminRoleForUser (string userId, string roleId, string appName)
 
-Add Application Target to Admin Role for User
+Assign an Application Target to Administrator Role
 
 Success
 
@@ -246,11 +246,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -260,7 +260,7 @@ namespace Example
 
             try
             {
-                // Add Application Target to Admin Role for User
+                // Assign an Application Target to Administrator Role
                 apiInstance.AddApplicationTargetToAdminRoleForUser(userId, roleId, appName);
             }
             catch (ApiException  e)
@@ -288,7 +288,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -310,7 +310,7 @@ void (empty response body)
 # **AddApplicationTargetToAppAdminRoleForUser**
 > void AddApplicationTargetToAppAdminRoleForUser (string userId, string roleId, string appName, string applicationId)
 
-Add App Instance Target to App Administrator Role given to a User
+Assign an Application Instance Target to an Application Administrator Role
 
 Add App Instance Target to App Administrator Role given to a User
 
@@ -330,11 +330,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -345,7 +345,7 @@ namespace Example
 
             try
             {
-                // Add App Instance Target to App Administrator Role given to a User
+                // Assign an Application Instance Target to an Application Administrator Role
                 apiInstance.AddApplicationTargetToAppAdminRoleForUser(userId, roleId, appName, applicationId);
             }
             catch (ApiException  e)
@@ -374,7 +374,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -396,9 +396,9 @@ void (empty response body)
 # **AddGroupTargetToRole**
 > void AddGroupTargetToRole (string userId, string roleId, string groupId)
 
-Add Group Target to Role
+Assign a Group Target to Role
 
-Success
+Assign a Group Target to Role
 
 ### Example
 ```csharp
@@ -416,11 +416,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -430,7 +430,7 @@ namespace Example
 
             try
             {
-                // Add Group Target to Role
+                // Assign a Group Target to Role
                 apiInstance.AddGroupTargetToRole(userId, roleId, groupId);
             }
             catch (ApiException  e)
@@ -458,7 +458,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -480,7 +480,7 @@ void (empty response body)
 # **AssignRoleToUser**
 > Role AssignRoleToUser (string userId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = null)
 
-Assign Role to User
+Assign a Role
 
 Assigns a role to a user.
 
@@ -500,11 +500,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -514,7 +514,7 @@ namespace Example
 
             try
             {
-                // Assign Role to User
+                // Assign a Role
                 Role result = apiInstance.AssignRoleToUser(userId, assignRoleRequest, disableNotifications);
                 Debug.WriteLine(result);
             }
@@ -543,7 +543,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -586,11 +586,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -629,7 +629,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -672,11 +672,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -713,7 +713,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -736,7 +736,7 @@ Name | Type | Description  | Notes
 # **ClearUserSessions**
 > void ClearUserSessions (string userId, bool? oauthTokens = null)
 
-Clear User Sessions
+Delete all User Sessions
 
 Removes all active identity provider sessions. This forces the user to authenticate on the next operation. Optionally revokes OpenID Connect and OAuth refresh and access tokens issued to the user.
 
@@ -756,11 +756,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -769,7 +769,7 @@ namespace Example
 
             try
             {
-                // Clear User Sessions
+                // Delete all User Sessions
                 apiInstance.ClearUserSessions(userId, oauthTokens);
             }
             catch (ApiException  e)
@@ -796,7 +796,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -818,7 +818,7 @@ void (empty response body)
 # **CreateUser**
 > User CreateUser (CreateUserRequest body, bool? activate = null, bool? provider = null, UserNextLogin? nextLogin = null)
 
-Create User
+Create a User
 
 Creates a new user in your Okta organization with or without credentials.
 
@@ -838,11 +838,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -853,7 +853,7 @@ namespace Example
 
             try
             {
-                // Create User
+                // Create a User
                 User result = apiInstance.CreateUser(body, activate, provider, nextLogin);
                 Debug.WriteLine(result);
             }
@@ -883,7 +883,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -905,7 +905,7 @@ Name | Type | Description  | Notes
 # **DeactivateOrDeleteUser**
 > void DeactivateOrDeleteUser (string userId, bool? sendEmail = null)
 
-Delete User
+Delete a User
 
 Deletes a user permanently.  This operation can only be performed on users that have a `DEPROVISIONED` status.  **This action cannot be recovered!**
 
@@ -925,11 +925,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -938,7 +938,7 @@ namespace Example
 
             try
             {
-                // Delete User
+                // Delete a User
                 apiInstance.DeactivateOrDeleteUser(userId, sendEmail);
             }
             catch (ApiException  e)
@@ -965,7 +965,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -988,7 +988,7 @@ void (empty response body)
 # **DeactivateUser**
 > void DeactivateUser (string userId, bool? sendEmail = null)
 
-Deactivate User
+Deactivate a User
 
 Deactivates a user. This operation can only be performed on users that do not have a `DEPROVISIONED` status. While the asynchronous operation (triggered by HTTP header `Prefer: respond-async`) is proceeding the user's `transitioningToStatus` property is `DEPROVISIONED`. The user's status is `DEPROVISIONED` when the deactivation process is complete.
 
@@ -1008,11 +1008,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1021,7 +1021,7 @@ namespace Example
 
             try
             {
-                // Deactivate User
+                // Deactivate a User
                 apiInstance.DeactivateUser(userId, sendEmail);
             }
             catch (ApiException  e)
@@ -1048,7 +1048,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1090,11 +1090,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1129,7 +1129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1171,11 +1171,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1210,7 +1210,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1252,11 +1252,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1293,7 +1293,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1335,11 +1335,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1378,7 +1378,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1401,7 +1401,7 @@ Name | Type | Description  | Notes
 # **GetLinkedObjectsForUser**
 > List&lt;Object&gt; GetLinkedObjectsForUser (string userId, string relationshipName, string after = null, int? limit = null)
 
-Get Linked Objects for User
+List all Linked Objects
 
 Get linked objects for a user, relationshipName can be a primary or associated relationship name
 
@@ -1421,11 +1421,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1436,7 +1436,7 @@ namespace Example
 
             try
             {
-                // Get Linked Objects for User
+                // List all Linked Objects
                 List<Object> result = apiInstance.GetLinkedObjectsForUser(userId, relationshipName, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1466,7 +1466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1488,7 +1488,7 @@ Name | Type | Description  | Notes
 # **GetRefreshTokenForUserAndClient**
 > OAuth2RefreshToken GetRefreshTokenForUserAndClient (string userId, string clientId, string tokenId, string expand = null, int? limit = null, string after = null)
 
-Get Refresh Token for User and Client
+Retrieve a Refresh Token for a Client
 
 Gets a refresh token issued for the specified User and Client.
 
@@ -1508,11 +1508,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1525,7 +1525,7 @@ namespace Example
 
             try
             {
-                // Get Refresh Token for User and Client
+                // Retrieve a Refresh Token for a Client
                 OAuth2RefreshToken result = apiInstance.GetRefreshTokenForUserAndClient(userId, clientId, tokenId, expand, limit, after);
                 Debug.WriteLine(result);
             }
@@ -1557,7 +1557,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1579,7 +1579,7 @@ Name | Type | Description  | Notes
 # **GetUser**
 > User GetUser (string userId)
 
-Get User
+Retrieve a User
 
 Fetches a user from your Okta organization.
 
@@ -1599,11 +1599,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1611,7 +1611,7 @@ namespace Example
 
             try
             {
-                // Get User
+                // Retrieve a User
                 User result = apiInstance.GetUser(userId);
                 Debug.WriteLine(result);
             }
@@ -1638,7 +1638,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1660,7 +1660,7 @@ Name | Type | Description  | Notes
 # **GetUserGrant**
 > OAuth2ScopeConsentGrant GetUserGrant (string userId, string grantId, string expand = null)
 
-Get User Grant
+Retrieve a User Grant
 
 Gets a grant for the specified user
 
@@ -1680,11 +1680,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1694,7 +1694,7 @@ namespace Example
 
             try
             {
-                // Get User Grant
+                // Retrieve a User Grant
                 OAuth2ScopeConsentGrant result = apiInstance.GetUserGrant(userId, grantId, expand);
                 Debug.WriteLine(result);
             }
@@ -1723,7 +1723,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1745,7 +1745,7 @@ Name | Type | Description  | Notes
 # **GetUserRole**
 > Role GetUserRole (string userId, string roleId)
 
-Get User Role
+Retrieve a Role
 
 Gets role that is assigned to user.
 
@@ -1765,11 +1765,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1778,7 +1778,7 @@ namespace Example
 
             try
             {
-                // Get User Role
+                // Retrieve a Role
                 Role result = apiInstance.GetUserRole(userId, roleId);
                 Debug.WriteLine(result);
             }
@@ -1806,7 +1806,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1828,7 +1828,7 @@ Name | Type | Description  | Notes
 # **ListAppLinks**
 > List&lt;AppLink&gt; ListAppLinks (string userId)
 
-Get Assigned App Links
+List all Assigned Application Links
 
 Fetches appLinks for all direct or indirect (via group membership) assigned applications.
 
@@ -1848,11 +1848,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1860,7 +1860,7 @@ namespace Example
 
             try
             {
-                // Get Assigned App Links
+                // List all Assigned Application Links
                 List<AppLink> result = apiInstance.ListAppLinks(userId);
                 Debug.WriteLine(result);
             }
@@ -1887,7 +1887,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1909,7 +1909,7 @@ Name | Type | Description  | Notes
 # **ListApplicationTargetsForApplicationAdministratorRoleForUser**
 > List&lt;CatalogApplication&gt; ListApplicationTargetsForApplicationAdministratorRoleForUser (string userId, string roleId, string after = null, int? limit = null)
 
-List Application Targets for Application Administrator Role for User
+List all Application Targets for Application Administrator Role
 
 Lists all App targets for an `APP_ADMIN` Role assigned to a User. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID.
 
@@ -1929,11 +1929,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -1944,7 +1944,7 @@ namespace Example
 
             try
             {
-                // List Application Targets for Application Administrator Role for User
+                // List all Application Targets for Application Administrator Role
                 List<CatalogApplication> result = apiInstance.ListApplicationTargetsForApplicationAdministratorRoleForUser(userId, roleId, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1974,7 +1974,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1996,7 +1996,7 @@ Name | Type | Description  | Notes
 # **ListAssignedRolesForUser**
 > List&lt;Role&gt; ListAssignedRolesForUser (string userId, string expand = null)
 
-List Assigned Roles for User
+List all Assigned Roles
 
 Lists all roles assigned to a user.
 
@@ -2016,11 +2016,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2029,7 +2029,7 @@ namespace Example
 
             try
             {
-                // List Assigned Roles for User
+                // List all Assigned Roles
                 List<Role> result = apiInstance.ListAssignedRolesForUser(userId, expand);
                 Debug.WriteLine(result);
             }
@@ -2057,7 +2057,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2079,7 +2079,7 @@ Name | Type | Description  | Notes
 # **ListGrantsForUserAndClient**
 > List&lt;OAuth2ScopeConsentGrant&gt; ListGrantsForUserAndClient (string userId, string clientId, string expand = null, string after = null, int? limit = null)
 
-List Grants for User and Client
+List all Grants for a Client
 
 Lists all grants for a specified user and client
 
@@ -2099,11 +2099,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2115,7 +2115,7 @@ namespace Example
 
             try
             {
-                // List Grants for User and Client
+                // List all Grants for a Client
                 List<OAuth2ScopeConsentGrant> result = apiInstance.ListGrantsForUserAndClient(userId, clientId, expand, after, limit);
                 Debug.WriteLine(result);
             }
@@ -2146,7 +2146,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2168,7 +2168,7 @@ Name | Type | Description  | Notes
 # **ListGroupTargetsForRole**
 > List&lt;Group&gt; ListGroupTargetsForRole (string userId, string roleId, string after = null, int? limit = null)
 
-List Group Targets for Role
+List all Group Targets for Role
 
 Success
 
@@ -2188,11 +2188,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2203,7 +2203,7 @@ namespace Example
 
             try
             {
-                // List Group Targets for Role
+                // List all Group Targets for Role
                 List<Group> result = apiInstance.ListGroupTargetsForRole(userId, roleId, after, limit);
                 Debug.WriteLine(result);
             }
@@ -2233,7 +2233,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2255,7 +2255,7 @@ Name | Type | Description  | Notes
 # **ListRefreshTokensForUserAndClient**
 > List&lt;OAuth2RefreshToken&gt; ListRefreshTokensForUserAndClient (string userId, string clientId, string expand = null, string after = null, int? limit = null)
 
-List Refresh Tokens for User and Client
+List all Refresh Tokens for a Client
 
 Lists all refresh tokens issued for the specified User and Client.
 
@@ -2275,11 +2275,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2291,7 +2291,7 @@ namespace Example
 
             try
             {
-                // List Refresh Tokens for User and Client
+                // List all Refresh Tokens for a Client
                 List<OAuth2RefreshToken> result = apiInstance.ListRefreshTokensForUserAndClient(userId, clientId, expand, after, limit);
                 Debug.WriteLine(result);
             }
@@ -2322,7 +2322,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2344,7 +2344,7 @@ Name | Type | Description  | Notes
 # **ListUserClients**
 > List&lt;OAuth2Client&gt; ListUserClients (string userId)
 
-List User Clients
+List all Clients
 
 Lists all client resources for which the specified user has grants or tokens.
 
@@ -2364,11 +2364,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2376,7 +2376,7 @@ namespace Example
 
             try
             {
-                // List User Clients
+                // List all Clients
                 List<OAuth2Client> result = apiInstance.ListUserClients(userId);
                 Debug.WriteLine(result);
             }
@@ -2403,7 +2403,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2425,7 +2425,7 @@ Name | Type | Description  | Notes
 # **ListUserGrants**
 > List&lt;OAuth2ScopeConsentGrant&gt; ListUserGrants (string userId, string scopeId = null, string expand = null, string after = null, int? limit = null)
 
-List User Grants
+List all User Grants
 
 Lists all grants for the specified user
 
@@ -2445,11 +2445,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2461,7 +2461,7 @@ namespace Example
 
             try
             {
-                // List User Grants
+                // List all User Grants
                 List<OAuth2ScopeConsentGrant> result = apiInstance.ListUserGrants(userId, scopeId, expand, after, limit);
                 Debug.WriteLine(result);
             }
@@ -2492,7 +2492,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2514,7 +2514,7 @@ Name | Type | Description  | Notes
 # **ListUserGroups**
 > List&lt;Group&gt; ListUserGroups (string userId)
 
-Get Member Groups
+List all Groups
 
 Fetches the groups of which the user is a member.
 
@@ -2534,11 +2534,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2546,7 +2546,7 @@ namespace Example
 
             try
             {
-                // Get Member Groups
+                // List all Groups
                 List<Group> result = apiInstance.ListUserGroups(userId);
                 Debug.WriteLine(result);
             }
@@ -2573,7 +2573,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2595,7 +2595,7 @@ Name | Type | Description  | Notes
 # **ListUserIdentityProviders**
 > List&lt;IdentityProvider&gt; ListUserIdentityProviders (string userId)
 
-Listing IdPs associated with a user
+List all Identity Providers
 
 Lists the IdPs associated with the user.
 
@@ -2615,11 +2615,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2627,7 +2627,7 @@ namespace Example
 
             try
             {
-                // Listing IdPs associated with a user
+                // List all Identity Providers
                 List<IdentityProvider> result = apiInstance.ListUserIdentityProviders(userId);
                 Debug.WriteLine(result);
             }
@@ -2654,7 +2654,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2676,7 +2676,7 @@ Name | Type | Description  | Notes
 # **ListUsers**
 > List&lt;User&gt; ListUsers (string after = null, string q = null, int? limit = null, string filter = null, string search = null, string sortBy = null, string sortOrder = null)
 
-List Users
+List all Users
 
 Lists users in your organization with pagination in most cases.  A subset of users can be returned that match a supported filter expression or search criteria.
 
@@ -2696,11 +2696,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2714,7 +2714,7 @@ namespace Example
 
             try
             {
-                // List Users
+                // List all Users
                 List<User> result = apiInstance.ListUsers(after, q, limit, filter, search, sortBy, sortOrder);
                 Debug.WriteLine(result);
             }
@@ -2747,7 +2747,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2768,7 +2768,7 @@ Name | Type | Description  | Notes
 # **PartialUpdateUser**
 > User PartialUpdateUser (string userId, UpdateUserRequest user, bool? strict = null)
 
-Partial Update User
+Update a User
 
 Fetch a user by `id`, `login`, or `login shortname` if the short name is unambiguous.
 
@@ -2788,11 +2788,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2802,7 +2802,7 @@ namespace Example
 
             try
             {
-                // Partial Update User
+                // Update a User
                 User result = apiInstance.PartialUpdateUser(userId, user, strict);
                 Debug.WriteLine(result);
             }
@@ -2831,7 +2831,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2854,7 +2854,7 @@ Name | Type | Description  | Notes
 # **ReactivateUser**
 > UserActivationToken ReactivateUser (string userId, bool? sendEmail = null)
 
-Reactivate User
+Reactivate a User
 
 Reactivates a user.  This operation can only be performed on users with a `PROVISIONED` status.  This operation restarts the activation workflow if for some reason the user activation was not completed when using the activationToken from [Activate User](#activate-user).
 
@@ -2874,11 +2874,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2887,7 +2887,7 @@ namespace Example
 
             try
             {
-                // Reactivate User
+                // Reactivate a User
                 UserActivationToken result = apiInstance.ReactivateUser(userId, sendEmail);
                 Debug.WriteLine(result);
             }
@@ -2915,7 +2915,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2937,7 +2937,7 @@ Name | Type | Description  | Notes
 # **RemoveApplicationTargetFromAdministratorRoleForUser**
 > void RemoveApplicationTargetFromAdministratorRoleForUser (string userId, string roleId, string appName, string applicationId)
 
-Remove App Instance Target to App Administrator Role given to a User
+Unassign an Application Instance Target to Application Administrator Role
 
 Remove App Instance Target to App Administrator Role given to a User
 
@@ -2957,11 +2957,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -2972,7 +2972,7 @@ namespace Example
 
             try
             {
-                // Remove App Instance Target to App Administrator Role given to a User
+                // Unassign an Application Instance Target to Application Administrator Role
                 apiInstance.RemoveApplicationTargetFromAdministratorRoleForUser(userId, roleId, appName, applicationId);
             }
             catch (ApiException  e)
@@ -3001,7 +3001,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3023,7 +3023,7 @@ void (empty response body)
 # **RemoveApplicationTargetFromApplicationAdministratorRoleForUser**
 > void RemoveApplicationTargetFromApplicationAdministratorRoleForUser (string userId, string roleId, string appName)
 
-Remove Application Target from Application Administrator Role for User
+Unassign an Application Target from Application Administrator Role
 
 Success
 
@@ -3043,11 +3043,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3057,7 +3057,7 @@ namespace Example
 
             try
             {
-                // Remove Application Target from Application Administrator Role for User
+                // Unassign an Application Target from Application Administrator Role
                 apiInstance.RemoveApplicationTargetFromApplicationAdministratorRoleForUser(userId, roleId, appName);
             }
             catch (ApiException  e)
@@ -3085,7 +3085,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3107,9 +3107,9 @@ void (empty response body)
 # **RemoveGroupTargetFromRole**
 > void RemoveGroupTargetFromRole (string userId, string roleId, string groupId)
 
-Remove Group Target from Role
+Unassign a Group Target from Role
 
-Success
+Unassign a Group Target from Role
 
 ### Example
 ```csharp
@@ -3127,11 +3127,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3141,7 +3141,7 @@ namespace Example
 
             try
             {
-                // Remove Group Target from Role
+                // Unassign a Group Target from Role
                 apiInstance.RemoveGroupTargetFromRole(userId, roleId, groupId);
             }
             catch (ApiException  e)
@@ -3169,7 +3169,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3191,7 +3191,7 @@ void (empty response body)
 # **RemoveLinkedObjectForUser**
 > void RemoveLinkedObjectForUser (string userId, string relationshipName)
 
-Remove Linked Object for User
+Delete a Linked Object
 
 Delete linked objects for a user, relationshipName can be ONLY a primary relationship name
 
@@ -3211,11 +3211,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3224,7 +3224,7 @@ namespace Example
 
             try
             {
-                // Remove Linked Object for User
+                // Delete a Linked Object
                 apiInstance.RemoveLinkedObjectForUser(userId, relationshipName);
             }
             catch (ApiException  e)
@@ -3251,7 +3251,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3273,7 +3273,7 @@ void (empty response body)
 # **RemoveRoleFromUser**
 > void RemoveRoleFromUser (string userId, string roleId)
 
-Remove Role from User
+Delete a Role
 
 Unassigns a role from a user.
 
@@ -3293,11 +3293,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3306,7 +3306,7 @@ namespace Example
 
             try
             {
-                // Remove Role from User
+                // Delete a Role
                 apiInstance.RemoveRoleFromUser(userId, roleId);
             }
             catch (ApiException  e)
@@ -3333,7 +3333,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3355,7 +3355,7 @@ void (empty response body)
 # **ResetFactors**
 > void ResetFactors (string userId)
 
-Reset Factors
+Reset all Factors
 
 This operation resets all factors for the specified user. All MFA factor enrollments returned to the unenrolled state. The user's status remains ACTIVE. This link is present only if the user is currently enrolled in one or more MFA factors.
 
@@ -3375,11 +3375,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3387,7 +3387,7 @@ namespace Example
 
             try
             {
-                // Reset Factors
+                // Reset all Factors
                 apiInstance.ResetFactors(userId);
             }
             catch (ApiException  e)
@@ -3413,7 +3413,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3455,11 +3455,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3496,7 +3496,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3518,7 +3518,7 @@ Name | Type | Description  | Notes
 # **RevokeGrantsForUserAndClient**
 > void RevokeGrantsForUserAndClient (string userId, string clientId)
 
-Revoke Grants for User and Client
+Revoke all Grants for a Client
 
 Revokes all grants for the specified user and client
 
@@ -3538,11 +3538,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3551,7 +3551,7 @@ namespace Example
 
             try
             {
-                // Revoke Grants for User and Client
+                // Revoke all Grants for a Client
                 apiInstance.RevokeGrantsForUserAndClient(userId, clientId);
             }
             catch (ApiException  e)
@@ -3578,7 +3578,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3600,7 +3600,7 @@ void (empty response body)
 # **RevokeTokenForUserAndClient**
 > void RevokeTokenForUserAndClient (string userId, string clientId, string tokenId)
 
-Revoke Token for User and Client
+Revoke a Token for a Client
 
 Revokes the specified refresh token.
 
@@ -3620,11 +3620,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3634,7 +3634,7 @@ namespace Example
 
             try
             {
-                // Revoke Token for User and Client
+                // Revoke a Token for a Client
                 apiInstance.RevokeTokenForUserAndClient(userId, clientId, tokenId);
             }
             catch (ApiException  e)
@@ -3662,7 +3662,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3684,7 +3684,7 @@ void (empty response body)
 # **RevokeTokensForUserAndClient**
 > void RevokeTokensForUserAndClient (string userId, string clientId)
 
-Revoke Tokens for User and Client
+Revoke all Refresh Tokens for a Client
 
 Revokes all refresh tokens issued for the specified User and Client.
 
@@ -3704,11 +3704,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3717,7 +3717,7 @@ namespace Example
 
             try
             {
-                // Revoke Tokens for User and Client
+                // Revoke all Refresh Tokens for a Client
                 apiInstance.RevokeTokensForUserAndClient(userId, clientId);
             }
             catch (ApiException  e)
@@ -3744,7 +3744,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3766,7 +3766,7 @@ void (empty response body)
 # **RevokeUserGrant**
 > void RevokeUserGrant (string userId, string grantId)
 
-Revoke User Grant
+Revoke a User Grant
 
 Revokes one grant for a specified user
 
@@ -3786,11 +3786,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3799,7 +3799,7 @@ namespace Example
 
             try
             {
-                // Revoke User Grant
+                // Revoke a User Grant
                 apiInstance.RevokeUserGrant(userId, grantId);
             }
             catch (ApiException  e)
@@ -3826,7 +3826,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3848,7 +3848,7 @@ void (empty response body)
 # **RevokeUserGrants**
 > void RevokeUserGrants (string userId)
 
-Revoke User Grants
+Revoke all User Grants
 
 Revokes all grants for a specified user
 
@@ -3868,11 +3868,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3880,7 +3880,7 @@ namespace Example
 
             try
             {
-                // Revoke User Grants
+                // Revoke all User Grants
                 apiInstance.RevokeUserGrants(userId);
             }
             catch (ApiException  e)
@@ -3906,7 +3906,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3928,9 +3928,9 @@ void (empty response body)
 # **SetLinkedObjectForUser**
 > void SetLinkedObjectForUser (string associatedUserId, string primaryRelationshipName, string primaryUserId)
 
-Set Linked Object for User
+Create a Linked Object for two User
 
-Sets a linked object for a user.
+Sets a linked object for two users.
 
 ### Example
 ```csharp
@@ -3948,7 +3948,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -3958,7 +3958,7 @@ namespace Example
 
             try
             {
-                // Set Linked Object for User
+                // Create a Linked Object for two User
                 apiInstance.SetLinkedObjectForUser(associatedUserId, primaryRelationshipName, primaryUserId);
             }
             catch (ApiException  e)
@@ -3986,7 +3986,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth 2.0](../README.md#OAuth 2.0)
+[OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -4008,7 +4008,7 @@ void (empty response body)
 # **SuspendUser**
 > void SuspendUser (string userId)
 
-Suspend User
+Suspend a User
 
 Suspends a user.  This operation can only be performed on users with an `ACTIVE` status.  The user will have a status of `SUSPENDED` when the process is complete.
 
@@ -4028,11 +4028,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -4040,7 +4040,7 @@ namespace Example
 
             try
             {
-                // Suspend User
+                // Suspend a User
                 apiInstance.SuspendUser(userId);
             }
             catch (ApiException  e)
@@ -4066,7 +4066,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -4088,7 +4088,7 @@ void (empty response body)
 # **UnlockUser**
 > void UnlockUser (string userId)
 
-Unlock User
+Unlock a User
 
 Unlocks a user with a `LOCKED_OUT` status and returns them to `ACTIVE` status.  Users will be able to login with their current password.
 
@@ -4108,11 +4108,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -4120,7 +4120,7 @@ namespace Example
 
             try
             {
-                // Unlock User
+                // Unlock a User
                 apiInstance.UnlockUser(userId);
             }
             catch (ApiException  e)
@@ -4146,7 +4146,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -4168,7 +4168,7 @@ void (empty response body)
 # **UnsuspendUser**
 > void UnsuspendUser (string userId)
 
-Unsuspend User
+Unsuspend a User
 
 Unsuspends a user and returns them to the `ACTIVE` state.  This operation can only be performed on users that have a `SUSPENDED` status.
 
@@ -4188,11 +4188,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -4200,7 +4200,7 @@ namespace Example
 
             try
             {
-                // Unsuspend User
+                // Unsuspend a User
                 apiInstance.UnsuspendUser(userId);
             }
             catch (ApiException  e)
@@ -4226,7 +4226,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -4248,7 +4248,7 @@ void (empty response body)
 # **UpdateUser**
 > User UpdateUser (string userId, UpdateUserRequest user, bool? strict = null)
 
-Update User
+Replace a User
 
 Update a user's profile and/or credentials using strict-update semantics.
 
@@ -4268,11 +4268,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserApi(config);
@@ -4282,7 +4282,7 @@ namespace Example
 
             try
             {
-                // Update User
+                // Replace a User
                 User result = apiInstance.UpdateUser(userId, user, strict);
                 Debug.WriteLine(result);
             }
@@ -4311,7 +4311,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

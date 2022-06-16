@@ -34,10 +34,10 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets App
+        /// Gets or Sets IdentityStoreId
         /// </summary>
-        [DataMember(Name = "app", EmitDefaultValue = false)]
-        public SecurePasswordStoreApplicationSettingsApplication App { get; set; }
+        [DataMember(Name = "identityStoreId", EmitDefaultValue = false)]
+        public string IdentityStoreId { get; set; }
 
         /// <summary>
         /// Gets or Sets ImplicitAssignment
@@ -52,12 +52,6 @@ namespace Okta.Sdk.Model
         public string InlineHookId { get; set; }
 
         /// <summary>
-        /// Gets or Sets IdentityStoreId
-        /// </summary>
-        [DataMember(Name = "identityStoreId", EmitDefaultValue = false)]
-        public string IdentityStoreId { get; set; }
-
-        /// <summary>
         /// Gets or Sets Notes
         /// </summary>
         [DataMember(Name = "notes", EmitDefaultValue = false)]
@@ -70,6 +64,12 @@ namespace Okta.Sdk.Model
         public ApplicationSettingsNotifications Notifications { get; set; }
 
         /// <summary>
+        /// Gets or Sets App
+        /// </summary>
+        [DataMember(Name = "app", EmitDefaultValue = false)]
+        public SecurePasswordStoreApplicationSettingsApplication App { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -77,12 +77,12 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SecurePasswordStoreApplicationSettings {\n");
-            sb.Append("  App: ").Append(App).Append("\n");
+            sb.Append("  IdentityStoreId: ").Append(IdentityStoreId).Append("\n");
             sb.Append("  ImplicitAssignment: ").Append(ImplicitAssignment).Append("\n");
             sb.Append("  InlineHookId: ").Append(InlineHookId).Append("\n");
-            sb.Append("  IdentityStoreId: ").Append(IdentityStoreId).Append("\n");
             sb.Append("  Notes: ").Append(Notes).Append("\n");
             sb.Append("  Notifications: ").Append(Notifications).Append("\n");
+            sb.Append("  App: ").Append(App).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,9 +119,9 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.App == input.App ||
-                    (this.App != null &&
-                    this.App.Equals(input.App))
+                    this.IdentityStoreId == input.IdentityStoreId ||
+                    (this.IdentityStoreId != null &&
+                    this.IdentityStoreId.Equals(input.IdentityStoreId))
                 ) && 
                 (
                     this.ImplicitAssignment == input.ImplicitAssignment ||
@@ -133,11 +133,6 @@ namespace Okta.Sdk.Model
                     this.InlineHookId.Equals(input.InlineHookId))
                 ) && 
                 (
-                    this.IdentityStoreId == input.IdentityStoreId ||
-                    (this.IdentityStoreId != null &&
-                    this.IdentityStoreId.Equals(input.IdentityStoreId))
-                ) && 
-                (
                     this.Notes == input.Notes ||
                     (this.Notes != null &&
                     this.Notes.Equals(input.Notes))
@@ -146,6 +141,11 @@ namespace Okta.Sdk.Model
                     this.Notifications == input.Notifications ||
                     (this.Notifications != null &&
                     this.Notifications.Equals(input.Notifications))
+                ) && 
+                (
+                    this.App == input.App ||
+                    (this.App != null &&
+                    this.App.Equals(input.App))
                 );
         }
 
@@ -158,18 +158,14 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.App != null)
+                if (this.IdentityStoreId != null)
                 {
-                    hashCode = (hashCode * 59) + this.App.GetHashCode();
+                    hashCode = (hashCode * 59) + this.IdentityStoreId.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.ImplicitAssignment.GetHashCode();
                 if (this.InlineHookId != null)
                 {
                     hashCode = (hashCode * 59) + this.InlineHookId.GetHashCode();
-                }
-                if (this.IdentityStoreId != null)
-                {
-                    hashCode = (hashCode * 59) + this.IdentityStoreId.GetHashCode();
                 }
                 if (this.Notes != null)
                 {
@@ -178,6 +174,10 @@ namespace Okta.Sdk.Model
                 if (this.Notifications != null)
                 {
                     hashCode = (hashCode * 59) + this.Notifications.GetHashCode();
+                }
+                if (this.App != null)
+                {
+                    hashCode = (hashCode * 59) + this.App.GetHashCode();
                 }
                 return hashCode;
             }

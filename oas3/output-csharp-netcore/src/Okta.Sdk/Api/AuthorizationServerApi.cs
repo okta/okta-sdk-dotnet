@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Authorization Server
+        /// Activate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         void ActivateAuthorizationServer(string authServerId);
 
         /// <summary>
-        /// Activate Authorization Server
+        /// Activate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivateAuthorizationServerWithHttpInfo(string authServerId);
         /// <summary>
-        /// Activate Authorization Server Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy
@@ -61,7 +61,7 @@ namespace Okta.Sdk.Api
         void ActivateAuthorizationServerPolicy(string authServerId, string policyId);
 
         /// <summary>
-        /// Activate Authorization Server Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy
@@ -72,7 +72,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivateAuthorizationServerPolicyWithHttpInfo(string authServerId, string policyId);
         /// <summary>
-        /// Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy Rule
@@ -85,7 +85,7 @@ namespace Okta.Sdk.Api
         void ActivateAuthorizationServerPolicyRule(string authServerId, string policyId, string ruleId);
 
         /// <summary>
-        /// Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy Rule
@@ -97,7 +97,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> ActivateAuthorizationServerPolicyRuleWithHttpInfo(string authServerId, string policyId, string ruleId);
         /// <summary>
-        /// Create Authorization Server
+        /// Create an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -108,7 +108,7 @@ namespace Okta.Sdk.Api
         AuthorizationServer CreateAuthorizationServer(AuthorizationServer authorizationServer);
 
         /// <summary>
-        /// Create Authorization Server
+        /// Create an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -118,7 +118,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServer</returns>
         ApiResponse<AuthorizationServer> CreateAuthorizationServerWithHttpInfo(AuthorizationServer authorizationServer);
         /// <summary>
-        /// Create Authorization Server Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -130,7 +130,7 @@ namespace Okta.Sdk.Api
         AuthorizationServerPolicy CreateAuthorizationServerPolicy(string authServerId, AuthorizationServerPolicy policy);
 
         /// <summary>
-        /// Create Authorization Server Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -141,7 +141,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServerPolicy</returns>
         ApiResponse<AuthorizationServerPolicy> CreateAuthorizationServerPolicyWithHttpInfo(string authServerId, AuthorizationServerPolicy policy);
         /// <summary>
-        /// Create Authorization Server Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule for the specified Custom Authorization Server and Policy.
@@ -154,7 +154,7 @@ namespace Okta.Sdk.Api
         AuthorizationServerPolicyRule CreateAuthorizationServerPolicyRule(string policyId, string authServerId, AuthorizationServerPolicyRule policyRule);
 
         /// <summary>
-        /// Create Authorization Server Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule for the specified Custom Authorization Server and Policy.
@@ -166,7 +166,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServerPolicyRule</returns>
         ApiResponse<AuthorizationServerPolicyRule> CreateAuthorizationServerPolicyRuleWithHttpInfo(string policyId, string authServerId, AuthorizationServerPolicyRule policyRule);
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim
+        /// Create a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -178,7 +178,7 @@ namespace Okta.Sdk.Api
         OAuth2Claim CreateOAuth2Claim(string authServerId, OAuth2Claim oAuth2Claim);
 
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim
+        /// Create a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -189,7 +189,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2Claim</returns>
         ApiResponse<OAuth2Claim> CreateOAuth2ClaimWithHttpInfo(string authServerId, OAuth2Claim oAuth2Claim);
         /// <summary>
-        /// Create Oauth2scope
+        /// Create a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -201,7 +201,7 @@ namespace Okta.Sdk.Api
         OAuth2Scope CreateOAuth2Scope(string authServerId, OAuth2Scope oAuth2Scope);
 
         /// <summary>
-        /// Create Oauth2scope
+        /// Create a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -212,7 +212,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2Scope</returns>
         ApiResponse<OAuth2Scope> CreateOAuth2ScopeWithHttpInfo(string authServerId, OAuth2Scope oAuth2Scope);
         /// <summary>
-        /// Deactivate Authorization Server
+        /// Deactivate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -223,7 +223,7 @@ namespace Okta.Sdk.Api
         void DeactivateAuthorizationServer(string authServerId);
 
         /// <summary>
-        /// Deactivate Authorization Server
+        /// Deactivate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -233,7 +233,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivateAuthorizationServerWithHttpInfo(string authServerId);
         /// <summary>
-        /// Deactivate Authorization Server Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy
@@ -245,7 +245,7 @@ namespace Okta.Sdk.Api
         void DeactivateAuthorizationServerPolicy(string authServerId, string policyId);
 
         /// <summary>
-        /// Deactivate Authorization Server Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy
@@ -256,7 +256,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivateAuthorizationServerPolicyWithHttpInfo(string authServerId, string policyId);
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy Rule
@@ -269,7 +269,7 @@ namespace Okta.Sdk.Api
         void DeactivateAuthorizationServerPolicyRule(string authServerId, string policyId, string ruleId);
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy Rule
@@ -281,7 +281,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeactivateAuthorizationServerPolicyRuleWithHttpInfo(string authServerId, string policyId, string ruleId);
         /// <summary>
-        /// Delete Authorization Server
+        /// Delete an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -292,7 +292,7 @@ namespace Okta.Sdk.Api
         void DeleteAuthorizationServer(string authServerId);
 
         /// <summary>
-        /// Delete Authorization Server
+        /// Delete an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -302,7 +302,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAuthorizationServerWithHttpInfo(string authServerId);
         /// <summary>
-        /// Delete Authorization Server Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -314,7 +314,7 @@ namespace Okta.Sdk.Api
         void DeleteAuthorizationServerPolicy(string authServerId, string policyId);
 
         /// <summary>
-        /// Delete Authorization Server Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -325,7 +325,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAuthorizationServerPolicyWithHttpInfo(string authServerId, string policyId);
         /// <summary>
-        /// Delete Authorization Server Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -338,7 +338,7 @@ namespace Okta.Sdk.Api
         void DeleteAuthorizationServerPolicyRule(string policyId, string authServerId, string ruleId);
 
         /// <summary>
-        /// Delete Authorization Server Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -350,7 +350,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAuthorizationServerPolicyRuleWithHttpInfo(string policyId, string authServerId, string ruleId);
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim
+        /// Delete a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -362,7 +362,7 @@ namespace Okta.Sdk.Api
         void DeleteOAuth2Claim(string authServerId, string claimId);
 
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim
+        /// Delete a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -373,7 +373,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteOAuth2ClaimWithHttpInfo(string authServerId, string claimId);
         /// <summary>
-        /// Delete Oauth2scope
+        /// Delete a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -385,7 +385,7 @@ namespace Okta.Sdk.Api
         void DeleteOAuth2Scope(string authServerId, string scopeId);
 
         /// <summary>
-        /// Delete Oauth2scope
+        /// Delete a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -396,7 +396,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteOAuth2ScopeWithHttpInfo(string authServerId, string scopeId);
         /// <summary>
-        /// Get Authorization Server
+        /// Retrieve an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -407,7 +407,7 @@ namespace Okta.Sdk.Api
         AuthorizationServer GetAuthorizationServer(string authServerId);
 
         /// <summary>
-        /// Get Authorization Server
+        /// Retrieve an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -417,7 +417,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServer</returns>
         ApiResponse<AuthorizationServer> GetAuthorizationServerWithHttpInfo(string authServerId);
         /// <summary>
-        /// Get Authorization Server Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -429,7 +429,7 @@ namespace Okta.Sdk.Api
         AuthorizationServerPolicy GetAuthorizationServerPolicy(string authServerId, string policyId);
 
         /// <summary>
-        /// Get Authorization Server Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -440,7 +440,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServerPolicy</returns>
         ApiResponse<AuthorizationServerPolicy> GetAuthorizationServerPolicyWithHttpInfo(string authServerId, string policyId);
         /// <summary>
-        /// Get Authorization Server Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
@@ -453,7 +453,7 @@ namespace Okta.Sdk.Api
         AuthorizationServerPolicyRule GetAuthorizationServerPolicyRule(string policyId, string authServerId, string ruleId);
 
         /// <summary>
-        /// Get Authorization Server Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
@@ -465,7 +465,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServerPolicyRule</returns>
         ApiResponse<AuthorizationServerPolicyRule> GetAuthorizationServerPolicyRuleWithHttpInfo(string policyId, string authServerId, string ruleId);
         /// <summary>
-        /// Get Oauth2claim
+        /// Retrieve a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -477,7 +477,7 @@ namespace Okta.Sdk.Api
         OAuth2Claim GetOAuth2Claim(string authServerId, string claimId);
 
         /// <summary>
-        /// Get Oauth2claim
+        /// Retrieve a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -488,7 +488,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2Claim</returns>
         ApiResponse<OAuth2Claim> GetOAuth2ClaimWithHttpInfo(string authServerId, string claimId);
         /// <summary>
-        /// Get Oauth2scope
+        /// Retrieve a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -500,7 +500,7 @@ namespace Okta.Sdk.Api
         OAuth2Scope GetOAuth2Scope(string authServerId, string scopeId);
 
         /// <summary>
-        /// Get Oauth2scope
+        /// Retrieve a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -511,7 +511,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2Scope</returns>
         ApiResponse<OAuth2Scope> GetOAuth2ScopeWithHttpInfo(string authServerId, string scopeId);
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client
+        /// Retrieve a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -525,7 +525,7 @@ namespace Okta.Sdk.Api
         OAuth2RefreshToken GetRefreshTokenForAuthorizationServerAndClient(string authServerId, string clientId, string tokenId, string expand = default(string));
 
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client
+        /// Retrieve a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -538,7 +538,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2RefreshToken</returns>
         ApiResponse<OAuth2RefreshToken> GetRefreshTokenForAuthorizationServerAndClientWithHttpInfo(string authServerId, string clientId, string tokenId, string expand = default(string));
         /// <summary>
-        /// List Authorization Server Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -549,7 +549,7 @@ namespace Okta.Sdk.Api
         List<JsonWebKey> ListAuthorizationServerKeys(string authServerId);
 
         /// <summary>
-        /// List Authorization Server Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -559,7 +559,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
         ApiResponse<List<JsonWebKey>> ListAuthorizationServerKeysWithHttpInfo(string authServerId);
         /// <summary>
-        /// List Authorization Server Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Success
@@ -570,7 +570,7 @@ namespace Okta.Sdk.Api
         List<AuthorizationServerPolicy> ListAuthorizationServerPolicies(string authServerId);
 
         /// <summary>
-        /// List Authorization Server Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Success
@@ -580,7 +580,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;AuthorizationServerPolicy&gt;</returns>
         ApiResponse<List<AuthorizationServerPolicy>> ListAuthorizationServerPoliciesWithHttpInfo(string authServerId);
         /// <summary>
-        /// List Authorization Server Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules for the specified Custom Authorization Server and Policy.
@@ -592,7 +592,7 @@ namespace Okta.Sdk.Api
         List<AuthorizationServerPolicyRule> ListAuthorizationServerPolicyRules(string policyId, string authServerId);
 
         /// <summary>
-        /// List Authorization Server Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules for the specified Custom Authorization Server and Policy.
@@ -603,7 +603,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;AuthorizationServerPolicyRule&gt;</returns>
         ApiResponse<List<AuthorizationServerPolicyRule>> ListAuthorizationServerPolicyRulesWithHttpInfo(string policyId, string authServerId);
         /// <summary>
-        /// List Authorization Servers
+        /// List all Authorization Servers
         /// </summary>
         /// <remarks>
         /// Success
@@ -616,7 +616,7 @@ namespace Okta.Sdk.Api
         List<AuthorizationServer> ListAuthorizationServers(string q = default(string), string limit = default(string), string after = default(string));
 
         /// <summary>
-        /// List Authorization Servers
+        /// List all Authorization Servers
         /// </summary>
         /// <remarks>
         /// Success
@@ -628,7 +628,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;AuthorizationServer&gt;</returns>
         ApiResponse<List<AuthorizationServer>> ListAuthorizationServersWithHttpInfo(string q = default(string), string limit = default(string), string after = default(string));
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims
+        /// List all Custom Token Claims
         /// </summary>
         /// <remarks>
         /// Success
@@ -639,7 +639,7 @@ namespace Okta.Sdk.Api
         List<OAuth2Claim> ListOAuth2Claims(string authServerId);
 
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims
+        /// List all Custom Token Claims
         /// </summary>
         /// <remarks>
         /// Success
@@ -649,7 +649,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OAuth2Claim&gt;</returns>
         ApiResponse<List<OAuth2Claim>> ListOAuth2ClaimsWithHttpInfo(string authServerId);
         /// <summary>
-        /// List Oauth2clients for Authorization Server
+        /// List all Clients
         /// </summary>
         /// <remarks>
         /// Success
@@ -660,7 +660,7 @@ namespace Okta.Sdk.Api
         List<OAuth2Client> ListOAuth2ClientsForAuthorizationServer(string authServerId);
 
         /// <summary>
-        /// List Oauth2clients for Authorization Server
+        /// List all Clients
         /// </summary>
         /// <remarks>
         /// Success
@@ -670,7 +670,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OAuth2Client&gt;</returns>
         ApiResponse<List<OAuth2Client>> ListOAuth2ClientsForAuthorizationServerWithHttpInfo(string authServerId);
         /// <summary>
-        /// List Oauth2scopes
+        /// List all Custom Token Scopes
         /// </summary>
         /// <remarks>
         /// Success
@@ -685,7 +685,7 @@ namespace Okta.Sdk.Api
         List<OAuth2Scope> ListOAuth2Scopes(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Oauth2scopes
+        /// List all Custom Token Scopes
         /// </summary>
         /// <remarks>
         /// Success
@@ -699,7 +699,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OAuth2Scope&gt;</returns>
         ApiResponse<List<OAuth2Scope>> ListOAuth2ScopesWithHttpInfo(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client
+        /// List all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -714,7 +714,7 @@ namespace Okta.Sdk.Api
         List<OAuth2RefreshToken> ListRefreshTokensForAuthorizationServerAndClient(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client
+        /// List all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -728,7 +728,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OAuth2RefreshToken&gt;</returns>
         ApiResponse<List<OAuth2RefreshToken>> ListRefreshTokensForAuthorizationServerAndClientWithHttpInfo(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client
+        /// Revoke a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -741,7 +741,7 @@ namespace Okta.Sdk.Api
         void RevokeRefreshTokenForAuthorizationServerAndClient(string authServerId, string clientId, string tokenId);
 
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client
+        /// Revoke a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -753,7 +753,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeRefreshTokenForAuthorizationServerAndClientWithHttpInfo(string authServerId, string clientId, string tokenId);
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client
+        /// Revoke all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -765,7 +765,7 @@ namespace Okta.Sdk.Api
         void RevokeRefreshTokensForAuthorizationServerAndClient(string authServerId, string clientId);
 
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client
+        /// Revoke all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -776,7 +776,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeRefreshTokensForAuthorizationServerAndClientWithHttpInfo(string authServerId, string clientId);
         /// <summary>
-        /// Rotate Authorization Server Keys
+        /// Rotate all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -788,7 +788,7 @@ namespace Okta.Sdk.Api
         List<JsonWebKey> RotateAuthorizationServerKeys(string authServerId, JwkUse use);
 
         /// <summary>
-        /// Rotate Authorization Server Keys
+        /// Rotate all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -799,7 +799,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
         ApiResponse<List<JsonWebKey>> RotateAuthorizationServerKeysWithHttpInfo(string authServerId, JwkUse use);
         /// <summary>
-        /// Update Authorization Server
+        /// Replace an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -811,7 +811,7 @@ namespace Okta.Sdk.Api
         AuthorizationServer UpdateAuthorizationServer(string authServerId, AuthorizationServer authorizationServer);
 
         /// <summary>
-        /// Update Authorization Server
+        /// Replace an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -822,7 +822,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServer</returns>
         ApiResponse<AuthorizationServer> UpdateAuthorizationServerWithHttpInfo(string authServerId, AuthorizationServer authorizationServer);
         /// <summary>
-        /// Update Authorization Server Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -835,7 +835,7 @@ namespace Okta.Sdk.Api
         AuthorizationServerPolicy UpdateAuthorizationServerPolicy(string authServerId, string policyId, AuthorizationServerPolicy policy);
 
         /// <summary>
-        /// Update Authorization Server Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -847,7 +847,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServerPolicy</returns>
         ApiResponse<AuthorizationServerPolicy> UpdateAuthorizationServerPolicyWithHttpInfo(string authServerId, string policyId, AuthorizationServerPolicy policy);
         /// <summary>
-        /// Update Authorization Server Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -861,7 +861,7 @@ namespace Okta.Sdk.Api
         AuthorizationServerPolicyRule UpdateAuthorizationServerPolicyRule(string policyId, string authServerId, string ruleId, AuthorizationServerPolicyRule policyRule);
 
         /// <summary>
-        /// Update Authorization Server Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -874,7 +874,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AuthorizationServerPolicyRule</returns>
         ApiResponse<AuthorizationServerPolicyRule> UpdateAuthorizationServerPolicyRuleWithHttpInfo(string policyId, string authServerId, string ruleId, AuthorizationServerPolicyRule policyRule);
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim
+        /// Replace a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -887,7 +887,7 @@ namespace Okta.Sdk.Api
         OAuth2Claim UpdateOAuth2Claim(string authServerId, string claimId, OAuth2Claim oAuth2Claim);
 
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim
+        /// Replace a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -899,7 +899,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OAuth2Claim</returns>
         ApiResponse<OAuth2Claim> UpdateOAuth2ClaimWithHttpInfo(string authServerId, string claimId, OAuth2Claim oAuth2Claim);
         /// <summary>
-        /// Update Oauth2scope
+        /// Replace a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -912,7 +912,7 @@ namespace Okta.Sdk.Api
         OAuth2Scope UpdateOAuth2Scope(string authServerId, string scopeId, OAuth2Scope oAuth2Scope);
 
         /// <summary>
-        /// Update Oauth2scope
+        /// Replace a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -933,7 +933,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Authorization Server
+        /// Activate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -945,7 +945,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivateAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Authorization Server
+        /// Activate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -956,7 +956,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateAuthorizationServerWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Activate Authorization Server Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy
@@ -969,7 +969,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivateAuthorizationServerPolicyAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Authorization Server Policy
+        /// Activate a Policy
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy
@@ -981,7 +981,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateAuthorizationServerPolicyWithHttpInfoAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy Rule
@@ -995,7 +995,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task ActivateAuthorizationServerPolicyRuleAsync(string authServerId, string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Activate Authorization Server Policy Rule
@@ -1008,7 +1008,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> ActivateAuthorizationServerPolicyRuleWithHttpInfoAsync(string authServerId, string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Authorization Server
+        /// Create an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1020,7 +1020,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServer> CreateAuthorizationServerAsync(AuthorizationServer authorizationServer, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Authorization Server
+        /// Create an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1031,7 +1031,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServer)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServer>> CreateAuthorizationServerWithHttpInfoAsync(AuthorizationServer authorizationServer, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Authorization Server Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1044,7 +1044,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServerPolicy> CreateAuthorizationServerPolicyAsync(string authServerId, AuthorizationServerPolicy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Authorization Server Policy
+        /// Create a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1056,7 +1056,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServerPolicy)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServerPolicy>> CreateAuthorizationServerPolicyWithHttpInfoAsync(string authServerId, AuthorizationServerPolicy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Authorization Server Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule for the specified Custom Authorization Server and Policy.
@@ -1070,7 +1070,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServerPolicyRule> CreateAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, AuthorizationServerPolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Authorization Server Policy Rule
+        /// Create a Policy Rule
         /// </summary>
         /// <remarks>
         /// Creates a policy rule for the specified Custom Authorization Server and Policy.
@@ -1083,7 +1083,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServerPolicyRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServerPolicyRule>> CreateAuthorizationServerPolicyRuleWithHttpInfoAsync(string policyId, string authServerId, AuthorizationServerPolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim
+        /// Create a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1096,7 +1096,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Claim> CreateOAuth2ClaimAsync(string authServerId, OAuth2Claim oAuth2Claim, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim
+        /// Create a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1108,7 +1108,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2Claim)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2Claim>> CreateOAuth2ClaimWithHttpInfoAsync(string authServerId, OAuth2Claim oAuth2Claim, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Oauth2scope
+        /// Create a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1121,7 +1121,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Scope> CreateOAuth2ScopeAsync(string authServerId, OAuth2Scope oAuth2Scope, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Oauth2scope
+        /// Create a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1133,7 +1133,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2Scope)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2Scope>> CreateOAuth2ScopeWithHttpInfoAsync(string authServerId, OAuth2Scope oAuth2Scope, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Authorization Server
+        /// Deactivate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1145,7 +1145,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivateAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Authorization Server
+        /// Deactivate an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1156,7 +1156,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateAuthorizationServerWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Authorization Server Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy
@@ -1169,7 +1169,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivateAuthorizationServerPolicyAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Authorization Server Policy
+        /// Deactivate a Policy
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy
@@ -1181,7 +1181,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateAuthorizationServerPolicyWithHttpInfoAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy Rule
@@ -1195,7 +1195,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeactivateAuthorizationServerPolicyRuleAsync(string authServerId, string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deactivate Authorization Server Policy Rule
@@ -1208,7 +1208,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeactivateAuthorizationServerPolicyRuleWithHttpInfoAsync(string authServerId, string policyId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Authorization Server
+        /// Delete an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1220,7 +1220,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Authorization Server
+        /// Delete an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1231,7 +1231,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAuthorizationServerWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Authorization Server Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1244,7 +1244,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteAuthorizationServerPolicyAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Authorization Server Policy
+        /// Delete a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1256,7 +1256,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAuthorizationServerPolicyWithHttpInfoAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Authorization Server Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -1270,7 +1270,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Authorization Server Policy Rule
+        /// Delete a Policy Rule
         /// </summary>
         /// <remarks>
         /// Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -1283,7 +1283,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAuthorizationServerPolicyRuleWithHttpInfoAsync(string policyId, string authServerId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim
+        /// Delete a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1296,7 +1296,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteOAuth2ClaimAsync(string authServerId, string claimId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim
+        /// Delete a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1308,7 +1308,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOAuth2ClaimWithHttpInfoAsync(string authServerId, string claimId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Oauth2scope
+        /// Delete a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1321,7 +1321,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteOAuth2ScopeAsync(string authServerId, string scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Oauth2scope
+        /// Delete a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1333,7 +1333,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteOAuth2ScopeWithHttpInfoAsync(string authServerId, string scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Authorization Server
+        /// Retrieve an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1345,7 +1345,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServer> GetAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Authorization Server
+        /// Retrieve an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1356,7 +1356,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServer)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServer>> GetAuthorizationServerWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Authorization Server Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1369,7 +1369,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServerPolicy> GetAuthorizationServerPolicyAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Authorization Server Policy
+        /// Retrieve a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1381,7 +1381,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServerPolicy)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServerPolicy>> GetAuthorizationServerPolicyWithHttpInfoAsync(string authServerId, string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Authorization Server Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
@@ -1395,7 +1395,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServerPolicyRule> GetAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Authorization Server Policy Rule
+        /// Retrieve a Policy Rule
         /// </summary>
         /// <remarks>
         /// Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
@@ -1408,7 +1408,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServerPolicyRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServerPolicyRule>> GetAuthorizationServerPolicyRuleWithHttpInfoAsync(string policyId, string authServerId, string ruleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Oauth2claim
+        /// Retrieve a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1421,7 +1421,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Claim> GetOAuth2ClaimAsync(string authServerId, string claimId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Oauth2claim
+        /// Retrieve a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1433,7 +1433,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2Claim)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2Claim>> GetOAuth2ClaimWithHttpInfoAsync(string authServerId, string claimId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Oauth2scope
+        /// Retrieve a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1446,7 +1446,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Scope> GetOAuth2ScopeAsync(string authServerId, string scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Oauth2scope
+        /// Retrieve a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1458,7 +1458,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2Scope)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2Scope>> GetOAuth2ScopeWithHttpInfoAsync(string authServerId, string scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client
+        /// Retrieve a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1473,7 +1473,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2RefreshToken> GetRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client
+        /// Retrieve a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1487,7 +1487,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2RefreshToken)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2RefreshToken>> GetRefreshTokenForAuthorizationServerAndClientWithHttpInfoAsync(string authServerId, string clientId, string tokenId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Authorization Server Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -1499,7 +1499,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<JsonWebKey>> ListAuthorizationServerKeysAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Authorization Server Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -1510,7 +1510,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListAuthorizationServerKeysWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Authorization Server Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Success
@@ -1522,7 +1522,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<AuthorizationServerPolicy>> ListAuthorizationServerPoliciesAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Authorization Server Policies
+        /// List all Policies
         /// </summary>
         /// <remarks>
         /// Success
@@ -1533,7 +1533,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AuthorizationServerPolicy&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AuthorizationServerPolicy>>> ListAuthorizationServerPoliciesWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Authorization Server Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules for the specified Custom Authorization Server and Policy.
@@ -1546,7 +1546,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<AuthorizationServerPolicyRule>> ListAuthorizationServerPolicyRulesAsync(string policyId, string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Authorization Server Policy Rules
+        /// List all Policy Rules
         /// </summary>
         /// <remarks>
         /// Enumerates all policy rules for the specified Custom Authorization Server and Policy.
@@ -1558,7 +1558,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AuthorizationServerPolicyRule&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AuthorizationServerPolicyRule>>> ListAuthorizationServerPolicyRulesWithHttpInfoAsync(string policyId, string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Authorization Servers
+        /// List all Authorization Servers
         /// </summary>
         /// <remarks>
         /// Success
@@ -1572,7 +1572,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<AuthorizationServer>> ListAuthorizationServersAsync(string q = default(string), string limit = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Authorization Servers
+        /// List all Authorization Servers
         /// </summary>
         /// <remarks>
         /// Success
@@ -1585,7 +1585,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AuthorizationServer&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AuthorizationServer>>> ListAuthorizationServersWithHttpInfoAsync(string q = default(string), string limit = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims
+        /// List all Custom Token Claims
         /// </summary>
         /// <remarks>
         /// Success
@@ -1597,7 +1597,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OAuth2Claim>> ListOAuth2ClaimsAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims
+        /// List all Custom Token Claims
         /// </summary>
         /// <remarks>
         /// Success
@@ -1608,7 +1608,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OAuth2Claim&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OAuth2Claim>>> ListOAuth2ClaimsWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Oauth2clients for Authorization Server
+        /// List all Clients
         /// </summary>
         /// <remarks>
         /// Success
@@ -1620,7 +1620,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OAuth2Client>> ListOAuth2ClientsForAuthorizationServerAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Oauth2clients for Authorization Server
+        /// List all Clients
         /// </summary>
         /// <remarks>
         /// Success
@@ -1631,7 +1631,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OAuth2Client&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OAuth2Client>>> ListOAuth2ClientsForAuthorizationServerWithHttpInfoAsync(string authServerId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Oauth2scopes
+        /// List all Custom Token Scopes
         /// </summary>
         /// <remarks>
         /// Success
@@ -1647,7 +1647,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OAuth2Scope>> ListOAuth2ScopesAsync(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Oauth2scopes
+        /// List all Custom Token Scopes
         /// </summary>
         /// <remarks>
         /// Success
@@ -1662,7 +1662,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OAuth2Scope&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OAuth2Scope>>> ListOAuth2ScopesWithHttpInfoAsync(string authServerId, string q = default(string), string filter = default(string), string cursor = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client
+        /// List all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1678,7 +1678,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OAuth2RefreshToken>> ListRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client
+        /// List all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1693,7 +1693,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OAuth2RefreshToken&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OAuth2RefreshToken>>> ListRefreshTokensForAuthorizationServerAndClientWithHttpInfoAsync(string authServerId, string clientId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client
+        /// Revoke a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1707,7 +1707,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeRefreshTokenForAuthorizationServerAndClientAsync(string authServerId, string clientId, string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client
+        /// Revoke a Refresh Token for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1720,7 +1720,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeRefreshTokenForAuthorizationServerAndClientWithHttpInfoAsync(string authServerId, string clientId, string tokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client
+        /// Revoke all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1733,7 +1733,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeRefreshTokensForAuthorizationServerAndClientAsync(string authServerId, string clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client
+        /// Revoke all Refresh Tokens for a Client
         /// </summary>
         /// <remarks>
         /// Success
@@ -1745,7 +1745,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeRefreshTokensForAuthorizationServerAndClientWithHttpInfoAsync(string authServerId, string clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Rotate Authorization Server Keys
+        /// Rotate all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -1758,7 +1758,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<JsonWebKey>> RotateAuthorizationServerKeysAsync(string authServerId, JwkUse use, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Rotate Authorization Server Keys
+        /// Rotate all Credential Keys
         /// </summary>
         /// <remarks>
         /// Success
@@ -1770,7 +1770,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> RotateAuthorizationServerKeysWithHttpInfoAsync(string authServerId, JwkUse use, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Authorization Server
+        /// Replace an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1783,7 +1783,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServer> UpdateAuthorizationServerAsync(string authServerId, AuthorizationServer authorizationServer, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Authorization Server
+        /// Replace an Authorization Server
         /// </summary>
         /// <remarks>
         /// Success
@@ -1795,7 +1795,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServer)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServer>> UpdateAuthorizationServerWithHttpInfoAsync(string authServerId, AuthorizationServer authorizationServer, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Authorization Server Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1809,7 +1809,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServerPolicy> UpdateAuthorizationServerPolicyAsync(string authServerId, string policyId, AuthorizationServerPolicy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Authorization Server Policy
+        /// Replace a Policy
         /// </summary>
         /// <remarks>
         /// Success
@@ -1822,7 +1822,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServerPolicy)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServerPolicy>> UpdateAuthorizationServerPolicyWithHttpInfoAsync(string authServerId, string policyId, AuthorizationServerPolicy policy, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Authorization Server Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -1837,7 +1837,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AuthorizationServerPolicyRule> UpdateAuthorizationServerPolicyRuleAsync(string policyId, string authServerId, string ruleId, AuthorizationServerPolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Authorization Server Policy Rule
+        /// Replace a Policy Rule
         /// </summary>
         /// <remarks>
         /// Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
@@ -1851,7 +1851,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AuthorizationServerPolicyRule)</returns>
         System.Threading.Tasks.Task<ApiResponse<AuthorizationServerPolicyRule>> UpdateAuthorizationServerPolicyRuleWithHttpInfoAsync(string policyId, string authServerId, string ruleId, AuthorizationServerPolicyRule policyRule, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim
+        /// Replace a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1865,7 +1865,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Claim> UpdateOAuth2ClaimAsync(string authServerId, string claimId, OAuth2Claim oAuth2Claim, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim
+        /// Replace a Custom Token Claim
         /// </summary>
         /// <remarks>
         /// Success
@@ -1878,7 +1878,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OAuth2Claim)</returns>
         System.Threading.Tasks.Task<ApiResponse<OAuth2Claim>> UpdateOAuth2ClaimWithHttpInfoAsync(string authServerId, string claimId, OAuth2Claim oAuth2Claim, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Oauth2scope
+        /// Replace a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -1892,7 +1892,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OAuth2Scope> UpdateOAuth2ScopeAsync(string authServerId, string scopeId, OAuth2Scope oAuth2Scope, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Oauth2scope
+        /// Replace a Custom Token Scope
         /// </summary>
         /// <remarks>
         /// Success
@@ -2004,7 +2004,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Success
+        /// Activate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2015,7 +2015,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Success
+        /// Activate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2052,12 +2052,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2079,7 +2079,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Success
+        /// Activate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2091,7 +2091,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Success
+        /// Activate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2130,12 +2130,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2158,7 +2158,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Activate Authorization Server Policy
+        /// Activate a Policy Activate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2170,7 +2170,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Activate Authorization Server Policy
+        /// Activate a Policy Activate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2215,12 +2215,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2242,7 +2242,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Activate Authorization Server Policy
+        /// Activate a Policy Activate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2255,7 +2255,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Activate Authorization Server Policy
+        /// Activate a Policy Activate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2302,12 +2302,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2330,7 +2330,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Rule Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule Activate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2343,7 +2343,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Rule Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule Activate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2396,12 +2396,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2423,7 +2423,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Rule Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule Activate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2437,7 +2437,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authorization Server Policy Rule Activate Authorization Server Policy Rule
+        /// Activate a Policy Rule Activate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2492,12 +2492,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2520,7 +2520,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Success
+        /// Create an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationServer"></param>
@@ -2532,7 +2532,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Success
+        /// Create an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationServer"></param>
@@ -2570,12 +2570,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = authorizationServer;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2597,7 +2597,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Success
+        /// Create an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationServer"></param>
@@ -2610,7 +2610,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Success
+        /// Create an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authorizationServer"></param>
@@ -2650,12 +2650,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = authorizationServer;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2678,7 +2678,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Success
+        /// Create a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2691,7 +2691,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Success
+        /// Create a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2737,12 +2737,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2764,7 +2764,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Success
+        /// Create a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2778,7 +2778,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Success
+        /// Create a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -2826,12 +2826,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2854,7 +2854,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
+        /// Create a Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2868,7 +2868,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
+        /// Create a Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2922,12 +2922,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2949,7 +2949,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
+        /// Create a Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -2964,7 +2964,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Authorization Server Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
+        /// Create a Policy Rule Creates a policy rule for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -3020,12 +3020,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3048,7 +3048,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim Success
+        /// Create a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3061,7 +3061,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim Success
+        /// Create a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3107,12 +3107,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = oAuth2Claim;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3134,7 +3134,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim Success
+        /// Create a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3148,7 +3148,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Custom OAuth 2.0 Token Claim Success
+        /// Create a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3196,12 +3196,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = oAuth2Claim;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3224,7 +3224,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Oauth2scope Success
+        /// Create a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3237,7 +3237,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Oauth2scope Success
+        /// Create a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3283,12 +3283,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = oAuth2Scope;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3310,7 +3310,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Oauth2scope Success
+        /// Create a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3324,7 +3324,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Oauth2scope Success
+        /// Create a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3372,12 +3372,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = oAuth2Scope;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3400,7 +3400,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Success
+        /// Deactivate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3411,7 +3411,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Success
+        /// Deactivate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3448,12 +3448,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3475,7 +3475,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Success
+        /// Deactivate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3487,7 +3487,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Success
+        /// Deactivate an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3526,12 +3526,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3554,7 +3554,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Deactivate Authorization Server Policy
+        /// Deactivate a Policy Deactivate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3566,7 +3566,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Deactivate Authorization Server Policy
+        /// Deactivate a Policy Deactivate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3611,12 +3611,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3638,7 +3638,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Deactivate Authorization Server Policy
+        /// Deactivate a Policy Deactivate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3651,7 +3651,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Deactivate Authorization Server Policy
+        /// Deactivate a Policy Deactivate Authorization Server Policy
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3698,12 +3698,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3726,7 +3726,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule Deactivate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3739,7 +3739,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule Deactivate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3792,12 +3792,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3819,7 +3819,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule Deactivate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3833,7 +3833,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authorization Server Policy Rule Deactivate Authorization Server Policy Rule
+        /// Deactivate a Policy Rule Deactivate Authorization Server Policy Rule
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3888,12 +3888,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3916,7 +3916,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Success
+        /// Delete an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3927,7 +3927,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Success
+        /// Delete an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -3964,12 +3964,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3991,7 +3991,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Success
+        /// Delete an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4003,7 +4003,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Success
+        /// Delete an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4042,12 +4042,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4070,7 +4070,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Success
+        /// Delete a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4082,7 +4082,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Success
+        /// Delete a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4127,12 +4127,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4154,7 +4154,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Success
+        /// Delete a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4167,7 +4167,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Success
+        /// Delete a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4214,12 +4214,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4242,7 +4242,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Delete a Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -4255,7 +4255,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Delete a Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -4308,12 +4308,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4335,7 +4335,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Delete a Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -4349,7 +4349,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Authorization Server Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Delete a Policy Rule Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -4404,12 +4404,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4432,7 +4432,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim Success
+        /// Delete a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4444,7 +4444,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim Success
+        /// Delete a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4489,12 +4489,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("claimId", Okta.Sdk.Client.ClientUtils.ParameterToString(claimId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4516,7 +4516,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim Success
+        /// Delete a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4529,7 +4529,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Custom OAuth 2.0 Token Claim Success
+        /// Delete a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4576,12 +4576,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("claimId", Okta.Sdk.Client.ClientUtils.ParameterToString(claimId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4604,7 +4604,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Oauth2scope Success
+        /// Delete a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4616,7 +4616,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Oauth2scope Success
+        /// Delete a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4661,12 +4661,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("scopeId", Okta.Sdk.Client.ClientUtils.ParameterToString(scopeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4688,7 +4688,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Oauth2scope Success
+        /// Delete a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4701,7 +4701,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Oauth2scope Success
+        /// Delete a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4748,12 +4748,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("scopeId", Okta.Sdk.Client.ClientUtils.ParameterToString(scopeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4776,7 +4776,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Success
+        /// Retrieve an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4788,7 +4788,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Success
+        /// Retrieve an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4825,12 +4825,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4852,7 +4852,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Success
+        /// Retrieve an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4865,7 +4865,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Success
+        /// Retrieve an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4904,12 +4904,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4932,7 +4932,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Success
+        /// Retrieve a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4945,7 +4945,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Success
+        /// Retrieve a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -4990,12 +4990,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5017,7 +5017,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Success
+        /// Retrieve a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5031,7 +5031,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Success
+        /// Retrieve a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5078,12 +5078,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5106,7 +5106,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
+        /// Retrieve a Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -5120,7 +5120,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
+        /// Retrieve a Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -5173,12 +5173,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5200,7 +5200,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
+        /// Retrieve a Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -5215,7 +5215,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authorization Server Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
+        /// Retrieve a Policy Rule Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -5270,12 +5270,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5298,7 +5298,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2claim Success
+        /// Retrieve a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5311,7 +5311,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2claim Success
+        /// Retrieve a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5356,12 +5356,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("claimId", Okta.Sdk.Client.ClientUtils.ParameterToString(claimId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5383,7 +5383,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2claim Success
+        /// Retrieve a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5397,7 +5397,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2claim Success
+        /// Retrieve a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5444,12 +5444,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("claimId", Okta.Sdk.Client.ClientUtils.ParameterToString(claimId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5472,7 +5472,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2scope Success
+        /// Retrieve a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5485,7 +5485,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2scope Success
+        /// Retrieve a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5530,12 +5530,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("scopeId", Okta.Sdk.Client.ClientUtils.ParameterToString(scopeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5557,7 +5557,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2scope Success
+        /// Retrieve a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5571,7 +5571,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Oauth2scope Success
+        /// Retrieve a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5618,12 +5618,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("scopeId", Okta.Sdk.Client.ClientUtils.ParameterToString(scopeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5646,7 +5646,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client Success
+        /// Retrieve a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5661,7 +5661,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client Success
+        /// Retrieve a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5719,12 +5719,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5746,7 +5746,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client Success
+        /// Retrieve a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5762,7 +5762,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Refresh Token for Authorization Server and Client Success
+        /// Retrieve a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5822,12 +5822,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5850,7 +5850,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Keys Success
+        /// List all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5862,7 +5862,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Keys Success
+        /// List all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5899,12 +5899,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5926,7 +5926,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Keys Success
+        /// List all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5939,7 +5939,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Keys Success
+        /// List all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -5978,12 +5978,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6006,7 +6006,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policies Success
+        /// List all Policies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6018,7 +6018,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policies Success
+        /// List all Policies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6055,12 +6055,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6082,7 +6082,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policies Success
+        /// List all Policies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6095,7 +6095,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policies Success
+        /// List all Policies Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6134,12 +6134,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6162,7 +6162,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
+        /// List all Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -6175,7 +6175,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
+        /// List all Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -6220,12 +6220,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6247,7 +6247,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
+        /// List all Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -6261,7 +6261,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Server Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
+        /// List all Policy Rules Enumerates all policy rules for the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -6308,12 +6308,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6336,7 +6336,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Servers Success
+        /// List all Authorization Servers Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6350,7 +6350,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Servers Success
+        /// List all Authorization Servers Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6394,12 +6394,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6421,7 +6421,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Servers Success
+        /// List all Authorization Servers Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6436,7 +6436,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authorization Servers Success
+        /// List all Authorization Servers Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q"> (optional)</param>
@@ -6482,12 +6482,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6510,7 +6510,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims Success
+        /// List all Custom Token Claims Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6522,7 +6522,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims Success
+        /// List all Custom Token Claims Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6559,12 +6559,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6586,7 +6586,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims Success
+        /// List all Custom Token Claims Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6599,7 +6599,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Custom OAuth 2.0 Token Claims Success
+        /// List all Custom Token Claims Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6638,12 +6638,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6666,7 +6666,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2clients for Authorization Server Success
+        /// List all Clients Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6678,7 +6678,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2clients for Authorization Server Success
+        /// List all Clients Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6715,12 +6715,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6742,7 +6742,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2clients for Authorization Server Success
+        /// List all Clients Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6755,7 +6755,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2clients for Authorization Server Success
+        /// List all Clients Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6794,12 +6794,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6822,7 +6822,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2scopes Success
+        /// List all Custom Token Scopes Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6838,7 +6838,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2scopes Success
+        /// List all Custom Token Scopes Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6895,12 +6895,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -6922,7 +6922,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2scopes Success
+        /// List all Custom Token Scopes Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6939,7 +6939,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Oauth2scopes Success
+        /// List all Custom Token Scopes Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -6998,12 +6998,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7026,7 +7026,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client Success
+        /// List all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7042,7 +7042,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client Success
+        /// List all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7102,12 +7102,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7129,7 +7129,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client Success
+        /// List all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7146,7 +7146,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Refresh Tokens for Authorization Server and Client Success
+        /// List all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7208,12 +7208,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7236,7 +7236,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client Success
+        /// Revoke a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7249,7 +7249,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client Success
+        /// Revoke a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7302,12 +7302,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
             localVarRequestOptions.PathParameters.Add("tokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(tokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7329,7 +7329,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client Success
+        /// Revoke a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7343,7 +7343,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Token for Authorization Server and Client Success
+        /// Revoke a Refresh Token for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7398,12 +7398,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
             localVarRequestOptions.PathParameters.Add("tokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(tokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7426,7 +7426,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client Success
+        /// Revoke all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7438,7 +7438,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client Success
+        /// Revoke all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7483,12 +7483,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7510,7 +7510,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client Success
+        /// Revoke all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7523,7 +7523,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Refresh Tokens for Authorization Server and Client Success
+        /// Revoke all Refresh Tokens for a Client Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7570,12 +7570,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.PathParameters.Add("clientId", Okta.Sdk.Client.ClientUtils.ParameterToString(clientId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7598,7 +7598,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Rotate Authorization Server Keys Success
+        /// Rotate all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7611,7 +7611,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Rotate Authorization Server Keys Success
+        /// Rotate all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7657,12 +7657,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = use;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7684,7 +7684,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Rotate Authorization Server Keys Success
+        /// Rotate all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7698,7 +7698,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Rotate Authorization Server Keys Success
+        /// Rotate all Credential Keys Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7746,12 +7746,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = use;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7774,7 +7774,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Success
+        /// Replace an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7787,7 +7787,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Success
+        /// Replace an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7833,12 +7833,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = authorizationServer;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7860,7 +7860,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Success
+        /// Replace an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7874,7 +7874,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Success
+        /// Replace an Authorization Server Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7922,12 +7922,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authServerId", Okta.Sdk.Client.ClientUtils.ParameterToString(authServerId)); // path parameter
             localVarRequestOptions.Data = authorizationServer;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -7950,7 +7950,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Success
+        /// Replace a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -7964,7 +7964,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Success
+        /// Replace a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8018,12 +8018,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8045,7 +8045,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Success
+        /// Replace a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8060,7 +8060,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Success
+        /// Replace a Policy Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8116,12 +8116,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("policyId", Okta.Sdk.Client.ClientUtils.ParameterToString(policyId)); // path parameter
             localVarRequestOptions.Data = policy;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8144,7 +8144,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Replace a Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -8159,7 +8159,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Replace a Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -8221,12 +8221,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8248,7 +8248,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Replace a Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -8264,7 +8264,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authorization Server Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
+        /// Replace a Policy Rule Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
@@ -8328,12 +8328,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("ruleId", Okta.Sdk.Client.ClientUtils.ParameterToString(ruleId)); // path parameter
             localVarRequestOptions.Data = policyRule;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8356,7 +8356,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim Success
+        /// Replace a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8370,7 +8370,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim Success
+        /// Replace a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8424,12 +8424,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("claimId", Okta.Sdk.Client.ClientUtils.ParameterToString(claimId)); // path parameter
             localVarRequestOptions.Data = oAuth2Claim;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8451,7 +8451,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim Success
+        /// Replace a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8466,7 +8466,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Custom OAuth 2.0 Token Claim Success
+        /// Replace a Custom Token Claim Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8522,12 +8522,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("claimId", Okta.Sdk.Client.ClientUtils.ParameterToString(claimId)); // path parameter
             localVarRequestOptions.Data = oAuth2Claim;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8550,7 +8550,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Oauth2scope Success
+        /// Replace a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8564,7 +8564,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Oauth2scope Success
+        /// Replace a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8618,12 +8618,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scopeId", Okta.Sdk.Client.ClientUtils.ParameterToString(scopeId)); // path parameter
             localVarRequestOptions.Data = oAuth2Scope;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -8645,7 +8645,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Oauth2scope Success
+        /// Replace a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8660,7 +8660,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Oauth2scope Success
+        /// Replace a Custom Token Scope Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authServerId"></param>
@@ -8716,12 +8716,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("scopeId", Okta.Sdk.Client.ClientUtils.ParameterToString(scopeId)); // path parameter
             localVarRequestOptions.Data = oAuth2Scope;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

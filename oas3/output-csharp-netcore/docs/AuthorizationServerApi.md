@@ -4,51 +4,51 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAuthorizationServer**](AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate Authorization Server
-[**ActivateAuthorizationServerPolicy**](AuthorizationServerApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate Authorization Server Policy
-[**ActivateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate Authorization Server Policy Rule
-[**CreateAuthorizationServer**](AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create Authorization Server
-[**CreateAuthorizationServerPolicy**](AuthorizationServerApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create Authorization Server Policy
-[**CreateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create Authorization Server Policy Rule
-[**CreateOAuth2Claim**](AuthorizationServerApi.md#createoauth2claim) | **POST** /api/v1/authorizationServers/{authServerId}/claims | Create Custom OAuth 2.0 Token Claim
-[**CreateOAuth2Scope**](AuthorizationServerApi.md#createoauth2scope) | **POST** /api/v1/authorizationServers/{authServerId}/scopes | Create Oauth2scope
-[**DeactivateAuthorizationServer**](AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate Authorization Server
-[**DeactivateAuthorizationServerPolicy**](AuthorizationServerApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate Authorization Server Policy
-[**DeactivateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate Authorization Server Policy Rule
-[**DeleteAuthorizationServer**](AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete Authorization Server
-[**DeleteAuthorizationServerPolicy**](AuthorizationServerApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete Authorization Server Policy
-[**DeleteAuthorizationServerPolicyRule**](AuthorizationServerApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete Authorization Server Policy Rule
-[**DeleteOAuth2Claim**](AuthorizationServerApi.md#deleteoauth2claim) | **DELETE** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Delete Custom OAuth 2.0 Token Claim
-[**DeleteOAuth2Scope**](AuthorizationServerApi.md#deleteoauth2scope) | **DELETE** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Delete Oauth2scope
-[**GetAuthorizationServer**](AuthorizationServerApi.md#getauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId} | Get Authorization Server
-[**GetAuthorizationServerPolicy**](AuthorizationServerApi.md#getauthorizationserverpolicy) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Get Authorization Server Policy
-[**GetAuthorizationServerPolicyRule**](AuthorizationServerApi.md#getauthorizationserverpolicyrule) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Get Authorization Server Policy Rule
-[**GetOAuth2Claim**](AuthorizationServerApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Get Oauth2claim
-[**GetOAuth2Scope**](AuthorizationServerApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Get Oauth2scope
-[**GetRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Get Refresh Token for Authorization Server and Client
-[**ListAuthorizationServerKeys**](AuthorizationServerApi.md#listauthorizationserverkeys) | **GET** /api/v1/authorizationServers/{authServerId}/credentials/keys | List Authorization Server Keys
-[**ListAuthorizationServerPolicies**](AuthorizationServerApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List Authorization Server Policies
-[**ListAuthorizationServerPolicyRules**](AuthorizationServerApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List Authorization Server Policy Rules
-[**ListAuthorizationServers**](AuthorizationServerApi.md#listauthorizationservers) | **GET** /api/v1/authorizationServers | List Authorization Servers
-[**ListOAuth2Claims**](AuthorizationServerApi.md#listoauth2claims) | **GET** /api/v1/authorizationServers/{authServerId}/claims | List Custom OAuth 2.0 Token Claims
-[**ListOAuth2ClientsForAuthorizationServer**](AuthorizationServerApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List Oauth2clients for Authorization Server
-[**ListOAuth2Scopes**](AuthorizationServerApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List Oauth2scopes
-[**ListRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List Refresh Tokens for Authorization Server and Client
-[**RevokeRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke Refresh Token for Authorization Server and Client
-[**RevokeRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke Refresh Tokens for Authorization Server and Client
-[**RotateAuthorizationServerKeys**](AuthorizationServerApi.md#rotateauthorizationserverkeys) | **POST** /api/v1/authorizationServers/{authServerId}/credentials/lifecycle/keyRotate | Rotate Authorization Server Keys
-[**UpdateAuthorizationServer**](AuthorizationServerApi.md#updateauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Update Authorization Server
-[**UpdateAuthorizationServerPolicy**](AuthorizationServerApi.md#updateauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Update Authorization Server Policy
-[**UpdateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#updateauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Update Authorization Server Policy Rule
-[**UpdateOAuth2Claim**](AuthorizationServerApi.md#updateoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Update Custom OAuth 2.0 Token Claim
-[**UpdateOAuth2Scope**](AuthorizationServerApi.md#updateoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Update Oauth2scope
+[**ActivateAuthorizationServer**](AuthorizationServerApi.md#activateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/activate | Activate an Authorization Server
+[**ActivateAuthorizationServerPolicy**](AuthorizationServerApi.md#activateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/activate | Activate a Policy
+[**ActivateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#activateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/activate | Activate a Policy Rule
+[**CreateAuthorizationServer**](AuthorizationServerApi.md#createauthorizationserver) | **POST** /api/v1/authorizationServers | Create an Authorization Server
+[**CreateAuthorizationServerPolicy**](AuthorizationServerApi.md#createauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies | Create a Policy
+[**CreateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#createauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | Create a Policy Rule
+[**CreateOAuth2Claim**](AuthorizationServerApi.md#createoauth2claim) | **POST** /api/v1/authorizationServers/{authServerId}/claims | Create a Custom Token Claim
+[**CreateOAuth2Scope**](AuthorizationServerApi.md#createoauth2scope) | **POST** /api/v1/authorizationServers/{authServerId}/scopes | Create a Custom Token Scope
+[**DeactivateAuthorizationServer**](AuthorizationServerApi.md#deactivateauthorizationserver) | **POST** /api/v1/authorizationServers/{authServerId}/lifecycle/deactivate | Deactivate an Authorization Server
+[**DeactivateAuthorizationServerPolicy**](AuthorizationServerApi.md#deactivateauthorizationserverpolicy) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/lifecycle/deactivate | Deactivate a Policy
+[**DeactivateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#deactivateauthorizationserverpolicyrule) | **POST** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId}/lifecycle/deactivate | Deactivate a Policy Rule
+[**DeleteAuthorizationServer**](AuthorizationServerApi.md#deleteauthorizationserver) | **DELETE** /api/v1/authorizationServers/{authServerId} | Delete an Authorization Server
+[**DeleteAuthorizationServerPolicy**](AuthorizationServerApi.md#deleteauthorizationserverpolicy) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Delete a Policy
+[**DeleteAuthorizationServerPolicyRule**](AuthorizationServerApi.md#deleteauthorizationserverpolicyrule) | **DELETE** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Delete a Policy Rule
+[**DeleteOAuth2Claim**](AuthorizationServerApi.md#deleteoauth2claim) | **DELETE** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Delete a Custom Token Claim
+[**DeleteOAuth2Scope**](AuthorizationServerApi.md#deleteoauth2scope) | **DELETE** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Delete a Custom Token Scope
+[**GetAuthorizationServer**](AuthorizationServerApi.md#getauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId} | Retrieve an Authorization Server
+[**GetAuthorizationServerPolicy**](AuthorizationServerApi.md#getauthorizationserverpolicy) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Retrieve a Policy
+[**GetAuthorizationServerPolicyRule**](AuthorizationServerApi.md#getauthorizationserverpolicyrule) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Retrieve a Policy Rule
+[**GetOAuth2Claim**](AuthorizationServerApi.md#getoauth2claim) | **GET** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Retrieve a Custom Token Claim
+[**GetOAuth2Scope**](AuthorizationServerApi.md#getoauth2scope) | **GET** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Retrieve a Custom Token Scope
+[**GetRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerApi.md#getrefreshtokenforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Retrieve a Refresh Token for a Client
+[**ListAuthorizationServerKeys**](AuthorizationServerApi.md#listauthorizationserverkeys) | **GET** /api/v1/authorizationServers/{authServerId}/credentials/keys | List all Credential Keys
+[**ListAuthorizationServerPolicies**](AuthorizationServerApi.md#listauthorizationserverpolicies) | **GET** /api/v1/authorizationServers/{authServerId}/policies | List all Policies
+[**ListAuthorizationServerPolicyRules**](AuthorizationServerApi.md#listauthorizationserverpolicyrules) | **GET** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules | List all Policy Rules
+[**ListAuthorizationServers**](AuthorizationServerApi.md#listauthorizationservers) | **GET** /api/v1/authorizationServers | List all Authorization Servers
+[**ListOAuth2Claims**](AuthorizationServerApi.md#listoauth2claims) | **GET** /api/v1/authorizationServers/{authServerId}/claims | List all Custom Token Claims
+[**ListOAuth2ClientsForAuthorizationServer**](AuthorizationServerApi.md#listoauth2clientsforauthorizationserver) | **GET** /api/v1/authorizationServers/{authServerId}/clients | List all Clients
+[**ListOAuth2Scopes**](AuthorizationServerApi.md#listoauth2scopes) | **GET** /api/v1/authorizationServers/{authServerId}/scopes | List all Custom Token Scopes
+[**ListRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerApi.md#listrefreshtokensforauthorizationserverandclient) | **GET** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | List all Refresh Tokens for a Client
+[**RevokeRefreshTokenForAuthorizationServerAndClient**](AuthorizationServerApi.md#revokerefreshtokenforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens/{tokenId} | Revoke a Refresh Token for a Client
+[**RevokeRefreshTokensForAuthorizationServerAndClient**](AuthorizationServerApi.md#revokerefreshtokensforauthorizationserverandclient) | **DELETE** /api/v1/authorizationServers/{authServerId}/clients/{clientId}/tokens | Revoke all Refresh Tokens for a Client
+[**RotateAuthorizationServerKeys**](AuthorizationServerApi.md#rotateauthorizationserverkeys) | **POST** /api/v1/authorizationServers/{authServerId}/credentials/lifecycle/keyRotate | Rotate all Credential Keys
+[**UpdateAuthorizationServer**](AuthorizationServerApi.md#updateauthorizationserver) | **PUT** /api/v1/authorizationServers/{authServerId} | Replace an Authorization Server
+[**UpdateAuthorizationServerPolicy**](AuthorizationServerApi.md#updateauthorizationserverpolicy) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId} | Replace a Policy
+[**UpdateAuthorizationServerPolicyRule**](AuthorizationServerApi.md#updateauthorizationserverpolicyrule) | **PUT** /api/v1/authorizationServers/{authServerId}/policies/{policyId}/rules/{ruleId} | Replace a Policy Rule
+[**UpdateOAuth2Claim**](AuthorizationServerApi.md#updateoauth2claim) | **PUT** /api/v1/authorizationServers/{authServerId}/claims/{claimId} | Replace a Custom Token Claim
+[**UpdateOAuth2Scope**](AuthorizationServerApi.md#updateoauth2scope) | **PUT** /api/v1/authorizationServers/{authServerId}/scopes/{scopeId} | Replace a Custom Token Scope
 
 
 <a name="activateauthorizationserver"></a>
 # **ActivateAuthorizationServer**
 > void ActivateAuthorizationServer (string authServerId)
 
-Activate Authorization Server
+Activate an Authorization Server
 
 Success
 
@@ -68,11 +68,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -80,7 +80,7 @@ namespace Example
 
             try
             {
-                // Activate Authorization Server
+                // Activate an Authorization Server
                 apiInstance.ActivateAuthorizationServer(authServerId);
             }
             catch (ApiException  e)
@@ -106,7 +106,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -128,7 +128,7 @@ void (empty response body)
 # **ActivateAuthorizationServerPolicy**
 > void ActivateAuthorizationServerPolicy (string authServerId, string policyId)
 
-Activate Authorization Server Policy
+Activate a Policy
 
 Activate Authorization Server Policy
 
@@ -148,11 +148,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -161,7 +161,7 @@ namespace Example
 
             try
             {
-                // Activate Authorization Server Policy
+                // Activate a Policy
                 apiInstance.ActivateAuthorizationServerPolicy(authServerId, policyId);
             }
             catch (ApiException  e)
@@ -188,7 +188,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -210,7 +210,7 @@ void (empty response body)
 # **ActivateAuthorizationServerPolicyRule**
 > void ActivateAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
-Activate Authorization Server Policy Rule
+Activate a Policy Rule
 
 Activate Authorization Server Policy Rule
 
@@ -230,11 +230,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -244,7 +244,7 @@ namespace Example
 
             try
             {
-                // Activate Authorization Server Policy Rule
+                // Activate a Policy Rule
                 apiInstance.ActivateAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
             }
             catch (ApiException  e)
@@ -272,7 +272,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -294,7 +294,7 @@ void (empty response body)
 # **CreateAuthorizationServer**
 > AuthorizationServer CreateAuthorizationServer (AuthorizationServer authorizationServer)
 
-Create Authorization Server
+Create an Authorization Server
 
 Success
 
@@ -314,11 +314,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -326,7 +326,7 @@ namespace Example
 
             try
             {
-                // Create Authorization Server
+                // Create an Authorization Server
                 AuthorizationServer result = apiInstance.CreateAuthorizationServer(authorizationServer);
                 Debug.WriteLine(result);
             }
@@ -353,7 +353,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -376,7 +376,7 @@ Name | Type | Description  | Notes
 # **CreateAuthorizationServerPolicy**
 > AuthorizationServerPolicy CreateAuthorizationServerPolicy (string authServerId, AuthorizationServerPolicy policy)
 
-Create Authorization Server Policy
+Create a Policy
 
 Success
 
@@ -396,11 +396,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -409,7 +409,7 @@ namespace Example
 
             try
             {
-                // Create Authorization Server Policy
+                // Create a Policy
                 AuthorizationServerPolicy result = apiInstance.CreateAuthorizationServerPolicy(authServerId, policy);
                 Debug.WriteLine(result);
             }
@@ -437,7 +437,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -461,7 +461,7 @@ Name | Type | Description  | Notes
 # **CreateAuthorizationServerPolicyRule**
 > AuthorizationServerPolicyRule CreateAuthorizationServerPolicyRule (string policyId, string authServerId, AuthorizationServerPolicyRule policyRule)
 
-Create Authorization Server Policy Rule
+Create a Policy Rule
 
 Creates a policy rule for the specified Custom Authorization Server and Policy.
 
@@ -481,11 +481,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -495,7 +495,7 @@ namespace Example
 
             try
             {
-                // Create Authorization Server Policy Rule
+                // Create a Policy Rule
                 AuthorizationServerPolicyRule result = apiInstance.CreateAuthorizationServerPolicyRule(policyId, authServerId, policyRule);
                 Debug.WriteLine(result);
             }
@@ -524,7 +524,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -547,7 +547,7 @@ Name | Type | Description  | Notes
 # **CreateOAuth2Claim**
 > OAuth2Claim CreateOAuth2Claim (string authServerId, OAuth2Claim oAuth2Claim)
 
-Create Custom OAuth 2.0 Token Claim
+Create a Custom Token Claim
 
 Success
 
@@ -567,11 +567,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -580,7 +580,7 @@ namespace Example
 
             try
             {
-                // Create Custom OAuth 2.0 Token Claim
+                // Create a Custom Token Claim
                 OAuth2Claim result = apiInstance.CreateOAuth2Claim(authServerId, oAuth2Claim);
                 Debug.WriteLine(result);
             }
@@ -608,7 +608,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -632,7 +632,7 @@ Name | Type | Description  | Notes
 # **CreateOAuth2Scope**
 > OAuth2Scope CreateOAuth2Scope (string authServerId, OAuth2Scope oAuth2Scope)
 
-Create Oauth2scope
+Create a Custom Token Scope
 
 Success
 
@@ -652,11 +652,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -665,7 +665,7 @@ namespace Example
 
             try
             {
-                // Create Oauth2scope
+                // Create a Custom Token Scope
                 OAuth2Scope result = apiInstance.CreateOAuth2Scope(authServerId, oAuth2Scope);
                 Debug.WriteLine(result);
             }
@@ -693,7 +693,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -717,7 +717,7 @@ Name | Type | Description  | Notes
 # **DeactivateAuthorizationServer**
 > void DeactivateAuthorizationServer (string authServerId)
 
-Deactivate Authorization Server
+Deactivate an Authorization Server
 
 Success
 
@@ -737,11 +737,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -749,7 +749,7 @@ namespace Example
 
             try
             {
-                // Deactivate Authorization Server
+                // Deactivate an Authorization Server
                 apiInstance.DeactivateAuthorizationServer(authServerId);
             }
             catch (ApiException  e)
@@ -775,7 +775,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -797,7 +797,7 @@ void (empty response body)
 # **DeactivateAuthorizationServerPolicy**
 > void DeactivateAuthorizationServerPolicy (string authServerId, string policyId)
 
-Deactivate Authorization Server Policy
+Deactivate a Policy
 
 Deactivate Authorization Server Policy
 
@@ -817,11 +817,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -830,7 +830,7 @@ namespace Example
 
             try
             {
-                // Deactivate Authorization Server Policy
+                // Deactivate a Policy
                 apiInstance.DeactivateAuthorizationServerPolicy(authServerId, policyId);
             }
             catch (ApiException  e)
@@ -857,7 +857,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -879,7 +879,7 @@ void (empty response body)
 # **DeactivateAuthorizationServerPolicyRule**
 > void DeactivateAuthorizationServerPolicyRule (string authServerId, string policyId, string ruleId)
 
-Deactivate Authorization Server Policy Rule
+Deactivate a Policy Rule
 
 Deactivate Authorization Server Policy Rule
 
@@ -899,11 +899,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -913,7 +913,7 @@ namespace Example
 
             try
             {
-                // Deactivate Authorization Server Policy Rule
+                // Deactivate a Policy Rule
                 apiInstance.DeactivateAuthorizationServerPolicyRule(authServerId, policyId, ruleId);
             }
             catch (ApiException  e)
@@ -941,7 +941,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -963,7 +963,7 @@ void (empty response body)
 # **DeleteAuthorizationServer**
 > void DeleteAuthorizationServer (string authServerId)
 
-Delete Authorization Server
+Delete an Authorization Server
 
 Success
 
@@ -983,11 +983,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -995,7 +995,7 @@ namespace Example
 
             try
             {
-                // Delete Authorization Server
+                // Delete an Authorization Server
                 apiInstance.DeleteAuthorizationServer(authServerId);
             }
             catch (ApiException  e)
@@ -1021,7 +1021,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1043,7 +1043,7 @@ void (empty response body)
 # **DeleteAuthorizationServerPolicy**
 > void DeleteAuthorizationServerPolicy (string authServerId, string policyId)
 
-Delete Authorization Server Policy
+Delete a Policy
 
 Success
 
@@ -1063,11 +1063,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1076,7 +1076,7 @@ namespace Example
 
             try
             {
-                // Delete Authorization Server Policy
+                // Delete a Policy
                 apiInstance.DeleteAuthorizationServerPolicy(authServerId, policyId);
             }
             catch (ApiException  e)
@@ -1103,7 +1103,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1125,7 +1125,7 @@ void (empty response body)
 # **DeleteAuthorizationServerPolicyRule**
 > void DeleteAuthorizationServerPolicyRule (string policyId, string authServerId, string ruleId)
 
-Delete Authorization Server Policy Rule
+Delete a Policy Rule
 
 Deletes a Policy Rule defined in the specified Custom Authorization Server and Policy.
 
@@ -1145,11 +1145,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1159,7 +1159,7 @@ namespace Example
 
             try
             {
-                // Delete Authorization Server Policy Rule
+                // Delete a Policy Rule
                 apiInstance.DeleteAuthorizationServerPolicyRule(policyId, authServerId, ruleId);
             }
             catch (ApiException  e)
@@ -1187,7 +1187,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1209,7 +1209,7 @@ void (empty response body)
 # **DeleteOAuth2Claim**
 > void DeleteOAuth2Claim (string authServerId, string claimId)
 
-Delete Custom OAuth 2.0 Token Claim
+Delete a Custom Token Claim
 
 Success
 
@@ -1229,11 +1229,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1242,7 +1242,7 @@ namespace Example
 
             try
             {
-                // Delete Custom OAuth 2.0 Token Claim
+                // Delete a Custom Token Claim
                 apiInstance.DeleteOAuth2Claim(authServerId, claimId);
             }
             catch (ApiException  e)
@@ -1269,7 +1269,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1291,7 +1291,7 @@ void (empty response body)
 # **DeleteOAuth2Scope**
 > void DeleteOAuth2Scope (string authServerId, string scopeId)
 
-Delete Oauth2scope
+Delete a Custom Token Scope
 
 Success
 
@@ -1311,11 +1311,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1324,7 +1324,7 @@ namespace Example
 
             try
             {
-                // Delete Oauth2scope
+                // Delete a Custom Token Scope
                 apiInstance.DeleteOAuth2Scope(authServerId, scopeId);
             }
             catch (ApiException  e)
@@ -1351,7 +1351,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1373,7 +1373,7 @@ void (empty response body)
 # **GetAuthorizationServer**
 > AuthorizationServer GetAuthorizationServer (string authServerId)
 
-Get Authorization Server
+Retrieve an Authorization Server
 
 Success
 
@@ -1393,11 +1393,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1405,7 +1405,7 @@ namespace Example
 
             try
             {
-                // Get Authorization Server
+                // Retrieve an Authorization Server
                 AuthorizationServer result = apiInstance.GetAuthorizationServer(authServerId);
                 Debug.WriteLine(result);
             }
@@ -1432,7 +1432,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1454,7 +1454,7 @@ Name | Type | Description  | Notes
 # **GetAuthorizationServerPolicy**
 > AuthorizationServerPolicy GetAuthorizationServerPolicy (string authServerId, string policyId)
 
-Get Authorization Server Policy
+Retrieve a Policy
 
 Success
 
@@ -1474,11 +1474,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1487,7 +1487,7 @@ namespace Example
 
             try
             {
-                // Get Authorization Server Policy
+                // Retrieve a Policy
                 AuthorizationServerPolicy result = apiInstance.GetAuthorizationServerPolicy(authServerId, policyId);
                 Debug.WriteLine(result);
             }
@@ -1515,7 +1515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1537,7 +1537,7 @@ Name | Type | Description  | Notes
 # **GetAuthorizationServerPolicyRule**
 > AuthorizationServerPolicyRule GetAuthorizationServerPolicyRule (string policyId, string authServerId, string ruleId)
 
-Get Authorization Server Policy Rule
+Retrieve a Policy Rule
 
 Returns a Policy Rule by ID that is defined in the specified Custom Authorization Server and Policy.
 
@@ -1557,11 +1557,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1571,7 +1571,7 @@ namespace Example
 
             try
             {
-                // Get Authorization Server Policy Rule
+                // Retrieve a Policy Rule
                 AuthorizationServerPolicyRule result = apiInstance.GetAuthorizationServerPolicyRule(policyId, authServerId, ruleId);
                 Debug.WriteLine(result);
             }
@@ -1600,7 +1600,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1622,7 +1622,7 @@ Name | Type | Description  | Notes
 # **GetOAuth2Claim**
 > OAuth2Claim GetOAuth2Claim (string authServerId, string claimId)
 
-Get Oauth2claim
+Retrieve a Custom Token Claim
 
 Success
 
@@ -1642,11 +1642,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1655,7 +1655,7 @@ namespace Example
 
             try
             {
-                // Get Oauth2claim
+                // Retrieve a Custom Token Claim
                 OAuth2Claim result = apiInstance.GetOAuth2Claim(authServerId, claimId);
                 Debug.WriteLine(result);
             }
@@ -1683,7 +1683,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1705,7 +1705,7 @@ Name | Type | Description  | Notes
 # **GetOAuth2Scope**
 > OAuth2Scope GetOAuth2Scope (string authServerId, string scopeId)
 
-Get Oauth2scope
+Retrieve a Custom Token Scope
 
 Success
 
@@ -1725,11 +1725,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1738,7 +1738,7 @@ namespace Example
 
             try
             {
-                // Get Oauth2scope
+                // Retrieve a Custom Token Scope
                 OAuth2Scope result = apiInstance.GetOAuth2Scope(authServerId, scopeId);
                 Debug.WriteLine(result);
             }
@@ -1766,7 +1766,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1788,7 +1788,7 @@ Name | Type | Description  | Notes
 # **GetRefreshTokenForAuthorizationServerAndClient**
 > OAuth2RefreshToken GetRefreshTokenForAuthorizationServerAndClient (string authServerId, string clientId, string tokenId, string expand = null)
 
-Get Refresh Token for Authorization Server and Client
+Retrieve a Refresh Token for a Client
 
 Success
 
@@ -1808,11 +1808,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1823,7 +1823,7 @@ namespace Example
 
             try
             {
-                // Get Refresh Token for Authorization Server and Client
+                // Retrieve a Refresh Token for a Client
                 OAuth2RefreshToken result = apiInstance.GetRefreshTokenForAuthorizationServerAndClient(authServerId, clientId, tokenId, expand);
                 Debug.WriteLine(result);
             }
@@ -1853,7 +1853,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1875,7 +1875,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServerKeys**
 > List&lt;JsonWebKey&gt; ListAuthorizationServerKeys (string authServerId)
 
-List Authorization Server Keys
+List all Credential Keys
 
 Success
 
@@ -1895,11 +1895,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1907,7 +1907,7 @@ namespace Example
 
             try
             {
-                // List Authorization Server Keys
+                // List all Credential Keys
                 List<JsonWebKey> result = apiInstance.ListAuthorizationServerKeys(authServerId);
                 Debug.WriteLine(result);
             }
@@ -1934,7 +1934,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1956,7 +1956,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServerPolicies**
 > List&lt;AuthorizationServerPolicy&gt; ListAuthorizationServerPolicies (string authServerId)
 
-List Authorization Server Policies
+List all Policies
 
 Success
 
@@ -1976,11 +1976,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -1988,7 +1988,7 @@ namespace Example
 
             try
             {
-                // List Authorization Server Policies
+                // List all Policies
                 List<AuthorizationServerPolicy> result = apiInstance.ListAuthorizationServerPolicies(authServerId);
                 Debug.WriteLine(result);
             }
@@ -2015,7 +2015,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2037,7 +2037,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServerPolicyRules**
 > List&lt;AuthorizationServerPolicyRule&gt; ListAuthorizationServerPolicyRules (string policyId, string authServerId)
 
-List Authorization Server Policy Rules
+List all Policy Rules
 
 Enumerates all policy rules for the specified Custom Authorization Server and Policy.
 
@@ -2057,11 +2057,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2070,7 +2070,7 @@ namespace Example
 
             try
             {
-                // List Authorization Server Policy Rules
+                // List all Policy Rules
                 List<AuthorizationServerPolicyRule> result = apiInstance.ListAuthorizationServerPolicyRules(policyId, authServerId);
                 Debug.WriteLine(result);
             }
@@ -2098,7 +2098,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2120,7 +2120,7 @@ Name | Type | Description  | Notes
 # **ListAuthorizationServers**
 > List&lt;AuthorizationServer&gt; ListAuthorizationServers (string q = null, string limit = null, string after = null)
 
-List Authorization Servers
+List all Authorization Servers
 
 Success
 
@@ -2140,11 +2140,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2154,7 +2154,7 @@ namespace Example
 
             try
             {
-                // List Authorization Servers
+                // List all Authorization Servers
                 List<AuthorizationServer> result = apiInstance.ListAuthorizationServers(q, limit, after);
                 Debug.WriteLine(result);
             }
@@ -2183,7 +2183,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2204,7 +2204,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2Claims**
 > List&lt;OAuth2Claim&gt; ListOAuth2Claims (string authServerId)
 
-List Custom OAuth 2.0 Token Claims
+List all Custom Token Claims
 
 Success
 
@@ -2224,11 +2224,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2236,7 +2236,7 @@ namespace Example
 
             try
             {
-                // List Custom OAuth 2.0 Token Claims
+                // List all Custom Token Claims
                 List<OAuth2Claim> result = apiInstance.ListOAuth2Claims(authServerId);
                 Debug.WriteLine(result);
             }
@@ -2263,7 +2263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2285,7 +2285,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2ClientsForAuthorizationServer**
 > List&lt;OAuth2Client&gt; ListOAuth2ClientsForAuthorizationServer (string authServerId)
 
-List Oauth2clients for Authorization Server
+List all Clients
 
 Success
 
@@ -2305,11 +2305,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2317,7 +2317,7 @@ namespace Example
 
             try
             {
-                // List Oauth2clients for Authorization Server
+                // List all Clients
                 List<OAuth2Client> result = apiInstance.ListOAuth2ClientsForAuthorizationServer(authServerId);
                 Debug.WriteLine(result);
             }
@@ -2344,7 +2344,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2366,7 +2366,7 @@ Name | Type | Description  | Notes
 # **ListOAuth2Scopes**
 > List&lt;OAuth2Scope&gt; ListOAuth2Scopes (string authServerId, string q = null, string filter = null, string cursor = null, int? limit = null)
 
-List Oauth2scopes
+List all Custom Token Scopes
 
 Success
 
@@ -2386,11 +2386,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2402,7 +2402,7 @@ namespace Example
 
             try
             {
-                // List Oauth2scopes
+                // List all Custom Token Scopes
                 List<OAuth2Scope> result = apiInstance.ListOAuth2Scopes(authServerId, q, filter, cursor, limit);
                 Debug.WriteLine(result);
             }
@@ -2433,7 +2433,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2455,7 +2455,7 @@ Name | Type | Description  | Notes
 # **ListRefreshTokensForAuthorizationServerAndClient**
 > List&lt;OAuth2RefreshToken&gt; ListRefreshTokensForAuthorizationServerAndClient (string authServerId, string clientId, string expand = null, string after = null, int? limit = null)
 
-List Refresh Tokens for Authorization Server and Client
+List all Refresh Tokens for a Client
 
 Success
 
@@ -2475,11 +2475,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2491,7 +2491,7 @@ namespace Example
 
             try
             {
-                // List Refresh Tokens for Authorization Server and Client
+                // List all Refresh Tokens for a Client
                 List<OAuth2RefreshToken> result = apiInstance.ListRefreshTokensForAuthorizationServerAndClient(authServerId, clientId, expand, after, limit);
                 Debug.WriteLine(result);
             }
@@ -2522,7 +2522,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2544,7 +2544,7 @@ Name | Type | Description  | Notes
 # **RevokeRefreshTokenForAuthorizationServerAndClient**
 > void RevokeRefreshTokenForAuthorizationServerAndClient (string authServerId, string clientId, string tokenId)
 
-Revoke Refresh Token for Authorization Server and Client
+Revoke a Refresh Token for a Client
 
 Success
 
@@ -2564,11 +2564,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2578,7 +2578,7 @@ namespace Example
 
             try
             {
-                // Revoke Refresh Token for Authorization Server and Client
+                // Revoke a Refresh Token for a Client
                 apiInstance.RevokeRefreshTokenForAuthorizationServerAndClient(authServerId, clientId, tokenId);
             }
             catch (ApiException  e)
@@ -2606,7 +2606,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2628,7 +2628,7 @@ void (empty response body)
 # **RevokeRefreshTokensForAuthorizationServerAndClient**
 > void RevokeRefreshTokensForAuthorizationServerAndClient (string authServerId, string clientId)
 
-Revoke Refresh Tokens for Authorization Server and Client
+Revoke all Refresh Tokens for a Client
 
 Success
 
@@ -2648,11 +2648,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2661,7 +2661,7 @@ namespace Example
 
             try
             {
-                // Revoke Refresh Tokens for Authorization Server and Client
+                // Revoke all Refresh Tokens for a Client
                 apiInstance.RevokeRefreshTokensForAuthorizationServerAndClient(authServerId, clientId);
             }
             catch (ApiException  e)
@@ -2688,7 +2688,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2710,7 +2710,7 @@ void (empty response body)
 # **RotateAuthorizationServerKeys**
 > List&lt;JsonWebKey&gt; RotateAuthorizationServerKeys (string authServerId, JwkUse use)
 
-Rotate Authorization Server Keys
+Rotate all Credential Keys
 
 Success
 
@@ -2730,11 +2730,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2743,7 +2743,7 @@ namespace Example
 
             try
             {
-                // Rotate Authorization Server Keys
+                // Rotate all Credential Keys
                 List<JsonWebKey> result = apiInstance.RotateAuthorizationServerKeys(authServerId, use);
                 Debug.WriteLine(result);
             }
@@ -2771,7 +2771,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2794,7 +2794,7 @@ Name | Type | Description  | Notes
 # **UpdateAuthorizationServer**
 > AuthorizationServer UpdateAuthorizationServer (string authServerId, AuthorizationServer authorizationServer)
 
-Update Authorization Server
+Replace an Authorization Server
 
 Success
 
@@ -2814,11 +2814,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2827,7 +2827,7 @@ namespace Example
 
             try
             {
-                // Update Authorization Server
+                // Replace an Authorization Server
                 AuthorizationServer result = apiInstance.UpdateAuthorizationServer(authServerId, authorizationServer);
                 Debug.WriteLine(result);
             }
@@ -2855,7 +2855,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2878,7 +2878,7 @@ Name | Type | Description  | Notes
 # **UpdateAuthorizationServerPolicy**
 > AuthorizationServerPolicy UpdateAuthorizationServerPolicy (string authServerId, string policyId, AuthorizationServerPolicy policy)
 
-Update Authorization Server Policy
+Replace a Policy
 
 Success
 
@@ -2898,11 +2898,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2912,7 +2912,7 @@ namespace Example
 
             try
             {
-                // Update Authorization Server Policy
+                // Replace a Policy
                 AuthorizationServerPolicy result = apiInstance.UpdateAuthorizationServerPolicy(authServerId, policyId, policy);
                 Debug.WriteLine(result);
             }
@@ -2941,7 +2941,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2964,7 +2964,7 @@ Name | Type | Description  | Notes
 # **UpdateAuthorizationServerPolicyRule**
 > AuthorizationServerPolicyRule UpdateAuthorizationServerPolicyRule (string policyId, string authServerId, string ruleId, AuthorizationServerPolicyRule policyRule)
 
-Update Authorization Server Policy Rule
+Replace a Policy Rule
 
 Updates the configuration of the Policy Rule defined in the specified Custom Authorization Server and Policy.
 
@@ -2984,11 +2984,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -2999,7 +2999,7 @@ namespace Example
 
             try
             {
-                // Update Authorization Server Policy Rule
+                // Replace a Policy Rule
                 AuthorizationServerPolicyRule result = apiInstance.UpdateAuthorizationServerPolicyRule(policyId, authServerId, ruleId, policyRule);
                 Debug.WriteLine(result);
             }
@@ -3029,7 +3029,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3052,7 +3052,7 @@ Name | Type | Description  | Notes
 # **UpdateOAuth2Claim**
 > OAuth2Claim UpdateOAuth2Claim (string authServerId, string claimId, OAuth2Claim oAuth2Claim)
 
-Update Custom OAuth 2.0 Token Claim
+Replace a Custom Token Claim
 
 Success
 
@@ -3072,11 +3072,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -3086,7 +3086,7 @@ namespace Example
 
             try
             {
-                // Update Custom OAuth 2.0 Token Claim
+                // Replace a Custom Token Claim
                 OAuth2Claim result = apiInstance.UpdateOAuth2Claim(authServerId, claimId, oAuth2Claim);
                 Debug.WriteLine(result);
             }
@@ -3115,7 +3115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -3138,7 +3138,7 @@ Name | Type | Description  | Notes
 # **UpdateOAuth2Scope**
 > OAuth2Scope UpdateOAuth2Scope (string authServerId, string scopeId, OAuth2Scope oAuth2Scope)
 
-Update Oauth2scope
+Replace a Custom Token Scope
 
 Success
 
@@ -3158,11 +3158,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AuthorizationServerApi(config);
@@ -3172,7 +3172,7 @@ namespace Example
 
             try
             {
-                // Update Oauth2scope
+                // Replace a Custom Token Scope
                 OAuth2Scope result = apiInstance.UpdateOAuth2Scope(authServerId, scopeId, oAuth2Scope);
                 Debug.WriteLine(result);
             }
@@ -3201,7 +3201,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

@@ -4,38 +4,38 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateIdentityProvider**](IdentityProviderApi.md#activateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/activate | Activate Identity Provider
-[**CloneIdentityProviderKey**](IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{keyId}/clone | Clone Signing Key Credential for IdP
-[**CreateIdentityProvider**](IdentityProviderApi.md#createidentityprovider) | **POST** /api/v1/idps | Add Identity Provider
-[**CreateIdentityProviderKey**](IdentityProviderApi.md#createidentityproviderkey) | **POST** /api/v1/idps/credentials/keys | Add X.509 Certificate Public Key for Identity Providers
-[**DeactivateIdentityProvider**](IdentityProviderApi.md#deactivateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/deactivate | Deactivate Identity Provider
-[**DeleteIdentityProvider**](IdentityProviderApi.md#deleteidentityprovider) | **DELETE** /api/v1/idps/{idpId} | Delete Identity Provider
-[**DeleteIdentityProviderKey**](IdentityProviderApi.md#deleteidentityproviderkey) | **DELETE** /api/v1/idps/credentials/keys/{keyId} | Delete Key
-[**GenerateCsrForIdentityProvider**](IdentityProviderApi.md#generatecsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs | Generate Certificate Signing Request for IdP
-[**GenerateIdentityProviderSigningKey**](IdentityProviderApi.md#generateidentityprovidersigningkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/generate | Generate New IdP Signing Key Credential
-[**GetCsrForIdentityProvider**](IdentityProviderApi.md#getcsrforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Get Csr for Identity Provider
-[**GetIdentityProvider**](IdentityProviderApi.md#getidentityprovider) | **GET** /api/v1/idps/{idpId} | Get Identity Provider
-[**GetIdentityProviderApplicationUser**](IdentityProviderApi.md#getidentityproviderapplicationuser) | **GET** /api/v1/idps/{idpId}/users/{userId} | Get Identity Provider Application User
-[**GetIdentityProviderKey**](IdentityProviderApi.md#getidentityproviderkey) | **GET** /api/v1/idps/credentials/keys/{keyId} | Get Identity Provider Key
-[**GetIdentityProviderSigningKey**](IdentityProviderApi.md#getidentityprovidersigningkey) | **GET** /api/v1/idps/{idpId}/credentials/keys/{keyId} | Get Signing Key Credential for IdP
-[**LinkUserToIdentityProvider**](IdentityProviderApi.md#linkusertoidentityprovider) | **POST** /api/v1/idps/{idpId}/users/{userId} | Link a user to a Social IdP without a transaction
-[**ListCsrsForIdentityProvider**](IdentityProviderApi.md#listcsrsforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs | List Certificate Signing Requests for IdP
-[**ListIdentityProviderApplicationUsers**](IdentityProviderApi.md#listidentityproviderapplicationusers) | **GET** /api/v1/idps/{idpId}/users | Find Users
-[**ListIdentityProviderKeys**](IdentityProviderApi.md#listidentityproviderkeys) | **GET** /api/v1/idps/credentials/keys | List Identity Provider Keys
-[**ListIdentityProviderSigningKeys**](IdentityProviderApi.md#listidentityprovidersigningkeys) | **GET** /api/v1/idps/{idpId}/credentials/keys | List Signing Key Credentials for IdP
-[**ListIdentityProviders**](IdentityProviderApi.md#listidentityproviders) | **GET** /api/v1/idps | List Identity Providers
-[**ListSocialAuthTokens**](IdentityProviderApi.md#listsocialauthtokens) | **GET** /api/v1/idps/{idpId}/users/{userId}/credentials/tokens | Social Authentication Token Operation
-[**PublishCsrForIdentityProvider**](IdentityProviderApi.md#publishcsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish | Publish Csr for Identity Provider
-[**RevokeCsrForIdentityProvider**](IdentityProviderApi.md#revokecsrforidentityprovider) | **DELETE** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Revoke Csr for Identity Provider
-[**UnlinkUserFromIdentityProvider**](IdentityProviderApi.md#unlinkuserfromidentityprovider) | **DELETE** /api/v1/idps/{idpId}/users/{userId} | Unlink User from IdP
-[**UpdateIdentityProvider**](IdentityProviderApi.md#updateidentityprovider) | **PUT** /api/v1/idps/{idpId} | Update Identity Provider
+[**ActivateIdentityProvider**](IdentityProviderApi.md#activateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/activate | Activate an Identity Provider
+[**CloneIdentityProviderKey**](IdentityProviderApi.md#cloneidentityproviderkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/{keyId}/clone | Clone a Signing Credential Key
+[**CreateIdentityProvider**](IdentityProviderApi.md#createidentityprovider) | **POST** /api/v1/idps | Create an Identity Provider
+[**CreateIdentityProviderKey**](IdentityProviderApi.md#createidentityproviderkey) | **POST** /api/v1/idps/credentials/keys | Create an X.509 Certificate Public Key
+[**DeactivateIdentityProvider**](IdentityProviderApi.md#deactivateidentityprovider) | **POST** /api/v1/idps/{idpId}/lifecycle/deactivate | Deactivate an Identity Provider
+[**DeleteIdentityProvider**](IdentityProviderApi.md#deleteidentityprovider) | **DELETE** /api/v1/idps/{idpId} | Delete an Identity Provider
+[**DeleteIdentityProviderKey**](IdentityProviderApi.md#deleteidentityproviderkey) | **DELETE** /api/v1/idps/credentials/keys/{keyId} | Delete a Signing Credential Key
+[**GenerateCsrForIdentityProvider**](IdentityProviderApi.md#generatecsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs | Generate a Certificate Signing Request
+[**GenerateIdentityProviderSigningKey**](IdentityProviderApi.md#generateidentityprovidersigningkey) | **POST** /api/v1/idps/{idpId}/credentials/keys/generate | Generate a new Signing Credential Key
+[**GetCsrForIdentityProvider**](IdentityProviderApi.md#getcsrforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Retrieve a Certificate Signing Request
+[**GetIdentityProvider**](IdentityProviderApi.md#getidentityprovider) | **GET** /api/v1/idps/{idpId} | Retrieve an Identity Provider
+[**GetIdentityProviderApplicationUser**](IdentityProviderApi.md#getidentityproviderapplicationuser) | **GET** /api/v1/idps/{idpId}/users/{userId} | Retrieve a User
+[**GetIdentityProviderKey**](IdentityProviderApi.md#getidentityproviderkey) | **GET** /api/v1/idps/credentials/keys/{keyId} | Retrieve an Credential Key
+[**GetIdentityProviderSigningKey**](IdentityProviderApi.md#getidentityprovidersigningkey) | **GET** /api/v1/idps/{idpId}/credentials/keys/{keyId} | Retrieve a Signing Credential Key
+[**LinkUserToIdentityProvider**](IdentityProviderApi.md#linkusertoidentityprovider) | **POST** /api/v1/idps/{idpId}/users/{userId} | Link a User to a Social IdP
+[**ListCsrsForIdentityProvider**](IdentityProviderApi.md#listcsrsforidentityprovider) | **GET** /api/v1/idps/{idpId}/credentials/csrs | List all Certificate Signing Requests
+[**ListIdentityProviderApplicationUsers**](IdentityProviderApi.md#listidentityproviderapplicationusers) | **GET** /api/v1/idps/{idpId}/users | List all Users
+[**ListIdentityProviderKeys**](IdentityProviderApi.md#listidentityproviderkeys) | **GET** /api/v1/idps/credentials/keys | List all Credential Keys
+[**ListIdentityProviderSigningKeys**](IdentityProviderApi.md#listidentityprovidersigningkeys) | **GET** /api/v1/idps/{idpId}/credentials/keys | List all Signing Credential Keys
+[**ListIdentityProviders**](IdentityProviderApi.md#listidentityproviders) | **GET** /api/v1/idps | List all Identity Providers
+[**ListSocialAuthTokens**](IdentityProviderApi.md#listsocialauthtokens) | **GET** /api/v1/idps/{idpId}/users/{userId}/credentials/tokens | List all Tokens from a OIDC Identity Provider
+[**PublishCsrForIdentityProvider**](IdentityProviderApi.md#publishcsrforidentityprovider) | **POST** /api/v1/idps/{idpId}/credentials/csrs/{csrId}/lifecycle/publish | Publish a Certificate Signing Request
+[**RevokeCsrForIdentityProvider**](IdentityProviderApi.md#revokecsrforidentityprovider) | **DELETE** /api/v1/idps/{idpId}/credentials/csrs/{csrId} | Revoke a Certificate Signing Request
+[**UnlinkUserFromIdentityProvider**](IdentityProviderApi.md#unlinkuserfromidentityprovider) | **DELETE** /api/v1/idps/{idpId}/users/{userId} | Unlink a User from IdP
+[**UpdateIdentityProvider**](IdentityProviderApi.md#updateidentityprovider) | **PUT** /api/v1/idps/{idpId} | Replace an Identity Provider
 
 
 <a name="activateidentityprovider"></a>
 # **ActivateIdentityProvider**
 > IdentityProvider ActivateIdentityProvider (string idpId)
 
-Activate Identity Provider
+Activate an Identity Provider
 
 Activates an inactive IdP.
 
@@ -55,11 +55,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -67,7 +67,7 @@ namespace Example
 
             try
             {
-                // Activate Identity Provider
+                // Activate an Identity Provider
                 IdentityProvider result = apiInstance.ActivateIdentityProvider(idpId);
                 Debug.WriteLine(result);
             }
@@ -94,7 +94,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -116,7 +116,7 @@ Name | Type | Description  | Notes
 # **CloneIdentityProviderKey**
 > JsonWebKey CloneIdentityProviderKey (string idpId, string keyId, string targetIdpId)
 
-Clone Signing Key Credential for IdP
+Clone a Signing Credential Key
 
 Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
 
@@ -136,11 +136,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -150,7 +150,7 @@ namespace Example
 
             try
             {
-                // Clone Signing Key Credential for IdP
+                // Clone a Signing Credential Key
                 JsonWebKey result = apiInstance.CloneIdentityProviderKey(idpId, keyId, targetIdpId);
                 Debug.WriteLine(result);
             }
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -201,7 +201,7 @@ Name | Type | Description  | Notes
 # **CreateIdentityProvider**
 > IdentityProvider CreateIdentityProvider (IdentityProvider identityProvider)
 
-Add Identity Provider
+Create an Identity Provider
 
 Adds a new IdP to your organization.
 
@@ -221,11 +221,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -233,7 +233,7 @@ namespace Example
 
             try
             {
-                // Add Identity Provider
+                // Create an Identity Provider
                 IdentityProvider result = apiInstance.CreateIdentityProvider(identityProvider);
                 Debug.WriteLine(result);
             }
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -282,7 +282,7 @@ Name | Type | Description  | Notes
 # **CreateIdentityProviderKey**
 > JsonWebKey CreateIdentityProviderKey (JsonWebKey jsonWebKey)
 
-Add X.509 Certificate Public Key for Identity Providers
+Create an X.509 Certificate Public Key
 
 Adds a new X.509 certificate credential to the IdP key store.
 
@@ -302,11 +302,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -314,7 +314,7 @@ namespace Example
 
             try
             {
-                // Add X.509 Certificate Public Key for Identity Providers
+                // Create an X.509 Certificate Public Key
                 JsonWebKey result = apiInstance.CreateIdentityProviderKey(jsonWebKey);
                 Debug.WriteLine(result);
             }
@@ -341,7 +341,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -363,7 +363,7 @@ Name | Type | Description  | Notes
 # **DeactivateIdentityProvider**
 > IdentityProvider DeactivateIdentityProvider (string idpId)
 
-Deactivate Identity Provider
+Deactivate an Identity Provider
 
 Deactivates an active IdP.
 
@@ -383,11 +383,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -395,7 +395,7 @@ namespace Example
 
             try
             {
-                // Deactivate Identity Provider
+                // Deactivate an Identity Provider
                 IdentityProvider result = apiInstance.DeactivateIdentityProvider(idpId);
                 Debug.WriteLine(result);
             }
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -444,7 +444,7 @@ Name | Type | Description  | Notes
 # **DeleteIdentityProvider**
 > void DeleteIdentityProvider (string idpId)
 
-Delete Identity Provider
+Delete an Identity Provider
 
 Removes an IdP from your organization.
 
@@ -464,11 +464,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -476,7 +476,7 @@ namespace Example
 
             try
             {
-                // Delete Identity Provider
+                // Delete an Identity Provider
                 apiInstance.DeleteIdentityProvider(idpId);
             }
             catch (ApiException  e)
@@ -502,7 +502,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -524,7 +524,7 @@ void (empty response body)
 # **DeleteIdentityProviderKey**
 > void DeleteIdentityProviderKey (string keyId)
 
-Delete Key
+Delete a Signing Credential Key
 
 Deletes a specific IdP Key Credential by `kid` if it is not currently being used by an Active or Inactive IdP.
 
@@ -544,11 +544,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -556,7 +556,7 @@ namespace Example
 
             try
             {
-                // Delete Key
+                // Delete a Signing Credential Key
                 apiInstance.DeleteIdentityProviderKey(keyId);
             }
             catch (ApiException  e)
@@ -582,7 +582,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -604,7 +604,7 @@ void (empty response body)
 # **GenerateCsrForIdentityProvider**
 > Csr GenerateCsrForIdentityProvider (string idpId, CsrMetadata metadata)
 
-Generate Certificate Signing Request for IdP
+Generate a Certificate Signing Request
 
 Generates a new key pair and returns a Certificate Signing Request for it.
 
@@ -624,11 +624,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -637,7 +637,7 @@ namespace Example
 
             try
             {
-                // Generate Certificate Signing Request for IdP
+                // Generate a Certificate Signing Request
                 Csr result = apiInstance.GenerateCsrForIdentityProvider(idpId, metadata);
                 Debug.WriteLine(result);
             }
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -688,7 +688,7 @@ Name | Type | Description  | Notes
 # **GenerateIdentityProviderSigningKey**
 > JsonWebKey GenerateIdentityProviderSigningKey (string idpId, int validityYears)
 
-Generate New IdP Signing Key Credential
+Generate a new Signing Credential Key
 
 Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
 
@@ -708,11 +708,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -721,7 +721,7 @@ namespace Example
 
             try
             {
-                // Generate New IdP Signing Key Credential
+                // Generate a new Signing Credential Key
                 JsonWebKey result = apiInstance.GenerateIdentityProviderSigningKey(idpId, validityYears);
                 Debug.WriteLine(result);
             }
@@ -749,7 +749,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -771,7 +771,7 @@ Name | Type | Description  | Notes
 # **GetCsrForIdentityProvider**
 > Csr GetCsrForIdentityProvider (string idpId, string csrId)
 
-Get Csr for Identity Provider
+Retrieve a Certificate Signing Request
 
 Gets a specific Certificate Signing Request model by id
 
@@ -791,11 +791,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -804,7 +804,7 @@ namespace Example
 
             try
             {
-                // Get Csr for Identity Provider
+                // Retrieve a Certificate Signing Request
                 Csr result = apiInstance.GetCsrForIdentityProvider(idpId, csrId);
                 Debug.WriteLine(result);
             }
@@ -832,7 +832,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -854,7 +854,7 @@ Name | Type | Description  | Notes
 # **GetIdentityProvider**
 > IdentityProvider GetIdentityProvider (string idpId)
 
-Get Identity Provider
+Retrieve an Identity Provider
 
 Fetches an IdP by `id`.
 
@@ -874,11 +874,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -886,7 +886,7 @@ namespace Example
 
             try
             {
-                // Get Identity Provider
+                // Retrieve an Identity Provider
                 IdentityProvider result = apiInstance.GetIdentityProvider(idpId);
                 Debug.WriteLine(result);
             }
@@ -913,7 +913,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -935,7 +935,7 @@ Name | Type | Description  | Notes
 # **GetIdentityProviderApplicationUser**
 > IdentityProviderApplicationUser GetIdentityProviderApplicationUser (string idpId, string userId)
 
-Get Identity Provider Application User
+Retrieve a User
 
 Fetches a linked IdP user by ID
 
@@ -955,11 +955,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -968,7 +968,7 @@ namespace Example
 
             try
             {
-                // Get Identity Provider Application User
+                // Retrieve a User
                 IdentityProviderApplicationUser result = apiInstance.GetIdentityProviderApplicationUser(idpId, userId);
                 Debug.WriteLine(result);
             }
@@ -996,7 +996,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1018,7 +1018,7 @@ Name | Type | Description  | Notes
 # **GetIdentityProviderKey**
 > JsonWebKey GetIdentityProviderKey (string keyId)
 
-Get Identity Provider Key
+Retrieve an Credential Key
 
 Gets a specific IdP Key Credential by `kid`
 
@@ -1038,11 +1038,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1050,7 +1050,7 @@ namespace Example
 
             try
             {
-                // Get Identity Provider Key
+                // Retrieve an Credential Key
                 JsonWebKey result = apiInstance.GetIdentityProviderKey(keyId);
                 Debug.WriteLine(result);
             }
@@ -1077,7 +1077,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1099,7 +1099,7 @@ Name | Type | Description  | Notes
 # **GetIdentityProviderSigningKey**
 > JsonWebKey GetIdentityProviderSigningKey (string idpId, string keyId)
 
-Get Signing Key Credential for IdP
+Retrieve a Signing Credential Key
 
 Gets a specific IdP Key Credential by `kid`
 
@@ -1119,11 +1119,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1132,7 +1132,7 @@ namespace Example
 
             try
             {
-                // Get Signing Key Credential for IdP
+                // Retrieve a Signing Credential Key
                 JsonWebKey result = apiInstance.GetIdentityProviderSigningKey(idpId, keyId);
                 Debug.WriteLine(result);
             }
@@ -1160,7 +1160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1182,7 +1182,7 @@ Name | Type | Description  | Notes
 # **LinkUserToIdentityProvider**
 > IdentityProviderApplicationUser LinkUserToIdentityProvider (string idpId, string userId, UserIdentityProviderLinkRequest userIdentityProviderLinkRequest)
 
-Link a user to a Social IdP without a transaction
+Link a User to a Social IdP
 
 Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
 
@@ -1202,11 +1202,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1216,7 +1216,7 @@ namespace Example
 
             try
             {
-                // Link a user to a Social IdP without a transaction
+                // Link a User to a Social IdP
                 IdentityProviderApplicationUser result = apiInstance.LinkUserToIdentityProvider(idpId, userId, userIdentityProviderLinkRequest);
                 Debug.WriteLine(result);
             }
@@ -1245,7 +1245,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1268,7 +1268,7 @@ Name | Type | Description  | Notes
 # **ListCsrsForIdentityProvider**
 > List&lt;Csr&gt; ListCsrsForIdentityProvider (string idpId)
 
-List Certificate Signing Requests for IdP
+List all Certificate Signing Requests
 
 Enumerates Certificate Signing Requests for an IdP
 
@@ -1288,11 +1288,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1300,7 +1300,7 @@ namespace Example
 
             try
             {
-                // List Certificate Signing Requests for IdP
+                // List all Certificate Signing Requests
                 List<Csr> result = apiInstance.ListCsrsForIdentityProvider(idpId);
                 Debug.WriteLine(result);
             }
@@ -1327,7 +1327,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1349,7 +1349,7 @@ Name | Type | Description  | Notes
 # **ListIdentityProviderApplicationUsers**
 > List&lt;IdentityProviderApplicationUser&gt; ListIdentityProviderApplicationUsers (string idpId)
 
-Find Users
+List all Users
 
 Find all the users linked to an identity provider
 
@@ -1369,11 +1369,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1381,7 +1381,7 @@ namespace Example
 
             try
             {
-                // Find Users
+                // List all Users
                 List<IdentityProviderApplicationUser> result = apiInstance.ListIdentityProviderApplicationUsers(idpId);
                 Debug.WriteLine(result);
             }
@@ -1408,7 +1408,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1430,7 +1430,7 @@ Name | Type | Description  | Notes
 # **ListIdentityProviderKeys**
 > List&lt;JsonWebKey&gt; ListIdentityProviderKeys (string after = null, int? limit = null)
 
-List Identity Provider Keys
+List all Credential Keys
 
 Enumerates IdP key credentials.
 
@@ -1450,11 +1450,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1463,7 +1463,7 @@ namespace Example
 
             try
             {
-                // List Identity Provider Keys
+                // List all Credential Keys
                 List<JsonWebKey> result = apiInstance.ListIdentityProviderKeys(after, limit);
                 Debug.WriteLine(result);
             }
@@ -1491,7 +1491,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1512,7 +1512,7 @@ Name | Type | Description  | Notes
 # **ListIdentityProviderSigningKeys**
 > List&lt;JsonWebKey&gt; ListIdentityProviderSigningKeys (string idpId)
 
-List Signing Key Credentials for IdP
+List all Signing Credential Keys
 
 Enumerates signing key credentials for an IdP
 
@@ -1532,11 +1532,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1544,7 +1544,7 @@ namespace Example
 
             try
             {
-                // List Signing Key Credentials for IdP
+                // List all Signing Credential Keys
                 List<JsonWebKey> result = apiInstance.ListIdentityProviderSigningKeys(idpId);
                 Debug.WriteLine(result);
             }
@@ -1571,7 +1571,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1593,7 +1593,7 @@ Name | Type | Description  | Notes
 # **ListIdentityProviders**
 > List&lt;IdentityProvider&gt; ListIdentityProviders (string q = null, string after = null, int? limit = null, string type = null)
 
-List Identity Providers
+List all Identity Providers
 
 Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
 
@@ -1613,11 +1613,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1628,7 +1628,7 @@ namespace Example
 
             try
             {
-                // List Identity Providers
+                // List all Identity Providers
                 List<IdentityProvider> result = apiInstance.ListIdentityProviders(q, after, limit, type);
                 Debug.WriteLine(result);
             }
@@ -1658,7 +1658,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1679,7 +1679,7 @@ Name | Type | Description  | Notes
 # **ListSocialAuthTokens**
 > List&lt;SocialAuthToken&gt; ListSocialAuthTokens (string idpId, string userId)
 
-Social Authentication Token Operation
+List all Tokens from a OIDC Identity Provider
 
 Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
 
@@ -1699,11 +1699,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1712,7 +1712,7 @@ namespace Example
 
             try
             {
-                // Social Authentication Token Operation
+                // List all Tokens from a OIDC Identity Provider
                 List<SocialAuthToken> result = apiInstance.ListSocialAuthTokens(idpId, userId);
                 Debug.WriteLine(result);
             }
@@ -1740,7 +1740,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1762,7 +1762,7 @@ Name | Type | Description  | Notes
 # **PublishCsrForIdentityProvider**
 > JsonWebKey PublishCsrForIdentityProvider (string idpId, string csrId, System.IO.Stream body)
 
-Publish Csr for Identity Provider
+Publish a Certificate Signing Request
 
 Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
 
@@ -1782,11 +1782,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1796,7 +1796,7 @@ namespace Example
 
             try
             {
-                // Publish Csr for Identity Provider
+                // Publish a Certificate Signing Request
                 JsonWebKey result = apiInstance.PublishCsrForIdentityProvider(idpId, csrId, body);
                 Debug.WriteLine(result);
             }
@@ -1825,7 +1825,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1848,7 +1848,7 @@ Name | Type | Description  | Notes
 # **RevokeCsrForIdentityProvider**
 > void RevokeCsrForIdentityProvider (string idpId, string csrId)
 
-Revoke Csr for Identity Provider
+Revoke a Certificate Signing Request
 
 Revoke a Certificate Signing Request and delete the key pair from the IdP
 
@@ -1868,11 +1868,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1881,7 +1881,7 @@ namespace Example
 
             try
             {
-                // Revoke Csr for Identity Provider
+                // Revoke a Certificate Signing Request
                 apiInstance.RevokeCsrForIdentityProvider(idpId, csrId);
             }
             catch (ApiException  e)
@@ -1908,7 +1908,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1930,7 +1930,7 @@ void (empty response body)
 # **UnlinkUserFromIdentityProvider**
 > void UnlinkUserFromIdentityProvider (string idpId, string userId)
 
-Unlink User from IdP
+Unlink a User from IdP
 
 Removes the link between the Okta user and the IdP user.
 
@@ -1950,11 +1950,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -1963,7 +1963,7 @@ namespace Example
 
             try
             {
-                // Unlink User from IdP
+                // Unlink a User from IdP
                 apiInstance.UnlinkUserFromIdentityProvider(idpId, userId);
             }
             catch (ApiException  e)
@@ -1990,7 +1990,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2012,7 +2012,7 @@ void (empty response body)
 # **UpdateIdentityProvider**
 > IdentityProvider UpdateIdentityProvider (string idpId, IdentityProvider identityProvider)
 
-Update Identity Provider
+Replace an Identity Provider
 
 Updates the configuration for an IdP.
 
@@ -2032,11 +2032,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new IdentityProviderApi(config);
@@ -2045,7 +2045,7 @@ namespace Example
 
             try
             {
-                // Update Identity Provider
+                // Replace an Identity Provider
                 IdentityProvider result = apiInstance.UpdateIdentityProvider(idpId, identityProvider);
                 Debug.WriteLine(result);
             }
@@ -2073,7 +2073,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

@@ -1,11 +1,12 @@
-# Okta.Sdk.Model.SamlApplicationAllOf
+# Okta.Sdk.Model.SamlApplicationSettingsApplication
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
-**Settings** | [**SamlApplicationSettings**](SamlApplicationSettings.md) |  | [optional] 
+**AcsUrl** | **string** |  | [optional] 
+**AudRestriction** | **string** |  | [optional] 
+**BaseUrl** | **string** |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

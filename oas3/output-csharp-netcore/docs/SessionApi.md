@@ -4,17 +4,17 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSession**](SessionApi.md#createsession) | **POST** /api/v1/sessions | Create Session with Session Token
-[**EndSession**](SessionApi.md#endsession) | **DELETE** /api/v1/sessions/{sessionId} | End Session
-[**GetSession**](SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Get Session
-[**RefreshSession**](SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh Session
+[**CreateSession**](SessionApi.md#createsession) | **POST** /api/v1/sessions | Create a Session with Session Token
+[**EndSession**](SessionApi.md#endsession) | **DELETE** /api/v1/sessions/{sessionId} | Delete a Session
+[**GetSession**](SessionApi.md#getsession) | **GET** /api/v1/sessions/{sessionId} | Retrieve a Session
+[**RefreshSession**](SessionApi.md#refreshsession) | **POST** /api/v1/sessions/{sessionId}/lifecycle/refresh | Refresh a Session
 
 
 <a name="createsession"></a>
 # **CreateSession**
 > Session CreateSession (CreateSessionRequest createSessionRequest)
 
-Create Session with Session Token
+Create a Session with Session Token
 
 Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
 
@@ -34,7 +34,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -44,7 +44,7 @@ namespace Example
 
             try
             {
-                // Create Session with Session Token
+                // Create a Session with Session Token
                 Session result = apiInstance.CreateSession(createSessionRequest);
                 Debug.WriteLine(result);
             }
@@ -71,7 +71,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 
@@ -93,7 +93,7 @@ Name | Type | Description  | Notes
 # **EndSession**
 > void EndSession (string sessionId)
 
-End Session
+Delete a Session
 
 End a session.
 
@@ -113,11 +113,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SessionApi(config);
@@ -125,7 +125,7 @@ namespace Example
 
             try
             {
-                // End Session
+                // Delete a Session
                 apiInstance.EndSession(sessionId);
             }
             catch (ApiException  e)
@@ -151,7 +151,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -173,7 +173,7 @@ void (empty response body)
 # **GetSession**
 > Session GetSession (string sessionId)
 
-Get Session
+Retrieve a Session
 
 Get details about a session.
 
@@ -193,11 +193,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SessionApi(config);
@@ -205,7 +205,7 @@ namespace Example
 
             try
             {
-                // Get Session
+                // Retrieve a Session
                 Session result = apiInstance.GetSession(sessionId);
                 Debug.WriteLine(result);
             }
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -255,7 +255,7 @@ Name | Type | Description  | Notes
 # **RefreshSession**
 > Session RefreshSession (string sessionId)
 
-Refresh Session
+Refresh a Session
 
 Refresh a session.
 
@@ -275,11 +275,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SessionApi(config);
@@ -287,7 +287,7 @@ namespace Example
 
             try
             {
-                // Refresh Session
+                // Refresh a Session
                 Session result = apiInstance.RefreshSession(sessionId);
                 Debug.WriteLine(result);
             }
@@ -314,7 +314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

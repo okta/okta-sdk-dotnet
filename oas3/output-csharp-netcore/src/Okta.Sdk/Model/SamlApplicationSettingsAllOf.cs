@@ -34,6 +34,12 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
+        /// Gets or Sets App
+        /// </summary>
+        [DataMember(Name = "app", EmitDefaultValue = false)]
+        public SamlApplicationSettingsApplication App { get; set; }
+
+        /// <summary>
         /// Gets or Sets SignOn
         /// </summary>
         [DataMember(Name = "signOn", EmitDefaultValue = false)]
@@ -47,6 +53,7 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class SamlApplicationSettingsAllOf {\n");
+            sb.Append("  App: ").Append(App).Append("\n");
             sb.Append("  SignOn: ").Append(SignOn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -84,6 +91,11 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
+                    this.App == input.App ||
+                    (this.App != null &&
+                    this.App.Equals(input.App))
+                ) && 
+                (
                     this.SignOn == input.SignOn ||
                     (this.SignOn != null &&
                     this.SignOn.Equals(input.SignOn))
@@ -99,6 +111,10 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.App != null)
+                {
+                    hashCode = (hashCode * 59) + this.App.GetHashCode();
+                }
                 if (this.SignOn != null)
                 {
                     hashCode = (hashCode * 59) + this.SignOn.GetHashCode();

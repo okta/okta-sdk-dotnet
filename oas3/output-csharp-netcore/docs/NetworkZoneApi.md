@@ -4,20 +4,20 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateNetworkZone**](NetworkZoneApi.md#activatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/activate | Activate Network Zone
-[**CreateNetworkZone**](NetworkZoneApi.md#createnetworkzone) | **POST** /api/v1/zones | Add Network Zone
-[**DeactivateNetworkZone**](NetworkZoneApi.md#deactivatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/deactivate | Deactivate Network Zone
-[**DeleteNetworkZone**](NetworkZoneApi.md#deletenetworkzone) | **DELETE** /api/v1/zones/{zoneId} | Delete Network Zone
-[**GetNetworkZone**](NetworkZoneApi.md#getnetworkzone) | **GET** /api/v1/zones/{zoneId} | Get Network Zone
-[**ListNetworkZones**](NetworkZoneApi.md#listnetworkzones) | **GET** /api/v1/zones | List Network Zones
-[**UpdateNetworkZone**](NetworkZoneApi.md#updatenetworkzone) | **PUT** /api/v1/zones/{zoneId} | Update Network Zone
+[**ActivateNetworkZone**](NetworkZoneApi.md#activatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/activate | Activate a Network Zone
+[**CreateNetworkZone**](NetworkZoneApi.md#createnetworkzone) | **POST** /api/v1/zones | Create a Network Zone
+[**DeactivateNetworkZone**](NetworkZoneApi.md#deactivatenetworkzone) | **POST** /api/v1/zones/{zoneId}/lifecycle/deactivate | Deactivate a Network Zone
+[**DeleteNetworkZone**](NetworkZoneApi.md#deletenetworkzone) | **DELETE** /api/v1/zones/{zoneId} | Delete a Network Zone
+[**GetNetworkZone**](NetworkZoneApi.md#getnetworkzone) | **GET** /api/v1/zones/{zoneId} | Retrieve a Network Zone
+[**ListNetworkZones**](NetworkZoneApi.md#listnetworkzones) | **GET** /api/v1/zones | List all Network Zones
+[**UpdateNetworkZone**](NetworkZoneApi.md#updatenetworkzone) | **PUT** /api/v1/zones/{zoneId} | Replace a Network Zone
 
 
 <a name="activatenetworkzone"></a>
 # **ActivateNetworkZone**
 > NetworkZone ActivateNetworkZone (string zoneId)
 
-Activate Network Zone
+Activate a Network Zone
 
 Activate Network Zone
 
@@ -37,11 +37,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Activate Network Zone
+                // Activate a Network Zone
                 NetworkZone result = apiInstance.ActivateNetworkZone(zoneId);
                 Debug.WriteLine(result);
             }
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 # **CreateNetworkZone**
 > NetworkZone CreateNetworkZone (NetworkZone zone)
 
-Add Network Zone
+Create a Network Zone
 
 Adds a new network zone to your Okta organization.
 
@@ -118,11 +118,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // Add Network Zone
+                // Create a Network Zone
                 NetworkZone result = apiInstance.CreateNetworkZone(zone);
                 Debug.WriteLine(result);
             }
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **DeactivateNetworkZone**
 > NetworkZone DeactivateNetworkZone (string zoneId)
 
-Deactivate Network Zone
+Deactivate a Network Zone
 
 Deactivates a network zone.
 
@@ -199,11 +199,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // Deactivate Network Zone
+                // Deactivate a Network Zone
                 NetworkZone result = apiInstance.DeactivateNetworkZone(zoneId);
                 Debug.WriteLine(result);
             }
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 # **DeleteNetworkZone**
 > void DeleteNetworkZone (string zoneId)
 
-Delete Network Zone
+Delete a Network Zone
 
 Removes network zone.
 
@@ -280,11 +280,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -292,7 +292,7 @@ namespace Example
 
             try
             {
-                // Delete Network Zone
+                // Delete a Network Zone
                 apiInstance.DeleteNetworkZone(zoneId);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -329,7 +329,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | Success |  -  |
+| **204** | No Content |  -  |
 | **403** | Forbidden |  -  |
 | **404** | Not Found |  -  |
 | **429** | Too Many Requests |  -  |
@@ -340,7 +340,7 @@ void (empty response body)
 # **GetNetworkZone**
 > NetworkZone GetNetworkZone (string zoneId)
 
-Get Network Zone
+Retrieve a Network Zone
 
 Fetches a network zone from your Okta organization by `id`.
 
@@ -360,11 +360,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -372,7 +372,7 @@ namespace Example
 
             try
             {
-                // Get Network Zone
+                // Retrieve a Network Zone
                 NetworkZone result = apiInstance.GetNetworkZone(zoneId);
                 Debug.WriteLine(result);
             }
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 # **ListNetworkZones**
 > List&lt;NetworkZone&gt; ListNetworkZones (string after = null, int? limit = null, string filter = null)
 
-List Network Zones
+List all Network Zones
 
 Enumerates network zones added to your organization with pagination. A subset of zones can be returned that match a supported filter expression or query.
 
@@ -441,11 +441,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -455,7 +455,7 @@ namespace Example
 
             try
             {
-                // List Network Zones
+                // List all Network Zones
                 List<NetworkZone> result = apiInstance.ListNetworkZones(after, limit, filter);
                 Debug.WriteLine(result);
             }
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -505,7 +505,7 @@ Name | Type | Description  | Notes
 # **UpdateNetworkZone**
 > NetworkZone UpdateNetworkZone (string zoneId, NetworkZone zone)
 
-Update Network Zone
+Replace a Network Zone
 
 Updates a network zone in your organization.
 
@@ -525,11 +525,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new NetworkZoneApi(config);
@@ -538,7 +538,7 @@ namespace Example
 
             try
             {
-                // Update Network Zone
+                // Replace a Network Zone
                 NetworkZone result = apiInstance.UpdateNetworkZone(zoneId, zone);
                 Debug.WriteLine(result);
             }
@@ -566,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Identity Provider
+        /// Activate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Activates an inactive IdP.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         IdentityProvider ActivateIdentityProvider(string idpId);
 
         /// <summary>
-        /// Activate Identity Provider
+        /// Activate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Activates an inactive IdP.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of IdentityProvider</returns>
         ApiResponse<IdentityProvider> ActivateIdentityProviderWithHttpInfo(string idpId);
         /// <summary>
-        /// Clone Signing Key Credential for IdP
+        /// Clone a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
@@ -62,7 +62,7 @@ namespace Okta.Sdk.Api
         JsonWebKey CloneIdentityProviderKey(string idpId, string keyId, string targetIdpId);
 
         /// <summary>
-        /// Clone Signing Key Credential for IdP
+        /// Clone a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
@@ -74,7 +74,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> CloneIdentityProviderKeyWithHttpInfo(string idpId, string keyId, string targetIdpId);
         /// <summary>
-        /// Add Identity Provider
+        /// Create an Identity Provider
         /// </summary>
         /// <remarks>
         /// Adds a new IdP to your organization.
@@ -85,7 +85,7 @@ namespace Okta.Sdk.Api
         IdentityProvider CreateIdentityProvider(IdentityProvider identityProvider);
 
         /// <summary>
-        /// Add Identity Provider
+        /// Create an Identity Provider
         /// </summary>
         /// <remarks>
         /// Adds a new IdP to your organization.
@@ -95,7 +95,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of IdentityProvider</returns>
         ApiResponse<IdentityProvider> CreateIdentityProviderWithHttpInfo(IdentityProvider identityProvider);
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers
+        /// Create an X.509 Certificate Public Key
         /// </summary>
         /// <remarks>
         /// Adds a new X.509 certificate credential to the IdP key store.
@@ -106,7 +106,7 @@ namespace Okta.Sdk.Api
         JsonWebKey CreateIdentityProviderKey(JsonWebKey jsonWebKey);
 
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers
+        /// Create an X.509 Certificate Public Key
         /// </summary>
         /// <remarks>
         /// Adds a new X.509 certificate credential to the IdP key store.
@@ -116,7 +116,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> CreateIdentityProviderKeyWithHttpInfo(JsonWebKey jsonWebKey);
         /// <summary>
-        /// Deactivate Identity Provider
+        /// Deactivate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Deactivates an active IdP.
@@ -127,7 +127,7 @@ namespace Okta.Sdk.Api
         IdentityProvider DeactivateIdentityProvider(string idpId);
 
         /// <summary>
-        /// Deactivate Identity Provider
+        /// Deactivate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Deactivates an active IdP.
@@ -137,7 +137,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of IdentityProvider</returns>
         ApiResponse<IdentityProvider> DeactivateIdentityProviderWithHttpInfo(string idpId);
         /// <summary>
-        /// Delete Identity Provider
+        /// Delete an Identity Provider
         /// </summary>
         /// <remarks>
         /// Removes an IdP from your organization.
@@ -148,7 +148,7 @@ namespace Okta.Sdk.Api
         void DeleteIdentityProvider(string idpId);
 
         /// <summary>
-        /// Delete Identity Provider
+        /// Delete an Identity Provider
         /// </summary>
         /// <remarks>
         /// Removes an IdP from your organization.
@@ -158,7 +158,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteIdentityProviderWithHttpInfo(string idpId);
         /// <summary>
-        /// Delete Key
+        /// Delete a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
@@ -169,7 +169,7 @@ namespace Okta.Sdk.Api
         void DeleteIdentityProviderKey(string keyId);
 
         /// <summary>
-        /// Delete Key
+        /// Delete a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
@@ -179,7 +179,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteIdentityProviderKeyWithHttpInfo(string keyId);
         /// <summary>
-        /// Generate Certificate Signing Request for IdP
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns a Certificate Signing Request for it.
@@ -191,7 +191,7 @@ namespace Okta.Sdk.Api
         Csr GenerateCsrForIdentityProvider(string idpId, CsrMetadata metadata);
 
         /// <summary>
-        /// Generate Certificate Signing Request for IdP
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns a Certificate Signing Request for it.
@@ -202,7 +202,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Csr</returns>
         ApiResponse<Csr> GenerateCsrForIdentityProviderWithHttpInfo(string idpId, CsrMetadata metadata);
         /// <summary>
-        /// Generate New IdP Signing Key Credential
+        /// Generate a new Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
@@ -214,7 +214,7 @@ namespace Okta.Sdk.Api
         JsonWebKey GenerateIdentityProviderSigningKey(string idpId, int validityYears);
 
         /// <summary>
-        /// Generate New IdP Signing Key Credential
+        /// Generate a new Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
@@ -225,7 +225,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> GenerateIdentityProviderSigningKeyWithHttpInfo(string idpId, int validityYears);
         /// <summary>
-        /// Get Csr for Identity Provider
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Gets a specific Certificate Signing Request model by id
@@ -237,7 +237,7 @@ namespace Okta.Sdk.Api
         Csr GetCsrForIdentityProvider(string idpId, string csrId);
 
         /// <summary>
-        /// Get Csr for Identity Provider
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Gets a specific Certificate Signing Request model by id
@@ -248,7 +248,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Csr</returns>
         ApiResponse<Csr> GetCsrForIdentityProviderWithHttpInfo(string idpId, string csrId);
         /// <summary>
-        /// Get Identity Provider
+        /// Retrieve an Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches an IdP by &#x60;id&#x60;.
@@ -259,7 +259,7 @@ namespace Okta.Sdk.Api
         IdentityProvider GetIdentityProvider(string idpId);
 
         /// <summary>
-        /// Get Identity Provider
+        /// Retrieve an Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches an IdP by &#x60;id&#x60;.
@@ -269,7 +269,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of IdentityProvider</returns>
         ApiResponse<IdentityProvider> GetIdentityProviderWithHttpInfo(string idpId);
         /// <summary>
-        /// Get Identity Provider Application User
+        /// Retrieve a User
         /// </summary>
         /// <remarks>
         /// Fetches a linked IdP user by ID
@@ -281,7 +281,7 @@ namespace Okta.Sdk.Api
         IdentityProviderApplicationUser GetIdentityProviderApplicationUser(string idpId, string userId);
 
         /// <summary>
-        /// Get Identity Provider Application User
+        /// Retrieve a User
         /// </summary>
         /// <remarks>
         /// Fetches a linked IdP user by ID
@@ -292,7 +292,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of IdentityProviderApplicationUser</returns>
         ApiResponse<IdentityProviderApplicationUser> GetIdentityProviderApplicationUserWithHttpInfo(string idpId, string userId);
         /// <summary>
-        /// Get Identity Provider Key
+        /// Retrieve an Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -303,7 +303,7 @@ namespace Okta.Sdk.Api
         JsonWebKey GetIdentityProviderKey(string keyId);
 
         /// <summary>
-        /// Get Identity Provider Key
+        /// Retrieve an Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -313,7 +313,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> GetIdentityProviderKeyWithHttpInfo(string keyId);
         /// <summary>
-        /// Get Signing Key Credential for IdP
+        /// Retrieve a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -325,7 +325,7 @@ namespace Okta.Sdk.Api
         JsonWebKey GetIdentityProviderSigningKey(string idpId, string keyId);
 
         /// <summary>
-        /// Get Signing Key Credential for IdP
+        /// Retrieve a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -336,7 +336,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> GetIdentityProviderSigningKeyWithHttpInfo(string idpId, string keyId);
         /// <summary>
-        /// Link a user to a Social IdP without a transaction
+        /// Link a User to a Social IdP
         /// </summary>
         /// <remarks>
         /// Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
@@ -349,7 +349,7 @@ namespace Okta.Sdk.Api
         IdentityProviderApplicationUser LinkUserToIdentityProvider(string idpId, string userId, UserIdentityProviderLinkRequest userIdentityProviderLinkRequest);
 
         /// <summary>
-        /// Link a user to a Social IdP without a transaction
+        /// Link a User to a Social IdP
         /// </summary>
         /// <remarks>
         /// Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
@@ -361,7 +361,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of IdentityProviderApplicationUser</returns>
         ApiResponse<IdentityProviderApplicationUser> LinkUserToIdentityProviderWithHttpInfo(string idpId, string userId, UserIdentityProviderLinkRequest userIdentityProviderLinkRequest);
         /// <summary>
-        /// List Certificate Signing Requests for IdP
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an IdP
@@ -372,7 +372,7 @@ namespace Okta.Sdk.Api
         List<Csr> ListCsrsForIdentityProvider(string idpId);
 
         /// <summary>
-        /// List Certificate Signing Requests for IdP
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an IdP
@@ -382,7 +382,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Csr&gt;</returns>
         ApiResponse<List<Csr>> ListCsrsForIdentityProviderWithHttpInfo(string idpId);
         /// <summary>
-        /// Find Users
+        /// List all Users
         /// </summary>
         /// <remarks>
         /// Find all the users linked to an identity provider
@@ -393,7 +393,7 @@ namespace Okta.Sdk.Api
         List<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(string idpId);
 
         /// <summary>
-        /// Find Users
+        /// List all Users
         /// </summary>
         /// <remarks>
         /// Find all the users linked to an identity provider
@@ -403,7 +403,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;IdentityProviderApplicationUser&gt;</returns>
         ApiResponse<List<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersWithHttpInfo(string idpId);
         /// <summary>
-        /// List Identity Provider Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates IdP key credentials.
@@ -415,7 +415,7 @@ namespace Okta.Sdk.Api
         List<JsonWebKey> ListIdentityProviderKeys(string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Identity Provider Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates IdP key credentials.
@@ -426,7 +426,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
         ApiResponse<List<JsonWebKey>> ListIdentityProviderKeysWithHttpInfo(string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Signing Key Credentials for IdP
+        /// List all Signing Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates signing key credentials for an IdP
@@ -437,7 +437,7 @@ namespace Okta.Sdk.Api
         List<JsonWebKey> ListIdentityProviderSigningKeys(string idpId);
 
         /// <summary>
-        /// List Signing Key Credentials for IdP
+        /// List all Signing Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates signing key credentials for an IdP
@@ -447,7 +447,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
         ApiResponse<List<JsonWebKey>> ListIdentityProviderSigningKeysWithHttpInfo(string idpId);
         /// <summary>
-        /// List Identity Providers
+        /// List all Identity Providers
         /// </summary>
         /// <remarks>
         /// Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
@@ -461,7 +461,7 @@ namespace Okta.Sdk.Api
         List<IdentityProvider> ListIdentityProviders(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string));
 
         /// <summary>
-        /// List Identity Providers
+        /// List all Identity Providers
         /// </summary>
         /// <remarks>
         /// Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
@@ -474,7 +474,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;IdentityProvider&gt;</returns>
         ApiResponse<List<IdentityProvider>> ListIdentityProvidersWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string));
         /// <summary>
-        /// Social Authentication Token Operation
+        /// List all Tokens from a OIDC Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
@@ -486,7 +486,7 @@ namespace Okta.Sdk.Api
         List<SocialAuthToken> ListSocialAuthTokens(string idpId, string userId);
 
         /// <summary>
-        /// Social Authentication Token Operation
+        /// List all Tokens from a OIDC Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
@@ -497,7 +497,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;SocialAuthToken&gt;</returns>
         ApiResponse<List<SocialAuthToken>> ListSocialAuthTokensWithHttpInfo(string idpId, string userId);
         /// <summary>
-        /// Publish Csr for Identity Provider
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
@@ -510,7 +510,7 @@ namespace Okta.Sdk.Api
         JsonWebKey PublishCsrForIdentityProvider(string idpId, string csrId, System.IO.Stream body);
 
         /// <summary>
-        /// Publish Csr for Identity Provider
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
@@ -522,7 +522,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of JsonWebKey</returns>
         ApiResponse<JsonWebKey> PublishCsrForIdentityProviderWithHttpInfo(string idpId, string csrId, System.IO.Stream body);
         /// <summary>
-        /// Revoke Csr for Identity Provider
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revoke a Certificate Signing Request and delete the key pair from the IdP
@@ -534,7 +534,7 @@ namespace Okta.Sdk.Api
         void RevokeCsrForIdentityProvider(string idpId, string csrId);
 
         /// <summary>
-        /// Revoke Csr for Identity Provider
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revoke a Certificate Signing Request and delete the key pair from the IdP
@@ -545,7 +545,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> RevokeCsrForIdentityProviderWithHttpInfo(string idpId, string csrId);
         /// <summary>
-        /// Unlink User from IdP
+        /// Unlink a User from IdP
         /// </summary>
         /// <remarks>
         /// Removes the link between the Okta user and the IdP user.
@@ -557,7 +557,7 @@ namespace Okta.Sdk.Api
         void UnlinkUserFromIdentityProvider(string idpId, string userId);
 
         /// <summary>
-        /// Unlink User from IdP
+        /// Unlink a User from IdP
         /// </summary>
         /// <remarks>
         /// Removes the link between the Okta user and the IdP user.
@@ -568,7 +568,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UnlinkUserFromIdentityProviderWithHttpInfo(string idpId, string userId);
         /// <summary>
-        /// Update Identity Provider
+        /// Replace an Identity Provider
         /// </summary>
         /// <remarks>
         /// Updates the configuration for an IdP.
@@ -580,7 +580,7 @@ namespace Okta.Sdk.Api
         IdentityProvider UpdateIdentityProvider(string idpId, IdentityProvider identityProvider);
 
         /// <summary>
-        /// Update Identity Provider
+        /// Replace an Identity Provider
         /// </summary>
         /// <remarks>
         /// Updates the configuration for an IdP.
@@ -600,7 +600,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Identity Provider
+        /// Activate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Activates an inactive IdP.
@@ -612,7 +612,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProvider> ActivateIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Identity Provider
+        /// Activate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Activates an inactive IdP.
@@ -623,7 +623,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (IdentityProvider)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityProvider>> ActivateIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Clone Signing Key Credential for IdP
+        /// Clone a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
@@ -637,7 +637,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> CloneIdentityProviderKeyAsync(string idpId, string keyId, string targetIdpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Clone Signing Key Credential for IdP
+        /// Clone a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
@@ -650,7 +650,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CloneIdentityProviderKeyWithHttpInfoAsync(string idpId, string keyId, string targetIdpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add Identity Provider
+        /// Create an Identity Provider
         /// </summary>
         /// <remarks>
         /// Adds a new IdP to your organization.
@@ -662,7 +662,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProvider> CreateIdentityProviderAsync(IdentityProvider identityProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Identity Provider
+        /// Create an Identity Provider
         /// </summary>
         /// <remarks>
         /// Adds a new IdP to your organization.
@@ -673,7 +673,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (IdentityProvider)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityProvider>> CreateIdentityProviderWithHttpInfoAsync(IdentityProvider identityProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers
+        /// Create an X.509 Certificate Public Key
         /// </summary>
         /// <remarks>
         /// Adds a new X.509 certificate credential to the IdP key store.
@@ -685,7 +685,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> CreateIdentityProviderKeyAsync(JsonWebKey jsonWebKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers
+        /// Create an X.509 Certificate Public Key
         /// </summary>
         /// <remarks>
         /// Adds a new X.509 certificate credential to the IdP key store.
@@ -696,7 +696,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> CreateIdentityProviderKeyWithHttpInfoAsync(JsonWebKey jsonWebKey, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Identity Provider
+        /// Deactivate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Deactivates an active IdP.
@@ -708,7 +708,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProvider> DeactivateIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Identity Provider
+        /// Deactivate an Identity Provider
         /// </summary>
         /// <remarks>
         /// Deactivates an active IdP.
@@ -719,7 +719,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (IdentityProvider)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityProvider>> DeactivateIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Identity Provider
+        /// Delete an Identity Provider
         /// </summary>
         /// <remarks>
         /// Removes an IdP from your organization.
@@ -731,7 +731,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Identity Provider
+        /// Delete an Identity Provider
         /// </summary>
         /// <remarks>
         /// Removes an IdP from your organization.
@@ -742,7 +742,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Key
+        /// Delete a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
@@ -754,7 +754,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteIdentityProviderKeyAsync(string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Key
+        /// Delete a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
@@ -765,7 +765,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteIdentityProviderKeyWithHttpInfoAsync(string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Generate Certificate Signing Request for IdP
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns a Certificate Signing Request for it.
@@ -778,7 +778,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Csr> GenerateCsrForIdentityProviderAsync(string idpId, CsrMetadata metadata, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Generate Certificate Signing Request for IdP
+        /// Generate a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Generates a new key pair and returns a Certificate Signing Request for it.
@@ -790,7 +790,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Csr)</returns>
         System.Threading.Tasks.Task<ApiResponse<Csr>> GenerateCsrForIdentityProviderWithHttpInfoAsync(string idpId, CsrMetadata metadata, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Generate New IdP Signing Key Credential
+        /// Generate a new Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
@@ -803,7 +803,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> GenerateIdentityProviderSigningKeyAsync(string idpId, int validityYears, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Generate New IdP Signing Key Credential
+        /// Generate a new Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
@@ -815,7 +815,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GenerateIdentityProviderSigningKeyWithHttpInfoAsync(string idpId, int validityYears, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Csr for Identity Provider
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Gets a specific Certificate Signing Request model by id
@@ -828,7 +828,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Csr> GetCsrForIdentityProviderAsync(string idpId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Csr for Identity Provider
+        /// Retrieve a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Gets a specific Certificate Signing Request model by id
@@ -840,7 +840,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Csr)</returns>
         System.Threading.Tasks.Task<ApiResponse<Csr>> GetCsrForIdentityProviderWithHttpInfoAsync(string idpId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Identity Provider
+        /// Retrieve an Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches an IdP by &#x60;id&#x60;.
@@ -852,7 +852,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProvider> GetIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Identity Provider
+        /// Retrieve an Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches an IdP by &#x60;id&#x60;.
@@ -863,7 +863,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (IdentityProvider)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityProvider>> GetIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Identity Provider Application User
+        /// Retrieve a User
         /// </summary>
         /// <remarks>
         /// Fetches a linked IdP user by ID
@@ -876,7 +876,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProviderApplicationUser> GetIdentityProviderApplicationUserAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Identity Provider Application User
+        /// Retrieve a User
         /// </summary>
         /// <remarks>
         /// Fetches a linked IdP user by ID
@@ -888,7 +888,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (IdentityProviderApplicationUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityProviderApplicationUser>> GetIdentityProviderApplicationUserWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Identity Provider Key
+        /// Retrieve an Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -900,7 +900,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> GetIdentityProviderKeyAsync(string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Identity Provider Key
+        /// Retrieve an Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -911,7 +911,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GetIdentityProviderKeyWithHttpInfoAsync(string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Signing Key Credential for IdP
+        /// Retrieve a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -924,7 +924,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> GetIdentityProviderSigningKeyAsync(string idpId, string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Signing Key Credential for IdP
+        /// Retrieve a Signing Credential Key
         /// </summary>
         /// <remarks>
         /// Gets a specific IdP Key Credential by &#x60;kid&#x60;
@@ -936,7 +936,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> GetIdentityProviderSigningKeyWithHttpInfoAsync(string idpId, string keyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Link a user to a Social IdP without a transaction
+        /// Link a User to a Social IdP
         /// </summary>
         /// <remarks>
         /// Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
@@ -950,7 +950,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProviderApplicationUser> LinkUserToIdentityProviderAsync(string idpId, string userId, UserIdentityProviderLinkRequest userIdentityProviderLinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Link a user to a Social IdP without a transaction
+        /// Link a User to a Social IdP
         /// </summary>
         /// <remarks>
         /// Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
@@ -963,7 +963,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (IdentityProviderApplicationUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<IdentityProviderApplicationUser>> LinkUserToIdentityProviderWithHttpInfoAsync(string idpId, string userId, UserIdentityProviderLinkRequest userIdentityProviderLinkRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Certificate Signing Requests for IdP
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an IdP
@@ -975,7 +975,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Csr>> ListCsrsForIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Certificate Signing Requests for IdP
+        /// List all Certificate Signing Requests
         /// </summary>
         /// <remarks>
         /// Enumerates Certificate Signing Requests for an IdP
@@ -986,7 +986,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Csr&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Csr>>> ListCsrsForIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Find Users
+        /// List all Users
         /// </summary>
         /// <remarks>
         /// Find all the users linked to an identity provider
@@ -998,7 +998,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Find Users
+        /// List all Users
         /// </summary>
         /// <remarks>
         /// Find all the users linked to an identity provider
@@ -1009,7 +1009,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;IdentityProviderApplicationUser&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Identity Provider Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates IdP key credentials.
@@ -1022,7 +1022,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<JsonWebKey>> ListIdentityProviderKeysAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Identity Provider Keys
+        /// List all Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates IdP key credentials.
@@ -1034,7 +1034,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListIdentityProviderKeysWithHttpInfoAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Signing Key Credentials for IdP
+        /// List all Signing Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates signing key credentials for an IdP
@@ -1046,7 +1046,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<JsonWebKey>> ListIdentityProviderSigningKeysAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Signing Key Credentials for IdP
+        /// List all Signing Credential Keys
         /// </summary>
         /// <remarks>
         /// Enumerates signing key credentials for an IdP
@@ -1057,7 +1057,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListIdentityProviderSigningKeysWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Identity Providers
+        /// List all Identity Providers
         /// </summary>
         /// <remarks>
         /// Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
@@ -1072,7 +1072,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<IdentityProvider>> ListIdentityProvidersAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Identity Providers
+        /// List all Identity Providers
         /// </summary>
         /// <remarks>
         /// Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
@@ -1086,7 +1086,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;IdentityProvider&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<IdentityProvider>>> ListIdentityProvidersWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Social Authentication Token Operation
+        /// List all Tokens from a OIDC Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
@@ -1099,7 +1099,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<SocialAuthToken>> ListSocialAuthTokensAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Social Authentication Token Operation
+        /// List all Tokens from a OIDC Identity Provider
         /// </summary>
         /// <remarks>
         /// Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
@@ -1111,7 +1111,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;SocialAuthToken&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<SocialAuthToken>>> ListSocialAuthTokensWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Publish Csr for Identity Provider
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
@@ -1125,7 +1125,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<JsonWebKey> PublishCsrForIdentityProviderAsync(string idpId, string csrId, System.IO.Stream body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Publish Csr for Identity Provider
+        /// Publish a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
@@ -1138,7 +1138,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (JsonWebKey)</returns>
         System.Threading.Tasks.Task<ApiResponse<JsonWebKey>> PublishCsrForIdentityProviderWithHttpInfoAsync(string idpId, string csrId, System.IO.Stream body, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Revoke Csr for Identity Provider
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revoke a Certificate Signing Request and delete the key pair from the IdP
@@ -1151,7 +1151,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task RevokeCsrForIdentityProviderAsync(string idpId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Revoke Csr for Identity Provider
+        /// Revoke a Certificate Signing Request
         /// </summary>
         /// <remarks>
         /// Revoke a Certificate Signing Request and delete the key pair from the IdP
@@ -1163,7 +1163,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> RevokeCsrForIdentityProviderWithHttpInfoAsync(string idpId, string csrId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Unlink User from IdP
+        /// Unlink a User from IdP
         /// </summary>
         /// <remarks>
         /// Removes the link between the Okta user and the IdP user.
@@ -1176,7 +1176,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task UnlinkUserFromIdentityProviderAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Unlink User from IdP
+        /// Unlink a User from IdP
         /// </summary>
         /// <remarks>
         /// Removes the link between the Okta user and the IdP user.
@@ -1188,7 +1188,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UnlinkUserFromIdentityProviderWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Identity Provider
+        /// Replace an Identity Provider
         /// </summary>
         /// <remarks>
         /// Updates the configuration for an IdP.
@@ -1201,7 +1201,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<IdentityProvider> UpdateIdentityProviderAsync(string idpId, IdentityProvider identityProvider, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Identity Provider
+        /// Replace an Identity Provider
         /// </summary>
         /// <remarks>
         /// Updates the configuration for an IdP.
@@ -1312,7 +1312,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Identity Provider Activates an inactive IdP.
+        /// Activate an Identity Provider Activates an inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1324,7 +1324,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Identity Provider Activates an inactive IdP.
+        /// Activate an Identity Provider Activates an inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1361,12 +1361,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1388,7 +1388,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Identity Provider Activates an inactive IdP.
+        /// Activate an Identity Provider Activates an inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1401,7 +1401,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Identity Provider Activates an inactive IdP.
+        /// Activate an Identity Provider Activates an inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1440,12 +1440,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1468,7 +1468,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Signing Key Credential for IdP Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
+        /// Clone a Signing Credential Key Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1482,7 +1482,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Signing Key Credential for IdP Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
+        /// Clone a Signing Credential Key Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1535,12 +1535,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetIdpId", targetIdpId));
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1562,7 +1562,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Signing Key Credential for IdP Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
+        /// Clone a Signing Credential Key Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1577,7 +1577,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Clone Signing Key Credential for IdP Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
+        /// Clone a Signing Credential Key Clones a X.509 certificate for an IdP signing key credential from a source IdP to target IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1632,12 +1632,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "targetIdpId", targetIdpId));
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1660,7 +1660,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Identity Provider Adds a new IdP to your organization.
+        /// Create an Identity Provider Adds a new IdP to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identityProvider"></param>
@@ -1672,7 +1672,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Identity Provider Adds a new IdP to your organization.
+        /// Create an Identity Provider Adds a new IdP to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identityProvider"></param>
@@ -1710,12 +1710,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = identityProvider;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1737,7 +1737,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Identity Provider Adds a new IdP to your organization.
+        /// Create an Identity Provider Adds a new IdP to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identityProvider"></param>
@@ -1750,7 +1750,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Identity Provider Adds a new IdP to your organization.
+        /// Create an Identity Provider Adds a new IdP to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identityProvider"></param>
@@ -1790,12 +1790,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = identityProvider;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1818,7 +1818,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers Adds a new X.509 certificate credential to the IdP key store.
+        /// Create an X.509 Certificate Public Key Adds a new X.509 certificate credential to the IdP key store.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jsonWebKey"></param>
@@ -1830,7 +1830,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers Adds a new X.509 certificate credential to the IdP key store.
+        /// Create an X.509 Certificate Public Key Adds a new X.509 certificate credential to the IdP key store.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jsonWebKey"></param>
@@ -1868,12 +1868,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = jsonWebKey;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1895,7 +1895,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers Adds a new X.509 certificate credential to the IdP key store.
+        /// Create an X.509 Certificate Public Key Adds a new X.509 certificate credential to the IdP key store.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jsonWebKey"></param>
@@ -1908,7 +1908,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add X.509 Certificate Public Key for Identity Providers Adds a new X.509 certificate credential to the IdP key store.
+        /// Create an X.509 Certificate Public Key Adds a new X.509 certificate credential to the IdP key store.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="jsonWebKey"></param>
@@ -1948,12 +1948,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = jsonWebKey;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1976,7 +1976,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Identity Provider Deactivates an active IdP.
+        /// Deactivate an Identity Provider Deactivates an active IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -1988,7 +1988,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Identity Provider Deactivates an active IdP.
+        /// Deactivate an Identity Provider Deactivates an active IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2025,12 +2025,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2052,7 +2052,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Identity Provider Deactivates an active IdP.
+        /// Deactivate an Identity Provider Deactivates an active IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2065,7 +2065,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Identity Provider Deactivates an active IdP.
+        /// Deactivate an Identity Provider Deactivates an active IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2104,12 +2104,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2132,7 +2132,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Identity Provider Removes an IdP from your organization.
+        /// Delete an Identity Provider Removes an IdP from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2143,7 +2143,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Identity Provider Removes an IdP from your organization.
+        /// Delete an Identity Provider Removes an IdP from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2180,12 +2180,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2207,7 +2207,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Identity Provider Removes an IdP from your organization.
+        /// Delete an Identity Provider Removes an IdP from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2219,7 +2219,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Identity Provider Removes an IdP from your organization.
+        /// Delete an Identity Provider Removes an IdP from your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2258,12 +2258,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2286,7 +2286,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
+        /// Delete a Signing Credential Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -2297,7 +2297,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
+        /// Delete a Signing Credential Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -2334,12 +2334,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2361,7 +2361,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
+        /// Delete a Signing Credential Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -2373,7 +2373,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
+        /// Delete a Signing Credential Key Deletes a specific IdP Key Credential by &#x60;kid&#x60; if it is not currently being used by an Active or Inactive IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -2412,12 +2412,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2440,7 +2440,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for IdP Generates a new key pair and returns a Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns a Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2453,7 +2453,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for IdP Generates a new key pair and returns a Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns a Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2499,12 +2499,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.Data = metadata;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2526,7 +2526,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for IdP Generates a new key pair and returns a Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns a Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2540,7 +2540,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate Certificate Signing Request for IdP Generates a new key pair and returns a Certificate Signing Request for it.
+        /// Generate a Certificate Signing Request Generates a new key pair and returns a Certificate Signing Request for it.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2588,12 +2588,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.Data = metadata;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2616,7 +2616,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate New IdP Signing Key Credential Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
+        /// Generate a new Signing Credential Key Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2629,7 +2629,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate New IdP Signing Key Credential Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
+        /// Generate a new Signing Credential Key Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2668,12 +2668,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validityYears", validityYears));
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2695,7 +2695,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate New IdP Signing Key Credential Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
+        /// Generate a new Signing Credential Key Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2709,7 +2709,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Generate New IdP Signing Key Credential Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
+        /// Generate a new Signing Credential Key Generates a new X.509 certificate for an IdP signing key credential to be used for signing assertions sent to the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2750,12 +2750,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "validityYears", validityYears));
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2778,7 +2778,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Csr for Identity Provider Gets a specific Certificate Signing Request model by id
+        /// Retrieve a Certificate Signing Request Gets a specific Certificate Signing Request model by id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2791,7 +2791,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Csr for Identity Provider Gets a specific Certificate Signing Request model by id
+        /// Retrieve a Certificate Signing Request Gets a specific Certificate Signing Request model by id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2836,12 +2836,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2863,7 +2863,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Csr for Identity Provider Gets a specific Certificate Signing Request model by id
+        /// Retrieve a Certificate Signing Request Gets a specific Certificate Signing Request model by id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2877,7 +2877,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Csr for Identity Provider Gets a specific Certificate Signing Request model by id
+        /// Retrieve a Certificate Signing Request Gets a specific Certificate Signing Request model by id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2924,12 +2924,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2952,7 +2952,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Fetches an IdP by &#x60;id&#x60;.
+        /// Retrieve an Identity Provider Fetches an IdP by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -2964,7 +2964,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Fetches an IdP by &#x60;id&#x60;.
+        /// Retrieve an Identity Provider Fetches an IdP by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3001,12 +3001,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3028,7 +3028,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Fetches an IdP by &#x60;id&#x60;.
+        /// Retrieve an Identity Provider Fetches an IdP by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3041,7 +3041,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Fetches an IdP by &#x60;id&#x60;.
+        /// Retrieve an Identity Provider Fetches an IdP by &#x60;id&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3080,12 +3080,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3108,7 +3108,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Application User Fetches a linked IdP user by ID
+        /// Retrieve a User Fetches a linked IdP user by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3121,7 +3121,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Application User Fetches a linked IdP user by ID
+        /// Retrieve a User Fetches a linked IdP user by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3166,12 +3166,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3193,7 +3193,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Application User Fetches a linked IdP user by ID
+        /// Retrieve a User Fetches a linked IdP user by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3207,7 +3207,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Application User Fetches a linked IdP user by ID
+        /// Retrieve a User Fetches a linked IdP user by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3254,12 +3254,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3282,7 +3282,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve an Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -3294,7 +3294,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve an Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -3331,12 +3331,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3358,7 +3358,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve an Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -3371,7 +3371,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Identity Provider Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve an Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="keyId"></param>
@@ -3410,12 +3410,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3438,7 +3438,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Signing Key Credential for IdP Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve a Signing Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3451,7 +3451,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Signing Key Credential for IdP Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve a Signing Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3496,12 +3496,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3523,7 +3523,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Signing Key Credential for IdP Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve a Signing Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3537,7 +3537,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Signing Key Credential for IdP Gets a specific IdP Key Credential by &#x60;kid&#x60;
+        /// Retrieve a Signing Credential Key Gets a specific IdP Key Credential by &#x60;kid&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3584,12 +3584,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("keyId", Okta.Sdk.Client.ClientUtils.ParameterToString(keyId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3612,7 +3612,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Link a user to a Social IdP without a transaction Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
+        /// Link a User to a Social IdP Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3626,7 +3626,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Link a user to a Social IdP without a transaction Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
+        /// Link a User to a Social IdP Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3680,12 +3680,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = userIdentityProviderLinkRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3707,7 +3707,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Link a user to a Social IdP without a transaction Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
+        /// Link a User to a Social IdP Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3722,7 +3722,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Link a user to a Social IdP without a transaction Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
+        /// Link a User to a Social IdP Links an Okta user to an existing Social Identity Provider. This does not support the SAML2 Identity Provider Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3778,12 +3778,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.Data = userIdentityProviderLinkRequest;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3806,7 +3806,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for IdP Enumerates Certificate Signing Requests for an IdP
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3818,7 +3818,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for IdP Enumerates Certificate Signing Requests for an IdP
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3855,12 +3855,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3882,7 +3882,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for IdP Enumerates Certificate Signing Requests for an IdP
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3895,7 +3895,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Certificate Signing Requests for IdP Enumerates Certificate Signing Requests for an IdP
+        /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3934,12 +3934,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3962,7 +3962,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Find Users Find all the users linked to an identity provider
+        /// List all Users Find all the users linked to an identity provider
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -3974,7 +3974,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Find Users Find all the users linked to an identity provider
+        /// List all Users Find all the users linked to an identity provider
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4011,12 +4011,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4038,7 +4038,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Find Users Find all the users linked to an identity provider
+        /// List all Users Find all the users linked to an identity provider
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4051,7 +4051,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Find Users Find all the users linked to an identity provider
+        /// List all Users Find all the users linked to an identity provider
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4090,12 +4090,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4118,7 +4118,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Provider Keys Enumerates IdP key credentials.
+        /// List all Credential Keys Enumerates IdP key credentials.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of keys (optional)</param>
@@ -4131,7 +4131,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Provider Keys Enumerates IdP key credentials.
+        /// List all Credential Keys Enumerates IdP key credentials.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of keys (optional)</param>
@@ -4170,12 +4170,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4197,7 +4197,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Provider Keys Enumerates IdP key credentials.
+        /// List all Credential Keys Enumerates IdP key credentials.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of keys (optional)</param>
@@ -4211,7 +4211,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Provider Keys Enumerates IdP key credentials.
+        /// List all Credential Keys Enumerates IdP key credentials.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">Specifies the pagination cursor for the next page of keys (optional)</param>
@@ -4252,12 +4252,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4280,7 +4280,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Signing Key Credentials for IdP Enumerates signing key credentials for an IdP
+        /// List all Signing Credential Keys Enumerates signing key credentials for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4292,7 +4292,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Signing Key Credentials for IdP Enumerates signing key credentials for an IdP
+        /// List all Signing Credential Keys Enumerates signing key credentials for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4329,12 +4329,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4356,7 +4356,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Signing Key Credentials for IdP Enumerates signing key credentials for an IdP
+        /// List all Signing Credential Keys Enumerates signing key credentials for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4369,7 +4369,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Signing Key Credentials for IdP Enumerates signing key credentials for an IdP
+        /// List all Signing Credential Keys Enumerates signing key credentials for an IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4408,12 +4408,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4436,7 +4436,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
+        /// List all Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
@@ -4451,7 +4451,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
+        /// List all Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
@@ -4500,12 +4500,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4527,7 +4527,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
+        /// List all Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
@@ -4543,7 +4543,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
+        /// List all Identity Providers Enumerates IdPs in your organization with pagination. A subset of IdPs can be returned that match a supported filter expression or query.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="q">Searches the name property of IdPs for matching value (optional)</param>
@@ -4594,12 +4594,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4622,7 +4622,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Social Authentication Token Operation Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
+        /// List all Tokens from a OIDC Identity Provider Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4635,7 +4635,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Social Authentication Token Operation Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
+        /// List all Tokens from a OIDC Identity Provider Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4680,12 +4680,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4707,7 +4707,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Social Authentication Token Operation Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
+        /// List all Tokens from a OIDC Identity Provider Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4721,7 +4721,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Social Authentication Token Operation Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
+        /// List all Tokens from a OIDC Identity Provider Fetches the tokens minted by the Social Authentication Provider when the user authenticates with Okta via Social Auth.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4768,12 +4768,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4796,7 +4796,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Csr for Identity Provider Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Publish a Certificate Signing Request Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4810,7 +4810,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Csr for Identity Provider Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Publish a Certificate Signing Request Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4866,12 +4866,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4893,7 +4893,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Csr for Identity Provider Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Publish a Certificate Signing Request Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4908,7 +4908,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Publish Csr for Identity Provider Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
+        /// Publish a Certificate Signing Request Update the Certificate Signing Request with a signed X.509 certificate and add it into the signing key credentials for the IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -4966,12 +4966,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4994,7 +4994,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Csr for Identity Provider Revoke a Certificate Signing Request and delete the key pair from the IdP
+        /// Revoke a Certificate Signing Request Revoke a Certificate Signing Request and delete the key pair from the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5006,7 +5006,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Csr for Identity Provider Revoke a Certificate Signing Request and delete the key pair from the IdP
+        /// Revoke a Certificate Signing Request Revoke a Certificate Signing Request and delete the key pair from the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5051,12 +5051,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5078,7 +5078,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Csr for Identity Provider Revoke a Certificate Signing Request and delete the key pair from the IdP
+        /// Revoke a Certificate Signing Request Revoke a Certificate Signing Request and delete the key pair from the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5091,7 +5091,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Revoke Csr for Identity Provider Revoke a Certificate Signing Request and delete the key pair from the IdP
+        /// Revoke a Certificate Signing Request Revoke a Certificate Signing Request and delete the key pair from the IdP
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5138,12 +5138,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("csrId", Okta.Sdk.Client.ClientUtils.ParameterToString(csrId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5166,7 +5166,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Unlink User from IdP Removes the link between the Okta user and the IdP user.
+        /// Unlink a User from IdP Removes the link between the Okta user and the IdP user.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5178,7 +5178,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Unlink User from IdP Removes the link between the Okta user and the IdP user.
+        /// Unlink a User from IdP Removes the link between the Okta user and the IdP user.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5223,12 +5223,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5250,7 +5250,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Unlink User from IdP Removes the link between the Okta user and the IdP user.
+        /// Unlink a User from IdP Removes the link between the Okta user and the IdP user.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5263,7 +5263,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Unlink User from IdP Removes the link between the Okta user and the IdP user.
+        /// Unlink a User from IdP Removes the link between the Okta user and the IdP user.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5310,12 +5310,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5338,7 +5338,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Identity Provider Updates the configuration for an IdP.
+        /// Replace an Identity Provider Updates the configuration for an IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5351,7 +5351,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Identity Provider Updates the configuration for an IdP.
+        /// Replace an Identity Provider Updates the configuration for an IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5397,12 +5397,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.Data = identityProvider;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5424,7 +5424,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Identity Provider Updates the configuration for an IdP.
+        /// Replace an Identity Provider Updates the configuration for an IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5438,7 +5438,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Identity Provider Updates the configuration for an IdP.
+        /// Replace an Identity Provider Updates the configuration for an IdP.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
@@ -5486,12 +5486,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("idpId", Okta.Sdk.Client.ClientUtils.ParameterToString(idpId)); // path parameter
             localVarRequestOptions.Data = identityProvider;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

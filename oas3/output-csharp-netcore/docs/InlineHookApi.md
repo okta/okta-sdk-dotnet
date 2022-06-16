@@ -4,21 +4,21 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateInlineHook**](InlineHookApi.md#activateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/activate | Activate Inline Hook
-[**CreateInlineHook**](InlineHookApi.md#createinlinehook) | **POST** /api/v1/inlineHooks | Create Inline Hook
-[**DeactivateInlineHook**](InlineHookApi.md#deactivateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate | Deactivate Inline Hook
-[**DeleteInlineHook**](InlineHookApi.md#deleteinlinehook) | **DELETE** /api/v1/inlineHooks/{inlineHookId} | Delete Inline Hook
-[**ExecuteInlineHook**](InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute Inline Hook
-[**GetInlineHook**](InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Get Inline Hook
-[**ListInlineHooks**](InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List Inline Hooks
-[**UpdateInlineHook**](InlineHookApi.md#updateinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Update Inline Hook
+[**ActivateInlineHook**](InlineHookApi.md#activateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/activate | Activate an Inline Hook
+[**CreateInlineHook**](InlineHookApi.md#createinlinehook) | **POST** /api/v1/inlineHooks | Create an Inline Hook
+[**DeactivateInlineHook**](InlineHookApi.md#deactivateinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/lifecycle/deactivate | Deactivate an Inline Hook
+[**DeleteInlineHook**](InlineHookApi.md#deleteinlinehook) | **DELETE** /api/v1/inlineHooks/{inlineHookId} | Delete an Inline Hook
+[**ExecuteInlineHook**](InlineHookApi.md#executeinlinehook) | **POST** /api/v1/inlineHooks/{inlineHookId}/execute | Execute an Inline Hook
+[**GetInlineHook**](InlineHookApi.md#getinlinehook) | **GET** /api/v1/inlineHooks/{inlineHookId} | Retrieve an Inline Hook
+[**ListInlineHooks**](InlineHookApi.md#listinlinehooks) | **GET** /api/v1/inlineHooks | List all Inline Hooks
+[**UpdateInlineHook**](InlineHookApi.md#updateinlinehook) | **PUT** /api/v1/inlineHooks/{inlineHookId} | Replace an Inline Hook
 
 
 <a name="activateinlinehook"></a>
 # **ActivateInlineHook**
 > InlineHook ActivateInlineHook (string inlineHookId)
 
-Activate Inline Hook
+Activate an Inline Hook
 
 Activates the Inline Hook matching the provided id
 
@@ -43,7 +43,7 @@ namespace Example
 
             try
             {
-                // Activate Inline Hook
+                // Activate an Inline Hook
                 InlineHook result = apiInstance.ActivateInlineHook(inlineHookId);
                 Debug.WriteLine(result);
             }
@@ -91,7 +91,7 @@ No authorization required
 # **CreateInlineHook**
 > InlineHook CreateInlineHook (InlineHook inlineHook)
 
-Create Inline Hook
+Create an Inline Hook
 
 Success
 
@@ -111,11 +111,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
@@ -123,7 +123,7 @@ namespace Example
 
             try
             {
-                // Create Inline Hook
+                // Create an Inline Hook
                 InlineHook result = apiInstance.CreateInlineHook(inlineHook);
                 Debug.WriteLine(result);
             }
@@ -150,7 +150,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -172,7 +172,7 @@ Name | Type | Description  | Notes
 # **DeactivateInlineHook**
 > InlineHook DeactivateInlineHook (string inlineHookId)
 
-Deactivate Inline Hook
+Deactivate an Inline Hook
 
 Deactivates the Inline Hook matching the provided id
 
@@ -197,7 +197,7 @@ namespace Example
 
             try
             {
-                // Deactivate Inline Hook
+                // Deactivate an Inline Hook
                 InlineHook result = apiInstance.DeactivateInlineHook(inlineHookId);
                 Debug.WriteLine(result);
             }
@@ -245,7 +245,7 @@ No authorization required
 # **DeleteInlineHook**
 > void DeleteInlineHook (string inlineHookId)
 
-Delete Inline Hook
+Delete an Inline Hook
 
 Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
 
@@ -265,11 +265,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
@@ -277,7 +277,7 @@ namespace Example
 
             try
             {
-                // Delete Inline Hook
+                // Delete an Inline Hook
                 apiInstance.DeleteInlineHook(inlineHookId);
             }
             catch (ApiException  e)
@@ -303,7 +303,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -325,7 +325,7 @@ void (empty response body)
 # **ExecuteInlineHook**
 > InlineHookResponse ExecuteInlineHook (string inlineHookId, Object payloadData)
 
-Execute Inline Hook
+Execute an Inline Hook
 
 Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
 
@@ -345,11 +345,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
@@ -358,7 +358,7 @@ namespace Example
 
             try
             {
-                // Execute Inline Hook
+                // Execute an Inline Hook
                 InlineHookResponse result = apiInstance.ExecuteInlineHook(inlineHookId, payloadData);
                 Debug.WriteLine(result);
             }
@@ -386,7 +386,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -409,7 +409,7 @@ Name | Type | Description  | Notes
 # **GetInlineHook**
 > InlineHook GetInlineHook (string inlineHookId)
 
-Get Inline Hook
+Retrieve an Inline Hook
 
 Gets an inline hook by ID
 
@@ -429,11 +429,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
@@ -441,7 +441,7 @@ namespace Example
 
             try
             {
-                // Get Inline Hook
+                // Retrieve an Inline Hook
                 InlineHook result = apiInstance.GetInlineHook(inlineHookId);
                 Debug.WriteLine(result);
             }
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -490,7 +490,7 @@ Name | Type | Description  | Notes
 # **ListInlineHooks**
 > List&lt;InlineHook&gt; ListInlineHooks (string type = null)
 
-List Inline Hooks
+List all Inline Hooks
 
 Success
 
@@ -510,11 +510,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
@@ -522,7 +522,7 @@ namespace Example
 
             try
             {
-                // List Inline Hooks
+                // List all Inline Hooks
                 List<InlineHook> result = apiInstance.ListInlineHooks(type);
                 Debug.WriteLine(result);
             }
@@ -549,7 +549,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -570,7 +570,7 @@ Name | Type | Description  | Notes
 # **UpdateInlineHook**
 > InlineHook UpdateInlineHook (string inlineHookId, InlineHook inlineHook)
 
-Update Inline Hook
+Replace an Inline Hook
 
 Updates an inline hook by ID
 
@@ -590,11 +590,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new InlineHookApi(config);
@@ -603,7 +603,7 @@ namespace Example
 
             try
             {
-                // Update Inline Hook
+                // Replace an Inline Hook
                 InlineHook result = apiInstance.UpdateInlineHook(inlineHookId, inlineHook);
                 Debug.WriteLine(result);
             }
@@ -631,7 +631,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

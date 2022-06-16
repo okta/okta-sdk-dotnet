@@ -4,19 +4,19 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateUserType**](UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create User Type
-[**DeleteUserType**](UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete User Type
-[**GetUserType**](UserTypeApi.md#getusertype) | **GET** /api/v1/meta/types/user/{typeId} | Get User Type
-[**ListUserTypes**](UserTypeApi.md#listusertypes) | **GET** /api/v1/meta/types/user | List User Types
-[**ReplaceUserType**](UserTypeApi.md#replaceusertype) | **PUT** /api/v1/meta/types/user/{typeId} | Replace User Type
-[**UpdateUserType**](UserTypeApi.md#updateusertype) | **POST** /api/v1/meta/types/user/{typeId} | Update User Type
+[**CreateUserType**](UserTypeApi.md#createusertype) | **POST** /api/v1/meta/types/user | Create a User Type
+[**DeleteUserType**](UserTypeApi.md#deleteusertype) | **DELETE** /api/v1/meta/types/user/{typeId} | Delete a User Type
+[**GetUserType**](UserTypeApi.md#getusertype) | **GET** /api/v1/meta/types/user/{typeId} | Retrieve a User Type
+[**ListUserTypes**](UserTypeApi.md#listusertypes) | **GET** /api/v1/meta/types/user | List all User Types
+[**ReplaceUserType**](UserTypeApi.md#replaceusertype) | **PUT** /api/v1/meta/types/user/{typeId} | Replace a User Type
+[**UpdateUserType**](UserTypeApi.md#updateusertype) | **POST** /api/v1/meta/types/user/{typeId} | Update a User Type
 
 
 <a name="createusertype"></a>
 # **CreateUserType**
 > UserType CreateUserType (UserType userType)
 
-Create User Type
+Create a User Type
 
 Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
 
@@ -36,11 +36,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserTypeApi(config);
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Create User Type
+                // Create a User Type
                 UserType result = apiInstance.CreateUserType(userType);
                 Debug.WriteLine(result);
             }
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **DeleteUserType**
 > void DeleteUserType (string typeId)
 
-Delete User Type
+Delete a User Type
 
 Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
 
@@ -117,11 +117,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserTypeApi(config);
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // Delete User Type
+                // Delete a User Type
                 apiInstance.DeleteUserType(typeId);
             }
             catch (ApiException  e)
@@ -155,7 +155,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -177,7 +177,7 @@ void (empty response body)
 # **GetUserType**
 > UserType GetUserType (string typeId)
 
-Get User Type
+Retrieve a User Type
 
 Fetches a User Type by ID. The special identifier `default` may be used to fetch the default User Type.
 
@@ -197,11 +197,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserTypeApi(config);
@@ -209,7 +209,7 @@ namespace Example
 
             try
             {
-                // Get User Type
+                // Retrieve a User Type
                 UserType result = apiInstance.GetUserType(typeId);
                 Debug.WriteLine(result);
             }
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListUserTypes**
 > List&lt;UserType&gt; ListUserTypes ()
 
-List User Types
+List all User Types
 
 Fetches all User Types in your org
 
@@ -278,18 +278,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserTypeApi(config);
 
             try
             {
-                // List User Types
+                // List all User Types
                 List<UserType> result = apiInstance.ListUserTypes();
                 Debug.WriteLine(result);
             }
@@ -313,7 +313,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -334,7 +334,7 @@ This endpoint does not need any parameter.
 # **ReplaceUserType**
 > UserType ReplaceUserType (string typeId, UserType userType)
 
-Replace User Type
+Replace a User Type
 
 Replace an existing User Type
 
@@ -354,11 +354,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserTypeApi(config);
@@ -367,7 +367,7 @@ namespace Example
 
             try
             {
-                // Replace User Type
+                // Replace a User Type
                 UserType result = apiInstance.ReplaceUserType(typeId, userType);
                 Debug.WriteLine(result);
             }
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 # **UpdateUserType**
 > UserType UpdateUserType (string typeId, UserType userType)
 
-Update User Type
+Update a User Type
 
 Updates an existing User Type
 
@@ -438,11 +438,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserTypeApi(config);
@@ -451,7 +451,7 @@ namespace Example
 
             try
             {
-                // Update User Type
+                // Update a User Type
                 UserType result = apiInstance.UpdateUserType(typeId, userType);
                 Debug.WriteLine(result);
             }
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

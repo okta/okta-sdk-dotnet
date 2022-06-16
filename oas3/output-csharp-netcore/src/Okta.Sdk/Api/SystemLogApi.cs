@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log.
+        /// List all System Log Events
         /// </summary>
         /// <remarks>
         /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
@@ -45,7 +45,7 @@ namespace Okta.Sdk.Api
         List<LogEvent> GetLogs(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string));
 
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log.
+        /// List all System Log Events
         /// </summary>
         /// <remarks>
         /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log.
+        /// List all System Log Events
         /// </summary>
         /// <remarks>
         /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
@@ -88,7 +88,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<LogEvent>> GetLogsAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log.
+        /// List all System Log Events
         /// </summary>
         /// <remarks>
         /// The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
@@ -204,7 +204,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log. The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+        /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since"> (optional)</param>
@@ -222,7 +222,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log. The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+        /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since"> (optional)</param>
@@ -286,12 +286,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -313,7 +313,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log. The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+        /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since"> (optional)</param>
@@ -332,7 +332,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch a list of events from your Okta organization system log. The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
+        /// List all System Log Events The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="since"> (optional)</param>
@@ -398,12 +398,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

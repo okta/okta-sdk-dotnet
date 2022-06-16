@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Inline Hook
+        /// Activate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Activates the Inline Hook matching the provided id
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         InlineHook ActivateInlineHook(string inlineHookId);
 
         /// <summary>
-        /// Activate Inline Hook
+        /// Activate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Activates the Inline Hook matching the provided id
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of InlineHook</returns>
         ApiResponse<InlineHook> ActivateInlineHookWithHttpInfo(string inlineHookId);
         /// <summary>
-        /// Create Inline Hook
+        /// Create an Inline Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         InlineHook CreateInlineHook(InlineHook inlineHook);
 
         /// <summary>
-        /// Create Inline Hook
+        /// Create an Inline Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of InlineHook</returns>
         ApiResponse<InlineHook> CreateInlineHookWithHttpInfo(InlineHook inlineHook);
         /// <summary>
-        /// Deactivate Inline Hook
+        /// Deactivate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deactivates the Inline Hook matching the provided id
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         InlineHook DeactivateInlineHook(string inlineHookId);
 
         /// <summary>
-        /// Deactivate Inline Hook
+        /// Deactivate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deactivates the Inline Hook matching the provided id
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of InlineHook</returns>
         ApiResponse<InlineHook> DeactivateInlineHookWithHttpInfo(string inlineHookId);
         /// <summary>
-        /// Delete Inline Hook
+        /// Delete an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         void DeleteInlineHook(string inlineHookId);
 
         /// <summary>
-        /// Delete Inline Hook
+        /// Delete an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
@@ -112,7 +112,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteInlineHookWithHttpInfo(string inlineHookId);
         /// <summary>
-        /// Execute Inline Hook
+        /// Execute an Inline Hook
         /// </summary>
         /// <remarks>
         /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
@@ -124,7 +124,7 @@ namespace Okta.Sdk.Api
         InlineHookResponse ExecuteInlineHook(string inlineHookId, Object payloadData);
 
         /// <summary>
-        /// Execute Inline Hook
+        /// Execute an Inline Hook
         /// </summary>
         /// <remarks>
         /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
@@ -135,7 +135,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of InlineHookResponse</returns>
         ApiResponse<InlineHookResponse> ExecuteInlineHookWithHttpInfo(string inlineHookId, Object payloadData);
         /// <summary>
-        /// Get Inline Hook
+        /// Retrieve an Inline Hook
         /// </summary>
         /// <remarks>
         /// Gets an inline hook by ID
@@ -146,7 +146,7 @@ namespace Okta.Sdk.Api
         InlineHook GetInlineHook(string inlineHookId);
 
         /// <summary>
-        /// Get Inline Hook
+        /// Retrieve an Inline Hook
         /// </summary>
         /// <remarks>
         /// Gets an inline hook by ID
@@ -156,7 +156,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of InlineHook</returns>
         ApiResponse<InlineHook> GetInlineHookWithHttpInfo(string inlineHookId);
         /// <summary>
-        /// List Inline Hooks
+        /// List all Inline Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -167,7 +167,7 @@ namespace Okta.Sdk.Api
         List<InlineHook> ListInlineHooks(string type = default(string));
 
         /// <summary>
-        /// List Inline Hooks
+        /// List all Inline Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;InlineHook&gt;</returns>
         ApiResponse<List<InlineHook>> ListInlineHooksWithHttpInfo(string type = default(string));
         /// <summary>
-        /// Update Inline Hook
+        /// Replace an Inline Hook
         /// </summary>
         /// <remarks>
         /// Updates an inline hook by ID
@@ -189,7 +189,7 @@ namespace Okta.Sdk.Api
         InlineHook UpdateInlineHook(string inlineHookId, InlineHook inlineHook);
 
         /// <summary>
-        /// Update Inline Hook
+        /// Replace an Inline Hook
         /// </summary>
         /// <remarks>
         /// Updates an inline hook by ID
@@ -209,7 +209,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Inline Hook
+        /// Activate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Activates the Inline Hook matching the provided id
@@ -221,7 +221,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<InlineHook> ActivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Inline Hook
+        /// Activate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Activates the Inline Hook matching the provided id
@@ -232,7 +232,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (InlineHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineHook>> ActivateInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create Inline Hook
+        /// Create an Inline Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -244,7 +244,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<InlineHook> CreateInlineHookAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Inline Hook
+        /// Create an Inline Hook
         /// </summary>
         /// <remarks>
         /// Success
@@ -255,7 +255,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (InlineHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineHook>> CreateInlineHookWithHttpInfoAsync(InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Inline Hook
+        /// Deactivate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deactivates the Inline Hook matching the provided id
@@ -267,7 +267,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<InlineHook> DeactivateInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Inline Hook
+        /// Deactivate an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deactivates the Inline Hook matching the provided id
@@ -278,7 +278,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (InlineHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineHook>> DeactivateInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Inline Hook
+        /// Delete an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
@@ -290,7 +290,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Inline Hook
+        /// Delete an Inline Hook
         /// </summary>
         /// <remarks>
         /// Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
@@ -301,7 +301,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Execute Inline Hook
+        /// Execute an Inline Hook
         /// </summary>
         /// <remarks>
         /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
@@ -314,7 +314,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<InlineHookResponse> ExecuteInlineHookAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Execute Inline Hook
+        /// Execute an Inline Hook
         /// </summary>
         /// <remarks>
         /// Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
@@ -326,7 +326,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (InlineHookResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineHookResponse>> ExecuteInlineHookWithHttpInfoAsync(string inlineHookId, Object payloadData, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Inline Hook
+        /// Retrieve an Inline Hook
         /// </summary>
         /// <remarks>
         /// Gets an inline hook by ID
@@ -338,7 +338,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<InlineHook> GetInlineHookAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Inline Hook
+        /// Retrieve an Inline Hook
         /// </summary>
         /// <remarks>
         /// Gets an inline hook by ID
@@ -349,7 +349,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (InlineHook)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineHook>> GetInlineHookWithHttpInfoAsync(string inlineHookId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Inline Hooks
+        /// List all Inline Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -361,7 +361,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<InlineHook>> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Inline Hooks
+        /// List all Inline Hooks
         /// </summary>
         /// <remarks>
         /// Success
@@ -372,7 +372,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Inline Hook
+        /// Replace an Inline Hook
         /// </summary>
         /// <remarks>
         /// Updates an inline hook by ID
@@ -385,7 +385,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<InlineHook> UpdateInlineHookAsync(string inlineHookId, InlineHook inlineHook, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Inline Hook
+        /// Replace an Inline Hook
         /// </summary>
         /// <remarks>
         /// Updates an inline hook by ID
@@ -496,7 +496,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Inline Hook Activates the Inline Hook matching the provided id
+        /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -508,7 +508,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Inline Hook Activates the Inline Hook matching the provided id
+        /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -561,7 +561,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Inline Hook Activates the Inline Hook matching the provided id
+        /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -574,7 +574,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Inline Hook Activates the Inline Hook matching the provided id
+        /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -630,7 +630,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Inline Hook Success
+        /// Create an Inline Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
@@ -642,7 +642,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Inline Hook Success
+        /// Create an Inline Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
@@ -680,12 +680,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = inlineHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -707,7 +707,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Inline Hook Success
+        /// Create an Inline Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
@@ -720,7 +720,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Inline Hook Success
+        /// Create an Inline Hook Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHook"></param>
@@ -760,12 +760,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = inlineHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -788,7 +788,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Inline Hook Deactivates the Inline Hook matching the provided id
+        /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -800,7 +800,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Inline Hook Deactivates the Inline Hook matching the provided id
+        /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -853,7 +853,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Inline Hook Deactivates the Inline Hook matching the provided id
+        /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -866,7 +866,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Inline Hook Deactivates the Inline Hook matching the provided id
+        /// Deactivate an Inline Hook Deactivates the Inline Hook matching the provided id
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -922,7 +922,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -933,7 +933,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -970,12 +970,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -997,7 +997,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1009,7 +1009,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
+        /// Delete an Inline Hook Deletes the Inline Hook matching the provided id. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of INACTIVE are eligible for deletion.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1048,12 +1048,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1076,7 +1076,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Execute Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1089,7 +1089,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Execute Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1135,12 +1135,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
             localVarRequestOptions.Data = payloadData;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1162,7 +1162,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Execute Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1176,7 +1176,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Execute Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
+        /// Execute an Inline Hook Executes the Inline Hook matching the provided inlineHookId using the request body as the input. This will send the provided data through the Channel and return a response if it matches the correct data contract. This execution endpoint should only be used for testing purposes.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1224,12 +1224,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
             localVarRequestOptions.Data = payloadData;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1252,7 +1252,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Inline Hook Gets an inline hook by ID
+        /// Retrieve an Inline Hook Gets an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1264,7 +1264,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Inline Hook Gets an inline hook by ID
+        /// Retrieve an Inline Hook Gets an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1301,12 +1301,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1328,7 +1328,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Inline Hook Gets an inline hook by ID
+        /// Retrieve an Inline Hook Gets an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1341,7 +1341,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Inline Hook Gets an inline hook by ID
+        /// Retrieve an Inline Hook Gets an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1380,12 +1380,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1408,7 +1408,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Inline Hooks Success
+        /// List all Inline Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
@@ -1420,7 +1420,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Inline Hooks Success
+        /// List all Inline Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
@@ -1454,12 +1454,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1481,7 +1481,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Inline Hooks Success
+        /// List all Inline Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
@@ -1494,7 +1494,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Inline Hooks Success
+        /// List all Inline Hooks Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
@@ -1530,12 +1530,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "type", type));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1558,7 +1558,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Inline Hook Updates an inline hook by ID
+        /// Replace an Inline Hook Updates an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1571,7 +1571,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Inline Hook Updates an inline hook by ID
+        /// Replace an Inline Hook Updates an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1617,12 +1617,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
             localVarRequestOptions.Data = inlineHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1644,7 +1644,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Inline Hook Updates an inline hook by ID
+        /// Replace an Inline Hook Updates an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1658,7 +1658,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Inline Hook Updates an inline hook by ID
+        /// Replace an Inline Hook Updates an inline hook by ID
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="inlineHookId"></param>
@@ -1706,12 +1706,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("inlineHookId", Okta.Sdk.Client.ClientUtils.ParameterToString(inlineHookId)); // path parameter
             localVarRequestOptions.Data = inlineHook;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

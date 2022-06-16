@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Agent pool update
+        /// Activate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Activates scheduled Agent pool update
@@ -40,7 +40,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate ActivateAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Activate Agent pool update
+        /// Activate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Activates scheduled Agent pool update
@@ -51,7 +51,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> ActivateAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Create an Agent pool update
+        /// Create an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
@@ -63,7 +63,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate CreateAgentPoolsUpdate(string poolId, AgentPoolUpdate agentPoolUpdate);
 
         /// <summary>
-        /// Create an Agent pool update
+        /// Create an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
@@ -74,7 +74,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> CreateAgentPoolsUpdateWithHttpInfo(string poolId, AgentPoolUpdate agentPoolUpdate);
         /// <summary>
-        /// Deactivate Agent pool update
+        /// Deactivate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deactivates scheduled Agent pool update
@@ -86,7 +86,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate DeactivateAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Deactivate Agent pool update
+        /// Deactivate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deactivates scheduled Agent pool update
@@ -97,7 +97,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> DeactivateAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Delete Agent pool update
+        /// Delete an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deletes Agent pool update
@@ -109,7 +109,7 @@ namespace Okta.Sdk.Api
         void DeleteAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Delete Agent pool update
+        /// Delete an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deletes Agent pool update
@@ -120,7 +120,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Fetch AgentPools
+        /// List all Agent Pools
         /// </summary>
         /// <remarks>
         /// Fetches AgentPools based on request parameters for a given org
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         List<AgentPool> GetAgentPools(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string));
 
         /// <summary>
-        /// Fetch AgentPools
+        /// List all Agent Pools
         /// </summary>
         /// <remarks>
         /// Fetches AgentPools based on request parameters for a given org
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;AgentPool&gt;</returns>
         ApiResponse<List<AgentPool>> GetAgentPoolsWithHttpInfo(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string));
         /// <summary>
-        /// Get Agent pool update by id
+        /// Retrieve an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Gets Agent pool update from updateId
@@ -157,7 +157,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate GetAgentPoolsUpdateInstance(string poolId, string updateId);
 
         /// <summary>
-        /// Get Agent pool update by id
+        /// Retrieve an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Gets Agent pool update from updateId
@@ -168,7 +168,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> GetAgentPoolsUpdateInstanceWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Get Agent pool update settings
+        /// Retrieve an Agent Pool update&#39;s settings
         /// </summary>
         /// <remarks>
         /// Gets the current state of the agent pool update instance settings
@@ -179,7 +179,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdateSetting GetAgentPoolsUpdateSettings(string poolId);
 
         /// <summary>
-        /// Get Agent pool update settings
+        /// Retrieve an Agent Pool update&#39;s settings
         /// </summary>
         /// <remarks>
         /// Gets the current state of the agent pool update instance settings
@@ -189,7 +189,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdateSetting</returns>
         ApiResponse<AgentPoolUpdateSetting> GetAgentPoolsUpdateSettingsWithHttpInfo(string poolId);
         /// <summary>
-        /// List Agent pool updates
+        /// List all Agent Pool updates
         /// </summary>
         /// <remarks>
         /// Gets List of Agent pool updates
@@ -201,7 +201,7 @@ namespace Okta.Sdk.Api
         List<AgentPoolUpdate> GetAgentPoolsUpdates(string poolId, bool? scheduled = default(bool?));
 
         /// <summary>
-        /// List Agent pool updates
+        /// List all Agent Pool updates
         /// </summary>
         /// <remarks>
         /// Gets List of Agent pool updates
@@ -212,7 +212,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;AgentPoolUpdate&gt;</returns>
         ApiResponse<List<AgentPoolUpdate>> GetAgentPoolsUpdatesWithHttpInfo(string poolId, bool? scheduled = default(bool?));
         /// <summary>
-        /// Pause Agent pool update
+        /// Pause an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Pauses running or queued Agent pool update
@@ -224,7 +224,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate PauseAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Pause Agent pool update
+        /// Pause an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Pauses running or queued Agent pool update
@@ -235,7 +235,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> PauseAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Resume Agent pool update
+        /// Resume an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Resumes running or queued Agent pool update
@@ -247,7 +247,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate ResumeAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Resume Agent pool update
+        /// Resume an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Resumes running or queued Agent pool update
@@ -258,7 +258,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> ResumeAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Retry Agent pool update
+        /// Retry an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Retries Agent pool update
@@ -270,7 +270,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate RetryAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Retry Agent pool update
+        /// Retry an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Retries Agent pool update
@@ -281,7 +281,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> RetryAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Update Agent pool update settings
+        /// Update an Agent pool update settings
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update settings
@@ -293,7 +293,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdateSetting SetAgentPoolsUpdateSettings(string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting);
 
         /// <summary>
-        /// Update Agent pool update settings
+        /// Update an Agent pool update settings
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update settings
@@ -304,7 +304,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdateSetting</returns>
         ApiResponse<AgentPoolUpdateSetting> SetAgentPoolsUpdateSettingsWithHttpInfo(string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting);
         /// <summary>
-        /// Stop Agent pool update
+        /// Stop an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Stops Agent pool update
@@ -316,7 +316,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate StopAgentPoolsUpdate(string poolId, string updateId);
 
         /// <summary>
-        /// Stop Agent pool update
+        /// Stop an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Stops Agent pool update
@@ -327,7 +327,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of AgentPoolUpdate</returns>
         ApiResponse<AgentPoolUpdate> StopAgentPoolsUpdateWithHttpInfo(string poolId, string updateId);
         /// <summary>
-        /// Change Agent pool update by id
+        /// Update an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update and return latest agent pool update
@@ -340,7 +340,7 @@ namespace Okta.Sdk.Api
         AgentPoolUpdate UpdateAgentPoolsUpdate(string poolId, string updateId, AgentPoolUpdate agentPoolUpdate);
 
         /// <summary>
-        /// Change Agent pool update by id
+        /// Update an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update and return latest agent pool update
@@ -361,7 +361,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Agent pool update
+        /// Activate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Activates scheduled Agent pool update
@@ -374,7 +374,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> ActivateAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Agent pool update
+        /// Activate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Activates scheduled Agent pool update
@@ -386,7 +386,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> ActivateAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Create an Agent pool update
+        /// Create an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
@@ -399,7 +399,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> CreateAgentPoolsUpdateAsync(string poolId, AgentPoolUpdate agentPoolUpdate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create an Agent pool update
+        /// Create an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
@@ -411,7 +411,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> CreateAgentPoolsUpdateWithHttpInfoAsync(string poolId, AgentPoolUpdate agentPoolUpdate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Agent pool update
+        /// Deactivate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deactivates scheduled Agent pool update
@@ -424,7 +424,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> DeactivateAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Agent pool update
+        /// Deactivate an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deactivates scheduled Agent pool update
@@ -436,7 +436,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> DeactivateAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Agent pool update
+        /// Delete an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deletes Agent pool update
@@ -449,7 +449,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Agent pool update
+        /// Delete an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Deletes Agent pool update
@@ -461,7 +461,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Fetch AgentPools
+        /// List all Agent Pools
         /// </summary>
         /// <remarks>
         /// Fetches AgentPools based on request parameters for a given org
@@ -475,7 +475,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<AgentPool>> GetAgentPoolsAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Fetch AgentPools
+        /// List all Agent Pools
         /// </summary>
         /// <remarks>
         /// Fetches AgentPools based on request parameters for a given org
@@ -488,7 +488,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AgentPool&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AgentPool>>> GetAgentPoolsWithHttpInfoAsync(int? limitPerPoolType = default(int?), AgentType? poolType = default(AgentType?), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Agent pool update by id
+        /// Retrieve an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Gets Agent pool update from updateId
@@ -501,7 +501,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> GetAgentPoolsUpdateInstanceAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Agent pool update by id
+        /// Retrieve an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Gets Agent pool update from updateId
@@ -513,7 +513,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> GetAgentPoolsUpdateInstanceWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Agent pool update settings
+        /// Retrieve an Agent Pool update&#39;s settings
         /// </summary>
         /// <remarks>
         /// Gets the current state of the agent pool update instance settings
@@ -525,7 +525,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdateSetting> GetAgentPoolsUpdateSettingsAsync(string poolId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Agent pool update settings
+        /// Retrieve an Agent Pool update&#39;s settings
         /// </summary>
         /// <remarks>
         /// Gets the current state of the agent pool update instance settings
@@ -536,7 +536,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdateSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdateSetting>> GetAgentPoolsUpdateSettingsWithHttpInfoAsync(string poolId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Agent pool updates
+        /// List all Agent Pool updates
         /// </summary>
         /// <remarks>
         /// Gets List of Agent pool updates
@@ -549,7 +549,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<AgentPoolUpdate>> GetAgentPoolsUpdatesAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Agent pool updates
+        /// List all Agent Pool updates
         /// </summary>
         /// <remarks>
         /// Gets List of Agent pool updates
@@ -561,7 +561,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;AgentPoolUpdate&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<AgentPoolUpdate>>> GetAgentPoolsUpdatesWithHttpInfoAsync(string poolId, bool? scheduled = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Pause Agent pool update
+        /// Pause an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Pauses running or queued Agent pool update
@@ -574,7 +574,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> PauseAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Pause Agent pool update
+        /// Pause an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Pauses running or queued Agent pool update
@@ -586,7 +586,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> PauseAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Resume Agent pool update
+        /// Resume an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Resumes running or queued Agent pool update
@@ -599,7 +599,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> ResumeAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Resume Agent pool update
+        /// Resume an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Resumes running or queued Agent pool update
@@ -611,7 +611,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> ResumeAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Retry Agent pool update
+        /// Retry an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Retries Agent pool update
@@ -624,7 +624,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> RetryAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Retry Agent pool update
+        /// Retry an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Retries Agent pool update
@@ -636,7 +636,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> RetryAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Agent pool update settings
+        /// Update an Agent pool update settings
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update settings
@@ -649,7 +649,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdateSetting> SetAgentPoolsUpdateSettingsAsync(string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Agent pool update settings
+        /// Update an Agent pool update settings
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update settings
@@ -661,7 +661,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdateSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdateSetting>> SetAgentPoolsUpdateSettingsWithHttpInfoAsync(string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Stop Agent pool update
+        /// Stop an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Stops Agent pool update
@@ -674,7 +674,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> StopAgentPoolsUpdateAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Stop Agent pool update
+        /// Stop an Agent Pool update
         /// </summary>
         /// <remarks>
         /// Stops Agent pool update
@@ -686,7 +686,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (AgentPoolUpdate)</returns>
         System.Threading.Tasks.Task<ApiResponse<AgentPoolUpdate>> StopAgentPoolsUpdateWithHttpInfoAsync(string poolId, string updateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Change Agent pool update by id
+        /// Update an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update and return latest agent pool update
@@ -700,7 +700,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<AgentPoolUpdate> UpdateAgentPoolsUpdateAsync(string poolId, string updateId, AgentPoolUpdate agentPoolUpdate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Change Agent pool update by id
+        /// Update an Agent Pool update by id
         /// </summary>
         /// <remarks>
         /// Updates Agent pool update and return latest agent pool update
@@ -812,7 +812,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Agent pool update Activates scheduled Agent pool update
+        /// Activate an Agent Pool update Activates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -825,7 +825,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Agent pool update Activates scheduled Agent pool update
+        /// Activate an Agent Pool update Activates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -870,12 +870,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -897,7 +897,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Agent pool update Activates scheduled Agent pool update
+        /// Activate an Agent Pool update Activates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -911,7 +911,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Agent pool update Activates scheduled Agent pool update
+        /// Activate an Agent Pool update Activates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -958,12 +958,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -986,7 +986,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create an Agent pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
+        /// Create an Agent Pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -999,7 +999,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create an Agent pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
+        /// Create an Agent Pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1045,12 +1045,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.Data = agentPoolUpdate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1072,7 +1072,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create an Agent pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
+        /// Create an Agent Pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1086,7 +1086,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create an Agent pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
+        /// Create an Agent Pool update Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1134,12 +1134,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.Data = agentPoolUpdate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1162,7 +1162,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Agent pool update Deactivates scheduled Agent pool update
+        /// Deactivate an Agent Pool update Deactivates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1175,7 +1175,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Agent pool update Deactivates scheduled Agent pool update
+        /// Deactivate an Agent Pool update Deactivates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1220,12 +1220,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1247,7 +1247,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Agent pool update Deactivates scheduled Agent pool update
+        /// Deactivate an Agent Pool update Deactivates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1261,7 +1261,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Agent pool update Deactivates scheduled Agent pool update
+        /// Deactivate an Agent Pool update Deactivates scheduled Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1308,12 +1308,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1336,7 +1336,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Agent pool update Deletes Agent pool update
+        /// Delete an Agent Pool update Deletes Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1348,7 +1348,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Agent pool update Deletes Agent pool update
+        /// Delete an Agent Pool update Deletes Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1393,12 +1393,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1420,7 +1420,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Agent pool update Deletes Agent pool update
+        /// Delete an Agent Pool update Deletes Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1433,7 +1433,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Agent pool update Deletes Agent pool update
+        /// Delete an Agent Pool update Deletes Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1480,12 +1480,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1508,7 +1508,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch AgentPools Fetches AgentPools based on request parameters for a given org
+        /// List all Agent Pools Fetches AgentPools based on request parameters for a given org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limitPerPoolType">Maximum number of AgentPools being returned (optional, default to 5)</param>
@@ -1522,7 +1522,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch AgentPools Fetches AgentPools based on request parameters for a given org
+        /// List all Agent Pools Fetches AgentPools based on request parameters for a given org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limitPerPoolType">Maximum number of AgentPools being returned (optional, default to 5)</param>
@@ -1566,12 +1566,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1593,7 +1593,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch AgentPools Fetches AgentPools based on request parameters for a given org
+        /// List all Agent Pools Fetches AgentPools based on request parameters for a given org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limitPerPoolType">Maximum number of AgentPools being returned (optional, default to 5)</param>
@@ -1608,7 +1608,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Fetch AgentPools Fetches AgentPools based on request parameters for a given org
+        /// List all Agent Pools Fetches AgentPools based on request parameters for a given org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limitPerPoolType">Maximum number of AgentPools being returned (optional, default to 5)</param>
@@ -1654,12 +1654,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1682,7 +1682,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update by id Gets Agent pool update from updateId
+        /// Retrieve an Agent Pool update by id Gets Agent pool update from updateId
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1695,7 +1695,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update by id Gets Agent pool update from updateId
+        /// Retrieve an Agent Pool update by id Gets Agent pool update from updateId
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1740,12 +1740,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1767,7 +1767,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update by id Gets Agent pool update from updateId
+        /// Retrieve an Agent Pool update by id Gets Agent pool update from updateId
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1781,7 +1781,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update by id Gets Agent pool update from updateId
+        /// Retrieve an Agent Pool update by id Gets Agent pool update from updateId
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1828,12 +1828,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1856,7 +1856,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update settings Gets the current state of the agent pool update instance settings
+        /// Retrieve an Agent Pool update&#39;s settings Gets the current state of the agent pool update instance settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1868,7 +1868,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update settings Gets the current state of the agent pool update instance settings
+        /// Retrieve an Agent Pool update&#39;s settings Gets the current state of the agent pool update instance settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1905,12 +1905,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1932,7 +1932,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update settings Gets the current state of the agent pool update instance settings
+        /// Retrieve an Agent Pool update&#39;s settings Gets the current state of the agent pool update instance settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1945,7 +1945,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Agent pool update settings Gets the current state of the agent pool update instance settings
+        /// Retrieve an Agent Pool update&#39;s settings Gets the current state of the agent pool update instance settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -1984,12 +1984,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2012,7 +2012,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Agent pool updates Gets List of Agent pool updates
+        /// List all Agent Pool updates Gets List of Agent pool updates
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2025,7 +2025,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Agent pool updates Gets List of Agent pool updates
+        /// List all Agent Pool updates Gets List of Agent pool updates
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2067,12 +2067,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scheduled", scheduled));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2094,7 +2094,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Agent pool updates Gets List of Agent pool updates
+        /// List all Agent Pool updates Gets List of Agent pool updates
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2108,7 +2108,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Agent pool updates Gets List of Agent pool updates
+        /// List all Agent Pool updates Gets List of Agent pool updates
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2152,12 +2152,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "scheduled", scheduled));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2180,7 +2180,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Pause Agent pool update Pauses running or queued Agent pool update
+        /// Pause an Agent Pool update Pauses running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2193,7 +2193,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Pause Agent pool update Pauses running or queued Agent pool update
+        /// Pause an Agent Pool update Pauses running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2238,12 +2238,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2265,7 +2265,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Pause Agent pool update Pauses running or queued Agent pool update
+        /// Pause an Agent Pool update Pauses running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2279,7 +2279,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Pause Agent pool update Pauses running or queued Agent pool update
+        /// Pause an Agent Pool update Pauses running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2326,12 +2326,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2354,7 +2354,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Resume Agent pool update Resumes running or queued Agent pool update
+        /// Resume an Agent Pool update Resumes running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2367,7 +2367,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Resume Agent pool update Resumes running or queued Agent pool update
+        /// Resume an Agent Pool update Resumes running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2412,12 +2412,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2439,7 +2439,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Resume Agent pool update Resumes running or queued Agent pool update
+        /// Resume an Agent Pool update Resumes running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2453,7 +2453,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Resume Agent pool update Resumes running or queued Agent pool update
+        /// Resume an Agent Pool update Resumes running or queued Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2500,12 +2500,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2528,7 +2528,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retry Agent pool update Retries Agent pool update
+        /// Retry an Agent Pool update Retries Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2541,7 +2541,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retry Agent pool update Retries Agent pool update
+        /// Retry an Agent Pool update Retries Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2586,12 +2586,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2613,7 +2613,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retry Agent pool update Retries Agent pool update
+        /// Retry an Agent Pool update Retries Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2627,7 +2627,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Retry Agent pool update Retries Agent pool update
+        /// Retry an Agent Pool update Retries Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2674,12 +2674,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2702,7 +2702,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Agent pool update settings Updates Agent pool update settings
+        /// Update an Agent pool update settings Updates Agent pool update settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2715,7 +2715,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Agent pool update settings Updates Agent pool update settings
+        /// Update an Agent pool update settings Updates Agent pool update settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2761,12 +2761,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.Data = agentPoolUpdateSetting;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2788,7 +2788,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Agent pool update settings Updates Agent pool update settings
+        /// Update an Agent pool update settings Updates Agent pool update settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2802,7 +2802,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Agent pool update settings Updates Agent pool update settings
+        /// Update an Agent pool update settings Updates Agent pool update settings
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2850,12 +2850,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.Data = agentPoolUpdateSetting;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2878,7 +2878,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Stop Agent pool update Stops Agent pool update
+        /// Stop an Agent Pool update Stops Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2891,7 +2891,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Stop Agent pool update Stops Agent pool update
+        /// Stop an Agent Pool update Stops Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2936,12 +2936,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2963,7 +2963,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Stop Agent pool update Stops Agent pool update
+        /// Stop an Agent Pool update Stops Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -2977,7 +2977,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Stop Agent pool update Stops Agent pool update
+        /// Stop an Agent Pool update Stops Agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -3024,12 +3024,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("poolId", Okta.Sdk.Client.ClientUtils.ParameterToString(poolId)); // path parameter
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3052,7 +3052,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Change Agent pool update by id Updates Agent pool update and return latest agent pool update
+        /// Update an Agent Pool update by id Updates Agent pool update and return latest agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -3066,7 +3066,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Change Agent pool update by id Updates Agent pool update and return latest agent pool update
+        /// Update an Agent Pool update by id Updates Agent pool update and return latest agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -3120,12 +3120,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
             localVarRequestOptions.Data = agentPoolUpdate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3147,7 +3147,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Change Agent pool update by id Updates Agent pool update and return latest agent pool update
+        /// Update an Agent Pool update by id Updates Agent pool update and return latest agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -3162,7 +3162,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Change Agent pool update by id Updates Agent pool update and return latest agent pool update
+        /// Update an Agent Pool update by id Updates Agent pool update and return latest agent pool update
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="poolId">Id of the agent pool for which the settings will apply</param>
@@ -3218,12 +3218,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("updateId", Okta.Sdk.Client.ClientUtils.ParameterToString(updateId)); // path parameter
             localVarRequestOptions.Data = agentPoolUpdate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

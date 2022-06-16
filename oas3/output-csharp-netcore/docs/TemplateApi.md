@@ -4,19 +4,19 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateSmsTemplate**](TemplateApi.md#createsmstemplate) | **POST** /api/v1/templates/sms | Add SMS Template
-[**DeleteSmsTemplate**](TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Remove SMS Template
-[**GetSmsTemplate**](TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Get SMS Template
-[**ListSmsTemplates**](TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List SMS Templates
-[**PartialUpdateSmsTemplate**](TemplateApi.md#partialupdatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Partial SMS Template Update
-[**UpdateSmsTemplate**](TemplateApi.md#updatesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Update SMS Template
+[**CreateSmsTemplate**](TemplateApi.md#createsmstemplate) | **POST** /api/v1/templates/sms | Create an SMS Template
+[**DeleteSmsTemplate**](TemplateApi.md#deletesmstemplate) | **DELETE** /api/v1/templates/sms/{templateId} | Delete an SMS Template
+[**GetSmsTemplate**](TemplateApi.md#getsmstemplate) | **GET** /api/v1/templates/sms/{templateId} | Retrieve an SMS Template
+[**ListSmsTemplates**](TemplateApi.md#listsmstemplates) | **GET** /api/v1/templates/sms | List all SMS Templates
+[**PartialUpdateSmsTemplate**](TemplateApi.md#partialupdatesmstemplate) | **POST** /api/v1/templates/sms/{templateId} | Update an SMS Template
+[**UpdateSmsTemplate**](TemplateApi.md#updatesmstemplate) | **PUT** /api/v1/templates/sms/{templateId} | Replace an SMS Template
 
 
 <a name="createsmstemplate"></a>
 # **CreateSmsTemplate**
 > SmsTemplate CreateSmsTemplate (SmsTemplate smsTemplate)
 
-Add SMS Template
+Create an SMS Template
 
 Adds a new custom SMS template to your organization.
 
@@ -36,11 +36,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Add SMS Template
+                // Create an SMS Template
                 SmsTemplate result = apiInstance.CreateSmsTemplate(smsTemplate);
                 Debug.WriteLine(result);
             }
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **DeleteSmsTemplate**
 > void DeleteSmsTemplate (string templateId)
 
-Remove SMS Template
+Delete an SMS Template
 
 Removes an SMS template.
 
@@ -117,11 +117,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // Remove SMS Template
+                // Delete an SMS Template
                 apiInstance.DeleteSmsTemplate(templateId);
             }
             catch (ApiException  e)
@@ -155,7 +155,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -177,7 +177,7 @@ void (empty response body)
 # **GetSmsTemplate**
 > SmsTemplate GetSmsTemplate (string templateId)
 
-Get SMS Template
+Retrieve an SMS Template
 
 Fetches a specific template by `id`
 
@@ -197,11 +197,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -209,7 +209,7 @@ namespace Example
 
             try
             {
-                // Get SMS Template
+                // Retrieve an SMS Template
                 SmsTemplate result = apiInstance.GetSmsTemplate(templateId);
                 Debug.WriteLine(result);
             }
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListSmsTemplates**
 > List&lt;SmsTemplate&gt; ListSmsTemplates (SmsTemplateType? templateType = null)
 
-List SMS Templates
+List all SMS Templates
 
 Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
 
@@ -278,11 +278,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -290,7 +290,7 @@ namespace Example
 
             try
             {
-                // List SMS Templates
+                // List all SMS Templates
                 List<SmsTemplate> result = apiInstance.ListSmsTemplates(templateType);
                 Debug.WriteLine(result);
             }
@@ -317,7 +317,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -338,7 +338,7 @@ Name | Type | Description  | Notes
 # **PartialUpdateSmsTemplate**
 > SmsTemplate PartialUpdateSmsTemplate (string templateId, SmsTemplate smsTemplate)
 
-Partial SMS Template Update
+Update an SMS Template
 
 Updates only some of the SMS template properties:
 
@@ -358,11 +358,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -371,7 +371,7 @@ namespace Example
 
             try
             {
-                // Partial SMS Template Update
+                // Update an SMS Template
                 SmsTemplate result = apiInstance.PartialUpdateSmsTemplate(templateId, smsTemplate);
                 Debug.WriteLine(result);
             }
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -422,7 +422,7 @@ Name | Type | Description  | Notes
 # **UpdateSmsTemplate**
 > SmsTemplate UpdateSmsTemplate (string templateId, SmsTemplate smsTemplate)
 
-Update SMS Template
+Replace an SMS Template
 
 Updates the SMS template.
 
@@ -442,11 +442,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new TemplateApi(config);
@@ -455,7 +455,7 @@ namespace Example
 
             try
             {
-                // Update SMS Template
+                // Replace an SMS Template
                 SmsTemplate result = apiInstance.UpdateSmsTemplate(templateId, smsTemplate);
                 Debug.WriteLine(result);
             }
@@ -483,7 +483,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

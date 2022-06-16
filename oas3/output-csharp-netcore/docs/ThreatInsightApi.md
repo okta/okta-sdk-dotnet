@@ -4,15 +4,15 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetCurrentConfiguration**](ThreatInsightApi.md#getcurrentconfiguration) | **GET** /api/v1/threats/configuration | Get Current Configuration
-[**UpdateConfiguration**](ThreatInsightApi.md#updateconfiguration) | **POST** /api/v1/threats/configuration | Update Configuration
+[**GetCurrentConfiguration**](ThreatInsightApi.md#getcurrentconfiguration) | **GET** /api/v1/threats/configuration | Retrieve the ThreatInsight Configuration
+[**UpdateConfiguration**](ThreatInsightApi.md#updateconfiguration) | **POST** /api/v1/threats/configuration | Update the ThreatInsight Configuration
 
 
 <a name="getcurrentconfiguration"></a>
 # **GetCurrentConfiguration**
 > ThreatInsightConfiguration GetCurrentConfiguration ()
 
-Get Current Configuration
+Retrieve the ThreatInsight Configuration
 
 Gets current ThreatInsight configuration
 
@@ -32,18 +32,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ThreatInsightApi(config);
 
             try
             {
-                // Get Current Configuration
+                // Retrieve the ThreatInsight Configuration
                 ThreatInsightConfiguration result = apiInstance.GetCurrentConfiguration();
                 Debug.WriteLine(result);
             }
@@ -67,7 +67,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -88,7 +88,7 @@ This endpoint does not need any parameter.
 # **UpdateConfiguration**
 > ThreatInsightConfiguration UpdateConfiguration (ThreatInsightConfiguration threatInsightConfiguration)
 
-Update Configuration
+Update the ThreatInsight Configuration
 
 Updates ThreatInsight configuration
 
@@ -108,11 +108,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ThreatInsightApi(config);
@@ -120,7 +120,7 @@ namespace Example
 
             try
             {
-                // Update Configuration
+                // Update the ThreatInsight Configuration
                 ThreatInsightConfiguration result = apiInstance.UpdateConfiguration(threatInsightConfiguration);
                 Debug.WriteLine(result);
             }
@@ -147,7 +147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

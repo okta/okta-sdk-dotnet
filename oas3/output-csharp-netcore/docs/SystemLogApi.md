@@ -4,14 +4,14 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetLogs**](SystemLogApi.md#getlogs) | **GET** /api/v1/logs | Fetch a list of events from your Okta organization system log.
+[**GetLogs**](SystemLogApi.md#getlogs) | **GET** /api/v1/logs | List all System Log Events
 
 
 <a name="getlogs"></a>
 # **GetLogs**
 > List&lt;LogEvent&gt; GetLogs (DateTimeOffset? since = null, DateTimeOffset? until = null, string filter = null, string q = null, int? limit = null, string sortOrder = null, string after = null)
 
-Fetch a list of events from your Okta organization system log.
+List all System Log Events
 
 The Okta System Log API provides read access to your organization’s system log. This API provides more functionality than the Events API
 
@@ -31,11 +31,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SystemLogApi(config);
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Fetch a list of events from your Okta organization system log.
+                // List all System Log Events
                 List<LogEvent> result = apiInstance.GetLogs(since, until, filter, q, limit, sortOrder, after);
                 Debug.WriteLine(result);
             }
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

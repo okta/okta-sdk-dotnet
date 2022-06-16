@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Add Linked Object Definition
+        /// Create a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         LinkedObject AddLinkedObjectDefinition(LinkedObject linkedObject);
 
         /// <summary>
-        /// Add Linked Object Definition
+        /// Create a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of LinkedObject</returns>
         ApiResponse<LinkedObject> AddLinkedObjectDefinitionWithHttpInfo(LinkedObject linkedObject);
         /// <summary>
-        /// Delete Linked Object Definition
+        /// Delete a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         void DeleteLinkedObjectDefinition(string linkedObjectName);
 
         /// <summary>
-        /// Delete Linked Object Definition
+        /// Delete a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteLinkedObjectDefinitionWithHttpInfo(string linkedObjectName);
         /// <summary>
-        /// Get Linked Object Definition
+        /// Retrieve a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         LinkedObject GetLinkedObjectDefinition(string linkedObjectName);
 
         /// <summary>
-        /// Get Linked Object Definition
+        /// Retrieve a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of LinkedObject</returns>
         ApiResponse<LinkedObject> GetLinkedObjectDefinitionWithHttpInfo(string linkedObjectName);
         /// <summary>
-        /// List Linked Object Definitions
+        /// List all Linked Object Definitions
         /// </summary>
         /// <remarks>
         /// Success
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         List<LinkedObject> ListLinkedObjectDefinitions();
 
         /// <summary>
-        /// List Linked Object Definitions
+        /// List all Linked Object Definitions
         /// </summary>
         /// <remarks>
         /// Success
@@ -119,7 +119,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Add Linked Object Definition
+        /// Create a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -131,7 +131,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<LinkedObject> AddLinkedObjectDefinitionAsync(LinkedObject linkedObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add Linked Object Definition
+        /// Create a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -142,7 +142,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (LinkedObject)</returns>
         System.Threading.Tasks.Task<ApiResponse<LinkedObject>> AddLinkedObjectDefinitionWithHttpInfoAsync(LinkedObject linkedObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Linked Object Definition
+        /// Delete a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -154,7 +154,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Linked Object Definition
+        /// Delete a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteLinkedObjectDefinitionWithHttpInfoAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Linked Object Definition
+        /// Retrieve a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<LinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Linked Object Definition
+        /// Retrieve a Linked Object Definition
         /// </summary>
         /// <remarks>
         /// Success
@@ -188,7 +188,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (LinkedObject)</returns>
         System.Threading.Tasks.Task<ApiResponse<LinkedObject>> GetLinkedObjectDefinitionWithHttpInfoAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Linked Object Definitions
+        /// List all Linked Object Definitions
         /// </summary>
         /// <remarks>
         /// Success
@@ -199,7 +199,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<LinkedObject>> ListLinkedObjectDefinitionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Linked Object Definitions
+        /// List all Linked Object Definitions
         /// </summary>
         /// <remarks>
         /// Success
@@ -308,7 +308,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Linked Object Definition Success
+        /// Create a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObject"></param>
@@ -320,7 +320,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Linked Object Definition Success
+        /// Create a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObject"></param>
@@ -358,12 +358,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = linkedObject;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -385,7 +385,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Linked Object Definition Success
+        /// Create a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObject"></param>
@@ -398,7 +398,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add Linked Object Definition Success
+        /// Create a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObject"></param>
@@ -438,12 +438,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = linkedObject;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -466,7 +466,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Linked Object Definition Success
+        /// Delete a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -477,7 +477,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Linked Object Definition Success
+        /// Delete a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -514,12 +514,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("linkedObjectName", Okta.Sdk.Client.ClientUtils.ParameterToString(linkedObjectName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -541,7 +541,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Linked Object Definition Success
+        /// Delete a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -553,7 +553,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Linked Object Definition Success
+        /// Delete a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -592,12 +592,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("linkedObjectName", Okta.Sdk.Client.ClientUtils.ParameterToString(linkedObjectName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -620,7 +620,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Linked Object Definition Success
+        /// Retrieve a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -632,7 +632,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Linked Object Definition Success
+        /// Retrieve a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -669,12 +669,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("linkedObjectName", Okta.Sdk.Client.ClientUtils.ParameterToString(linkedObjectName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -696,7 +696,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Linked Object Definition Success
+        /// Retrieve a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -709,7 +709,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Linked Object Definition Success
+        /// Retrieve a Linked Object Definition Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="linkedObjectName"></param>
@@ -748,12 +748,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("linkedObjectName", Okta.Sdk.Client.ClientUtils.ParameterToString(linkedObjectName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -776,7 +776,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Linked Object Definitions Success
+        /// List all Linked Object Definitions Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;LinkedObject&gt;</returns>
@@ -787,7 +787,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Linked Object Definitions Success
+        /// List all Linked Object Definitions Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
@@ -816,12 +816,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -843,7 +843,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Linked Object Definitions Success
+        /// List all Linked Object Definitions Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -855,7 +855,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Linked Object Definitions Success
+        /// List all Linked Object Definitions Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -886,12 +886,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

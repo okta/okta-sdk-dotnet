@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Factor
+        /// Activate a Factor
         /// </summary>
         /// <remarks>
         /// The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
@@ -41,7 +41,7 @@ namespace Okta.Sdk.Api
         UserFactor ActivateFactor(string userId, string factorId, ActivateFactorRequest body = default(ActivateFactorRequest));
 
         /// <summary>
-        /// Activate Factor
+        /// Activate a Factor
         /// </summary>
         /// <remarks>
         /// The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserFactor</returns>
         ApiResponse<UserFactor> ActivateFactorWithHttpInfo(string userId, string factorId, ActivateFactorRequest body = default(ActivateFactorRequest));
         /// <summary>
-        /// Delete Factor
+        /// Delete a Factor
         /// </summary>
         /// <remarks>
         /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
@@ -66,7 +66,7 @@ namespace Okta.Sdk.Api
         void DeleteFactor(string userId, string factorId, bool? removeEnrollmentRecovery = default(bool?));
 
         /// <summary>
-        /// Delete Factor
+        /// Delete a Factor
         /// </summary>
         /// <remarks>
         /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
@@ -78,7 +78,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteFactorWithHttpInfo(string userId, string factorId, bool? removeEnrollmentRecovery = default(bool?));
         /// <summary>
-        /// Enroll Factor
+        /// Enroll a Factor
         /// </summary>
         /// <remarks>
         /// Enrolls a user with a supported factor.
@@ -94,7 +94,7 @@ namespace Okta.Sdk.Api
         UserFactor EnrollFactor(string userId, UserFactor body, bool? updatePhone = default(bool?), string templateId = default(string), int? tokenLifetimeSeconds = default(int?), bool? activate = default(bool?));
 
         /// <summary>
-        /// Enroll Factor
+        /// Enroll a Factor
         /// </summary>
         /// <remarks>
         /// Enrolls a user with a supported factor.
@@ -109,7 +109,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserFactor</returns>
         ApiResponse<UserFactor> EnrollFactorWithHttpInfo(string userId, UserFactor body, bool? updatePhone = default(bool?), string templateId = default(string), int? tokenLifetimeSeconds = default(int?), bool? activate = default(bool?));
         /// <summary>
-        /// Get Factor
+        /// Retrieve a Factor
         /// </summary>
         /// <remarks>
         /// Fetches a factor for the specified user
@@ -121,7 +121,7 @@ namespace Okta.Sdk.Api
         UserFactor GetFactor(string userId, string factorId);
 
         /// <summary>
-        /// Get Factor
+        /// Retrieve a Factor
         /// </summary>
         /// <remarks>
         /// Fetches a factor for the specified user
@@ -132,7 +132,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserFactor</returns>
         ApiResponse<UserFactor> GetFactorWithHttpInfo(string userId, string factorId);
         /// <summary>
-        /// Get Factor Transaction Status
+        /// Retrieve a Factor Transaction Status
         /// </summary>
         /// <remarks>
         /// Polls factors verification transaction for status.
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Api
         VerifyUserFactorResponse GetFactorTransactionStatus(string userId, string factorId, string transactionId);
 
         /// <summary>
-        /// Get Factor Transaction Status
+        /// Retrieve a Factor Transaction Status
         /// </summary>
         /// <remarks>
         /// Polls factors verification transaction for status.
@@ -157,7 +157,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of VerifyUserFactorResponse</returns>
         ApiResponse<VerifyUserFactorResponse> GetFactorTransactionStatusWithHttpInfo(string userId, string factorId, string transactionId);
         /// <summary>
-        /// List Factors
+        /// List all Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the enrolled factors for the specified user
@@ -168,7 +168,7 @@ namespace Okta.Sdk.Api
         List<UserFactor> ListFactors(string userId);
 
         /// <summary>
-        /// List Factors
+        /// List all Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the enrolled factors for the specified user
@@ -178,7 +178,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;UserFactor&gt;</returns>
         ApiResponse<List<UserFactor>> ListFactorsWithHttpInfo(string userId);
         /// <summary>
-        /// List Supported Factors
+        /// List all Supported Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the supported factors that can be enrolled for the specified user
@@ -189,7 +189,7 @@ namespace Okta.Sdk.Api
         List<UserFactor> ListSupportedFactors(string userId);
 
         /// <summary>
-        /// List Supported Factors
+        /// List all Supported Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the supported factors that can be enrolled for the specified user
@@ -199,7 +199,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;UserFactor&gt;</returns>
         ApiResponse<List<UserFactor>> ListSupportedFactorsWithHttpInfo(string userId);
         /// <summary>
-        /// List Supported Security Questions
+        /// List all Supported Security Questions
         /// </summary>
         /// <remarks>
         /// Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
@@ -210,7 +210,7 @@ namespace Okta.Sdk.Api
         List<SecurityQuestion> ListSupportedSecurityQuestions(string userId);
 
         /// <summary>
-        /// List Supported Security Questions
+        /// List all Supported Security Questions
         /// </summary>
         /// <remarks>
         /// Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
@@ -220,7 +220,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;SecurityQuestion&gt;</returns>
         ApiResponse<List<SecurityQuestion>> ListSupportedSecurityQuestionsWithHttpInfo(string userId);
         /// <summary>
-        /// Verify MFA Factor
+        /// Verify an MFA Factor
         /// </summary>
         /// <remarks>
         /// Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
@@ -238,7 +238,7 @@ namespace Okta.Sdk.Api
         VerifyUserFactorResponse VerifyFactor(string userId, string factorId, string templateId = default(string), int? tokenLifetimeSeconds = default(int?), string xForwardedFor = default(string), string userAgent = default(string), string acceptLanguage = default(string), VerifyFactorRequest body = default(VerifyFactorRequest));
 
         /// <summary>
-        /// Verify MFA Factor
+        /// Verify an MFA Factor
         /// </summary>
         /// <remarks>
         /// Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
@@ -264,7 +264,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Factor
+        /// Activate a Factor
         /// </summary>
         /// <remarks>
         /// The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
@@ -278,7 +278,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserFactor> ActivateFactorAsync(string userId, string factorId, ActivateFactorRequest body = default(ActivateFactorRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Factor
+        /// Activate a Factor
         /// </summary>
         /// <remarks>
         /// The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
@@ -291,7 +291,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserFactor)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserFactor>> ActivateFactorWithHttpInfoAsync(string userId, string factorId, ActivateFactorRequest body = default(ActivateFactorRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Factor
+        /// Delete a Factor
         /// </summary>
         /// <remarks>
         /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
@@ -305,7 +305,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteFactorAsync(string userId, string factorId, bool? removeEnrollmentRecovery = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Factor
+        /// Delete a Factor
         /// </summary>
         /// <remarks>
         /// Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
@@ -318,7 +318,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteFactorWithHttpInfoAsync(string userId, string factorId, bool? removeEnrollmentRecovery = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Enroll Factor
+        /// Enroll a Factor
         /// </summary>
         /// <remarks>
         /// Enrolls a user with a supported factor.
@@ -335,7 +335,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserFactor> EnrollFactorAsync(string userId, UserFactor body, bool? updatePhone = default(bool?), string templateId = default(string), int? tokenLifetimeSeconds = default(int?), bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Enroll Factor
+        /// Enroll a Factor
         /// </summary>
         /// <remarks>
         /// Enrolls a user with a supported factor.
@@ -351,7 +351,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserFactor)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserFactor>> EnrollFactorWithHttpInfoAsync(string userId, UserFactor body, bool? updatePhone = default(bool?), string templateId = default(string), int? tokenLifetimeSeconds = default(int?), bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Factor
+        /// Retrieve a Factor
         /// </summary>
         /// <remarks>
         /// Fetches a factor for the specified user
@@ -364,7 +364,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserFactor> GetFactorAsync(string userId, string factorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Factor
+        /// Retrieve a Factor
         /// </summary>
         /// <remarks>
         /// Fetches a factor for the specified user
@@ -376,7 +376,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserFactor)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserFactor>> GetFactorWithHttpInfoAsync(string userId, string factorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Factor Transaction Status
+        /// Retrieve a Factor Transaction Status
         /// </summary>
         /// <remarks>
         /// Polls factors verification transaction for status.
@@ -390,7 +390,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<VerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Factor Transaction Status
+        /// Retrieve a Factor Transaction Status
         /// </summary>
         /// <remarks>
         /// Polls factors verification transaction for status.
@@ -403,7 +403,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (VerifyUserFactorResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<VerifyUserFactorResponse>> GetFactorTransactionStatusWithHttpInfoAsync(string userId, string factorId, string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Factors
+        /// List all Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the enrolled factors for the specified user
@@ -415,7 +415,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<UserFactor>> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Factors
+        /// List all Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the enrolled factors for the specified user
@@ -426,7 +426,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;UserFactor&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<UserFactor>>> ListFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Supported Factors
+        /// List all Supported Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the supported factors that can be enrolled for the specified user
@@ -438,7 +438,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<UserFactor>> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Supported Factors
+        /// List all Supported Factors
         /// </summary>
         /// <remarks>
         /// Enumerates all the supported factors that can be enrolled for the specified user
@@ -449,7 +449,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;UserFactor&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<UserFactor>>> ListSupportedFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Supported Security Questions
+        /// List all Supported Security Questions
         /// </summary>
         /// <remarks>
         /// Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
@@ -461,7 +461,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<SecurityQuestion>> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Supported Security Questions
+        /// List all Supported Security Questions
         /// </summary>
         /// <remarks>
         /// Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
@@ -472,7 +472,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;SecurityQuestion&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<SecurityQuestion>>> ListSupportedSecurityQuestionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Verify MFA Factor
+        /// Verify an MFA Factor
         /// </summary>
         /// <remarks>
         /// Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
@@ -491,7 +491,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<VerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = default(string), int? tokenLifetimeSeconds = default(int?), string xForwardedFor = default(string), string userAgent = default(string), string acceptLanguage = default(string), VerifyFactorRequest body = default(VerifyFactorRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Verify MFA Factor
+        /// Verify an MFA Factor
         /// </summary>
         /// <remarks>
         /// Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
@@ -608,7 +608,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
+        /// Activate a Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -622,7 +622,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
+        /// Activate a Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -670,12 +670,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -697,7 +697,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
+        /// Activate a Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -712,7 +712,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
+        /// Activate a Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -762,12 +762,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -790,7 +790,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+        /// Delete a Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -803,7 +803,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+        /// Delete a Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -853,12 +853,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeEnrollmentRecovery", removeEnrollmentRecovery));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -880,7 +880,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+        /// Delete a Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -894,7 +894,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
+        /// Delete a Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -946,12 +946,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "removeEnrollmentRecovery", removeEnrollmentRecovery));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -974,7 +974,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Enroll Factor Enrolls a user with a supported factor.
+        /// Enroll a Factor Enrolls a user with a supported factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -991,7 +991,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Enroll Factor Enrolls a user with a supported factor.
+        /// Enroll a Factor Enrolls a user with a supported factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1057,12 +1057,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1084,7 +1084,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Enroll Factor Enrolls a user with a supported factor.
+        /// Enroll a Factor Enrolls a user with a supported factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1102,7 +1102,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Enroll Factor Enrolls a user with a supported factor.
+        /// Enroll a Factor Enrolls a user with a supported factor.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1170,12 +1170,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1198,7 +1198,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Fetches a factor for the specified user
+        /// Retrieve a Factor Fetches a factor for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1211,7 +1211,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Fetches a factor for the specified user
+        /// Retrieve a Factor Fetches a factor for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1256,12 +1256,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1283,7 +1283,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Fetches a factor for the specified user
+        /// Retrieve a Factor Fetches a factor for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1297,7 +1297,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Fetches a factor for the specified user
+        /// Retrieve a Factor Fetches a factor for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1344,12 +1344,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1372,7 +1372,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Transaction Status Polls factors verification transaction for status.
+        /// Retrieve a Factor Transaction Status Polls factors verification transaction for status.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1386,7 +1386,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Transaction Status Polls factors verification transaction for status.
+        /// Retrieve a Factor Transaction Status Polls factors verification transaction for status.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1439,12 +1439,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
             localVarRequestOptions.PathParameters.Add("transactionId", Okta.Sdk.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1466,7 +1466,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Transaction Status Polls factors verification transaction for status.
+        /// Retrieve a Factor Transaction Status Polls factors verification transaction for status.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1481,7 +1481,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Factor Transaction Status Polls factors verification transaction for status.
+        /// Retrieve a Factor Transaction Status Polls factors verification transaction for status.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1536,12 +1536,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("factorId", Okta.Sdk.Client.ClientUtils.ParameterToString(factorId)); // path parameter
             localVarRequestOptions.PathParameters.Add("transactionId", Okta.Sdk.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1564,7 +1564,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Factors Enumerates all the enrolled factors for the specified user
+        /// List all Factors Enumerates all the enrolled factors for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1576,7 +1576,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Factors Enumerates all the enrolled factors for the specified user
+        /// List all Factors Enumerates all the enrolled factors for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1613,12 +1613,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1640,7 +1640,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Factors Enumerates all the enrolled factors for the specified user
+        /// List all Factors Enumerates all the enrolled factors for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1653,7 +1653,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Factors Enumerates all the enrolled factors for the specified user
+        /// List all Factors Enumerates all the enrolled factors for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1692,12 +1692,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1720,7 +1720,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
+        /// List all Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1732,7 +1732,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
+        /// List all Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1769,12 +1769,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1796,7 +1796,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
+        /// List all Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1809,7 +1809,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
+        /// List all Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1848,12 +1848,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1876,7 +1876,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
+        /// List all Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1888,7 +1888,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
+        /// List all Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1925,7 +1925,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -1946,7 +1946,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
+        /// List all Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1959,7 +1959,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
+        /// List all Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -1998,7 +1998,7 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -2020,7 +2020,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
+        /// Verify an MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -2039,7 +2039,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
+        /// Verify an MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -2112,12 +2112,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2139,7 +2139,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
+        /// Verify an MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -2159,7 +2159,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Verify MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
+        /// Verify an MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
@@ -2234,12 +2234,12 @@ namespace Okta.Sdk.Api
             }
             localVarRequestOptions.Data = body;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

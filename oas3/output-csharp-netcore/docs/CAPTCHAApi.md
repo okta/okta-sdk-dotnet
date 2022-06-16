@@ -4,19 +4,19 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**CreateCaptchaInstance**](CAPTCHAApi.md#createcaptchainstance) | **POST** /api/v1/captchas | Create new CAPTCHA instance
-[**DeleteCaptchaInstance**](CAPTCHAApi.md#deletecaptchainstance) | **DELETE** /api/v1/captchas/{captchaId} | Delete CAPTCHA Instance
-[**GetCaptchaInstance**](CAPTCHAApi.md#getcaptchainstance) | **GET** /api/v1/captchas/{captchaId} | Get CAPTCHA Instance
-[**ListCaptchaInstances**](CAPTCHAApi.md#listcaptchainstances) | **GET** /api/v1/captchas | List CAPTCHA instances
-[**PartialUpdateCaptchaInstance**](CAPTCHAApi.md#partialupdatecaptchainstance) | **POST** /api/v1/captchas/{captchaId} | Partial Update CAPTCHA instance
-[**UpdateCaptchaInstance**](CAPTCHAApi.md#updatecaptchainstance) | **PUT** /api/v1/captchas/{captchaId} | Update CAPTCHA instance
+[**CreateCaptchaInstance**](CAPTCHAApi.md#createcaptchainstance) | **POST** /api/v1/captchas | Create a CAPTCHA instance
+[**DeleteCaptchaInstance**](CAPTCHAApi.md#deletecaptchainstance) | **DELETE** /api/v1/captchas/{captchaId} | Delete a CAPTCHA Instance
+[**GetCaptchaInstance**](CAPTCHAApi.md#getcaptchainstance) | **GET** /api/v1/captchas/{captchaId} | Retrieve a CAPTCHA Instance
+[**ListCaptchaInstances**](CAPTCHAApi.md#listcaptchainstances) | **GET** /api/v1/captchas | List all CAPTCHA instances
+[**PartialUpdateCaptchaInstance**](CAPTCHAApi.md#partialupdatecaptchainstance) | **POST** /api/v1/captchas/{captchaId} | Update a CAPTCHA instance
+[**UpdateCaptchaInstance**](CAPTCHAApi.md#updatecaptchainstance) | **PUT** /api/v1/captchas/{captchaId} | Replace a CAPTCHA instance
 
 
 <a name="createcaptchainstance"></a>
 # **CreateCaptchaInstance**
 > CAPTCHAInstance CreateCaptchaInstance (CAPTCHAInstance instance)
 
-Create new CAPTCHA instance
+Create a CAPTCHA instance
 
 Adds a new CAPTCHA instance to your organization. In the current release, we only allow one CAPTCHA instance per org.
 
@@ -36,11 +36,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CAPTCHAApi(config);
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Create new CAPTCHA instance
+                // Create a CAPTCHA instance
                 CAPTCHAInstance result = apiInstance.CreateCaptchaInstance(instance);
                 Debug.WriteLine(result);
             }
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **DeleteCaptchaInstance**
 > void DeleteCaptchaInstance (string captchaId)
 
-Delete CAPTCHA Instance
+Delete a CAPTCHA Instance
 
 Delete a CAPTCHA instance by `captchaId`. If the CAPTCHA instance is currently being used in the org, the delete will not be allowed.
 
@@ -117,11 +117,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CAPTCHAApi(config);
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // Delete CAPTCHA Instance
+                // Delete a CAPTCHA Instance
                 apiInstance.DeleteCaptchaInstance(captchaId);
             }
             catch (ApiException  e)
@@ -155,7 +155,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -177,7 +177,7 @@ void (empty response body)
 # **GetCaptchaInstance**
 > CAPTCHAInstance GetCaptchaInstance (string captchaId)
 
-Get CAPTCHA Instance
+Retrieve a CAPTCHA Instance
 
 Fetches a CAPTCHA instance by `captchaId`.
 
@@ -197,11 +197,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CAPTCHAApi(config);
@@ -209,7 +209,7 @@ namespace Example
 
             try
             {
-                // Get CAPTCHA Instance
+                // Retrieve a CAPTCHA Instance
                 CAPTCHAInstance result = apiInstance.GetCaptchaInstance(captchaId);
                 Debug.WriteLine(result);
             }
@@ -236,7 +236,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 # **ListCaptchaInstances**
 > List&lt;CAPTCHAInstance&gt; ListCaptchaInstances ()
 
-List CAPTCHA instances
+List all CAPTCHA instances
 
 Enumerates CAPTCHA instances in your organization with pagination. A subset of CAPTCHA instances can be returned that match a supported filter expression or query.
 
@@ -278,18 +278,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CAPTCHAApi(config);
 
             try
             {
-                // List CAPTCHA instances
+                // List all CAPTCHA instances
                 List<CAPTCHAInstance> result = apiInstance.ListCaptchaInstances();
                 Debug.WriteLine(result);
             }
@@ -313,7 +313,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -334,7 +334,7 @@ This endpoint does not need any parameter.
 # **PartialUpdateCaptchaInstance**
 > CAPTCHAInstance PartialUpdateCaptchaInstance (string captchaId, CAPTCHAInstance instance)
 
-Partial Update CAPTCHA instance
+Update a CAPTCHA instance
 
 Partially update a CAPTCHA instance by `captchaId`.
 
@@ -354,11 +354,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CAPTCHAApi(config);
@@ -367,7 +367,7 @@ namespace Example
 
             try
             {
-                // Partial Update CAPTCHA instance
+                // Update a CAPTCHA instance
                 CAPTCHAInstance result = apiInstance.PartialUpdateCaptchaInstance(captchaId, instance);
                 Debug.WriteLine(result);
             }
@@ -395,7 +395,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -418,7 +418,7 @@ Name | Type | Description  | Notes
 # **UpdateCaptchaInstance**
 > CAPTCHAInstance UpdateCaptchaInstance (string captchaId, CAPTCHAInstance instance)
 
-Update CAPTCHA instance
+Replace a CAPTCHA instance
 
 Update a CAPTCHA instance by `captchaId`.
 
@@ -438,11 +438,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new CAPTCHAApi(config);
@@ -451,7 +451,7 @@ namespace Example
 
             try
             {
-                // Update CAPTCHA instance
+                // Replace a CAPTCHA instance
                 CAPTCHAInstance result = apiInstance.UpdateCaptchaInstance(captchaId, instance);
                 Debug.WriteLine(result);
             }
@@ -479,7 +479,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

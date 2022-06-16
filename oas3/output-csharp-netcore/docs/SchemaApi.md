@@ -4,19 +4,19 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetApplicationUserSchema**](SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appInstanceId}/default | Fetches the Schema for an App User
-[**GetGroupSchema**](SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Fetches the group schema
-[**GetUserSchema**](SchemaApi.md#getuserschema) | **GET** /api/v1/meta/schemas/user/{schemaId} | Fetches the schema for a Schema Id.
-[**UpdateApplicationUserProfile**](SchemaApi.md#updateapplicationuserprofile) | **POST** /api/v1/meta/schemas/apps/{appInstanceId}/default | Partial updates on the User Profile properties of the Application User Schema.
-[**UpdateGroupSchema**](SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Updates, adds ore removes one or more custom Group Profile properties in the schema
-[**UpdateUserProfile**](SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update User Profile
+[**GetApplicationUserSchema**](SchemaApi.md#getapplicationuserschema) | **GET** /api/v1/meta/schemas/apps/{appInstanceId}/default | Retrieve the default Application User Schema for an Application
+[**GetGroupSchema**](SchemaApi.md#getgroupschema) | **GET** /api/v1/meta/schemas/group/default | Retrieve the default Group Schema
+[**GetUserSchema**](SchemaApi.md#getuserschema) | **GET** /api/v1/meta/schemas/user/{schemaId} | Retrieve a User Schema
+[**UpdateApplicationUserProfile**](SchemaApi.md#updateapplicationuserprofile) | **POST** /api/v1/meta/schemas/apps/{appInstanceId}/default | Update the default Application User Schema for an Application
+[**UpdateGroupSchema**](SchemaApi.md#updategroupschema) | **POST** /api/v1/meta/schemas/group/default | Update the default Group Schema
+[**UpdateUserProfile**](SchemaApi.md#updateuserprofile) | **POST** /api/v1/meta/schemas/user/{schemaId} | Update a User Schema
 
 
 <a name="getapplicationuserschema"></a>
 # **GetApplicationUserSchema**
 > UserSchema GetApplicationUserSchema (string appInstanceId)
 
-Fetches the Schema for an App User
+Retrieve the default Application User Schema for an Application
 
 Fetches the Schema for an App User
 
@@ -36,11 +36,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
@@ -48,7 +48,7 @@ namespace Example
 
             try
             {
-                // Fetches the Schema for an App User
+                // Retrieve the default Application User Schema for an Application
                 UserSchema result = apiInstance.GetApplicationUserSchema(appInstanceId);
                 Debug.WriteLine(result);
             }
@@ -75,7 +75,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -97,7 +97,7 @@ Name | Type | Description  | Notes
 # **GetGroupSchema**
 > GroupSchema GetGroupSchema ()
 
-Fetches the group schema
+Retrieve the default Group Schema
 
 Fetches the group schema
 
@@ -117,18 +117,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
 
             try
             {
-                // Fetches the group schema
+                // Retrieve the default Group Schema
                 GroupSchema result = apiInstance.GetGroupSchema();
                 Debug.WriteLine(result);
             }
@@ -152,7 +152,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -173,7 +173,7 @@ This endpoint does not need any parameter.
 # **GetUserSchema**
 > UserSchema GetUserSchema (string schemaId)
 
-Fetches the schema for a Schema Id.
+Retrieve a User Schema
 
 Fetches the schema for a Schema Id.
 
@@ -193,11 +193,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
@@ -205,7 +205,7 @@ namespace Example
 
             try
             {
-                // Fetches the schema for a Schema Id.
+                // Retrieve a User Schema
                 UserSchema result = apiInstance.GetUserSchema(schemaId);
                 Debug.WriteLine(result);
             }
@@ -232,7 +232,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -254,7 +254,7 @@ Name | Type | Description  | Notes
 # **UpdateApplicationUserProfile**
 > UserSchema UpdateApplicationUserProfile (string appInstanceId, UserSchema body = null)
 
-Partial updates on the User Profile properties of the Application User Schema.
+Update the default Application User Schema for an Application
 
 Partial updates on the User Profile properties of the Application User Schema.
 
@@ -274,11 +274,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
@@ -287,7 +287,7 @@ namespace Example
 
             try
             {
-                // Partial updates on the User Profile properties of the Application User Schema.
+                // Update the default Application User Schema for an Application
                 UserSchema result = apiInstance.UpdateApplicationUserProfile(appInstanceId, body);
                 Debug.WriteLine(result);
             }
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -338,9 +338,9 @@ Name | Type | Description  | Notes
 # **UpdateGroupSchema**
 > GroupSchema UpdateGroupSchema (GroupSchema groupSchema = null)
 
-Updates, adds ore removes one or more custom Group Profile properties in the schema
+Update the default Group Schema
 
-Updates, adds ore removes one or more custom Group Profile properties in the schema
+Updates, adds or removes one or more custom Group Profile properties in the schema
 
 ### Example
 ```csharp
@@ -358,11 +358,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
@@ -370,7 +370,7 @@ namespace Example
 
             try
             {
-                // Updates, adds ore removes one or more custom Group Profile properties in the schema
+                // Update the default Group Schema
                 GroupSchema result = apiInstance.UpdateGroupSchema(groupSchema);
                 Debug.WriteLine(result);
             }
@@ -397,7 +397,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 # **UpdateUserProfile**
 > UserSchema UpdateUserProfile (string schemaId, UserSchema userSchema)
 
-Update User Profile
+Update a User Schema
 
 Partial updates on the User Profile properties of the user schema.
 
@@ -439,11 +439,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new SchemaApi(config);
@@ -452,7 +452,7 @@ namespace Example
 
             try
             {
-                // Update User Profile
+                // Update a User Schema
                 UserSchema result = apiInstance.UpdateUserProfile(schemaId, userSchema);
                 Debug.WriteLine(result);
             }
@@ -480,7 +480,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

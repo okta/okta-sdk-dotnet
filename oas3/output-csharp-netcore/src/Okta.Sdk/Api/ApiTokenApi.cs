@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get the Metadata for an API Token
+        /// Retrieve an API Token&#39;s Metadata
         /// </summary>
         /// <remarks>
         /// Get the metadata for an active API token by id.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         ApiToken GetApiToken(string apiTokenId);
 
         /// <summary>
-        /// Get the Metadata for an API Token
+        /// Retrieve an API Token&#39;s Metadata
         /// </summary>
         /// <remarks>
         /// Get the metadata for an active API token by id.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ApiToken</returns>
         ApiResponse<ApiToken> GetApiTokenWithHttpInfo(string apiTokenId);
         /// <summary>
-        /// List API Token Metadata
+        /// List all API Token Metadata
         /// </summary>
         /// <remarks>
         /// Enumerates the metadata of the active API tokens in your organization.
@@ -62,7 +62,7 @@ namespace Okta.Sdk.Api
         List<ApiToken> ListApiTokens(string after = default(string), int? limit = default(int?), string q = default(string));
 
         /// <summary>
-        /// List API Token Metadata
+        /// List all API Token Metadata
         /// </summary>
         /// <remarks>
         /// Enumerates the metadata of the active API tokens in your organization.
@@ -123,7 +123,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get the Metadata for an API Token
+        /// Retrieve an API Token&#39;s Metadata
         /// </summary>
         /// <remarks>
         /// Get the metadata for an active API token by id.
@@ -135,7 +135,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ApiToken> GetApiTokenAsync(string apiTokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get the Metadata for an API Token
+        /// Retrieve an API Token&#39;s Metadata
         /// </summary>
         /// <remarks>
         /// Get the metadata for an active API token by id.
@@ -146,7 +146,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ApiToken)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiToken>> GetApiTokenWithHttpInfoAsync(string apiTokenId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List API Token Metadata
+        /// List all API Token Metadata
         /// </summary>
         /// <remarks>
         /// Enumerates the metadata of the active API tokens in your organization.
@@ -160,7 +160,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<ApiToken>> ListApiTokensAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List API Token Metadata
+        /// List all API Token Metadata
         /// </summary>
         /// <remarks>
         /// Enumerates the metadata of the active API tokens in your organization.
@@ -316,7 +316,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the Metadata for an API Token Get the metadata for an active API token by id.
+        /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiTokenId">id of the API Token</param>
@@ -328,7 +328,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the Metadata for an API Token Get the metadata for an active API token by id.
+        /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiTokenId">id of the API Token</param>
@@ -365,12 +365,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("apiTokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(apiTokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -392,7 +392,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the Metadata for an API Token Get the metadata for an active API token by id.
+        /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiTokenId">id of the API Token</param>
@@ -405,7 +405,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get the Metadata for an API Token Get the metadata for an active API token by id.
+        /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="apiTokenId">id of the API Token</param>
@@ -444,12 +444,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("apiTokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(apiTokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -472,7 +472,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List API Token Metadata Enumerates the metadata of the active API tokens in your organization.
+        /// List all API Token Metadata Enumerates the metadata of the active API tokens in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
@@ -486,7 +486,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List API Token Metadata Enumerates the metadata of the active API tokens in your organization.
+        /// List all API Token Metadata Enumerates the metadata of the active API tokens in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
@@ -530,12 +530,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -557,7 +557,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List API Token Metadata Enumerates the metadata of the active API tokens in your organization.
+        /// List all API Token Metadata Enumerates the metadata of the active API tokens in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
@@ -572,7 +572,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List API Token Metadata Enumerates the metadata of the active API tokens in your organization.
+        /// List all API Token Metadata Enumerates the metadata of the active API tokens in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
@@ -618,12 +618,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "q", q));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -694,12 +694,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("apiTokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(apiTokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -772,12 +772,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("apiTokenId", Okta.Sdk.Client.ClientUtils.ParameterToString(apiTokenId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -839,7 +839,7 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
@@ -902,7 +902,7 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));

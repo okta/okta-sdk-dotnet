@@ -4,41 +4,41 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateGroupRule**](GroupApi.md#activategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/activate | Activate a group Rule
-[**AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**](GroupApi.md#addapplicationinstancetargettoappadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Add App Instance Target to App Administrator Role given to a Group
-[**AddApplicationTargetToAdminRoleGivenToGroup**](GroupApi.md#addapplicationtargettoadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Add Application Target to Admin Role Given to Group
-[**AddGroupTargetToGroupAdministratorRoleForGroup**](GroupApi.md#addgrouptargettogroupadministratorroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Add Group Target for Group Role
-[**AddUserToGroup**](GroupApi.md#addusertogroup) | **PUT** /api/v1/groups/{groupId}/users/{userId} | Add User to Group
-[**AssignRoleToGroup**](GroupApi.md#assignroletogroup) | **POST** /api/v1/groups/{groupId}/roles | Assign Role to Group
-[**CreateGroup**](GroupApi.md#creategroup) | **POST** /api/v1/groups | Add Group
-[**CreateGroupRule**](GroupApi.md#creategrouprule) | **POST** /api/v1/groups/rules | Create Group Rule
-[**DeactivateGroupRule**](GroupApi.md#deactivategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/deactivate | Deactivate a group Rule
-[**DeleteGroup**](GroupApi.md#deletegroup) | **DELETE** /api/v1/groups/{groupId} | Remove Group
+[**ActivateGroupRule**](GroupApi.md#activategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/activate | Activate a Group Rule
+[**AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**](GroupApi.md#addapplicationinstancetargettoappadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Assign an Application Instance Target to Application Administrator Role
+[**AddApplicationTargetToAdminRoleGivenToGroup**](GroupApi.md#addapplicationtargettoadminrolegiventogroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Assign an Application Target to Administrator Role
+[**AddGroupTargetToGroupAdministratorRoleForGroup**](GroupApi.md#addgrouptargettogroupadministratorroleforgroup) | **PUT** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Assign a Group Target for Group Role
+[**AddUserToGroup**](GroupApi.md#addusertogroup) | **PUT** /api/v1/groups/{groupId}/users/{userId} | Assign a User
+[**AssignRoleToGroup**](GroupApi.md#assignroletogroup) | **POST** /api/v1/groups/{groupId}/roles | Assign a Role
+[**CreateGroup**](GroupApi.md#creategroup) | **POST** /api/v1/groups | Create a Group
+[**CreateGroupRule**](GroupApi.md#creategrouprule) | **POST** /api/v1/groups/rules | Create a Group Rule
+[**DeactivateGroupRule**](GroupApi.md#deactivategrouprule) | **POST** /api/v1/groups/rules/{ruleId}/lifecycle/deactivate | Deactivate a Group Rule
+[**DeleteGroup**](GroupApi.md#deletegroup) | **DELETE** /api/v1/groups/{groupId} | Delete a Group
 [**DeleteGroupRule**](GroupApi.md#deletegrouprule) | **DELETE** /api/v1/groups/rules/{ruleId} | Delete a group Rule
-[**GetGroup**](GroupApi.md#getgroup) | **GET** /api/v1/groups/{groupId} | List Group Rules
-[**GetGroupRule**](GroupApi.md#getgrouprule) | **GET** /api/v1/groups/rules/{ruleId} | Get Group Rule
-[**GetRole**](GroupApi.md#getrole) | **GET** /api/v1/groups/{groupId}/roles/{roleId} | Get Role
-[**ListApplicationTargetsForApplicationAdministratorRoleForGroup**](GroupApi.md#listapplicationtargetsforapplicationadministratorroleforgroup) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps | List Application Targets for Application Administrator Role for Group
-[**ListAssignedApplicationsForGroup**](GroupApi.md#listassignedapplicationsforgroup) | **GET** /api/v1/groups/{groupId}/apps | List Assigned Applications
-[**ListGroupAssignedRoles**](GroupApi.md#listgroupassignedroles) | **GET** /api/v1/groups/{groupId}/roles | List Group Assigned Roles
-[**ListGroupRules**](GroupApi.md#listgrouprules) | **GET** /api/v1/groups/rules | List Group Rules
-[**ListGroupTargetsForGroupRole**](GroupApi.md#listgrouptargetsforgrouprole) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups | List Group Targets for Group Role
-[**ListGroupUsers**](GroupApi.md#listgroupusers) | **GET** /api/v1/groups/{groupId}/users | List Group Members
-[**ListGroups**](GroupApi.md#listgroups) | **GET** /api/v1/groups | List Groups
-[**RemoveApplicationTargetFromAdministratorRoleGivenToGroup**](GroupApi.md#removeapplicationtargetfromadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Remove App Instance Target to App Administrator Role given to a Group
-[**RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**](GroupApi.md#removeapplicationtargetfromapplicationadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Remove Application Target from Application Administrator Role Given to Group
-[**RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**](GroupApi.md#removegrouptargetfromgroupadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Delete Group Target for Group Role
-[**RemoveRoleFromGroup**](GroupApi.md#removerolefromgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId} | Remove Role from Group
-[**RemoveUserFromGroup**](GroupApi.md#removeuserfromgroup) | **DELETE** /api/v1/groups/{groupId}/users/{userId} | Remove User from Group
-[**UpdateGroup**](GroupApi.md#updategroup) | **PUT** /api/v1/groups/{groupId} | Update Group
-[**UpdateGroupRule**](GroupApi.md#updategrouprule) | **PUT** /api/v1/groups/rules/{ruleId} | Update Group Rule
+[**GetGroup**](GroupApi.md#getgroup) | **GET** /api/v1/groups/{groupId} | List all Group Rules
+[**GetGroupRule**](GroupApi.md#getgrouprule) | **GET** /api/v1/groups/rules/{ruleId} | Retrieve a Group Rule
+[**GetRole**](GroupApi.md#getrole) | **GET** /api/v1/groups/{groupId}/roles/{roleId} | Retrieve a Role
+[**ListApplicationTargetsForApplicationAdministratorRoleForGroup**](GroupApi.md#listapplicationtargetsforapplicationadministratorroleforgroup) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps | List all Application Targets for an Application Administrator Role
+[**ListAssignedApplicationsForGroup**](GroupApi.md#listassignedapplicationsforgroup) | **GET** /api/v1/groups/{groupId}/apps | List all Assigned Applications
+[**ListGroupAssignedRoles**](GroupApi.md#listgroupassignedroles) | **GET** /api/v1/groups/{groupId}/roles | List all Assigned Roles
+[**ListGroupRules**](GroupApi.md#listgrouprules) | **GET** /api/v1/groups/rules | List all Group Rules
+[**ListGroupTargetsForGroupRole**](GroupApi.md#listgrouptargetsforgrouprole) | **GET** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups | List all Group Targets for a Group Role
+[**ListGroupUsers**](GroupApi.md#listgroupusers) | **GET** /api/v1/groups/{groupId}/users | List all Member Users
+[**ListGroups**](GroupApi.md#listgroups) | **GET** /api/v1/groups | List all Groups
+[**RemoveApplicationTargetFromAdministratorRoleGivenToGroup**](GroupApi.md#removeapplicationtargetfromadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName}/{applicationId} | Delete an Application Instance Target to Application Administrator Role
+[**RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**](GroupApi.md#removeapplicationtargetfromapplicationadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps/{appName} | Delete an Application Target from Application Administrator Role
+[**RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**](GroupApi.md#removegrouptargetfromgroupadministratorrolegiventogroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId}/targets/groups/{targetGroupId} | Delete a Group Target for Group Role
+[**RemoveRoleFromGroup**](GroupApi.md#removerolefromgroup) | **DELETE** /api/v1/groups/{groupId}/roles/{roleId} | Delete a Role
+[**RemoveUserFromGroup**](GroupApi.md#removeuserfromgroup) | **DELETE** /api/v1/groups/{groupId}/users/{userId} | Unassign a User
+[**UpdateGroup**](GroupApi.md#updategroup) | **PUT** /api/v1/groups/{groupId} | Replace a Group
+[**UpdateGroupRule**](GroupApi.md#updategrouprule) | **PUT** /api/v1/groups/rules/{ruleId} | Replace a Group Rule
 
 
 <a name="activategrouprule"></a>
 # **ActivateGroupRule**
 > void ActivateGroupRule (string ruleId)
 
-Activate a group Rule
+Activate a Group Rule
 
 Activates a specific group rule by id from your organization
 
@@ -58,11 +58,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -70,7 +70,7 @@ namespace Example
 
             try
             {
-                // Activate a group Rule
+                // Activate a Group Rule
                 apiInstance.ActivateGroupRule(ruleId);
             }
             catch (ApiException  e)
@@ -96,7 +96,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -118,7 +118,7 @@ void (empty response body)
 # **AddApplicationInstanceTargetToAppAdminRoleGivenToGroup**
 > void AddApplicationInstanceTargetToAppAdminRoleGivenToGroup (string groupId, string roleId, string appName, string applicationId)
 
-Add App Instance Target to App Administrator Role given to a Group
+Assign an Application Instance Target to Application Administrator Role
 
 Add App Instance Target to App Administrator Role given to a Group
 
@@ -138,11 +138,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -153,7 +153,7 @@ namespace Example
 
             try
             {
-                // Add App Instance Target to App Administrator Role given to a Group
+                // Assign an Application Instance Target to Application Administrator Role
                 apiInstance.AddApplicationInstanceTargetToAppAdminRoleGivenToGroup(groupId, roleId, appName, applicationId);
             }
             catch (ApiException  e)
@@ -182,7 +182,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -204,7 +204,7 @@ void (empty response body)
 # **AddApplicationTargetToAdminRoleGivenToGroup**
 > void AddApplicationTargetToAdminRoleGivenToGroup (string groupId, string roleId, string appName)
 
-Add Application Target to Admin Role Given to Group
+Assign an Application Target to Administrator Role
 
 Success
 
@@ -224,11 +224,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -238,7 +238,7 @@ namespace Example
 
             try
             {
-                // Add Application Target to Admin Role Given to Group
+                // Assign an Application Target to Administrator Role
                 apiInstance.AddApplicationTargetToAdminRoleGivenToGroup(groupId, roleId, appName);
             }
             catch (ApiException  e)
@@ -266,7 +266,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -288,7 +288,7 @@ void (empty response body)
 # **AddGroupTargetToGroupAdministratorRoleForGroup**
 > void AddGroupTargetToGroupAdministratorRoleForGroup (string groupId, string roleId, string targetGroupId)
 
-Add Group Target for Group Role
+Assign a Group Target for Group Role
 
 Enumerates group targets for a group role.
 
@@ -308,7 +308,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -318,7 +318,7 @@ namespace Example
 
             try
             {
-                // Add Group Target for Group Role
+                // Assign a Group Target for Group Role
                 apiInstance.AddGroupTargetToGroupAdministratorRoleForGroup(groupId, roleId, targetGroupId);
             }
             catch (ApiException  e)
@@ -346,7 +346,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth 2.0](../README.md#OAuth 2.0)
+[OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -368,7 +368,7 @@ void (empty response body)
 # **AddUserToGroup**
 > void AddUserToGroup (string groupId, string userId)
 
-Add User to Group
+Assign a User
 
 Adds a user to a group with 'OKTA_GROUP' type.
 
@@ -388,11 +388,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -401,7 +401,7 @@ namespace Example
 
             try
             {
-                // Add User to Group
+                // Assign a User
                 apiInstance.AddUserToGroup(groupId, userId);
             }
             catch (ApiException  e)
@@ -428,7 +428,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -450,7 +450,7 @@ void (empty response body)
 # **AssignRoleToGroup**
 > Role AssignRoleToGroup (string groupId, AssignRoleRequest assignRoleRequest, bool? disableNotifications = null)
 
-Assign Role to Group
+Assign a Role
 
 Assigns a Role to a Group
 
@@ -470,11 +470,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -484,7 +484,7 @@ namespace Example
 
             try
             {
-                // Assign Role to Group
+                // Assign a Role
                 Role result = apiInstance.AssignRoleToGroup(groupId, assignRoleRequest, disableNotifications);
                 Debug.WriteLine(result);
             }
@@ -513,7 +513,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -537,7 +537,7 @@ Name | Type | Description  | Notes
 # **CreateGroup**
 > Group CreateGroup (Group group)
 
-Add Group
+Create a Group
 
 Adds a new group with `OKTA_GROUP` type to your organization.
 
@@ -557,11 +557,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -569,7 +569,7 @@ namespace Example
 
             try
             {
-                // Add Group
+                // Create a Group
                 Group result = apiInstance.CreateGroup(group);
                 Debug.WriteLine(result);
             }
@@ -596,7 +596,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -618,7 +618,7 @@ Name | Type | Description  | Notes
 # **CreateGroupRule**
 > GroupRule CreateGroupRule (GroupRule groupRule)
 
-Create Group Rule
+Create a Group Rule
 
 Creates a group rule to dynamically add users to the specified group if they match the condition
 
@@ -638,11 +638,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -650,7 +650,7 @@ namespace Example
 
             try
             {
-                // Create Group Rule
+                // Create a Group Rule
                 GroupRule result = apiInstance.CreateGroupRule(groupRule);
                 Debug.WriteLine(result);
             }
@@ -677,7 +677,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -699,7 +699,7 @@ Name | Type | Description  | Notes
 # **DeactivateGroupRule**
 > void DeactivateGroupRule (string ruleId)
 
-Deactivate a group Rule
+Deactivate a Group Rule
 
 Deactivates a specific group rule by id from your organization
 
@@ -719,11 +719,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -731,7 +731,7 @@ namespace Example
 
             try
             {
-                // Deactivate a group Rule
+                // Deactivate a Group Rule
                 apiInstance.DeactivateGroupRule(ruleId);
             }
             catch (ApiException  e)
@@ -757,7 +757,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -779,7 +779,7 @@ void (empty response body)
 # **DeleteGroup**
 > void DeleteGroup (string groupId)
 
-Remove Group
+Delete a Group
 
 Removes a group with `OKTA_GROUP` type from your organization.
 
@@ -799,11 +799,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -811,7 +811,7 @@ namespace Example
 
             try
             {
-                // Remove Group
+                // Delete a Group
                 apiInstance.DeleteGroup(groupId);
             }
             catch (ApiException  e)
@@ -837,7 +837,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -879,11 +879,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -919,7 +919,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -941,7 +941,7 @@ void (empty response body)
 # **GetGroup**
 > Group GetGroup (string groupId)
 
-List Group Rules
+List all Group Rules
 
 Fetches a group from your organization.
 
@@ -961,11 +961,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -973,7 +973,7 @@ namespace Example
 
             try
             {
-                // List Group Rules
+                // List all Group Rules
                 Group result = apiInstance.GetGroup(groupId);
                 Debug.WriteLine(result);
             }
@@ -1000,7 +1000,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1022,7 +1022,7 @@ Name | Type | Description  | Notes
 # **GetGroupRule**
 > GroupRule GetGroupRule (string ruleId, string expand = null)
 
-Get Group Rule
+Retrieve a Group Rule
 
 Fetches a specific group rule by id from your organization
 
@@ -1042,11 +1042,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1055,7 +1055,7 @@ namespace Example
 
             try
             {
-                // Get Group Rule
+                // Retrieve a Group Rule
                 GroupRule result = apiInstance.GetGroupRule(ruleId, expand);
                 Debug.WriteLine(result);
             }
@@ -1083,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1105,7 +1105,7 @@ Name | Type | Description  | Notes
 # **GetRole**
 > Role GetRole (string groupId, string roleId)
 
-Get Role
+Retrieve a Role
 
 Success
 
@@ -1125,11 +1125,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1138,7 +1138,7 @@ namespace Example
 
             try
             {
-                // Get Role
+                // Retrieve a Role
                 Role result = apiInstance.GetRole(groupId, roleId);
                 Debug.WriteLine(result);
             }
@@ -1166,7 +1166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1188,7 +1188,7 @@ Name | Type | Description  | Notes
 # **ListApplicationTargetsForApplicationAdministratorRoleForGroup**
 > List&lt;CatalogApplication&gt; ListApplicationTargetsForApplicationAdministratorRoleForGroup (string groupId, string roleId, string after = null, int? limit = null)
 
-List Application Targets for Application Administrator Role for Group
+List all Application Targets for an Application Administrator Role
 
 Lists all App targets for an `APP_ADMIN` Role assigned to a Group. This methods return list may include full Applications or Instances. The response for an instance will have an `ID` value, while Application will not have an ID.
 
@@ -1208,11 +1208,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1223,7 +1223,7 @@ namespace Example
 
             try
             {
-                // List Application Targets for Application Administrator Role for Group
+                // List all Application Targets for an Application Administrator Role
                 List<CatalogApplication> result = apiInstance.ListApplicationTargetsForApplicationAdministratorRoleForGroup(groupId, roleId, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1253,7 +1253,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1275,7 +1275,7 @@ Name | Type | Description  | Notes
 # **ListAssignedApplicationsForGroup**
 > List&lt;Application&gt; ListAssignedApplicationsForGroup (string groupId, string after = null, int? limit = null)
 
-List Assigned Applications
+List all Assigned Applications
 
 Enumerates all applications that are assigned to a group.
 
@@ -1295,11 +1295,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1309,7 +1309,7 @@ namespace Example
 
             try
             {
-                // List Assigned Applications
+                // List all Assigned Applications
                 List<Application> result = apiInstance.ListAssignedApplicationsForGroup(groupId, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1338,7 +1338,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1360,7 +1360,7 @@ Name | Type | Description  | Notes
 # **ListGroupAssignedRoles**
 > List&lt;Role&gt; ListGroupAssignedRoles (string groupId, string expand = null)
 
-List Group Assigned Roles
+List all Assigned Roles
 
 Success
 
@@ -1380,11 +1380,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1393,7 +1393,7 @@ namespace Example
 
             try
             {
-                // List Group Assigned Roles
+                // List all Assigned Roles
                 List<Role> result = apiInstance.ListGroupAssignedRoles(groupId, expand);
                 Debug.WriteLine(result);
             }
@@ -1421,7 +1421,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1443,7 +1443,7 @@ Name | Type | Description  | Notes
 # **ListGroupRules**
 > List&lt;GroupRule&gt; ListGroupRules (int? limit = null, string after = null, string search = null, string expand = null)
 
-List Group Rules
+List all Group Rules
 
 Lists all group rules for your organization.
 
@@ -1463,11 +1463,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1478,7 +1478,7 @@ namespace Example
 
             try
             {
-                // List Group Rules
+                // List all Group Rules
                 List<GroupRule> result = apiInstance.ListGroupRules(limit, after, search, expand);
                 Debug.WriteLine(result);
             }
@@ -1508,7 +1508,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1529,7 +1529,7 @@ Name | Type | Description  | Notes
 # **ListGroupTargetsForGroupRole**
 > List&lt;Group&gt; ListGroupTargetsForGroupRole (string groupId, string roleId, string after = null, int? limit = null)
 
-List Group Targets for Group Role
+List all Group Targets for a Group Role
 
 Enumerates group targets for a group role.
 
@@ -1549,11 +1549,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1564,7 +1564,7 @@ namespace Example
 
             try
             {
-                // List Group Targets for Group Role
+                // List all Group Targets for a Group Role
                 List<Group> result = apiInstance.ListGroupTargetsForGroupRole(groupId, roleId, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1594,7 +1594,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1616,7 +1616,7 @@ Name | Type | Description  | Notes
 # **ListGroupUsers**
 > List&lt;User&gt; ListGroupUsers (string groupId, string after = null, int? limit = null)
 
-List Group Members
+List all Member Users
 
 Enumerates all users that are a member of a group.
 
@@ -1636,11 +1636,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1650,7 +1650,7 @@ namespace Example
 
             try
             {
-                // List Group Members
+                // List all Member Users
                 List<User> result = apiInstance.ListGroupUsers(groupId, after, limit);
                 Debug.WriteLine(result);
             }
@@ -1679,7 +1679,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1701,7 +1701,7 @@ Name | Type | Description  | Notes
 # **ListGroups**
 > List&lt;Group&gt; ListGroups (string q = null, string search = null, string after = null, int? limit = null, string expand = null)
 
-List Groups
+List all Groups
 
 Enumerates groups in your organization with pagination. A subset of groups can be returned that match a supported filter expression or query.
 
@@ -1721,11 +1721,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1737,7 +1737,7 @@ namespace Example
 
             try
             {
-                // List Groups
+                // List all Groups
                 List<Group> result = apiInstance.ListGroups(q, search, after, limit, expand);
                 Debug.WriteLine(result);
             }
@@ -1768,7 +1768,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1789,7 +1789,7 @@ Name | Type | Description  | Notes
 # **RemoveApplicationTargetFromAdministratorRoleGivenToGroup**
 > void RemoveApplicationTargetFromAdministratorRoleGivenToGroup (string groupId, string roleId, string appName, string applicationId)
 
-Remove App Instance Target to App Administrator Role given to a Group
+Delete an Application Instance Target to Application Administrator Role
 
 Remove App Instance Target to App Administrator Role given to a Group
 
@@ -1809,11 +1809,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1824,7 +1824,7 @@ namespace Example
 
             try
             {
-                // Remove App Instance Target to App Administrator Role given to a Group
+                // Delete an Application Instance Target to Application Administrator Role
                 apiInstance.RemoveApplicationTargetFromAdministratorRoleGivenToGroup(groupId, roleId, appName, applicationId);
             }
             catch (ApiException  e)
@@ -1853,7 +1853,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1875,7 +1875,7 @@ void (empty response body)
 # **RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup**
 > void RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup (string groupId, string roleId, string appName)
 
-Remove Application Target from Application Administrator Role Given to Group
+Delete an Application Target from Application Administrator Role
 
 Success
 
@@ -1895,11 +1895,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1909,7 +1909,7 @@ namespace Example
 
             try
             {
-                // Remove Application Target from Application Administrator Role Given to Group
+                // Delete an Application Target from Application Administrator Role
                 apiInstance.RemoveApplicationTargetFromApplicationAdministratorRoleGivenToGroup(groupId, roleId, appName);
             }
             catch (ApiException  e)
@@ -1937,7 +1937,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1959,7 +1959,7 @@ void (empty response body)
 # **RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup**
 > void RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup (string groupId, string roleId, string targetGroupId)
 
-Delete Group Target for Group Role
+Delete a Group Target for Group Role
 
 remove group target for a group role.
 
@@ -1979,7 +1979,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -1989,7 +1989,7 @@ namespace Example
 
             try
             {
-                // Delete Group Target for Group Role
+                // Delete a Group Target for Group Role
                 apiInstance.RemoveGroupTargetFromGroupAdministratorRoleGivenToGroup(groupId, roleId, targetGroupId);
             }
             catch (ApiException  e)
@@ -2017,7 +2017,7 @@ void (empty response body)
 
 ### Authorization
 
-[OAuth 2.0](../README.md#OAuth 2.0)
+[OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2039,7 +2039,7 @@ void (empty response body)
 # **RemoveRoleFromGroup**
 > void RemoveRoleFromGroup (string groupId, string roleId)
 
-Remove Role from Group
+Delete a Role
 
 Unassigns a Role from a Group
 
@@ -2059,11 +2059,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -2072,7 +2072,7 @@ namespace Example
 
             try
             {
-                // Remove Role from Group
+                // Delete a Role
                 apiInstance.RemoveRoleFromGroup(groupId, roleId);
             }
             catch (ApiException  e)
@@ -2099,7 +2099,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2121,7 +2121,7 @@ void (empty response body)
 # **RemoveUserFromGroup**
 > void RemoveUserFromGroup (string groupId, string userId)
 
-Remove User from Group
+Unassign a User
 
 Removes a user from a group with 'OKTA_GROUP' type.
 
@@ -2141,11 +2141,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -2154,7 +2154,7 @@ namespace Example
 
             try
             {
-                // Remove User from Group
+                // Unassign a User
                 apiInstance.RemoveUserFromGroup(groupId, userId);
             }
             catch (ApiException  e)
@@ -2181,7 +2181,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2203,7 +2203,7 @@ void (empty response body)
 # **UpdateGroup**
 > Group UpdateGroup (string groupId, Group group)
 
-Update Group
+Replace a Group
 
 Updates the profile for a group with `OKTA_GROUP` type from your organization.
 
@@ -2223,11 +2223,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -2236,7 +2236,7 @@ namespace Example
 
             try
             {
-                // Update Group
+                // Replace a Group
                 Group result = apiInstance.UpdateGroup(groupId, group);
                 Debug.WriteLine(result);
             }
@@ -2264,7 +2264,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -2287,7 +2287,7 @@ Name | Type | Description  | Notes
 # **UpdateGroupRule**
 > GroupRule UpdateGroupRule (string ruleId, GroupRule groupRule)
 
-Update Group Rule
+Replace a Group Rule
 
 Updates a group rule. Only `INACTIVE` rules can be updated.
 
@@ -2307,11 +2307,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new GroupApi(config);
@@ -2320,7 +2320,7 @@ namespace Example
 
             try
             {
-                // Update Group Rule
+                // Replace a Group Rule
                 GroupRule result = apiInstance.UpdateGroupRule(ruleId, groupRule);
                 Debug.WriteLine(result);
             }
@@ -2348,7 +2348,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

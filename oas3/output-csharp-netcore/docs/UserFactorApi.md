@@ -4,22 +4,22 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateFactor**](UserFactorApi.md#activatefactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/lifecycle/activate | Activate Factor
-[**DeleteFactor**](UserFactorApi.md#deletefactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Delete Factor
-[**EnrollFactor**](UserFactorApi.md#enrollfactor) | **POST** /api/v1/users/{userId}/factors | Enroll Factor
-[**GetFactor**](UserFactorApi.md#getfactor) | **GET** /api/v1/users/{userId}/factors/{factorId} | Get Factor
-[**GetFactorTransactionStatus**](UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Get Factor Transaction Status
-[**ListFactors**](UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List Factors
-[**ListSupportedFactors**](UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List Supported Factors
-[**ListSupportedSecurityQuestions**](UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List Supported Security Questions
-[**VerifyFactor**](UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify MFA Factor
+[**ActivateFactor**](UserFactorApi.md#activatefactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/lifecycle/activate | Activate a Factor
+[**DeleteFactor**](UserFactorApi.md#deletefactor) | **DELETE** /api/v1/users/{userId}/factors/{factorId} | Delete a Factor
+[**EnrollFactor**](UserFactorApi.md#enrollfactor) | **POST** /api/v1/users/{userId}/factors | Enroll a Factor
+[**GetFactor**](UserFactorApi.md#getfactor) | **GET** /api/v1/users/{userId}/factors/{factorId} | Retrieve a Factor
+[**GetFactorTransactionStatus**](UserFactorApi.md#getfactortransactionstatus) | **GET** /api/v1/users/{userId}/factors/{factorId}/transactions/{transactionId} | Retrieve a Factor Transaction Status
+[**ListFactors**](UserFactorApi.md#listfactors) | **GET** /api/v1/users/{userId}/factors | List all Factors
+[**ListSupportedFactors**](UserFactorApi.md#listsupportedfactors) | **GET** /api/v1/users/{userId}/factors/catalog | List all Supported Factors
+[**ListSupportedSecurityQuestions**](UserFactorApi.md#listsupportedsecurityquestions) | **GET** /api/v1/users/{userId}/factors/questions | List all Supported Security Questions
+[**VerifyFactor**](UserFactorApi.md#verifyfactor) | **POST** /api/v1/users/{userId}/factors/{factorId}/verify | Verify an MFA Factor
 
 
 <a name="activatefactor"></a>
 # **ActivateFactor**
 > UserFactor ActivateFactor (string userId, string factorId, ActivateFactorRequest body = null)
 
-Activate Factor
+Activate a Factor
 
 The `sms` and `token:software:totp` factor types require activation to complete the enrollment process.
 
@@ -39,11 +39,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -53,7 +53,7 @@ namespace Example
 
             try
             {
-                // Activate Factor
+                // Activate a Factor
                 UserFactor result = apiInstance.ActivateFactor(userId, factorId, body);
                 Debug.WriteLine(result);
             }
@@ -82,7 +82,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -105,7 +105,7 @@ Name | Type | Description  | Notes
 # **DeleteFactor**
 > void DeleteFactor (string userId, string factorId, bool? removeEnrollmentRecovery = null)
 
-Delete Factor
+Delete a Factor
 
 Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
 
@@ -125,11 +125,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -139,7 +139,7 @@ namespace Example
 
             try
             {
-                // Delete Factor
+                // Delete a Factor
                 apiInstance.DeleteFactor(userId, factorId, removeEnrollmentRecovery);
             }
             catch (ApiException  e)
@@ -167,7 +167,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -189,7 +189,7 @@ void (empty response body)
 # **EnrollFactor**
 > UserFactor EnrollFactor (string userId, UserFactor body, bool? updatePhone = null, string templateId = null, int? tokenLifetimeSeconds = null, bool? activate = null)
 
-Enroll Factor
+Enroll a Factor
 
 Enrolls a user with a supported factor.
 
@@ -209,11 +209,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -226,7 +226,7 @@ namespace Example
 
             try
             {
-                // Enroll Factor
+                // Enroll a Factor
                 UserFactor result = apiInstance.EnrollFactor(userId, body, updatePhone, templateId, tokenLifetimeSeconds, activate);
                 Debug.WriteLine(result);
             }
@@ -258,7 +258,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -281,7 +281,7 @@ Name | Type | Description  | Notes
 # **GetFactor**
 > UserFactor GetFactor (string userId, string factorId)
 
-Get Factor
+Retrieve a Factor
 
 Fetches a factor for the specified user
 
@@ -301,11 +301,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -314,7 +314,7 @@ namespace Example
 
             try
             {
-                // Get Factor
+                // Retrieve a Factor
                 UserFactor result = apiInstance.GetFactor(userId, factorId);
                 Debug.WriteLine(result);
             }
@@ -342,7 +342,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -364,7 +364,7 @@ Name | Type | Description  | Notes
 # **GetFactorTransactionStatus**
 > VerifyUserFactorResponse GetFactorTransactionStatus (string userId, string factorId, string transactionId)
 
-Get Factor Transaction Status
+Retrieve a Factor Transaction Status
 
 Polls factors verification transaction for status.
 
@@ -384,11 +384,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -398,7 +398,7 @@ namespace Example
 
             try
             {
-                // Get Factor Transaction Status
+                // Retrieve a Factor Transaction Status
                 VerifyUserFactorResponse result = apiInstance.GetFactorTransactionStatus(userId, factorId, transactionId);
                 Debug.WriteLine(result);
             }
@@ -427,7 +427,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -449,7 +449,7 @@ Name | Type | Description  | Notes
 # **ListFactors**
 > List&lt;UserFactor&gt; ListFactors (string userId)
 
-List Factors
+List all Factors
 
 Enumerates all the enrolled factors for the specified user
 
@@ -469,11 +469,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -481,7 +481,7 @@ namespace Example
 
             try
             {
-                // List Factors
+                // List all Factors
                 List<UserFactor> result = apiInstance.ListFactors(userId);
                 Debug.WriteLine(result);
             }
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -530,7 +530,7 @@ Name | Type | Description  | Notes
 # **ListSupportedFactors**
 > List&lt;UserFactor&gt; ListSupportedFactors (string userId)
 
-List Supported Factors
+List all Supported Factors
 
 Enumerates all the supported factors that can be enrolled for the specified user
 
@@ -550,11 +550,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -562,7 +562,7 @@ namespace Example
 
             try
             {
-                // List Supported Factors
+                // List all Supported Factors
                 List<UserFactor> result = apiInstance.ListSupportedFactors(userId);
                 Debug.WriteLine(result);
             }
@@ -589,7 +589,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -611,7 +611,7 @@ Name | Type | Description  | Notes
 # **ListSupportedSecurityQuestions**
 > List&lt;SecurityQuestion&gt; ListSupportedSecurityQuestions (string userId)
 
-List Supported Security Questions
+List all Supported Security Questions
 
 Enumerates all available security questions for a user's `question` factor
 
@@ -631,7 +631,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -641,7 +641,7 @@ namespace Example
 
             try
             {
-                // List Supported Security Questions
+                // List all Supported Security Questions
                 List<SecurityQuestion> result = apiInstance.ListSupportedSecurityQuestions(userId);
                 Debug.WriteLine(result);
             }
@@ -668,7 +668,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 
@@ -690,7 +690,7 @@ Name | Type | Description  | Notes
 # **VerifyFactor**
 > VerifyUserFactorResponse VerifyFactor (string userId, string factorId, string templateId = null, int? tokenLifetimeSeconds = null, string xForwardedFor = null, string userAgent = null, string acceptLanguage = null, VerifyFactorRequest body = null)
 
-Verify MFA Factor
+Verify an MFA Factor
 
 Verifies an OTP for a `token` or `token:hardware` factor
 
@@ -710,11 +710,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new UserFactorApi(config);
@@ -729,7 +729,7 @@ namespace Example
 
             try
             {
-                // Verify MFA Factor
+                // Verify an MFA Factor
                 VerifyUserFactorResponse result = apiInstance.VerifyFactor(userId, factorId, templateId, tokenLifetimeSeconds, xForwardedFor, userAgent, acceptLanguage, body);
                 Debug.WriteLine(result);
             }
@@ -763,7 +763,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

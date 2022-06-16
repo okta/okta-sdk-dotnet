@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create User Type
+        /// Create a User Type
         /// </summary>
         /// <remarks>
         /// Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         UserType CreateUserType(UserType userType);
 
         /// <summary>
-        /// Create User Type
+        /// Create a User Type
         /// </summary>
         /// <remarks>
         /// Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserType</returns>
         ApiResponse<UserType> CreateUserTypeWithHttpInfo(UserType userType);
         /// <summary>
-        /// Delete User Type
+        /// Delete a User Type
         /// </summary>
         /// <remarks>
         /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         void DeleteUserType(string typeId);
 
         /// <summary>
-        /// Delete User Type
+        /// Delete a User Type
         /// </summary>
         /// <remarks>
         /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteUserTypeWithHttpInfo(string typeId);
         /// <summary>
-        /// Get User Type
+        /// Retrieve a User Type
         /// </summary>
         /// <remarks>
         /// Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         UserType GetUserType(string typeId);
 
         /// <summary>
-        /// Get User Type
+        /// Retrieve a User Type
         /// </summary>
         /// <remarks>
         /// Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserType</returns>
         ApiResponse<UserType> GetUserTypeWithHttpInfo(string typeId);
         /// <summary>
-        /// List User Types
+        /// List all User Types
         /// </summary>
         /// <remarks>
         /// Fetches all User Types in your org
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         List<UserType> ListUserTypes();
 
         /// <summary>
-        /// List User Types
+        /// List all User Types
         /// </summary>
         /// <remarks>
         /// Fetches all User Types in your org
@@ -110,7 +110,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;UserType&gt;</returns>
         ApiResponse<List<UserType>> ListUserTypesWithHttpInfo();
         /// <summary>
-        /// Replace User Type
+        /// Replace a User Type
         /// </summary>
         /// <remarks>
         /// Replace an existing User Type
@@ -122,7 +122,7 @@ namespace Okta.Sdk.Api
         UserType ReplaceUserType(string typeId, UserType userType);
 
         /// <summary>
-        /// Replace User Type
+        /// Replace a User Type
         /// </summary>
         /// <remarks>
         /// Replace an existing User Type
@@ -133,7 +133,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of UserType</returns>
         ApiResponse<UserType> ReplaceUserTypeWithHttpInfo(string typeId, UserType userType);
         /// <summary>
-        /// Update User Type
+        /// Update a User Type
         /// </summary>
         /// <remarks>
         /// Updates an existing User Type
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Api
         UserType UpdateUserType(string typeId, UserType userType);
 
         /// <summary>
-        /// Update User Type
+        /// Update a User Type
         /// </summary>
         /// <remarks>
         /// Updates an existing User Type
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create User Type
+        /// Create a User Type
         /// </summary>
         /// <remarks>
         /// Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserType> CreateUserTypeAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create User Type
+        /// Create a User Type
         /// </summary>
         /// <remarks>
         /// Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
@@ -188,7 +188,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserType)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserType>> CreateUserTypeWithHttpInfoAsync(UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete User Type
+        /// Delete a User Type
         /// </summary>
         /// <remarks>
         /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete User Type
+        /// Delete a User Type
         /// </summary>
         /// <remarks>
         /// Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
@@ -211,7 +211,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteUserTypeWithHttpInfoAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get User Type
+        /// Retrieve a User Type
         /// </summary>
         /// <remarks>
         /// Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
@@ -223,7 +223,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserType> GetUserTypeAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get User Type
+        /// Retrieve a User Type
         /// </summary>
         /// <remarks>
         /// Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
@@ -234,7 +234,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserType)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserType>> GetUserTypeWithHttpInfoAsync(string typeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List User Types
+        /// List all User Types
         /// </summary>
         /// <remarks>
         /// Fetches all User Types in your org
@@ -245,7 +245,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<UserType>> ListUserTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List User Types
+        /// List all User Types
         /// </summary>
         /// <remarks>
         /// Fetches all User Types in your org
@@ -255,7 +255,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;UserType&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<UserType>>> ListUserTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Replace User Type
+        /// Replace a User Type
         /// </summary>
         /// <remarks>
         /// Replace an existing User Type
@@ -268,7 +268,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserType> ReplaceUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Replace User Type
+        /// Replace a User Type
         /// </summary>
         /// <remarks>
         /// Replace an existing User Type
@@ -280,7 +280,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (UserType)</returns>
         System.Threading.Tasks.Task<ApiResponse<UserType>> ReplaceUserTypeWithHttpInfoAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update User Type
+        /// Update a User Type
         /// </summary>
         /// <remarks>
         /// Updates an existing User Type
@@ -293,7 +293,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<UserType> UpdateUserTypeAsync(string typeId, UserType userType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update User Type
+        /// Update a User Type
         /// </summary>
         /// <remarks>
         /// Updates an existing User Type
@@ -404,7 +404,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
+        /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userType"></param>
@@ -416,7 +416,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
+        /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userType"></param>
@@ -454,12 +454,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = userType;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -481,7 +481,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
+        /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userType"></param>
@@ -494,7 +494,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
+        /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userType"></param>
@@ -534,12 +534,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = userType;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -562,7 +562,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
+        /// Delete a User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -573,7 +573,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
+        /// Delete a User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -610,12 +610,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -637,7 +637,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
+        /// Delete a User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -649,7 +649,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
+        /// Delete a User Type Deletes a User Type permanently. This operation is not permitted for the default type, nor for any User Type that has existing users
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -688,12 +688,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -716,7 +716,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
+        /// Retrieve a User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -728,7 +728,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
+        /// Retrieve a User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -765,12 +765,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -792,7 +792,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
+        /// Retrieve a User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -805,7 +805,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
+        /// Retrieve a User Type Fetches a User Type by ID. The special identifier &#x60;default&#x60; may be used to fetch the default User Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -844,12 +844,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -872,7 +872,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List User Types Fetches all User Types in your org
+        /// List all User Types Fetches all User Types in your org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;UserType&gt;</returns>
@@ -883,7 +883,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List User Types Fetches all User Types in your org
+        /// List all User Types Fetches all User Types in your org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;UserType&gt;</returns>
@@ -912,12 +912,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -939,7 +939,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List User Types Fetches all User Types in your org
+        /// List all User Types Fetches all User Types in your org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -951,7 +951,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List User Types Fetches all User Types in your org
+        /// List all User Types Fetches all User Types in your org
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -982,12 +982,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1010,7 +1010,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace User Type Replace an existing User Type
+        /// Replace a User Type Replace an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1023,7 +1023,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace User Type Replace an existing User Type
+        /// Replace a User Type Replace an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1069,12 +1069,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
             localVarRequestOptions.Data = userType;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1096,7 +1096,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace User Type Replace an existing User Type
+        /// Replace a User Type Replace an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1110,7 +1110,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Replace User Type Replace an existing User Type
+        /// Replace a User Type Replace an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1158,12 +1158,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
             localVarRequestOptions.Data = userType;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1186,7 +1186,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Type Updates an existing User Type
+        /// Update a User Type Updates an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1199,7 +1199,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Type Updates an existing User Type
+        /// Update a User Type Updates an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1245,12 +1245,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
             localVarRequestOptions.Data = userType;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1272,7 +1272,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Type Updates an existing User Type
+        /// Update a User Type Updates an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1286,7 +1286,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update User Type Updates an existing User Type
+        /// Update a User Type Updates an existing User Type
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="typeId"></param>
@@ -1334,12 +1334,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("typeId", Okta.Sdk.Client.ClientUtils.ParameterToString(typeId)); // path parameter
             localVarRequestOptions.Data = userType;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

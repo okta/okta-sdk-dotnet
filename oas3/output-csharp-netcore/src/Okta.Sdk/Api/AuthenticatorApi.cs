@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Activate Authenticator
+        /// Activate an Authenticator
         /// </summary>
         /// <remarks>
         /// Activates an authenticator by &#x60;authenticatorId&#x60;.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         Authenticator ActivateAuthenticator(string authenticatorId);
 
         /// <summary>
-        /// Activate Authenticator
+        /// Activate an Authenticator
         /// </summary>
         /// <remarks>
         /// Activates an authenticator by &#x60;authenticatorId&#x60;.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Authenticator</returns>
         ApiResponse<Authenticator> ActivateAuthenticatorWithHttpInfo(string authenticatorId);
         /// <summary>
-        /// Deactivate Authenticator
+        /// Deactivate an Authenticator
         /// </summary>
         /// <remarks>
         /// Deactivates an authenticator by &#x60;authenticatorId&#x60;.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         Authenticator DeactivateAuthenticator(string authenticatorId);
 
         /// <summary>
-        /// Deactivate Authenticator
+        /// Deactivate an Authenticator
         /// </summary>
         /// <remarks>
         /// Deactivates an authenticator by &#x60;authenticatorId&#x60;.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Authenticator</returns>
         ApiResponse<Authenticator> DeactivateAuthenticatorWithHttpInfo(string authenticatorId);
         /// <summary>
-        /// Get Authenticator
+        /// Retrieve an Authenticator
         /// </summary>
         /// <remarks>
         /// Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         Authenticator GetAuthenticator(string authenticatorId);
 
         /// <summary>
-        /// Get Authenticator
+        /// Retrieve an Authenticator
         /// </summary>
         /// <remarks>
         /// Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Authenticator</returns>
         ApiResponse<Authenticator> GetAuthenticatorWithHttpInfo(string authenticatorId);
         /// <summary>
-        /// List Authenticators
+        /// List all Authenticators
         /// </summary>
         /// <remarks>
         /// Enumerates authenticators in your organization.
@@ -101,7 +101,7 @@ namespace Okta.Sdk.Api
         List<Authenticator> ListAuthenticators();
 
         /// <summary>
-        /// List Authenticators
+        /// List all Authenticators
         /// </summary>
         /// <remarks>
         /// Enumerates authenticators in your organization.
@@ -110,7 +110,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Authenticator&gt;</returns>
         ApiResponse<List<Authenticator>> ListAuthenticatorsWithHttpInfo();
         /// <summary>
-        /// Update Authenticator
+        /// Replace an Authenticator
         /// </summary>
         /// <remarks>
         /// Updates an authenticator
@@ -122,7 +122,7 @@ namespace Okta.Sdk.Api
         Authenticator UpdateAuthenticator(string authenticatorId, Authenticator authenticator);
 
         /// <summary>
-        /// Update Authenticator
+        /// Replace an Authenticator
         /// </summary>
         /// <remarks>
         /// Updates an authenticator
@@ -142,7 +142,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Activate Authenticator
+        /// Activate an Authenticator
         /// </summary>
         /// <remarks>
         /// Activates an authenticator by &#x60;authenticatorId&#x60;.
@@ -154,7 +154,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Authenticator> ActivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Activate Authenticator
+        /// Activate an Authenticator
         /// </summary>
         /// <remarks>
         /// Activates an authenticator by &#x60;authenticatorId&#x60;.
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Authenticator)</returns>
         System.Threading.Tasks.Task<ApiResponse<Authenticator>> ActivateAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deactivate Authenticator
+        /// Deactivate an Authenticator
         /// </summary>
         /// <remarks>
         /// Deactivates an authenticator by &#x60;authenticatorId&#x60;.
@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Authenticator> DeactivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deactivate Authenticator
+        /// Deactivate an Authenticator
         /// </summary>
         /// <remarks>
         /// Deactivates an authenticator by &#x60;authenticatorId&#x60;.
@@ -188,7 +188,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Authenticator)</returns>
         System.Threading.Tasks.Task<ApiResponse<Authenticator>> DeactivateAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Authenticator
+        /// Retrieve an Authenticator
         /// </summary>
         /// <remarks>
         /// Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Authenticator
+        /// Retrieve an Authenticator
         /// </summary>
         /// <remarks>
         /// Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
@@ -211,7 +211,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Authenticator)</returns>
         System.Threading.Tasks.Task<ApiResponse<Authenticator>> GetAuthenticatorWithHttpInfoAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Authenticators
+        /// List all Authenticators
         /// </summary>
         /// <remarks>
         /// Enumerates authenticators in your organization.
@@ -222,7 +222,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Authenticator>> ListAuthenticatorsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Authenticators
+        /// List all Authenticators
         /// </summary>
         /// <remarks>
         /// Enumerates authenticators in your organization.
@@ -232,7 +232,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Authenticator&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Authenticator>>> ListAuthenticatorsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Authenticator
+        /// Replace an Authenticator
         /// </summary>
         /// <remarks>
         /// Updates an authenticator
@@ -245,7 +245,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Authenticator> UpdateAuthenticatorAsync(string authenticatorId, Authenticator authenticator, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Authenticator
+        /// Replace an Authenticator
         /// </summary>
         /// <remarks>
         /// Updates an authenticator
@@ -356,7 +356,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -368,7 +368,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -405,12 +405,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -432,7 +432,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -445,7 +445,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Activate Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -484,12 +484,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -512,7 +512,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -524,7 +524,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -561,12 +561,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -588,7 +588,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -601,7 +601,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deactivate Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
+        /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -640,12 +640,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -668,7 +668,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
+        /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -680,7 +680,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
+        /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -717,12 +717,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -744,7 +744,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
+        /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -757,7 +757,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
+        /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -796,12 +796,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -824,7 +824,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authenticators Enumerates authenticators in your organization.
+        /// List all Authenticators Enumerates authenticators in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Authenticator&gt;</returns>
@@ -835,7 +835,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authenticators Enumerates authenticators in your organization.
+        /// List all Authenticators Enumerates authenticators in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Authenticator&gt;</returns>
@@ -864,12 +864,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -891,7 +891,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authenticators Enumerates authenticators in your organization.
+        /// List all Authenticators Enumerates authenticators in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -903,7 +903,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Authenticators Enumerates authenticators in your organization.
+        /// List all Authenticators Enumerates authenticators in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -934,12 +934,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -962,7 +962,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authenticator Updates an authenticator
+        /// Replace an Authenticator Updates an authenticator
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -975,7 +975,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authenticator Updates an authenticator
+        /// Replace an Authenticator Updates an authenticator
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -1021,12 +1021,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
             localVarRequestOptions.Data = authenticator;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1048,7 +1048,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authenticator Updates an authenticator
+        /// Replace an Authenticator Updates an authenticator
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -1062,7 +1062,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Authenticator Updates an authenticator
+        /// Replace an Authenticator Updates an authenticator
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="authenticatorId"></param>
@@ -1110,12 +1110,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("authenticatorId", Okta.Sdk.Client.ClientUtils.ParameterToString(authenticatorId)); // path parameter
             localVarRequestOptions.Data = authenticator;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

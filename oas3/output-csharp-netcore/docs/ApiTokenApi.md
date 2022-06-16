@@ -4,8 +4,8 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**GetApiToken**](ApiTokenApi.md#getapitoken) | **GET** /api/v1/api-tokens/{apiTokenId} | Get the Metadata for an API Token
-[**ListApiTokens**](ApiTokenApi.md#listapitokens) | **GET** /api/v1/api-tokens | List API Token Metadata
+[**GetApiToken**](ApiTokenApi.md#getapitoken) | **GET** /api/v1/api-tokens/{apiTokenId} | Retrieve an API Token&#39;s Metadata
+[**ListApiTokens**](ApiTokenApi.md#listapitokens) | **GET** /api/v1/api-tokens | List all API Token Metadata
 [**RevokeApiToken**](ApiTokenApi.md#revokeapitoken) | **DELETE** /api/v1/api-tokens/{apiTokenId} | Revoke an API Token
 [**RevokeCurrentApiToken**](ApiTokenApi.md#revokecurrentapitoken) | **DELETE** /api/v1/api-tokens/current | Revoke the Current API Token
 
@@ -14,7 +14,7 @@ Method | HTTP request | Description
 # **GetApiToken**
 > ApiToken GetApiToken (string apiTokenId)
 
-Get the Metadata for an API Token
+Retrieve an API Token's Metadata
 
 Get the metadata for an active API token by id.
 
@@ -34,11 +34,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiTokenApi(config);
@@ -46,7 +46,7 @@ namespace Example
 
             try
             {
-                // Get the Metadata for an API Token
+                // Retrieve an API Token's Metadata
                 ApiToken result = apiInstance.GetApiToken(apiTokenId);
                 Debug.WriteLine(result);
             }
@@ -73,7 +73,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -95,7 +95,7 @@ Name | Type | Description  | Notes
 # **ListApiTokens**
 > List&lt;ApiToken&gt; ListApiTokens (string after = null, int? limit = null, string q = null)
 
-List API Token Metadata
+List all API Token Metadata
 
 Enumerates the metadata of the active API tokens in your organization.
 
@@ -115,11 +115,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiTokenApi(config);
@@ -129,7 +129,7 @@ namespace Example
 
             try
             {
-                // List API Token Metadata
+                // List all API Token Metadata
                 List<ApiToken> result = apiInstance.ListApiTokens(after, limit, q);
                 Debug.WriteLine(result);
             }
@@ -158,7 +158,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -199,11 +199,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ApiTokenApi(config);
@@ -237,7 +237,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -279,7 +279,7 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
@@ -311,7 +311,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token)
+[API_Token](../README.md#API_Token)
 
 ### HTTP request headers
 

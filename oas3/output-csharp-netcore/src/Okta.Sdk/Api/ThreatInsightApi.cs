@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get Current Configuration
+        /// Retrieve the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Gets current ThreatInsight configuration
@@ -38,7 +38,7 @@ namespace Okta.Sdk.Api
         ThreatInsightConfiguration GetCurrentConfiguration();
 
         /// <summary>
-        /// Get Current Configuration
+        /// Retrieve the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Gets current ThreatInsight configuration
@@ -47,7 +47,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ThreatInsightConfiguration</returns>
         ApiResponse<ThreatInsightConfiguration> GetCurrentConfigurationWithHttpInfo();
         /// <summary>
-        /// Update Configuration
+        /// Update the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Updates ThreatInsight configuration
@@ -58,7 +58,7 @@ namespace Okta.Sdk.Api
         ThreatInsightConfiguration UpdateConfiguration(ThreatInsightConfiguration threatInsightConfiguration);
 
         /// <summary>
-        /// Update Configuration
+        /// Update the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Updates ThreatInsight configuration
@@ -77,7 +77,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Get Current Configuration
+        /// Retrieve the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Gets current ThreatInsight configuration
@@ -88,7 +88,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ThreatInsightConfiguration> GetCurrentConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Current Configuration
+        /// Retrieve the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Gets current ThreatInsight configuration
@@ -98,7 +98,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ThreatInsightConfiguration)</returns>
         System.Threading.Tasks.Task<ApiResponse<ThreatInsightConfiguration>> GetCurrentConfigurationWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Configuration
+        /// Update the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Updates ThreatInsight configuration
@@ -110,7 +110,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ThreatInsightConfiguration> UpdateConfigurationAsync(ThreatInsightConfiguration threatInsightConfiguration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Configuration
+        /// Update the ThreatInsight Configuration
         /// </summary>
         /// <remarks>
         /// Updates ThreatInsight configuration
@@ -220,7 +220,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Current Configuration Gets current ThreatInsight configuration
+        /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ThreatInsightConfiguration</returns>
@@ -231,7 +231,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Current Configuration Gets current ThreatInsight configuration
+        /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ThreatInsightConfiguration</returns>
@@ -260,12 +260,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -287,7 +287,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Current Configuration Gets current ThreatInsight configuration
+        /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -299,7 +299,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Current Configuration Gets current ThreatInsight configuration
+        /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -330,12 +330,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -358,7 +358,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Configuration Updates ThreatInsight configuration
+        /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threatInsightConfiguration"></param>
@@ -370,7 +370,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Configuration Updates ThreatInsight configuration
+        /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threatInsightConfiguration"></param>
@@ -408,12 +408,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = threatInsightConfiguration;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -435,7 +435,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Configuration Updates ThreatInsight configuration
+        /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threatInsightConfiguration"></param>
@@ -448,7 +448,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Configuration Updates ThreatInsight configuration
+        /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="threatInsightConfiguration"></param>
@@ -488,12 +488,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = threatInsightConfiguration;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

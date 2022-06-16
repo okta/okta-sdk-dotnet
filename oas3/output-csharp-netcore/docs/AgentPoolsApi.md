@@ -4,27 +4,27 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateAgentPoolsUpdate**](AgentPoolsApi.md#activateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/activate | Activate Agent pool update
-[**CreateAgentPoolsUpdate**](AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an Agent pool update
-[**DeactivateAgentPoolsUpdate**](AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate Agent pool update
-[**DeleteAgentPoolsUpdate**](AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete Agent pool update
-[**GetAgentPools**](AgentPoolsApi.md#getagentpools) | **GET** /api/v1/agentPools | Fetch AgentPools
-[**GetAgentPoolsUpdateInstance**](AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Get Agent pool update by id
-[**GetAgentPoolsUpdateSettings**](AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Get Agent pool update settings
-[**GetAgentPoolsUpdates**](AgentPoolsApi.md#getagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List Agent pool updates
-[**PauseAgentPoolsUpdate**](AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause Agent pool update
-[**ResumeAgentPoolsUpdate**](AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume Agent pool update
-[**RetryAgentPoolsUpdate**](AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry Agent pool update
-[**SetAgentPoolsUpdateSettings**](AgentPoolsApi.md#setagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update Agent pool update settings
-[**StopAgentPoolsUpdate**](AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop Agent pool update
-[**UpdateAgentPoolsUpdate**](AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Change Agent pool update by id
+[**ActivateAgentPoolsUpdate**](AgentPoolsApi.md#activateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/activate | Activate an Agent Pool update
+[**CreateAgentPoolsUpdate**](AgentPoolsApi.md#createagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates | Create an Agent Pool update
+[**DeactivateAgentPoolsUpdate**](AgentPoolsApi.md#deactivateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/deactivate | Deactivate an Agent Pool update
+[**DeleteAgentPoolsUpdate**](AgentPoolsApi.md#deleteagentpoolsupdate) | **DELETE** /api/v1/agentPools/{poolId}/updates/{updateId} | Delete an Agent Pool update
+[**GetAgentPools**](AgentPoolsApi.md#getagentpools) | **GET** /api/v1/agentPools | List all Agent Pools
+[**GetAgentPoolsUpdateInstance**](AgentPoolsApi.md#getagentpoolsupdateinstance) | **GET** /api/v1/agentPools/{poolId}/updates/{updateId} | Retrieve an Agent Pool update by id
+[**GetAgentPoolsUpdateSettings**](AgentPoolsApi.md#getagentpoolsupdatesettings) | **GET** /api/v1/agentPools/{poolId}/updates/settings | Retrieve an Agent Pool update&#39;s settings
+[**GetAgentPoolsUpdates**](AgentPoolsApi.md#getagentpoolsupdates) | **GET** /api/v1/agentPools/{poolId}/updates | List all Agent Pool updates
+[**PauseAgentPoolsUpdate**](AgentPoolsApi.md#pauseagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/pause | Pause an Agent Pool update
+[**ResumeAgentPoolsUpdate**](AgentPoolsApi.md#resumeagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/resume | Resume an Agent Pool update
+[**RetryAgentPoolsUpdate**](AgentPoolsApi.md#retryagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/retry | Retry an Agent Pool update
+[**SetAgentPoolsUpdateSettings**](AgentPoolsApi.md#setagentpoolsupdatesettings) | **POST** /api/v1/agentPools/{poolId}/updates/settings | Update an Agent pool update settings
+[**StopAgentPoolsUpdate**](AgentPoolsApi.md#stopagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId}/stop | Stop an Agent Pool update
+[**UpdateAgentPoolsUpdate**](AgentPoolsApi.md#updateagentpoolsupdate) | **POST** /api/v1/agentPools/{poolId}/updates/{updateId} | Update an Agent Pool update by id
 
 
 <a name="activateagentpoolsupdate"></a>
 # **ActivateAgentPoolsUpdate**
 > AgentPoolUpdate ActivateAgentPoolsUpdate (string poolId, string updateId)
 
-Activate Agent pool update
+Activate an Agent Pool update
 
 Activates scheduled Agent pool update
 
@@ -44,11 +44,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -57,7 +57,7 @@ namespace Example
 
             try
             {
-                // Activate Agent pool update
+                // Activate an Agent Pool update
                 AgentPoolUpdate result = apiInstance.ActivateAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -85,7 +85,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -107,7 +107,7 @@ Name | Type | Description  | Notes
 # **CreateAgentPoolsUpdate**
 > AgentPoolUpdate CreateAgentPoolsUpdate (string poolId, AgentPoolUpdate agentPoolUpdate)
 
-Create an Agent pool update
+Create an Agent Pool update
 
 Creates an Agent pool update \\n For user flow 2 manual update, starts the update immediately. \\n For user flow 3, schedules the update based on the configured update window and delay.
 
@@ -127,11 +127,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -140,7 +140,7 @@ namespace Example
 
             try
             {
-                // Create an Agent pool update
+                // Create an Agent Pool update
                 AgentPoolUpdate result = apiInstance.CreateAgentPoolsUpdate(poolId, agentPoolUpdate);
                 Debug.WriteLine(result);
             }
@@ -168,7 +168,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -191,7 +191,7 @@ Name | Type | Description  | Notes
 # **DeactivateAgentPoolsUpdate**
 > AgentPoolUpdate DeactivateAgentPoolsUpdate (string poolId, string updateId)
 
-Deactivate Agent pool update
+Deactivate an Agent Pool update
 
 Deactivates scheduled Agent pool update
 
@@ -211,11 +211,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -224,7 +224,7 @@ namespace Example
 
             try
             {
-                // Deactivate Agent pool update
+                // Deactivate an Agent Pool update
                 AgentPoolUpdate result = apiInstance.DeactivateAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -252,7 +252,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -274,7 +274,7 @@ Name | Type | Description  | Notes
 # **DeleteAgentPoolsUpdate**
 > void DeleteAgentPoolsUpdate (string poolId, string updateId)
 
-Delete Agent pool update
+Delete an Agent Pool update
 
 Deletes Agent pool update
 
@@ -294,11 +294,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -307,7 +307,7 @@ namespace Example
 
             try
             {
-                // Delete Agent pool update
+                // Delete an Agent Pool update
                 apiInstance.DeleteAgentPoolsUpdate(poolId, updateId);
             }
             catch (ApiException  e)
@@ -334,7 +334,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -356,7 +356,7 @@ void (empty response body)
 # **GetAgentPools**
 > List&lt;AgentPool&gt; GetAgentPools (int? limitPerPoolType = null, AgentType? poolType = null, string after = null)
 
-Fetch AgentPools
+List all Agent Pools
 
 Fetches AgentPools based on request parameters for a given org
 
@@ -376,11 +376,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -390,7 +390,7 @@ namespace Example
 
             try
             {
-                // Fetch AgentPools
+                // List all Agent Pools
                 List<AgentPool> result = apiInstance.GetAgentPools(limitPerPoolType, poolType, after);
                 Debug.WriteLine(result);
             }
@@ -419,7 +419,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -440,7 +440,7 @@ Name | Type | Description  | Notes
 # **GetAgentPoolsUpdateInstance**
 > AgentPoolUpdate GetAgentPoolsUpdateInstance (string poolId, string updateId)
 
-Get Agent pool update by id
+Retrieve an Agent Pool update by id
 
 Gets Agent pool update from updateId
 
@@ -460,11 +460,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -473,7 +473,7 @@ namespace Example
 
             try
             {
-                // Get Agent pool update by id
+                // Retrieve an Agent Pool update by id
                 AgentPoolUpdate result = apiInstance.GetAgentPoolsUpdateInstance(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -501,7 +501,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -523,7 +523,7 @@ Name | Type | Description  | Notes
 # **GetAgentPoolsUpdateSettings**
 > AgentPoolUpdateSetting GetAgentPoolsUpdateSettings (string poolId)
 
-Get Agent pool update settings
+Retrieve an Agent Pool update's settings
 
 Gets the current state of the agent pool update instance settings
 
@@ -543,11 +543,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -555,7 +555,7 @@ namespace Example
 
             try
             {
-                // Get Agent pool update settings
+                // Retrieve an Agent Pool update's settings
                 AgentPoolUpdateSetting result = apiInstance.GetAgentPoolsUpdateSettings(poolId);
                 Debug.WriteLine(result);
             }
@@ -582,7 +582,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -604,7 +604,7 @@ Name | Type | Description  | Notes
 # **GetAgentPoolsUpdates**
 > List&lt;AgentPoolUpdate&gt; GetAgentPoolsUpdates (string poolId, bool? scheduled = null)
 
-List Agent pool updates
+List all Agent Pool updates
 
 Gets List of Agent pool updates
 
@@ -624,11 +624,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -637,7 +637,7 @@ namespace Example
 
             try
             {
-                // List Agent pool updates
+                // List all Agent Pool updates
                 List<AgentPoolUpdate> result = apiInstance.GetAgentPoolsUpdates(poolId, scheduled);
                 Debug.WriteLine(result);
             }
@@ -665,7 +665,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -687,7 +687,7 @@ Name | Type | Description  | Notes
 # **PauseAgentPoolsUpdate**
 > AgentPoolUpdate PauseAgentPoolsUpdate (string poolId, string updateId)
 
-Pause Agent pool update
+Pause an Agent Pool update
 
 Pauses running or queued Agent pool update
 
@@ -707,11 +707,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -720,7 +720,7 @@ namespace Example
 
             try
             {
-                // Pause Agent pool update
+                // Pause an Agent Pool update
                 AgentPoolUpdate result = apiInstance.PauseAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -748,7 +748,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -770,7 +770,7 @@ Name | Type | Description  | Notes
 # **ResumeAgentPoolsUpdate**
 > AgentPoolUpdate ResumeAgentPoolsUpdate (string poolId, string updateId)
 
-Resume Agent pool update
+Resume an Agent Pool update
 
 Resumes running or queued Agent pool update
 
@@ -790,11 +790,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -803,7 +803,7 @@ namespace Example
 
             try
             {
-                // Resume Agent pool update
+                // Resume an Agent Pool update
                 AgentPoolUpdate result = apiInstance.ResumeAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -831,7 +831,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -853,7 +853,7 @@ Name | Type | Description  | Notes
 # **RetryAgentPoolsUpdate**
 > AgentPoolUpdate RetryAgentPoolsUpdate (string poolId, string updateId)
 
-Retry Agent pool update
+Retry an Agent Pool update
 
 Retries Agent pool update
 
@@ -873,11 +873,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -886,7 +886,7 @@ namespace Example
 
             try
             {
-                // Retry Agent pool update
+                // Retry an Agent Pool update
                 AgentPoolUpdate result = apiInstance.RetryAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -914,7 +914,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -936,7 +936,7 @@ Name | Type | Description  | Notes
 # **SetAgentPoolsUpdateSettings**
 > AgentPoolUpdateSetting SetAgentPoolsUpdateSettings (string poolId, AgentPoolUpdateSetting agentPoolUpdateSetting)
 
-Update Agent pool update settings
+Update an Agent pool update settings
 
 Updates Agent pool update settings
 
@@ -956,11 +956,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -969,7 +969,7 @@ namespace Example
 
             try
             {
-                // Update Agent pool update settings
+                // Update an Agent pool update settings
                 AgentPoolUpdateSetting result = apiInstance.SetAgentPoolsUpdateSettings(poolId, agentPoolUpdateSetting);
                 Debug.WriteLine(result);
             }
@@ -997,7 +997,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1020,7 +1020,7 @@ Name | Type | Description  | Notes
 # **StopAgentPoolsUpdate**
 > AgentPoolUpdate StopAgentPoolsUpdate (string poolId, string updateId)
 
-Stop Agent pool update
+Stop an Agent Pool update
 
 Stops Agent pool update
 
@@ -1040,11 +1040,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -1053,7 +1053,7 @@ namespace Example
 
             try
             {
-                // Stop Agent pool update
+                // Stop an Agent Pool update
                 AgentPoolUpdate result = apiInstance.StopAgentPoolsUpdate(poolId, updateId);
                 Debug.WriteLine(result);
             }
@@ -1081,7 +1081,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -1103,7 +1103,7 @@ Name | Type | Description  | Notes
 # **UpdateAgentPoolsUpdate**
 > AgentPoolUpdate UpdateAgentPoolsUpdate (string poolId, string updateId, AgentPoolUpdate agentPoolUpdate)
 
-Change Agent pool update by id
+Update an Agent Pool update by id
 
 Updates Agent pool update and return latest agent pool update
 
@@ -1123,11 +1123,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new AgentPoolsApi(config);
@@ -1137,7 +1137,7 @@ namespace Example
 
             try
             {
-                // Change Agent pool update by id
+                // Update an Agent Pool update by id
                 AgentPoolUpdate result = apiInstance.UpdateAgentPoolsUpdate(poolId, updateId, agentPoolUpdate);
                 Debug.WriteLine(result);
             }
@@ -1166,7 +1166,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

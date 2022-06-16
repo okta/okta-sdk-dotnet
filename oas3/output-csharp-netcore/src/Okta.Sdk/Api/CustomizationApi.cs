@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Email Customization
+        /// Create an Email Customization
         /// </summary>
         /// <remarks>
         /// Creates a new email customization.
@@ -41,7 +41,7 @@ namespace Okta.Sdk.Api
         EmailCustomization CreateEmailCustomization(string brandId, string templateName, EmailCustomization instance = default(EmailCustomization));
 
         /// <summary>
-        /// Create Email Customization
+        /// Create an Email Customization
         /// </summary>
         /// <remarks>
         /// Creates a new email customization.
@@ -53,7 +53,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailCustomization</returns>
         ApiResponse<EmailCustomization> CreateEmailCustomizationWithHttpInfo(string brandId, string templateName, EmailCustomization instance = default(EmailCustomization));
         /// <summary>
-        /// Delete All Email Customizations
+        /// Delete all Email Customizations
         /// </summary>
         /// <remarks>
         /// Deletes all customizations for an email template.
@@ -65,7 +65,7 @@ namespace Okta.Sdk.Api
         void DeleteAllCustomizations(string brandId, string templateName);
 
         /// <summary>
-        /// Delete All Email Customizations
+        /// Delete all Email Customizations
         /// </summary>
         /// <remarks>
         /// Deletes all customizations for an email template.
@@ -76,10 +76,10 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteAllCustomizationsWithHttpInfo(string brandId, string templateName);
         /// <summary>
-        /// Deletes a Theme background image
+        /// Delete the Background Image
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme background image
+        /// Deletes a Theme background image.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -88,10 +88,10 @@ namespace Okta.Sdk.Api
         void DeleteBrandThemeBackgroundImage(string brandId, string themeId);
 
         /// <summary>
-        /// Deletes a Theme background image
+        /// Delete the Background Image
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme background image
+        /// Deletes a Theme background image.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -99,10 +99,10 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteBrandThemeBackgroundImageWithHttpInfo(string brandId, string themeId);
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -111,10 +111,10 @@ namespace Okta.Sdk.Api
         void DeleteBrandThemeFavicon(string brandId, string themeId);
 
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -122,10 +122,10 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteBrandThemeFaviconWithHttpInfo(string brandId, string themeId);
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Deletes a Theme logo. The theme will use the default Okta logo.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -134,10 +134,10 @@ namespace Okta.Sdk.Api
         void DeleteBrandThemeLogo(string brandId, string themeId);
 
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Deletes a Theme logo. The theme will use the default Okta logo.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -145,7 +145,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteBrandThemeLogoWithHttpInfo(string brandId, string themeId);
         /// <summary>
-        /// Delete Email Customization
+        /// Delete an Email Customization
         /// </summary>
         /// <remarks>
         /// Deletes an email customization by its unique identifier.
@@ -158,7 +158,7 @@ namespace Okta.Sdk.Api
         void DeleteEmailCustomization(string brandId, string templateName, string customizationId);
 
         /// <summary>
-        /// Delete Email Customization
+        /// Delete an Email Customization
         /// </summary>
         /// <remarks>
         /// Deletes an email customization by its unique identifier.
@@ -170,7 +170,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteEmailCustomizationWithHttpInfo(string brandId, string templateName, string customizationId);
         /// <summary>
-        /// Get Brand
+        /// Retrieve a Brand
         /// </summary>
         /// <remarks>
         /// Fetches a brand by &#x60;brandId&#x60;
@@ -181,7 +181,7 @@ namespace Okta.Sdk.Api
         Brand GetBrand(string brandId);
 
         /// <summary>
-        /// Get Brand
+        /// Retrieve a Brand
         /// </summary>
         /// <remarks>
         /// Fetches a brand by &#x60;brandId&#x60;
@@ -191,7 +191,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Brand</returns>
         ApiResponse<Brand> GetBrandWithHttpInfo(string brandId);
         /// <summary>
-        /// Get a theme for a brand
+        /// Retrieve a Theme
         /// </summary>
         /// <remarks>
         /// Fetches a theme for a brand
@@ -203,7 +203,7 @@ namespace Okta.Sdk.Api
         ThemeResponse GetBrandTheme(string brandId, string themeId);
 
         /// <summary>
-        /// Get a theme for a brand
+        /// Retrieve a Theme
         /// </summary>
         /// <remarks>
         /// Fetches a theme for a brand
@@ -214,7 +214,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ThemeResponse</returns>
         ApiResponse<ThemeResponse> GetBrandThemeWithHttpInfo(string brandId, string themeId);
         /// <summary>
-        /// Preview Email Customization
+        /// Preview an Email Customization
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -227,7 +227,7 @@ namespace Okta.Sdk.Api
         EmailPreview GetCustomizationPreview(string brandId, string templateName, string customizationId);
 
         /// <summary>
-        /// Preview Email Customization
+        /// Preview an Email Customization
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -239,7 +239,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailPreview</returns>
         ApiResponse<EmailPreview> GetCustomizationPreviewWithHttpInfo(string brandId, string templateName, string customizationId);
         /// <summary>
-        /// Get Email Customization
+        /// Retrieve an Email Customization
         /// </summary>
         /// <remarks>
         /// Gets an email customization by its unique identifier.
@@ -252,7 +252,7 @@ namespace Okta.Sdk.Api
         EmailCustomization GetEmailCustomization(string brandId, string templateName, string customizationId);
 
         /// <summary>
-        /// Get Email Customization
+        /// Retrieve an Email Customization
         /// </summary>
         /// <remarks>
         /// Gets an email customization by its unique identifier.
@@ -264,7 +264,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailCustomization</returns>
         ApiResponse<EmailCustomization> GetEmailCustomizationWithHttpInfo(string brandId, string templateName, string customizationId);
         /// <summary>
-        /// Get Email Template Default Content
+        /// Retrieve an Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s default content.
@@ -277,7 +277,7 @@ namespace Okta.Sdk.Api
         EmailDefaultContent GetEmailDefaultContent(string brandId, string templateName, string language = default(string));
 
         /// <summary>
-        /// Get Email Template Default Content
+        /// Retrieve an Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s default content.
@@ -289,7 +289,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailDefaultContent</returns>
         ApiResponse<EmailDefaultContent> GetEmailDefaultContentWithHttpInfo(string brandId, string templateName, string language = default(string));
         /// <summary>
-        /// Preview Email Template Default Content
+        /// Preview the Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -302,7 +302,7 @@ namespace Okta.Sdk.Api
         EmailPreview GetEmailDefaultPreview(string brandId, string templateName, string language = default(string));
 
         /// <summary>
-        /// Preview Email Template Default Content
+        /// Preview the Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -314,7 +314,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailPreview</returns>
         ApiResponse<EmailPreview> GetEmailDefaultPreviewWithHttpInfo(string brandId, string templateName, string language = default(string));
         /// <summary>
-        /// Get Email Template Settings
+        /// Retrieve the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s settings.
@@ -326,7 +326,7 @@ namespace Okta.Sdk.Api
         EmailSettings GetEmailSettings(string brandId, string templateName);
 
         /// <summary>
-        /// Get Email Template Settings
+        /// Retrieve the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s settings.
@@ -337,7 +337,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailSettings</returns>
         ApiResponse<EmailSettings> GetEmailSettingsWithHttpInfo(string brandId, string templateName);
         /// <summary>
-        /// Get Email Template
+        /// Retrieve an Email Template
         /// </summary>
         /// <remarks>
         /// Gets the details of an email template by name.
@@ -350,7 +350,7 @@ namespace Okta.Sdk.Api
         EmailTemplate GetEmailTemplate(string brandId, string templateName, List<string> expand = default(List<string>));
 
         /// <summary>
-        /// Get Email Template
+        /// Retrieve an Email Template
         /// </summary>
         /// <remarks>
         /// Gets the details of an email template by name.
@@ -362,7 +362,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailTemplate</returns>
         ApiResponse<EmailTemplate> GetEmailTemplateWithHttpInfo(string brandId, string templateName, List<string> expand = default(List<string>));
         /// <summary>
-        /// Get Brand Themes
+        /// List all Themes
         /// </summary>
         /// <remarks>
         /// List all the themes in your brand
@@ -373,7 +373,7 @@ namespace Okta.Sdk.Api
         List<ThemeResponse> ListBrandThemes(string brandId);
 
         /// <summary>
-        /// Get Brand Themes
+        /// List all Themes
         /// </summary>
         /// <remarks>
         /// List all the themes in your brand
@@ -383,7 +383,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;ThemeResponse&gt;</returns>
         ApiResponse<List<ThemeResponse>> ListBrandThemesWithHttpInfo(string brandId);
         /// <summary>
-        /// List Brands
+        /// List all Brands
         /// </summary>
         /// <remarks>
         /// List all the brands in your org.
@@ -393,7 +393,7 @@ namespace Okta.Sdk.Api
         List<Brand> ListBrands();
 
         /// <summary>
-        /// List Brands
+        /// List all Brands
         /// </summary>
         /// <remarks>
         /// List all the brands in your org.
@@ -402,7 +402,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;Brand&gt;</returns>
         ApiResponse<List<Brand>> ListBrandsWithHttpInfo();
         /// <summary>
-        /// List Email Customizations
+        /// List all Email Customizations
         /// </summary>
         /// <remarks>
         /// Lists all customizations of an email template.
@@ -416,7 +416,7 @@ namespace Okta.Sdk.Api
         List<EmailCustomization> ListEmailCustomizations(string brandId, string templateName, string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Email Customizations
+        /// List all Email Customizations
         /// </summary>
         /// <remarks>
         /// Lists all customizations of an email template.
@@ -429,7 +429,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;EmailCustomization&gt;</returns>
         ApiResponse<List<EmailCustomization>> ListEmailCustomizationsWithHttpInfo(string brandId, string templateName, string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// List Email Templates
+        /// List all Email Templates
         /// </summary>
         /// <remarks>
         /// Lists all email templates.
@@ -443,7 +443,7 @@ namespace Okta.Sdk.Api
         List<EmailTemplate> ListEmailTemplates(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>));
 
         /// <summary>
-        /// List Email Templates
+        /// List all Email Templates
         /// </summary>
         /// <remarks>
         /// Lists all email templates.
@@ -456,7 +456,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;EmailTemplate&gt;</returns>
         ApiResponse<List<EmailTemplate>> ListEmailTemplatesWithHttpInfo(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>));
         /// <summary>
-        /// Send Test Email
+        /// Send a Test Email
         /// </summary>
         /// <remarks>
         /// Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
@@ -469,7 +469,7 @@ namespace Okta.Sdk.Api
         void SendTestEmail(string brandId, string templateName, string language = default(string));
 
         /// <summary>
-        /// Send Test Email
+        /// Send a Test Email
         /// </summary>
         /// <remarks>
         /// Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
@@ -481,7 +481,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SendTestEmailWithHttpInfo(string brandId, string templateName, string language = default(string));
         /// <summary>
-        /// Update Brand
+        /// Replace a Brand
         /// </summary>
         /// <remarks>
         /// Updates a brand by &#x60;brandId&#x60;
@@ -493,7 +493,7 @@ namespace Okta.Sdk.Api
         Brand UpdateBrand(string brandId, Brand brand);
 
         /// <summary>
-        /// Update Brand
+        /// Replace a Brand
         /// </summary>
         /// <remarks>
         /// Updates a brand by &#x60;brandId&#x60;
@@ -504,7 +504,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Brand</returns>
         ApiResponse<Brand> UpdateBrandWithHttpInfo(string brandId, Brand brand);
         /// <summary>
-        /// Update a theme for a brand
+        /// Replace a Theme
         /// </summary>
         /// <remarks>
         /// Updates a theme for a brand
@@ -517,7 +517,7 @@ namespace Okta.Sdk.Api
         ThemeResponse UpdateBrandTheme(string brandId, string themeId, Theme theme);
 
         /// <summary>
-        /// Update a theme for a brand
+        /// Replace a Theme
         /// </summary>
         /// <remarks>
         /// Updates a theme for a brand
@@ -529,7 +529,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ThemeResponse</returns>
         ApiResponse<ThemeResponse> UpdateBrandThemeWithHttpInfo(string brandId, string themeId, Theme theme);
         /// <summary>
-        /// Update Email Customization
+        /// Replace an Email Customization
         /// </summary>
         /// <remarks>
         /// Updates an existing email customization using the property values provided.
@@ -543,7 +543,7 @@ namespace Okta.Sdk.Api
         EmailCustomization UpdateEmailCustomization(string brandId, string templateName, string customizationId, EmailCustomization instance = default(EmailCustomization));
 
         /// <summary>
-        /// Update Email Customization
+        /// Replace an Email Customization
         /// </summary>
         /// <remarks>
         /// Updates an existing email customization using the property values provided.
@@ -556,7 +556,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of EmailCustomization</returns>
         ApiResponse<EmailCustomization> UpdateEmailCustomizationWithHttpInfo(string brandId, string templateName, string customizationId, EmailCustomization instance = default(EmailCustomization));
         /// <summary>
-        /// Update Email Template Settings
+        /// Replace the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Updates an email template&#39;s settings.
@@ -569,7 +569,7 @@ namespace Okta.Sdk.Api
         void UpdateEmailSettings(string brandId, string templateName, EmailSettings emailSettings = default(EmailSettings));
 
         /// <summary>
-        /// Update Email Template Settings
+        /// Replace the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Updates an email template&#39;s settings.
@@ -581,7 +581,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateEmailSettingsWithHttpInfo(string brandId, string templateName, EmailSettings emailSettings = default(EmailSettings));
         /// <summary>
-        /// Updates the background image for your Theme
+        /// Upload the Background Image
         /// </summary>
         /// <remarks>
         /// Updates the background image for your Theme
@@ -593,7 +593,7 @@ namespace Okta.Sdk.Api
         ImageUploadResponse UploadBrandThemeBackgroundImage(string brandId, string themeId);
 
         /// <summary>
-        /// Updates the background image for your Theme
+        /// Upload the Background Image
         /// </summary>
         /// <remarks>
         /// Updates the background image for your Theme
@@ -604,7 +604,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ImageUploadResponse</returns>
         ApiResponse<ImageUploadResponse> UploadBrandThemeBackgroundImageWithHttpInfo(string brandId, string themeId);
         /// <summary>
-        /// Updates the favicon for your theme
+        /// Upload the Favicon
         /// </summary>
         /// <remarks>
         /// Updates the favicon for your theme
@@ -616,7 +616,7 @@ namespace Okta.Sdk.Api
         ImageUploadResponse UploadBrandThemeFavicon(string brandId, string themeId);
 
         /// <summary>
-        /// Updates the favicon for your theme
+        /// Upload the Favicon
         /// </summary>
         /// <remarks>
         /// Updates the favicon for your theme
@@ -627,7 +627,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of ImageUploadResponse</returns>
         ApiResponse<ImageUploadResponse> UploadBrandThemeFaviconWithHttpInfo(string brandId, string themeId);
         /// <summary>
-        /// Update a themes logo
+        /// Upload the Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your Theme
@@ -639,7 +639,7 @@ namespace Okta.Sdk.Api
         ImageUploadResponse UploadBrandThemeLogo(string brandId, string themeId);
 
         /// <summary>
-        /// Update a themes logo
+        /// Upload the Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your Theme
@@ -659,7 +659,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create Email Customization
+        /// Create an Email Customization
         /// </summary>
         /// <remarks>
         /// Creates a new email customization.
@@ -673,7 +673,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailCustomization> CreateEmailCustomizationAsync(string brandId, string templateName, EmailCustomization instance = default(EmailCustomization), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Email Customization
+        /// Create an Email Customization
         /// </summary>
         /// <remarks>
         /// Creates a new email customization.
@@ -686,7 +686,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailCustomization)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCustomization>> CreateEmailCustomizationWithHttpInfoAsync(string brandId, string templateName, EmailCustomization instance = default(EmailCustomization), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete All Email Customizations
+        /// Delete all Email Customizations
         /// </summary>
         /// <remarks>
         /// Deletes all customizations for an email template.
@@ -699,7 +699,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteAllCustomizationsAsync(string brandId, string templateName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete All Email Customizations
+        /// Delete all Email Customizations
         /// </summary>
         /// <remarks>
         /// Deletes all customizations for an email template.
@@ -711,10 +711,10 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteAllCustomizationsWithHttpInfoAsync(string brandId, string templateName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deletes a Theme background image
+        /// Delete the Background Image
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme background image
+        /// Deletes a Theme background image.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -724,10 +724,10 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteBrandThemeBackgroundImageAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deletes a Theme background image
+        /// Delete the Background Image
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme background image
+        /// Deletes a Theme background image.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -736,10 +736,10 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBrandThemeBackgroundImageWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -749,10 +749,10 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteBrandThemeFaviconAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -761,10 +761,10 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBrandThemeFaviconWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Deletes a Theme logo. The theme will use the default Okta logo.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -774,10 +774,10 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteBrandThemeLogoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo
         /// </summary>
         /// <remarks>
-        /// Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Deletes a Theme logo. The theme will use the default Okta logo.
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -786,7 +786,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteBrandThemeLogoWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Delete Email Customization
+        /// Delete an Email Customization
         /// </summary>
         /// <remarks>
         /// Deletes an email customization by its unique identifier.
@@ -800,7 +800,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteEmailCustomizationAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Delete Email Customization
+        /// Delete an Email Customization
         /// </summary>
         /// <remarks>
         /// Deletes an email customization by its unique identifier.
@@ -813,7 +813,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteEmailCustomizationWithHttpInfoAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Brand
+        /// Retrieve a Brand
         /// </summary>
         /// <remarks>
         /// Fetches a brand by &#x60;brandId&#x60;
@@ -825,7 +825,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Brand> GetBrandAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Brand
+        /// Retrieve a Brand
         /// </summary>
         /// <remarks>
         /// Fetches a brand by &#x60;brandId&#x60;
@@ -836,7 +836,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Brand)</returns>
         System.Threading.Tasks.Task<ApiResponse<Brand>> GetBrandWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get a theme for a brand
+        /// Retrieve a Theme
         /// </summary>
         /// <remarks>
         /// Fetches a theme for a brand
@@ -849,7 +849,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ThemeResponse> GetBrandThemeAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get a theme for a brand
+        /// Retrieve a Theme
         /// </summary>
         /// <remarks>
         /// Fetches a theme for a brand
@@ -861,7 +861,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ThemeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ThemeResponse>> GetBrandThemeWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Preview Email Customization
+        /// Preview an Email Customization
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -875,7 +875,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailPreview> GetCustomizationPreviewAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Preview Email Customization
+        /// Preview an Email Customization
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -888,7 +888,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailPreview)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailPreview>> GetCustomizationPreviewWithHttpInfoAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Email Customization
+        /// Retrieve an Email Customization
         /// </summary>
         /// <remarks>
         /// Gets an email customization by its unique identifier.
@@ -902,7 +902,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailCustomization> GetEmailCustomizationAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Email Customization
+        /// Retrieve an Email Customization
         /// </summary>
         /// <remarks>
         /// Gets an email customization by its unique identifier.
@@ -915,7 +915,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailCustomization)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCustomization>> GetEmailCustomizationWithHttpInfoAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Email Template Default Content
+        /// Retrieve an Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s default content.
@@ -929,7 +929,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailDefaultContent> GetEmailDefaultContentAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Email Template Default Content
+        /// Retrieve an Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s default content.
@@ -942,7 +942,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailDefaultContent)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailDefaultContent>> GetEmailDefaultContentWithHttpInfoAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Preview Email Template Default Content
+        /// Preview the Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -956,7 +956,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailPreview> GetEmailDefaultPreviewAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Preview Email Template Default Content
+        /// Preview the Email Template Default Content
         /// </summary>
         /// <remarks>
         /// Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
@@ -969,7 +969,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailPreview)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailPreview>> GetEmailDefaultPreviewWithHttpInfoAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Email Template Settings
+        /// Retrieve the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s settings.
@@ -982,7 +982,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailSettings> GetEmailSettingsAsync(string brandId, string templateName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Email Template Settings
+        /// Retrieve the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Gets an email template&#39;s settings.
@@ -994,7 +994,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailSettings)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailSettings>> GetEmailSettingsWithHttpInfoAsync(string brandId, string templateName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Email Template
+        /// Retrieve an Email Template
         /// </summary>
         /// <remarks>
         /// Gets the details of an email template by name.
@@ -1008,7 +1008,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailTemplate> GetEmailTemplateAsync(string brandId, string templateName, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Email Template
+        /// Retrieve an Email Template
         /// </summary>
         /// <remarks>
         /// Gets the details of an email template by name.
@@ -1021,7 +1021,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailTemplate)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailTemplate>> GetEmailTemplateWithHttpInfoAsync(string brandId, string templateName, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Brand Themes
+        /// List all Themes
         /// </summary>
         /// <remarks>
         /// List all the themes in your brand
@@ -1033,7 +1033,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<ThemeResponse>> ListBrandThemesAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Brand Themes
+        /// List all Themes
         /// </summary>
         /// <remarks>
         /// List all the themes in your brand
@@ -1044,7 +1044,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;ThemeResponse&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<ThemeResponse>>> ListBrandThemesWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Brands
+        /// List all Brands
         /// </summary>
         /// <remarks>
         /// List all the brands in your org.
@@ -1055,7 +1055,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<Brand>> ListBrandsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Brands
+        /// List all Brands
         /// </summary>
         /// <remarks>
         /// List all the brands in your org.
@@ -1065,7 +1065,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;Brand&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<Brand>>> ListBrandsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Email Customizations
+        /// List all Email Customizations
         /// </summary>
         /// <remarks>
         /// Lists all customizations of an email template.
@@ -1080,7 +1080,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<EmailCustomization>> ListEmailCustomizationsAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Email Customizations
+        /// List all Email Customizations
         /// </summary>
         /// <remarks>
         /// Lists all customizations of an email template.
@@ -1094,7 +1094,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;EmailCustomization&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<EmailCustomization>>> ListEmailCustomizationsWithHttpInfoAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Email Templates
+        /// List all Email Templates
         /// </summary>
         /// <remarks>
         /// Lists all email templates.
@@ -1109,7 +1109,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<EmailTemplate>> ListEmailTemplatesAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Email Templates
+        /// List all Email Templates
         /// </summary>
         /// <remarks>
         /// Lists all email templates.
@@ -1123,7 +1123,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;EmailTemplate&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<EmailTemplate>>> ListEmailTemplatesWithHttpInfoAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Send Test Email
+        /// Send a Test Email
         /// </summary>
         /// <remarks>
         /// Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
@@ -1137,7 +1137,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task SendTestEmailAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Send Test Email
+        /// Send a Test Email
         /// </summary>
         /// <remarks>
         /// Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
@@ -1150,7 +1150,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SendTestEmailWithHttpInfoAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Brand
+        /// Replace a Brand
         /// </summary>
         /// <remarks>
         /// Updates a brand by &#x60;brandId&#x60;
@@ -1163,7 +1163,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<Brand> UpdateBrandAsync(string brandId, Brand brand, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Brand
+        /// Replace a Brand
         /// </summary>
         /// <remarks>
         /// Updates a brand by &#x60;brandId&#x60;
@@ -1175,7 +1175,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (Brand)</returns>
         System.Threading.Tasks.Task<ApiResponse<Brand>> UpdateBrandWithHttpInfoAsync(string brandId, Brand brand, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update a theme for a brand
+        /// Replace a Theme
         /// </summary>
         /// <remarks>
         /// Updates a theme for a brand
@@ -1189,7 +1189,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ThemeResponse> UpdateBrandThemeAsync(string brandId, string themeId, Theme theme, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update a theme for a brand
+        /// Replace a Theme
         /// </summary>
         /// <remarks>
         /// Updates a theme for a brand
@@ -1202,7 +1202,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ThemeResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ThemeResponse>> UpdateBrandThemeWithHttpInfoAsync(string brandId, string themeId, Theme theme, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Email Customization
+        /// Replace an Email Customization
         /// </summary>
         /// <remarks>
         /// Updates an existing email customization using the property values provided.
@@ -1217,7 +1217,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<EmailCustomization> UpdateEmailCustomizationAsync(string brandId, string templateName, string customizationId, EmailCustomization instance = default(EmailCustomization), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Email Customization
+        /// Replace an Email Customization
         /// </summary>
         /// <remarks>
         /// Updates an existing email customization using the property values provided.
@@ -1231,7 +1231,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (EmailCustomization)</returns>
         System.Threading.Tasks.Task<ApiResponse<EmailCustomization>> UpdateEmailCustomizationWithHttpInfoAsync(string brandId, string templateName, string customizationId, EmailCustomization instance = default(EmailCustomization), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Email Template Settings
+        /// Replace the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Updates an email template&#39;s settings.
@@ -1245,7 +1245,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task UpdateEmailSettingsAsync(string brandId, string templateName, EmailSettings emailSettings = default(EmailSettings), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Email Template Settings
+        /// Replace the Email Template Settings
         /// </summary>
         /// <remarks>
         /// Updates an email template&#39;s settings.
@@ -1258,7 +1258,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateEmailSettingsWithHttpInfoAsync(string brandId, string templateName, EmailSettings emailSettings = default(EmailSettings), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates the background image for your Theme
+        /// Upload the Background Image
         /// </summary>
         /// <remarks>
         /// Updates the background image for your Theme
@@ -1271,7 +1271,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates the background image for your Theme
+        /// Upload the Background Image
         /// </summary>
         /// <remarks>
         /// Updates the background image for your Theme
@@ -1283,7 +1283,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeBackgroundImageWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Updates the favicon for your theme
+        /// Upload the Favicon
         /// </summary>
         /// <remarks>
         /// Updates the favicon for your theme
@@ -1296,7 +1296,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Updates the favicon for your theme
+        /// Upload the Favicon
         /// </summary>
         /// <remarks>
         /// Updates the favicon for your theme
@@ -1308,7 +1308,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (ImageUploadResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ImageUploadResponse>> UploadBrandThemeFaviconWithHttpInfoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update a themes logo
+        /// Upload the Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your Theme
@@ -1321,7 +1321,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update a themes logo
+        /// Upload the Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your Theme
@@ -1432,7 +1432,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Email Customization Creates a new email customization.
+        /// Create an Email Customization Creates a new email customization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1446,7 +1446,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Email Customization Creates a new email customization.
+        /// Create an Email Customization Creates a new email customization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1494,12 +1494,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1521,7 +1521,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Email Customization Creates a new email customization.
+        /// Create an Email Customization Creates a new email customization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1536,7 +1536,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Email Customization Creates a new email customization.
+        /// Create an Email Customization Creates a new email customization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1586,12 +1586,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1614,7 +1614,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete All Email Customizations Deletes all customizations for an email template.
+        /// Delete all Email Customizations Deletes all customizations for an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1626,7 +1626,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete All Email Customizations Deletes all customizations for an email template.
+        /// Delete all Email Customizations Deletes all customizations for an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1671,12 +1671,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1698,7 +1698,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete All Email Customizations Deletes all customizations for an email template.
+        /// Delete all Email Customizations Deletes all customizations for an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1711,7 +1711,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete All Email Customizations Deletes all customizations for an email template.
+        /// Delete all Email Customizations Deletes all customizations for an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -1758,12 +1758,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1786,7 +1786,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme background image Deletes a Theme background image
+        /// Delete the Background Image Deletes a Theme background image.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -1798,7 +1798,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme background image Deletes a Theme background image
+        /// Delete the Background Image Deletes a Theme background image.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -1843,12 +1843,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1870,7 +1870,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme background image Deletes a Theme background image
+        /// Delete the Background Image Deletes a Theme background image.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -1883,7 +1883,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme background image Deletes a Theme background image
+        /// Delete the Background Image Deletes a Theme background image.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -1930,12 +1930,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1958,7 +1958,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon. Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -1970,7 +1970,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon. Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2015,12 +2015,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2042,7 +2042,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon. Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2055,7 +2055,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme favicon. The org then uses the Okta default favicon. Deletes a Theme favicon. The org then uses the Okta default favicon.
+        /// Delete the Favicon Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2102,12 +2102,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2130,7 +2130,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo. Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo Deletes a Theme logo. The theme will use the default Okta logo.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2142,7 +2142,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo. Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo Deletes a Theme logo. The theme will use the default Okta logo.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2187,12 +2187,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2214,7 +2214,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo. Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo Deletes a Theme logo. The theme will use the default Okta logo.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2227,7 +2227,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Deletes a Theme logo. The org then uses the Okta default logo. Deletes a Theme logo. The org then uses the Okta default logo.
+        /// Delete the Logo Deletes a Theme logo. The theme will use the default Okta logo.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2274,12 +2274,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2302,7 +2302,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Email Customization Deletes an email customization by its unique identifier.
+        /// Delete an Email Customization Deletes an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2315,7 +2315,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Email Customization Deletes an email customization by its unique identifier.
+        /// Delete an Email Customization Deletes an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2368,12 +2368,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2395,7 +2395,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Email Customization Deletes an email customization by its unique identifier.
+        /// Delete an Email Customization Deletes an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2409,7 +2409,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Delete Email Customization Deletes an email customization by its unique identifier.
+        /// Delete an Email Customization Deletes an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2464,12 +2464,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2492,7 +2492,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Fetches a brand by &#x60;brandId&#x60;
+        /// Retrieve a Brand Fetches a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2504,7 +2504,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Fetches a brand by &#x60;brandId&#x60;
+        /// Retrieve a Brand Fetches a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2541,12 +2541,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2568,7 +2568,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Fetches a brand by &#x60;brandId&#x60;
+        /// Retrieve a Brand Fetches a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2581,7 +2581,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Fetches a brand by &#x60;brandId&#x60;
+        /// Retrieve a Brand Fetches a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2620,12 +2620,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2648,7 +2648,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get a theme for a brand Fetches a theme for a brand
+        /// Retrieve a Theme Fetches a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2661,7 +2661,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get a theme for a brand Fetches a theme for a brand
+        /// Retrieve a Theme Fetches a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2706,12 +2706,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2733,7 +2733,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get a theme for a brand Fetches a theme for a brand
+        /// Retrieve a Theme Fetches a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2747,7 +2747,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get a theme for a brand Fetches a theme for a brand
+        /// Retrieve a Theme Fetches a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -2794,12 +2794,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2822,7 +2822,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview an Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2836,7 +2836,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview an Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2889,12 +2889,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2916,7 +2916,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview an Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2931,7 +2931,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview an Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -2986,12 +2986,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3014,7 +3014,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Customization Gets an email customization by its unique identifier.
+        /// Retrieve an Email Customization Gets an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3028,7 +3028,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Customization Gets an email customization by its unique identifier.
+        /// Retrieve an Email Customization Gets an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3081,12 +3081,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3108,7 +3108,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Customization Gets an email customization by its unique identifier.
+        /// Retrieve an Email Customization Gets an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3123,7 +3123,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Customization Gets an email customization by its unique identifier.
+        /// Retrieve an Email Customization Gets an email customization by its unique identifier.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3178,12 +3178,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3206,7 +3206,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Default Content Gets an email template&#39;s default content.
+        /// Retrieve an Email Template Default Content Gets an email template&#39;s default content.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3220,7 +3220,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Default Content Gets an email template&#39;s default content.
+        /// Retrieve an Email Template Default Content Gets an email template&#39;s default content.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3270,12 +3270,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3297,7 +3297,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Default Content Gets an email template&#39;s default content.
+        /// Retrieve an Email Template Default Content Gets an email template&#39;s default content.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3312,7 +3312,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Default Content Gets an email template&#39;s default content.
+        /// Retrieve an Email Template Default Content Gets an email template&#39;s default content.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3364,12 +3364,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3392,7 +3392,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview the Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3406,7 +3406,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview the Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3456,12 +3456,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3483,7 +3483,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview the Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3498,7 +3498,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Preview Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
+        /// Preview the Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3550,12 +3550,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3578,7 +3578,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Settings Gets an email template&#39;s settings.
+        /// Retrieve the Email Template Settings Gets an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3591,7 +3591,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Settings Gets an email template&#39;s settings.
+        /// Retrieve the Email Template Settings Gets an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3636,12 +3636,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3663,7 +3663,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Settings Gets an email template&#39;s settings.
+        /// Retrieve the Email Template Settings Gets an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3677,7 +3677,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Settings Gets an email template&#39;s settings.
+        /// Retrieve the Email Template Settings Gets an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3724,12 +3724,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3752,7 +3752,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Gets the details of an email template by name.
+        /// Retrieve an Email Template Gets the details of an email template by name.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3766,7 +3766,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Gets the details of an email template by name.
+        /// Retrieve an Email Template Gets the details of an email template by name.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3816,12 +3816,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("csv", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3843,7 +3843,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Gets the details of an email template by name.
+        /// Retrieve an Email Template Gets the details of an email template by name.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3858,7 +3858,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Email Template Gets the details of an email template by name.
+        /// Retrieve an Email Template Gets the details of an email template by name.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -3910,12 +3910,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("csv", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3938,7 +3938,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Themes List all the themes in your brand
+        /// List all Themes List all the themes in your brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -3950,7 +3950,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Themes List all the themes in your brand
+        /// List all Themes List all the themes in your brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -3987,12 +3987,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4014,7 +4014,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Themes List all the themes in your brand
+        /// List all Themes List all the themes in your brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4027,7 +4027,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Brand Themes List all the themes in your brand
+        /// List all Themes List all the themes in your brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4066,12 +4066,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4094,7 +4094,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Brands List all the brands in your org.
+        /// List all Brands List all the brands in your org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;Brand&gt;</returns>
@@ -4105,7 +4105,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Brands List all the brands in your org.
+        /// List all Brands List all the brands in your org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Brand&gt;</returns>
@@ -4134,12 +4134,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4161,7 +4161,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Brands List all the brands in your org.
+        /// List all Brands List all the brands in your org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4173,7 +4173,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Brands List all the brands in your org.
+        /// List all Brands List all the brands in your org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -4204,12 +4204,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4232,7 +4232,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Customizations Lists all customizations of an email template.
+        /// List all Email Customizations Lists all customizations of an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4247,7 +4247,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Customizations Lists all customizations of an email template.
+        /// List all Email Customizations Lists all customizations of an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4302,12 +4302,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4329,7 +4329,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Customizations Lists all customizations of an email template.
+        /// List all Email Customizations Lists all customizations of an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4345,7 +4345,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Customizations Lists all customizations of an email template.
+        /// List all Email Customizations Lists all customizations of an email template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4402,12 +4402,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4430,7 +4430,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Templates Lists all email templates.
+        /// List all Email Templates Lists all email templates.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4445,7 +4445,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Templates Lists all email templates.
+        /// List all Email Templates Lists all email templates.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4497,12 +4497,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("csv", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4524,7 +4524,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Templates Lists all email templates.
+        /// List all Email Templates Lists all email templates.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4540,7 +4540,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Email Templates Lists all email templates.
+        /// List all Email Templates Lists all email templates.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4594,12 +4594,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("csv", "expand", expand));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4622,7 +4622,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Send Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
+        /// Send a Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4635,7 +4635,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Send Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
+        /// Send a Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4685,12 +4685,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4712,7 +4712,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Send Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
+        /// Send a Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4726,7 +4726,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Send Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
+        /// Send a Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -4778,12 +4778,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "language", language));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4806,7 +4806,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Brand Updates a brand by &#x60;brandId&#x60;
+        /// Replace a Brand Updates a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4819,7 +4819,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Brand Updates a brand by &#x60;brandId&#x60;
+        /// Replace a Brand Updates a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4865,12 +4865,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.Data = brand;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4892,7 +4892,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Brand Updates a brand by &#x60;brandId&#x60;
+        /// Replace a Brand Updates a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4906,7 +4906,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Brand Updates a brand by &#x60;brandId&#x60;
+        /// Replace a Brand Updates a brand by &#x60;brandId&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4954,12 +4954,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.Data = brand;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -4982,7 +4982,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a theme for a brand Updates a theme for a brand
+        /// Replace a Theme Updates a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -4996,7 +4996,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a theme for a brand Updates a theme for a brand
+        /// Replace a Theme Updates a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5050,12 +5050,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
             localVarRequestOptions.Data = theme;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5077,7 +5077,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a theme for a brand Updates a theme for a brand
+        /// Replace a Theme Updates a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5092,7 +5092,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a theme for a brand Updates a theme for a brand
+        /// Replace a Theme Updates a theme for a brand
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5148,12 +5148,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
             localVarRequestOptions.Data = theme;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5176,7 +5176,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Customization Updates an existing email customization using the property values provided.
+        /// Replace an Email Customization Updates an existing email customization using the property values provided.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5191,7 +5191,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Customization Updates an existing email customization using the property values provided.
+        /// Replace an Email Customization Updates an existing email customization using the property values provided.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5247,12 +5247,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5274,7 +5274,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Customization Updates an existing email customization using the property values provided.
+        /// Replace an Email Customization Updates an existing email customization using the property values provided.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5290,7 +5290,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Customization Updates an existing email customization using the property values provided.
+        /// Replace an Email Customization Updates an existing email customization using the property values provided.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5348,12 +5348,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("customizationId", Okta.Sdk.Client.ClientUtils.ParameterToString(customizationId)); // path parameter
             localVarRequestOptions.Data = instance;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5376,7 +5376,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Template Settings Updates an email template&#39;s settings.
+        /// Replace the Email Template Settings Updates an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5389,7 +5389,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Template Settings Updates an email template&#39;s settings.
+        /// Replace the Email Template Settings Updates an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5437,12 +5437,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.Data = emailSettings;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5464,7 +5464,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Template Settings Updates an email template&#39;s settings.
+        /// Replace the Email Template Settings Updates an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5478,7 +5478,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Email Template Settings Updates an email template&#39;s settings.
+        /// Replace the Email Template Settings Updates an email template&#39;s settings.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId">The ID of the brand.</param>
@@ -5528,12 +5528,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
             localVarRequestOptions.Data = emailSettings;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5556,7 +5556,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the background image for your Theme Updates the background image for your Theme
+        /// Upload the Background Image Updates the background image for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5569,7 +5569,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the background image for your Theme Updates the background image for your Theme
+        /// Upload the Background Image Updates the background image for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5615,12 +5615,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5642,7 +5642,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the background image for your Theme Updates the background image for your Theme
+        /// Upload the Background Image Updates the background image for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5656,7 +5656,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the background image for your Theme Updates the background image for your Theme
+        /// Upload the Background Image Updates the background image for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5704,12 +5704,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5732,7 +5732,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the favicon for your theme Updates the favicon for your theme
+        /// Upload the Favicon Updates the favicon for your theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5745,7 +5745,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the favicon for your theme Updates the favicon for your theme
+        /// Upload the Favicon Updates the favicon for your theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5791,12 +5791,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5818,7 +5818,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the favicon for your theme Updates the favicon for your theme
+        /// Upload the Favicon Updates the favicon for your theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5832,7 +5832,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Updates the favicon for your theme Updates the favicon for your theme
+        /// Upload the Favicon Updates the favicon for your theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5880,12 +5880,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5908,7 +5908,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a themes logo Updates the logo for your Theme
+        /// Upload the Logo Updates the logo for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5921,7 +5921,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a themes logo Updates the logo for your Theme
+        /// Upload the Logo Updates the logo for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -5967,12 +5967,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -5994,7 +5994,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a themes logo Updates the logo for your Theme
+        /// Upload the Logo Updates the logo for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -6008,7 +6008,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update a themes logo Updates the logo for your Theme
+        /// Upload the Logo Updates the logo for your Theme
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
@@ -6056,12 +6056,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
             localVarRequestOptions.PathParameters.Add("themeId", Okta.Sdk.Client.ClientUtils.ParameterToString(themeId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

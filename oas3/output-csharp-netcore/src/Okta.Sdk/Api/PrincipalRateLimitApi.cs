@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Create Principal Rate Limit entity
+        /// Create a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         PrincipalRateLimitEntity CreatePrincipalRateLimitEntity(PrincipalRateLimitEntity entity);
 
         /// <summary>
-        /// Create Principal Rate Limit entity
+        /// Create a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
         ApiResponse<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityWithHttpInfo(PrincipalRateLimitEntity entity);
         /// <summary>
-        /// Get Principal Rate Limit entity
+        /// Retrieve a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         PrincipalRateLimitEntity GetPrincipalRateLimitEntity(string principalRateLimitId);
 
         /// <summary>
-        /// Get Principal Rate Limit entity
+        /// Retrieve a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of PrincipalRateLimitEntity</returns>
         ApiResponse<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityWithHttpInfo(string principalRateLimitId);
         /// <summary>
-        /// List Principal Rate Limit entities
+        /// List all Principal Rate Limits
         /// </summary>
         /// <remarks>
         /// Lists all Principal Rate Limit entities considering the provided parameters.
@@ -83,7 +83,7 @@ namespace Okta.Sdk.Api
         List<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?));
 
         /// <summary>
-        /// List Principal Rate Limit entities
+        /// List all Principal Rate Limits
         /// </summary>
         /// <remarks>
         /// Lists all Principal Rate Limit entities considering the provided parameters.
@@ -95,7 +95,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;PrincipalRateLimitEntity&gt;</returns>
         ApiResponse<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?));
         /// <summary>
-        /// Update Principal Rate Limit entity
+        /// Replace a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -107,7 +107,7 @@ namespace Okta.Sdk.Api
         PrincipalRateLimitEntity UpdatePrincipalRateLimitEntity(string principalRateLimitId, PrincipalRateLimitEntity entity);
 
         /// <summary>
-        /// Update Principal Rate Limit entity
+        /// Replace a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -127,7 +127,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Create Principal Rate Limit entity
+        /// Create a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
@@ -139,7 +139,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<PrincipalRateLimitEntity> CreatePrincipalRateLimitEntityAsync(PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Create Principal Rate Limit entity
+        /// Create a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
@@ -150,7 +150,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
         System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> CreatePrincipalRateLimitEntityWithHttpInfoAsync(PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Principal Rate Limit entity
+        /// Retrieve a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -162,7 +162,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<PrincipalRateLimitEntity> GetPrincipalRateLimitEntityAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Principal Rate Limit entity
+        /// Retrieve a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -173,7 +173,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (PrincipalRateLimitEntity)</returns>
         System.Threading.Tasks.Task<ApiResponse<PrincipalRateLimitEntity>> GetPrincipalRateLimitEntityWithHttpInfoAsync(string principalRateLimitId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List Principal Rate Limit entities
+        /// List all Principal Rate Limits
         /// </summary>
         /// <remarks>
         /// Lists all Principal Rate Limit entities considering the provided parameters.
@@ -187,7 +187,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List Principal Rate Limit entities
+        /// List all Principal Rate Limits
         /// </summary>
         /// <remarks>
         /// Lists all Principal Rate Limit entities considering the provided parameters.
@@ -200,7 +200,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;PrincipalRateLimitEntity&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Principal Rate Limit entity
+        /// Replace a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -213,7 +213,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<PrincipalRateLimitEntity> UpdatePrincipalRateLimitEntityAsync(string principalRateLimitId, PrincipalRateLimitEntity entity, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Principal Rate Limit entity
+        /// Replace a Principal Rate Limit
         /// </summary>
         /// <remarks>
         /// Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
@@ -324,7 +324,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Principal Rate Limit entity Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
+        /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity"></param>
@@ -336,7 +336,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Principal Rate Limit entity Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
+        /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity"></param>
@@ -374,12 +374,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = entity;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -401,7 +401,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Principal Rate Limit entity Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
+        /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity"></param>
@@ -414,7 +414,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Create Principal Rate Limit entity Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
+        /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="entity"></param>
@@ -454,12 +454,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = entity;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -482,7 +482,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Principal Rate Limit entity Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Retrieve a Principal Rate Limit Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -494,7 +494,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Principal Rate Limit entity Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Retrieve a Principal Rate Limit Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -531,12 +531,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -558,7 +558,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Principal Rate Limit entity Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Retrieve a Principal Rate Limit Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -571,7 +571,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Principal Rate Limit entity Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Retrieve a Principal Rate Limit Fetches a Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -610,12 +610,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -638,7 +638,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Principal Rate Limit entities Lists all Principal Rate Limit entities considering the provided parameters.
+        /// List all Principal Rate Limits Lists all Principal Rate Limit entities considering the provided parameters.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter"> (optional)</param>
@@ -652,7 +652,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Principal Rate Limit entities Lists all Principal Rate Limit entities considering the provided parameters.
+        /// List all Principal Rate Limits Lists all Principal Rate Limit entities considering the provided parameters.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter"> (optional)</param>
@@ -696,12 +696,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -723,7 +723,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Principal Rate Limit entities Lists all Principal Rate Limit entities considering the provided parameters.
+        /// List all Principal Rate Limits Lists all Principal Rate Limit entities considering the provided parameters.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter"> (optional)</param>
@@ -738,7 +738,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List Principal Rate Limit entities Lists all Principal Rate Limit entities considering the provided parameters.
+        /// List all Principal Rate Limits Lists all Principal Rate Limit entities considering the provided parameters.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter"> (optional)</param>
@@ -784,12 +784,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -812,7 +812,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Principal Rate Limit entity Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Replace a Principal Rate Limit Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -825,7 +825,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Principal Rate Limit entity Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Replace a Principal Rate Limit Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -871,12 +871,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
             localVarRequestOptions.Data = entity;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -898,7 +898,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Principal Rate Limit entity Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Replace a Principal Rate Limit Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -912,7 +912,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Principal Rate Limit entity Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
+        /// Replace a Principal Rate Limit Update a  Principal Rate Limit entity by &#x60;principalRateLimitId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="principalRateLimitId">id of the Principal Rate Limit</param>
@@ -960,12 +960,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("principalRateLimitId", Okta.Sdk.Client.ClientUtils.ParameterToString(principalRateLimitId)); // path parameter
             localVarRequestOptions.Data = entity;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

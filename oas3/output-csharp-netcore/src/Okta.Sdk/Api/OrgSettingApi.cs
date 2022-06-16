@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of BouncesRemoveListResult</returns>
         ApiResponse<BouncesRemoveListResult> BulkRemoveEmailAddressBouncesWithHttpInfo(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj));
         /// <summary>
-        /// Extend Okta Support
+        /// Extend Okta Support Access
         /// </summary>
         /// <remarks>
         /// Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
@@ -59,7 +59,7 @@ namespace Okta.Sdk.Api
         OrgOktaSupportSettingsObj ExtendOktaSupport();
 
         /// <summary>
-        /// Extend Okta Support
+        /// Extend Okta Support Access
         /// </summary>
         /// <remarks>
         /// Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
@@ -68,7 +68,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
         ApiResponse<OrgOktaSupportSettingsObj> ExtendOktaSupportWithHttpInfo();
         /// <summary>
-        /// Get Okta Communication Settings
+        /// Retreive the Okta Communication Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Communication Settings of your organization.
@@ -78,7 +78,7 @@ namespace Okta.Sdk.Api
         OrgOktaCommunicationSetting GetOktaCommunicationSettings();
 
         /// <summary>
-        /// Get Okta Communication Settings
+        /// Retreive the Okta Communication Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Communication Settings of your organization.
@@ -87,7 +87,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaCommunicationSetting</returns>
         ApiResponse<OrgOktaCommunicationSetting> GetOktaCommunicationSettingsWithHttpInfo();
         /// <summary>
-        /// Get org contact types
+        /// Retrieve the Org Contact Types
         /// </summary>
         /// <remarks>
         /// Gets Contact Types of your organization.
@@ -97,7 +97,7 @@ namespace Okta.Sdk.Api
         List<OrgContactTypeObj> GetOrgContactTypes();
 
         /// <summary>
-        /// Get org contact types
+        /// Retrieve the Org Contact Types
         /// </summary>
         /// <remarks>
         /// Gets Contact Types of your organization.
@@ -106,7 +106,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;OrgContactTypeObj&gt;</returns>
         ApiResponse<List<OrgContactTypeObj>> GetOrgContactTypesWithHttpInfo();
         /// <summary>
-        /// Get org contact user
+        /// Retrieve the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Retrieves the URL of the User associated with the specified Contact Type.
@@ -117,7 +117,7 @@ namespace Okta.Sdk.Api
         OrgContactUser GetOrgContactUser(string contactType);
 
         /// <summary>
-        /// Get org contact user
+        /// Retrieve the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Retrieves the URL of the User associated with the specified Contact Type.
@@ -127,7 +127,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgContactUser</returns>
         ApiResponse<OrgContactUser> GetOrgContactUserWithHttpInfo(string contactType);
         /// <summary>
-        /// Get Okta Support settings
+        /// Retrieve the Okta Support Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Support Settings of your organization.
@@ -137,7 +137,7 @@ namespace Okta.Sdk.Api
         OrgOktaSupportSettingsObj GetOrgOktaSupportSettings();
 
         /// <summary>
-        /// Get Okta Support settings
+        /// Retrieve the Okta Support Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Support Settings of your organization.
@@ -146,7 +146,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
         ApiResponse<OrgOktaSupportSettingsObj> GetOrgOktaSupportSettingsWithHttpInfo();
         /// <summary>
-        /// Get org preferences
+        /// Retrieve the Org Preferences
         /// </summary>
         /// <remarks>
         /// Gets preferences of your organization.
@@ -156,7 +156,7 @@ namespace Okta.Sdk.Api
         OrgPreferences GetOrgPreferences();
 
         /// <summary>
-        /// Get org preferences
+        /// Retrieve the Org Preferences
         /// </summary>
         /// <remarks>
         /// Gets preferences of your organization.
@@ -165,7 +165,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgPreferences</returns>
         ApiResponse<OrgPreferences> GetOrgPreferencesWithHttpInfo();
         /// <summary>
-        /// Get org settings
+        /// Retrieve the Org Settings
         /// </summary>
         /// <remarks>
         /// Get settings of your organization.
@@ -175,7 +175,7 @@ namespace Okta.Sdk.Api
         OrgSetting GetOrgSettings();
 
         /// <summary>
-        /// Get org settings
+        /// Retrieve the Org Settings
         /// </summary>
         /// <remarks>
         /// Get settings of your organization.
@@ -184,7 +184,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgSetting</returns>
         ApiResponse<OrgSetting> GetOrgSettingsWithHttpInfo();
         /// <summary>
-        /// Grant Okta Support
+        /// Grant Okta Support Access to your Org
         /// </summary>
         /// <remarks>
         /// Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
@@ -194,7 +194,7 @@ namespace Okta.Sdk.Api
         OrgOktaSupportSettingsObj GrantOktaSupport();
 
         /// <summary>
-        /// Grant Okta Support
+        /// Grant Okta Support Access to your Org
         /// </summary>
         /// <remarks>
         /// Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
@@ -203,7 +203,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
         ApiResponse<OrgOktaSupportSettingsObj> GrantOktaSupportWithHttpInfo();
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Hide the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Hide the Okta UI footer for all end users of your organization.
@@ -213,7 +213,7 @@ namespace Okta.Sdk.Api
         OrgPreferences HideOktaUIFooter();
 
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Hide the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Hide the Okta UI footer for all end users of your organization.
@@ -222,7 +222,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgPreferences</returns>
         ApiResponse<OrgPreferences> HideOktaUIFooterWithHttpInfo();
         /// <summary>
-        /// Opt in all users to Okta Communication emails
+        /// Opt in all Users to Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts in all users of this org to Okta Communication emails.
@@ -232,7 +232,7 @@ namespace Okta.Sdk.Api
         OrgOktaCommunicationSetting OptInUsersToOktaCommunicationEmails();
 
         /// <summary>
-        /// Opt in all users to Okta Communication emails
+        /// Opt in all Users to Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts in all users of this org to Okta Communication emails.
@@ -241,7 +241,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaCommunicationSetting</returns>
         ApiResponse<OrgOktaCommunicationSetting> OptInUsersToOktaCommunicationEmailsWithHttpInfo();
         /// <summary>
-        /// Opt out all users from Okta Communication emails
+        /// Opt out all Users from Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts out all users of this org from Okta Communication emails.
@@ -251,7 +251,7 @@ namespace Okta.Sdk.Api
         OrgOktaCommunicationSetting OptOutUsersFromOktaCommunicationEmails();
 
         /// <summary>
-        /// Opt out all users from Okta Communication emails
+        /// Opt out all Users from Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts out all users of this org from Okta Communication emails.
@@ -260,7 +260,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaCommunicationSetting</returns>
         ApiResponse<OrgOktaCommunicationSetting> OptOutUsersFromOktaCommunicationEmailsWithHttpInfo();
         /// <summary>
-        /// Partial update Org Setting
+        /// Update the Org Settings
         /// </summary>
         /// <remarks>
         /// Partial update settings of your organization.
@@ -271,7 +271,7 @@ namespace Okta.Sdk.Api
         OrgSetting PartialUpdateOrgSetting(OrgSetting orgSetting = default(OrgSetting));
 
         /// <summary>
-        /// Partial update Org Setting
+        /// Update the Org Settings
         /// </summary>
         /// <remarks>
         /// Partial update settings of your organization.
@@ -281,7 +281,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgSetting</returns>
         ApiResponse<OrgSetting> PartialUpdateOrgSettingWithHttpInfo(OrgSetting orgSetting = default(OrgSetting));
         /// <summary>
-        /// Extend Okta Support
+        /// Revoke Okta Support Access
         /// </summary>
         /// <remarks>
         /// Revokes Okta Support access to your organization.
@@ -291,7 +291,7 @@ namespace Okta.Sdk.Api
         OrgOktaSupportSettingsObj RevokeOktaSupport();
 
         /// <summary>
-        /// Extend Okta Support
+        /// Revoke Okta Support Access
         /// </summary>
         /// <remarks>
         /// Revokes Okta Support access to your organization.
@@ -300,7 +300,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
         ApiResponse<OrgOktaSupportSettingsObj> RevokeOktaSupportWithHttpInfo();
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Show the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Makes the Okta UI footer visible for all end users of your organization.
@@ -310,7 +310,7 @@ namespace Okta.Sdk.Api
         OrgPreferences ShowOktaUIFooter();
 
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Show the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Makes the Okta UI footer visible for all end users of your organization.
@@ -319,7 +319,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgPreferences</returns>
         ApiResponse<OrgPreferences> ShowOktaUIFooterWithHttpInfo();
         /// <summary>
-        /// Update org contact user
+        /// Replace the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Updates the User associated with the specified Contact Type.
@@ -331,7 +331,7 @@ namespace Okta.Sdk.Api
         OrgContactUser UpdateOrgContactUser(string contactType, OrgContactUser orgContactUser);
 
         /// <summary>
-        /// Update org contact user
+        /// Replace the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Updates the User associated with the specified Contact Type.
@@ -342,7 +342,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of OrgContactUser</returns>
         ApiResponse<OrgContactUser> UpdateOrgContactUserWithHttpInfo(string contactType, OrgContactUser orgContactUser);
         /// <summary>
-        /// Update org logo
+        /// Upload the Org Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your organization.
@@ -352,7 +352,7 @@ namespace Okta.Sdk.Api
         void UpdateOrgLogo();
 
         /// <summary>
-        /// Update org logo
+        /// Upload the Org Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your organization.
@@ -361,7 +361,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> UpdateOrgLogoWithHttpInfo();
         /// <summary>
-        /// Update Org setting
+        /// Replace the Org Settings
         /// </summary>
         /// <remarks>
         /// Update settings of your organization.
@@ -372,7 +372,7 @@ namespace Okta.Sdk.Api
         OrgSetting UpdateOrgSetting(OrgSetting orgSetting);
 
         /// <summary>
-        /// Update Org setting
+        /// Replace the Org Settings
         /// </summary>
         /// <remarks>
         /// Update settings of your organization.
@@ -414,7 +414,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (BouncesRemoveListResult)</returns>
         System.Threading.Tasks.Task<ApiResponse<BouncesRemoveListResult>> BulkRemoveEmailAddressBouncesWithHttpInfoAsync(BouncesRemoveListObj bouncesRemoveListObj = default(BouncesRemoveListObj), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Extend Okta Support
+        /// Extend Okta Support Access
         /// </summary>
         /// <remarks>
         /// Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
@@ -425,7 +425,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> ExtendOktaSupportAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Extend Okta Support
+        /// Extend Okta Support Access
         /// </summary>
         /// <remarks>
         /// Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
@@ -435,7 +435,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaSupportSettingsObj)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaSupportSettingsObj>> ExtendOktaSupportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Okta Communication Settings
+        /// Retreive the Okta Communication Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Communication Settings of your organization.
@@ -446,7 +446,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaCommunicationSetting> GetOktaCommunicationSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Okta Communication Settings
+        /// Retreive the Okta Communication Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Communication Settings of your organization.
@@ -456,7 +456,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaCommunicationSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaCommunicationSetting>> GetOktaCommunicationSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get org contact types
+        /// Retrieve the Org Contact Types
         /// </summary>
         /// <remarks>
         /// Gets Contact Types of your organization.
@@ -467,7 +467,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<OrgContactTypeObj>> GetOrgContactTypesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get org contact types
+        /// Retrieve the Org Contact Types
         /// </summary>
         /// <remarks>
         /// Gets Contact Types of your organization.
@@ -477,7 +477,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;OrgContactTypeObj&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<OrgContactTypeObj>>> GetOrgContactTypesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get org contact user
+        /// Retrieve the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Retrieves the URL of the User associated with the specified Contact Type.
@@ -489,7 +489,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgContactUser> GetOrgContactUserAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get org contact user
+        /// Retrieve the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Retrieves the URL of the User associated with the specified Contact Type.
@@ -500,7 +500,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> GetOrgContactUserWithHttpInfoAsync(string contactType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get Okta Support settings
+        /// Retrieve the Okta Support Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Support Settings of your organization.
@@ -511,7 +511,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> GetOrgOktaSupportSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get Okta Support settings
+        /// Retrieve the Okta Support Settings
         /// </summary>
         /// <remarks>
         /// Gets Okta Support Settings of your organization.
@@ -521,7 +521,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaSupportSettingsObj)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaSupportSettingsObj>> GetOrgOktaSupportSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get org preferences
+        /// Retrieve the Org Preferences
         /// </summary>
         /// <remarks>
         /// Gets preferences of your organization.
@@ -532,7 +532,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgPreferences> GetOrgPreferencesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get org preferences
+        /// Retrieve the Org Preferences
         /// </summary>
         /// <remarks>
         /// Gets preferences of your organization.
@@ -542,7 +542,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgPreferences)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgPreferences>> GetOrgPreferencesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get org settings
+        /// Retrieve the Org Settings
         /// </summary>
         /// <remarks>
         /// Get settings of your organization.
@@ -553,7 +553,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgSetting> GetOrgSettingsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get org settings
+        /// Retrieve the Org Settings
         /// </summary>
         /// <remarks>
         /// Get settings of your organization.
@@ -563,7 +563,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgSetting>> GetOrgSettingsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Grant Okta Support
+        /// Grant Okta Support Access to your Org
         /// </summary>
         /// <remarks>
         /// Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
@@ -574,7 +574,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> GrantOktaSupportAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Grant Okta Support
+        /// Grant Okta Support Access to your Org
         /// </summary>
         /// <remarks>
         /// Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
@@ -584,7 +584,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaSupportSettingsObj)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaSupportSettingsObj>> GrantOktaSupportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Hide the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Hide the Okta UI footer for all end users of your organization.
@@ -595,7 +595,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgPreferences> HideOktaUIFooterAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Hide the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Hide the Okta UI footer for all end users of your organization.
@@ -605,7 +605,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgPreferences)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgPreferences>> HideOktaUIFooterWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Opt in all users to Okta Communication emails
+        /// Opt in all Users to Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts in all users of this org to Okta Communication emails.
@@ -616,7 +616,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaCommunicationSetting> OptInUsersToOktaCommunicationEmailsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Opt in all users to Okta Communication emails
+        /// Opt in all Users to Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts in all users of this org to Okta Communication emails.
@@ -626,7 +626,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaCommunicationSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaCommunicationSetting>> OptInUsersToOktaCommunicationEmailsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Opt out all users from Okta Communication emails
+        /// Opt out all Users from Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts out all users of this org from Okta Communication emails.
@@ -637,7 +637,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaCommunicationSetting> OptOutUsersFromOktaCommunicationEmailsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Opt out all users from Okta Communication emails
+        /// Opt out all Users from Okta Communication emails
         /// </summary>
         /// <remarks>
         /// Opts out all users of this org from Okta Communication emails.
@@ -647,7 +647,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaCommunicationSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaCommunicationSetting>> OptOutUsersFromOktaCommunicationEmailsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Partial update Org Setting
+        /// Update the Org Settings
         /// </summary>
         /// <remarks>
         /// Partial update settings of your organization.
@@ -659,7 +659,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgSetting> PartialUpdateOrgSettingAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Partial update Org Setting
+        /// Update the Org Settings
         /// </summary>
         /// <remarks>
         /// Partial update settings of your organization.
@@ -670,7 +670,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgSetting)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgSetting>> PartialUpdateOrgSettingWithHttpInfoAsync(OrgSetting orgSetting = default(OrgSetting), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Extend Okta Support
+        /// Revoke Okta Support Access
         /// </summary>
         /// <remarks>
         /// Revokes Okta Support access to your organization.
@@ -681,7 +681,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgOktaSupportSettingsObj> RevokeOktaSupportAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Extend Okta Support
+        /// Revoke Okta Support Access
         /// </summary>
         /// <remarks>
         /// Revokes Okta Support access to your organization.
@@ -691,7 +691,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgOktaSupportSettingsObj)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgOktaSupportSettingsObj>> RevokeOktaSupportWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Show the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Makes the Okta UI footer visible for all end users of your organization.
@@ -702,7 +702,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgPreferences> ShowOktaUIFooterAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Show Okta UI Footer
+        /// Update the Preference to Show the Okta Dashboard Footer
         /// </summary>
         /// <remarks>
         /// Makes the Okta UI footer visible for all end users of your organization.
@@ -712,7 +712,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgPreferences)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgPreferences>> ShowOktaUIFooterWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update org contact user
+        /// Replace the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Updates the User associated with the specified Contact Type.
@@ -725,7 +725,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgContactUser> UpdateOrgContactUserAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update org contact user
+        /// Replace the User of the Contact Type
         /// </summary>
         /// <remarks>
         /// Updates the User associated with the specified Contact Type.
@@ -737,7 +737,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (OrgContactUser)</returns>
         System.Threading.Tasks.Task<ApiResponse<OrgContactUser>> UpdateOrgContactUserWithHttpInfoAsync(string contactType, OrgContactUser orgContactUser, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update org logo
+        /// Upload the Org Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your organization.
@@ -748,7 +748,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task UpdateOrgLogoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update org logo
+        /// Upload the Org Logo
         /// </summary>
         /// <remarks>
         /// Updates the logo for your organization.
@@ -758,7 +758,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> UpdateOrgLogoWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update Org setting
+        /// Replace the Org Settings
         /// </summary>
         /// <remarks>
         /// Update settings of your organization.
@@ -770,7 +770,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<OrgSetting> UpdateOrgSettingAsync(OrgSetting orgSetting, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update Org setting
+        /// Replace the Org Settings
         /// </summary>
         /// <remarks>
         /// Update settings of your organization.
@@ -924,12 +924,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = bouncesRemoveListObj;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -998,12 +998,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = bouncesRemoveListObj;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1026,7 +1026,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
+        /// Extend Okta Support Access Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaSupportSettingsObj</returns>
@@ -1037,7 +1037,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
+        /// Extend Okta Support Access Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
@@ -1066,12 +1066,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1093,7 +1093,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
+        /// Extend Okta Support Access Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1105,7 +1105,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
+        /// Extend Okta Support Access Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1136,12 +1136,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1164,7 +1164,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Communication Settings Gets Okta Communication Settings of your organization.
+        /// Retreive the Okta Communication Settings Gets Okta Communication Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaCommunicationSetting</returns>
@@ -1175,7 +1175,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Communication Settings Gets Okta Communication Settings of your organization.
+        /// Retreive the Okta Communication Settings Gets Okta Communication Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaCommunicationSetting</returns>
@@ -1204,12 +1204,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1231,7 +1231,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Communication Settings Gets Okta Communication Settings of your organization.
+        /// Retreive the Okta Communication Settings Gets Okta Communication Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1243,7 +1243,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Communication Settings Gets Okta Communication Settings of your organization.
+        /// Retreive the Okta Communication Settings Gets Okta Communication Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1274,12 +1274,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1302,7 +1302,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact types Gets Contact Types of your organization.
+        /// Retrieve the Org Contact Types Gets Contact Types of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>List&lt;OrgContactTypeObj&gt;</returns>
@@ -1313,7 +1313,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact types Gets Contact Types of your organization.
+        /// Retrieve the Org Contact Types Gets Contact Types of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;OrgContactTypeObj&gt;</returns>
@@ -1342,12 +1342,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1369,7 +1369,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact types Gets Contact Types of your organization.
+        /// Retrieve the Org Contact Types Gets Contact Types of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1381,7 +1381,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact types Gets Contact Types of your organization.
+        /// Retrieve the Org Contact Types Gets Contact Types of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1412,12 +1412,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1440,7 +1440,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact user Retrieves the URL of the User associated with the specified Contact Type.
+        /// Retrieve the User of the Contact Type Retrieves the URL of the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -1452,7 +1452,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact user Retrieves the URL of the User associated with the specified Contact Type.
+        /// Retrieve the User of the Contact Type Retrieves the URL of the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -1489,12 +1489,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("contactType", Okta.Sdk.Client.ClientUtils.ParameterToString(contactType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1516,7 +1516,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact user Retrieves the URL of the User associated with the specified Contact Type.
+        /// Retrieve the User of the Contact Type Retrieves the URL of the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -1529,7 +1529,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org contact user Retrieves the URL of the User associated with the specified Contact Type.
+        /// Retrieve the User of the Contact Type Retrieves the URL of the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -1568,12 +1568,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("contactType", Okta.Sdk.Client.ClientUtils.ParameterToString(contactType)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1596,7 +1596,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Support settings Gets Okta Support Settings of your organization.
+        /// Retrieve the Okta Support Settings Gets Okta Support Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaSupportSettingsObj</returns>
@@ -1607,7 +1607,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Support settings Gets Okta Support Settings of your organization.
+        /// Retrieve the Okta Support Settings Gets Okta Support Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
@@ -1636,12 +1636,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1663,7 +1663,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Support settings Gets Okta Support Settings of your organization.
+        /// Retrieve the Okta Support Settings Gets Okta Support Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1675,7 +1675,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get Okta Support settings Gets Okta Support Settings of your organization.
+        /// Retrieve the Okta Support Settings Gets Okta Support Settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1706,12 +1706,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1734,7 +1734,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org preferences Gets preferences of your organization.
+        /// Retrieve the Org Preferences Gets preferences of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgPreferences</returns>
@@ -1745,7 +1745,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org preferences Gets preferences of your organization.
+        /// Retrieve the Org Preferences Gets preferences of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgPreferences</returns>
@@ -1774,12 +1774,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1801,7 +1801,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org preferences Gets preferences of your organization.
+        /// Retrieve the Org Preferences Gets preferences of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1813,7 +1813,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org preferences Gets preferences of your organization.
+        /// Retrieve the Org Preferences Gets preferences of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1844,12 +1844,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1872,7 +1872,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org settings Get settings of your organization.
+        /// Retrieve the Org Settings Get settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgSetting</returns>
@@ -1883,7 +1883,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org settings Get settings of your organization.
+        /// Retrieve the Org Settings Get settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgSetting</returns>
@@ -1912,12 +1912,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1939,7 +1939,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org settings Get settings of your organization.
+        /// Retrieve the Org Settings Get settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1951,7 +1951,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get org settings Get settings of your organization.
+        /// Retrieve the Org Settings Get settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -1982,12 +1982,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2010,7 +2010,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Okta Support Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
+        /// Grant Okta Support Access to your Org Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaSupportSettingsObj</returns>
@@ -2021,7 +2021,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Okta Support Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
+        /// Grant Okta Support Access to your Org Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
@@ -2050,12 +2050,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2077,7 +2077,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Okta Support Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
+        /// Grant Okta Support Access to your Org Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2089,7 +2089,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Grant Okta Support Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
+        /// Grant Okta Support Access to your Org Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2120,12 +2120,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2148,7 +2148,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Hide the Okta UI footer for all end users of your organization.
+        /// Update the Preference to Hide the Okta Dashboard Footer Hide the Okta UI footer for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgPreferences</returns>
@@ -2159,7 +2159,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Hide the Okta UI footer for all end users of your organization.
+        /// Update the Preference to Hide the Okta Dashboard Footer Hide the Okta UI footer for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgPreferences</returns>
@@ -2188,12 +2188,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2215,7 +2215,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Hide the Okta UI footer for all end users of your organization.
+        /// Update the Preference to Hide the Okta Dashboard Footer Hide the Okta UI footer for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2227,7 +2227,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Hide the Okta UI footer for all end users of your organization.
+        /// Update the Preference to Hide the Okta Dashboard Footer Hide the Okta UI footer for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2258,12 +2258,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2286,7 +2286,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt in all users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
+        /// Opt in all Users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaCommunicationSetting</returns>
@@ -2297,7 +2297,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt in all users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
+        /// Opt in all Users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaCommunicationSetting</returns>
@@ -2326,12 +2326,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2353,7 +2353,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt in all users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
+        /// Opt in all Users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2365,7 +2365,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt in all users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
+        /// Opt in all Users to Okta Communication emails Opts in all users of this org to Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2396,12 +2396,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2424,7 +2424,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt out all users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
+        /// Opt out all Users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaCommunicationSetting</returns>
@@ -2435,7 +2435,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt out all users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
+        /// Opt out all Users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaCommunicationSetting</returns>
@@ -2464,12 +2464,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2491,7 +2491,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt out all users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
+        /// Opt out all Users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2503,7 +2503,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Opt out all users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
+        /// Opt out all Users from Okta Communication emails Opts out all users of this org from Okta Communication emails.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2534,12 +2534,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2562,7 +2562,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial update Org Setting Partial update settings of your organization.
+        /// Update the Org Settings Partial update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"> (optional)</param>
@@ -2574,7 +2574,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial update Org Setting Partial update settings of your organization.
+        /// Update the Org Settings Partial update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"> (optional)</param>
@@ -2606,12 +2606,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = orgSetting;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2633,7 +2633,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial update Org Setting Partial update settings of your organization.
+        /// Update the Org Settings Partial update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"> (optional)</param>
@@ -2646,7 +2646,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial update Org Setting Partial update settings of your organization.
+        /// Update the Org Settings Partial update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"> (optional)</param>
@@ -2680,12 +2680,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = orgSetting;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2708,7 +2708,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Revokes Okta Support access to your organization.
+        /// Revoke Okta Support Access Revokes Okta Support access to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgOktaSupportSettingsObj</returns>
@@ -2719,7 +2719,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Revokes Okta Support access to your organization.
+        /// Revoke Okta Support Access Revokes Okta Support access to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgOktaSupportSettingsObj</returns>
@@ -2748,12 +2748,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2775,7 +2775,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Revokes Okta Support access to your organization.
+        /// Revoke Okta Support Access Revokes Okta Support access to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2787,7 +2787,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Extend Okta Support Revokes Okta Support access to your organization.
+        /// Revoke Okta Support Access Revokes Okta Support access to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2818,12 +2818,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2846,7 +2846,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Makes the Okta UI footer visible for all end users of your organization.
+        /// Update the Preference to Show the Okta Dashboard Footer Makes the Okta UI footer visible for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>OrgPreferences</returns>
@@ -2857,7 +2857,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Makes the Okta UI footer visible for all end users of your organization.
+        /// Update the Preference to Show the Okta Dashboard Footer Makes the Okta UI footer visible for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of OrgPreferences</returns>
@@ -2886,12 +2886,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2913,7 +2913,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Makes the Okta UI footer visible for all end users of your organization.
+        /// Update the Preference to Show the Okta Dashboard Footer Makes the Okta UI footer visible for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2925,7 +2925,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Show Okta UI Footer Makes the Okta UI footer visible for all end users of your organization.
+        /// Update the Preference to Show the Okta Dashboard Footer Makes the Okta UI footer visible for all end users of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -2956,12 +2956,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -2984,7 +2984,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org contact user Updates the User associated with the specified Contact Type.
+        /// Replace the User of the Contact Type Updates the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -2997,7 +2997,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org contact user Updates the User associated with the specified Contact Type.
+        /// Replace the User of the Contact Type Updates the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -3043,12 +3043,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("contactType", Okta.Sdk.Client.ClientUtils.ParameterToString(contactType)); // path parameter
             localVarRequestOptions.Data = orgContactUser;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3070,7 +3070,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org contact user Updates the User associated with the specified Contact Type.
+        /// Replace the User of the Contact Type Updates the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -3084,7 +3084,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org contact user Updates the User associated with the specified Contact Type.
+        /// Replace the User of the Contact Type Updates the User associated with the specified Contact Type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactType"></param>
@@ -3132,12 +3132,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("contactType", Okta.Sdk.Client.ClientUtils.ParameterToString(contactType)); // path parameter
             localVarRequestOptions.Data = orgContactUser;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3160,7 +3160,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org logo Updates the logo for your organization.
+        /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
@@ -3170,7 +3170,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org logo Updates the logo for your organization.
+        /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -3200,12 +3200,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3227,7 +3227,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org logo Updates the logo for your organization.
+        /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3238,7 +3238,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update org logo Updates the logo for your organization.
+        /// Upload the Org Logo Updates the logo for your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -3270,12 +3270,12 @@ namespace Okta.Sdk.Api
             }
 
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3298,7 +3298,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Org setting Update settings of your organization.
+        /// Replace the Org Settings Update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"></param>
@@ -3310,7 +3310,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Org setting Update settings of your organization.
+        /// Replace the Org Settings Update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"></param>
@@ -3348,12 +3348,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = orgSetting;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -3375,7 +3375,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Org setting Update settings of your organization.
+        /// Replace the Org Settings Update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"></param>
@@ -3388,7 +3388,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update Org setting Update settings of your organization.
+        /// Replace the Org Settings Update settings of your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="orgSetting"></param>
@@ -3428,12 +3428,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = orgSetting;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {

@@ -4,20 +4,20 @@ All URIs are relative to *https://your-subdomain.okta.com*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**ActivateBehaviorDetectionRule**](BehaviorApi.md#activatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/activate | Activate Behavior Detection Rule
-[**CreateBehaviorDetectionRule**](BehaviorApi.md#createbehaviordetectionrule) | **POST** /api/v1/behaviors | Create new Behavior Detection Rule
-[**DeactivateBehaviorDetectionRule**](BehaviorApi.md#deactivatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/deactivate | Deactivate Behavior Detection Rule
-[**DeleteBehaviorDetectionRule**](BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete Behavior Detection Rule
-[**GetBehaviorDetectionRule**](BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Get Behavior Detection Rule
-[**ListBehaviorDetectionRules**](BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List Behavior Detection Rules
-[**UpdateBehaviorDetectionRule**](BehaviorApi.md#updatebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Update Behavior Detection Rule
+[**ActivateBehaviorDetectionRule**](BehaviorApi.md#activatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/activate | Activate a Behavior Detection Rule
+[**CreateBehaviorDetectionRule**](BehaviorApi.md#createbehaviordetectionrule) | **POST** /api/v1/behaviors | Create a Behavior Detection Rule
+[**DeactivateBehaviorDetectionRule**](BehaviorApi.md#deactivatebehaviordetectionrule) | **POST** /api/v1/behaviors/{behaviorId}/lifecycle/deactivate | Deactivate a Behavior Detection Rule
+[**DeleteBehaviorDetectionRule**](BehaviorApi.md#deletebehaviordetectionrule) | **DELETE** /api/v1/behaviors/{behaviorId} | Delete a Behavior Detection Rule
+[**GetBehaviorDetectionRule**](BehaviorApi.md#getbehaviordetectionrule) | **GET** /api/v1/behaviors/{behaviorId} | Retrieve a Behavior Detection Rule
+[**ListBehaviorDetectionRules**](BehaviorApi.md#listbehaviordetectionrules) | **GET** /api/v1/behaviors | List all Behavior Detection Rules
+[**UpdateBehaviorDetectionRule**](BehaviorApi.md#updatebehaviordetectionrule) | **PUT** /api/v1/behaviors/{behaviorId} | Replace a Behavior Detection Rule
 
 
 <a name="activatebehaviordetectionrule"></a>
 # **ActivateBehaviorDetectionRule**
 > BehaviorRule ActivateBehaviorDetectionRule (string behaviorId)
 
-Activate Behavior Detection Rule
+Activate a Behavior Detection Rule
 
 Activate Behavior Detection Rule
 
@@ -37,11 +37,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
@@ -49,7 +49,7 @@ namespace Example
 
             try
             {
-                // Activate Behavior Detection Rule
+                // Activate a Behavior Detection Rule
                 BehaviorRule result = apiInstance.ActivateBehaviorDetectionRule(behaviorId);
                 Debug.WriteLine(result);
             }
@@ -76,7 +76,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -98,7 +98,7 @@ Name | Type | Description  | Notes
 # **CreateBehaviorDetectionRule**
 > BehaviorRule CreateBehaviorDetectionRule (BehaviorRule rule)
 
-Create new Behavior Detection Rule
+Create a Behavior Detection Rule
 
 Adds a new Behavior Detection Rule to your organization.
 
@@ -118,11 +118,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
@@ -130,7 +130,7 @@ namespace Example
 
             try
             {
-                // Create new Behavior Detection Rule
+                // Create a Behavior Detection Rule
                 BehaviorRule result = apiInstance.CreateBehaviorDetectionRule(rule);
                 Debug.WriteLine(result);
             }
@@ -157,7 +157,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -179,7 +179,7 @@ Name | Type | Description  | Notes
 # **DeactivateBehaviorDetectionRule**
 > BehaviorRule DeactivateBehaviorDetectionRule (string behaviorId)
 
-Deactivate Behavior Detection Rule
+Deactivate a Behavior Detection Rule
 
 Deactivate Behavior Detection Rule
 
@@ -199,11 +199,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
@@ -211,7 +211,7 @@ namespace Example
 
             try
             {
-                // Deactivate Behavior Detection Rule
+                // Deactivate a Behavior Detection Rule
                 BehaviorRule result = apiInstance.DeactivateBehaviorDetectionRule(behaviorId);
                 Debug.WriteLine(result);
             }
@@ -238,7 +238,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -260,7 +260,7 @@ Name | Type | Description  | Notes
 # **DeleteBehaviorDetectionRule**
 > void DeleteBehaviorDetectionRule (string behaviorId)
 
-Delete Behavior Detection Rule
+Delete a Behavior Detection Rule
 
 Delete a Behavior Detection Rule by `behaviorId`.
 
@@ -280,11 +280,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
@@ -292,7 +292,7 @@ namespace Example
 
             try
             {
-                // Delete Behavior Detection Rule
+                // Delete a Behavior Detection Rule
                 apiInstance.DeleteBehaviorDetectionRule(behaviorId);
             }
             catch (ApiException  e)
@@ -318,7 +318,7 @@ void (empty response body)
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -340,7 +340,7 @@ void (empty response body)
 # **GetBehaviorDetectionRule**
 > List&lt;BehaviorRule&gt; GetBehaviorDetectionRule (string behaviorId)
 
-Get Behavior Detection Rule
+Retrieve a Behavior Detection Rule
 
 Fetches a Behavior Detection Rule by `behaviorId`.
 
@@ -360,11 +360,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
@@ -372,7 +372,7 @@ namespace Example
 
             try
             {
-                // Get Behavior Detection Rule
+                // Retrieve a Behavior Detection Rule
                 List<BehaviorRule> result = apiInstance.GetBehaviorDetectionRule(behaviorId);
                 Debug.WriteLine(result);
             }
@@ -399,7 +399,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -421,7 +421,7 @@ Name | Type | Description  | Notes
 # **ListBehaviorDetectionRules**
 > List&lt;BehaviorRule&gt; ListBehaviorDetectionRules ()
 
-List Behavior Detection Rules
+List all Behavior Detection Rules
 
 Enumerates Behavior Detection Rules in your organization with pagination.
 
@@ -441,18 +441,18 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
 
             try
             {
-                // List Behavior Detection Rules
+                // List all Behavior Detection Rules
                 List<BehaviorRule> result = apiInstance.ListBehaviorDetectionRules();
                 Debug.WriteLine(result);
             }
@@ -476,7 +476,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 
@@ -497,7 +497,7 @@ This endpoint does not need any parameter.
 # **UpdateBehaviorDetectionRule**
 > BehaviorRule UpdateBehaviorDetectionRule (string behaviorId, BehaviorRule rule)
 
-Update Behavior Detection Rule
+Replace a Behavior Detection Rule
 
 Update a Behavior Detection Rule by `behaviorId`.
 
@@ -517,11 +517,11 @@ namespace Example
         {
             Configuration config = new Configuration();
             config.BasePath = "https://your-subdomain.okta.com";
-            // Configure API key authorization: API Token
+            // Configure API key authorization: API_Token
             config.AddApiKey("Authorization", "YOUR_API_KEY");
             // Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
             // config.AddApiKeyPrefix("Authorization", "Bearer");
-            // Configure OAuth2 access token for authorization: OAuth 2.0
+            // Configure OAuth2 access token for authorization: OAuth_2.0
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new BehaviorApi(config);
@@ -530,7 +530,7 @@ namespace Example
 
             try
             {
-                // Update Behavior Detection Rule
+                // Replace a Behavior Detection Rule
                 BehaviorRule result = apiInstance.UpdateBehaviorDetectionRule(behaviorId, rule);
                 Debug.WriteLine(result);
             }
@@ -558,7 +558,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[API Token](../README.md#API Token), [OAuth 2.0](../README.md#OAuth 2.0)
+[API_Token](../README.md#API_Token), [OAuth_2.0](../README.md#OAuth_2.0)
 
 ### HTTP request headers
 

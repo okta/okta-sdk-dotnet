@@ -40,10 +40,28 @@ namespace Okta.Sdk.Model
         public string ButtonField { get; set; }
 
         /// <summary>
+        /// Gets or Sets ButtonSelector
+        /// </summary>
+        [DataMember(Name = "buttonSelector", EmitDefaultValue = false)]
+        public string ButtonSelector { get; set; }
+
+        /// <summary>
         /// Gets or Sets Checkbox
         /// </summary>
         [DataMember(Name = "checkbox", EmitDefaultValue = false)]
         public string Checkbox { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExtraFieldSelector
+        /// </summary>
+        [DataMember(Name = "extraFieldSelector", EmitDefaultValue = false)]
+        public string ExtraFieldSelector { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ExtraFieldValue
+        /// </summary>
+        [DataMember(Name = "extraFieldValue", EmitDefaultValue = false)]
+        public string ExtraFieldValue { get; set; }
 
         /// <summary>
         /// Gets or Sets LoginUrlRegex
@@ -58,10 +76,22 @@ namespace Okta.Sdk.Model
         public string PasswordField { get; set; }
 
         /// <summary>
+        /// Gets or Sets PasswordSelector
+        /// </summary>
+        [DataMember(Name = "passwordSelector", EmitDefaultValue = false)]
+        public string PasswordSelector { get; set; }
+
+        /// <summary>
         /// Gets or Sets RedirectUrl
         /// </summary>
         [DataMember(Name = "redirectUrl", EmitDefaultValue = false)]
         public string RedirectUrl { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TargetURL
+        /// </summary>
+        [DataMember(Name = "targetURL", EmitDefaultValue = false)]
+        public string TargetURL { get; set; }
 
         /// <summary>
         /// Gets or Sets Url
@@ -76,6 +106,12 @@ namespace Okta.Sdk.Model
         public string UsernameField { get; set; }
 
         /// <summary>
+        /// Gets or Sets UserNameSelector
+        /// </summary>
+        [DataMember(Name = "userNameSelector", EmitDefaultValue = false)]
+        public string UserNameSelector { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,12 +120,18 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SwaApplicationSettingsApplication {\n");
             sb.Append("  ButtonField: ").Append(ButtonField).Append("\n");
+            sb.Append("  ButtonSelector: ").Append(ButtonSelector).Append("\n");
             sb.Append("  Checkbox: ").Append(Checkbox).Append("\n");
+            sb.Append("  ExtraFieldSelector: ").Append(ExtraFieldSelector).Append("\n");
+            sb.Append("  ExtraFieldValue: ").Append(ExtraFieldValue).Append("\n");
             sb.Append("  LoginUrlRegex: ").Append(LoginUrlRegex).Append("\n");
             sb.Append("  PasswordField: ").Append(PasswordField).Append("\n");
+            sb.Append("  PasswordSelector: ").Append(PasswordSelector).Append("\n");
             sb.Append("  RedirectUrl: ").Append(RedirectUrl).Append("\n");
+            sb.Append("  TargetURL: ").Append(TargetURL).Append("\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
             sb.Append("  UsernameField: ").Append(UsernameField).Append("\n");
+            sb.Append("  UserNameSelector: ").Append(UserNameSelector).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -131,9 +173,24 @@ namespace Okta.Sdk.Model
                     this.ButtonField.Equals(input.ButtonField))
                 ) && 
                 (
+                    this.ButtonSelector == input.ButtonSelector ||
+                    (this.ButtonSelector != null &&
+                    this.ButtonSelector.Equals(input.ButtonSelector))
+                ) && 
+                (
                     this.Checkbox == input.Checkbox ||
                     (this.Checkbox != null &&
                     this.Checkbox.Equals(input.Checkbox))
+                ) && 
+                (
+                    this.ExtraFieldSelector == input.ExtraFieldSelector ||
+                    (this.ExtraFieldSelector != null &&
+                    this.ExtraFieldSelector.Equals(input.ExtraFieldSelector))
+                ) && 
+                (
+                    this.ExtraFieldValue == input.ExtraFieldValue ||
+                    (this.ExtraFieldValue != null &&
+                    this.ExtraFieldValue.Equals(input.ExtraFieldValue))
                 ) && 
                 (
                     this.LoginUrlRegex == input.LoginUrlRegex ||
@@ -146,9 +203,19 @@ namespace Okta.Sdk.Model
                     this.PasswordField.Equals(input.PasswordField))
                 ) && 
                 (
+                    this.PasswordSelector == input.PasswordSelector ||
+                    (this.PasswordSelector != null &&
+                    this.PasswordSelector.Equals(input.PasswordSelector))
+                ) && 
+                (
                     this.RedirectUrl == input.RedirectUrl ||
                     (this.RedirectUrl != null &&
                     this.RedirectUrl.Equals(input.RedirectUrl))
+                ) && 
+                (
+                    this.TargetURL == input.TargetURL ||
+                    (this.TargetURL != null &&
+                    this.TargetURL.Equals(input.TargetURL))
                 ) && 
                 (
                     this.Url == input.Url ||
@@ -159,6 +226,11 @@ namespace Okta.Sdk.Model
                     this.UsernameField == input.UsernameField ||
                     (this.UsernameField != null &&
                     this.UsernameField.Equals(input.UsernameField))
+                ) && 
+                (
+                    this.UserNameSelector == input.UserNameSelector ||
+                    (this.UserNameSelector != null &&
+                    this.UserNameSelector.Equals(input.UserNameSelector))
                 );
         }
 
@@ -175,9 +247,21 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.ButtonField.GetHashCode();
                 }
+                if (this.ButtonSelector != null)
+                {
+                    hashCode = (hashCode * 59) + this.ButtonSelector.GetHashCode();
+                }
                 if (this.Checkbox != null)
                 {
                     hashCode = (hashCode * 59) + this.Checkbox.GetHashCode();
+                }
+                if (this.ExtraFieldSelector != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExtraFieldSelector.GetHashCode();
+                }
+                if (this.ExtraFieldValue != null)
+                {
+                    hashCode = (hashCode * 59) + this.ExtraFieldValue.GetHashCode();
                 }
                 if (this.LoginUrlRegex != null)
                 {
@@ -187,9 +271,17 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.PasswordField.GetHashCode();
                 }
+                if (this.PasswordSelector != null)
+                {
+                    hashCode = (hashCode * 59) + this.PasswordSelector.GetHashCode();
+                }
                 if (this.RedirectUrl != null)
                 {
                     hashCode = (hashCode * 59) + this.RedirectUrl.GetHashCode();
+                }
+                if (this.TargetURL != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetURL.GetHashCode();
                 }
                 if (this.Url != null)
                 {
@@ -198,6 +290,10 @@ namespace Okta.Sdk.Model
                 if (this.UsernameField != null)
                 {
                     hashCode = (hashCode * 59) + this.UsernameField.GetHashCode();
+                }
+                if (this.UserNameSelector != null)
+                {
+                    hashCode = (hashCode * 59) + this.UserNameSelector.GetHashCode();
                 }
                 return hashCode;
             }

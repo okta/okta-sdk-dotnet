@@ -28,7 +28,7 @@ namespace Okta.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Add SMS Template
+        /// Create an SMS Template
         /// </summary>
         /// <remarks>
         /// Adds a new custom SMS template to your organization.
@@ -39,7 +39,7 @@ namespace Okta.Sdk.Api
         SmsTemplate CreateSmsTemplate(SmsTemplate smsTemplate);
 
         /// <summary>
-        /// Add SMS Template
+        /// Create an SMS Template
         /// </summary>
         /// <remarks>
         /// Adds a new custom SMS template to your organization.
@@ -49,7 +49,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of SmsTemplate</returns>
         ApiResponse<SmsTemplate> CreateSmsTemplateWithHttpInfo(SmsTemplate smsTemplate);
         /// <summary>
-        /// Remove SMS Template
+        /// Delete an SMS Template
         /// </summary>
         /// <remarks>
         /// Removes an SMS template.
@@ -60,7 +60,7 @@ namespace Okta.Sdk.Api
         void DeleteSmsTemplate(string templateId);
 
         /// <summary>
-        /// Remove SMS Template
+        /// Delete an SMS Template
         /// </summary>
         /// <remarks>
         /// Removes an SMS template.
@@ -70,7 +70,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> DeleteSmsTemplateWithHttpInfo(string templateId);
         /// <summary>
-        /// Get SMS Template
+        /// Retrieve an SMS Template
         /// </summary>
         /// <remarks>
         /// Fetches a specific template by &#x60;id&#x60;
@@ -81,7 +81,7 @@ namespace Okta.Sdk.Api
         SmsTemplate GetSmsTemplate(string templateId);
 
         /// <summary>
-        /// Get SMS Template
+        /// Retrieve an SMS Template
         /// </summary>
         /// <remarks>
         /// Fetches a specific template by &#x60;id&#x60;
@@ -91,7 +91,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of SmsTemplate</returns>
         ApiResponse<SmsTemplate> GetSmsTemplateWithHttpInfo(string templateId);
         /// <summary>
-        /// List SMS Templates
+        /// List all SMS Templates
         /// </summary>
         /// <remarks>
         /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
@@ -102,7 +102,7 @@ namespace Okta.Sdk.Api
         List<SmsTemplate> ListSmsTemplates(SmsTemplateType? templateType = default(SmsTemplateType?));
 
         /// <summary>
-        /// List SMS Templates
+        /// List all SMS Templates
         /// </summary>
         /// <remarks>
         /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
@@ -112,7 +112,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of List&lt;SmsTemplate&gt;</returns>
         ApiResponse<List<SmsTemplate>> ListSmsTemplatesWithHttpInfo(SmsTemplateType? templateType = default(SmsTemplateType?));
         /// <summary>
-        /// Partial SMS Template Update
+        /// Update an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates only some of the SMS template properties:
@@ -124,7 +124,7 @@ namespace Okta.Sdk.Api
         SmsTemplate PartialUpdateSmsTemplate(string templateId, SmsTemplate smsTemplate);
 
         /// <summary>
-        /// Partial SMS Template Update
+        /// Update an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates only some of the SMS template properties:
@@ -135,7 +135,7 @@ namespace Okta.Sdk.Api
         /// <returns>ApiResponse of SmsTemplate</returns>
         ApiResponse<SmsTemplate> PartialUpdateSmsTemplateWithHttpInfo(string templateId, SmsTemplate smsTemplate);
         /// <summary>
-        /// Update SMS Template
+        /// Replace an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates the SMS template.
@@ -147,7 +147,7 @@ namespace Okta.Sdk.Api
         SmsTemplate UpdateSmsTemplate(string templateId, SmsTemplate smsTemplate);
 
         /// <summary>
-        /// Update SMS Template
+        /// Replace an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates the SMS template.
@@ -167,7 +167,7 @@ namespace Okta.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// Add SMS Template
+        /// Create an SMS Template
         /// </summary>
         /// <remarks>
         /// Adds a new custom SMS template to your organization.
@@ -179,7 +179,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<SmsTemplate> CreateSmsTemplateAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Add SMS Template
+        /// Create an SMS Template
         /// </summary>
         /// <remarks>
         /// Adds a new custom SMS template to your organization.
@@ -190,7 +190,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
         System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> CreateSmsTemplateWithHttpInfoAsync(SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Remove SMS Template
+        /// Delete an SMS Template
         /// </summary>
         /// <remarks>
         /// Removes an SMS template.
@@ -202,7 +202,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task DeleteSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Remove SMS Template
+        /// Delete an SMS Template
         /// </summary>
         /// <remarks>
         /// Removes an SMS template.
@@ -213,7 +213,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> DeleteSmsTemplateWithHttpInfoAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Get SMS Template
+        /// Retrieve an SMS Template
         /// </summary>
         /// <remarks>
         /// Fetches a specific template by &#x60;id&#x60;
@@ -225,7 +225,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<SmsTemplate> GetSmsTemplateAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Get SMS Template
+        /// Retrieve an SMS Template
         /// </summary>
         /// <remarks>
         /// Fetches a specific template by &#x60;id&#x60;
@@ -236,7 +236,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
         System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> GetSmsTemplateWithHttpInfoAsync(string templateId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// List SMS Templates
+        /// List all SMS Templates
         /// </summary>
         /// <remarks>
         /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
@@ -248,7 +248,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<List<SmsTemplate>> ListSmsTemplatesAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// List SMS Templates
+        /// List all SMS Templates
         /// </summary>
         /// <remarks>
         /// Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
@@ -259,7 +259,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;SmsTemplate&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<SmsTemplate>>> ListSmsTemplatesWithHttpInfoAsync(SmsTemplateType? templateType = default(SmsTemplateType?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Partial SMS Template Update
+        /// Update an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates only some of the SMS template properties:
@@ -272,7 +272,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<SmsTemplate> PartialUpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Partial SMS Template Update
+        /// Update an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates only some of the SMS template properties:
@@ -284,7 +284,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of ApiResponse (SmsTemplate)</returns>
         System.Threading.Tasks.Task<ApiResponse<SmsTemplate>> PartialUpdateSmsTemplateWithHttpInfoAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
-        /// Update SMS Template
+        /// Replace an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates the SMS template.
@@ -297,7 +297,7 @@ namespace Okta.Sdk.Api
         System.Threading.Tasks.Task<SmsTemplate> UpdateSmsTemplateAsync(string templateId, SmsTemplate smsTemplate, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
-        /// Update SMS Template
+        /// Replace an SMS Template
         /// </summary>
         /// <remarks>
         /// Updates the SMS template.
@@ -408,7 +408,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add SMS Template Adds a new custom SMS template to your organization.
+        /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smsTemplate"></param>
@@ -420,7 +420,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add SMS Template Adds a new custom SMS template to your organization.
+        /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smsTemplate"></param>
@@ -458,12 +458,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -485,7 +485,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add SMS Template Adds a new custom SMS template to your organization.
+        /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smsTemplate"></param>
@@ -498,7 +498,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Add SMS Template Adds a new custom SMS template to your organization.
+        /// Create an SMS Template Adds a new custom SMS template to your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="smsTemplate"></param>
@@ -538,12 +538,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -566,7 +566,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove SMS Template Removes an SMS template.
+        /// Delete an SMS Template Removes an SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -577,7 +577,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove SMS Template Removes an SMS template.
+        /// Delete an SMS Template Removes an SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -614,12 +614,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -641,7 +641,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove SMS Template Removes an SMS template.
+        /// Delete an SMS Template Removes an SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -653,7 +653,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Remove SMS Template Removes an SMS template.
+        /// Delete an SMS Template Removes an SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -692,12 +692,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -720,7 +720,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get SMS Template Fetches a specific template by &#x60;id&#x60;
+        /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -732,7 +732,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get SMS Template Fetches a specific template by &#x60;id&#x60;
+        /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -769,12 +769,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -796,7 +796,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get SMS Template Fetches a specific template by &#x60;id&#x60;
+        /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -809,7 +809,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Get SMS Template Fetches a specific template by &#x60;id&#x60;
+        /// Retrieve an SMS Template Fetches a specific template by &#x60;id&#x60;
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -848,12 +848,12 @@ namespace Okta.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -876,7 +876,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
+        /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
@@ -888,7 +888,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
+        /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
@@ -922,12 +922,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateType", templateType));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -949,7 +949,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
+        /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
@@ -962,7 +962,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// List SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
+        /// List all SMS Templates Enumerates custom SMS templates in your organization. A subset of templates can be returned that match a template type.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateType"> (optional)</param>
@@ -998,12 +998,12 @@ namespace Okta.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "templateType", templateType));
             }
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1026,7 +1026,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial SMS Template Update Updates only some of the SMS template properties:
+        /// Update an SMS Template Updates only some of the SMS template properties:
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1039,7 +1039,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial SMS Template Update Updates only some of the SMS template properties:
+        /// Update an SMS Template Updates only some of the SMS template properties:
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1085,12 +1085,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1112,7 +1112,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial SMS Template Update Updates only some of the SMS template properties:
+        /// Update an SMS Template Updates only some of the SMS template properties:
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1126,7 +1126,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Partial SMS Template Update Updates only some of the SMS template properties:
+        /// Update an SMS Template Updates only some of the SMS template properties:
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1174,12 +1174,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1202,7 +1202,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update SMS Template Updates the SMS template.
+        /// Replace an SMS Template Updates the SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1215,7 +1215,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update SMS Template Updates the SMS template.
+        /// Replace an SMS Template Updates the SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1261,12 +1261,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
@@ -1288,7 +1288,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update SMS Template Updates the SMS template.
+        /// Replace an SMS Template Updates the SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1302,7 +1302,7 @@ namespace Okta.Sdk.Api
         }
 
         /// <summary>
-        /// Update SMS Template Updates the SMS template.
+        /// Replace an SMS Template Updates the SMS template.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="templateId"></param>
@@ -1350,12 +1350,12 @@ namespace Okta.Sdk.Api
             localVarRequestOptions.PathParameters.Add("templateId", Okta.Sdk.Client.ClientUtils.ParameterToString(templateId)); // path parameter
             localVarRequestOptions.Data = smsTemplate;
 
-            // authentication (API Token) required
+            // authentication (API_Token) required
             if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
             {
                 localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
             }
-            // authentication (OAuth 2.0) required
+            // authentication (OAuth_2.0) required
             // oauth required
             if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
             {
