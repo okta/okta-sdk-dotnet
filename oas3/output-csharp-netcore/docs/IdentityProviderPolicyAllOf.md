@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **AccountLink** | [**PolicyAccountLink**](PolicyAccountLink.md) |  | [optional] 
+**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **MaxClockSkew** | **int** |  | [optional] 
 **Provisioning** | [**Provisioning**](Provisioning.md) |  | [optional] 
 **Subject** | [**PolicySubject**](PolicySubject.md) |  | [optional] 

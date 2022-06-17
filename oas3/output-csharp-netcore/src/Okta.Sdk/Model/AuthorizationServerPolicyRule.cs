@@ -41,16 +41,16 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Conditions
-        /// </summary>
-        [DataMember(Name = "conditions", EmitDefaultValue = false)]
-        public AuthorizationServerPolicyRuleConditions Conditions { get; set; }
-
-        /// <summary>
         /// Gets or Sets Actions
         /// </summary>
         [DataMember(Name = "actions", EmitDefaultValue = false)]
         public AuthorizationServerPolicyRuleActions Actions { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Conditions
+        /// </summary>
+        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        public AuthorizationServerPolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +61,8 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class AuthorizationServerPolicyRule {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("  Actions: ").Append(Actions).Append("\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -99,14 +99,14 @@ namespace Okta.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.Conditions == input.Conditions ||
-                    (this.Conditions != null &&
-                    this.Conditions.Equals(input.Conditions))
-                ) && base.Equals(input) && 
-                (
                     this.Actions == input.Actions ||
                     (this.Actions != null &&
                     this.Actions.Equals(input.Actions))
+                ) && base.Equals(input) && 
+                (
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
                 );
         }
 
@@ -119,13 +119,13 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.Conditions != null)
-                {
-                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
                 if (this.Actions != null)
                 {
                     hashCode = (hashCode * 59) + this.Actions.GetHashCode();
+                }
+                if (this.Conditions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
                 return hashCode;
             }

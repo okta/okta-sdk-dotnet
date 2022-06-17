@@ -47,10 +47,10 @@ namespace Okta.Sdk.Model
         public ProfileEnrollmentPolicyRuleActions Actions { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
+        /// Gets or Sets Conditions
         /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
+        [DataMember(Name = "conditions", EmitDefaultValue = false)]
+        public PolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -62,7 +62,7 @@ namespace Okta.Sdk.Model
             sb.Append("class ProfileEnrollmentPolicyRule {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
             sb.Append("  Actions: ").Append(Actions).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Conditions: ").Append(Conditions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,9 +104,9 @@ namespace Okta.Sdk.Model
                     this.Actions.Equals(input.Actions))
                 ) && base.Equals(input) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Conditions == input.Conditions ||
+                    (this.Conditions != null &&
+                    this.Conditions.Equals(input.Conditions))
                 );
         }
 
@@ -123,9 +123,9 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Actions.GetHashCode();
                 }
-                if (this.Name != null)
+                if (this.Conditions != null)
                 {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
                 }
                 return hashCode;
             }

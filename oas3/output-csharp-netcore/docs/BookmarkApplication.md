@@ -17,8 +17,8 @@ Name | Type | Description | Notes
 **Visibility** | [**ApplicationVisibility**](ApplicationVisibility.md) |  | [optional] 
 **Embedded** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
 **Links** | **Dictionary&lt;string, Object&gt;** |  | [optional] [readonly] 
-**Name** | **string** |  | [optional] [default to "bookmark"]
 **Credentials** | [**ApplicationCredentials**](ApplicationCredentials.md) |  | [optional] 
+**Name** | **string** |  | [optional] [default to "bookmark"]
 **Settings** | [**BookmarkApplicationSettings**](BookmarkApplicationSettings.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -45,16 +45,16 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or Sets Credentials
         /// </summary>
         [DataMember(Name = "credentials", EmitDefaultValue = false)]
         public ApplicationCredentials Credentials { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name = "name", EmitDefaultValue = false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets Settings
@@ -71,8 +71,8 @@ namespace Okta.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class SamlApplication {\n");
             sb.Append("  ").Append(base.ToString().Replace("\n", "\n  ")).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Credentials: ").Append(Credentials).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Settings: ").Append(Settings).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -110,14 +110,14 @@ namespace Okta.Sdk.Model
             }
             return base.Equals(input) && 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
-                ) && base.Equals(input) && 
-                (
                     this.Credentials == input.Credentials ||
                     (this.Credentials != null &&
                     this.Credentials.Equals(input.Credentials))
+                ) && base.Equals(input) && 
+                (
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && base.Equals(input) && 
                 (
                     this.Settings == input.Settings ||
@@ -135,13 +135,13 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = base.GetHashCode();
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
-                }
                 if (this.Credentials != null)
                 {
                     hashCode = (hashCode * 59) + this.Credentials.GetHashCode();
+                }
+                if (this.Name != null)
+                {
+                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 if (this.Settings != null)
                 {

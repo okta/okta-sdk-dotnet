@@ -34,12 +34,6 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets People
-        /// </summary>
-        [DataMember(Name = "people", EmitDefaultValue = false)]
-        public PolicyPeopleCondition People { get; set; }
-
-        /// <summary>
         /// Gets or Sets Clients
         /// </summary>
         [DataMember(Name = "clients", EmitDefaultValue = false)]
@@ -50,6 +44,12 @@ namespace Okta.Sdk.Model
         /// </summary>
         [DataMember(Name = "grantTypes", EmitDefaultValue = false)]
         public GrantTypePolicyRuleCondition GrantTypes { get; set; }
+
+        /// <summary>
+        /// Gets or Sets People
+        /// </summary>
+        [DataMember(Name = "people", EmitDefaultValue = false)]
+        public PolicyPeopleCondition People { get; set; }
 
         /// <summary>
         /// Gets or Sets Scopes
@@ -65,9 +65,9 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AuthorizationServerPolicyRuleConditionsAllOf {\n");
-            sb.Append("  People: ").Append(People).Append("\n");
             sb.Append("  Clients: ").Append(Clients).Append("\n");
             sb.Append("  GrantTypes: ").Append(GrantTypes).Append("\n");
+            sb.Append("  People: ").Append(People).Append("\n");
             sb.Append("  Scopes: ").Append(Scopes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -105,11 +105,6 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.People == input.People ||
-                    (this.People != null &&
-                    this.People.Equals(input.People))
-                ) && 
-                (
                     this.Clients == input.Clients ||
                     (this.Clients != null &&
                     this.Clients.Equals(input.Clients))
@@ -118,6 +113,11 @@ namespace Okta.Sdk.Model
                     this.GrantTypes == input.GrantTypes ||
                     (this.GrantTypes != null &&
                     this.GrantTypes.Equals(input.GrantTypes))
+                ) && 
+                (
+                    this.People == input.People ||
+                    (this.People != null &&
+                    this.People.Equals(input.People))
                 ) && 
                 (
                     this.Scopes == input.Scopes ||
@@ -135,10 +135,6 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.People != null)
-                {
-                    hashCode = (hashCode * 59) + this.People.GetHashCode();
-                }
                 if (this.Clients != null)
                 {
                     hashCode = (hashCode * 59) + this.Clients.GetHashCode();
@@ -146,6 +142,10 @@ namespace Okta.Sdk.Model
                 if (this.GrantTypes != null)
                 {
                     hashCode = (hashCode * 59) + this.GrantTypes.GetHashCode();
+                }
+                if (this.People != null)
+                {
+                    hashCode = (hashCode * 59) + this.People.GetHashCode();
                 }
                 if (this.Scopes != null)
                 {

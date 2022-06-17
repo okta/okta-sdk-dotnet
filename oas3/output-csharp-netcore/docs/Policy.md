@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Conditions** | [**PolicyRuleConditions**](PolicyRuleConditions.md) |  | [optional] 
 **Created** | **DateTimeOffset** |  | [optional] [readonly] 
 **Description** | **string** |  | [optional] 
 **Id** | **string** |  | [optional] [readonly] 

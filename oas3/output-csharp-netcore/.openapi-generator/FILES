@@ -3,6 +3,7 @@ Okta.Sdk.sln
 README.md
 appveyor.yml
 docs/AccessPolicy.md
+docs/AccessPolicyAllOf.md
 docs/AccessPolicyConstraint.md
 docs/AccessPolicyConstraints.md
 docs/AccessPolicyRule.md
@@ -670,6 +671,7 @@ src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
 src/Okta.Sdk/Model/AbstractOpenAPISchema.cs
 src/Okta.Sdk/Model/AccessPolicy.cs
+src/Okta.Sdk/Model/AccessPolicyAllOf.cs
 src/Okta.Sdk/Model/AccessPolicyConstraint.cs
 src/Okta.Sdk/Model/AccessPolicyConstraints.cs
 src/Okta.Sdk/Model/AccessPolicyRule.cs

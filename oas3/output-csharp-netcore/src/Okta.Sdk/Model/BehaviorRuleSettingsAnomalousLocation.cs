@@ -45,16 +45,16 @@ namespace Okta.Sdk.Model
         public BehaviorRuleSettingsAnomalousLocation() { }
         
         /// <summary>
-        /// Gets or Sets MinEventsNeededForEvaluation
-        /// </summary>
-        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
-        public int MinEventsNeededForEvaluation { get; set; }
-
-        /// <summary>
         /// Gets or Sets MaxEventsUsedForEvaluation
         /// </summary>
         [DataMember(Name = "maxEventsUsedForEvaluation", EmitDefaultValue = false)]
         public int MaxEventsUsedForEvaluation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinEventsNeededForEvaluation
+        /// </summary>
+        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
+        public int MinEventsNeededForEvaluation { get; set; }
 
         /// <summary>
         /// Required when &#x60;granularity&#x60; is &#x60;LAT_LONG&#x60;. Radius from the provided coordinates in kilometers.
@@ -71,8 +71,8 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BehaviorRuleSettingsAnomalousLocation {\n");
-            sb.Append("  MinEventsNeededForEvaluation: ").Append(MinEventsNeededForEvaluation).Append("\n");
             sb.Append("  MaxEventsUsedForEvaluation: ").Append(MaxEventsUsedForEvaluation).Append("\n");
+            sb.Append("  MinEventsNeededForEvaluation: ").Append(MinEventsNeededForEvaluation).Append("\n");
             sb.Append("  Granularity: ").Append(Granularity).Append("\n");
             sb.Append("  RadiusKilometers: ").Append(RadiusKilometers).Append("\n");
             sb.Append("}\n");
@@ -111,12 +111,12 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.MinEventsNeededForEvaluation == input.MinEventsNeededForEvaluation ||
-                    this.MinEventsNeededForEvaluation.Equals(input.MinEventsNeededForEvaluation)
-                ) && 
-                (
                     this.MaxEventsUsedForEvaluation == input.MaxEventsUsedForEvaluation ||
                     this.MaxEventsUsedForEvaluation.Equals(input.MaxEventsUsedForEvaluation)
+                ) && 
+                (
+                    this.MinEventsNeededForEvaluation == input.MinEventsNeededForEvaluation ||
+                    this.MinEventsNeededForEvaluation.Equals(input.MinEventsNeededForEvaluation)
                 ) && 
                 (
                     this.Granularity == input.Granularity ||
@@ -137,8 +137,8 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.Granularity.GetHashCode();
                 hashCode = (hashCode * 59) + this.RadiusKilometers.GetHashCode();
                 return hashCode;

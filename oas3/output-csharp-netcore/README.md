@@ -485,6 +485,7 @@ Class | Method | HTTP request | Description
 ## Documentation for Models
 
  - [Model.AccessPolicy](docs/AccessPolicy.md)
+ - [Model.AccessPolicyAllOf](docs/AccessPolicyAllOf.md)
  - [Model.AccessPolicyConstraint](docs/AccessPolicyConstraint.md)
  - [Model.AccessPolicyConstraints](docs/AccessPolicyConstraints.md)
  - [Model.AccessPolicyRule](docs/AccessPolicyRule.md)

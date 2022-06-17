@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**MinEventsNeededForEvaluation** | **int** |  | [optional] [default to 0]
 **MaxEventsUsedForEvaluation** | **int** |  | [optional] [default to 20]
+**MinEventsNeededForEvaluation** | **int** |  | [optional] [default to 0]
 **Granularity** | **LocationGranularity** |  | 
 **RadiusKilometers** | **int** | Required when &#x60;granularity&#x60; is &#x60;LAT_LONG&#x60;. Radius from the provided coordinates in kilometers. | [optional] 
 

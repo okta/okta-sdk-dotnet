@@ -53,19 +53,20 @@ namespace Okta.Sdk.Model
         public string Subject { get; set; }
 
         /// <summary>
-        /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).
+        /// The UTC time at which this email customization was created.
         /// </summary>
-        /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).</value>
-        [DataMember(Name = "language", IsRequired = true, EmitDefaultValue = false)]
-        public string Language { get; set; }
+        /// <value>The UTC time at which this email customization was created.</value>
+        [DataMember(Name = "created", EmitDefaultValue = false)]
+        public DateTimeOffset Created { get; private set; }
 
         /// <summary>
-        /// Whether this is the default customization for the email template. Each customized email template must have exactly one default customization. Defaults to &#x60;true&#x60; for the first customization and &#x60;false&#x60; thereafter.
+        /// Returns false as Created should not be serialized given that it's read-only.
         /// </summary>
-        /// <value>Whether this is the default customization for the email template. Each customized email template must have exactly one default customization. Defaults to &#x60;true&#x60; for the first customization and &#x60;false&#x60; thereafter.</value>
-        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
-        public bool IsDefault { get; set; }
-
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeCreated()
+        {
+            return false;
+        }
         /// <summary>
         /// A unique identifier for this email customization.
         /// </summary>
@@ -82,20 +83,19 @@ namespace Okta.Sdk.Model
             return false;
         }
         /// <summary>
-        /// The UTC time at which this email customization was created.
+        /// Whether this is the default customization for the email template. Each customized email template must have exactly one default customization. Defaults to &#x60;true&#x60; for the first customization and &#x60;false&#x60; thereafter.
         /// </summary>
-        /// <value>The UTC time at which this email customization was created.</value>
-        [DataMember(Name = "created", EmitDefaultValue = false)]
-        public DateTimeOffset Created { get; private set; }
+        /// <value>Whether this is the default customization for the email template. Each customized email template must have exactly one default customization. Defaults to &#x60;true&#x60; for the first customization and &#x60;false&#x60; thereafter.</value>
+        [DataMember(Name = "isDefault", EmitDefaultValue = true)]
+        public bool IsDefault { get; set; }
 
         /// <summary>
-        /// Returns false as Created should not be serialized given that it's read-only.
+        /// The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).
         /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeCreated()
-        {
-            return false;
-        }
+        /// <value>The language specified as an [IETF BCP 47 language tag](https://datatracker.ietf.org/doc/html/rfc5646).</value>
+        [DataMember(Name = "language", IsRequired = true, EmitDefaultValue = false)]
+        public string Language { get; set; }
+
         /// <summary>
         /// The UTC time at which this email customization was last updated.
         /// </summary>
@@ -127,10 +127,10 @@ namespace Okta.Sdk.Model
             sb.Append("class EmailCustomization {\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  Language: ").Append(Language).Append("\n");
-            sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("  Created: ").Append(Created).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  IsDefault: ").Append(IsDefault).Append("\n");
+            sb.Append("  Language: ").Append(Language).Append("\n");
             sb.Append("  LastUpdated: ").Append(LastUpdated).Append("\n");
             sb.Append("  Links: ").Append(Links).Append("\n");
             sb.Append("}\n");
@@ -179,13 +179,9 @@ namespace Okta.Sdk.Model
                     this.Subject.Equals(input.Subject))
                 ) && 
                 (
-                    this.Language == input.Language ||
-                    (this.Language != null &&
-                    this.Language.Equals(input.Language))
-                ) && 
-                (
-                    this.IsDefault == input.IsDefault ||
-                    this.IsDefault.Equals(input.IsDefault)
+                    this.Created == input.Created ||
+                    (this.Created != null &&
+                    this.Created.Equals(input.Created))
                 ) && 
                 (
                     this.Id == input.Id ||
@@ -193,9 +189,13 @@ namespace Okta.Sdk.Model
                     this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.Created == input.Created ||
-                    (this.Created != null &&
-                    this.Created.Equals(input.Created))
+                    this.IsDefault == input.IsDefault ||
+                    this.IsDefault.Equals(input.IsDefault)
+                ) && 
+                (
+                    this.Language == input.Language ||
+                    (this.Language != null &&
+                    this.Language.Equals(input.Language))
                 ) && 
                 (
                     this.LastUpdated == input.LastUpdated ||
@@ -226,18 +226,18 @@ namespace Okta.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Subject.GetHashCode();
                 }
-                if (this.Language != null)
+                if (this.Created != null)
                 {
-                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
                 if (this.Id != null)
                 {
                     hashCode = (hashCode * 59) + this.Id.GetHashCode();
                 }
-                if (this.Created != null)
+                hashCode = (hashCode * 59) + this.IsDefault.GetHashCode();
+                if (this.Language != null)
                 {
-                    hashCode = (hashCode * 59) + this.Created.GetHashCode();
+                    hashCode = (hashCode * 59) + this.Language.GetHashCode();
                 }
                 if (this.LastUpdated != null)
                 {

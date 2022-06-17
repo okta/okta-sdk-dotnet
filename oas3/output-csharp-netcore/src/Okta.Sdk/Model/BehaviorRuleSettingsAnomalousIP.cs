@@ -34,16 +34,16 @@ namespace Okta.Sdk.Model
     {
         
         /// <summary>
-        /// Gets or Sets MinEventsNeededForEvaluation
-        /// </summary>
-        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
-        public int MinEventsNeededForEvaluation { get; set; }
-
-        /// <summary>
         /// Gets or Sets MaxEventsUsedForEvaluation
         /// </summary>
         [DataMember(Name = "maxEventsUsedForEvaluation", EmitDefaultValue = false)]
         public int MaxEventsUsedForEvaluation { get; set; }
+
+        /// <summary>
+        /// Gets or Sets MinEventsNeededForEvaluation
+        /// </summary>
+        [DataMember(Name = "minEventsNeededForEvaluation", EmitDefaultValue = false)]
+        public int MinEventsNeededForEvaluation { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +53,8 @@ namespace Okta.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class BehaviorRuleSettingsAnomalousIP {\n");
-            sb.Append("  MinEventsNeededForEvaluation: ").Append(MinEventsNeededForEvaluation).Append("\n");
             sb.Append("  MaxEventsUsedForEvaluation: ").Append(MaxEventsUsedForEvaluation).Append("\n");
+            sb.Append("  MinEventsNeededForEvaluation: ").Append(MinEventsNeededForEvaluation).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -91,12 +91,12 @@ namespace Okta.Sdk.Model
             }
             return 
                 (
-                    this.MinEventsNeededForEvaluation == input.MinEventsNeededForEvaluation ||
-                    this.MinEventsNeededForEvaluation.Equals(input.MinEventsNeededForEvaluation)
-                ) && 
-                (
                     this.MaxEventsUsedForEvaluation == input.MaxEventsUsedForEvaluation ||
                     this.MaxEventsUsedForEvaluation.Equals(input.MaxEventsUsedForEvaluation)
+                ) && 
+                (
+                    this.MinEventsNeededForEvaluation == input.MinEventsNeededForEvaluation ||
+                    this.MinEventsNeededForEvaluation.Equals(input.MinEventsNeededForEvaluation)
                 );
         }
 
@@ -109,8 +109,8 @@ namespace Okta.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 hashCode = (hashCode * 59) + this.MaxEventsUsedForEvaluation.GetHashCode();
+                hashCode = (hashCode * 59) + this.MinEventsNeededForEvaluation.GetHashCode();
                 return hashCode;
             }
         }

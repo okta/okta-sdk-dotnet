@@ -46,12 +46,6 @@ namespace Okta.Sdk.Model
         public OktaSignOnPolicyRuleConditions Conditions { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name = "name", EmitDefaultValue = false)]
-        public string Name { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -61,7 +55,6 @@ namespace Okta.Sdk.Model
             sb.Append("class OktaSignOnPolicyRuleAllOf {\n");
             sb.Append("  Actions: ").Append(Actions).Append("\n");
             sb.Append("  Conditions: ").Append(Conditions).Append("\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,11 +99,6 @@ namespace Okta.Sdk.Model
                     this.Conditions == input.Conditions ||
                     (this.Conditions != null &&
                     this.Conditions.Equals(input.Conditions))
-                ) && 
-                (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -130,10 +118,6 @@ namespace Okta.Sdk.Model
                 if (this.Conditions != null)
                 {
                     hashCode = (hashCode * 59) + this.Conditions.GetHashCode();
-                }
-                if (this.Name != null)
-                {
-                    hashCode = (hashCode * 59) + this.Name.GetHashCode();
                 }
                 return hashCode;
             }
