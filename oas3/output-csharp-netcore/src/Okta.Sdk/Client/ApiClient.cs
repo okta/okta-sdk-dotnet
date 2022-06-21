@@ -460,7 +460,7 @@ namespace Okta.Sdk.Client
             client.AddHandler("*+xml", () => xmlDeserializer);
             client.AddHandler("*", () => xmlDeserializer);
 
-            client.Timeout = configuration.Timeout;
+            client.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
             if (configuration.Proxy != null)
             {
@@ -552,6 +552,7 @@ namespace Okta.Sdk.Client
         private async Task<ApiResponse<T>> ExecAsync<T>(RestRequest req, IReadableConfiguration configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             RestClient client = new RestClient(_baseUrl);
+
             client.ClearHandlers();
             var existingDeserializer = req.JsonSerializer as IDeserializer;
             if (existingDeserializer != null)
@@ -578,7 +579,7 @@ namespace Okta.Sdk.Client
             client.AddHandler("*+xml", () => xmlDeserializer);
             client.AddHandler("*", () => xmlDeserializer);
 
-            client.Timeout = configuration.Timeout;
+            client.Timeout = configuration.ConnectionTimeout ?? Configuration.DefaultConnectionTimeout;
 
             if (configuration.Proxy != null)
             {
@@ -598,13 +599,10 @@ namespace Okta.Sdk.Client
             InterceptRequest(req);
 
             IRestResponse<T> response;
-            if (RetryConfiguration.AsyncRetryPolicy != null)
+           if (RetryConfiguration.RetryPolicy != null || configuration.MaxRetries.HasValue && configuration.MaxRetries > 0)
             {
-                var policy = RetryConfiguration.AsyncRetryPolicy;
-                //var policyResult = await policy.ExecuteAndCaptureAsync((ct) => client.ExecuteAsync(req, ct), cancellationToken).ConfigureAwait(false);
-          
+                var policy = RetryConfiguration.AsyncRetryPolicy ?? DefaultRetryStrategy.GetRetryPolicy(configuration);
                 var policyResult = await policy.ExecuteAndCaptureAsync(action: (ctx) => ExecuteAsyncWithRetryHeaders(ctx, req, client), new Context()).ConfigureAwait(false);
-
                 response = (policyResult.Outcome == OutcomeType.Successful) ? client.Deserialize<T>(policyResult.Result) : new RestResponse<T>
                 {
                     Request = req,
@@ -662,14 +660,14 @@ namespace Okta.Sdk.Client
             }
             return result;
         }
-
+        
         private Task<IRestResponse> ExecuteAsyncWithRetryHeaders(Context context, IRestRequest request, RestClient client)
         {
             DefaultRetryStrategy.AddRetryHeaders(context, request);
 
             return client.ExecuteAsync(request);
         }
-      
+
         #region IAsynchronousClient
         /// <summary>
         /// Make a HTTP GET request (async).

@@ -122,5 +122,6 @@ namespace Okta.Sdk.UnitTest.Internal
         public  HttpStatusCode StatusCode { get; set; }
 
         public Multimap<string, string> ReceivedHeaders { get; set; }
+        
     }
 }

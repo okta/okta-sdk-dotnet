@@ -80,7 +80,23 @@ namespace Okta.Sdk.Client
         /// Gets the HTTP connection timeout (in milliseconds)
         /// </summary>
         /// <value>HTTP connection timeout.</value>
-        int Timeout { get; }
+        int? ConnectionTimeout { get; }
+
+        /// <summary>
+        /// Gets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means "no timeout".
+        /// </summary>
+        /// <value>
+        /// The request timeout in milliseconds.
+        /// </value>
+        int? RequestTimeout { get; }
+
+        /// <summary>
+        /// Gets or sets the number of times to retry
+        /// </summary>
+        /// <value>
+        /// The number of times to retry
+        /// </value>
+        int? MaxRetries { get; }
 
         /// <summary>
         /// Gets the proxy.

@@ -122,11 +122,11 @@ namespace Okta.Sdk.Client
             get { return _basePath; }
             set { _basePath = value; }
         }
-
+        
         /// <summary>
-        /// The default HTTP connection timeout in seconds.
+        /// The default HTTP connection timeout in milliseconds.
         /// </summary>
-        public const int DefaultConnectionTimeout = 30; // Seconds
+        public const int DefaultConnectionTimeout = 30000; // milliseconds
 
         /// <summary>
         /// The default number of times to retry
@@ -134,7 +134,7 @@ namespace Okta.Sdk.Client
         public const int DefaultMaxRetries = 2;
 
         /// <summary>
-        /// The default request timeout in seconds
+        /// The default request timeout in milliseconds
         /// </summary>
         public const int DefaultRequestTimeout = 0;
 
@@ -161,6 +161,7 @@ namespace Okta.Sdk.Client
         /// The number of times to retry
         /// </value>
         public int? MaxRetries { get; set; } = DefaultMaxRetries;
+        
 
         #endregion
 
@@ -734,7 +735,9 @@ namespace Okta.Sdk.Client
                 DefaultHeaders = defaultHeaders,
                 OktaDomain = second.OktaDomain ?? first.OktaDomain,
                 Token = second.Token ?? first.Token,
-                Timeout = second.Timeout,
+                ConnectionTimeout = second.ConnectionTimeout,
+                MaxRetries = second.MaxRetries ?? first.MaxRetries,
+                RequestTimeout = second.RequestTimeout ?? first.RequestTimeout,
                 Proxy = second.Proxy ?? first.Proxy,
                 UserAgent = second.UserAgent ?? first.UserAgent,
                 Username = second.Username ?? first.Username,
@@ -769,7 +772,6 @@ namespace Okta.Sdk.Client
             var compiledConfig = new Configuration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
             configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
-            configBuilder.Build().GetSection("okta:client:rateLimit").Bind(compiledConfig);
             configBuilder.Build().Bind(compiledConfig);
 
             return compiledConfig;

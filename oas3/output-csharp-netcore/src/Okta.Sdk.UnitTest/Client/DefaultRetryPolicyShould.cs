@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using FluentAssertions;
 using Moq;
-using NSubstitute;
+using Newtonsoft.Json;
 using Okta.Sdk.Api;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
@@ -36,35 +36,32 @@ namespace Okta.Sdk.UnitTest.Client
         [Fact]
         public async Task RetryOperationUntilMaxRetriesIsReached()
         {
-
             var dateHeader = new DateTimeOffset(DateTime.Now);
             var resetTime = dateHeader.AddSeconds(1).ToUnixTimeSeconds();
             var globalRetry = 0;
             var config = new Okta.Sdk.Client.Configuration { MaxRetries = 2 };
 
             var defaultRetryPolicy = DefaultRetryStrategy.GetRetryPolicy(config,
-                (exception, timeSpan, retryAttempt, ctx) =>
+                (response, timeSpan, retryAttempt, ctx) =>
                 {
                     globalRetry++;
                     ctx.Keys.ToList().ForEach(x =>
                         _output.WriteLine($"key: {x} - value: {ctx[x]}"));
                     _output.WriteLine(
-                        $"Got a response of {exception.Message}, retrying {retryAttempt}. Delaying for {timeSpan}");
+                        $"Got a response of {response.Result.StatusCode}, retrying {retryAttempt}. Delaying for {timeSpan}");
 
                     return Task.CompletedTask;
                 });
 
-            var headers = new Multimap<string, string>();
-            headers.Add("x-rate-limit-reset", new List<string> { resetTime.ToString() });
-            headers.Add(DefaultRetryStrategy.XOktaRequestId, new List<string> { "foo" });
-            headers.Add("Date", new List<string> { dateHeader.ToUniversalTime().ToString() });
+            var headers = new List<Parameter>();
+            headers.Add(new Parameter("Date", dateHeader, ParameterType.HttpHeader));
+            headers.Add(new Parameter("x-rate-limit-reset", resetTime, ParameterType.HttpHeader));
+            headers.Add(new Parameter(DefaultRetryStrategy.XOktaRequestId, "foo", ParameterType.HttpHeader));
 
-            var mockClient = new MockAsyncClient("", HttpStatusCode.TooManyRequests, headers);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient,
-                new Configuration { BasePath = "https://foo.com" });
+            var mockClient = TestUtils.MockRestClient(HttpStatusCode.TooManyRequests, "{}", headers);
 
             _ = await defaultRetryPolicy.ExecuteAndCaptureAsync(action =>
-                appApi.GetApplicationAsync("foo"), CancellationToken.None);
+                mockClient.ExecuteAsync(new RestRequest()), CancellationToken.None);
 
             globalRetry.Should().Be(2);
         }
@@ -78,32 +75,29 @@ namespace Okta.Sdk.UnitTest.Client
             var config = new Okta.Sdk.Client.Configuration { MaxRetries = 5 };
 
             var defaultRetryPolicy = DefaultRetryStrategy.GetRetryPolicy(config,
-                (exception, timeSpan, retryAttempt, ctx) =>
+                (response, timeSpan, retryAttempt, ctx) =>
                 {
                     globalRetry++;
                     _output.WriteLine(
-                        $"Got a response of {exception.Message}, retrying {retryAttempt}. Delaying for {timeSpan}");
+                        $"Got a response of {response.Result.StatusCode}, retrying {retryAttempt}. Delaying for {timeSpan}");
 
                     return Task.CompletedTask;
                 });
 
-            var headers = new Multimap<string, string>();
-            headers.Add("x-rate-limit-reset", new List<string> { resetTime.ToString() });
-            headers.Add(DefaultRetryStrategy.XOktaRequestId, new List<string> { "foo" });
-            headers.Add("Date", new List<string> { dateHeader.ToUniversalTime().ToString() });
+            var headers = new List<Parameter>();
+            headers.Add(new Parameter("Date", dateHeader, ParameterType.HttpHeader));
+            headers.Add(new Parameter("x-rate-limit-reset", resetTime, ParameterType.HttpHeader));
+            headers.Add(new Parameter(DefaultRetryStrategy.XOktaRequestId, "foo", ParameterType.HttpHeader));
 
-            Queue<MockResponseInfo> responseQueue = new Queue<MockResponseInfo>();
-            responseQueue.Enqueue(new MockResponseInfo
-                { ReceivedHeaders = headers, ReturnThis = "", StatusCode = HttpStatusCode.TooManyRequests });
-            responseQueue.Enqueue(new MockResponseInfo
-                { ReceivedHeaders = headers, ReturnThis = "", StatusCode = HttpStatusCode.BadRequest });
+            Queue<TestUtils.MockResponseInfo> responseQueue = new Queue<TestUtils.MockResponseInfo>();
+            responseQueue.Enqueue(new TestUtils.MockResponseInfo
+            { Headers = headers, ReturnThis = "", StatusCode = HttpStatusCode.TooManyRequests });
+            responseQueue.Enqueue(new TestUtils.MockResponseInfo
+            { Headers = new List<Parameter>(), ReturnThis = "", StatusCode = HttpStatusCode.BadRequest });
 
-            var mockClient = new MockAsyncClient(responseQueue);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient,
-                new Configuration { BasePath = "https://foo.com" });
-
+            var mockClient = TestUtils.MockRestClient(responseQueue);
             _ = await defaultRetryPolicy.ExecuteAndCaptureAsync(action =>
-                appApi.GetApplicationAsync("foo"), CancellationToken.None);
+                mockClient.ExecuteAsync(new RestRequest()), CancellationToken.None);
 
 
             globalRetry.Should().Be(1);
@@ -119,7 +113,7 @@ namespace Okta.Sdk.UnitTest.Client
             var request = new RestRequest();
 
             var defaultRetryPolicy = DefaultRetryStrategy.GetRetryPolicy(config,
-                (exception, timeSpan, retryAttempt, ctx) =>
+                (response, timeSpan, retryAttempt, ctx) =>
                 {
                     globalRetry++;
                     ctx.Keys.Should().Contain(DefaultRetryStrategy.XOktaRetryCountHeader);
@@ -141,24 +135,22 @@ namespace Okta.Sdk.UnitTest.Client
                     ctx.Keys.ToList().ForEach(x =>
                         _output.WriteLine($"key: {x} - value: {ctx[x]}"));
                     _output.WriteLine(
-                        $"Got a response of {exception.Message}, retrying {retryAttempt}. Delaying for {timeSpan}");
+                        $"Got a response of {response.Result.StatusCode}, retrying {retryAttempt}. Delaying for {timeSpan}");
 
                     return Task.CompletedTask;
                 });
 
-            var headers = new Multimap<string, string>();
-            headers.Add("x-rate-limit-reset", new List<string> { resetTime.ToString() });
-            headers.Add("X-Okta-Request-Id", new List<string> { "foo" });
-            headers.Add("Date", new List<string> { dateHeader.ToUniversalTime().ToString() });
-
-            var mockClient = new MockAsyncClient("", HttpStatusCode.TooManyRequests, headers);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient,
-                new Configuration { BasePath = "https://foo.com" });
+            var headers = new List<Parameter>();
+            headers.Add(new Parameter("Date", dateHeader, ParameterType.HttpHeader));
+            headers.Add(new Parameter("x-rate-limit-reset", resetTime, ParameterType.HttpHeader));
+            headers.Add(new Parameter(DefaultRetryStrategy.XOktaRequestId, "foo", ParameterType.HttpHeader));
 
 
-            _ = await defaultRetryPolicy
-                .ExecuteAndCaptureAsync(action: (ctx) => appApi.GetApplicationAsync("foo"), new Context())
-                .ConfigureAwait(false);
+            var mockClient = TestUtils.MockRestClient(HttpStatusCode.TooManyRequests, "{}", headers);
+
+            _ = await defaultRetryPolicy.ExecuteAndCaptureAsync(action =>
+                mockClient.ExecuteAsync(new RestRequest()), CancellationToken.None);
+
             globalRetry.Should().Be(2);
         }
 
@@ -169,37 +161,36 @@ namespace Okta.Sdk.UnitTest.Client
             var dateHeader = new DateTimeOffset(DateTime.Now);
             var resetTime = dateHeader.AddSeconds(5).ToUnixTimeSeconds();
             var globalRetry = 0;
-            var config = new Okta.Sdk.Client.Configuration { MaxRetries = 10, RequestTimeout = 1 };
+            var config = new Okta.Sdk.Client.Configuration { MaxRetries = 10, RequestTimeout = 1000 };
 
             var defaultRetryPolicy = DefaultRetryStrategy.GetRetryPolicy(config,
-                (exception, timeSpan, retryAttempt, ctx) =>
+                (response, timeSpan, retryAttempt, ctx) =>
                 {
                     globalRetry++;
                     ctx.Keys.ToList().ForEach(x =>
                         _output.WriteLine($"key: {x} - value: {ctx[x]}"));
                     _output.WriteLine(
-                        $"Got a response of {exception.Message}, retrying {retryAttempt}. Delaying for {timeSpan}");
+                        $"Got a response of {response.Result}, retrying {retryAttempt}. Delaying for {timeSpan}");
 
                     return Task.CompletedTask;
                 });
 
-            Func<int, ApplicationApi, Task<Application>> func = (sleepFor, appApi) =>
+            Func<int, IRestClient, Task<IRestResponse>> func = (sleepFor, mockClient) =>
             {
                 Thread.Sleep(sleepFor);
-                return appApi.GetApplicationAsync("foo");
+                return mockClient.ExecuteAsync(new RestRequest());
             };
 
-            var headers = new Multimap<string, string>();
-            headers.Add("x-rate-limit-reset", new List<string> { resetTime.ToString() });
-            headers.Add(DefaultRetryStrategy.XOktaRequestId, new List<string> { "foo" });
-            headers.Add("Date", new List<string> { dateHeader.ToUniversalTime().ToString() });
+            var headers = new List<Parameter>();
+            headers.Add(new Parameter("Date", dateHeader, ParameterType.HttpHeader));
+            headers.Add(new Parameter("x-rate-limit-reset", resetTime, ParameterType.HttpHeader));
+            headers.Add(new Parameter(DefaultRetryStrategy.XOktaRequestId, "foo", ParameterType.HttpHeader));
 
-            var mockClient = new MockAsyncClient("", HttpStatusCode.TooManyRequests, headers);
-            var appApi = new ApplicationApi(new ApiClient(), mockClient,
-                new Configuration { BasePath = "https://foo.com" });
 
-            var policyResult  = await defaultRetryPolicy.ExecuteAndCaptureAsync(action =>
-                func(2000, appApi), CancellationToken.None);
+            var mockClient = TestUtils.MockRestClient(HttpStatusCode.TooManyRequests, "{}", headers);
+
+            var policyResult = await defaultRetryPolicy.ExecuteAndCaptureAsync(action =>
+               func(2000, mockClient), CancellationToken.None);
             policyResult.FinalException.Message.Should().Contain("Timeout");
 
             globalRetry.Should().Be(1);

@@ -3602,11 +3602,6 @@ namespace Okta.Sdk.Api
             await DeleteApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
         }
 
-        public async System.Threading.Tasks.Task DeleteApplicationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
-        {
-            await DeleteApplicationWithHttpInfoAsync("appId", cancellationToken).ConfigureAwait(false);
-        }
-
         /// <summary>
         /// Delete an Application Removes an inactive application.
         /// </summary>
