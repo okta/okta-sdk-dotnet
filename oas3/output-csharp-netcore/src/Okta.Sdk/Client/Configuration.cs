@@ -123,6 +123,45 @@ namespace Okta.Sdk.Client
             set { _basePath = value; }
         }
 
+        /// <summary>
+        /// The default HTTP connection timeout in seconds.
+        /// </summary>
+        public const int DefaultConnectionTimeout = 30; // Seconds
+
+        /// <summary>
+        /// The default number of times to retry
+        /// </summary>
+        public const int DefaultMaxRetries = 2;
+
+        /// <summary>
+        /// The default request timeout in seconds
+        /// </summary>
+        public const int DefaultRequestTimeout = 0;
+
+        /// <summary>
+        /// Gets or sets the HTTP connection timeout in seconds. If <c>null</c>, the default timeout is used.
+        /// </summary>
+        /// <value>
+        /// The HTTP connection timeout in seconds.
+        /// </value>
+        public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
+
+        /// <summary>
+        /// Gets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means "no timeout".
+        /// </summary>
+        /// <value>
+        /// The request timeout in seconds.
+        /// </value>
+        public int? RequestTimeout { get; set; } = DefaultRequestTimeout;
+
+        /// <summary>
+        /// Gets or sets the number of times to retry
+        /// </summary>
+        /// <value>
+        /// The number of times to retry
+        /// </value>
+        public int? MaxRetries { get; set; } = DefaultMaxRetries;
+
         #endregion
 
         #region Static Members
@@ -730,6 +769,7 @@ namespace Okta.Sdk.Client
             var compiledConfig = new Configuration();
             configBuilder.Build().GetSection("okta").GetSection("client").Bind(compiledConfig);
             configBuilder.Build().GetSection("okta").GetSection("testing").Bind(compiledConfig);
+            configBuilder.Build().GetSection("okta:client:rateLimit").Bind(compiledConfig);
             configBuilder.Build().Bind(compiledConfig);
 
             return compiledConfig;

@@ -9,7 +9,12 @@
  */
 
 
+using System;
+using System.Linq;
+using System.Net;
+using System.Threading.Tasks;
 using Polly;
+using Polly.Timeout;
 using RestSharp;
 
 namespace Okta.Sdk.Client
@@ -28,5 +33,121 @@ namespace Okta.Sdk.Client
         /// Async retry policy
         /// </summary>
         public static AsyncPolicy<IRestResponse> AsyncRetryPolicy { get; set; }
+
+    }
+
+    public static class DefaultRetryStrategy
+    {
+        public static string XOktaRetryCountHeader = "x-Okta-Retry-Count";
+        public static string XOktaRetryForHeader = "X-Okta-Retry-For";
+        public static string XOktaRequestId = "X-Okta-Request-Id";
+     
+        /// <summary>
+        /// Add retry headers to the request
+        /// </summary>
+        /// <param name="context"></param>
+        /// <param name="request"></param>
+        public static void AddRetryHeaders (Context context, IRestRequest request)
+        {
+            if (context.Keys.Contains(XOktaRetryCountHeader))
+            {
+                request.AddOrUpdateHeader(XOktaRetryCountHeader, context[XOktaRetryCountHeader].ToString());
+            }
+
+            if (context.Keys.Contains(XOktaRequestId))
+            {
+                request.AddOrUpdateHeader(XOktaRetryForHeader, context[XOktaRequestId].ToString());
+            }
+        }
+
+        private static TimeSpan CalculateDelay(int retryCount, ApiException exception, Context context)
+        {
+            DateTime? requestTime = null;
+            DateTime? retryDate = null;
+            TimeSpan backoffSeconds = TimeSpan.Zero;
+            int defaultBackoffSecondsDelta = 1;
+
+            if (exception.Headers.TryGetValue("Date", out var dates) && dates != null)
+            {
+                requestTime = DateTimeOffset.Parse(dates.First()).UtcDateTime;
+            }
+
+            if (exception.Headers.TryGetValue("x-rate-limit-reset", out var rateLimits) && rateLimits != null)
+            {
+                // If there are multiple headers, choose the smallest one
+                retryDate = DateTimeOffset.FromUnixTimeSeconds(rateLimits.Min(x => long.Parse(x))).UtcDateTime;
+            }
+
+            if (exception.Headers.TryGetValue(XOktaRequestId, out var ids) && ids != null)
+            {
+                AddToContext(context, XOktaRequestId, ids.First());
+            }
+
+            if (requestTime.HasValue && retryDate.HasValue)
+            {
+                backoffSeconds = retryDate.Value.Subtract(requestTime.Value)
+                    .Add(new TimeSpan(0, 0, defaultBackoffSecondsDelta));
+            }
+
+            return backoffSeconds;
+        }
+
+
+        private static void AddToContext(Context context, string key, object value)
+        {
+            if (context.Any(x =>
+                String.Equals(x.Key, key, StringComparison.InvariantCultureIgnoreCase)))
+            {
+                context.Remove(key);
+            }
+
+            context.Add(key, value);
+        }
+
+        private static Task OnRetryAsync(Exception ex, TimeSpan delayingForTimeSpan, int retryCount, Context context, Func<Exception, TimeSpan, int, Context, Task> onRetryAsyncFunc = null)
+        {
+            AddToContext(context, XOktaRetryCountHeader, retryCount);
+
+            if (onRetryAsyncFunc != null)
+            {
+                onRetryAsyncFunc(ex, delayingForTimeSpan, retryCount, context);
+            }
+            return Task.CompletedTask;
+        }
+
+        /// <summary>
+        /// Gets the policy to be used for retrying requests.
+        /// </summary>
+        /// <param name="configuration">The configuration</param>
+        /// <param name="onRetryAsyncFunc">The function to call before retrying a request</param>
+        /// <returns></returns>
+        public static Polly.AsyncPolicy GetRetryPolicy(Configuration configuration, Func<Exception, TimeSpan, int, Context, Task> onRetryAsyncFunc = null)
+        {
+            AsyncTimeoutPolicy timeoutPolicy = null;
+            if (configuration.RequestTimeout.HasValue && configuration.RequestTimeout.Value > 0)
+            {
+                // Timeout in seconds
+                timeoutPolicy = Policy.TimeoutAsync(new TimeSpan(0, 0, configuration.RequestTimeout.Value));
+            }
+
+            AsyncPolicy retryAsyncPolicy = Policy
+                .Handle<ApiException>(ex => ex.ErrorCode == 429)
+                .WaitAndRetryAsync(configuration.MaxRetries.Value,
+                    sleepDurationProvider: (retryAttempt, exception,
+                        context) => CalculateDelay(retryAttempt, exception as ApiException, context),
+                    onRetryAsync: (exception, timeSpan, retryAttempt, ctx) =>
+                        OnRetryAsync(exception, timeSpan, retryAttempt, ctx, onRetryAsyncFunc)
+                );
+
+            AsyncPolicy finalPolicy = retryAsyncPolicy;
+
+            // Combine timeout + retry policies
+            if (timeoutPolicy != null)
+            {
+                finalPolicy = timeoutPolicy.WrapAsync(retryAsyncPolicy);
+            }
+
+            return finalPolicy;
+        }
     }
 }
