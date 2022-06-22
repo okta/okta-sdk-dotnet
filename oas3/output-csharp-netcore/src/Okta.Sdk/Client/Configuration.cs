@@ -122,6 +122,46 @@ namespace Okta.Sdk.Client
             get { return _basePath; }
             set { _basePath = value; }
         }
+        
+        /// <summary>
+        /// The default HTTP connection timeout in milliseconds.
+        /// </summary>
+        public const int DefaultConnectionTimeout = 30000; // milliseconds
+
+        /// <summary>
+        /// The default number of times to retry
+        /// </summary>
+        public const int DefaultMaxRetries = 2;
+
+        /// <summary>
+        /// The default request timeout in milliseconds
+        /// </summary>
+        public const int DefaultRequestTimeout = 0;
+
+        /// <summary>
+        /// Gets or sets the HTTP connection timeout in seconds. If <c>null</c>, the default timeout is used.
+        /// </summary>
+        /// <value>
+        /// The HTTP connection timeout in seconds.
+        /// </value>
+        public int? ConnectionTimeout { get; set; } = DefaultConnectionTimeout;
+
+        /// <summary>
+        /// Gets or sets the time to waiting time for the client to resolve the request (includes retries). Less than or equal to 0 means "no timeout".
+        /// </summary>
+        /// <value>
+        /// The request timeout in seconds.
+        /// </value>
+        public int? RequestTimeout { get; set; } = DefaultRequestTimeout;
+
+        /// <summary>
+        /// Gets or sets the number of times to retry
+        /// </summary>
+        /// <value>
+        /// The number of times to retry
+        /// </value>
+        public int? MaxRetries { get; set; } = DefaultMaxRetries;
+        
 
         #endregion
 
@@ -695,7 +735,9 @@ namespace Okta.Sdk.Client
                 DefaultHeaders = defaultHeaders,
                 OktaDomain = second.OktaDomain ?? first.OktaDomain,
                 Token = second.Token ?? first.Token,
-                Timeout = second.Timeout,
+                ConnectionTimeout = second.ConnectionTimeout,
+                MaxRetries = second.MaxRetries ?? first.MaxRetries,
+                RequestTimeout = second.RequestTimeout ?? first.RequestTimeout,
                 Proxy = second.Proxy ?? first.Proxy,
                 UserAgent = second.UserAgent ?? first.UserAgent,
                 Username = second.Username ?? first.Username,

@@ -16,36 +16,49 @@ namespace Okta.Sdk.UnitTest.Internal
 
         private readonly HttpStatusCode _statusCode;
 
+        private readonly Queue<MockResponseInfo> _returnThisInOrder;
+
+        public Queue<Multimap<string, string>> ReceivedHeadersQueue { get; set; }
+
         public string ReceivedPath { get; set; }
 
         public string ReceivedBody { get; set; }
 
         public Multimap<string, string> ReceivedHeaders { get; set; }
 
+        private Multimap<string, string> _returnHeaders { get; set; }
+
         public Multimap<string, string> ReceivedQueryParams { get; set; }
 
         public Dictionary<string, string> ReceivedPathParams { get; set; }
 
-        public MockAsyncClient(string returnThis, HttpStatusCode statusCode = HttpStatusCode.OK)
+
+        public MockAsyncClient(string returnThis, HttpStatusCode statusCode = HttpStatusCode.OK, Multimap<string, string> returnHeaders = null)
         {
             _returnThis = returnThis;
             _statusCode = statusCode;
+            _returnHeaders = returnHeaders;
         }
 
-        
+        public MockAsyncClient(Queue<MockResponseInfo> returnThisInOrder)
+        {
+            _returnThisInOrder = returnThisInOrder;
+        }
+
+
         public Task<ApiResponse<T>> DeleteAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
         {
             return ExecuteAsync<T>(path, options);
         }
 
 
-        private ApiResponse<T> ToApiResponse<T>(string returnThis, HttpStatusCode statusCode)
+        private ApiResponse<T> ToApiResponse<T>(string returnThis, HttpStatusCode statusCode, Multimap<string, string> returnHeaders)
         {
             T result = JsonConvert.DeserializeObject<T>(returnThis);
-
-            var transformed = new ApiResponse<T>(statusCode, new Multimap<string, string>(), result, returnThis)
+            var transformed = new ApiResponse<T>(statusCode, returnHeaders, result, returnThis)
             {
-                Cookies = new List<Cookie>()
+                Cookies = new List<Cookie>(),
+
             };
 
             return transformed;
@@ -63,7 +76,17 @@ namespace Okta.Sdk.UnitTest.Internal
             ReceivedPathParams = options.PathParameters;
             ReceivedHeaders = options.HeaderParameters;
             ReceivedBody = JsonConvert.SerializeObject(options.Data);
-            return Task.FromResult(ToApiResponse<T>(_returnThis, _statusCode));
+            ReceivedHeadersQueue ??= new Queue<Multimap<string, string>>();
+            ReceivedHeadersQueue.Enqueue(options.HeaderParameters);
+
+            if (_returnThisInOrder != null)
+            {
+                var returnThis = _returnThisInOrder.Dequeue();
+
+                return Task.FromResult(ToApiResponse<T>(returnThis.ReturnThis, returnThis.StatusCode, returnThis.ReceivedHeaders));
+            }
+            
+            return Task.FromResult(ToApiResponse<T>(_returnThis, _statusCode, _returnHeaders));
         }
 
         public Task<ApiResponse<T>> HeadAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
@@ -90,5 +113,15 @@ namespace Okta.Sdk.UnitTest.Internal
         {
             return ExecuteAsync<T>(path, options);
         }
+    }
+
+    public class MockResponseInfo
+    {
+        public string ReturnThis { get; set; }
+
+        public  HttpStatusCode StatusCode { get; set; }
+
+        public Multimap<string, string> ReceivedHeaders { get; set; }
+        
     }
 }
