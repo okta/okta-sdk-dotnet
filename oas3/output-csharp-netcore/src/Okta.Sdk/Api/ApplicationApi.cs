@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -6908,6 +6909,10 @@ namespace Okta.Sdk.Api
 
             return localVarResponse;
         }
+
+        public PagedCollectionEnumerator<Application> GetAsyncEnumerator(ApiResponse<List<Application>> currentResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<Application>(currentResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
 
         /// <summary>
         /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an application

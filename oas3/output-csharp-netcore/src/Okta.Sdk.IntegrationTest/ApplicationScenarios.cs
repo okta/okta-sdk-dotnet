@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -296,6 +297,86 @@ namespace Okta.Sdk.IntegrationTest
             }
         }
 
+
+        private async Task CreateRandomApp(ConcurrentBag<Application> createdApps)
+        {
+            var guid = Guid.NewGuid();
+
+            var app = new BasicAuthApplication
+            {
+                Name = "template_basic_auth",
+                Label = $"dotnet-sdk: CreateRandomApp {guid}",
+                SignOnMode = ApplicationSignOnMode.BASICAUTH,
+                Settings = new BasicApplicationSettings
+                {
+                    App = new BasicApplicationSettingsApplication
+                    {
+                        Url = "https://example.com/login.html",
+                        AuthURL = "https://example.com/auth.html",
+                    },
+                },
+            };
+
+           var createdApp = await _applicationApi.CreateApplicationAsync(app);
+           createdApps.Add(createdApp);
+
+        }
+
+        [Fact]
+        public async Task EnumerateCollectionManually()
+        {
+            var successful = true;
+            var createdApps = new ConcurrentBag<Application>();
+
+            try
+            {
+                // Create 10 users (in parallel)
+                var tasks = new List<Task>();
+                for (var i = 0; i < 2; i++)
+                {
+                    tasks.Add(CreateRandomApp(createdApps));
+                }
+
+                await Task.WhenAll(tasks);
+
+                // Alright, all set up. Try enumerating users by pages of 2:
+                var retrievedApps = new List<Application>();
+                
+                var appsResponse = await _applicationApi.ListApplicationsWithHttpInfoAsync(limit: 1/*, q: "label startsWith \"dotnet-sdk: CreateRandomApp\""*/);
+
+                if (appsResponse.Data.First().Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase))
+                {
+                    retrievedApps.AddRange(appsResponse.Data);
+                }
+
+                var enumerator = _applicationApi.GetAsyncEnumerator(appsResponse);
+
+                while (await enumerator.MoveNextAsync())
+                {
+                    if (enumerator.CurrentPage.Items.First().Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        retrievedApps.AddRange(enumerator.CurrentPage.Items);
+                    }
+                }
+
+                retrievedApps.Count.Should().Be(2);
+            }
+            catch (Exception e)
+            {
+                successful = false;
+            }
+            finally
+            {
+                foreach (var app in createdApps)
+                {
+                    await _applicationApi.DeactivateApplicationAsync(app.Id);
+                    await _applicationApi.DeleteApplicationAsync(app.Id);
+                }
+            }
+
+            successful.Should().BeTrue();
+        }
+
         [Fact]
         public async Task ListApplications()
         {
@@ -321,7 +402,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appList = await _applicationApi.ListApplicationsAsync();
+                var appList = await _applicationApi.ListApplicationsAsync(limit:1);
                 appList.Any(a => a.Id == createdApp.Id).Should().BeTrue();
             }
             finally
