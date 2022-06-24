@@ -9,5 +9,19 @@
     "globalProperties": {
         "apiTests": false,
         "modelTests": false
+    },
+    "files": {
+        "WebLink.mustache":{
+            "destinationFilename": "WebLink.cs",
+            "templateType": "SupportingFiles"
+        },
+        "CollectionPage.mustache":{
+            "destinationFilename": "CollectionPage.cs",
+            "templateType": "SupportingFiles"
+        },
+        "PagedCollectionEnumerator.mustache":{
+            "destinationFilename": "PagedCollectionEnumerator.cs",
+            "templateType": "SupportingFiles"
+        }
     }
 }

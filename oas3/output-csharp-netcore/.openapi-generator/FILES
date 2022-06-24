@@ -1,6 +1,9 @@
 .gitignore
+CollectionPage.cs
 Okta.Sdk.sln
+PagedCollectionEnumerator.cs
 README.md
+WebLink.cs
 appveyor.yml
 docs/AccessPolicy.md
 docs/AccessPolicyAllOf.md
