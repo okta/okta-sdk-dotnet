@@ -14,9 +14,9 @@ namespace Okta.Sdk.IntegrationTest
 {
     public class UserScenarios
     {
-        UserApi _userApi;
-        GroupApi _groupApi;
-        LinkedObjectApi _linkedObjectApi;
+        private UserApi _userApi;
+        private GroupApi _groupApi;
+        private LinkedObjectApi _linkedObjectApi;
 
         public UserScenarios()
         {
