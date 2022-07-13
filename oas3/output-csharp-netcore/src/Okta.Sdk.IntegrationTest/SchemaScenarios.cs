@@ -13,7 +13,7 @@ namespace Okta.Sdk.IntegrationTest
 {
     public class SchemaScenarios
     {
-        SchemaApi _schemaApi;
+        private SchemaApi _schemaApi;
 
         public SchemaScenarios()
         {
