@@ -2,7 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "src\Okta.Sdk\Okta.Sdk.csproj", "{B81CADA1-EB99-4D74-8DEC-C5CA451B2578}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk", "src\Okta.Sdk\Okta.Sdk.csproj", "{B7B8D58A-4BAE-4585-8FCD-55C1724A4F84}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Okta.Sdk.IntegrationTest", "src\Okta.Sdk.IntegrationTest\Okta.Sdk.IntegrationTest.csproj", "{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}"
 EndProject
@@ -14,10 +14,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B81CADA1-EB99-4D74-8DEC-C5CA451B2578}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B81CADA1-EB99-4D74-8DEC-C5CA451B2578}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B81CADA1-EB99-4D74-8DEC-C5CA451B2578}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B81CADA1-EB99-4D74-8DEC-C5CA451B2578}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7B8D58A-4BAE-4585-8FCD-55C1724A4F84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7B8D58A-4BAE-4585-8FCD-55C1724A4F84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7B8D58A-4BAE-4585-8FCD-55C1724A4F84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7B8D58A-4BAE-4585-8FCD-55C1724A4F84}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E5D218C-50AD-482D-AD02-FDDA0F4E929D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -31,6 +31,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A2CDF9D6-CCD8-4414-ABD5-A05D8B217D8F}
+		SolutionGuid = {8DE33C7F-6B14-40F7-803F-CDBCDC3949E4}
 	EndGlobalSection
 EndGlobal

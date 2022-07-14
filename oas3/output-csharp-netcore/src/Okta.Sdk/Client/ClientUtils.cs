@@ -192,7 +192,7 @@ namespace Okta.Sdk.Client
 
             return JsonRegex.IsMatch(mime) || mime.Equals("application/json-patch+json");
         }
-
+        
         /// <summary>
         /// Parses a set of header values to <see cref="WebLink"/>s.
         /// </summary>

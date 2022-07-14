@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -131,7 +132,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
-        ApiResponse<List<BehaviorRule>> GetBehaviorDetectionRuleWithHttpInfo(string behaviorId);
+        ApiResponse<PagedCollection<BehaviorRule>> GetBehaviorDetectionRuleWithHttpInfo(string behaviorId);
         /// <summary>
         /// List all Behavior Detection Rules
         /// </summary>
@@ -150,7 +151,7 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
-        ApiResponse<List<BehaviorRule>> ListBehaviorDetectionRulesWithHttpInfo();
+        ApiResponse<PagedCollection<BehaviorRule>> ListBehaviorDetectionRulesWithHttpInfo();
         /// <summary>
         /// Replace a Behavior Detection Rule
         /// </summary>
@@ -297,7 +298,7 @@ namespace Okta.Sdk.Api
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;BehaviorRule&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<BehaviorRule>>> GetBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<BehaviorRule>>> GetBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Behavior Detection Rules
         /// </summary>
@@ -318,7 +319,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;BehaviorRule&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<BehaviorRule>>> ListBehaviorDetectionRulesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<BehaviorRule>>> ListBehaviorDetectionRulesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Behavior Detection Rule
         /// </summary>
@@ -1075,7 +1076,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;BehaviorRule&gt;</returns>
         public List<BehaviorRule> GetBehaviorDetectionRule(string behaviorId)
         {
-            Okta.Sdk.Client.ApiResponse<List<BehaviorRule>> localVarResponse = GetBehaviorDetectionRuleWithHttpInfo(behaviorId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>> localVarResponse = GetBehaviorDetectionRuleWithHttpInfo(behaviorId);
             return localVarResponse.Data;
         }
 
@@ -1085,7 +1086,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<BehaviorRule>> GetBehaviorDetectionRuleWithHttpInfo(string behaviorId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>> GetBehaviorDetectionRuleWithHttpInfo(string behaviorId)
         {
             // verify the required parameter 'behaviorId' is set
             if (behaviorId == null)
@@ -1130,7 +1131,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<BehaviorRule>>("/api/v1/behaviors/{behaviorId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<BehaviorRule>>("/api/v1/behaviors/{behaviorId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetBehaviorDetectionRule", localVarResponse);
@@ -1152,7 +1153,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;BehaviorRule&gt;</returns>
         public async System.Threading.Tasks.Task<List<BehaviorRule>> GetBehaviorDetectionRuleAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<BehaviorRule>> localVarResponse = await GetBehaviorDetectionRuleWithHttpInfoAsync(behaviorId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>> localVarResponse = await GetBehaviorDetectionRuleWithHttpInfoAsync(behaviorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1163,7 +1164,7 @@ namespace Okta.Sdk.Api
         /// <param name="behaviorId">id of the Behavior Detection Rule</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;BehaviorRule&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<BehaviorRule>>> GetBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>>> GetBehaviorDetectionRuleWithHttpInfoAsync(string behaviorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'behaviorId' is set
             if (behaviorId == null)
@@ -1209,7 +1210,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<BehaviorRule>>("/api/v1/behaviors/{behaviorId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<BehaviorRule>>("/api/v1/behaviors/{behaviorId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1230,7 +1231,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;BehaviorRule&gt;</returns>
         public List<BehaviorRule> ListBehaviorDetectionRules()
         {
-            Okta.Sdk.Client.ApiResponse<List<BehaviorRule>> localVarResponse = ListBehaviorDetectionRulesWithHttpInfo();
+            Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>> localVarResponse = ListBehaviorDetectionRulesWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1239,7 +1240,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;BehaviorRule&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<BehaviorRule>> ListBehaviorDetectionRulesWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>> ListBehaviorDetectionRulesWithHttpInfo()
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1277,7 +1278,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<BehaviorRule>>("/api/v1/behaviors", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<BehaviorRule>>("/api/v1/behaviors", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListBehaviorDetectionRules", localVarResponse);
@@ -1298,7 +1299,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;BehaviorRule&gt;</returns>
         public async System.Threading.Tasks.Task<List<BehaviorRule>> ListBehaviorDetectionRulesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<BehaviorRule>> localVarResponse = await ListBehaviorDetectionRulesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>> localVarResponse = await ListBehaviorDetectionRulesWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1308,7 +1309,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;BehaviorRule&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<BehaviorRule>>> ListBehaviorDetectionRulesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<BehaviorRule>>> ListBehaviorDetectionRulesWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1347,7 +1348,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<BehaviorRule>>("/api/v1/behaviors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<BehaviorRule>>("/api/v1/behaviors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

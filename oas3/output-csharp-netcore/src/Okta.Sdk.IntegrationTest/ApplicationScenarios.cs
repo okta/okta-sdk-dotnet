@@ -349,7 +349,7 @@ namespace Okta.Sdk.IntegrationTest
                     retrievedApps.AddRange(appsResponse.Data);
                 }
 
-                var enumerator = _applicationApi.GetAsyncEnumerator(appsResponse);
+                var enumerator = appsResponse.Data.GetPagedEnumerator();
 
                 while (await enumerator.MoveNextAsync())
                 {

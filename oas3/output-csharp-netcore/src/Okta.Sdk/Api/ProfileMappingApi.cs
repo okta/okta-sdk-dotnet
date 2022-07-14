@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -74,7 +75,7 @@ namespace Okta.Sdk.Api
         /// <param name="sourceId"> (optional)</param>
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of List&lt;ProfileMapping&gt;</returns>
-        ApiResponse<List<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string));
+        ApiResponse<PagedCollection<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string));
         /// <summary>
         /// Update a Profile Mapping
         /// </summary>
@@ -158,7 +159,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProfileMapping&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Update a Profile Mapping
         /// </summary>
@@ -282,7 +283,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<ProfileMapping> GetAsyncEnumerator(ApiResponse<PagedCollection<ProfileMapping>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<ProfileMapping>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
@@ -450,7 +461,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;ProfileMapping&gt;</returns>
         public List<ProfileMapping> ListProfileMappings(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<ProfileMapping>> localVarResponse = ListProfileMappingsWithHttpInfo(after, limit, sourceId, targetId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ProfileMapping>> localVarResponse = ListProfileMappingsWithHttpInfo(after, limit, sourceId, targetId);
             return localVarResponse.Data;
         }
 
@@ -463,7 +474,7 @@ namespace Okta.Sdk.Api
         /// <param name="sourceId"> (optional)</param>
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of List&lt;ProfileMapping&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<ProfileMapping>> ListProfileMappingsWithHttpInfo(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -517,7 +528,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ProfileMapping>>("/api/v1/mappings", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<ProfileMapping>>("/api/v1/mappings", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListProfileMappings", localVarResponse);
@@ -542,7 +553,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;ProfileMapping&gt;</returns>
         public async System.Threading.Tasks.Task<List<ProfileMapping>> ListProfileMappingsAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<ProfileMapping>> localVarResponse = await ListProfileMappingsWithHttpInfoAsync(after, limit, sourceId, targetId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ProfileMapping>> localVarResponse = await ListProfileMappingsWithHttpInfoAsync(after, limit, sourceId, targetId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -556,7 +567,7 @@ namespace Okta.Sdk.Api
         /// <param name="targetId"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProfileMapping&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<ProfileMapping>>> ListProfileMappingsWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string sourceId = default(string), string targetId = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -611,7 +622,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ProfileMapping>>("/api/v1/mappings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<ProfileMapping>>("/api/v1/mappings", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

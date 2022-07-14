@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -59,7 +60,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder"> (optional, default to &quot;ASCENDING&quot;)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of List&lt;LogEvent&gt;</returns>
-        ApiResponse<List<LogEvent>> GetLogsWithHttpInfo(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string));
+        ApiResponse<PagedCollection<LogEvent>> GetLogsWithHttpInfo(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string));
         #endregion Synchronous Operations
     }
 
@@ -103,7 +104,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LogEvent&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LogEvent>>> GetLogsWithHttpInfoAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<LogEvent>>> GetLogsWithHttpInfoAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -217,7 +218,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;LogEvent&gt;</returns>
         public List<LogEvent> GetLogs(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<LogEvent>> localVarResponse = GetLogsWithHttpInfo(since, until, filter, q, limit, sortOrder, after);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<LogEvent>> localVarResponse = GetLogsWithHttpInfo(since, until, filter, q, limit, sortOrder, after);
             return localVarResponse.Data;
         }
 
@@ -233,7 +234,7 @@ namespace Okta.Sdk.Api
         /// <param name="sortOrder"> (optional, default to &quot;ASCENDING&quot;)</param>
         /// <param name="after"> (optional)</param>
         /// <returns>ApiResponse of List&lt;LogEvent&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<LogEvent>> GetLogsWithHttpInfo(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<LogEvent>> GetLogsWithHttpInfo(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -299,7 +300,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LogEvent>>("/api/v1/logs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<LogEvent>>("/api/v1/logs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetLogs", localVarResponse);
@@ -327,7 +328,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;LogEvent&gt;</returns>
         public async System.Threading.Tasks.Task<List<LogEvent>> GetLogsAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<LogEvent>> localVarResponse = await GetLogsWithHttpInfoAsync(since, until, filter, q, limit, sortOrder, after, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<LogEvent>> localVarResponse = await GetLogsWithHttpInfoAsync(since, until, filter, q, limit, sortOrder, after, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -344,7 +345,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LogEvent&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<LogEvent>>> GetLogsWithHttpInfoAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<LogEvent>>> GetLogsWithHttpInfoAsync(DateTimeOffset? since = default(DateTimeOffset?), DateTimeOffset? until = default(DateTimeOffset?), string filter = default(string), string q = default(string), int? limit = default(int?), string sortOrder = default(string), string after = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -411,7 +412,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LogEvent>>("/api/v1/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<LogEvent>>("/api/v1/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

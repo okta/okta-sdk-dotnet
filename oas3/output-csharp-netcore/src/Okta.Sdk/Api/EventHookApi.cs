@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -150,7 +151,7 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;EventHook&gt;</returns>
-        ApiResponse<List<EventHook>> ListEventHooksWithHttpInfo();
+        ApiResponse<PagedCollection<EventHook>> ListEventHooksWithHttpInfo();
         /// <summary>
         /// Replace an Event Hook
         /// </summary>
@@ -339,7 +340,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EventHook&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<EventHook>>> ListEventHooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<EventHook>>> ListEventHooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Event Hook
         /// </summary>
@@ -486,7 +487,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<EventHook> GetAsyncEnumerator(ApiResponse<PagedCollection<EventHook>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<EventHook>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate an Event Hook Success
         /// </summary>
@@ -1274,7 +1285,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;EventHook&gt;</returns>
         public List<EventHook> ListEventHooks()
         {
-            Okta.Sdk.Client.ApiResponse<List<EventHook>> localVarResponse = ListEventHooksWithHttpInfo();
+            Okta.Sdk.Client.ApiResponse<PagedCollection<EventHook>> localVarResponse = ListEventHooksWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -1283,7 +1294,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;EventHook&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<EventHook>> ListEventHooksWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<EventHook>> ListEventHooksWithHttpInfo()
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1321,7 +1332,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<EventHook>>("/api/v1/eventHooks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<EventHook>>("/api/v1/eventHooks", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListEventHooks", localVarResponse);
@@ -1342,7 +1353,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;EventHook&gt;</returns>
         public async System.Threading.Tasks.Task<List<EventHook>> ListEventHooksAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<EventHook>> localVarResponse = await ListEventHooksWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<EventHook>> localVarResponse = await ListEventHooksWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1352,7 +1363,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EventHook&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<EventHook>>> ListEventHooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<EventHook>>> ListEventHooksWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1391,7 +1402,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<EventHook>>("/api/v1/eventHooks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<EventHook>>("/api/v1/eventHooks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

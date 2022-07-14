@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -175,7 +176,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
         /// <returns>ApiResponse of List&lt;InlineHook&gt;</returns>
-        ApiResponse<List<InlineHook>> ListInlineHooksWithHttpInfo(string type = default(string));
+        ApiResponse<PagedCollection<InlineHook>> ListInlineHooksWithHttpInfo(string type = default(string));
         /// <summary>
         /// Replace an Inline Hook
         /// </summary>
@@ -370,7 +371,7 @@ namespace Okta.Sdk.Api
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Inline Hook
         /// </summary>
@@ -494,7 +495,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<InlineHook> GetAsyncEnumerator(ApiResponse<PagedCollection<InlineHook>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<InlineHook>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate an Inline Hook Activates the Inline Hook matching the provided id
         /// </summary>
@@ -1415,7 +1426,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;InlineHook&gt;</returns>
         public List<InlineHook> ListInlineHooks(string type = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<InlineHook>> localVarResponse = ListInlineHooksWithHttpInfo(type);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<InlineHook>> localVarResponse = ListInlineHooksWithHttpInfo(type);
             return localVarResponse.Data;
         }
 
@@ -1425,7 +1436,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="type"> (optional)</param>
         /// <returns>ApiResponse of List&lt;InlineHook&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<InlineHook>> ListInlineHooksWithHttpInfo(string type = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<InlineHook>> ListInlineHooksWithHttpInfo(string type = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1467,7 +1478,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<InlineHook>>("/api/v1/inlineHooks", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<InlineHook>>("/api/v1/inlineHooks", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListInlineHooks", localVarResponse);
@@ -1489,7 +1500,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;InlineHook&gt;</returns>
         public async System.Threading.Tasks.Task<List<InlineHook>> ListInlineHooksAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<InlineHook>> localVarResponse = await ListInlineHooksWithHttpInfoAsync(type, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<InlineHook>> localVarResponse = await ListInlineHooksWithHttpInfoAsync(type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1500,7 +1511,7 @@ namespace Okta.Sdk.Api
         /// <param name="type"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;InlineHook&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<InlineHook>>> ListInlineHooksWithHttpInfoAsync(string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1543,7 +1554,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<InlineHook>>("/api/v1/inlineHooks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<InlineHook>>("/api/v1/inlineHooks", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

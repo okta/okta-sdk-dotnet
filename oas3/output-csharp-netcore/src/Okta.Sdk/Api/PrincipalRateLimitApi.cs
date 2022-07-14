@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -93,7 +94,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        ApiResponse<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?));
         /// <summary>
         /// Replace a Principal Rate Limit
         /// </summary>
@@ -198,7 +199,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PrincipalRateLimitEntity&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Principal Rate Limit
         /// </summary>
@@ -322,7 +323,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
         /// <summary>
         /// Create a Principal Rate Limit Adds a new Principal Rate Limit entity to your organization. In the current release, we only allow one Principal Rate Limit entity per org and principal.
         /// </summary>
@@ -647,7 +648,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;PrincipalRateLimitEntity&gt;</returns>
         public List<PrincipalRateLimitEntity> ListPrincipalRateLimitEntities(string filter = default(string), string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>> localVarResponse = ListPrincipalRateLimitEntitiesWithHttpInfo(filter, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<PrincipalRateLimitEntity>> localVarResponse = ListPrincipalRateLimitEntitiesWithHttpInfo(filter, after, limit);
             return localVarResponse.Data;
         }
 
@@ -659,7 +660,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;PrincipalRateLimitEntity&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesWithHttpInfo(string filter = default(string), string after = default(string), int? limit = default(int?))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -709,7 +710,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<PrincipalRateLimitEntity>>("/api/v1/principal-rate-limits", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<PrincipalRateLimitEntity>>("/api/v1/principal-rate-limits", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPrincipalRateLimitEntities", localVarResponse);
@@ -733,7 +734,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;PrincipalRateLimitEntity&gt;</returns>
         public async System.Threading.Tasks.Task<List<PrincipalRateLimitEntity>> ListPrincipalRateLimitEntitiesAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>> localVarResponse = await ListPrincipalRateLimitEntitiesWithHttpInfoAsync(filter, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<PrincipalRateLimitEntity>> localVarResponse = await ListPrincipalRateLimitEntitiesWithHttpInfoAsync(filter, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -746,7 +747,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PrincipalRateLimitEntity&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<PrincipalRateLimitEntity>>> ListPrincipalRateLimitEntitiesWithHttpInfoAsync(string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -797,7 +798,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<PrincipalRateLimitEntity>>("/api/v1/principal-rate-limits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<PrincipalRateLimitEntity>>("/api/v1/principal-rate-limits", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

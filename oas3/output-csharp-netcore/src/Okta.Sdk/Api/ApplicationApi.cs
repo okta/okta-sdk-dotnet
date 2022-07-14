@@ -589,7 +589,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;ApplicationGroupAssignment&gt;</returns>
-        ApiResponse<List<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsWithHttpInfo(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
+        ApiResponse<PagedCollection<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsWithHttpInfo(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
         /// <summary>
         /// List all Key Credentials
         /// </summary>
@@ -610,7 +610,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
-        ApiResponse<List<JsonWebKey>> ListApplicationKeysWithHttpInfo(string appId);
+        ApiResponse<PagedCollection<JsonWebKey>> ListApplicationKeysWithHttpInfo(string appId);
         /// <summary>
         /// List all Assigned Users
         /// </summary>
@@ -643,7 +643,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;AppUser&gt;</returns>
-        ApiResponse<List<AppUser>> ListApplicationUsersWithHttpInfo(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string));
+        ApiResponse<PagedCollection<AppUser>> ListApplicationUsersWithHttpInfo(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string));
         /// <summary>
         /// List all Applications
         /// </summary>
@@ -674,7 +674,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Traverses users link relationship and optionally embeds Application User resource (optional)</param>
         /// <param name="includeNonDeleted"> (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Application&gt;</returns>
-        ApiResponse<List<Application>> ListApplicationsWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?));
+        ApiResponse<PagedCollection<Application>> ListApplicationsWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?));
         /// <summary>
         /// List all Certificate Signing Requests
         /// </summary>
@@ -695,7 +695,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
         /// <returns>ApiResponse of List&lt;Csr&gt;</returns>
-        ApiResponse<List<Csr>> ListCsrsForApplicationWithHttpInfo(string appId);
+        ApiResponse<PagedCollection<Csr>> ListCsrsForApplicationWithHttpInfo(string appId);
         /// <summary>
         /// List all Features
         /// </summary>
@@ -716,7 +716,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
         /// <returns>ApiResponse of List&lt;ApplicationFeature&gt;</returns>
-        ApiResponse<List<ApplicationFeature>> ListFeaturesForApplicationWithHttpInfo(string appId);
+        ApiResponse<PagedCollection<ApplicationFeature>> ListFeaturesForApplicationWithHttpInfo(string appId);
         /// <summary>
         /// List all OAuth 2.0 Tokens
         /// </summary>
@@ -743,7 +743,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;OAuth2Token&gt;</returns>
-        ApiResponse<List<OAuth2Token>> ListOAuth2TokensForApplicationWithHttpInfo(string appId, string expand = default(string), string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<OAuth2Token>> ListOAuth2TokensForApplicationWithHttpInfo(string appId, string expand = default(string), string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Scope Consent Grants
         /// </summary>
@@ -766,7 +766,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        ApiResponse<List<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsWithHttpInfo(string appId, string expand = default(string));
+        ApiResponse<PagedCollection<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsWithHttpInfo(string appId, string expand = default(string));
         /// <summary>
         /// Publish a Certificate Signing Request
         /// </summary>
@@ -1621,7 +1621,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApplicationGroupAssignment&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ApplicationGroupAssignment>>> ListApplicationGroupAssignmentsWithHttpInfoAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<ApplicationGroupAssignment>>> ListApplicationGroupAssignmentsWithHttpInfoAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Key Credentials
         /// </summary>
@@ -1644,7 +1644,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListApplicationKeysWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<JsonWebKey>>> ListApplicationKeysWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Users
         /// </summary>
@@ -1679,7 +1679,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AppUser&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<AppUser>>> ListApplicationUsersWithHttpInfoAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<AppUser>>> ListApplicationUsersWithHttpInfoAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Applications
         /// </summary>
@@ -1712,7 +1712,7 @@ namespace Okta.Sdk.Api
         /// <param name="includeNonDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Application>>> ListApplicationsWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Application>>> ListApplicationsWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Certificate Signing Requests
         /// </summary>
@@ -1735,7 +1735,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Csr&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Csr>>> ListCsrsForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Csr>>> ListCsrsForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Features
         /// </summary>
@@ -1758,7 +1758,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApplicationFeature&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ApplicationFeature>>> ListFeaturesForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<ApplicationFeature>>> ListFeaturesForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all OAuth 2.0 Tokens
         /// </summary>
@@ -1787,7 +1787,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OAuth2Token&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<OAuth2Token>>> ListOAuth2TokensForApplicationWithHttpInfoAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<OAuth2Token>>> ListOAuth2TokensForApplicationWithHttpInfoAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Scope Consent Grants
         /// </summary>
@@ -1812,7 +1812,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OAuth2ScopeConsentGrant&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Publish a Certificate Signing Request
         /// </summary>
@@ -2167,7 +2167,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<Application> GetAsyncEnumerator(ApiResponse<PagedCollection<Application>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<Application>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate an Application Activates an inactive application.
         /// </summary>
@@ -6124,7 +6134,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;ApplicationGroupAssignment&gt;</returns>
         public List<ApplicationGroupAssignment> ListApplicationGroupAssignments(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<ApplicationGroupAssignment>> localVarResponse = ListApplicationGroupAssignmentsWithHttpInfo(appId, q, after, limit, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationGroupAssignment>> localVarResponse = ListApplicationGroupAssignmentsWithHttpInfo(appId, q, after, limit, expand);
             return localVarResponse.Data;
         }
 
@@ -6138,7 +6148,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;ApplicationGroupAssignment&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsWithHttpInfo(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsWithHttpInfo(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6199,7 +6209,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ApplicationGroupAssignment>>("/api/v1/apps/{appId}/groups", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<ApplicationGroupAssignment>>("/api/v1/apps/{appId}/groups", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListApplicationGroupAssignments", localVarResponse);
@@ -6225,7 +6235,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;ApplicationGroupAssignment&gt;</returns>
         public async System.Threading.Tasks.Task<List<ApplicationGroupAssignment>> ListApplicationGroupAssignmentsAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<ApplicationGroupAssignment>> localVarResponse = await ListApplicationGroupAssignmentsWithHttpInfoAsync(appId, q, after, limit, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationGroupAssignment>> localVarResponse = await ListApplicationGroupAssignmentsWithHttpInfoAsync(appId, q, after, limit, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6240,7 +6250,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApplicationGroupAssignment&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ApplicationGroupAssignment>>> ListApplicationGroupAssignmentsWithHttpInfoAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationGroupAssignment>>> ListApplicationGroupAssignmentsWithHttpInfoAsync(string appId, string q = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6302,7 +6312,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ApplicationGroupAssignment>>("/api/v1/apps/{appId}/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<ApplicationGroupAssignment>>("/api/v1/apps/{appId}/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6324,7 +6334,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;JsonWebKey&gt;</returns>
         public List<JsonWebKey> ListApplicationKeys(string appId)
         {
-            Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> localVarResponse = ListApplicationKeysWithHttpInfo(appId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> localVarResponse = ListApplicationKeysWithHttpInfo(appId);
             return localVarResponse.Data;
         }
 
@@ -6334,7 +6344,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> ListApplicationKeysWithHttpInfo(string appId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> ListApplicationKeysWithHttpInfo(string appId)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6379,7 +6389,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<JsonWebKey>>("/api/v1/apps/{appId}/credentials/keys", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<JsonWebKey>>("/api/v1/apps/{appId}/credentials/keys", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListApplicationKeys", localVarResponse);
@@ -6401,7 +6411,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
         public async System.Threading.Tasks.Task<List<JsonWebKey>> ListApplicationKeysAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> localVarResponse = await ListApplicationKeysWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> localVarResponse = await ListApplicationKeysWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6412,7 +6422,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<JsonWebKey>>> ListApplicationKeysWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>>> ListApplicationKeysWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6458,7 +6468,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<JsonWebKey>>("/api/v1/apps/{appId}/credentials/keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<JsonWebKey>>("/api/v1/apps/{appId}/credentials/keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6486,7 +6496,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;AppUser&gt;</returns>
         public List<AppUser> ListApplicationUsers(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<AppUser>> localVarResponse = ListApplicationUsersWithHttpInfo(appId, q, queryScope, after, limit, filter, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<AppUser>> localVarResponse = ListApplicationUsersWithHttpInfo(appId, q, queryScope, after, limit, filter, expand);
             return localVarResponse.Data;
         }
 
@@ -6502,7 +6512,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter"> (optional)</param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;AppUser&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<AppUser>> ListApplicationUsersWithHttpInfo(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<AppUser>> ListApplicationUsersWithHttpInfo(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6571,7 +6581,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<AppUser>>("/api/v1/apps/{appId}/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<AppUser>>("/api/v1/apps/{appId}/users", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListApplicationUsers", localVarResponse);
@@ -6599,7 +6609,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;AppUser&gt;</returns>
         public async System.Threading.Tasks.Task<List<AppUser>> ListApplicationUsersAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<AppUser>> localVarResponse = await ListApplicationUsersWithHttpInfoAsync(appId, q, queryScope, after, limit, filter, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<AppUser>> localVarResponse = await ListApplicationUsersWithHttpInfoAsync(appId, q, queryScope, after, limit, filter, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6616,7 +6626,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;AppUser&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<AppUser>>> ListApplicationUsersWithHttpInfoAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<AppUser>>> ListApplicationUsersWithHttpInfoAsync(string appId, string q = default(string), string queryScope = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6686,7 +6696,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<AppUser>>("/api/v1/apps/{appId}/users", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<AppUser>>("/api/v1/apps/{appId}/users", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -6713,7 +6723,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Application&gt;</returns>
         public List<Application> ListApplications(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?))
         {
-            Okta.Sdk.Client.ApiResponse<List<Application>> localVarResponse = ListApplicationsWithHttpInfo(q, after, limit, filter, expand, includeNonDeleted);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Application>> localVarResponse = ListApplicationsWithHttpInfo(q, after, limit, filter, expand, includeNonDeleted);
             return localVarResponse.Data;
         }
 
@@ -6728,7 +6738,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Traverses users link relationship and optionally embeds Application User resource (optional)</param>
         /// <param name="includeNonDeleted"> (optional, default to false)</param>
         /// <returns>ApiResponse of List&lt;Application&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Application>> ListApplicationsWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Application>> ListApplicationsWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -6790,7 +6800,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Application>>("/api/v1/apps", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Application>>("/api/v1/apps", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListApplications", localVarResponse);
@@ -6817,7 +6827,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Application&gt;</returns>
         public async System.Threading.Tasks.Task<List<Application>> ListApplicationsAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Application>> localVarResponse = await ListApplicationsWithHttpInfoAsync(q, after, limit, filter, expand, includeNonDeleted, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Application>> localVarResponse = await ListApplicationsWithHttpInfoAsync(q, after, limit, filter, expand, includeNonDeleted, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -6833,7 +6843,7 @@ namespace Okta.Sdk.Api
         /// <param name="includeNonDeleted"> (optional, default to false)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Application>>> ListApplicationsWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Application>>> ListApplicationsWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string filter = default(string), string expand = default(string), bool? includeNonDeleted = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -6896,7 +6906,10 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Application>>("/api/v1/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Application>>("/api/v1/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            localVarResponse.Data.Configuration = this.Configuration;
+            localVarResponse.Data.AsynchronousClient = this.AsynchronousClient;
+            localVarResponse.Data.InitalApiResponse = localVarResponse;
 
             if (this.ExceptionFactory != null)
             {
@@ -6910,10 +6923,6 @@ namespace Okta.Sdk.Api
             return localVarResponse;
         }
 
-        public PagedCollectionEnumerator<Application> GetAsyncEnumerator(ApiResponse<List<Application>> currentResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<Application>(currentResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-
         /// <summary>
         /// List all Certificate Signing Requests Enumerates Certificate Signing Requests for an application
         /// </summary>
@@ -6922,7 +6931,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Csr&gt;</returns>
         public List<Csr> ListCsrsForApplication(string appId)
         {
-            Okta.Sdk.Client.ApiResponse<List<Csr>> localVarResponse = ListCsrsForApplicationWithHttpInfo(appId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>> localVarResponse = ListCsrsForApplicationWithHttpInfo(appId);
             return localVarResponse.Data;
         }
 
@@ -6932,7 +6941,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
         /// <returns>ApiResponse of List&lt;Csr&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Csr>> ListCsrsForApplicationWithHttpInfo(string appId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>> ListCsrsForApplicationWithHttpInfo(string appId)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -6977,7 +6986,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Csr>>("/api/v1/apps/{appId}/credentials/csrs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Csr>>("/api/v1/apps/{appId}/credentials/csrs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListCsrsForApplication", localVarResponse);
@@ -6999,7 +7008,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Csr&gt;</returns>
         public async System.Threading.Tasks.Task<List<Csr>> ListCsrsForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Csr>> localVarResponse = await ListCsrsForApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>> localVarResponse = await ListCsrsForApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7010,7 +7019,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Csr&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Csr>>> ListCsrsForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>>> ListCsrsForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7056,7 +7065,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Csr>>("/api/v1/apps/{appId}/credentials/csrs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Csr>>("/api/v1/apps/{appId}/credentials/csrs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7078,7 +7087,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;ApplicationFeature&gt;</returns>
         public List<ApplicationFeature> ListFeaturesForApplication(string appId)
         {
-            Okta.Sdk.Client.ApiResponse<List<ApplicationFeature>> localVarResponse = ListFeaturesForApplicationWithHttpInfo(appId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationFeature>> localVarResponse = ListFeaturesForApplicationWithHttpInfo(appId);
             return localVarResponse.Data;
         }
 
@@ -7088,7 +7097,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="appId"></param>
         /// <returns>ApiResponse of List&lt;ApplicationFeature&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<ApplicationFeature>> ListFeaturesForApplicationWithHttpInfo(string appId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationFeature>> ListFeaturesForApplicationWithHttpInfo(string appId)
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7133,7 +7142,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ApplicationFeature>>("/api/v1/apps/{appId}/features", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<ApplicationFeature>>("/api/v1/apps/{appId}/features", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFeaturesForApplication", localVarResponse);
@@ -7155,7 +7164,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;ApplicationFeature&gt;</returns>
         public async System.Threading.Tasks.Task<List<ApplicationFeature>> ListFeaturesForApplicationAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<ApplicationFeature>> localVarResponse = await ListFeaturesForApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationFeature>> localVarResponse = await ListFeaturesForApplicationWithHttpInfoAsync(appId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7166,7 +7175,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApplicationFeature&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ApplicationFeature>>> ListFeaturesForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<ApplicationFeature>>> ListFeaturesForApplicationWithHttpInfoAsync(string appId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7212,7 +7221,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ApplicationFeature>>("/api/v1/apps/{appId}/features", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<ApplicationFeature>>("/api/v1/apps/{appId}/features", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7237,7 +7246,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;OAuth2Token&gt;</returns>
         public List<OAuth2Token> ListOAuth2TokensForApplication(string appId, string expand = default(string), string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2Token>> localVarResponse = ListOAuth2TokensForApplicationWithHttpInfo(appId, expand, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2Token>> localVarResponse = ListOAuth2TokensForApplicationWithHttpInfo(appId, expand, after, limit);
             return localVarResponse.Data;
         }
 
@@ -7250,7 +7259,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;OAuth2Token&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<OAuth2Token>> ListOAuth2TokensForApplicationWithHttpInfo(string appId, string expand = default(string), string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2Token>> ListOAuth2TokensForApplicationWithHttpInfo(string appId, string expand = default(string), string after = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7307,7 +7316,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<OAuth2Token>>("/api/v1/apps/{appId}/tokens", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<OAuth2Token>>("/api/v1/apps/{appId}/tokens", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListOAuth2TokensForApplication", localVarResponse);
@@ -7332,7 +7341,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;OAuth2Token&gt;</returns>
         public async System.Threading.Tasks.Task<List<OAuth2Token>> ListOAuth2TokensForApplicationAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2Token>> localVarResponse = await ListOAuth2TokensForApplicationWithHttpInfoAsync(appId, expand, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2Token>> localVarResponse = await ListOAuth2TokensForApplicationWithHttpInfoAsync(appId, expand, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7346,7 +7355,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OAuth2Token&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<OAuth2Token>>> ListOAuth2TokensForApplicationWithHttpInfoAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2Token>>> ListOAuth2TokensForApplicationWithHttpInfoAsync(string appId, string expand = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7404,7 +7413,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<OAuth2Token>>("/api/v1/apps/{appId}/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<OAuth2Token>>("/api/v1/apps/{appId}/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -7427,7 +7436,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;OAuth2ScopeConsentGrant&gt;</returns>
         public List<OAuth2ScopeConsentGrant> ListScopeConsentGrants(string appId, string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>> localVarResponse = ListScopeConsentGrantsWithHttpInfo(appId, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2ScopeConsentGrant>> localVarResponse = ListScopeConsentGrantsWithHttpInfo(appId, expand);
             return localVarResponse.Data;
         }
 
@@ -7438,7 +7447,7 @@ namespace Okta.Sdk.Api
         /// <param name="appId"></param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsWithHttpInfo(string appId, string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsWithHttpInfo(string appId, string expand = default(string))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7481,7 +7490,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<OAuth2ScopeConsentGrant>>("/api/v1/apps/{appId}/grants", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<OAuth2ScopeConsentGrant>>("/api/v1/apps/{appId}/grants", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListScopeConsentGrants", localVarResponse);
@@ -7504,7 +7513,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;OAuth2ScopeConsentGrant&gt;</returns>
         public async System.Threading.Tasks.Task<List<OAuth2ScopeConsentGrant>> ListScopeConsentGrantsAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>> localVarResponse = await ListScopeConsentGrantsWithHttpInfoAsync(appId, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2ScopeConsentGrant>> localVarResponse = await ListScopeConsentGrantsWithHttpInfoAsync(appId, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -7516,7 +7525,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;OAuth2ScopeConsentGrant&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<OAuth2ScopeConsentGrant>>> ListScopeConsentGrantsWithHttpInfoAsync(string appId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'appId' is set
             if (appId == null)
@@ -7560,7 +7569,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<OAuth2ScopeConsentGrant>>("/api/v1/apps/{appId}/grants", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<OAuth2ScopeConsentGrant>>("/api/v1/apps/{appId}/grants", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

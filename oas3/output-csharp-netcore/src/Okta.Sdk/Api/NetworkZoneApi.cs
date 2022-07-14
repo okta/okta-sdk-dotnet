@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -156,7 +157,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <returns>ApiResponse of List&lt;NetworkZone&gt;</returns>
-        ApiResponse<List<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string));
+        ApiResponse<PagedCollection<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string));
         /// <summary>
         /// Replace a Network Zone
         /// </summary>
@@ -330,7 +331,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NetworkZone&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Network Zone
         /// </summary>
@@ -454,7 +455,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<NetworkZone> GetAsyncEnumerator(ApiResponse<PagedCollection<NetworkZone>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<NetworkZone>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate a Network Zone Activate Network Zone
         /// </summary>
@@ -1245,7 +1256,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;NetworkZone&gt;</returns>
         public List<NetworkZone> ListNetworkZones(string after = default(string), int? limit = default(int?), string filter = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<NetworkZone>> localVarResponse = ListNetworkZonesWithHttpInfo(after, limit, filter);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<NetworkZone>> localVarResponse = ListNetworkZonesWithHttpInfo(after, limit, filter);
             return localVarResponse.Data;
         }
 
@@ -1257,7 +1268,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of results for a page (optional, default to -1)</param>
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <returns>ApiResponse of List&lt;NetworkZone&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<NetworkZone>> ListNetworkZonesWithHttpInfo(string after = default(string), int? limit = default(int?), string filter = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1307,7 +1318,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<NetworkZone>>("/api/v1/zones", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<NetworkZone>>("/api/v1/zones", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListNetworkZones", localVarResponse);
@@ -1331,7 +1342,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;NetworkZone&gt;</returns>
         public async System.Threading.Tasks.Task<List<NetworkZone>> ListNetworkZonesAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<NetworkZone>> localVarResponse = await ListNetworkZonesWithHttpInfoAsync(after, limit, filter, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<NetworkZone>> localVarResponse = await ListNetworkZonesWithHttpInfoAsync(after, limit, filter, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1344,7 +1355,7 @@ namespace Okta.Sdk.Api
         /// <param name="filter">Filters zones by usage or id expression (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;NetworkZone&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<NetworkZone>>> ListNetworkZonesWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string filter = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1395,7 +1406,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<NetworkZone>>("/api/v1/zones", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<NetworkZone>>("/api/v1/zones", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -373,7 +374,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;CatalogApplication&gt;</returns>
-        ApiResponse<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Assigned Applications
         /// </summary>
@@ -398,7 +399,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">Specifies the pagination cursor for the next page of apps (optional)</param>
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;Application&gt;</returns>
-        ApiResponse<List<Application>> ListAssignedApplicationsForGroupWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<Application>> ListAssignedApplicationsForGroupWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Assigned Roles
         /// </summary>
@@ -421,7 +422,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;Role&gt;</returns>
-        ApiResponse<List<Role>> ListGroupAssignedRolesWithHttpInfo(string groupId, string expand = default(string));
+        ApiResponse<PagedCollection<Role>> ListGroupAssignedRolesWithHttpInfo(string groupId, string expand = default(string));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -448,7 +449,7 @@ namespace Okta.Sdk.Api
         /// <param name="search">Specifies the keyword to search fules for (optional)</param>
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <returns>ApiResponse of List&lt;GroupRule&gt;</returns>
-        ApiResponse<List<GroupRule>> ListGroupRulesWithHttpInfo(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string));
+        ApiResponse<PagedCollection<GroupRule>> ListGroupRulesWithHttpInfo(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string));
         /// <summary>
         /// List all Group Targets for a Group Role
         /// </summary>
@@ -475,7 +476,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;Group&gt;</returns>
-        ApiResponse<List<Group>> ListGroupTargetsForGroupRoleWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<Group>> ListGroupTargetsForGroupRoleWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Member Users
         /// </summary>
@@ -500,7 +501,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">Specifies the pagination cursor for the next page of users (optional)</param>
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        ApiResponse<List<User>> ListGroupUsersWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<User>> ListGroupUsersWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Groups
         /// </summary>
@@ -529,7 +530,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of group results in a page (optional, default to 10000)</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
         /// <returns>ApiResponse of List&lt;Group&gt;</returns>
-        ApiResponse<List<Group>> ListGroupsWithHttpInfo(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
+        ApiResponse<PagedCollection<Group>> ListGroupsWithHttpInfo(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string));
         /// <summary>
         /// Delete an Application Instance Target to Application Administrator Role
         /// </summary>
@@ -1084,7 +1085,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;CatalogApplication&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Applications
         /// </summary>
@@ -1111,7 +1112,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Assigned Roles
         /// </summary>
@@ -1136,7 +1137,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Role&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Rules
         /// </summary>
@@ -1165,7 +1166,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRule&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Group Targets for a Group Role
         /// </summary>
@@ -1194,7 +1195,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Member Users
         /// </summary>
@@ -1221,7 +1222,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Groups
         /// </summary>
@@ -1252,7 +1253,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Delete an Application Instance Target to Application Administrator Role
         /// </summary>
@@ -1534,7 +1535,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<Group> GetAsyncEnumerator(ApiResponse<PagedCollection<Group>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<Group>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate a Group Rule Activates a specific group rule by id from your organization
         /// </summary>
@@ -3926,7 +3937,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;CatalogApplication&gt;</returns>
         public List<CatalogApplication> ListApplicationTargetsForApplicationAdministratorRoleForGroup(string groupId, string roleId, string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<CatalogApplication>> localVarResponse = ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(groupId, roleId, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<CatalogApplication>> localVarResponse = ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(groupId, roleId, after, limit);
             return localVarResponse.Data;
         }
 
@@ -3939,7 +3950,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;CatalogApplication&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -3999,7 +4010,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<CatalogApplication>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<CatalogApplication>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListApplicationTargetsForApplicationAdministratorRoleForGroup", localVarResponse);
@@ -4024,7 +4035,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;CatalogApplication&gt;</returns>
         public async System.Threading.Tasks.Task<List<CatalogApplication>> ListApplicationTargetsForApplicationAdministratorRoleForGroupAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<CatalogApplication>> localVarResponse = await ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(groupId, roleId, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<CatalogApplication>> localVarResponse = await ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(groupId, roleId, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4038,7 +4049,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;CatalogApplication&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<CatalogApplication>>> ListApplicationTargetsForApplicationAdministratorRoleForGroupWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4099,7 +4110,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<CatalogApplication>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<CatalogApplication>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/catalog/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4123,7 +4134,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Application&gt;</returns>
         public List<Application> ListAssignedApplicationsForGroup(string groupId, string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<Application>> localVarResponse = ListAssignedApplicationsForGroupWithHttpInfo(groupId, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Application>> localVarResponse = ListAssignedApplicationsForGroupWithHttpInfo(groupId, after, limit);
             return localVarResponse.Data;
         }
 
@@ -4135,7 +4146,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">Specifies the pagination cursor for the next page of apps (optional)</param>
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;Application&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Application>> ListAssignedApplicationsForGroupWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Application>> ListAssignedApplicationsForGroupWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4188,7 +4199,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Application>>("/api/v1/groups/{groupId}/apps", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Application>>("/api/v1/groups/{groupId}/apps", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListAssignedApplicationsForGroup", localVarResponse);
@@ -4212,7 +4223,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Application&gt;</returns>
         public async System.Threading.Tasks.Task<List<Application>> ListAssignedApplicationsForGroupAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Application>> localVarResponse = await ListAssignedApplicationsForGroupWithHttpInfoAsync(groupId, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Application>> localVarResponse = await ListAssignedApplicationsForGroupWithHttpInfoAsync(groupId, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4225,7 +4236,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of app results for a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Application&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Application>>> ListAssignedApplicationsForGroupWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4279,7 +4290,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Application>>("/api/v1/groups/{groupId}/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Application>>("/api/v1/groups/{groupId}/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4302,7 +4313,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Role&gt;</returns>
         public List<Role> ListGroupAssignedRoles(string groupId, string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<Role>> localVarResponse = ListGroupAssignedRolesWithHttpInfo(groupId, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Role>> localVarResponse = ListGroupAssignedRolesWithHttpInfo(groupId, expand);
             return localVarResponse.Data;
         }
 
@@ -4313,7 +4324,7 @@ namespace Okta.Sdk.Api
         /// <param name="groupId"></param>
         /// <param name="expand"> (optional)</param>
         /// <returns>ApiResponse of List&lt;Role&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Role>> ListGroupAssignedRolesWithHttpInfo(string groupId, string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Role>> ListGroupAssignedRolesWithHttpInfo(string groupId, string expand = default(string))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4362,7 +4373,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Role>>("/api/v1/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Role>>("/api/v1/groups/{groupId}/roles", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListGroupAssignedRoles", localVarResponse);
@@ -4385,7 +4396,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Role&gt;</returns>
         public async System.Threading.Tasks.Task<List<Role>> ListGroupAssignedRolesAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Role>> localVarResponse = await ListGroupAssignedRolesWithHttpInfoAsync(groupId, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Role>> localVarResponse = await ListGroupAssignedRolesWithHttpInfoAsync(groupId, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4397,7 +4408,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Role&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Role>>> ListGroupAssignedRolesWithHttpInfoAsync(string groupId, string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4447,7 +4458,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Role>>("/api/v1/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Role>>("/api/v1/groups/{groupId}/roles", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4472,7 +4483,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;GroupRule&gt;</returns>
         public List<GroupRule> ListGroupRules(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<GroupRule>> localVarResponse = ListGroupRulesWithHttpInfo(limit, after, search, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<GroupRule>> localVarResponse = ListGroupRulesWithHttpInfo(limit, after, search, expand);
             return localVarResponse.Data;
         }
 
@@ -4485,7 +4496,7 @@ namespace Okta.Sdk.Api
         /// <param name="search">Specifies the keyword to search fules for (optional)</param>
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <returns>ApiResponse of List&lt;GroupRule&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<GroupRule>> ListGroupRulesWithHttpInfo(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<GroupRule>> ListGroupRulesWithHttpInfo(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -4539,7 +4550,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<GroupRule>>("/api/v1/groups/rules", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<GroupRule>>("/api/v1/groups/rules", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListGroupRules", localVarResponse);
@@ -4564,7 +4575,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;GroupRule&gt;</returns>
         public async System.Threading.Tasks.Task<List<GroupRule>> ListGroupRulesAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<GroupRule>> localVarResponse = await ListGroupRulesWithHttpInfoAsync(limit, after, search, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<GroupRule>> localVarResponse = await ListGroupRulesWithHttpInfoAsync(limit, after, search, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4578,7 +4589,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified as &#x60;groupIdToGroupNameMap&#x60;, then show group names (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;GroupRule&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<GroupRule>>> ListGroupRulesWithHttpInfoAsync(int? limit = default(int?), string after = default(string), string search = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -4633,7 +4644,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<GroupRule>>("/api/v1/groups/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<GroupRule>>("/api/v1/groups/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4658,7 +4669,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Group&gt;</returns>
         public List<Group> ListGroupTargetsForGroupRole(string groupId, string roleId, string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<Group>> localVarResponse = ListGroupTargetsForGroupRoleWithHttpInfo(groupId, roleId, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Group>> localVarResponse = ListGroupTargetsForGroupRoleWithHttpInfo(groupId, roleId, after, limit);
             return localVarResponse.Data;
         }
 
@@ -4671,7 +4682,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;Group&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Group>> ListGroupTargetsForGroupRoleWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Group>> ListGroupTargetsForGroupRoleWithHttpInfo(string groupId, string roleId, string after = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4731,7 +4742,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Group>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Group>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListGroupTargetsForGroupRole", localVarResponse);
@@ -4756,7 +4767,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Group&gt;</returns>
         public async System.Threading.Tasks.Task<List<Group>> ListGroupTargetsForGroupRoleAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Group>> localVarResponse = await ListGroupTargetsForGroupRoleWithHttpInfoAsync(groupId, roleId, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Group>> localVarResponse = await ListGroupTargetsForGroupRoleWithHttpInfoAsync(groupId, roleId, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4770,7 +4781,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Group>>> ListGroupTargetsForGroupRoleWithHttpInfoAsync(string groupId, string roleId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4831,7 +4842,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Group>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Group>>("/api/v1/groups/{groupId}/roles/{roleId}/targets/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4855,7 +4866,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;User&gt;</returns>
         public List<User> ListGroupUsers(string groupId, string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<User>> localVarResponse = ListGroupUsersWithHttpInfo(groupId, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<User>> localVarResponse = ListGroupUsersWithHttpInfo(groupId, after, limit);
             return localVarResponse.Data;
         }
 
@@ -4867,7 +4878,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">Specifies the pagination cursor for the next page of users (optional)</param>
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <returns>ApiResponse of List&lt;User&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<User>> ListGroupUsersWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<User>> ListGroupUsersWithHttpInfo(string groupId, string after = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -4920,7 +4931,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<User>>("/api/v1/groups/{groupId}/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<User>>("/api/v1/groups/{groupId}/users", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListGroupUsers", localVarResponse);
@@ -4944,7 +4955,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;User&gt;</returns>
         public async System.Threading.Tasks.Task<List<User>> ListGroupUsersAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<User>> localVarResponse = await ListGroupUsersWithHttpInfoAsync(groupId, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<User>> localVarResponse = await ListGroupUsersWithHttpInfoAsync(groupId, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4957,7 +4968,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of user results in a page (optional, default to 1000)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;User&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<User>>> ListGroupUsersWithHttpInfoAsync(string groupId, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'groupId' is set
             if (groupId == null)
@@ -5011,7 +5022,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<User>>("/api/v1/groups/{groupId}/users", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<User>>("/api/v1/groups/{groupId}/users", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -5037,7 +5048,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Group&gt;</returns>
         public List<Group> ListGroups(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<Group>> localVarResponse = ListGroupsWithHttpInfo(q, search, after, limit, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Group>> localVarResponse = ListGroupsWithHttpInfo(q, search, after, limit, expand);
             return localVarResponse.Data;
         }
 
@@ -5051,7 +5062,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of group results in a page (optional, default to 10000)</param>
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
         /// <returns>ApiResponse of List&lt;Group&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Group>> ListGroupsWithHttpInfo(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Group>> ListGroupsWithHttpInfo(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -5109,7 +5120,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Group>>("/api/v1/groups", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Group>>("/api/v1/groups", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListGroups", localVarResponse);
@@ -5135,7 +5146,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Group&gt;</returns>
         public async System.Threading.Tasks.Task<List<Group>> ListGroupsAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Group>> localVarResponse = await ListGroupsWithHttpInfoAsync(q, search, after, limit, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Group>> localVarResponse = await ListGroupsWithHttpInfoAsync(q, search, after, limit, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -5150,7 +5161,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">If specified, it causes additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Group&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Group>>> ListGroupsWithHttpInfoAsync(string q = default(string), string search = default(string), string after = default(string), int? limit = default(int?), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -5209,7 +5220,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Group>>("/api/v1/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Group>>("/api/v1/groups", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -275,7 +276,7 @@ namespace Okta.Sdk.Api
         /// <param name="status"> (optional)</param>
         /// <param name="expand"> (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of List&lt;Policy&gt;</returns>
-        ApiResponse<List<Policy>> ListPoliciesWithHttpInfo(string type, string status = default(string), string expand = default(string));
+        ApiResponse<PagedCollection<Policy>> ListPoliciesWithHttpInfo(string type, string status = default(string), string expand = default(string));
         /// <summary>
         /// List all Policy Rules
         /// </summary>
@@ -296,7 +297,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
         /// <returns>ApiResponse of List&lt;PolicyRule&gt;</returns>
-        ApiResponse<List<PolicyRule>> ListPolicyRulesWithHttpInfo(string policyId);
+        ApiResponse<PagedCollection<PolicyRule>> ListPolicyRulesWithHttpInfo(string policyId);
         /// <summary>
         /// Replace a Policy
         /// </summary>
@@ -624,7 +625,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Policy&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Policy>>> ListPoliciesWithHttpInfoAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Policy>>> ListPoliciesWithHttpInfoAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Policy Rules
         /// </summary>
@@ -647,7 +648,7 @@ namespace Okta.Sdk.Api
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PolicyRule&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<PolicyRule>>> ListPolicyRulesWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<PolicyRule>>> ListPolicyRulesWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Policy
         /// </summary>
@@ -798,7 +799,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<Policy> GetAsyncEnumerator(ApiResponse<PagedCollection<Policy>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<Policy>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate a Policy Activates a policy.
         /// </summary>
@@ -2475,7 +2486,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Policy&gt;</returns>
         public List<Policy> ListPolicies(string type, string status = default(string), string expand = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<Policy>> localVarResponse = ListPoliciesWithHttpInfo(type, status, expand);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Policy>> localVarResponse = ListPoliciesWithHttpInfo(type, status, expand);
             return localVarResponse.Data;
         }
 
@@ -2487,7 +2498,7 @@ namespace Okta.Sdk.Api
         /// <param name="status"> (optional)</param>
         /// <param name="expand"> (optional, default to &quot;&quot;)</param>
         /// <returns>ApiResponse of List&lt;Policy&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Policy>> ListPoliciesWithHttpInfo(string type, string status = default(string), string expand = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Policy>> ListPoliciesWithHttpInfo(string type, string status = default(string), string expand = default(string))
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2540,7 +2551,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Policy>>("/api/v1/policies", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Policy>>("/api/v1/policies", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPolicies", localVarResponse);
@@ -2564,7 +2575,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Policy&gt;</returns>
         public async System.Threading.Tasks.Task<List<Policy>> ListPoliciesAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Policy>> localVarResponse = await ListPoliciesWithHttpInfoAsync(type, status, expand, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Policy>> localVarResponse = await ListPoliciesWithHttpInfoAsync(type, status, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2577,7 +2588,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand"> (optional, default to &quot;&quot;)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Policy&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Policy>>> ListPoliciesWithHttpInfoAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Policy>>> ListPoliciesWithHttpInfoAsync(string type, string status = default(string), string expand = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'type' is set
             if (type == null)
@@ -2631,7 +2642,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Policy>>("/api/v1/policies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Policy>>("/api/v1/policies", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2653,7 +2664,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;PolicyRule&gt;</returns>
         public List<PolicyRule> ListPolicyRules(string policyId)
         {
-            Okta.Sdk.Client.ApiResponse<List<PolicyRule>> localVarResponse = ListPolicyRulesWithHttpInfo(policyId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<PolicyRule>> localVarResponse = ListPolicyRulesWithHttpInfo(policyId);
             return localVarResponse.Data;
         }
 
@@ -2663,7 +2674,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="policyId"></param>
         /// <returns>ApiResponse of List&lt;PolicyRule&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<PolicyRule>> ListPolicyRulesWithHttpInfo(string policyId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<PolicyRule>> ListPolicyRulesWithHttpInfo(string policyId)
         {
             // verify the required parameter 'policyId' is set
             if (policyId == null)
@@ -2708,7 +2719,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<PolicyRule>>("/api/v1/policies/{policyId}/rules", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<PolicyRule>>("/api/v1/policies/{policyId}/rules", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListPolicyRules", localVarResponse);
@@ -2730,7 +2741,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;PolicyRule&gt;</returns>
         public async System.Threading.Tasks.Task<List<PolicyRule>> ListPolicyRulesAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<PolicyRule>> localVarResponse = await ListPolicyRulesWithHttpInfoAsync(policyId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<PolicyRule>> localVarResponse = await ListPolicyRulesWithHttpInfoAsync(policyId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2741,7 +2752,7 @@ namespace Okta.Sdk.Api
         /// <param name="policyId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;PolicyRule&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<PolicyRule>>> ListPolicyRulesWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<PolicyRule>>> ListPolicyRulesWithHttpInfoAsync(string policyId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'policyId' is set
             if (policyId == null)
@@ -2787,7 +2798,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<PolicyRule>>("/api/v1/policies/{policyId}/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<PolicyRule>>("/api/v1/policies/{policyId}/rules", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -108,7 +109,7 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
-        ApiResponse<List<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo();
+        ApiResponse<PagedCollection<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -207,7 +208,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LinkedObject&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -306,7 +307,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<LinkedObject> GetAsyncEnumerator(ApiResponse<PagedCollection<LinkedObject>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<LinkedObject>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Create a Linked Object Definition Success
         /// </summary>
@@ -782,7 +793,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;LinkedObject&gt;</returns>
         public List<LinkedObject> ListLinkedObjectDefinitions()
         {
-            Okta.Sdk.Client.ApiResponse<List<LinkedObject>> localVarResponse = ListLinkedObjectDefinitionsWithHttpInfo();
+            Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>> localVarResponse = ListLinkedObjectDefinitionsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -791,7 +802,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo()
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -829,7 +840,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListLinkedObjectDefinitions", localVarResponse);
@@ -850,7 +861,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;LinkedObject&gt;</returns>
         public async System.Threading.Tasks.Task<List<LinkedObject>> ListLinkedObjectDefinitionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<LinkedObject>> localVarResponse = await ListLinkedObjectDefinitionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>> localVarResponse = await ListLinkedObjectDefinitionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -860,7 +871,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LinkedObject&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -899,7 +910,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

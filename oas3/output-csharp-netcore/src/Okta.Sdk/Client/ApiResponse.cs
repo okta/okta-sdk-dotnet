@@ -57,7 +57,7 @@ namespace Okta.Sdk.Client
         /// The raw content of this response
         /// </summary>
         string RawContent { get; }
-
+        
         /// <summary>
         /// The links of this response
         /// </summary>
@@ -119,12 +119,11 @@ namespace Okta.Sdk.Client
         /// The raw content
         /// </summary>
         public string RawContent { get; }
-
+        
         /// <summary>
         /// The links of this response
         /// </summary>
         public IEnumerable<WebLink> Links { get; private set; }
-
 
         #endregion Properties
 
@@ -139,16 +138,14 @@ namespace Okta.Sdk.Client
         /// <param name="rawContent">Raw content.</param>
         public ApiResponse(HttpStatusCode statusCode, Multimap<string, string> headers, T data, string rawContent)
         {
-            
             StatusCode = statusCode;
             Headers = headers;
             Data = data;
             RawContent = rawContent;
-
+            
             IList<string> links = new List<string>();
             headers?.TryGetValue("link", out links);
             Links = ClientUtils.Parse(links?.ToArray());
-
         }
 
         /// <summary>

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -158,7 +159,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to -1)</param>
         /// <returns>ApiResponse of List&lt;TrustedOrigin&gt;</returns>
-        ApiResponse<List<TrustedOrigin>> ListOriginsWithHttpInfo(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<TrustedOrigin>> ListOriginsWithHttpInfo(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?));
         /// <summary>
         /// Replace a Trusted Origin
         /// </summary>
@@ -334,7 +335,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TrustedOrigin&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace a Trusted Origin
         /// </summary>
@@ -458,7 +459,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<TrustedOrigin> GetAsyncEnumerator(ApiResponse<PagedCollection<TrustedOrigin>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<TrustedOrigin>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Activate a Trusted Origin Success
         /// </summary>
@@ -1250,7 +1261,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;TrustedOrigin&gt;</returns>
         public List<TrustedOrigin> ListOrigins(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>> localVarResponse = ListOriginsWithHttpInfo(q, filter, after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<TrustedOrigin>> localVarResponse = ListOriginsWithHttpInfo(q, filter, after, limit);
             return localVarResponse.Data;
         }
 
@@ -1263,7 +1274,7 @@ namespace Okta.Sdk.Api
         /// <param name="after"> (optional)</param>
         /// <param name="limit"> (optional, default to -1)</param>
         /// <returns>ApiResponse of List&lt;TrustedOrigin&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>> ListOriginsWithHttpInfo(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<TrustedOrigin>> ListOriginsWithHttpInfo(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -1317,7 +1328,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<TrustedOrigin>>("/api/v1/trustedOrigins", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<TrustedOrigin>>("/api/v1/trustedOrigins", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListOrigins", localVarResponse);
@@ -1342,7 +1353,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;TrustedOrigin&gt;</returns>
         public async System.Threading.Tasks.Task<List<TrustedOrigin>> ListOriginsAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>> localVarResponse = await ListOriginsWithHttpInfoAsync(q, filter, after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<TrustedOrigin>> localVarResponse = await ListOriginsWithHttpInfoAsync(q, filter, after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1356,7 +1367,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit"> (optional, default to -1)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;TrustedOrigin&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<TrustedOrigin>>> ListOriginsWithHttpInfoAsync(string q = default(string), string filter = default(string), string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -1411,7 +1422,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<TrustedOrigin>>("/api/v1/trustedOrigins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<TrustedOrigin>>("/api/v1/trustedOrigins", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -15,6 +15,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
+using System.Threading;
 using Okta.Sdk.Client;
 using Okta.Sdk.Model;
 
@@ -72,7 +73,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
         /// <returns>ApiResponse of List&lt;ApiToken&gt;</returns>
-        ApiResponse<List<ApiToken>> ListApiTokensWithHttpInfo(string after = default(string), int? limit = default(int?), string q = default(string));
+        ApiResponse<PagedCollection<ApiToken>> ListApiTokensWithHttpInfo(string after = default(string), int? limit = default(int?), string q = default(string));
         /// <summary>
         /// Revoke an API Token
         /// </summary>
@@ -171,7 +172,7 @@ namespace Okta.Sdk.Api
         /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApiToken&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ApiToken>>> ListApiTokensWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<ApiToken>>> ListApiTokensWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Revoke an API Token
         /// </summary>
@@ -314,7 +315,17 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+        
+        /// <summary>
+        /// Get an enumerator to handle pagination
+        /// </summary>
+        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
+        /// <param name="cancellationToken">The cancellation token</param>
+        /// <returns>A PagedCollectionEnumerator</returns>
+        public PagedCollectionEnumerator<ApiToken> GetAsyncEnumerator(ApiResponse<PagedCollection<ApiToken>> initialResponse,
+            CancellationToken cancellationToken = default) =>
+            new PagedCollectionEnumerator<ApiToken>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
+        
         /// <summary>
         /// Retrieve an API Token&#39;s Metadata Get the metadata for an active API token by id.
         /// </summary>
@@ -481,7 +492,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;ApiToken&gt;</returns>
         public List<ApiToken> ListApiTokens(string after = default(string), int? limit = default(int?), string q = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<ApiToken>> localVarResponse = ListApiTokensWithHttpInfo(after, limit, q);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ApiToken>> localVarResponse = ListApiTokensWithHttpInfo(after, limit, q);
             return localVarResponse.Data;
         }
 
@@ -493,7 +504,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
         /// <returns>ApiResponse of List&lt;ApiToken&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<ApiToken>> ListApiTokensWithHttpInfo(string after = default(string), int? limit = default(int?), string q = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<ApiToken>> ListApiTokensWithHttpInfo(string after = default(string), int? limit = default(int?), string q = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -543,7 +554,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<ApiToken>>("/api/v1/api-tokens", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<ApiToken>>("/api/v1/api-tokens", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListApiTokens", localVarResponse);
@@ -567,7 +578,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;ApiToken&gt;</returns>
         public async System.Threading.Tasks.Task<List<ApiToken>> ListApiTokensAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<ApiToken>> localVarResponse = await ListApiTokensWithHttpInfoAsync(after, limit, q, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<ApiToken>> localVarResponse = await ListApiTokensWithHttpInfoAsync(after, limit, q, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -580,7 +591,7 @@ namespace Okta.Sdk.Api
         /// <param name="q">Finds a token that matches the name or clientName. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ApiToken&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ApiToken>>> ListApiTokensWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<ApiToken>>> ListApiTokensWithHttpInfoAsync(string after = default(string), int? limit = default(int?), string q = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -631,7 +642,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ApiToken>>("/api/v1/api-tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<ApiToken>>("/api/v1/api-tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

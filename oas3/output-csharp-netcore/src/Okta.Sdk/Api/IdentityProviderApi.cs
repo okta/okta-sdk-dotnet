@@ -381,7 +381,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
         /// <returns>ApiResponse of List&lt;Csr&gt;</returns>
-        ApiResponse<List<Csr>> ListCsrsForIdentityProviderWithHttpInfo(string idpId);
+        ApiResponse<PagedCollection<Csr>> ListCsrsForIdentityProviderWithHttpInfo(string idpId);
         /// <summary>
         /// List all Users
         /// </summary>
@@ -402,7 +402,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
         /// <returns>ApiResponse of List&lt;IdentityProviderApplicationUser&gt;</returns>
-        ApiResponse<List<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersWithHttpInfo(string idpId);
+        ApiResponse<PagedCollection<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersWithHttpInfo(string idpId);
         /// <summary>
         /// List all Credential Keys
         /// </summary>
@@ -425,7 +425,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">Specifies the pagination cursor for the next page of keys (optional)</param>
         /// <param name="limit">Specifies the number of key results in a page (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
-        ApiResponse<List<JsonWebKey>> ListIdentityProviderKeysWithHttpInfo(string after = default(string), int? limit = default(int?));
+        ApiResponse<PagedCollection<JsonWebKey>> ListIdentityProviderKeysWithHttpInfo(string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Signing Credential Keys
         /// </summary>
@@ -446,7 +446,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
-        ApiResponse<List<JsonWebKey>> ListIdentityProviderSigningKeysWithHttpInfo(string idpId);
+        ApiResponse<PagedCollection<JsonWebKey>> ListIdentityProviderSigningKeysWithHttpInfo(string idpId);
         /// <summary>
         /// List all Identity Providers
         /// </summary>
@@ -473,7 +473,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of IdP results in a page (optional, default to 20)</param>
         /// <param name="type">Filters IdPs by type (optional)</param>
         /// <returns>ApiResponse of List&lt;IdentityProvider&gt;</returns>
-        ApiResponse<List<IdentityProvider>> ListIdentityProvidersWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string));
+        ApiResponse<PagedCollection<IdentityProvider>> ListIdentityProvidersWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string));
         /// <summary>
         /// List all Tokens from a OIDC Identity Provider
         /// </summary>
@@ -496,7 +496,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;SocialAuthToken&gt;</returns>
-        ApiResponse<List<SocialAuthToken>> ListSocialAuthTokensWithHttpInfo(string idpId, string userId);
+        ApiResponse<PagedCollection<SocialAuthToken>> ListSocialAuthTokensWithHttpInfo(string idpId, string userId);
         /// <summary>
         /// Publish a Certificate Signing Request
         /// </summary>
@@ -985,7 +985,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Csr&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<Csr>>> ListCsrsForIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Csr>>> ListCsrsForIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Users
         /// </summary>
@@ -1008,7 +1008,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IdentityProviderApplicationUser&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Credential Keys
         /// </summary>
@@ -1033,7 +1033,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of key results in a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListIdentityProviderKeysWithHttpInfoAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<JsonWebKey>>> ListIdentityProviderKeysWithHttpInfoAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Signing Credential Keys
         /// </summary>
@@ -1056,7 +1056,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<JsonWebKey>>> ListIdentityProviderSigningKeysWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<JsonWebKey>>> ListIdentityProviderSigningKeysWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Identity Providers
         /// </summary>
@@ -1085,7 +1085,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters IdPs by type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IdentityProvider&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IdentityProvider>>> ListIdentityProvidersWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<IdentityProvider>>> ListIdentityProvidersWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Tokens from a OIDC Identity Provider
         /// </summary>
@@ -1110,7 +1110,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SocialAuthToken&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<SocialAuthToken>>> ListSocialAuthTokensWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedCollection<SocialAuthToken>>> ListSocialAuthTokensWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Publish a Certificate Signing Request
         /// </summary>
@@ -1318,7 +1318,7 @@ namespace Okta.Sdk.Api
         /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
         /// <param name="cancellationToken">The cancellation token</param>
         /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<IdentityProvider> GetAsyncEnumerator(ApiResponse<List<IdentityProvider>> initialResponse,
+        public PagedCollectionEnumerator<IdentityProvider> GetAsyncEnumerator(ApiResponse<PagedCollection<IdentityProvider>> initialResponse,
             CancellationToken cancellationToken = default) =>
             new PagedCollectionEnumerator<IdentityProvider>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
         
@@ -3824,7 +3824,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Csr&gt;</returns>
         public List<Csr> ListCsrsForIdentityProvider(string idpId)
         {
-            Okta.Sdk.Client.ApiResponse<List<Csr>> localVarResponse = ListCsrsForIdentityProviderWithHttpInfo(idpId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>> localVarResponse = ListCsrsForIdentityProviderWithHttpInfo(idpId);
             return localVarResponse.Data;
         }
 
@@ -3834,7 +3834,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
         /// <returns>ApiResponse of List&lt;Csr&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<Csr>> ListCsrsForIdentityProviderWithHttpInfo(string idpId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>> ListCsrsForIdentityProviderWithHttpInfo(string idpId)
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -3879,7 +3879,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<Csr>>("/api/v1/idps/{idpId}/credentials/csrs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<Csr>>("/api/v1/idps/{idpId}/credentials/csrs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListCsrsForIdentityProvider", localVarResponse);
@@ -3901,7 +3901,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;Csr&gt;</returns>
         public async System.Threading.Tasks.Task<List<Csr>> ListCsrsForIdentityProviderAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<Csr>> localVarResponse = await ListCsrsForIdentityProviderWithHttpInfoAsync(idpId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>> localVarResponse = await ListCsrsForIdentityProviderWithHttpInfoAsync(idpId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3912,7 +3912,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Csr&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Csr>>> ListCsrsForIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Csr>>> ListCsrsForIdentityProviderWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -3958,7 +3958,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Csr>>("/api/v1/idps/{idpId}/credentials/csrs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Csr>>("/api/v1/idps/{idpId}/credentials/csrs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -3980,7 +3980,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;IdentityProviderApplicationUser&gt;</returns>
         public List<IdentityProviderApplicationUser> ListIdentityProviderApplicationUsers(string idpId)
         {
-            Okta.Sdk.Client.ApiResponse<List<IdentityProviderApplicationUser>> localVarResponse = ListIdentityProviderApplicationUsersWithHttpInfo(idpId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProviderApplicationUser>> localVarResponse = ListIdentityProviderApplicationUsersWithHttpInfo(idpId);
             return localVarResponse.Data;
         }
 
@@ -3990,7 +3990,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
         /// <returns>ApiResponse of List&lt;IdentityProviderApplicationUser&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersWithHttpInfo(string idpId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersWithHttpInfo(string idpId)
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -4035,7 +4035,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<IdentityProviderApplicationUser>>("/api/v1/idps/{idpId}/users", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<IdentityProviderApplicationUser>>("/api/v1/idps/{idpId}/users", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentityProviderApplicationUsers", localVarResponse);
@@ -4057,7 +4057,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;IdentityProviderApplicationUser&gt;</returns>
         public async System.Threading.Tasks.Task<List<IdentityProviderApplicationUser>> ListIdentityProviderApplicationUsersAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<IdentityProviderApplicationUser>> localVarResponse = await ListIdentityProviderApplicationUsersWithHttpInfoAsync(idpId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProviderApplicationUser>> localVarResponse = await ListIdentityProviderApplicationUsersWithHttpInfoAsync(idpId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4068,7 +4068,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IdentityProviderApplicationUser&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProviderApplicationUser>>> ListIdentityProviderApplicationUsersWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -4114,7 +4114,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IdentityProviderApplicationUser>>("/api/v1/idps/{idpId}/users", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<IdentityProviderApplicationUser>>("/api/v1/idps/{idpId}/users", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4137,7 +4137,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;JsonWebKey&gt;</returns>
         public List<JsonWebKey> ListIdentityProviderKeys(string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> localVarResponse = ListIdentityProviderKeysWithHttpInfo(after, limit);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> localVarResponse = ListIdentityProviderKeysWithHttpInfo(after, limit);
             return localVarResponse.Data;
         }
 
@@ -4148,7 +4148,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">Specifies the pagination cursor for the next page of keys (optional)</param>
         /// <param name="limit">Specifies the number of key results in a page (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> ListIdentityProviderKeysWithHttpInfo(string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> ListIdentityProviderKeysWithHttpInfo(string after = default(string), int? limit = default(int?))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -4194,7 +4194,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<JsonWebKey>>("/api/v1/idps/credentials/keys", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<JsonWebKey>>("/api/v1/idps/credentials/keys", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentityProviderKeys", localVarResponse);
@@ -4217,7 +4217,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
         public async System.Threading.Tasks.Task<List<JsonWebKey>> ListIdentityProviderKeysAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> localVarResponse = await ListIdentityProviderKeysWithHttpInfoAsync(after, limit, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> localVarResponse = await ListIdentityProviderKeysWithHttpInfoAsync(after, limit, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4229,7 +4229,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of key results in a page (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<JsonWebKey>>> ListIdentityProviderKeysWithHttpInfoAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>>> ListIdentityProviderKeysWithHttpInfoAsync(string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -4276,7 +4276,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<JsonWebKey>>("/api/v1/idps/credentials/keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<JsonWebKey>>("/api/v1/idps/credentials/keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4298,7 +4298,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;JsonWebKey&gt;</returns>
         public List<JsonWebKey> ListIdentityProviderSigningKeys(string idpId)
         {
-            Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> localVarResponse = ListIdentityProviderSigningKeysWithHttpInfo(idpId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> localVarResponse = ListIdentityProviderSigningKeysWithHttpInfo(idpId);
             return localVarResponse.Data;
         }
 
@@ -4308,7 +4308,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="idpId"></param>
         /// <returns>ApiResponse of List&lt;JsonWebKey&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> ListIdentityProviderSigningKeysWithHttpInfo(string idpId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> ListIdentityProviderSigningKeysWithHttpInfo(string idpId)
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -4353,7 +4353,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<JsonWebKey>>("/api/v1/idps/{idpId}/credentials/keys", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<JsonWebKey>>("/api/v1/idps/{idpId}/credentials/keys", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentityProviderSigningKeys", localVarResponse);
@@ -4375,7 +4375,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;JsonWebKey&gt;</returns>
         public async System.Threading.Tasks.Task<List<JsonWebKey>> ListIdentityProviderSigningKeysAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<JsonWebKey>> localVarResponse = await ListIdentityProviderSigningKeysWithHttpInfoAsync(idpId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>> localVarResponse = await ListIdentityProviderSigningKeysWithHttpInfoAsync(idpId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4386,7 +4386,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;JsonWebKey&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<JsonWebKey>>> ListIdentityProviderSigningKeysWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<JsonWebKey>>> ListIdentityProviderSigningKeysWithHttpInfoAsync(string idpId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -4432,7 +4432,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<JsonWebKey>>("/api/v1/idps/{idpId}/credentials/keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<JsonWebKey>>("/api/v1/idps/{idpId}/credentials/keys", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4457,7 +4457,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;IdentityProvider&gt;</returns>
         public List<IdentityProvider> ListIdentityProviders(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string))
         {
-            Okta.Sdk.Client.ApiResponse<List<IdentityProvider>> localVarResponse = ListIdentityProvidersWithHttpInfo(q, after, limit, type);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProvider>> localVarResponse = ListIdentityProvidersWithHttpInfo(q, after, limit, type);
             return localVarResponse.Data;
         }
 
@@ -4470,7 +4470,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">Specifies the number of IdP results in a page (optional, default to 20)</param>
         /// <param name="type">Filters IdPs by type (optional)</param>
         /// <returns>ApiResponse of List&lt;IdentityProvider&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<IdentityProvider>> ListIdentityProvidersWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string))
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProvider>> ListIdentityProvidersWithHttpInfo(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string))
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -4524,7 +4524,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<IdentityProvider>>("/api/v1/idps", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<IdentityProvider>>("/api/v1/idps", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIdentityProviders", localVarResponse);
@@ -4549,7 +4549,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;IdentityProvider&gt;</returns>
         public async System.Threading.Tasks.Task<List<IdentityProvider>> ListIdentityProvidersAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<IdentityProvider>> localVarResponse = await ListIdentityProvidersWithHttpInfoAsync(q, after, limit, type, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProvider>> localVarResponse = await ListIdentityProvidersWithHttpInfoAsync(q, after, limit, type, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4563,7 +4563,7 @@ namespace Okta.Sdk.Api
         /// <param name="type">Filters IdPs by type (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IdentityProvider&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<IdentityProvider>>> ListIdentityProvidersWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<IdentityProvider>>> ListIdentityProvidersWithHttpInfoAsync(string q = default(string), string after = default(string), int? limit = default(int?), string type = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -4618,7 +4618,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IdentityProvider>>("/api/v1/idps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<IdentityProvider>>("/api/v1/idps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4641,7 +4641,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;SocialAuthToken&gt;</returns>
         public List<SocialAuthToken> ListSocialAuthTokens(string idpId, string userId)
         {
-            Okta.Sdk.Client.ApiResponse<List<SocialAuthToken>> localVarResponse = ListSocialAuthTokensWithHttpInfo(idpId, userId);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<SocialAuthToken>> localVarResponse = ListSocialAuthTokensWithHttpInfo(idpId, userId);
             return localVarResponse.Data;
         }
 
@@ -4652,7 +4652,7 @@ namespace Okta.Sdk.Api
         /// <param name="idpId"></param>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;SocialAuthToken&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<List<SocialAuthToken>> ListSocialAuthTokensWithHttpInfo(string idpId, string userId)
+        public Okta.Sdk.Client.ApiResponse<PagedCollection<SocialAuthToken>> ListSocialAuthTokensWithHttpInfo(string idpId, string userId)
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -4704,7 +4704,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<SocialAuthToken>>("/api/v1/idps/{idpId}/users/{userId}/credentials/tokens", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedCollection<SocialAuthToken>>("/api/v1/idps/{idpId}/users/{userId}/credentials/tokens", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSocialAuthTokens", localVarResponse);
@@ -4727,7 +4727,7 @@ namespace Okta.Sdk.Api
         /// <returns>Task of List&lt;SocialAuthToken&gt;</returns>
         public async System.Threading.Tasks.Task<List<SocialAuthToken>> ListSocialAuthTokensAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<List<SocialAuthToken>> localVarResponse = await ListSocialAuthTokensWithHttpInfoAsync(idpId, userId, cancellationToken).ConfigureAwait(false);
+            Okta.Sdk.Client.ApiResponse<PagedCollection<SocialAuthToken>> localVarResponse = await ListSocialAuthTokensWithHttpInfoAsync(idpId, userId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -4739,7 +4739,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SocialAuthToken&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<SocialAuthToken>>> ListSocialAuthTokensWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<SocialAuthToken>>> ListSocialAuthTokensWithHttpInfoAsync(string idpId, string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'idpId' is set
             if (idpId == null)
@@ -4792,7 +4792,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SocialAuthToken>>("/api/v1/idps/{idpId}/users/{userId}/credentials/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<SocialAuthToken>>("/api/v1/idps/{idpId}/users/{userId}/credentials/tokens", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
