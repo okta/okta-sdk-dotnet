@@ -6907,9 +6907,7 @@ namespace Okta.Sdk.Api
 
             // make the HTTP request
             var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Application>>("/api/v1/apps", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
-            localVarResponse.Data.Configuration = this.Configuration;
-            localVarResponse.Data.AsynchronousClient = this.AsynchronousClient;
-            localVarResponse.Data.InitalApiResponse = localVarResponse;
+            localVarResponse.Data.InitializeEnumerator(localVarResponse, this.AsynchronousClient, this.Configuration);
 
             if (this.ExceptionFactory != null)
             {

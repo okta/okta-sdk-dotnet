@@ -5,7 +5,7 @@ using System.Threading;
 
 namespace Okta.Sdk.Client
 {
-    public interface IPagedCollection<T> 
+    public interface IPagedCollection<T> : IList<T>
     {
         PagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default);
     }
@@ -21,27 +21,10 @@ namespace Okta.Sdk.Client
 
         }
 
-        public ApiResponse<PagedCollection<T>> InitalApiResponse
+        internal void InitializeEnumerator(ApiResponse<PagedCollection<T>> initialApiResponse, IAsynchronousClient asynchronousClient, IReadableConfiguration configuration)
         {
-            set { _initialApiResponse = value; }
-        }
-
-        public IAsynchronousClient AsynchronousClient
-        {
-            set { _asynchronousClient = value; }
-        }
-
-        public IReadableConfiguration Configuration
-        {
-            set { _configuration = value; }
-        }
-
-
-        public PagedCollection(ApiResponse<PagedCollection<T>> initialResponse, IAsynchronousClient asyncClient,
-            IReadableConfiguration configuration)
-        {
-            _initialApiResponse = initialResponse;
-            _asynchronousClient = asyncClient;
+            _initialApiResponse = initialApiResponse;
+            _asynchronousClient = asynchronousClient;
             _configuration = configuration;
         }
 
