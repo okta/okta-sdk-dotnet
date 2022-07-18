@@ -397,7 +397,6 @@ namespace Okta.Sdk.Client
         private ApiResponse<T> ToApiResponse<T>(IRestResponse<T> response)
         {
             T result = response.Data;
-            
             string rawContent = response.Content;
 
             var transformed = new ApiResponse<T>(response.StatusCode, new Multimap<string, string>(), result, rawContent)
@@ -685,15 +684,6 @@ namespace Okta.Sdk.Client
             return ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), config, cancellationToken);
         }
 
-        public async Task<ApiResponse<T>> GetPagedCollectionAsync<T>(string path, RequestOptions options, IReadableConfiguration configuration = null, CancellationToken cancellationToken = default)
-        {
-            //var config = configuration ?? GlobalConfiguration.Instance;
-            //var initialResponse = await ExecAsync<T>(NewRequest(HttpMethod.Get, path, options, config), config, cancellationToken);
-            //new PagedCollection<T>()
-
-            return null;
-        }
-
         /// <summary>
         /// Make a HTTP POST request (async).
         /// </summary>
@@ -883,7 +873,6 @@ namespace Okta.Sdk.Client
             var config = configuration ?? GlobalConfiguration.Instance;
             return Exec<T>(NewRequest(HttpMethod.Patch, path, options, config), config);
         }
-
         #endregion ISynchronousClient
     }
 }

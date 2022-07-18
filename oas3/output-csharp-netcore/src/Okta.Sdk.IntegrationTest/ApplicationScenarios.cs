@@ -992,7 +992,7 @@ namespace Okta.Sdk.IntegrationTest
                 var createdAppUser1 = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser1);
                 var createdAppUser2 = await _applicationApi.AssignUserToApplicationAsync(createdApp.Id, appUser2);
 
-                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id);
+                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id).ToListAsync();
 
                 appUserList.Should().NotBeNullOrEmpty();
                 appUserList.Should().HaveCount(2);
@@ -1170,7 +1170,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 await _applicationApi.DeleteApplicationUserAsync(createdApp.Id, createdUser.Id);
 
-                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id);
+                var appUserList = await _applicationApi.ListApplicationUsersAsync(createdApp.Id).ToListAsync();
                 appUserList.Should().BeNullOrEmpty();
             }
             finally
@@ -1359,7 +1359,7 @@ namespace Okta.Sdk.IntegrationTest
                     await _applicationApi.CreateApplicationGroupAssignmentAsync(createdApp.Id, createdGroup2.Id,
                         groupAssignment);
 
-                var groupAssignmentList = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id);
+                var groupAssignmentList = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id).ToListAsync();
 
                 groupAssignmentList.Should().NotBeNullOrEmpty();
                 groupAssignmentList.Should().HaveCount(2);
@@ -1425,7 +1425,7 @@ namespace Okta.Sdk.IntegrationTest
 
                 await _applicationApi.DeleteApplicationGroupAssignmentAsync(createdApp.Id, createdGroup.Id);
 
-                var assignments = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id);
+                var assignments = await _applicationApi.ListApplicationGroupAssignmentsAsync(createdApp.Id).ToListAsync();
                 assignments.Should().BeNullOrEmpty();
             }
             finally
@@ -1463,7 +1463,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id);
+                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id).ToListAsync();
 
                 // A key is created by default
                 appKeys.Should().NotBeNull();
@@ -1500,7 +1500,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id);
+                var appKeys = await _applicationApi.ListApplicationKeysAsync(createdApp.Id).ToListAsync();
                 var defaultAppKey = appKeys.First();
                 var retrievedAppKey = await _applicationApi.GetApplicationKeyAsync(createdApp.Id, defaultAppKey.Kid);
 
@@ -1768,12 +1768,12 @@ namespace Okta.Sdk.IntegrationTest
 
                 var generatedCsr = await _applicationApi.GenerateCsrForApplicationAsync(createdApp.Id, csrMetadata);
 
-                var csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id);
+                var csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id).ToListAsync();
                 csrList.Any(x => x.Id == generatedCsr.Id).Should().BeTrue();
 
                 await _applicationApi.RevokeCsrFromApplicationAsync(createdApp.Id, generatedCsr.Id);
 
-                csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id);
+                csrList = await _applicationApi.ListCsrsForApplicationAsync(createdApp.Id).ToListAsync();
                 csrList.Any(x => x.Id == generatedCsr.Id).Should().BeFalse();
             }
             finally
@@ -1852,7 +1852,7 @@ namespace Okta.Sdk.IntegrationTest
                     ScopeId = "okta.users.read",
                 });
                 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 appConsentGrants.Should().NotBeNull();
 
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
@@ -1935,13 +1935,13 @@ namespace Okta.Sdk.IntegrationTest
                     ScopeId = "okta.users.read",
                 });
 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().NotBeNull();
 
                 await _applicationApi.RevokeScopeConsentGrantAsync(createdApp.Id, retrievedConsent.Id);
 
-                appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().BeNull();
             }
@@ -2021,7 +2021,7 @@ namespace Okta.Sdk.IntegrationTest
                     ScopeId = "okta.users.read",
                 });
 
-                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id);
+                var appConsentGrants = await _applicationApi.ListScopeConsentGrantsAsync(createdApp.Id).ToListAsync();
                 var retrievedConsent = appConsentGrants.FirstOrDefault(x => x.ScopeId == "okta.users.read" && x.Issuer == issuer);
                 retrievedConsent.Should().NotBeNull();
 

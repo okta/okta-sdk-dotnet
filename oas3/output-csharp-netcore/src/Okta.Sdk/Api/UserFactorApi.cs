@@ -177,7 +177,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;UserFactor&gt;</returns>
-        ApiResponse<PagedCollection<UserFactor>> ListFactorsWithHttpInfo(string userId);
+        ApiResponse<List<UserFactor>> ListFactorsWithHttpInfo(string userId);
         /// <summary>
         /// List all Supported Factors
         /// </summary>
@@ -198,7 +198,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;UserFactor&gt;</returns>
-        ApiResponse<PagedCollection<UserFactor>> ListSupportedFactorsWithHttpInfo(string userId);
+        ApiResponse<List<UserFactor>> ListSupportedFactorsWithHttpInfo(string userId);
         /// <summary>
         /// List all Supported Security Questions
         /// </summary>
@@ -219,7 +219,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;SecurityQuestion&gt;</returns>
-        ApiResponse<PagedCollection<SecurityQuestion>> ListSupportedSecurityQuestionsWithHttpInfo(string userId);
+        ApiResponse<List<SecurityQuestion>> ListSupportedSecurityQuestionsWithHttpInfo(string userId);
         /// <summary>
         /// Verify an MFA Factor
         /// </summary>
@@ -277,7 +277,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserFactor</returns>
         System.Threading.Tasks.Task<UserFactor> ActivateFactorAsync(string userId, string factorId, ActivateFactorRequest body = default(ActivateFactorRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate a Factor
         /// </summary>
@@ -304,7 +303,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteFactorAsync(string userId, string factorId, bool? removeEnrollmentRecovery = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Factor
         /// </summary>
@@ -334,7 +332,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserFactor</returns>
         System.Threading.Tasks.Task<UserFactor> EnrollFactorAsync(string userId, UserFactor body, bool? updatePhone = default(bool?), string templateId = default(string), int? tokenLifetimeSeconds = default(int?), bool? activate = default(bool?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Enroll a Factor
         /// </summary>
@@ -363,7 +360,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserFactor</returns>
         System.Threading.Tasks.Task<UserFactor> GetFactorAsync(string userId, string factorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Factor
         /// </summary>
@@ -389,7 +385,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerifyUserFactorResponse</returns>
         System.Threading.Tasks.Task<VerifyUserFactorResponse> GetFactorTransactionStatusAsync(string userId, string factorId, string transactionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Factor Transaction Status
         /// </summary>
@@ -413,8 +408,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        System.Threading.Tasks.Task<List<UserFactor>> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<UserFactor> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Factors
         /// </summary>
@@ -425,7 +419,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserFactor&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<UserFactor>>> ListFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<UserFactor>>> ListFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Supported Factors
         /// </summary>
@@ -436,8 +430,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        System.Threading.Tasks.Task<List<UserFactor>> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<UserFactor> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Supported Factors
         /// </summary>
@@ -448,7 +441,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserFactor&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<UserFactor>>> ListSupportedFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<UserFactor>>> ListSupportedFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Supported Security Questions
         /// </summary>
@@ -459,8 +452,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SecurityQuestion&gt;</returns>
-        System.Threading.Tasks.Task<List<SecurityQuestion>> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<SecurityQuestion> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Supported Security Questions
         /// </summary>
@@ -471,7 +463,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SecurityQuestion&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<SecurityQuestion>>> ListSupportedSecurityQuestionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<SecurityQuestion>>> ListSupportedSecurityQuestionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Verify an MFA Factor
         /// </summary>
@@ -490,7 +482,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of VerifyUserFactorResponse</returns>
         System.Threading.Tasks.Task<VerifyUserFactorResponse> VerifyFactorAsync(string userId, string factorId, string templateId = default(string), int? tokenLifetimeSeconds = default(int?), string xForwardedFor = default(string), string userAgent = default(string), string acceptLanguage = default(string), VerifyFactorRequest body = default(VerifyFactorRequest), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Verify an MFA Factor
         /// </summary>
@@ -607,7 +598,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
+         
         /// <summary>
         /// Activate a Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
@@ -711,7 +702,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserFactor> localVarResponse = await ActivateFactorWithHttpInfoAsync(userId, factorId, body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate a Factor The &#x60;sms&#x60; and &#x60;token:software:totp&#x60; factor types require activation to complete the enrollment process.
         /// </summary>
@@ -893,7 +883,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteFactorWithHttpInfoAsync(userId, factorId, removeEnrollmentRecovery, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Factor Unenrolls an existing factor for the specified user, allowing the user to enroll a new factor.
         /// </summary>
@@ -1101,7 +1090,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserFactor> localVarResponse = await EnrollFactorWithHttpInfoAsync(userId, body, updatePhone, templateId, tokenLifetimeSeconds, activate, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Enroll a Factor Enrolls a user with a supported factor.
         /// </summary>
@@ -1296,7 +1284,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserFactor> localVarResponse = await GetFactorWithHttpInfoAsync(userId, factorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Factor Fetches a factor for the specified user
         /// </summary>
@@ -1480,7 +1467,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<VerifyUserFactorResponse> localVarResponse = await GetFactorTransactionStatusWithHttpInfoAsync(userId, factorId, transactionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Factor Transaction Status Polls factors verification transaction for status.
         /// </summary>
@@ -1572,7 +1558,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;UserFactor&gt;</returns>
         public List<UserFactor> ListFactors(string userId)
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>> localVarResponse = ListFactorsWithHttpInfo(userId);
+            Okta.Sdk.Client.ApiResponse<List<UserFactor>> localVarResponse = ListFactorsWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -1582,7 +1568,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;UserFactor&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>> ListFactorsWithHttpInfo(string userId)
+        public Okta.Sdk.Client.ApiResponse<List<UserFactor>> ListFactorsWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1627,7 +1613,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<UserFactor>>("/api/v1/users/{userId}/factors", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<UserFactor>>("/api/v1/users/{userId}/factors", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListFactors", localVarResponse);
@@ -1647,12 +1633,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        public async System.Threading.Tasks.Task<List<UserFactor>> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<UserFactor> ListFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>> localVarResponse = await ListFactorsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserFactorApi->ListFactors");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<UserFactor>(localVarRequestOptions, "/api/v1/users/{userId}/factors", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Factors Enumerates all the enrolled factors for the specified user
         /// </summary>
@@ -1660,7 +1687,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserFactor&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>>> ListFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<UserFactor>>> ListFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1706,7 +1733,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<UserFactor>>("/api/v1/users/{userId}/factors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<UserFactor>>("/api/v1/users/{userId}/factors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1728,7 +1755,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;UserFactor&gt;</returns>
         public List<UserFactor> ListSupportedFactors(string userId)
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>> localVarResponse = ListSupportedFactorsWithHttpInfo(userId);
+            Okta.Sdk.Client.ApiResponse<List<UserFactor>> localVarResponse = ListSupportedFactorsWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -1738,7 +1765,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;UserFactor&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>> ListSupportedFactorsWithHttpInfo(string userId)
+        public Okta.Sdk.Client.ApiResponse<List<UserFactor>> ListSupportedFactorsWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1783,7 +1810,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<UserFactor>>("/api/v1/users/{userId}/factors/catalog", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<UserFactor>>("/api/v1/users/{userId}/factors/catalog", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSupportedFactors", localVarResponse);
@@ -1803,12 +1830,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;UserFactor&gt;</returns>
-        public async System.Threading.Tasks.Task<List<UserFactor>> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<UserFactor> ListSupportedFactorsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>> localVarResponse = await ListSupportedFactorsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserFactorApi->ListSupportedFactors");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<UserFactor>(localVarRequestOptions, "/api/v1/users/{userId}/factors/catalog", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Supported Factors Enumerates all the supported factors that can be enrolled for the specified user
         /// </summary>
@@ -1816,7 +1884,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;UserFactor&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<UserFactor>>> ListSupportedFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<UserFactor>>> ListSupportedFactorsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1862,7 +1930,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<UserFactor>>("/api/v1/users/{userId}/factors/catalog", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<UserFactor>>("/api/v1/users/{userId}/factors/catalog", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1884,7 +1952,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;SecurityQuestion&gt;</returns>
         public List<SecurityQuestion> ListSupportedSecurityQuestions(string userId)
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<SecurityQuestion>> localVarResponse = ListSupportedSecurityQuestionsWithHttpInfo(userId);
+            Okta.Sdk.Client.ApiResponse<List<SecurityQuestion>> localVarResponse = ListSupportedSecurityQuestionsWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -1894,7 +1962,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;SecurityQuestion&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<SecurityQuestion>> ListSupportedSecurityQuestionsWithHttpInfo(string userId)
+        public Okta.Sdk.Client.ApiResponse<List<SecurityQuestion>> ListSupportedSecurityQuestionsWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1933,7 +2001,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<SecurityQuestion>>("/api/v1/users/{userId}/factors/questions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<SecurityQuestion>>("/api/v1/users/{userId}/factors/questions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListSupportedSecurityQuestions", localVarResponse);
@@ -1953,12 +2021,47 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;SecurityQuestion&gt;</returns>
-        public async System.Threading.Tasks.Task<List<SecurityQuestion>> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<SecurityQuestion> ListSupportedSecurityQuestionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<SecurityQuestion>> localVarResponse = await ListSupportedSecurityQuestionsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling UserFactorApi->ListSupportedSecurityQuestions");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            
+            return new OktaCollectionClient<SecurityQuestion>(localVarRequestOptions, "/api/v1/users/{userId}/factors/questions", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Supported Security Questions Enumerates all available security questions for a user&#39;s &#x60;question&#x60; factor
         /// </summary>
@@ -1966,7 +2069,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;SecurityQuestion&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<SecurityQuestion>>> ListSupportedSecurityQuestionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<SecurityQuestion>>> ListSupportedSecurityQuestionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -2006,7 +2109,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<SecurityQuestion>>("/api/v1/users/{userId}/factors/questions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<SecurityQuestion>>("/api/v1/users/{userId}/factors/questions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2158,7 +2261,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<VerifyUserFactorResponse> localVarResponse = await VerifyFactorWithHttpInfoAsync(userId, factorId, templateId, tokenLifetimeSeconds, xForwardedFor, userAgent, acceptLanguage, body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Verify an MFA Factor Verifies an OTP for a &#x60;token&#x60; or &#x60;token:hardware&#x60; factor
         /// </summary>

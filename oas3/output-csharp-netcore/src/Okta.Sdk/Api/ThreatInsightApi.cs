@@ -87,7 +87,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ThreatInsightConfiguration</returns>
         System.Threading.Tasks.Task<ThreatInsightConfiguration> GetCurrentConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the ThreatInsight Configuration
         /// </summary>
@@ -109,7 +108,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ThreatInsightConfiguration</returns>
         System.Threading.Tasks.Task<ThreatInsightConfiguration> UpdateConfigurationAsync(ThreatInsightConfiguration threatInsightConfiguration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update the ThreatInsight Configuration
         /// </summary>
@@ -219,7 +217,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
@@ -298,7 +296,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> localVarResponse = await GetCurrentConfigurationWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the ThreatInsight Configuration Gets current ThreatInsight configuration
         /// </summary>
@@ -447,7 +444,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ThreatInsightConfiguration> localVarResponse = await UpdateConfigurationWithHttpInfoAsync(threatInsightConfiguration, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update the ThreatInsight Configuration Updates ThreatInsight configuration
         /// </summary>

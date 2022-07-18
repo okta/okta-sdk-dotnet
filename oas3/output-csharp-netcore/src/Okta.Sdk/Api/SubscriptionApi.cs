@@ -94,7 +94,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        ApiResponse<PagedCollection<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId);
+        ApiResponse<List<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId);
         /// <summary>
         /// List all Subscriptions
         /// </summary>
@@ -115,7 +115,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        ApiResponse<PagedCollection<Subscription>> ListUserSubscriptionsWithHttpInfo(string userId);
+        ApiResponse<List<Subscription>> ListUserSubscriptionsWithHttpInfo(string userId);
         /// <summary>
         /// Subscribe a Custom Role to a specific notification type
         /// </summary>
@@ -229,7 +229,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Subscription</returns>
         System.Threading.Tasks.Task<Subscription> GetRoleSubscriptionByNotificationTypeAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// List all Subscriptions of a Custom Role with a specific notification type
         /// </summary>
@@ -254,7 +253,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Subscription</returns>
         System.Threading.Tasks.Task<Subscription> GetUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// List all Subscriptions by type
         /// </summary>
@@ -277,8 +275,7 @@ namespace Okta.Sdk.Api
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        System.Threading.Tasks.Task<List<Subscription>> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Subscription> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Subscriptions of a Custom Role
         /// </summary>
@@ -289,7 +286,7 @@ namespace Okta.Sdk.Api
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Subscription>>> ListRoleSubscriptionsWithHttpInfoAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> ListRoleSubscriptionsWithHttpInfoAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Subscriptions
         /// </summary>
@@ -300,8 +297,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        System.Threading.Tasks.Task<List<Subscription>> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Subscription> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Subscriptions
         /// </summary>
@@ -312,7 +308,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Subscription>>> ListUserSubscriptionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Subscription>>> ListUserSubscriptionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Subscribe a Custom Role to a specific notification type
         /// </summary>
@@ -325,7 +321,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SubscribeRoleSubscriptionByNotificationTypeAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Subscribe a Custom Role to a specific notification type
         /// </summary>
@@ -350,7 +345,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SubscribeUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Subscribe to a specific notification type
         /// </summary>
@@ -375,7 +369,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UnsubscribeRoleSubscriptionByNotificationTypeAsync(string roleTypeOrRoleId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unsubscribe a Custom Role from a specific notification type
         /// </summary>
@@ -400,7 +393,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UnsubscribeUserSubscriptionByNotificationTypeAsync(string userId, string notificationType, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Unsubscribe from a specific notification type
         /// </summary>
@@ -511,7 +503,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
@@ -610,7 +602,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Subscription> localVarResponse = await GetRoleSubscriptionByNotificationTypeWithHttpInfoAsync(roleTypeOrRoleId, notificationType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// List all Subscriptions of a Custom Role with a specific notification type When roleType Get subscriptions of a Role with a specific notification type. Else when roleId Get subscription of a Custom Role with a specific notification type.
         /// </summary>
@@ -784,7 +775,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Subscription> localVarResponse = await GetUserSubscriptionByNotificationTypeWithHttpInfoAsync(userId, notificationType, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// List all Subscriptions by type Get the subscriptions of a User with a specific notification type. Only gets subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
@@ -868,7 +858,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Subscription&gt;</returns>
         public List<Subscription> ListRoleSubscriptions(string roleTypeOrRoleId)
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>> localVarResponse = ListRoleSubscriptionsWithHttpInfo(roleTypeOrRoleId);
+            Okta.Sdk.Client.ApiResponse<List<Subscription>> localVarResponse = ListRoleSubscriptionsWithHttpInfo(roleTypeOrRoleId);
             return localVarResponse.Data;
         }
 
@@ -878,7 +868,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="roleTypeOrRoleId"></param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId)
+        public Okta.Sdk.Client.ApiResponse<List<Subscription>> ListRoleSubscriptionsWithHttpInfo(string roleTypeOrRoleId)
         {
             // verify the required parameter 'roleTypeOrRoleId' is set
             if (roleTypeOrRoleId == null)
@@ -923,7 +913,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<Subscription>>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<Subscription>>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListRoleSubscriptions", localVarResponse);
@@ -943,12 +933,53 @@ namespace Okta.Sdk.Api
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Subscription>> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Subscription> ListRoleSubscriptionsAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>> localVarResponse = await ListRoleSubscriptionsWithHttpInfoAsync(roleTypeOrRoleId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'roleTypeOrRoleId' is set
+            if (roleTypeOrRoleId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'roleTypeOrRoleId' when calling SubscriptionApi->ListRoleSubscriptions");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("roleTypeOrRoleId", Okta.Sdk.Client.ClientUtils.ParameterToString(roleTypeOrRoleId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Subscription>(localVarRequestOptions, "/api/v1/roles/{roleTypeOrRoleId}/subscriptions", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Subscriptions of a Custom Role When roleType List all subscriptions of a Role. Else when roleId List subscriptions of a Custom Role
         /// </summary>
@@ -956,7 +987,7 @@ namespace Okta.Sdk.Api
         /// <param name="roleTypeOrRoleId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>>> ListRoleSubscriptionsWithHttpInfoAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Subscription>>> ListRoleSubscriptionsWithHttpInfoAsync(string roleTypeOrRoleId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'roleTypeOrRoleId' is set
             if (roleTypeOrRoleId == null)
@@ -1002,7 +1033,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Subscription>>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Subscription>>("/api/v1/roles/{roleTypeOrRoleId}/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1024,7 +1055,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Subscription&gt;</returns>
         public List<Subscription> ListUserSubscriptions(string userId)
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>> localVarResponse = ListUserSubscriptionsWithHttpInfo(userId);
+            Okta.Sdk.Client.ApiResponse<List<Subscription>> localVarResponse = ListUserSubscriptionsWithHttpInfo(userId);
             return localVarResponse.Data;
         }
 
@@ -1034,7 +1065,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userId"></param>
         /// <returns>ApiResponse of List&lt;Subscription&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>> ListUserSubscriptionsWithHttpInfo(string userId)
+        public Okta.Sdk.Client.ApiResponse<List<Subscription>> ListUserSubscriptionsWithHttpInfo(string userId)
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1079,7 +1110,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<Subscription>>("/api/v1/users/{userId}/subscriptions", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<Subscription>>("/api/v1/users/{userId}/subscriptions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListUserSubscriptions", localVarResponse);
@@ -1099,12 +1130,53 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Subscription&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Subscription>> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Subscription> ListUserSubscriptionsAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>> localVarResponse = await ListUserSubscriptionsWithHttpInfoAsync(userId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'userId' is set
+            if (userId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'userId' when calling SubscriptionApi->ListUserSubscriptions");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("userId", Okta.Sdk.Client.ClientUtils.ParameterToString(userId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Subscription>(localVarRequestOptions, "/api/v1/users/{userId}/subscriptions", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Subscriptions List subscriptions of a User. Only lists subscriptions for current user. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
@@ -1112,7 +1184,7 @@ namespace Okta.Sdk.Api
         /// <param name="userId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Subscription&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Subscription>>> ListUserSubscriptionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Subscription>>> ListUserSubscriptionsWithHttpInfoAsync(string userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'userId' is set
             if (userId == null)
@@ -1158,7 +1230,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Subscription>>("/api/v1/users/{userId}/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Subscription>>("/api/v1/users/{userId}/subscriptions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1268,7 +1340,6 @@ namespace Okta.Sdk.Api
         {
             await SubscribeRoleSubscriptionByNotificationTypeWithHttpInfoAsync(roleTypeOrRoleId, notificationType, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Subscribe a Custom Role to a specific notification type When roleType Subscribes a Role to a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Subscribes a Custom Role to a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
         /// </summary>
@@ -1440,7 +1511,6 @@ namespace Okta.Sdk.Api
         {
             await SubscribeUserSubscriptionByNotificationTypeWithHttpInfoAsync(userId, notificationType, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Subscribe to a specific notification type Subscribes a User to a specific notification type. Only the current User can subscribe to a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>
@@ -1612,7 +1682,6 @@ namespace Okta.Sdk.Api
         {
             await UnsubscribeRoleSubscriptionByNotificationTypeWithHttpInfoAsync(roleTypeOrRoleId, notificationType, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unsubscribe a Custom Role from a specific notification type When roleType Unsubscribes a Role from a specific notification type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role. Else when roleId Unsubscribes a Custom Role from a specific notification type. When you change the subscription status of a Custom Role, it overrides the subscription of any individual user of that Custom Role.
         /// </summary>
@@ -1784,7 +1853,6 @@ namespace Okta.Sdk.Api
         {
             await UnsubscribeUserSubscriptionByNotificationTypeWithHttpInfoAsync(userId, notificationType, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Unsubscribe from a specific notification type Unsubscribes a User from a specific notification type. Only the current User can unsubscribe from a specific notification type. An AccessDeniedException message is sent if requests are made from other users.
         /// </summary>

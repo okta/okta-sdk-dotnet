@@ -14,27 +14,27 @@
         "WebLink.mustache":{
             "destinationFilename": "WebLink.cs",
             "templateType": "SupportingFiles",
-            "folder": "Client"
+            "folder": "/src/Okta.Sdk/Client"
         },
         "OktaCollectionClient.mustache":{
             "destinationFilename": "OktaCollectionClient.cs",
             "templateType": "SupportingFiles",
-            "folder": "Client"
+            "folder": "/src/Okta.Sdk/Client"
         },
         "OktaCollectionPage.mustache":{
             "destinationFilename": "OktaCollectionPage.cs",
             "templateType": "SupportingFiles",
-            "folder": "Client"
+            "folder": "/src/Okta.Sdk/Client"
         },
         "PagedCollectionEnumerator.mustache":{
             "destinationFilename": "PagedCollectionEnumerator.cs",
             "templateType": "SupportingFiles",
-            "folder": "Client"
+            "folder": "/src/Okta.Sdk/Client"
         },
         "CollectionAsyncEnumerator.mustache":{
             "destinationFilename": "CollectionAsyncEnumerator.cs",
             "templateType": "SupportingFiles",
-            "folder": "Client"
+            "folder": "/src/Okta.Sdk/Client"
         }
     }
 }

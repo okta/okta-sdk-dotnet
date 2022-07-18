@@ -109,7 +109,7 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Authenticator&gt;</returns>
-        ApiResponse<PagedCollection<Authenticator>> ListAuthenticatorsWithHttpInfo();
+        ApiResponse<List<Authenticator>> ListAuthenticatorsWithHttpInfo();
         /// <summary>
         /// Replace an Authenticator
         /// </summary>
@@ -153,7 +153,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
         System.Threading.Tasks.Task<Authenticator> ActivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Activate an Authenticator
         /// </summary>
@@ -176,7 +175,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
         System.Threading.Tasks.Task<Authenticator> DeactivateAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Deactivate an Authenticator
         /// </summary>
@@ -199,7 +197,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
         System.Threading.Tasks.Task<Authenticator> GetAuthenticatorAsync(string authenticatorId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Authenticator
         /// </summary>
@@ -220,8 +217,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Authenticator&gt;</returns>
-        System.Threading.Tasks.Task<List<Authenticator>> ListAuthenticatorsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Authenticator> ListAuthenticatorsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Authenticators
         /// </summary>
@@ -231,7 +227,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Authenticator&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Authenticator>>> ListAuthenticatorsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Authenticator>>> ListAuthenticatorsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Replace an Authenticator
         /// </summary>
@@ -244,7 +240,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Authenticator</returns>
         System.Threading.Tasks.Task<Authenticator> UpdateAuthenticatorAsync(string authenticatorId, Authenticator authenticator, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace an Authenticator
         /// </summary>
@@ -355,7 +350,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
+         
         /// <summary>
         /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
@@ -444,7 +439,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await ActivateAuthenticatorWithHttpInfoAsync(authenticatorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
@@ -600,7 +594,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await DeactivateAuthenticatorWithHttpInfoAsync(authenticatorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Deactivate an Authenticator Deactivates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
@@ -756,7 +749,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await GetAuthenticatorWithHttpInfoAsync(authenticatorId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Authenticator Fetches an authenticator from your Okta organization by &#x60;authenticatorId&#x60;.
         /// </summary>
@@ -831,7 +823,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Authenticator&gt;</returns>
         public List<Authenticator> ListAuthenticators()
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Authenticator>> localVarResponse = ListAuthenticatorsWithHttpInfo();
+            Okta.Sdk.Client.ApiResponse<List<Authenticator>> localVarResponse = ListAuthenticatorsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -840,7 +832,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Authenticator&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<Authenticator>> ListAuthenticatorsWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<List<Authenticator>> ListAuthenticatorsWithHttpInfo()
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -878,7 +870,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<Authenticator>>("/api/v1/authenticators", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<Authenticator>>("/api/v1/authenticators", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListAuthenticators", localVarResponse);
@@ -897,19 +889,53 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Authenticator&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Authenticator>> ListAuthenticatorsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Authenticator> ListAuthenticatorsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Authenticator>> localVarResponse = await ListAuthenticatorsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Authenticator>(localVarRequestOptions, "/api/v1/authenticators", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Authenticators Enumerates authenticators in your organization.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Authenticator&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Authenticator>>> ListAuthenticatorsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Authenticator>>> ListAuthenticatorsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -948,7 +974,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Authenticator>>("/api/v1/authenticators", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Authenticator>>("/api/v1/authenticators", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -1061,7 +1087,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Authenticator> localVarResponse = await UpdateAuthenticatorWithHttpInfoAsync(authenticatorId, authenticator, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace an Authenticator Updates an authenticator
         /// </summary>

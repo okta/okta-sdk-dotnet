@@ -176,7 +176,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
         System.Threading.Tasks.Task<UserSchema> GetApplicationUserSchemaAsync(string appInstanceId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the default Application User Schema for an Application
         /// </summary>
@@ -198,7 +197,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupSchema</returns>
         System.Threading.Tasks.Task<GroupSchema> GetGroupSchemaAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the default Group Schema
         /// </summary>
@@ -220,7 +218,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
         System.Threading.Tasks.Task<UserSchema> GetUserSchemaAsync(string schemaId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a User Schema
         /// </summary>
@@ -244,7 +241,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
         System.Threading.Tasks.Task<UserSchema> UpdateApplicationUserProfileAsync(string appInstanceId, UserSchema body = default(UserSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update the default Application User Schema for an Application
         /// </summary>
@@ -268,7 +264,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of GroupSchema</returns>
         System.Threading.Tasks.Task<GroupSchema> UpdateGroupSchemaAsync(GroupSchema groupSchema = default(GroupSchema), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update the default Group Schema
         /// </summary>
@@ -292,7 +287,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of UserSchema</returns>
         System.Threading.Tasks.Task<UserSchema> UpdateUserProfileAsync(string schemaId, UserSchema userSchema, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Update a User Schema
         /// </summary>
@@ -403,7 +397,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
+         
         /// <summary>
         /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>
@@ -492,7 +486,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await GetApplicationUserSchemaWithHttpInfoAsync(appInstanceId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the default Application User Schema for an Application Fetches the Schema for an App User
         /// </summary>
@@ -638,7 +631,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<GroupSchema> localVarResponse = await GetGroupSchemaWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the default Group Schema Fetches the group schema
         /// </summary>
@@ -786,7 +778,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await GetUserSchemaWithHttpInfoAsync(schemaId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a User Schema Fetches the schema for a Schema Id.
         /// </summary>
@@ -947,7 +938,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await UpdateApplicationUserProfileWithHttpInfoAsync(appInstanceId, body, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update the default Application User Schema for an Application Partial updates on the User Profile properties of the Application User Schema.
         /// </summary>
@@ -1101,7 +1091,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<GroupSchema> localVarResponse = await UpdateGroupSchemaWithHttpInfoAsync(groupSchema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update the default Group Schema Updates, adds or removes one or more custom Group Profile properties in the schema
         /// </summary>
@@ -1263,7 +1252,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<UserSchema> localVarResponse = await UpdateUserProfileWithHttpInfoAsync(schemaId, userSchema, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Update a User Schema Partial updates on the User Profile properties of the user schema.
         /// </summary>

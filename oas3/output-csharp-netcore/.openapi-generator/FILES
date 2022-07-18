@@ -1,9 +1,6 @@
 .gitignore
-CollectionPage.cs
 Okta.Sdk.sln
-PagedCollectionEnumerator.cs
 README.md
-WebLink.cs
 appveyor.yml
 docs/AccessPolicy.md
 docs/AccessPolicyAllOf.md
@@ -660,6 +657,7 @@ src/Okta.Sdk/Client/ApiClient.cs
 src/Okta.Sdk/Client/ApiException.cs
 src/Okta.Sdk/Client/ApiResponse.cs
 src/Okta.Sdk/Client/ClientUtils.cs
+src/Okta.Sdk/Client/CollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/Configuration.cs
 src/Okta.Sdk/Client/ExceptionFactory.cs
 src/Okta.Sdk/Client/GlobalConfiguration.cs
@@ -669,9 +667,13 @@ src/Okta.Sdk/Client/IAsynchronousClient.cs
 src/Okta.Sdk/Client/IReadableConfiguration.cs
 src/Okta.Sdk/Client/ISynchronousClient.cs
 src/Okta.Sdk/Client/Multimap.cs
+src/Okta.Sdk/Client/OktaCollectionClient.cs
+src/Okta.Sdk/Client/OktaCollectionPage.cs
 src/Okta.Sdk/Client/OpenAPIDateConverter.cs
+src/Okta.Sdk/Client/PagedCollectionEnumerator.cs
 src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
+src/Okta.Sdk/Client/WebLink.cs
 src/Okta.Sdk/Model/AbstractOpenAPISchema.cs
 src/Okta.Sdk/Model/AccessPolicy.cs
 src/Okta.Sdk/Model/AccessPolicyAllOf.cs

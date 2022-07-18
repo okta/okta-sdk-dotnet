@@ -109,7 +109,7 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
-        ApiResponse<PagedCollection<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo();
+        ApiResponse<List<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo();
         #endregion Synchronous Operations
     }
 
@@ -130,7 +130,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedObject</returns>
         System.Threading.Tasks.Task<LinkedObject> AddLinkedObjectDefinitionAsync(LinkedObject linkedObject, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a Linked Object Definition
         /// </summary>
@@ -153,7 +152,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteLinkedObjectDefinitionAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Linked Object Definition
         /// </summary>
@@ -176,7 +174,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of LinkedObject</returns>
         System.Threading.Tasks.Task<LinkedObject> GetLinkedObjectDefinitionAsync(string linkedObjectName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Linked Object Definition
         /// </summary>
@@ -197,8 +194,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LinkedObject&gt;</returns>
-        System.Threading.Tasks.Task<List<LinkedObject>> ListLinkedObjectDefinitionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<LinkedObject> ListLinkedObjectDefinitionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Linked Object Definitions
         /// </summary>
@@ -208,7 +204,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LinkedObject&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -307,7 +303,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Create a Linked Object Definition Success
         /// </summary>
@@ -397,7 +393,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<LinkedObject> localVarResponse = await AddLinkedObjectDefinitionWithHttpInfoAsync(linkedObject, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a Linked Object Definition Success
         /// </summary>
@@ -552,7 +547,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteLinkedObjectDefinitionWithHttpInfoAsync(linkedObjectName, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Linked Object Definition Success
         /// </summary>
@@ -708,7 +702,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<LinkedObject> localVarResponse = await GetLinkedObjectDefinitionWithHttpInfoAsync(linkedObjectName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Linked Object Definition Success
         /// </summary>
@@ -783,7 +776,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;LinkedObject&gt;</returns>
         public List<LinkedObject> ListLinkedObjectDefinitions()
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>> localVarResponse = ListLinkedObjectDefinitionsWithHttpInfo();
+            Okta.Sdk.Client.ApiResponse<List<LinkedObject>> localVarResponse = ListLinkedObjectDefinitionsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -792,7 +785,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;LinkedObject&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<List<LinkedObject>> ListLinkedObjectDefinitionsWithHttpInfo()
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -830,7 +823,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListLinkedObjectDefinitions", localVarResponse);
@@ -849,19 +842,53 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;LinkedObject&gt;</returns>
-        public async System.Threading.Tasks.Task<List<LinkedObject>> ListLinkedObjectDefinitionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<LinkedObject> ListLinkedObjectDefinitionsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>> localVarResponse = await ListLinkedObjectDefinitionsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<LinkedObject>(localVarRequestOptions, "/api/v1/meta/schemas/user/linkedObjects", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Linked Object Definitions Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;LinkedObject&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<LinkedObject>>> ListLinkedObjectDefinitionsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -900,7 +927,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<LinkedObject>>("/api/v1/meta/schemas/user/linkedObjects", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

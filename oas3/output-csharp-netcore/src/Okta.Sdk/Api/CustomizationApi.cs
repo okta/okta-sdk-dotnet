@@ -382,7 +382,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <returns>ApiResponse of List&lt;ThemeResponse&gt;</returns>
-        ApiResponse<PagedCollection<ThemeResponse>> ListBrandThemesWithHttpInfo(string brandId);
+        ApiResponse<List<ThemeResponse>> ListBrandThemesWithHttpInfo(string brandId);
         /// <summary>
         /// List all Brands
         /// </summary>
@@ -401,7 +401,7 @@ namespace Okta.Sdk.Api
         /// </remarks>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Brand&gt;</returns>
-        ApiResponse<PagedCollection<Brand>> ListBrandsWithHttpInfo();
+        ApiResponse<List<Brand>> ListBrandsWithHttpInfo();
         /// <summary>
         /// List all Email Customizations
         /// </summary>
@@ -428,7 +428,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;EmailCustomization&gt;</returns>
-        ApiResponse<PagedCollection<EmailCustomization>> ListEmailCustomizationsWithHttpInfo(string brandId, string templateName, string after = default(string), int? limit = default(int?));
+        ApiResponse<List<EmailCustomization>> ListEmailCustomizationsWithHttpInfo(string brandId, string templateName, string after = default(string), int? limit = default(int?));
         /// <summary>
         /// List all Email Templates
         /// </summary>
@@ -455,7 +455,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="expand">Specifies additional metadata to be included in the response. (optional)</param>
         /// <returns>ApiResponse of List&lt;EmailTemplate&gt;</returns>
-        ApiResponse<PagedCollection<EmailTemplate>> ListEmailTemplatesWithHttpInfo(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>));
+        ApiResponse<List<EmailTemplate>> ListEmailTemplatesWithHttpInfo(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>));
         /// <summary>
         /// Send a Test Email
         /// </summary>
@@ -672,7 +672,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailCustomization</returns>
         System.Threading.Tasks.Task<EmailCustomization> CreateEmailCustomizationAsync(string brandId, string templateName, EmailCustomization instance = default(EmailCustomization), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create an Email Customization
         /// </summary>
@@ -698,7 +697,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteAllCustomizationsAsync(string brandId, string templateName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete all Email Customizations
         /// </summary>
@@ -723,7 +721,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteBrandThemeBackgroundImageAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete the Background Image
         /// </summary>
@@ -748,7 +745,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteBrandThemeFaviconAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete the Favicon
         /// </summary>
@@ -773,7 +769,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteBrandThemeLogoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete the Logo
         /// </summary>
@@ -799,7 +794,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task DeleteEmailCustomizationAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete an Email Customization
         /// </summary>
@@ -824,7 +818,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Brand</returns>
         System.Threading.Tasks.Task<Brand> GetBrandAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Brand
         /// </summary>
@@ -848,7 +841,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ThemeResponse</returns>
         System.Threading.Tasks.Task<ThemeResponse> GetBrandThemeAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Theme
         /// </summary>
@@ -874,7 +866,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailPreview</returns>
         System.Threading.Tasks.Task<EmailPreview> GetCustomizationPreviewAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Preview an Email Customization
         /// </summary>
@@ -901,7 +892,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailCustomization</returns>
         System.Threading.Tasks.Task<EmailCustomization> GetEmailCustomizationAsync(string brandId, string templateName, string customizationId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Email Customization
         /// </summary>
@@ -928,7 +918,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailDefaultContent</returns>
         System.Threading.Tasks.Task<EmailDefaultContent> GetEmailDefaultContentAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Email Template Default Content
         /// </summary>
@@ -955,7 +944,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailPreview</returns>
         System.Threading.Tasks.Task<EmailPreview> GetEmailDefaultPreviewAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Preview the Email Template Default Content
         /// </summary>
@@ -981,7 +969,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailSettings</returns>
         System.Threading.Tasks.Task<EmailSettings> GetEmailSettingsAsync(string brandId, string templateName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve the Email Template Settings
         /// </summary>
@@ -1007,7 +994,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailTemplate</returns>
         System.Threading.Tasks.Task<EmailTemplate> GetEmailTemplateAsync(string brandId, string templateName, List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve an Email Template
         /// </summary>
@@ -1031,8 +1017,7 @@ namespace Okta.Sdk.Api
         /// <param name="brandId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ThemeResponse&gt;</returns>
-        System.Threading.Tasks.Task<List<ThemeResponse>> ListBrandThemesAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<ThemeResponse> ListBrandThemesAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Themes
         /// </summary>
@@ -1043,7 +1028,7 @@ namespace Okta.Sdk.Api
         /// <param name="brandId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ThemeResponse&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<ThemeResponse>>> ListBrandThemesWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ThemeResponse>>> ListBrandThemesWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Brands
         /// </summary>
@@ -1053,8 +1038,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Brand&gt;</returns>
-        System.Threading.Tasks.Task<List<Brand>> ListBrandsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<Brand> ListBrandsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Brands
         /// </summary>
@@ -1064,7 +1048,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Brand&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<Brand>>> ListBrandsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<Brand>>> ListBrandsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Email Customizations
         /// </summary>
@@ -1078,8 +1062,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EmailCustomization&gt;</returns>
-        System.Threading.Tasks.Task<List<EmailCustomization>> ListEmailCustomizationsAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<EmailCustomization> ListEmailCustomizationsAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Email Customizations
         /// </summary>
@@ -1093,7 +1076,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EmailCustomization&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<EmailCustomization>>> ListEmailCustomizationsWithHttpInfoAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<EmailCustomization>>> ListEmailCustomizationsWithHttpInfoAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Email Templates
         /// </summary>
@@ -1107,8 +1090,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EmailTemplate&gt;</returns>
-        System.Threading.Tasks.Task<List<EmailTemplate>> ListEmailTemplatesAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
+        IOktaCollectionClient<EmailTemplate> ListEmailTemplatesAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// List all Email Templates
         /// </summary>
@@ -1122,7 +1104,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EmailTemplate&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedCollection<EmailTemplate>>> ListEmailTemplatesWithHttpInfoAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<EmailTemplate>>> ListEmailTemplatesWithHttpInfoAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// Send a Test Email
         /// </summary>
@@ -1136,7 +1118,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SendTestEmailAsync(string brandId, string templateName, string language = default(string), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Send a Test Email
         /// </summary>
@@ -1162,7 +1143,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Brand</returns>
         System.Threading.Tasks.Task<Brand> UpdateBrandAsync(string brandId, Brand brand, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace a Brand
         /// </summary>
@@ -1188,7 +1168,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ThemeResponse</returns>
         System.Threading.Tasks.Task<ThemeResponse> UpdateBrandThemeAsync(string brandId, string themeId, Theme theme, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace a Theme
         /// </summary>
@@ -1216,7 +1195,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of EmailCustomization</returns>
         System.Threading.Tasks.Task<EmailCustomization> UpdateEmailCustomizationAsync(string brandId, string templateName, string customizationId, EmailCustomization instance = default(EmailCustomization), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace an Email Customization
         /// </summary>
@@ -1244,7 +1222,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task UpdateEmailSettingsAsync(string brandId, string templateName, EmailSettings emailSettings = default(EmailSettings), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Replace the Email Template Settings
         /// </summary>
@@ -1270,7 +1247,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
         System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeBackgroundImageAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Upload the Background Image
         /// </summary>
@@ -1295,7 +1271,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
         System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeFaviconAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Upload the Favicon
         /// </summary>
@@ -1320,7 +1295,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ImageUploadResponse</returns>
         System.Threading.Tasks.Task<ImageUploadResponse> UploadBrandThemeLogoAsync(string brandId, string themeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Upload the Logo
         /// </summary>
@@ -1431,7 +1405,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
+         
         /// <summary>
         /// Create an Email Customization Creates a new email customization.
         /// </summary>
@@ -1535,7 +1509,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailCustomization> localVarResponse = await CreateEmailCustomizationWithHttpInfoAsync(brandId, templateName, instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create an Email Customization Creates a new email customization.
         /// </summary>
@@ -1710,7 +1683,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteAllCustomizationsWithHttpInfoAsync(brandId, templateName, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete all Email Customizations Deletes all customizations for an email template.
         /// </summary>
@@ -1882,7 +1854,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteBrandThemeBackgroundImageWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete the Background Image Deletes a Theme background image.
         /// </summary>
@@ -2054,7 +2025,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteBrandThemeFaviconWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete the Favicon Deletes a Theme favicon. The theme will use the default Okta favicon.
         /// </summary>
@@ -2226,7 +2196,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteBrandThemeLogoWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete the Logo Deletes a Theme logo. The theme will use the default Okta logo.
         /// </summary>
@@ -2408,7 +2377,6 @@ namespace Okta.Sdk.Api
         {
             await DeleteEmailCustomizationWithHttpInfoAsync(brandId, templateName, customizationId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete an Email Customization Deletes an email customization by its unique identifier.
         /// </summary>
@@ -2580,7 +2548,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Brand> localVarResponse = await GetBrandWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Brand Fetches a brand by &#x60;brandId&#x60;
         /// </summary>
@@ -2746,7 +2713,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ThemeResponse> localVarResponse = await GetBrandThemeWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Theme Fetches a theme for a brand
         /// </summary>
@@ -2930,7 +2896,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailPreview> localVarResponse = await GetCustomizationPreviewWithHttpInfoAsync(brandId, templateName, customizationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Preview an Email Customization Generates a preview of an email customization. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
@@ -3122,7 +3087,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailCustomization> localVarResponse = await GetEmailCustomizationWithHttpInfoAsync(brandId, templateName, customizationId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Email Customization Gets an email customization by its unique identifier.
         /// </summary>
@@ -3311,7 +3275,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailDefaultContent> localVarResponse = await GetEmailDefaultContentWithHttpInfoAsync(brandId, templateName, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Email Template Default Content Gets an email template&#39;s default content.
         /// </summary>
@@ -3497,7 +3460,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailPreview> localVarResponse = await GetEmailDefaultPreviewWithHttpInfoAsync(brandId, templateName, language, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Preview the Email Template Default Content Generates a preview of an email template&#39;s default content. All variable references (e.g., &#x60;${user.profile.firstName}&#x60;) are populated using the current user&#39;s context.
         /// </summary>
@@ -3676,7 +3638,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailSettings> localVarResponse = await GetEmailSettingsWithHttpInfoAsync(brandId, templateName, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve the Email Template Settings Gets an email template&#39;s settings.
         /// </summary>
@@ -3857,7 +3818,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailTemplate> localVarResponse = await GetEmailTemplateWithHttpInfoAsync(brandId, templateName, expand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve an Email Template Gets the details of an email template by name.
         /// </summary>
@@ -3946,7 +3906,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;ThemeResponse&gt;</returns>
         public List<ThemeResponse> ListBrandThemes(string brandId)
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<ThemeResponse>> localVarResponse = ListBrandThemesWithHttpInfo(brandId);
+            Okta.Sdk.Client.ApiResponse<List<ThemeResponse>> localVarResponse = ListBrandThemesWithHttpInfo(brandId);
             return localVarResponse.Data;
         }
 
@@ -3956,7 +3916,7 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="brandId"></param>
         /// <returns>ApiResponse of List&lt;ThemeResponse&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<ThemeResponse>> ListBrandThemesWithHttpInfo(string brandId)
+        public Okta.Sdk.Client.ApiResponse<List<ThemeResponse>> ListBrandThemesWithHttpInfo(string brandId)
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -4001,7 +3961,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<ThemeResponse>>("/api/v1/brands/{brandId}/themes", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<ThemeResponse>>("/api/v1/brands/{brandId}/themes", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListBrandThemes", localVarResponse);
@@ -4021,12 +3981,53 @@ namespace Okta.Sdk.Api
         /// <param name="brandId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;ThemeResponse&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ThemeResponse>> ListBrandThemesAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<ThemeResponse> ListBrandThemesAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<ThemeResponse>> localVarResponse = await ListBrandThemesWithHttpInfoAsync(brandId, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ListBrandThemes");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<ThemeResponse>(localVarRequestOptions, "/api/v1/brands/{brandId}/themes", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Themes List all the themes in your brand
         /// </summary>
@@ -4034,7 +4035,7 @@ namespace Okta.Sdk.Api
         /// <param name="brandId"></param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;ThemeResponse&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<ThemeResponse>>> ListBrandThemesWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<ThemeResponse>>> ListBrandThemesWithHttpInfoAsync(string brandId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -4080,7 +4081,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<ThemeResponse>>("/api/v1/brands/{brandId}/themes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ThemeResponse>>("/api/v1/brands/{brandId}/themes", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4101,7 +4102,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;Brand&gt;</returns>
         public List<Brand> ListBrands()
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Brand>> localVarResponse = ListBrandsWithHttpInfo();
+            Okta.Sdk.Client.ApiResponse<List<Brand>> localVarResponse = ListBrandsWithHttpInfo();
             return localVarResponse.Data;
         }
 
@@ -4110,7 +4111,7 @@ namespace Okta.Sdk.Api
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of List&lt;Brand&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<Brand>> ListBrandsWithHttpInfo()
+        public Okta.Sdk.Client.ApiResponse<List<Brand>> ListBrandsWithHttpInfo()
         {
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
 
@@ -4148,7 +4149,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<Brand>>("/api/v1/brands", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<Brand>>("/api/v1/brands", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListBrands", localVarResponse);
@@ -4167,19 +4168,53 @@ namespace Okta.Sdk.Api
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;Brand&gt;</returns>
-        public async System.Threading.Tasks.Task<List<Brand>> ListBrandsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<Brand> ListBrandsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<Brand>> localVarResponse = await ListBrandsWithHttpInfoAsync(cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
 
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<Brand>(localVarRequestOptions, "/api/v1/brands", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Brands List all the brands in your org.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;Brand&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<Brand>>> ListBrandsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<Brand>>> ListBrandsWithHttpInfoAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
 
             Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
@@ -4218,7 +4253,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<Brand>>("/api/v1/brands", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<Brand>>("/api/v1/brands", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4243,7 +4278,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;EmailCustomization&gt;</returns>
         public List<EmailCustomization> ListEmailCustomizations(string brandId, string templateName, string after = default(string), int? limit = default(int?))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<EmailCustomization>> localVarResponse = ListEmailCustomizationsWithHttpInfo(brandId, templateName, after, limit);
+            Okta.Sdk.Client.ApiResponse<List<EmailCustomization>> localVarResponse = ListEmailCustomizationsWithHttpInfo(brandId, templateName, after, limit);
             return localVarResponse.Data;
         }
 
@@ -4256,7 +4291,7 @@ namespace Okta.Sdk.Api
         /// <param name="after">The cursor to use for pagination. It is an opaque string that specifies your current location in the list and is obtained from the &#x60;Link&#x60; response header. See [Pagination](https://developer.okta.com/docs/reference/core-okta-api/#pagination) for more information. (optional)</param>
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <returns>ApiResponse of List&lt;EmailCustomization&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<EmailCustomization>> ListEmailCustomizationsWithHttpInfo(string brandId, string templateName, string after = default(string), int? limit = default(int?))
+        public Okta.Sdk.Client.ApiResponse<List<EmailCustomization>> ListEmailCustomizationsWithHttpInfo(string brandId, string templateName, string after = default(string), int? limit = default(int?))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -4316,7 +4351,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<EmailCustomization>>("/api/v1/brands/{brandId}/templates/email/{templateName}/customizations", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<EmailCustomization>>("/api/v1/brands/{brandId}/templates/email/{templateName}/customizations", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListEmailCustomizations", localVarResponse);
@@ -4339,12 +4374,68 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EmailCustomization&gt;</returns>
-        public async System.Threading.Tasks.Task<List<EmailCustomization>> ListEmailCustomizationsAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<EmailCustomization> ListEmailCustomizationsAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<EmailCustomization>> localVarResponse = await ListEmailCustomizationsWithHttpInfoAsync(brandId, templateName, after, limit, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ListEmailCustomizations");
+            }
 
+            // verify the required parameter 'templateName' is set
+            if (templateName == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'templateName' when calling CustomizationApi->ListEmailCustomizations");
+            }
+
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("templateName", Okta.Sdk.Client.ClientUtils.ParameterToString(templateName)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<EmailCustomization>(localVarRequestOptions, "/api/v1/brands/{brandId}/templates/email/{templateName}/customizations", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Email Customizations Lists all customizations of an email template.
         /// </summary>
@@ -4355,7 +4446,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EmailCustomization&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<EmailCustomization>>> ListEmailCustomizationsWithHttpInfoAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<EmailCustomization>>> ListEmailCustomizationsWithHttpInfoAsync(string brandId, string templateName, string after = default(string), int? limit = default(int?), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -4416,7 +4507,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<EmailCustomization>>("/api/v1/brands/{brandId}/templates/email/{templateName}/customizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<EmailCustomization>>("/api/v1/brands/{brandId}/templates/email/{templateName}/customizations", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4441,7 +4532,7 @@ namespace Okta.Sdk.Api
         /// <returns>List&lt;EmailTemplate&gt;</returns>
         public List<EmailTemplate> ListEmailTemplates(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<EmailTemplate>> localVarResponse = ListEmailTemplatesWithHttpInfo(brandId, after, limit, expand);
+            Okta.Sdk.Client.ApiResponse<List<EmailTemplate>> localVarResponse = ListEmailTemplatesWithHttpInfo(brandId, after, limit, expand);
             return localVarResponse.Data;
         }
 
@@ -4454,7 +4545,7 @@ namespace Okta.Sdk.Api
         /// <param name="limit">A limit on the number of objects to return. (optional, default to 20)</param>
         /// <param name="expand">Specifies additional metadata to be included in the response. (optional)</param>
         /// <returns>ApiResponse of List&lt;EmailTemplate&gt;</returns>
-        public Okta.Sdk.Client.ApiResponse<PagedCollection<EmailTemplate>> ListEmailTemplatesWithHttpInfo(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>))
+        public Okta.Sdk.Client.ApiResponse<List<EmailTemplate>> ListEmailTemplatesWithHttpInfo(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -4511,7 +4602,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<PagedCollection<EmailTemplate>>("/api/v1/brands/{brandId}/templates/email", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<EmailTemplate>>("/api/v1/brands/{brandId}/templates/email", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListEmailTemplates", localVarResponse);
@@ -4534,12 +4625,65 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;EmailTemplate&gt;</returns>
-        public async System.Threading.Tasks.Task<List<EmailTemplate>> ListEmailTemplatesAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public IOktaCollectionClient<EmailTemplate> ListEmailTemplatesAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Okta.Sdk.Client.ApiResponse<PagedCollection<EmailTemplate>> localVarResponse = await ListEmailTemplatesWithHttpInfoAsync(brandId, after, limit, expand, cancellationToken).ConfigureAwait(false);
-            return localVarResponse.Data;
-        }
+            // verify the required parameter 'brandId' is set
+            if (brandId == null)
+            {
+                throw new Okta.Sdk.Client.ApiException(400, "Missing required parameter 'brandId' when calling CustomizationApi->ListEmailTemplates");
+            }
 
+
+            Okta.Sdk.Client.RequestOptions localVarRequestOptions = new Okta.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("brandId", Okta.Sdk.Client.ClientUtils.ParameterToString(brandId)); // path parameter
+            if (after != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "after", after));
+            }
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+            if (expand != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Okta.Sdk.Client.ClientUtils.ParameterToMultiMap("csv", "expand", expand));
+            }
+
+            // authentication (API_Token) required
+            if (!string.IsNullOrEmpty(this.Configuration.GetApiKeyWithPrefix("Authorization")))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", this.Configuration.GetApiKeyWithPrefix("Authorization"));
+            }
+            // authentication (OAuth_2.0) required
+            // oauth required
+            if (!string.IsNullOrEmpty(this.Configuration.AccessToken) && !localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+            }
+            
+            return new OktaCollectionClient<EmailTemplate>(localVarRequestOptions, "/api/v1/brands/{brandId}/templates/email", this.AsynchronousClient);
+        }
         /// <summary>
         /// List all Email Templates Lists all email templates.
         /// </summary>
@@ -4550,7 +4694,7 @@ namespace Okta.Sdk.Api
         /// <param name="expand">Specifies additional metadata to be included in the response. (optional)</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;EmailTemplate&gt;)</returns>
-        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<PagedCollection<EmailTemplate>>> ListEmailTemplatesWithHttpInfoAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Okta.Sdk.Client.ApiResponse<List<EmailTemplate>>> ListEmailTemplatesWithHttpInfoAsync(string brandId, string after = default(string), int? limit = default(int?), List<string> expand = default(List<string>), System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'brandId' is set
             if (brandId == null)
@@ -4608,7 +4752,7 @@ namespace Okta.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedCollection<EmailTemplate>>("/api/v1/brands/{brandId}/templates/email", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<EmailTemplate>>("/api/v1/brands/{brandId}/templates/email", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -4725,7 +4869,6 @@ namespace Okta.Sdk.Api
         {
             await SendTestEmailWithHttpInfoAsync(brandId, templateName, language, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Send a Test Email Sends a test email to the current user’s primary and secondary email addresses. The email content is selected based on the following priority: 1. The email customization for the language specified in the &#x60;language&#x60; query parameter. 2. The email template&#39;s default customization. 3. The email template’s default content, translated to the current user&#39;s language.
         /// </summary>
@@ -4905,7 +5048,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Brand> localVarResponse = await UpdateBrandWithHttpInfoAsync(brandId, brand, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace a Brand Updates a brand by &#x60;brandId&#x60;
         /// </summary>
@@ -5091,7 +5233,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ThemeResponse> localVarResponse = await UpdateBrandThemeWithHttpInfoAsync(brandId, themeId, theme, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace a Theme Updates a theme for a brand
         /// </summary>
@@ -5289,7 +5430,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<EmailCustomization> localVarResponse = await UpdateEmailCustomizationWithHttpInfoAsync(brandId, templateName, customizationId, instance, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Replace an Email Customization Updates an existing email customization using the property values provided.
         /// </summary>
@@ -5477,7 +5617,6 @@ namespace Okta.Sdk.Api
         {
             await UpdateEmailSettingsWithHttpInfoAsync(brandId, templateName, emailSettings, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Replace the Email Template Settings Updates an email template&#39;s settings.
         /// </summary>
@@ -5655,7 +5794,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeBackgroundImageWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Upload the Background Image Updates the background image for your Theme
         /// </summary>
@@ -5831,7 +5969,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeFaviconWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Upload the Favicon Updates the favicon for your theme
         /// </summary>
@@ -6007,7 +6144,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<ImageUploadResponse> localVarResponse = await UploadBrandThemeLogoWithHttpInfoAsync(brandId, themeId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Upload the Logo Updates the logo for your Theme
         /// </summary>

@@ -132,7 +132,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
         System.Threading.Tasks.Task<Session> CreateSessionAsync(CreateSessionRequest createSessionRequest, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Create a Session with Session Token
         /// </summary>
@@ -155,7 +154,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task EndSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Delete a Session
         /// </summary>
@@ -178,7 +176,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
         System.Threading.Tasks.Task<Session> GetSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Retrieve a Session
         /// </summary>
@@ -201,7 +198,6 @@ namespace Okta.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of Session</returns>
         System.Threading.Tasks.Task<Session> RefreshSessionAsync(string sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
-
         /// <summary>
         /// Refresh a Session
         /// </summary>
@@ -311,7 +307,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-
+         
         /// <summary>
         /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>
@@ -395,7 +391,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Session> localVarResponse = await CreateSessionWithHttpInfoAsync(createSessionRequest, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>
@@ -544,7 +539,6 @@ namespace Okta.Sdk.Api
         {
             await EndSessionWithHttpInfoAsync(sessionId, cancellationToken).ConfigureAwait(false);
         }
-
         /// <summary>
         /// Delete a Session End a session.
         /// </summary>
@@ -700,7 +694,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Session> localVarResponse = await GetSessionWithHttpInfoAsync(sessionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Retrieve a Session Get details about a session.
         /// </summary>
@@ -856,7 +849,6 @@ namespace Okta.Sdk.Api
             Okta.Sdk.Client.ApiResponse<Session> localVarResponse = await RefreshSessionWithHttpInfoAsync(sessionId, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
-
         /// <summary>
         /// Refresh a Session Refresh a session.
         /// </summary>
