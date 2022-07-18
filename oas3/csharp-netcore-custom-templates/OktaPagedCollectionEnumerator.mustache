@@ -1,4 +1,5 @@
-﻿using System;
+﻿{{>partial_header}}
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using Okta.Sdk.Abstractions;
 
-namespace Okta.Sdk.Client
+namespace {{packageName}}.Client
 {
-    public interface IPagedCollectionEnumerator<T>
+    public interface IOktaPagedCollectionEnumerator<T>
     {
         /// <summary>
         /// Gets the current page of items, or <c>null</c> if <see cref="MoveNextAsync()"/> has not yet been called.
@@ -26,14 +27,16 @@ namespace Okta.Sdk.Client
         /// </returns>
         Task<bool> MoveNextAsync();
     }
-    public class PagedCollectionEnumerator<T> : IPagedCollectionEnumerator<T>
+    
+    /// <inheritdoc/>
+    public class OktaPagedCollectionEnumerator<T> : IOktaPagedCollectionEnumerator<T>
     {
         private RequestOptions _nextRequest;
         private IAsynchronousClient _client;
         private string _nextPath;
         private readonly CancellationToken _cancellationToken;
 
-        public PagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default)
+        public OktaPagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default)
         {
             if (string.IsNullOrEmpty(path))
             {
@@ -65,9 +68,11 @@ namespace Okta.Sdk.Client
 
             return nextLink;
         }
-
+        
+        /// <inheritdoc/>
         public OktaCollectionPage<T> CurrentPage { get; private set; }
 
+        /// <inheritdoc/>
         public async Task<bool> MoveNextAsync()
         {
             if (_nextPath == null)
@@ -100,32 +105,5 @@ namespace Okta.Sdk.Client
 
             return true;
         }
-    }
-
-    public class OktaCollectionPage<T>
-    {
-        /// <summary>
-        /// Gets or sets the items in this page.
-        /// </summary>
-        /// <value>
-        /// The items in this page.
-        /// </value>
-        public IEnumerable<T> Items { get; set; }
-
-        /// <summary>
-        /// Gets or sets the HTTP response returned from the Okta API when fetching this page.
-        /// </summary>
-        /// <value>
-        /// The HTTP response returned from the Okta API when fetching this page.
-        /// </value>
-        public ApiResponse<IEnumerable<T>> Response { get; set; }
-
-        /// <summary>
-        /// Gets or sets the link to get the next page of results, if any.
-        /// </summary>
-        /// <value>
-        /// The link to get the next page of results. If there is no next page, this will be <c>null</c>.
-        /// </value>
-        public WebLink NextLink { get; set; }
     }
 }

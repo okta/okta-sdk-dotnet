@@ -26,13 +26,13 @@
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },
-        "PagedCollectionEnumerator.mustache":{
-            "destinationFilename": "PagedCollectionEnumerator.cs",
+        "OktaPagedCollectionEnumerator.mustache":{
+            "destinationFilename": "OktaPagedCollectionEnumerator.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         },
-        "CollectionAsyncEnumerator.mustache":{
-            "destinationFilename": "CollectionAsyncEnumerator.cs",
+        "OktaCollectionAsyncEnumerator.mustache":{
+            "destinationFilename": "OktaCollectionAsyncEnumerator.cs",
             "templateType": "SupportingFiles",
             "folder": "/src/Okta.Sdk/Client"
         }

@@ -657,7 +657,6 @@ src/Okta.Sdk/Client/ApiClient.cs
 src/Okta.Sdk/Client/ApiException.cs
 src/Okta.Sdk/Client/ApiResponse.cs
 src/Okta.Sdk/Client/ClientUtils.cs
-src/Okta.Sdk/Client/CollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/Configuration.cs
 src/Okta.Sdk/Client/ExceptionFactory.cs
 src/Okta.Sdk/Client/GlobalConfiguration.cs
@@ -667,10 +666,11 @@ src/Okta.Sdk/Client/IAsynchronousClient.cs
 src/Okta.Sdk/Client/IReadableConfiguration.cs
 src/Okta.Sdk/Client/ISynchronousClient.cs
 src/Okta.Sdk/Client/Multimap.cs
+src/Okta.Sdk/Client/OktaCollectionAsyncEnumerator.cs
 src/Okta.Sdk/Client/OktaCollectionClient.cs
 src/Okta.Sdk/Client/OktaCollectionPage.cs
+src/Okta.Sdk/Client/OktaPagedCollectionEnumerator.cs
 src/Okta.Sdk/Client/OpenAPIDateConverter.cs
-src/Okta.Sdk/Client/PagedCollectionEnumerator.cs
 src/Okta.Sdk/Client/RequestOptions.cs
 src/Okta.Sdk/Client/RetryConfiguration.cs
 src/Okta.Sdk/Client/WebLink.cs

@@ -20,7 +20,12 @@ using System.Text.RegularExpressions;
 
 namespace Okta.Sdk.Client
 {
-       public class CollectionPage<T>
+    /// <summary>
+    /// Represents a page of resources in an Okta API collection.
+    /// </summary>
+    /// <remarks>See <a href="https://developer.okta.com/docs/api/getting_started/design_principles.html#pagination">the API documentation on pagination</a>.</remarks>
+    /// <typeparam name="T">The resource type of this collection.</typeparam>
+    public class OktaCollectionPage<T>
     {
         /// <summary>
         /// Gets or sets the items in this page.
@@ -36,7 +41,7 @@ namespace Okta.Sdk.Client
         /// <value>
         /// The HTTP response returned from the Okta API when fetching this page.
         /// </value>
-        public ApiResponse<List<T>> Response { get; set; }
+        public ApiResponse<IEnumerable<T>> Response { get; set; }
 
         /// <summary>
         /// Gets or sets the link to get the next page of results, if any.

@@ -1,15 +1,16 @@
-﻿using System;
+﻿{{>partial_header}}
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Okta.Sdk.Client
+namespace {{packageName}}.Client
 {
-    public class CollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
+    public class OktaCollectionAsyncEnumerator<T> : IAsyncEnumerator<T>
     {
-        private readonly PagedCollectionEnumerator<T> _pagedEnumerator;
+        private readonly IOktaPagedCollectionEnumerator<T> _pagedEnumerator;
         private bool _initialized = false;
         private int _localPageIndex;
         private bool _disposedValue = false; // To detect redundant calls
@@ -27,10 +28,10 @@ namespace Okta.Sdk.Client
             }
         }
 
-        public CollectionAsyncEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default)
+        public OktaCollectionAsyncEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default)
         {
             _pagedEnumerator =
-                new PagedCollectionEnumerator<T>(initialRequest, path, client, cancellationToken);
+                new OktaPagedCollectionEnumerator<T>(initialRequest, path, client, cancellationToken);
         }
 
 
