@@ -881,16 +881,6 @@ namespace Okta.Sdk.Api
         }
         
         /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<OrgSetting> GetAsyncEnumerator(ApiResponse<PagedCollection<OrgSetting>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<OrgSetting>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
-        /// <summary>
         /// Remove Emails from Email Provider Bounce List A list of email addresses to be removed from the set of email addresses that are bounced.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>

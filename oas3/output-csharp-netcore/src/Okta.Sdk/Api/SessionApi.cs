@@ -311,17 +311,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
-        /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<Session> GetAsyncEnumerator(ApiResponse<PagedCollection<Session>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<Session>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
+
         /// <summary>
         /// Create a Session with Session Token Creates a new session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or want to hold the session ID in order to delete a session via the API instead of visiting the logout URL.
         /// </summary>

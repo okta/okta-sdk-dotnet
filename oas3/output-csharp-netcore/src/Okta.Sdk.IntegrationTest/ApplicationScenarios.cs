@@ -342,21 +342,65 @@ namespace Okta.Sdk.IntegrationTest
                 // Alright, all set up. Try enumerating users by pages of 2:
                 var retrievedApps = new List<Application>();
                 
-                var appsResponse = await _applicationApi.ListApplicationsWithHttpInfoAsync(limit: 1/*, q: "label startsWith \"dotnet-sdk: CreateRandomApp\""*/);
+                var appsCollectionClient = _applicationApi.ListApplicationsAsync(limit: 1/*, q: "label startsWith \"dotnet-sdk: CreateRandomApp\""*/);
 
-                if (appsResponse.Data.First().Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    retrievedApps.AddRange(appsResponse.Data);
-                }
-
-                var enumerator = appsResponse.Data.GetPagedEnumerator();
+                var enumerator = appsCollectionClient.GetAsyncEnumerator();
 
                 while (await enumerator.MoveNextAsync())
                 {
-                    if (enumerator.CurrentPage.Items.First().Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase))
+                    if (enumerator.Current.Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase))
                     {
-                        retrievedApps.AddRange(enumerator.CurrentPage.Items);
+                        retrievedApps.Add(enumerator.Current);
                     }
+                }
+
+                retrievedApps.Count.Should().Be(2);
+            }
+            catch (Exception e)
+            {
+                successful = false;
+            }
+            finally
+            {
+                foreach (var app in createdApps)
+                {
+                    await _applicationApi.DeactivateApplicationAsync(app.Id);
+                    await _applicationApi.DeleteApplicationAsync(app.Id);
+                }
+            }
+
+            successful.Should().BeTrue();
+        }
+
+        [Fact]
+        public async Task EnumerateCollectionPageManually()
+        {
+            var successful = true;
+            var createdApps = new ConcurrentBag<Application>();
+
+            try
+            {
+                // Create 10 users (in parallel)
+                var tasks = new List<Task>();
+                for (var i = 0; i < 2; i++)
+                {
+                    tasks.Add(CreateRandomApp(createdApps));
+                }
+
+                await Task.WhenAll(tasks);
+
+                // Alright, all set up. Try enumerating users by pages of 2:
+                var retrievedApps = new List<Application>();
+
+                var appsCollectionClient = _applicationApi.ListApplicationsAsync(limit: 1/*, q: "label startsWith \"dotnet-sdk: CreateRandomApp\""*/);
+
+                var enumerator = appsCollectionClient.GetPagedEnumerator();
+
+                while (await enumerator.MoveNextAsync())
+                {
+                    
+                    retrievedApps.AddRange(enumerator.CurrentPage.Items.Where(x => x.Label.Contains("CreateRandomApp", StringComparison.InvariantCultureIgnoreCase)).ToList());
+                    
                 }
 
                 retrievedApps.Count.Should().Be(2);
@@ -402,7 +446,7 @@ namespace Okta.Sdk.IntegrationTest
 
             try
             {
-                var appList = await _applicationApi.ListApplicationsAsync(limit:1);
+                var appList = await _applicationApi.ListApplicationsAsync(limit:1).ToListAsync();
                 appList.Any(a => a.Id == createdApp.Id).Should().BeTrue();
             }
             finally

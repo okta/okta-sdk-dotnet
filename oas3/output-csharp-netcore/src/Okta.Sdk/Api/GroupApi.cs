@@ -1535,17 +1535,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
-        /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<Group> GetAsyncEnumerator(ApiResponse<PagedCollection<Group>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<Group>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
+
         /// <summary>
         /// Activate a Group Rule Activates a specific group rule by id from your organization
         /// </summary>

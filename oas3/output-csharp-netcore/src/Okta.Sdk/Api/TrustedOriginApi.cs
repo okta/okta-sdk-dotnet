@@ -461,16 +461,6 @@ namespace Okta.Sdk.Api
         }
         
         /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<TrustedOrigin> GetAsyncEnumerator(ApiResponse<PagedCollection<TrustedOrigin>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<TrustedOrigin>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
-        /// <summary>
         /// Activate a Trusted Origin Success
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>

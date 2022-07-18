@@ -357,16 +357,6 @@ namespace Okta.Sdk.Api
         }
         
         /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<Authenticator> GetAsyncEnumerator(ApiResponse<PagedCollection<Authenticator>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<Authenticator>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
-        /// <summary>
         /// Activate an Authenticator Activates an authenticator by &#x60;authenticatorId&#x60;.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>

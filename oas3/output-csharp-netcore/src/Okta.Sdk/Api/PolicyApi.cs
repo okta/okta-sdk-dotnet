@@ -801,16 +801,6 @@ namespace Okta.Sdk.Api
         }
         
         /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<Policy> GetAsyncEnumerator(ApiResponse<PagedCollection<Policy>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<Policy>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
-        /// <summary>
         /// Activate a Policy Activates a policy.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>

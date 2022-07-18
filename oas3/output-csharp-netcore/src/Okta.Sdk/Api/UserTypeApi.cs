@@ -405,16 +405,6 @@ namespace Okta.Sdk.Api
         }
         
         /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<UserType> GetAsyncEnumerator(ApiResponse<PagedCollection<UserType>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<UserType>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
-        /// <summary>
         /// Create a User Type Creates a new User Type. A default User Type is automatically created along with your org, and you may add another 9 User Types for a maximum of 10.
         /// </summary>
         /// <exception cref="Okta.Sdk.Client.ApiException">Thrown when fails to make API call</exception>

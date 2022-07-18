@@ -1,16 +1,10 @@
-﻿{{>partial_header}}
-
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using Okta.Sdk.Abstractions;
 
-namespace {{packageName}}.Client
+namespace Okta.Sdk.Client
 {
-        /// <summary>
+    /// <summary>
     /// Represents an <a href="https://tools.ietf.org/html/rfc5988">RFC 5988</a> Web Link.
     /// </summary>
     public class WebLink
@@ -45,5 +39,4 @@ namespace {{packageName}}.Client
         /// <inheritdoc/>
         public override string ToString() => Target;
     }
-
 }

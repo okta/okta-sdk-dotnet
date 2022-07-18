@@ -8,69 +8,45 @@ using Okta.Sdk.Abstractions;
 
 namespace Okta.Sdk.Client
 {
-    public class PagedCollectionEnumerator<T>
+    public interface IPagedCollectionEnumerator<T>
     {
-        private readonly ApiResponse<PagedCollection<T>> _currentApiResponse;
+        /// <summary>
+        /// Gets the current page of items, or <c>null</c> if <see cref="MoveNextAsync()"/> has not yet been called.
+        /// </summary>
+        /// <value>
+        /// The current page of items, if any.
+        /// </value>
+        OktaCollectionPage<T> CurrentPage { get; }
+
+        /// <summary>
+        /// Asynchronously retrieves the next page of results and updates <see cref="CurrentPage"/>. If there are no more pages, this method returns <see langword="false"/>.
+        /// </summary>
+        /// <returns>
+        /// <see langword="true"/> if <see cref="CurrentPage"/> has been updated with new items, <see langword="false"/> if the collection has been exhausted.
+        /// </returns>
+        Task<bool> MoveNextAsync();
+    }
+    public class PagedCollectionEnumerator<T> : IPagedCollectionEnumerator<T>
+    {
         private RequestOptions _nextRequest;
         private IAsynchronousClient _client;
         private string _nextPath;
         private readonly CancellationToken _cancellationToken;
-        private readonly IReadableConfiguration _configuration;
 
-        public PagedCollectionEnumerator(ApiResponse<PagedCollection<T>> currentResponse, IAsynchronousClient client, IReadableConfiguration configuration, CancellationToken cancellationToken = default)
+        public PagedCollectionEnumerator(RequestOptions initialRequest, string path, IAsynchronousClient client, CancellationToken cancellationToken = default)
         {
-            _currentApiResponse = currentResponse;
-            _client = client;
+            if (string.IsNullOrEmpty(path))
+            {
+                throw new ArgumentNullException(nameof(path), "Path cannot be null or empty");
+            }
+
+            _nextRequest = initialRequest ?? throw new ArgumentNullException(nameof(initialRequest));
+            _nextPath = path;
+            _client = client ?? throw new ArgumentNullException(nameof(client));
             _cancellationToken = cancellationToken;
-            _nextPath = GetNextLink(currentResponse).Target;
-            _configuration = configuration;
-            _nextRequest = InitializeRequestOptions(_configuration);
         }
-
-        private Okta.Sdk.Client.RequestOptions InitializeRequestOptions(IReadableConfiguration configuration)
-        {
-            var request = new Okta.Sdk.Client.RequestOptions();
-
-            string[] contentTypes = new string[]
-            {
-            };
-
-            // to determine the Accept header
-            string[] accepts = new string[]
-            {
-                "application/json"
-            };
-
-            var localVarContentType = Okta.Sdk.Client.ClientUtils.SelectHeaderContentType(contentTypes);
-            if (localVarContentType != null)
-            {
-                request.HeaderParameters.Add("Content-Type", localVarContentType);
-            }
-
-            var localVarAccept = Okta.Sdk.Client.ClientUtils.SelectHeaderAccept(accepts);
-            if (localVarAccept != null)
-            {
-                request.HeaderParameters.Add("Accept", localVarAccept);
-            }
-
-            // authentication (API_Token) required
-            if (!string.IsNullOrEmpty(configuration.GetApiKeyWithPrefix("Authorization")))
-            {
-                request.HeaderParameters.Add("Authorization", configuration.GetApiKeyWithPrefix("Authorization"));
-            }
-
-            // authentication (OAuth_2.0) required
-            // oauth required
-            if (!string.IsNullOrEmpty(configuration.AccessToken) &&
-                !request.HeaderParameters.ContainsKey("Authorization"))
-            {
-                request.HeaderParameters.Add("Authorization", "Bearer " + configuration.AccessToken);
-            }
-
-            return request;
-        }
-
-        private WebLink GetNextLink(ApiResponse<PagedCollection<T>> response)
+        
+        private WebLink GetNextLink(ApiResponse<IEnumerable<T>> response)
         {
             if (response?.Headers == null)
             {
@@ -90,21 +66,21 @@ namespace Okta.Sdk.Client
             return nextLink;
         }
 
-        public CollectionPage<T> CurrentPage { get; private set; }
+        public OktaCollectionPage<T> CurrentPage { get; private set; }
 
         public async Task<bool> MoveNextAsync()
         {
-            if (string.IsNullOrEmpty(_nextPath))
+            if (_nextPath == null)
             {
                 return false;
             }
 
-            var response = await _client.GetAsync<PagedCollection<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
+            var response = await _client.GetAsync<IEnumerable<T>>(_nextPath, _nextRequest, null, _cancellationToken).ConfigureAwait(false);
 
 
-            var items = response?.Data ?? new List<T>();
+            var items = response?.Data ?? Array.Empty<T>();
 
-            CurrentPage = new CollectionPage<T>
+            CurrentPage = new OktaCollectionPage<T>
             {
                 Items = items,
                 Response = response,
@@ -115,13 +91,18 @@ namespace Okta.Sdk.Client
             if (!string.IsNullOrEmpty(CurrentPage.NextLink?.Target))
             {
                 _nextPath = CurrentPage.NextLink.Target;
+                _nextRequest = new RequestOptions
+                {
+                    HeaderParameters = _nextRequest.HeaderParameters, 
+                    PathParameters = _nextRequest.PathParameters
+                };
             }
 
             return true;
         }
     }
 
-    public class CollectionPage<T>
+    public class OktaCollectionPage<T>
     {
         /// <summary>
         /// Gets or sets the items in this page.
@@ -137,7 +118,7 @@ namespace Okta.Sdk.Client
         /// <value>
         /// The HTTP response returned from the Okta API when fetching this page.
         /// </value>
-        public ApiResponse<PagedCollection<T>> Response { get; set; }
+        public ApiResponse<IEnumerable<T>> Response { get; set; }
 
         /// <summary>
         /// Gets or sets the link to get the next page of results, if any.

@@ -29,7 +29,7 @@ namespace Okta.Sdk.Client
         }
 
         public PagedCollectionEnumerator<T> GetPagedEnumerator(CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<T>(_initialApiResponse, _asynchronousClient, _configuration, cancellationToken);
+            null;
 
     }
 }

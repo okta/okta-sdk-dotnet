@@ -487,17 +487,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
-        /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<EventHook> GetAsyncEnumerator(ApiResponse<PagedCollection<EventHook>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<EventHook>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
+
         /// <summary>
         /// Activate an Event Hook Success
         /// </summary>

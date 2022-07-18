@@ -283,17 +283,7 @@ namespace Okta.Sdk.Api
             }
             set { _exceptionFactory = value; }
         }
-        
-        /// <summary>
-        /// Get an enumerator to handle pagination
-        /// </summary>
-        /// <param name="initialResponse">The first response triggered by the initial pagination request</param>
-        /// <param name="cancellationToken">The cancellation token</param>
-        /// <returns>A PagedCollectionEnumerator</returns>
-        public PagedCollectionEnumerator<ProfileMapping> GetAsyncEnumerator(ApiResponse<PagedCollection<ProfileMapping>> initialResponse,
-            CancellationToken cancellationToken = default) =>
-            new PagedCollectionEnumerator<ProfileMapping>(initialResponse, this.AsynchronousClient, this.Configuration, cancellationToken);
-        
+
         /// <summary>
         /// Retrieve a Profile Mapping Fetches a single Profile Mapping referenced by its ID.
         /// </summary>
